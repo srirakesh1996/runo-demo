@@ -3,26 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Centered Message</title>
+    <title>Runo.ai — Coming Soon</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body,
       html {
         height: 100%;
         margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
       }
 
       .centered-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100%;
         text-align: center;
+        padding: 20px;
+      }
+
+      .centered-container img {
+        max-width: 200px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #666;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="centered-container">
-      <h2>This Link will be active before next live event</h2>
+      <img src="https://runo.ai/img/logo.png" alt="Runo.ai Logo" />
+      <h1>We're getting ready to go live</h1>
+      <p>This website will be active soon before our next live event.</p>
     </div>
   </body>
 </html>
