@@ -202,6 +202,9 @@ function submitForm(formId, formData, formToken) {
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
 
+  // console.log("Submitting form:", formId);
+  //console.log("Form Data Sent to API:", formData);
+
   $.ajax({
     type: "POST",
     url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
@@ -213,7 +216,7 @@ function submitForm(formId, formData, formToken) {
   })
     .done(function (data) {
       $form[0].reset();
-
+      //  console.log("✅ Success:", data);
       const $modal = $form.closest(".modal");
       if ($modal.length) {
         $modal.modal("hide");
@@ -222,6 +225,7 @@ function submitForm(formId, formData, formToken) {
       $("#thankYouModal").modal("show");
     })
     .fail(function () {
+      //  console.log("❌ Error:", textStatus, errorThrown);
       alert("Oops! Something went wrong.");
     })
     .always(function () {
@@ -230,27 +234,4 @@ function submitForm(formId, formData, formToken) {
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
-
-  // 🔹 2. Prepare Zapier Data (field mapping)
-  // 🔹 1. Collect form data
-  const zapierData = {
-    name: formData["your_name"] || "",
-    email: formData["your_email"] || "",
-    phone: formData["your_phone"] || "",
-    opted_in: true, // ✅ WhatsApp opt-in
-  };
-
-  // ✅ First: Send to Zapier for Email & WhatsApp
-  $.ajax({
-    type: "POST",
-    url: "https://hooks.zapier.com/hooks/catch/23828444/u2kay84/", //  Zap
-    data: zapierData, // form-encoded
-    success: function (response) {
-      console.log("✅ Zapier response:", response);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.warn("❌ Zapier failed:", textStatus, errorThrown);
-      console.log("🔍 Response text:", jqXHR.responseText);
-    },
-  });
 }

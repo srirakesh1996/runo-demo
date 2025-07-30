@@ -163,17 +163,24 @@
 }
 */
 .runo-logo img {
-  display: none !important;
   width: 120px;
-  animation: fadeIn 1.5s ease-in-out infinite alternate;
+  animation: zoomInOut 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
-
 /* preloader ends */
 
 /*header*/
@@ -3221,7 +3228,7 @@ body.modal-open {
 
 .breadcrumb li + li::before {
   content: ">";
-  padding: 0 10px;
+  padding: 0 7px;
   color: #aaa;
 }
 
