@@ -3325,8 +3325,8 @@ body.modal-open {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
   }
   #ban {
-    background: #fff url("../img/waba-mbg.webp") no-repeat center center;
-    background-size: cover;
+    background: #fff url("../img/waba-mbg.webp") no-repeat center;
+    background-size: inherit;
     position: relative;
     border-radius: 30px;
     padding: 5px;
