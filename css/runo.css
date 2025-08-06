@@ -3324,7 +3324,17 @@ body.modal-open {
   display: none;
 }
 
+.waba-btn .btn-plain {
+  background: #fff !important;
+}
+
+.waba-btn .btn-plain:hover {
+  background: #f44336 !important;
+}
 @media only screen and (max-width: 600px) {
+  .waba-btn .btn-plain {
+    background: none !important;
+  }
   #waba-mob {
     display: block !important;
     margin: 0 auto;
@@ -3375,4 +3385,8 @@ body.modal-open {
     display: flex;
     justify-content: center;
   }
+}
+
+.waba-btn .btn-plain {
+  background: #fff !important;
 }
