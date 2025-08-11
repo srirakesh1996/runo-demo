@@ -3390,3 +3390,40 @@ body.modal-open {
 .waba-btn .btn-plain {
   background: #fff !important;
 }
+
+
+  .demo-section .close-button{
+
+   z-index:9999999;
+}
+  /* Modal video styling */
+  #localVideo {
+    width: 100%;
+  
+  }
+
+@media (max-width: 768px) {
+  #localVideo {
+    width: 100%;         /* Full width */
+    height: auto;        /* Natural height */
+    max-height: 80vh;    /* Avoid overflowing screen */
+    object-fit: contain; /* Keep proportions */
+    display: block;
+  }
+  .vid-modal-content {
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center */
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-section .modal[style*="display: block"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
