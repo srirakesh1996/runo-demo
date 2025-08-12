@@ -2720,7 +2720,7 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("../img/banner-img.svg") no-repeat;
+  background: url("../img/banner-img.png") no-repeat;
   background-position: center center;
   background-size: cover;
 }
