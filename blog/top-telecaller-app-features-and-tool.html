@@ -349,9 +349,17 @@
              var scrollTop = $(document).scrollTop();
              var scrollHeight = $(document).height() - $(window).height();
              var scrolled = (scrollTop / scrollHeight) * 100;
+         
              progressBar.css("width", scrolled + "%");
          
-             // Apply scroll behavior only on desktop
+             // Show progress bar only after 10% scroll
+             if (scrolled >= 5) {
+               progressContainer.fadeIn(200);
+             } else {
+               progressContainer.fadeOut(200);
+             }
+         
+             // Apply scroll class only on desktop
              if (window.innerWidth >= 768) {
                if (scrollTop > 0) {
                  progressContainer.addClass("scrolled");
@@ -360,6 +368,9 @@
                }
              }
            });
+         
+           // Hide initially
+           progressContainer.hide();
          });
       </script>
       <!-- Modal -->
