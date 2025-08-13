@@ -1117,6 +1117,19 @@
   line-height: none !important;
 }
 
+@media (max-width: 576px) {
+  .play-button {
+    height: 45px;
+    width: 45px;
+    font-size: 20px;
+  }
+  .play-button i {
+    font-size: 18px;
+  }
+}
+
+
+
 .cta-button {
   background: orange;
   color: black;
