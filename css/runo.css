@@ -1113,8 +1113,7 @@
 .play-button i {
   font-size: 25px;
   color: #ffffff;
-  padding: 10px;
-  line-height: none !important;
+
 }
 
 @media (max-width: 576px) {
