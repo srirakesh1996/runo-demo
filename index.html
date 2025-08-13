@@ -1233,79 +1233,68 @@
                </div>
             </div>
          </section>
-
-<!-- Demo Section Start -->
-<section class="demo-section">
-  <div class="container">
-    <div class="row">
-      <!-- Section Title -->
-      <div class="section-title text-center wow fadeInUp">
-        <h2>Experience Runo AI in Action: Try Our Interactive Demo</h2>
-        <p>Perfect for lean teams to get started fast.</p>
-      </div>
-
-      <!-- Video Wrapper -->
-      <div class="video-wrapper" style="position: relative; background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%); overflow: hidden;">
-        
-        <!-- Thumbnail -->
-        <img 
-          loading="lazy" 
-          src="img/runo-video.webp" 
-          alt="Runo AI in Action" 
-          class="video-thumbnail" 
-          id="videoThumbnail"
-          style="width: 100%; height: auto; display: block;"
-        >
-
-        <!-- Play Button -->
-        <button class="play-button" id="playVideo" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;background:rgba(0,0,0,0.6);border:none;color:#fff;border-radius:50%;width:70px;height:70px;cursor:pointer;">
-          <i class="fas fa-play"></i>
-        </button>
-
-        <!-- Video (hidden initially) -->
-        <video 
-          id="localVideo" 
-          controls 
-          preload="none" 
-          playsinline 
-          webkit-playsinline 
-          style="display:none; width:100%; height:auto; border-radius:12px;"
-        >
-          <source src="runo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-      </div>
-
-      <!-- Hero Button -->
-      <div class="hero-btn mt-50 demo-btn text-center">
-        <a class="btn-default btn-highlighted track-btn" href="https://web.runo.in" data-label="Start 10-day free trial - Home Demo">
-          Start 10-day free trial
-        </a>
-        <p style="font-size:13px">No Credit Card required</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  const playButton = document.getElementById('playVideo');
-  const videoThumbnail = document.getElementById('videoThumbnail');
-  const localVideo = document.getElementById('localVideo');
-
-  playButton.addEventListener('click', () => {
-    // Hide image & play button
-    videoThumbnail.style.display = 'none';
-    playButton.style.display = 'none';
-
-    // Show video & play with audio
-    localVideo.style.display = 'block';
-    localVideo.play().catch(err => console.log('Play prevented:', err));
-  });
-</script>
-
-
-
+         <!-- Demo Section Start -->
+         <section class="demo-section">
+            <div class="container">
+               <div class="row">
+                  <!-- Section Title -->
+                  <div class="section-title text-center wow fadeInUp">
+                     <h2>Experience Runo AI in Action: Try Our Interactive Demo</h2>
+                     <p>Perfect for lean teams to get started fast.</p>
+                  </div>
+                  <!-- Video Wrapper -->
+                  <div class="video-wrapper" style="position: relative; background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%); overflow: hidden;">
+                     <!-- Thumbnail -->
+                     <img 
+                        loading="lazy" 
+                        src="img/runo-video.webp" 
+                        alt="Runo AI in Action" 
+                        class="video-thumbnail" 
+                        id="videoThumbnail"
+                        style="width: 100%; height: auto; display: block;"
+                        >
+                     <!-- Play Button -->
+                     <button class="play-button" id="playVideo" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;background:rgba(0,0,0,0.6);border:none;color:#fff;border-radius:50%;width:70px;height:70px;cursor:pointer;">
+                     <i class="fas fa-play"></i>
+                     </button>
+                     <!-- Video (hidden initially) -->
+                     <video 
+                        id="localVideo" 
+                        controls 
+                        preload="none" 
+                        playsinline 
+                        webkit-playsinline 
+                        style="display:none; width:100%; height:auto; border-radius:12px;"
+                        >
+                        <source src="runo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+                  <!-- Hero Button -->
+                  <div class="hero-btn mt-50 demo-btn text-center">
+                     <a class="btn-default btn-highlighted track-btn" href="https://web.runo.in" data-label="Start 10-day free trial - Home Demo">
+                     Start 10-day free trial
+                     </a>
+                     <p style="font-size:13px">No Credit Card required</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <script>
+            const playButton = document.getElementById('playVideo');
+            const videoThumbnail = document.getElementById('videoThumbnail');
+            const localVideo = document.getElementById('localVideo');
+            
+            playButton.addEventListener('click', () => {
+              // Hide image & play button
+              videoThumbnail.style.display = 'none';
+              playButton.style.display = 'none';
+            
+              // Show video & play with audio
+              localVideo.style.display = 'block';
+              localVideo.play().catch(err => console.log('Play prevented:', err));
+            });
+         </script>
          <section class="cloud-tech-section">
             <div class="container">
                <h2>
@@ -2151,7 +2140,7 @@
                <div class="col-6 col-md-6 col-lg-2">
                   <h6 class="text-white fw-bold mb-3">RESOURCES</h6>
                   <ul class="list-unstyled">
-                      <li><a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a></li>
+                     <li><a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a></li>
                      <li><a href="https://docs.runo.in/" class="text-light text-decoration-none d-block mb-1">API
                         Documentation</a>
                      </li>
