@@ -28,6 +28,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://runo.ai/img/og/sales-management.png" />
     <meta name="twitter:url" content="https://runo.ai/img/og/sales-management.png" />
+          <!-- Preload LCP background image -->
+      <link rel="preload" as="image" href="../img/banner-img.png" fetchpriority="high" type="image/png">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16" />
     <link rel="preload" as="style" href="css/bootstrap.min.css" />
@@ -637,7 +639,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="../img/sales-management/sales-management.webp" class="pro-img img-fluid" alt="Runo Sales Management CRM" />
+            <img src="../img/sales-management/sales-management.webp" class="pro-img img-fluid" loading="lazy" alt="Runo Sales Management CRM" />
           </div>
         </div>
       </div>
@@ -711,7 +713,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="../img/sales-management/runo-app.webp" class="img-fluid" alt="Runo App" />
+                <img src="../img/sales-management/runo-app.webp" class="img-fluid" loading="lazy" alt="Runo App" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">1. Install the Runo App</h5>
               <p class="text-muted runo-step-para">Get started in under 30 minutes. No complex setup or IT help required.</p>
@@ -721,7 +723,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="../img/sales-management/leads.webp" class="img-fluid" alt="Manage Leads" />
+                <img src="../img/sales-management/leads.webp" class="img-fluid" loading="lazy" alt="Manage Leads" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">2. Manage Leads & Teams</h5>
               <p class="text-muted runo-step-para">Assign leads instantly, track rep activity live, and organize your sales funnel.</p>
@@ -731,7 +733,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="../img/sales-management/sales-perf.webp" class="img-fluid" alt="Sales Performance" />
+                <img src="../img/sales-management/sales-perf.webp" class="img-fluid" loading="lazy" alt="Sales Performance" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">3. Monitor Sales Performance in Real Time</h5>
               <p class="text-muted runo-step-para">View dashboards, follow-up alerts, AI-powered summaries, and complete lead timelines inside your in-built CRM.</p>
@@ -788,7 +790,7 @@
           </div>
           <div class="col-lg-7 text-center">
             <div class="sales-image-wrapper position-relative">
-              <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" />
+              <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image"  loading="lazy"/>
             </div>
           </div>
           <div class="waba-btn text-center" id="waba-mob">

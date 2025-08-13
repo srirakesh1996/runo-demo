@@ -30,6 +30,8 @@
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="https://runo.ai/img/og/call-center.png">
       <meta name="twitter:url" content="https://runo.ai/img/og/call-center.png">
+            <!-- Preload LCP background image -->
+      <link rel="preload" as="image" href="../img/banner-img.png" fetchpriority="high" type="image/png">
       <!-- Favicon -->
       <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
       <link rel="preload" as="style" href="css/bootstrap.min.css">
@@ -660,7 +662,7 @@
                   </div>
                </div>
                <div class="col-lg-6">
-                  <img src="../img/call-center/call-center.webp" class="pro-img img-fluid" alt="Runo Call Center CRM">
+                  <img src="../img/call-center/call-center.webp" class="pro-img img-fluid"  loading="lazy" alt="Runo Call Center CRM">
                </div>
             </div>
          </div>
@@ -795,7 +797,7 @@
                                  flagged calls from masked or virtual lines
                               </p>
                            </button>
-                           <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display:none;">
+                           <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display:none;" loading="lazy">
                               <img src="../img/call-center/higher-call.webp" class="img-preview"
                                  alt="2x Higher Call Pickup Rate">
                            </div>
@@ -808,7 +810,7 @@
                                  idle, and who needs support across locations
                               </p>
                            </button>
-                           <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display:none;">
+                           <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display:none;" loading="lazy">
                               <img src="../img/call-center/visibility.webp" class="img-preview"
                                  alt="100% Visibility Into Remote Teams">
                            </div>
@@ -822,7 +824,7 @@
                                  messy data syncs for a smoother, faster workflow
                               </p>
                            </button>
-                           <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display:none;">
+                           <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display:none;" loading="lazy">
                               <img src="../img/call-center/all-in-one.webp" class="img-preview"
                                  alt="One App to Replace Your Dialer, CRM, and Spreadsheets">
                            </div>
@@ -835,7 +837,7 @@
                                  in under 30 minutes
                               </p>
                            </button>
-                           <div class="mobile-tab-img d-md-none" id="mobileImg5" style="display:none;">
+                           <div class="mobile-tab-img d-md-none" id="mobileImg5" style="display:none;" loading="lazy">
                               <img src="../img/call-center/30-min.webp" class="img-preview"
                                  alt="30-Minute Setup Time">
                            </div>
@@ -855,19 +857,19 @@
                            alt="No IVR, Cloud Telephony, or ACD Friction">
                      </div>
                      <div class="tab-pane fade" id="tab3">
-                        <img src="../img/call-center/higher-call.webp" class="img-preview"
+                        <img src="../img/call-center/higher-call.webp" class="img-preview" loading="lazy"
                            alt="2x Higher Call Pickup Rate">
                      </div>
                      <div class="tab-pane fade" id="tab4">
-                        <img src="../img/call-center/visibility.webp" class="img-preview"
+                        <img src="../img/call-center/visibility.webp" class="img-preview" loading="lazy"
                            alt="100% Visibility Into Remote Teams">
                      </div>
                      <div class="tab-pane fade" id="tab5">
-                        <img src="../img/call-center/all-in-one.webp" class="img-preview"
+                        <img src="../img/call-center/all-in-one.webp" class="img-preview" loading="lazy"
                            alt="One App to Replace Your Dialer, CRM, and Spreadsheets">
                      </div>
                      <div class="tab-pane fade" id="tab6">
-                        <img src="../img/call-center/30-min.webp" class="img-preview" alt="30-Minute Setup Time">
+                        <img src="../img/call-center/30-min.webp" class="img-preview" alt="30-Minute Setup Time" loading="lazy">
                      </div>
                   </div>
                </div>
@@ -1016,7 +1018,7 @@
                   </div>
                   <div class="col-lg-7 text-center">
                      <div class="sales-image-wrapper position-relative">
-                        <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" />
+                        <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" loading="lazy" />
                      </div>
                   </div>
                   <div class="waba-btn text-center" id="waba-mob">
