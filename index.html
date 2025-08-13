@@ -1234,7 +1234,7 @@
             </div>
          </section>
 
-         <!-- Demo Section Start -->
+<!-- Demo Section Start -->
 <section class="demo-section">
   <div class="container">
     <div class="row">
@@ -1257,10 +1257,17 @@
       </div>
 
       <!-- Modal -->
-      <div id="videoModal" class="modal">
+      <div id="videoModal" class="modal" style="display:none;">
         <div class="vid-modal-content">
           <span class="close-button" id="closeModal">&times;</span>
-          <video id="localVideo" controls preload="none" style="border-radius: 12px;">
+          <video 
+            id="localVideo" 
+            controls 
+            preload="none" 
+            playsinline 
+            webkit-playsinline 
+            style="border-radius: 12px; max-width: 100%; height: auto;"
+          >
             <source src="" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -1284,28 +1291,32 @@
   const videoModal = document.getElementById('videoModal');
   const localVideo = document.getElementById('localVideo');
 
+  // Open modal and play video inline
   openModal.addEventListener('click', () => {
     videoModal.style.display = 'block';
-    localVideo.querySelector('source').src = 'runo.mp4';
+    const source = localVideo.querySelector('source');
+    source.src = 'runo.mp4'; // Your video path
     localVideo.load();
-    localVideo.play();
+
+    // Ensure autoplay inline for iOS Safari
+    localVideo.muted = true; // Required for autoplay without user gesture
+    localVideo.play().catch(err => console.log('Play prevented:', err));
   });
 
-  closeModal.addEventListener('click', () => {
+  // Close modal
+  closeModal.addEventListener('click', closeVideo);
+  window.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+      closeVideo();
+    }
+  });
+
+  function closeVideo() {
     videoModal.style.display = 'none';
     localVideo.pause();
     localVideo.currentTime = 0;
     localVideo.querySelector('source').src = '';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
-      videoModal.style.display = 'none';
-      localVideo.pause();
-      localVideo.currentTime = 0;
-      localVideo.querySelector('source').src = '';
-    }
-  });
+  }
 </script>
 
 
