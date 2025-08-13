@@ -1291,15 +1291,14 @@
   const videoModal = document.getElementById('videoModal');
   const localVideo = document.getElementById('localVideo');
 
-  // Open modal and play video inline
+  // Open modal and play video with audio
   openModal.addEventListener('click', () => {
     videoModal.style.display = 'block';
     const source = localVideo.querySelector('source');
     source.src = 'runo.mp4'; // Your video path
     localVideo.load();
 
-    // Ensure autoplay inline for iOS Safari
-    localVideo.muted = true; // Required for autoplay without user gesture
+    // iOS will allow audio here because it's triggered by user tap
     localVideo.play().catch(err => console.log('Play prevented:', err));
   });
 
@@ -1318,7 +1317,6 @@
     localVideo.querySelector('source').src = '';
   }
 </script>
-
 
 
          <section class="cloud-tech-section">
