@@ -1068,18 +1068,15 @@
 /* home cloud section ends */
 
 /*home video section*/
-
 .video-wrapper {
   padding: 10px;
-  display: block;
-  position: relative;
-  display: inline-block;
+  position: relative; /* keep absolute positioning working */
+  display: block; /* avoid Safari inline-block centering bug */
   max-width: 70%;
   width: 100%;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   border-radius: 20px;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1091,6 +1088,7 @@
 .video-thumbnail {
   border-radius: 20px;
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -1099,11 +1097,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #000000a3;
+  display: flex; /* ensures icon is centered inside */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
   border: none;
   border-radius: 50%;
-  font-size: 25px;
-  color: orange;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   height: 50px;
@@ -1113,17 +1112,16 @@
 .play-button i {
   font-size: 25px;
   color: #ffffff;
-
+  line-height: 1; /* avoid vertical misalignment */
 }
 
 @media (max-width: 576px) {
   .play-button {
     height: 45px;
     width: 45px;
-    font-size: 20px;
   }
   .play-button i {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
