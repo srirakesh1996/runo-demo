@@ -1077,7 +1077,7 @@
   max-width: 70%;
   width: 100%;
   margin-bottom: 30px;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -1089,7 +1089,7 @@
 }
 
 .video-thumbnail {
-  border-radius: 50px;
+  border-radius: 20px;
   width: 100%;
   display: block;
 }
