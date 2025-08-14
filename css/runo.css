@@ -1074,7 +1074,7 @@
   display: block; /* avoid Safari inline-block centering bug */
   max-width: 70%;
   width: 100%;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 0px auto;
   border-radius: 20px;
   overflow: hidden;
 }

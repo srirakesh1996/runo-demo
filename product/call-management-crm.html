@@ -20,60 +20,62 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
       <!-- SEO Meta -->
       <meta name="robots" content="index, follow">
+      <!-- changed from no-index -->
       <meta name="language" content="en">
       <!-- Open Graph / Facebook -->
       <meta property="og:type" content="website">
       <meta property="og:image" content="https://runo.ai/img/og/call-management.png">
-      <meta property="og:url" content="https://runo.ai/product/call-management-crm">
+      <meta property="og:url" content="https://runo.ai/img/og/call-management.png">
       <!-- Twitter Card -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png">
-      <meta name="twitter:url" content="https://runo.ai/product/call-management-crm">
-      <!-- Preload LCP background image (correct file + type) -->
+      <meta name="twitter:url" content="https://runo.ai/img/og/call-management.png">
+
+            <!-- Preload LCP background image -->
       <link rel="preload" as="image" href="../img/banner-img.png" fetchpriority="high" type="image/png">
       <!-- Favicon -->
       <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
-      <!-- Preload & load critical CSS first -->
-      <link rel="preload" as="style" href="../css/bootstrap.min.css">
-      <link rel="stylesheet" href="../css/bootstrap.min.css">
-      <!-- Non-critical CSS loaded async -->
-      <link rel="stylesheet" href="../css/slicknav.min.css" media="print" onload="this.media='all'">
-      <link rel="stylesheet" href="../css/all.min.css" media="print" onload="this.media='all'">
-      <link rel="stylesheet" href="../css/custom.css" >
-      <link rel="stylesheet" href="../css/runo.css">
-      <!-- Preconnect for faster external resource fetching -->
+      <link rel="preload" as="style" href="css/bootstrap.min.css">
       <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-      <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-      <!-- Google Fonts with display=swap to avoid render blocking -->
+      <!-- Google Fonts -->
       <link
          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
          rel="stylesheet">
-      <!-- Swiper CSS (moved here, still deferred in JS) -->
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
+      <link rel="stylesheet" href="../css/slicknav.min.css">
+      <link rel="stylesheet" href="../css/all.min.css">
+      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../css/runo.css">
+      <!-- Animate.css and WOW.js -->
+      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+         <script>
+         	document.addEventListener("DOMContentLoaded", () => {
+         		new WOW().init();
+         	});
+         </script>-->
+      <!-- Font Awesome (CDN) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      <!-- Swiper CSS (from CDN) -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-      <!-- jQuery (can stay if needed early) -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+      <!-- Swiper JS (CDN, defer to reduce INP impact) -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <!-- intl-tel-input -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-         <!-- Swiper JS (CDN, defer to reduce INP impact) -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
       <!-- Google Tag Manager -->
-      <script>
-         (function (w, d, s, l, i) {
-           w[l] = w[l] || []; w[l].push({
-             'gtm.start': new Date().getTime(), event: 'gtm.js'
-           });
-           var f = d.getElementsByTagName(s)[0],
-             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-           j.async = true;
-           j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-           f.parentNode.insertBefore(j, f);
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || []; w[l].push({
+             'gtm.start':
+                 new Date().getTime(), event: 'gtm.js'
+         }); var f = d.getElementsByTagName(s)[0],
+             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
          })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
       </script>
-      <!-- End Google Tag Manager -->
       <!-- End Google Tag Manager -->
       <script type="application/ld+json">
          {
@@ -759,7 +761,7 @@
                                  calling efficiency with less guesswork.
                               </p>
                            </button>
-                           <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display:none;" loading="lazy">
+                           <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display:none;">
                               <img src="../img/call-management/call-quality.webp" class="img-preview"
                                  alt="AI Call Quality Scoring for Efficient Calling">
                            </div>
@@ -818,7 +820,7 @@
                            alt="Increase Call Pickup Rate with Real Number">
                      </div>
                      <div class="tab-pane fade" id="tab2">
-                        <img src="../img/call-management/call-quality.webp" class="img-preview" loading="lazy"
+                        <img src="../img/call-management/call-quality.webp" class="img-preview"
                            alt="AI Call Quality Scoring for Efficient Calling">
                      </div>
                      <div class="tab-pane fade" id="tab3">
@@ -979,44 +981,45 @@
             </div>
          </div>
       </section>
-      <section class="sales-execution-section py-5">
-         <div class="container">
-            <div class="section-title text-center">
-               <h2>Call Management + CRM + WhatsApp Business
-               </h2>
-            </div>
-            <div class="row align-items-center" id="ban">
-               <div class="col-lg-5 mb-4 mb-lg-0">
-                  <div class="sales-text-content">
-                     <p class="section-subheading mt-3">Centralize conversations. Close deals faster.</p>
-                     <ul class="sales-features-list mt-4">
-                        <li>Manage all customer chats through WhatsApp Business in one place</li>
-                        <li>Send bulk messages and have 1‑on‑1 conversations with customers</li>
-                        <li>Set up smart auto‑replies (coming soon)</li>
-                        <li>Assign leads to team members automatically</li>
-                        <li>Track replies, follow‑ups, and status updates</li>
-                        <li>Integrate with your CRM and lead sources</li>
-                     </ul>
-                     <div class="waba-btn" id="waba-web">
-                        <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal"
-                           data-label="Book a Demo - WABA Web">Request a Demo</a>
-                        <p class="banner-btn1">&nbsp;</p>
+
+       <section class="sales-execution-section py-5">
+            <div class="container">
+               <div class="section-title text-center">
+                  <h2>Call Management + CRM + WhatsApp Business
+                  </h2>
+               </div>
+               <div class="row align-items-center" id="ban">
+                  <div class="col-lg-5 mb-4 mb-lg-0">
+                     <div class="sales-text-content">
+                        <p class="section-subheading mt-3">Centralize conversations. Close deals faster.</p>
+                        <ul class="sales-features-list mt-4">
+                           <li>Manage all customer chats through WhatsApp Business in one place</li>
+                           <li>Send bulk messages and have 1‑on‑1 conversations with customers</li>
+                           <li>Set up smart auto‑replies (coming soon)</li>
+                           <li>Assign leads to team members automatically</li>
+                           <li>Track replies, follow‑ups, and status updates</li>
+                           <li>Integrate with your CRM and lead sources</li>
+                        </ul>
+                        <div class="waba-btn" id="waba-web">
+                           <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal"
+                              data-label="Book a Demo - WABA Web">Request a Demo</a>
+                           <p class="banner-btn1">&nbsp;</p>
+                        </div>
                      </div>
                   </div>
-               </div>
-               <div class="col-lg-7 text-center">
-                  <div class="sales-image-wrapper position-relative">
-                     <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" loading="lazy"/>
+                  <div class="col-lg-7 text-center">
+                     <div class="sales-image-wrapper position-relative">
+                        <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" loading="lazy"/>
+                     </div>
+                  </div>
+                  <div class="waba-btn text-center" id="waba-mob">
+                     <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal"
+                        data-label="Book a Demo - WABA Mobile">Request a Demo</a>
+                     <p class="banner-btn1">&nbsp;</p>
                   </div>
                </div>
-               <div class="waba-btn text-center" id="waba-mob">
-                  <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal"
-                     data-label="Book a Demo - WABA Mobile">Request a Demo</a>
-                  <p class="banner-btn1">&nbsp;</p>
-               </div>
             </div>
-         </div>
-      </section>
+         </section>
       <section class="cloud-tech-section">
          <div class="container">
             <h2 class=" fadeInUp" data--delay="0.3s"
@@ -1776,9 +1779,9 @@
       <script src="../js/jquery.slicknav.js" defer></script>
       <script src="../js/jquery.magnific-popup.min.js" defer></script>
       <script src="../js/SmoothScroll.js" defer></script>
-      <!--  <script src="../js/parallaxie.js" defer></script> -->
+      <script src="../js/parallaxie.js" defer></script>
       <!-- WOW.js -->
-      <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
       <!-- Custom JS (Deferred) -->
       <script src="../js/function.js" defer></script>
       <!-- UTM Tracker -->
