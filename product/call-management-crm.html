@@ -1,219 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Call Management App with CRM for Calls & Follow-Ups</title>
-      <meta name="description"
-         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-      <meta name="keywords"
-         content="Call Management CRM, Call Management App, call management, call management software, inbound call management software, sales call management software, business call management system, call center management in crm">
-      <!-- Updated Open Graph tags -->
-      <meta property="og:title" content="Call Management App with CRM for Calls & Follow-Ups">
-      <meta property="og:description"
-         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-      <!-- Updated Twitter tags -->
-      <meta name="twitter:title" content="Call Management App with CRM for Calls & Follow-Ups">
-      <meta name="twitter:description"
-         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-      <link rel="canonical" href="https://runo.ai/product/call-management-crm" />
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-      <!-- SEO Meta -->
-      <meta name="robots" content="index, follow">
-      <!-- changed from no-index -->
-      <meta name="language" content="en">
-      <!-- Open Graph / Facebook -->
-      <meta property="og:type" content="website">
-      <meta property="og:image" content="https://runo.ai/img/og/call-management.png">
-      <meta property="og:url" content="https://runo.ai/img/og/call-management.png">
-      <!-- Twitter Card -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png">
-      <meta name="twitter:url" content="https://runo.ai/img/og/call-management.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-            <!-- Preload LCP background image -->
-      <link rel="preload" as="image" href="../img/banner-img.png" fetchpriority="high" type="image/png">
-      <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
-      <link rel="preload" as="style" href="css/bootstrap.min.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <!-- Google Fonts -->
-      <link
-         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-         rel="stylesheet">
-      <!-- Stylesheets -->
-      <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
-      <link rel="stylesheet" href="../css/slicknav.min.css">
-      <link rel="stylesheet" href="../css/all.min.css">
-      <link rel="stylesheet" href="../css/custom.css">
-      <link rel="stylesheet" href="../css/runo.css">
-      <!-- Animate.css and WOW.js -->
-      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>-->
-      <!-- Font Awesome (CDN) -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <!-- Swiper CSS (from CDN) -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-      <!-- Swiper JS (CDN, defer to reduce INP impact) -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <!-- intl-tel-input -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-      <!-- Google Tag Manager -->
-      <script>(function (w, d, s, l, i) {
-         w[l] = w[l] || []; w[l].push({
-             'gtm.start':
-                 new Date().getTime(), event: 'gtm.js'
-         }); var f = d.getElementsByTagName(s)[0],
-             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-         })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
-      </script>
-      <!-- End Google Tag Manager -->
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org/",
-           "@type": "Product",
-           "name": "Call Management CRM App",
-           "image": [
-             "https://runo.ai/img/call-management/call-management.webp"
-           ],
-           "description": "AI-powered SIM-based Call Management CRM app to track, call, and manage leads. It streamlines sales calls, lead follow-ups, and CRM updates all from your mobile phone.",
-           "brand": {
-             "@type": "Brand",
-             "name": "Runo"
-           },
-           "url": "https://runo.ai/product/call-management-crm",
-           "offers": {
-             "@type": "Offer",
-             "url": "https://runo.ai/pricing",
-             "priceCurrency": "INR",
-             "price": "599",
-             "itemCondition": "https://schema.org/NewCondition",
-             "availability": "https://schema.org/InStock"
-           },
-           "aggregateRating": {
-             "@type": "AggregateRating",
-             "ratingValue": "4.7",
-             "reviewCount": "1882"
-           }
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "BreadcrumbList",
-           "itemListElement": [
-             {
-               "@type": "ListItem",
-               "position": 1,
-               "name": "Home",
-               "item": "https://runo.ai/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 2,
-               "name": "Products",
-               "item": "https://runo.ai/product/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 3,
-               "name": "Call Management CRM",
-               "item": "https://runo.ai/product/call-management-crm"
-             }
-           ]
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "FAQPage",
-           "mainEntity": [
-         {
-               "@type": "Question",
-               "name": "What is Call Management App?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "A Call Management App is a software solution designed to help businesses effectively organize, track, and analyze both inbound and outbound phone calls. It offers features like caller ID, call history, auto-dialer, call recordings, transcriptions, and real-time dashboards. The best call tracking software also allows teams to monitor performance, assign leads, and integrate with CRMs and lead sources, ensuring no customer interaction is missed. By providing visibility into team activities and improving response times, call management apps are especially useful for sales teams, support centers, and small to mid-sized businesses looking to enhance productivity, customer experience, and overall communication efficiency."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "What is a SIM-based Call Management App?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "It’s a mobile-first call management CRM that works with your phone’s SIM card. Your team makes real outbound calls using real numbers, which boosts trust and improves connect rates."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does the AI feature support my team?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo’s AI call management software listens to calls, generates summaries, scores performance, and sends smart follow-up reminders. It helps agents focus on conversations while the system takes care of tracking and insights."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does this CRM help with call compliance?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo records all calls, maintains a clear interaction history, and includes DNC scrubbing. You get full visibility and audit readiness without needing extra compliance tools."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "What are the key benefits of using AI for call management?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "AI removes the need for manual updates and call logs. It gives your team performance analytics in real time, flags high-priority leads, and helps managers coach reps based on real conversations."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can this CRM integrate with our current lead sources and tools?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo integrates with major CRMs like Zoho, Salesforce, and HubSpot, and connects with lead sources like Facebook, IndiaMart, and your website. It’s designed to work within your existing sales setup."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Does it offer real-time visibility into team performance?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Absolutely. Runo shows live agent status, call outcomes, and lead progress through a real-time performance dashboard, so you’re always in the loop."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does this call management app improve our sales call results?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "By using AI summaries, caller ID context, follow-up nudges, and SIM-based dialing, your team connects faster, follows up smarter, and closes more deals, all from one call management app."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I use this CRM on both mobile and desktop?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo offers both a mobile app and a web version, so you can manage leads, monitor team activity, and review call history whether you’re in the office or on the move."
-               }
-             }
-           ]
-         }
-         
-      </script>
-   </head>
+  <title>Call Management App with CRM for Calls & Follow-Ups</title>
+  <meta name="description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+  <meta name="keywords" content="Call Management CRM, Call Management App, call management, call management software, inbound call management software, sales call management software, business call management system, call center management in crm">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="en">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://runo.ai/product/call-management-crm">
+
+  <!-- Open Graph (Facebook & others) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Call Management App with CRM for Calls & Follow-Ups">
+  <meta property="og:description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+  <meta property="og:image" content="https://runo.ai/img/og/call-management.png">
+  <meta property="og:url" content="https://runo.ai/product/call-management-crm">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Call Management App with CRM for Calls & Follow-Ups">
+  <meta name="twitter:description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+  <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png">
+  <meta name="twitter:url" content="https://runo.ai/product/call-management-crm">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
+
+  <!-- Preloads -->
+  <link rel="preload" as="image" href="../img/banner-img.png" fetchpriority="high" type="image/png">
+  <link rel="preload" as="style" href="../css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../css/slicknav.min.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="../css/runo.css">
+
+  <!-- Font Awesome (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Swiper (for carousels, defer JS later) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+  <!-- intl-tel-input -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+
+  <!-- Swiper JS (deferred for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- jQuery (also defer if not needed immediately) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+
+  <!-- intl-tel-input JS -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
+  </script>
+
+  <!-- Structured Data - Product -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Call Management CRM App",
+      "image": ["https://runo.ai/img/call-management/call-management.webp"],
+      "description": "AI-powered SIM-based Call Management CRM app to track, call, and manage leads. It streamlines sales calls, lead follow-ups, and CRM updates all from your mobile phone.",
+      "brand": { "@type": "Brand", "name": "Runo" },
+      "url": "https://runo.ai/product/call-management-crm",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://runo.ai/pricing",
+        "priceCurrency": "INR",
+        "price": "599",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "1882"
+      }
+    }
+  </script>
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://runo.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://runo.ai/product/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Call Management CRM",
+          "item": "https://runo.ai/product/call-management-crm"
+        }
+      ]
+    }
+  </script>
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Call Management App?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Call Management App helps businesses organize, track, and analyze phone calls. Features include caller ID, auto-dialer, transcriptions, and CRM integration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a SIM-based Call Management App?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It’s a CRM app that uses your phone’s SIM for real outbound calls, improving trust and connect rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the AI feature support my team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It listens to calls, creates summaries, scores performance, and sends reminders — so your agents can focus on conversations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this CRM integrate with our current lead sources?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Runo integrates with CRMs like Zoho and Salesforce, and with lead sources like Facebook and IndiaMart."
+          }
+        }
+      ]
+    }
+  </script>
+</head>
+
    <body>
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0"
@@ -1222,21 +1184,24 @@
          </div>
          </div>
       </section>
-      <script>
-         var swiper = new Swiper('.swiper-container', {
-             loop: true,
-             autoplay: {
-                 delay: 3000,
-                 disableOnInteraction: false,
-             },
-             slidesPerView: 1,
-             spaceBetween: 10,
-             navigation: {
-                 nextEl: '.swiper-custom-next',
-                 prevEl: '.swiper-custom-prev',
-             },
-         });
-      </script>
+     <!-- Swiper Init -->
+<script>
+  window.addEventListener('load', function () {
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-custom-next',
+        prevEl: '.swiper-custom-prev',
+      },
+    });
+  });
+</script>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
          <div class="container">
             <h2 class=" animate__animated animate__fadeInDown" data--delay="0.4s">
