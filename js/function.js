@@ -142,33 +142,40 @@ document.addEventListener("DOMContentLoaded", function () {
 /*ends */
 
 /* Send utm to web.runo.in Starts */
-/* Send UTM to web.runo.in */
 document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".runo-web-crm");
-  if (!buttons.length) return;
+  const interval = setInterval(() => {
+    const buttons = document.querySelectorAll(".runo-web-crm");
 
-  const utmSource = localStorage.getItem("utm_source");
-  const utmCampaign = localStorage.getItem("utm_campaign");
+    if (buttons.length > 0) {
+      clearInterval(interval);
 
-  const baseUrl = "https://web.runo.in";
-  const params = new URLSearchParams();
+      const utmSource = localStorage.getItem("utm_source");
+      const utmCampaign = localStorage.getItem("utm_campaign");
 
-  if (utmSource) params.append("utm_source", utmSource);
-  if (utmCampaign) params.append("utm_campaign", utmCampaign);
+      const baseUrl = "https://web.runo.in";
+      const params = new URLSearchParams();
 
-  const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+      if (utmSource) params.append("utm_source", utmSource);
+      if (utmCampaign) params.append("utm_campaign", utmCampaign);
 
-  buttons.forEach((btn) => {
-    // Force absolute href so folder depth doesn’t matter
-    btn.setAttribute("href", finalUrl);
+      if (params.toString()) {
+        const finalUrl = `${baseUrl}?${params.toString()}`;
+        // console.log("✅ Updating all .runo-crm buttons to:", finalUrl);
 
-    // Optional: update data attr for tracking
-    btn.dataset.finalUrl = finalUrl;
+        buttons.forEach((btn) => {
+          // Set href
+          btn.href = finalUrl;
 
-    console.log("✅ Button updated:", finalUrl);
-  });
+          // Force redirect on click
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = finalUrl;
+          });
+        });
+      }
+    }
+  }, 100);
 });
-/* End */
 /* Send utm to web.runo.in ends */
 
 function submitForm(formId, formData, formToken) {

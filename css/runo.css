@@ -2730,7 +2730,9 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-
+  background: url("../img/banner-lpimg.webp") no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .telecaller-hero .banner-cont {
