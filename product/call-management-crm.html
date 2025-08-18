@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-       <meta charset="utf-8">
+ <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -36,44 +36,39 @@
   <link rel="icon" href="../img/favicon.ico" sizes="16x16">
 
   <!-- Preconnect for Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Google Fonts (preloaded for faster CLS-free rendering) -->
+
+  <!-- Google Fonts -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
-  <!-- Critical CSS (Bootstrap) -->
+  <!-- Critical CSS (inline load) -->
   <link rel="preload" as="style" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css" media="all">
-
-  <!-- Other Styles (non-critical can be loaded later) -->
-  <link rel="stylesheet" href="../css/slicknav.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="../css/all.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="../css/custom.css" media="all">
   <link rel="stylesheet" href="../css/runo.css" media="all">
+
+  <!-- Non-critical CSS (lazy load to reduce CLS) -->
+  <link rel="stylesheet" href="../css/slicknav.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/all.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
 
-  <!-- JS (deferred to reduce INP) -->
+  <!-- JS (Core, deferred) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-  <!-- Font Awesome (async) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
   <!-- Google Tag Manager -->
   <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-      var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M7SSPG7W');
   </script>
-  <!-- End Google Tag Manager -->
       <script type="application/ld+json">
          {
            "@context": "https://schema.org/",
@@ -1777,86 +1772,81 @@
             </div>
          </div>
       </footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-      <!-- Plugins (Deferred) -->
-      <script src="../js/jquery.slicknav.js" defer></script>
-      <script src="../js/jquery.magnific-popup.min.js" defer></script>
-      <script src="../js/SmoothScroll.js" defer></script>
-      <script src="../js/parallaxie.js" defer></script>
-      <!-- WOW.js -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-      <!-- Custom JS (Deferred) -->
-      <script src="../js/function.js" defer></script>
-   
+    
+<!-- Core JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-      <!-- UTM Tracker -->
-      <script>
-         const params = new URLSearchParams(window.location.search);
-         const utmSource = params.get("utm_source");
-         const utmCampaign = params.get("utm_campaign");
-         if (utmSource) localStorage.setItem("utm_source", utmSource);
-         if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
-         // Sticky Header and Preloader JS
-         
-         window.addEventListener('scroll', function () {
-             const header = document.querySelector('.header-sticky');
-             if (window.scrollY > 100) {
-                 header?.classList.add('active');
-             } else {
-                 header?.classList.remove('active');
-             }
-         });
-         
-         window.addEventListener('load', function () {
-             const preloader = document.querySelector('.runo-preloader');
-             if (preloader) {
-                 preloader.style.opacity = '0';
-                 preloader.style.transition = 'opacity 0.5s ease';
-                 setTimeout(() => (preloader.style.display = 'none'), 350);
-             }
-         });
-         
-         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
-         
-         window.addEventListener('load', () => {
-             setTimeout(() => {
-                 const script = document.createElement('script');
-                 script.src = 'https://popupsmart.com/freechat.js';
-                 script.onload = () => {
-                     window.start.init({
-                         title: 'Hi there ✌️',
-                         message: 'How can we help you? Just send us a message now to get assistance.',
-                         color: '#F9754E',
-                         position: 'right',
-                         placeholder: 'Enter your message',
-                         withText: 'Write with',
-                         viaWhatsapp: 'Or write us directly via Whatsapp',
-                         gty: 'Go to your',
-                         awu: 'and write us',
-                         connect: 'Connect now',
-                         button: 'Write us',
-                         device: 'everywhere',
-                         logo: 'https://d2r80wdbkwti6l.cloudfront.net/YaOSMtQDnhkgfH0fvFI3UkBR8O9UbXl5.jpg',
-                         person: 'https://runo.ai/img/chat-bot.jpg',
-                         services: [{
-                             name: 'whatsapp',
-                             content: '+918179880074'
-                         },
-                         {
-                             name: 'mail',
-                             content: 'care@runo.ai'
-                         },
-                         {
-                             name: 'phone',
-                             content: '+918179880074'
-                         },
-                         ],
-                     });
-                 };
-                 document.body.appendChild(script);
-             }, 6000);
-         });
-      </script>
+<!-- Plugins (deferred) -->
+<script src="../js/jquery.slicknav.js" defer></script>
+<script src="../js/jquery.magnific-popup.min.js" defer></script>
+<script src="../js/SmoothScroll.js" defer></script>
+<script src="../js/parallaxie.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+
+<!-- Custom JS -->
+<script src="../js/function.js" defer></script>
+
+<!-- UTM Tracker + Preloader + Sticky Header -->
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const utmSource = params.get("utm_source");
+  const utmCampaign = params.get("utm_campaign");
+  if (utmSource) localStorage.setItem("utm_source", utmSource);
+  if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
+
+  // Sticky header
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header-sticky');
+    header?.classList.toggle('active', window.scrollY > 100);
+  });
+
+  // Preloader
+  window.addEventListener('load', () => {
+    const preloader = document.querySelector('.runo-preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => (preloader.style.display = 'none'), 350);
+    }
+  });
+
+  // Lazy-load PopupSmart Chat Widget (after idle + 6s)
+  let idleTimer;
+  const loadChat = () => {
+    if (window.chatLoaded) return;
+    window.chatLoaded = true;
+    const script = document.createElement('script');
+    script.src = 'https://popupsmart.com/freechat.js';
+    script.onload = () => {
+      window.start.init({
+        title: 'Hi there ✌️',
+        message: 'How can we help you? Just send us a message now to get assistance.',
+        color: '#F9754E',
+        position: 'right',
+        placeholder: 'Enter your message',
+        withText: 'Write with',
+        viaWhatsapp: 'Or write us directly via Whatsapp',
+        gty: 'Go to your',
+        awu: 'and write us',
+        connect: 'Connect now',
+        button: 'Write us',
+        device: 'everywhere',
+        logo: 'https://d2r80wdbkwti6l.cloudfront.net/YaOSMtQDnhkgfH0fvFI3UkBR8O9UbXl5.jpg',
+        person: 'https://runo.ai/img/chat-bot.jpg',
+        services: [
+          { name: 'whatsapp', content: '+918179880074' },
+          { name: 'mail', content: 'care@runo.ai' },
+          { name: 'phone', content: '+918179880074' }
+        ],
+      });
+    };
+    document.body.appendChild(script);
+  };
+
+  window.addEventListener('load', () => {
+    idleTimer = setTimeout(loadChat, 6000);
+  });
+</script>
+
    </body>
 </html>
