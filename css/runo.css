@@ -2723,7 +2723,19 @@ input::placeholder {
   padding: 20px 0px 50px 0px;
   overflow: hidden;
 }
+.telecaller-hero {
+  position: relative;
+  min-height: 600px; /* Prevent CLS */
+  padding: 10px 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
 
+.telecaller-hero .hero-bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 
 .telecaller-hero .banner-cont {
   width: 100% !important;
