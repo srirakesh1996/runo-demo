@@ -2724,7 +2724,14 @@ input::placeholder {
   overflow: hidden;
 }
 
+.telecaller-hero {
+  position: relative;
+  padding: 10px 0px;
+  overflow: hidden;
+  /* ensure pseudo-element stays contained */
+  z-index: 1;
 
+}
 
 .telecaller-hero .banner-cont {
   width: 100% !important;
