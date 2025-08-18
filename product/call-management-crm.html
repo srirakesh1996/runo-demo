@@ -1,72 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
- <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Call Management App with CRM for Calls & Follow-Ups</title>
+      <meta name="description"
+         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+      <meta name="keywords"
+         content="Call Management CRM, Call Management App, call management, call management software, inbound call management software, sales call management software, business call management system, call center management in crm">
+      <!-- Updated Open Graph tags -->
+      <meta property="og:title" content="Call Management App with CRM for Calls & Follow-Ups">
+      <meta property="og:description"
+         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+      <!-- Updated Twitter tags -->
+      <meta name="twitter:title" content="Call Management App with CRM for Calls & Follow-Ups">
+      <meta name="twitter:description"
+         content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
+      <link rel="canonical" href="https://runo.ai/product/call-management-crm" />
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <!-- SEO Meta -->
+      <meta name="robots" content="index, follow">
+      <!-- changed from no-index -->
+      <meta name="language" content="en">
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="https://runo.ai/img/og/call-management.png">
+      <meta property="og:url" content="https://runo.ai/img/og/call-management.png">
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png">
+      <meta name="twitter:url" content="https://runo.ai/img/og/call-management.png">
 
-  <title>Call Management App with CRM for Calls & Follow-Ups</title>
-  <meta name="description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-  <meta name="keywords" content="Call Management CRM, Call Management App, call management, call management software, inbound call management software, sales call management software, business call management system, call center management in crm">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="en">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Call Management App with CRM for Calls & Follow-Ups">
-  <meta property="og:description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-  <meta property="og:image" content="https://runo.ai/img/og/call-management.png">
-  <meta property="og:url" content="https://runo.ai/product/call-management-crm">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Call Management App with CRM for Calls & Follow-Ups">
-  <meta name="twitter:description" content="AI-powered mobile-first Call Management CRM App with SIM-based calling, automated dialer, call tracking, AI call summaries, and live lead status in one app.">
-  <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png">
-  <meta name="twitter:url" content="https://runo.ai/product/call-management-crm">
-
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-  <!-- Critical CSS (load normally to avoid FOUC) -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/custom.css">
-  <link rel="stylesheet" href="../css/runo.css">
-
-  <!-- intl-tel-input (must load normally for dropdown to render) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
-
-  <!-- Non-critical CSS (lazy-load) -->
-  <link rel="preload" as="style" href="../css/slicknav.min.css" />
-  <link rel="stylesheet" href="../css/slicknav.min.css" media="print" onload="this.media='all'">
-
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
-
-  <!-- Preload Hero (LCP) -->
-  <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp"/>
-
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l!='dataLayer' ? '&l='+l : '';
-      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
-  </script>
+            <!-- Preload LCP background image -->
+      <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp"/>
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
+      <link rel="preload" as="style" href="css/bootstrap.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Google Fonts -->
+      <link
+         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+         rel="stylesheet">
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
+      <link rel="stylesheet" href="../css/slicknav.min.css">
+      <link rel="stylesheet" href="../css/all.min.css">
+      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../css/runo.css">
+      <!-- Animate.css and WOW.js -->
+      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+         <script>
+         	document.addEventListener("DOMContentLoaded", () => {
+         		new WOW().init();
+         	});
+         </script>-->
+      <!-- Font Awesome (CDN) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      <!-- Swiper CSS (from CDN) -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+      <!-- Swiper JS (CDN, defer to reduce INP impact) -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <!-- intl-tel-input -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+      <!-- Google Tag Manager -->
+      <script>(function (w, d, s, l, i) {
+         w[l] = w[l] || []; w[l].push({
+             'gtm.start':
+                 new Date().getTime(), event: 'gtm.js'
+         }); var f = d.getElementsByTagName(s)[0],
+             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+         })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
+      </script>
       <!-- End Google Tag Manager -->
       <script type="application/ld+json">
          {
@@ -574,8 +583,7 @@
          </div>
       </header>
       <!-- Header End -->
-<div class="telecaller-hero mb-20" 
-     style="position:relative;padding:40px 0;background:#f9fafb url('../img/banner-lpimg.webp') no-repeat center center;background-size:cover;border-radius:12px;">
+      <div class="telecaller-hero mb-20">
          <div class="container">
             <!-- Header Start -->
             <div class="row align-items-center">
@@ -1765,94 +1773,86 @@
             </div>
          </div>
       </footer>
-  <!-- Core JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+      <!-- Plugins (Deferred) -->
+      <script src="../js/jquery.slicknav.js" defer></script>
+      <script src="../js/jquery.magnific-popup.min.js" defer></script>
+      <script src="../js/SmoothScroll.js" defer></script>
+      <script src="../js/parallaxie.js" defer></script>
+      <!-- WOW.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+      <!-- Custom JS (Deferred) -->
+      <script src="../js/function.js" defer></script>
+   
 
-<!-- Plugins -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
-<script src="../js/jquery.slicknav.js" defer></script>
-<script src="../js/jquery.magnific-popup.min.js" defer></script>
-<script src="../js/SmoothScroll.js" defer></script>
-<script src="../js/parallaxie.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-
-<!-- intl-tel-input -->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js" defer></script>
-
-<!-- Init intl-tel-input -->
-<script defer>
-document.addEventListener("DOMContentLoaded", function () {
-  const phoneInput = document.querySelector("#phone"); // update ID to your input
-  if (phoneInput) {
-    window.intlTelInput(phoneInput, {
-      initialCountry: "in", // default India
-      separateDialCode: true,
-      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
-    });
-  }
-});
-</script>
-
-<!-- Custom JS -->
-<script src="../js/function.js" defer></script>
-
-<!-- Inline custom tweaks -->
-<script defer>
-  // Sticky Header
-  document.addEventListener('scroll', () => {
-    const header = document.querySelector('.header-sticky');
-    if (header) header.classList.toggle('active', window.scrollY > 100);
-  });
-
-  // Preloader
-  window.addEventListener('load', () => {
-    const preloader = document.querySelector('.runo-preloader');
-    if (preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => (preloader.style.display = 'none'), 350);
-    }
-  });
-
-  // UTM Tracker
-  (function () {
-    const p = new URLSearchParams(location.search);
-    if (p.get('utm_source')) localStorage.setItem('utm_source', p.get('utm_source'));
-    if (p.get('utm_campaign')) localStorage.setItem('utm_campaign', p.get('utm_campaign'));
-  })();
-
-  // WOW.js
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.WOW) new WOW().init();
-  });
-
-  // Lazy-load PopupSmart Chat after 6s
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const script = document.createElement('script');
-      script.src = 'https://popupsmart.com/freechat.js';
-      script.onload = () => {
-        window.start.init({
-          title: 'Hi there ✌️',
-          message: 'How can we help you? Just send us a message now to get assistance.',
-          color: '#F9754E',
-          position: 'right',
-          placeholder: 'Enter your message',
-          viaWhatsapp: 'Or write us directly via Whatsapp',
-          services: [
-            { name: 'whatsapp', content: '+918179880074' },
-            { name: 'mail', content: 'care@runo.ai' },
-            { name: 'phone', content: '+918179880074' }
-          ],
-        });
-      };
-      document.body.appendChild(script);
-    }, 6000);
-  });
-</script>
-
-
+      <!-- UTM Tracker -->
+      <script>
+         const params = new URLSearchParams(window.location.search);
+         const utmSource = params.get("utm_source");
+         const utmCampaign = params.get("utm_campaign");
+         if (utmSource) localStorage.setItem("utm_source", utmSource);
+         if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
+         
+         // Sticky Header and Preloader JS
+         
+         window.addEventListener('scroll', function () {
+             const header = document.querySelector('.header-sticky');
+             if (window.scrollY > 100) {
+                 header?.classList.add('active');
+             } else {
+                 header?.classList.remove('active');
+             }
+         });
+         
+         window.addEventListener('load', function () {
+             const preloader = document.querySelector('.runo-preloader');
+             if (preloader) {
+                 preloader.style.opacity = '0';
+                 preloader.style.transition = 'opacity 0.5s ease';
+                 setTimeout(() => (preloader.style.display = 'none'), 350);
+             }
+         });
+         
+         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
+         
+         window.addEventListener('load', () => {
+             setTimeout(() => {
+                 const script = document.createElement('script');
+                 script.src = 'https://popupsmart.com/freechat.js';
+                 script.onload = () => {
+                     window.start.init({
+                         title: 'Hi there ✌️',
+                         message: 'How can we help you? Just send us a message now to get assistance.',
+                         color: '#F9754E',
+                         position: 'right',
+                         placeholder: 'Enter your message',
+                         withText: 'Write with',
+                         viaWhatsapp: 'Or write us directly via Whatsapp',
+                         gty: 'Go to your',
+                         awu: 'and write us',
+                         connect: 'Connect now',
+                         button: 'Write us',
+                         device: 'everywhere',
+                         logo: 'https://d2r80wdbkwti6l.cloudfront.net/YaOSMtQDnhkgfH0fvFI3UkBR8O9UbXl5.jpg',
+                         person: 'https://runo.ai/img/chat-bot.jpg',
+                         services: [{
+                             name: 'whatsapp',
+                             content: '+918179880074'
+                         },
+                         {
+                             name: 'mail',
+                             content: 'care@runo.ai'
+                         },
+                         {
+                             name: 'phone',
+                             content: '+918179880074'
+                         },
+                         ],
+                     });
+                 };
+                 document.body.appendChild(script);
+             }, 6000);
+         });
+      </script>
    </body>
 </html>
