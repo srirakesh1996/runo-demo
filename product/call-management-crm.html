@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-<meta charset="utf-8">
+ <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Call Management App with CRM for Calls & Follow-Ups</title>
@@ -33,41 +33,33 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-  <!-- Preload + non-blocking CSS (fix path mismatch) -->
-  <link rel="preload" as="style" href="../css/bootstrap.min.css" />
-  <link rel="preload" as="style" href="../css/custom.css" />
-  <link rel="preload" as="style" href="../css/runo.css" />
+  <!-- Critical CSS (load normally to avoid FOUC) -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="../css/runo.css">
+
+  <!-- intl-tel-input (must load normally for dropdown to render) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+
+  <!-- Non-critical CSS (lazy-load) -->
   <link rel="preload" as="style" href="../css/slicknav.min.css" />
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-
-  <link rel="stylesheet" href="../css/bootstrap.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="../css/custom.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="../css/runo.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="../css/slicknav.min.css" media="print" onload="this.media='all'">
+
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
 
-  <noscript>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/custom.css">
-    <link rel="stylesheet" href="../css/runo.css">
-    <link rel="stylesheet" href="../css/slicknav.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-  </noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
 
-  <!-- LCP image: use <picture> instead of CSS background (priority + dimensions) -->
-  <!-- Put this in the hero section HTML (not here in <head>), but keep the preload below -->
-  <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp" imagesrcset="../img/banner-lpimg-640.webp 640w, ../img/banner-lpimg-960.webp 960w, ../img/banner-lpimg.webp 1600w" imagesizes="(max-width:768px) 90vw, 1600px">
+  <!-- Preload Hero (LCP) -->
+  <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp"/>
 
-  <!-- Font Awesome (CSS only, non-blocking) -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
-  <!-- Google Tag Manager (async) -->
+  <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
@@ -1773,28 +1765,42 @@
             </div>
          </div>
       </footer>
-    <!-- Core JS (always last; all deferred) -->
+  <!-- Core JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-<!-- Only include Swiper if you actually use it on this page -->
+<!-- Plugins -->
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
-
-<!-- Plugins (Deferred) – keep only what you use on this page -->
 <script src="../js/jquery.slicknav.js" defer></script>
 <script src="../js/jquery.magnific-popup.min.js" defer></script>
 <script src="../js/SmoothScroll.js" defer></script>
 <script src="../js/parallaxie.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
 
-<!-- intl-tel-input (defer + only if the page has the phone field) -->
-<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
+<!-- intl-tel-input -->
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js" defer></script>
 
-<!-- Your custom JS -->
+<!-- Init intl-tel-input -->
 <script defer>
-  // Sticky Header (reserve header height in CSS to avoid CLS)
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneInput = document.querySelector("#phone"); // update ID to your input
+  if (phoneInput) {
+    window.intlTelInput(phoneInput, {
+      initialCountry: "in", // default India
+      separateDialCode: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+    });
+  }
+});
+</script>
+
+<!-- Custom JS -->
+<script src="../js/function.js" defer></script>
+
+<!-- Inline custom tweaks -->
+<script defer>
+  // Sticky Header
   document.addEventListener('scroll', () => {
     const header = document.querySelector('.header-sticky');
     if (header) header.classList.toggle('active', window.scrollY > 100);
@@ -1810,20 +1816,19 @@
     }
   });
 
-  // UTM tracker (minimal)
+  // UTM Tracker
   (function () {
     const p = new URLSearchParams(location.search);
-    const s = p.get('utm_source'), c = p.get('utm_campaign');
-    if (s) localStorage.setItem('utm_source', s);
-    if (c) localStorage.setItem('utm_campaign', c);
+    if (p.get('utm_source')) localStorage.setItem('utm_source', p.get('utm_source'));
+    if (p.get('utm_campaign')) localStorage.setItem('utm_campaign', p.get('utm_campaign'));
   })();
 
-  // WOW (only if used)
+  // WOW.js
   document.addEventListener('DOMContentLoaded', () => {
     if (window.WOW) new WOW().init();
   });
 
-  // Lazy-load PopupSmart Chat after 6s (kept)
+  // Lazy-load PopupSmart Chat after 6s
   window.addEventListener('load', () => {
     setTimeout(() => {
       const script = document.createElement('script');
@@ -1835,16 +1840,11 @@
           color: '#F9754E',
           position: 'right',
           placeholder: 'Enter your message',
-          withText: 'Write with',
           viaWhatsapp: 'Or write us directly via Whatsapp',
-          gty: 'Go to your', awu: 'and write us',
-          connect: 'Connect now', button: 'Write us', device: 'everywhere',
-          logo: 'https://d2r80wdbkwti6l.cloudfront.net/YaOSMtQDnhkgfH0fvFI3UkBR8O9UbXl5.jpg',
-          person: 'https://runo.ai/img/chat-bot.jpg',
           services: [
             { name: 'whatsapp', content: '+918179880074' },
             { name: 'mail', content: 'care@runo.ai' },
-            { name: 'phone', content: '+918179880074' },
+            { name: 'phone', content: '+918179880074' }
           ],
         });
       };
@@ -1853,8 +1853,6 @@
   });
 </script>
 
-<!-- Split out to keep cacheability of function.js -->
-<script src="../js/function.js" defer></script>
 
    </body>
 </html>
