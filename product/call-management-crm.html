@@ -1215,21 +1215,23 @@
          </div>
          </div>
       </section>
-      <script>
-         var swiper = new Swiper('.swiper-container', {
-             loop: true,
-             autoplay: {
-                 delay: 3000,
-                 disableOnInteraction: false,
-             },
-             slidesPerView: 1,
-             spaceBetween: 10,
-             navigation: {
-                 nextEl: '.swiper-custom-next',
-                 prevEl: '.swiper-custom-prev',
-             },
-         });
-      </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".swiper-container", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-custom-next",
+        prevEl: ".swiper-custom-prev",
+      },
+    });
+  });
+</script>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
          <div class="container">
             <h2 class=" animate__animated animate__fadeInDown" data--delay="0.4s">
