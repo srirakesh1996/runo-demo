@@ -2512,11 +2512,13 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("/img/background-cta.webp") no-repeat center center;
-  background-size: cover;
+  background: #222; /* fallback */
   color: white;
   text-align: center;
   padding: 60px 20px;
+  min-height: 400px; /* reserve space */
+  background-size: cover;
+  background-position: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -3356,14 +3358,30 @@ body.modal-open {
   .sales-execution-section {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
   }
+
   #ban {
-    background: #fff url("/img/waba-mbg.webp") no-repeat center;
-    background-size: inherit;
-    position: relative;
-    border-radius: 30px;
-    padding: 5px;
-    margin: 10px;
+  background: #fff;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+/* Mobile (default small image) */
+@media (max-width: 768px) {
+  #ban {
+    background-image: url("/img/waba-mbg-mobile.webp");
   }
+}
+
+/* Desktop (bigger image) */
+@media (min-width: 769px) {
+  #ban {
+    background-image: url("/img/waba-mbg.webp");
+  }
+}
+✅ B
+
+
   .sales-flow-image {
     z-index: 3;
     max-width: 100%;
