@@ -1039,7 +1039,7 @@
 /*Home cloud section*/
 
 .cloud-tech-section {
-  background: url("../img/cloud-back.webp") no-repeat center center;
+  background: url("/img/cloud-back.webp") no-repeat center center;
   background-size: cover;
   padding: 50px 0px;
   margin-bottom: 20px;
@@ -1695,7 +1695,7 @@ th {
 
 .contact-section {
   position: relative;
-  background: url("../img/contact.png") no-repeat center center/cover;
+  background: url("/img/contact.png") no-repeat center center/cover;
   border-radius: 20px;
   overflow: hidden;
   padding: 50px;
@@ -2018,7 +2018,7 @@ th {
 }
 
 .page-title {
-  background: url(../img/background-cta.webp) no-repeat center center;
+  background: url(/img/background-cta.webp) no-repeat center center;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -2512,7 +2512,7 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("../img/background-cta.webp") no-repeat center center;
+  background: url("/img/background-cta.webp") no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -2718,40 +2718,21 @@ input::placeholder {
 
 .our-tesimonial-page {
   position: relative;
- 
+  background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
+
   padding: 20px 0px 50px 0px;
   overflow: hidden;
 }
 
-.our-tesimonial-page {
-  position: relative;
-  overflow: hidden;
-}
-.our-tesimonial-page .bg-img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-
-
 .telecaller-hero {
   position: relative;
+  padding: 10px 0px;
   overflow: hidden;
-  padding: 10px 0;
-}
-
-.telecaller-hero .hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* behind content */
+  /* ensure pseudo-element stays contained */
+  z-index: 1;
+  background: url("/img/banner-lpimg.webp") no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .telecaller-hero .banner-cont {
@@ -2988,7 +2969,7 @@ body.modal-open {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("../img/banner-img.webp") no-repeat;
+  background: url("/img/banner-img.webp") no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3044,7 +3025,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url("../img/blue.webp");
+  background-image: url("/img/blue.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3053,7 +3034,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url("../img/gold.webp");
+  background-image: url("/img/gold.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3062,7 +3043,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url("../img/green.webp");
+  background-image: url("/img/green.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3161,7 +3142,7 @@ body.modal-open {
 .addon-section {
   padding: 60px 0;
   background: #fef9f6;
-  background: url("../img/banner-img.webp") no-repeat;
+  background: url("/img/banner-img.webp") no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3303,7 +3284,7 @@ body.modal-open {
 }
 #ban {
   background: #f5f3ed;
-  background: #fff url("../img/waba-wbg.webp") no-repeat center center;
+  background: #fff url("/img/waba-wbg.webp") no-repeat center center;
   background-size: cover;
   position: relative;
   position: relative;
@@ -3376,7 +3357,7 @@ body.modal-open {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
   }
   #ban {
-    background: #fff url("../img/waba-mbg.webp") no-repeat center;
+    background: #fff url("/img/waba-mbg.webp") no-repeat center;
     background-size: inherit;
     position: relative;
     border-radius: 30px;
