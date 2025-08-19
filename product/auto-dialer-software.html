@@ -67,26 +67,17 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
    <!-- Google Tag Manager (optimized for LCP) -->
 <!-- Google Tag Manager -->
-<!-- Google Tag Manager (Optimized for LCP) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-
-  // Defer loading GTM until after HTML is parsed
-  function loadGTM() {
-    var gtmScript = document.createElement('script');
-    gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-M7SSPG7W';
-    gtmScript.defer = true;  // ensures it executes after parsing
-    document.head.appendChild(gtmScript);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadGTM);
-  } else {
-    loadGTM();
-  }
+<script defer>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),
+        dl=l!='dataLayer'?'&l='+l:'';
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M7SSPG7W');
 </script>
-<!-- End Google Tag Manager -->
 
 <!-- End Google Tag Manager -->
 
