@@ -991,9 +991,7 @@
                <h2>Call Management + CRM + WhatsApp Business
                </h2>
             </div>
-            <div class="row align-items-center" id="ban"
-     data-bg-desktop="/img/waba-wbg.webp"
-     data-bg-mobile="/img/waba-mbg.webp">
+            <div class="row align-items-center" id="ban">
                <div class="col-lg-5 mb-4 mb-lg-0">
                   <div class="sales-text-content">
                      <p class="section-subheading mt-3">Centralize conversations. Close deals faster.</p>
@@ -1838,7 +1836,7 @@
              if (preloader) {
                  preloader.style.opacity = '0';
                  preloader.style.transition = 'opacity 0.5s ease';
-                 setTimeout(() => (preloader.style.display = 'none'), 350);
+                 setTimeout(() => (preloader.style.display = 'none'), 50);
              }
          });
          
@@ -1882,27 +1880,6 @@
                  document.body.appendChild(script);
              }, 6000);
          });
-      </script>
-
-      <script>
-         document.addEventListener("DOMContentLoaded", function () {
-  const el = document.getElementById("ban");
-
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const bg = isMobile ? el.dataset.bgMobile : el.dataset.bgDesktop;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        el.style.backgroundImage = `url(${bg})`;
-        obs.unobserve(el);
-      }
-    });
-  });
-
-  observer.observe(el);
-});
-
       </script>
    </body>
 </html>
