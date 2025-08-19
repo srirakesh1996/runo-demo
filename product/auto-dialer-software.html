@@ -35,12 +35,18 @@
 <!-- CSS Preload + Load -->
 <link rel="preload" as="style" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
-<link rel="stylesheet" href="/css/slicknav.min.css" media="all">
+
 
 <link rel="preload" as="style" href="/css/custom.css">
 <link rel="stylesheet" href="/css/custom.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/runo.css" media="all">
 
+<!-- Preload critical CSS -->
+<link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/slicknav.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="/css/runo.css">
+  <link rel="stylesheet" href="/css/slicknav.min.css">
+</noscript>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1824,7 +1830,7 @@ window.addEventListener('load', function(){
     if(preloader){
         preloader.style.opacity = '0';
         preloader.style.transition = 'opacity 0.5s ease';
-        setTimeout(()=>preloader.style.display='none', 350);
+        setTimeout(()=>preloader.style.display='none', 50);
     }
 });
 </script>
