@@ -2718,11 +2718,24 @@ input::placeholder {
 
 .our-tesimonial-page {
   position: relative;
-  background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
-
-  padding: 20px 0px 50px 0px;
+  padding: 20px 0 50px 0;
   overflow: hidden;
+
+  /* Show gradient first */
+  background: linear-gradient(
+    180deg,
+    rgba(245, 243, 237, 0) 0%,
+    #f5f3ed 40%,
+    #f5f3ed 100%
+  );
+
+  /* Background image (loaded after preload hint) */
+  background-image: url("/img/testimonial-background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .telecaller-hero {
   position: relative;
