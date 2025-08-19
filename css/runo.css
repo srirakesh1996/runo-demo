@@ -2718,11 +2718,25 @@ input::placeholder {
 
 .our-tesimonial-page {
   position: relative;
-  background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
-
+ 
   padding: 20px 0px 50px 0px;
   overflow: hidden;
 }
+
+.our-tesimonial-page {
+  position: relative;
+  overflow: hidden;
+}
+.our-tesimonial-page .bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
 
 .telecaller-hero {
   position: relative;
