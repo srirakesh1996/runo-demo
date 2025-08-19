@@ -1936,11 +1936,41 @@
       <script src="../js/jquery.slicknav.js" defer></script>
       <script src="../js/jquery.magnific-popup.min.js" defer></script>
       <script src="../js/SmoothScroll.js" defer></script>
-      <script src="../js/SmoothScroll.js" defer></script>
-      <script src="../js/parallaxie.js" defer></script>
-      <!-- Custom JS (Deferred) -->
-      <script src="../js/function.js" ></script>
-   
+
+      
+        <script src="../js/function.js" defer ></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+  const interval = setInterval(() => {
+    const buttons = document.querySelectorAll(".runo-web-crm");
+    if (buttons.length > 0) {
+      clearInterval(interval);
+
+      const utmSource = localStorage.getItem("utm_source");
+      const utmCampaign = localStorage.getItem("utm_campaign");
+
+     // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
+
+      const baseUrl = "https://web.runo.in";
+      const params = new URLSearchParams();
+
+      if (utmSource) params.append("utm_source", utmSource);
+      if (utmCampaign) params.append("utm_campaign", utmCampaign);
+
+      const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+     // console.log("Final URL:", finalUrl); // debug
+
+      buttons.forEach((btn) => {
+        btn.href = finalUrl;
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.href = finalUrl;
+        });
+      });
+    }
+  }, 100);
+});
+   </script>
       <!-- UTM Tracker -->
       <script>
          const params = new URLSearchParams(window.location.search);

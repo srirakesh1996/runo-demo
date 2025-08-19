@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*ends */
 
 /* Send utm to web.runo.in Starts */
-
+document.addEventListener("DOMContentLoaded", function () {
   const interval = setInterval(() => {
     const buttons = document.querySelectorAll(".runo-web-crm");
 
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }, 100);
-
+});
 /* Send utm to web.runo.in ends */
 
 function submitForm(formId, formData, formToken) {
