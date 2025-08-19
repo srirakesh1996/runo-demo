@@ -215,14 +215,7 @@
          style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
-      <div class="runo-preloader">
-         <div class="runo-preloader-inner">
-            <div class="runo-spinner"></div>
-            <div class="runo-logo">
-               <img src="/img/logo.png" alt="Runo Loading">
-            </div>
-         </div>
-      </div>
+ 
       <!-- Preloader End -->
       <!-- Modal -->
       <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
@@ -1817,15 +1810,7 @@
              }
          });
          
-         window.addEventListener('load', function () {
-             const preloader = document.querySelector('.runo-preloader');
-             if (preloader) {
-                 preloader.style.opacity = '0';
-                 preloader.style.transition = 'opacity 0.5s ease';
-                 setTimeout(() => (preloader.style.display = 'none'), 350);
-             }
-         });
-         
+      
          //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
          
          window.addEventListener('load', () => {
