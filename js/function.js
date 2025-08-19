@@ -102,7 +102,7 @@
   });
 
   /* Animated Wow Js */
-  new WOW().init();
+ /* new WOW().init();*/
 
   /* Popup Video */
   if ($(".popup-video").length) {
