@@ -3369,17 +3369,17 @@ body.modal-open {
 /* Mobile (default small image) */
 @media (max-width: 768px) {
   #ban {
-    background-image: url("/img/waba-mbg-mobile.webp");
+    background-image: url("/img/waba-mbg.webp");
   }
 }
 
 /* Desktop (bigger image) */
 @media (min-width: 769px) {
   #ban {
-    background-image: url("/img/waba-mbg.webp");
+    background-image: url("/img/waba-wbg.webp");
   }
 }
-✅ B
+
 
 
   .sales-flow-image {
