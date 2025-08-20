@@ -49,16 +49,19 @@
       <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
       <!-- intl-tel-input CSS -->
-      <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
       <!-- Fallback for no-JS users -->
       <noscript>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+
       </noscript>
       <!-- jQuery -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+
       <!-- Google Tag Manager -->
       <script>
          (function (w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:''; j.defer=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M7SSPG7W');
@@ -215,7 +218,7 @@
          style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
-   <!--   <div class="runo-preloader">
+     <!-- <div class="runo-preloader">
          <div class="runo-preloader-inner">
             <div class="runo-spinner"></div>
             <div class="runo-logo">
@@ -631,7 +634,7 @@
                   </div>
                </div>
                <div class="col-lg-6">
-                  <img src="/img/auto-dialer/auto-dialer.webp" class="pro-img img-fluid" loading="lazy" alt="Runo Auto Dialer CRM">
+                  <img src="/img/auto-dialer/auto-dialer.webp" class="pro-img img-fluid" alt="Runo Auto Dialer CRM">
                </div>
             </div>
          </div>
@@ -1760,7 +1763,6 @@
          </div>
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
       <!-- Plugins (Deferred) -->
       <script src="/js/jquery.slicknav.js" defer></script>
@@ -1817,7 +1819,15 @@
              }
          });
          
-      
+       /*  window.addEventListener('load', function () {
+             const preloader = document.querySelector('.runo-preloader');
+             if (preloader) {
+                 preloader.style.opacity = '0';
+                 preloader.style.transition = 'opacity 0.5s ease';
+                 setTimeout(() => (preloader.style.display = 'none'), 350);
+             }
+         });*/
+         
          //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
          
          window.addEventListener('load', () => {

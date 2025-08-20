@@ -558,9 +558,8 @@
                <div class="row justify-content-center">
                   <div class="section-title text-center mb-40">
                      <h1>Runo Pricing & Plans</h1>
-                     <h2 style="font-size: 25px; margin-top: 15px;"> Easy to start. Easy to scale.
-                     </h2>
-                     <p>Zero Installation Cost | Zero Hidden Charges | Setup in < 30 Minutes</p>
+                     <h2 style="font-size: 25px; margin-top: 15px;">Easy to start. Easy to scale.</h2>
+                     <p>Zero Installation Cost | Zero Hidden Charges | Setup in &lt; 30 Minutes</p>
                   </div>
                   <!-- 3 Months Plan -->
                   <div class="col-md-4 mb-4 price-card">
@@ -573,15 +572,20 @@
                         <div class="card-body">
                            <div class="details">
                               <p class="tenure">Billed Quarterly</p>
-                              <h3 class="price">₹ 899</h3>
+                              <h3 class="price">
+                                 <span class="inr">₹ 899</span>
+                                 <span class="dollar">$ 18</span>
+                              </h3>
                               <p class="text-muted small">per user/month</p>
-                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 3M">Start 10-Day
-                              Free Trial</a>
+                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" 
+                                 data-label="Start 10-day free trial - Pricing 3M">
+                              Start 10-Day Free Trial
+                              </a>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <!-- 6 Months Plan - Most Popular -->
+                  <!-- 6 Months Plan -->
                   <div class="col-md-4 mb-4 price-card">
                      <div class="pricing-card h-100 text-center popular popular-card">
                         <div class="card-top-bg gold-bg position-relative">
@@ -593,14 +597,16 @@
                         <div class="card-body">
                            <div class="details">
                               <p class="tenure">Billed Half Yearly</p>
-                              <h3 class="price">₹ 699 <del class="text-muted fs-6">₹
-                                 899</del>
+                              <h3 class="price">
+                                 <span class="inr">₹ 699 <del class="text-muted fs-6">₹ 899</del></span>
+                                 <span class="dollar">$ 13 </span>
                               </h3>
                               <p class="text-muted small">per user/month</p>
                               <a class="btn-default btn-highlighted track-btn runo-web-crm"
                                  style="margin-top: -5px; position:relative !important;z-index:99 !important"
-                                 href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 6M" >Start 10-Day Free
-                              Trial</a>
+                                 href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 6M">
+                              Start 10-Day Free Trial
+                              </a>
                            </div>
                         </div>
                      </div>
@@ -616,12 +622,15 @@
                         <div class="card-body">
                            <div class="details">
                               <p class="tenure">Billed Yearly</p>
-                              <h3 class="price">₹ 599 <del class="text-muted fs-6">₹
-                                 899</del>
+                              <h3 class="price">
+                                 <span class="inr">₹ 599 <del class="text-muted fs-6">₹ 899</del></span>
+                                 <span class="dollar">$ 10 </span>
                               </h3>
                               <p class="text-muted small">per user/month</p>
-                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 12M">Start 10-Day
-                              Free Trial</a>
+                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" 
+                                 data-label="Start 10-day free trial - Pricing 12M">
+                              Start 10-Day Free Trial
+                              </a>
                            </div>
                         </div>
                      </div>
@@ -629,6 +638,30 @@
                </div>
             </div>
          </section>
+         <script>
+            jQuery(function ($) {
+                $('.dollar').hide(); // default: hide USD
+                $.ajax({
+                    url: "https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708",
+                    jsonpCallback: "callback",
+                    dataType: "json",
+                    success: function (location) {
+                        if (location.country_name === 'India') {
+                            $('.inr').show();
+                            $('.dollar').hide();
+                        } else {
+                            $('.inr').hide();
+                            $('.dollar').show();
+                        }
+                    },
+                    error: function () {
+                        // fallback to INR if API fails
+                        $('.inr').show();
+                        $('.dollar').hide();
+                    }
+                });
+            });
+         </script>
          <section class="features-section mt-70" id="features">
             <div class="container">
                <!-- Section Title -->
@@ -1351,7 +1384,7 @@
                <div class="col-6 col-md-6 col-lg-2">
                   <h6 class="text-white fw-bold mb-3">RESOURCES</h6>
                   <ul class="list-unstyled">
-                      <li><a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a></li>
+                     <li><a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a></li>
                      <li><a href="https://docs.runo.in/" class="text-light text-decoration-none d-block mb-1">API
                         Documentation</a>
                      </li>
