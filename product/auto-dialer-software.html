@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-   <title>Auto Dialer Software for SIM-Based Calling with CRM</title>
-  <meta name="description" content="Automated SIM-based auto dialer for call centers and outbound sales. Integrated with Runo CRM to boost outreach, productivity, lead tracking, and call efficiency.">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <!-- Canonical + OG -->
-  <link rel="canonical" href="https://runo.ai/product/auto-dialer-software" />
+<head>
+  <title>Auto Dialer Software for SIM-Based Calling with CRM</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="en">
+
+  <!-- Primary Meta -->
+  <meta name="description" content="Automated SIM-based auto dialer for call centers and outbound sales. Integrated with Runo CRM to boost outreach, productivity, lead tracking, and call efficiency.">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Auto Dialer Software for SIM-Based Calling with CRM">
   <meta property="og:description" content="Automated SIM-based auto dialer for call centers and outbound sales. Integrated with Runo CRM to boost outreach, productivity, lead tracking, and call efficiency.">
   <meta property="og:image" content="https://runo.ai/img/og/auto-dialer.png">
   <meta property="og:url" content="https://runo.ai/product/auto-dialer-software">
 
-  <!-- Preload LCP image -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auto Dialer Software for SIM-Based Calling with CRM">
+  <meta name="twitter:description" content="Automated SIM-based auto dialer for call centers and outbound sales. Integrated with Runo CRM to boost outreach, productivity, lead tracking, and call efficiency.">
+  <meta name="twitter:image" content="https://runo.ai/img/og/auto-dialer.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://runo.ai/product/auto-dialer-software" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
+
+  <!-- Preload LCP & critical images -->
   <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/waba-mbg.webp">
+  <link rel="preload" as="image" href="/img/background-cta.webp">
+  <link rel="preload" as="image" href="/img/testimonial-background.webp">
 
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="/css/bootstrap.min.css" as="style">
+  <!-- Bootstrap & Base CSS -->
+  <link rel="preload" as="style" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="/css/slicknav.min.css" media="all">
+  <link rel="stylesheet" href="/css/custom.css" media="all">
 
+  <!-- Critical CSS lazy load -->
   <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="/css/custom.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-  <noscript>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/runo.css">
-    <link rel="stylesheet" href="/css/custom.css">
-  </noscript>
+  <noscript><link rel="stylesheet" href="/css/runo.css"></noscript>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome (async load) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
-      <!-- Fallback for no-JS users -->
-
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'">
-
-
 
   <!-- Swiper CSS -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
 
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),
-        dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M7SSPG7W');
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M7SSPG7W');
   </script>
-
+  <!-- End GTM -->
+</head>
       <script type="application/ld+json">
          {
            "@context": "https://schema.org/",
