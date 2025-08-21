@@ -458,7 +458,17 @@
          </div>
       </header>
       <!-- Header End -->
-      <div class="telecaller-hero mb-20">
+           <div class="telecaller-hero mb-20">
+            <!-- ✅ LCP Image as <img> instead of background -->
+   <img src="/img/banner-lpimg-768.webp"
+     srcset="/img/banner-lpimg-480.webp 480w,
+             /img/banner-lpimg-768.webp 768w,
+             /img/banner-lpimg-1280.webp 1280w,
+             /img/banner-lpimg-1920.webp 1920w"
+     sizes="100vw"
+     alt="Runo SIM-based Auto Dialer CRM"
+     width="1920" height="1080"
+     fetchpriority="high" loading="eager" decoding="async" class="hero-bg-img">
          <div class="container">
             <!-- Header Start -->
             <div class="row align-items-center">
@@ -855,7 +865,22 @@
                <h2>Call Management + CRM + WhatsApp Business
                </h2>
             </div>
-            <div class="row align-items-center" id="ban">
+            <div class="row align-items-center sales-banner">
+                <!-- ✅ Background Image (desktop) -->
+         <img src="/img/waba-wbg.webp" 
+              alt="" 
+              fetchpriority="high" 
+              decoding="async" 
+              loading="eager"
+              class="sales-banner-bg d-none d-md-block">
+
+         <!-- ✅ Background Image (mobile) -->
+         <img src="/img/waba-mbg.webp" 
+              alt="" 
+              fetchpriority="high" 
+              decoding="async" 
+              loading="eager"
+              class="sales-banner-bg d-block d-md-none">
                <div class="col-lg-5 mb-4 mb-lg-0">
                   <div class="sales-text-content">
                      <p class="section-subheading mt-3">Centralize conversations. Close deals faster.</p>
@@ -1087,6 +1112,14 @@
          });
       </script>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
+          <!-- ✅ LCP Image -->
+   <img src="/img/background-cta.webp" 
+        alt="" 
+        width="1920" height="600"
+        fetchpriority="high" 
+        decoding="async" 
+        loading="eager"
+        class="cta-bg">
          <div class="container">
             <h2 class=" animate__animated animate__fadeInDown" data--delay="0.4s">
                Let your team try it. <br>See the difference.
@@ -1125,6 +1158,13 @@
       </section>
       <!-- Testimonial Section -->
       <div class="our-tesimonial-page">
+           <img src="/img/testimonial-background.webp" 
+        alt="" 
+        width="1920" height="600"
+       
+        decoding="async" 
+        loading="eager"
+        class="cta-bg">
          <div class="container">
             <!-- Section Title Row with Navigation -->
             <div class="row section-row align-items-center justify-content-between mb-4 " data--delay="0.2s">
@@ -1471,6 +1511,14 @@
          </div>
       </section>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
+          <!-- ✅ LCP Image -->
+   <img src="/img/background-cta.webp" 
+        alt="" 
+        width="1920" height="600"
+        fetchpriority="high" 
+        decoding="async" 
+        loading="eager"
+        class="cta-bg">
          <div class="container">
             <h2 class=" animate__animated animate__fadeInDown" data--delay="0.4s">
                Auto-Dial Smarter. Close Faster. <br>
