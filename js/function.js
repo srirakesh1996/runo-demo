@@ -101,6 +101,9 @@
     });
   });
 
+  /* Animated Wow Js */
+  new WOW().init();
+
   /* Popup Video */
   if ($(".popup-video").length) {
     $(".popup-video").magnificPopup({
