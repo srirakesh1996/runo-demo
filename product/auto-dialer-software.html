@@ -454,13 +454,15 @@
       <!-- Header End -->
       <div class="telecaller-hero mb-20">
             <!-- ✅ LCP Image as <img> instead of background -->
-   <img src="/img/banner-lpimg.webp" 
-        alt="Runo SIM-based Auto Dialer CRM" 
-        width="1920" height="600"
-        fetchpriority="high" 
-        decoding="async" 
-        loading="eager"
-        class="hero-bg-img">
+   <img src="/img/banner-lpimg-768.webp"
+     srcset="/img/banner-lpimg-480.webp 480w,
+             /img/banner-lpimg-768.webp 768w,
+             /img/banner-lpimg-1280.webp 1280w,
+             /img/banner-lpimg-1920.webp 1920w"
+     sizes="100vw"
+     alt="Runo SIM-based Auto Dialer CRM"
+     width="1920" height="1080"
+     fetchpriority="high" loading="eager" decoding="async" class="hero-bg-img">
          <div class="container">
             <!-- Header Start -->
             <div class="row align-items-center">
@@ -1160,7 +1162,7 @@
             <img src="/img/testimonial-background.webp" 
         alt="" 
         width="1920" height="600"
-        fetchpriority="high" 
+       
         decoding="async" 
         loading="eager"
         class="cta-bg">
@@ -1514,7 +1516,7 @@
    <img src="/img/background-cta.webp" 
         alt="" 
         width="1920" height="600"
-        fetchpriority="high" 
+    
         decoding="async" 
         loading="eager"
         class="cta-bg">
@@ -1694,6 +1696,25 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
 <script src="/js/jquery.slicknav.js" defer></script>
 <script src="/js/function.js" defer></script>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector("#phone");
+  if (input) {
+    input.addEventListener("focus", () => {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    }, { once: true });
+  }
+});
+
+requestIdleCallback(() => {
+  new Swiper(".swiper-container", { loop:true, autoplay:{delay:3000} });
+});
+
+</script>
 
 <!-- UTM + Button Handler -->
 <script>
