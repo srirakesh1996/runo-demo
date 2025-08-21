@@ -29,18 +29,7 @@
   <!-- ✅ Preload only the LCP hero image -->
   <link rel="preload" as="image" href="/img/banner-lpimg-768.webp" fetchpriority="high">
 
-  <!-- Critical CSS (above the fold: header + hero) -->
-  <style>
-    body {font-family:'Inter',sans-serif;line-height:1.4;margin:0;}
-    .main-header{position:relative;background:#fff;z-index:1000;}
-    .navbar{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;}
-    .navbar-brand img{max-width:100px;height:auto;}
-    .hero-bg-img{width:100%;height:auto;display:block;object-fit:cover;}
-    .hero-content{padding:40px 15px;}
-    .hero-content h1{font-size:28px;font-weight:800;line-height:1.2;margin:15px 0;}
-    .hero-content p{font-size:16px;margin-bottom:10px;}
-    @media(min-width:768px){.hero-content h1{font-size:38px;}}
-  </style>
+
 
   <!-- CSS: load progressively -->
   <link rel="preload" as="style" href="/css/bootstrap.min.css">
