@@ -322,6 +322,7 @@
          </div>
       </div>
       <script>
+                document.addEventListener("DOMContentLoaded", function () {
          jQuery(function ($) {
            const phoneInput = document.querySelector("#phone");
            const iti = window.intlTelInput(phoneInput, {
@@ -530,6 +531,8 @@
              submitForm("demo-form", formData, uuid);
            });
          });
+         });
+
       </script>
       <!-- Thank You Modal -->
       <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
