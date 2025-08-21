@@ -2512,11 +2512,19 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("/img/background-cta.webp") no-repeat center center;
-  background-size: cover;
+  position: relative;
   color: white;
   text-align: center;
   padding: 60px 20px;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1; /* keeps image behind text */
 }
 
 @media only screen and (max-width: 600px) {
@@ -2524,6 +2532,7 @@ label {
     padding: 40px 20px;
   }
 }
+
 
 .home-app-cta h2 {
   color: #fff !important;
@@ -2739,14 +2748,18 @@ input::placeholder {
 
 .telecaller-hero {
   position: relative;
-  padding: 10px 0px;
+  padding: 10px 0;
   overflow: hidden;
-  /* ensure pseudo-element stays contained */
-  z-index: 1;
-  background: url("/img/banner-lpimg.webp") no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
+
+.hero-bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1; /* sits behind content */
+}
+
 
 .telecaller-hero .banner-cont {
   width: 100% !important;
@@ -3354,6 +3367,33 @@ body.modal-open {
 .waba-btn .btn-plain:hover {
   background: #f44336 !important;
 }
+
+.sales-banner {
+  position: relative;
+  border-radius: 30px;
+  padding: 30px;
+  overflow: hidden; /* keep bg inside */
+  background: #fff; /* fallback */
+}
+
+.sales-banner-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 600px) {
+  .sales-banner {
+    padding: 5px;
+    margin: 10px;
+  }
+}
+
+
+
 @media only screen and (max-width: 600px) {
   .waba-btn .btn-plain {
     background: none !important;
