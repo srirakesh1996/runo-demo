@@ -60,4 +60,12 @@
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
 </url>
+
+<url>
+<loc>https://runo.ai/blog/best-mobile-crm-apps</loc>
+<lastmod>2025-08-22</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+</url>
+
 </urlset>
