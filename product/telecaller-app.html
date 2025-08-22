@@ -30,219 +30,78 @@
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="https://runo.ai/img/og/telecaller.png">
       <meta name="twitter:url" content="https://runo.ai/img/og/telecaller.png">
-            <!-- Preload LCP background image -->
-      <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp"/>
+            <!-- Preload LCP and other important images -->
+      <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp">
+      <link rel="preload" as="image" href="/img/telecaller/telecaller.webp" type="image/webp" imagesrcset="/img/telecaller/telecaller.webp 1x">
       <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
-      <link rel="preload" as="style" href="css/bootstrap.min.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
+      <!-- CSS Preload + Load -->
+      <link rel="preload" as="style" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
+      <link rel="stylesheet" href="/css/slicknav.min.css">
+      <link rel="stylesheet" href="/css/custom.css">
+      <!-- Preload critical CSS -->
+      <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript>
+         <link rel="stylesheet" href="/css/runo.css">
+      </noscript>
+      <!-- Inline Style -->
+      <style>
+         html { font-display: swap; }
+      </style>
       <!-- Google Fonts -->
-      <link
-         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-         rel="stylesheet">
-      <!-- Stylesheets -->
-      <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
-      <link rel="stylesheet" href="../css/slicknav.min.css">
-      <link rel="stylesheet" href="../css/all.min.css">
-      <link rel="stylesheet" href="../css/custom.css">
-      <link rel="stylesheet" href="../css/runo.css">
-      <!-- Animate.css and WOW.js -->
-      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>-->
-      <!-- Font Awesome (CDN) -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <!-- Swiper CSS (from CDN) -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-      <!-- Swiper JS (CDN, defer to reduce INP impact) -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <!-- intl-tel-input -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+      <!-- Font Awesome (preload + async apply) -->
+      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+      <!-- Swiper CSS -->
+      <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
+      <!-- intl-tel-input CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+      <!-- Fallback for no-JS users -->
+      <noscript>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+      </noscript>
+      <!-- jQuery (can be moved before </body> if not critical) -->
+      <script src="/js/jquery-3.7.1.min.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
       <!-- Google Tag Manager -->
-      <script>(function (w, d, s, l, i) {
-         w[l] = w[l] || []; w[l].push({
-             'gtm.start':
-                 new Date().getTime(), event: 'gtm.js'
-         }); var f = d.getElementsByTagName(s)[0],
-             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-         })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
+      <script>
+         window.addEventListener("load", function() {
+           if (window.gtmDidInit) return;
+           window.gtmDidInit = true;
+         
+           function loadGTM(){
+             (function(w,d,s,l,i){
+               w[l]=w[l]||[];
+               w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+               var f=d.getElementsByTagName(s)[0],
+                   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+               j.async=true;
+               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+               f.parentNode.insertBefore(j,f);
+             })(window,document,'script','dataLayer','GTM-M7SSPG7W');
+           }
+         
+           if (window.requestIdleCallback) {
+             requestIdleCallback(loadGTM, {timeout: 3500});
+           } else {
+             setTimeout(loadGTM, 3500);
+           }
+         });
       </script>
       <!-- End Google Tag Manager -->
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org/",
-           "@type": "Product",
-           "name": "Telecaller App with Built-In CRM",
-           "image": [
-             "https://runo.ai/img/telecaller/telecaller.webp"
-           ],
-           "description": "AI-powered Telecaller App with auto dialer, lead management, call tracking, and CRM integration. It helps telecallers boost productivity and stay on top of every lead from their mobile device.",
-           "brand": {
-             "@type": "Brand",
-             "name": "Runo"
-           },
-           "url": "https://runo.ai/product/telecaller-app",
-           "offers": {
-             "@type": "Offer",
-             "url": "https://runo.ai/pricing",
-             "priceCurrency": "INR",
-             "price": "599",
-             "itemCondition": "https://schema.org/NewCondition",
-             "availability": "https://schema.org/InStock"
-           },
-           "aggregateRating": {
-             "@type": "AggregateRating",
-             "ratingValue": "4.7",
-             "reviewCount": "1882"
-           }
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "BreadcrumbList",
-           "itemListElement": [
-             {
-               "@type": "ListItem",
-               "position": 1,
-               "name": "Home",
-               "item": "https://runo.ai/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 2,
-               "name": "Products",
-               "item": "https://runo.ai/product/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 3,
-               "name": "Telecaller App",
-               "item": "https://runo.ai/product/telecaller-app"
-             }
-           ]
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "FAQPage",
-           "mainEntity": [
-             {
-               "@type": "Question",
-               "name": "What is a SIM-based telecaller app?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "A SIM-based telecaller app allows your team to make business calls using their phone’s SIM card. It also helps manage leads, track calls, and follow up with prospects, all from within the app, without relying on cloud telephony."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does Runo work for telecalling?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo lets agents call from their own SIM, update lead details, get follow-up reminders, and log calls. Managers can track performance and call activity in real time."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How is this different from cloud or VoIP apps?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Cloud or VoIP apps rely on internet-based calling using virtual or masked numbers, which often get flagged or ignored by customers. Runo uses your team’s actual SIM numbers, so calls appear like regular mobile calls and are more likely to be answered. Unlike cloud systems, Runo doesn’t need internet, PBX, or complex setup. It works directly from your phone, with better call quality and higher connect rates."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I track outgoing and incoming calls?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo tracks and logs both outgoing and incoming calls made through the app."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Does it support call recording?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. All calls are automatically recorded and stored securely for future reference."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Does Runo offer CRM integration?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo has a built-in CRM and also integrates with tools like Zoho, LeadSquared, and others."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I monitor agent performance?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. You can view call activity, follow-up progress, and live agent status in one dashboard."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Is this suitable for remote or field teams?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo works anywhere your SIM works, making it perfect for remote and on-the-go teams."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I automate follow-ups or reminders?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "The app automatically reminds agents when it’s time to follow up on leads."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Is my call data secure?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo encrypts and protects all call logs, recordings, and lead data."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Who is this app meant for?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo is ideal for any business that depends on telecalling, including sales teams, customer support teams, and telecalling agencies in industries like real estate, finance, education, and healthcare."
-               }
-             }
-           ]
-         }
-         
-      </script>
    </head>
+ 
    <body>
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0"
          style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
-      <div class="runo-preloader">
-         <div class="runo-preloader-inner">
-            <div class="runo-spinner"></div>
-            <div class="runo-logo">
-               <img src="../img/logo.png" alt="Runo Loading">
-            </div>
-         </div>
-      </div>
+    
       <!-- Preloader End -->
       <!-- Modal -->
       <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
@@ -308,216 +167,7 @@
             </div>
          </div>
       </div>
-      <script>
-         jQuery(function ($) {
-           const phoneInput = document.querySelector("#phone");
-           const iti = window.intlTelInput(phoneInput, {
-             initialCountry: "auto", // <-- add this line
-             geoIpLookup: function (callback) {
-         
-               fetch('https://ipapi.co/json/')
-                 .then(res => {
-         
-                   return res.json();
-                 })
-                 .then(data => {
-         
-                   const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
-         
-                   callback(countryCode);
-                 })
-                 .catch(err => {
-                   console.error("geoIpLookup error:", err);
-                   callback('in');
-                 });
-             },
-             separateDialCode: true,
-             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
-           });
-         
-           const fakeNumbers = [
-             "1234567890", "0000000000", "1111111111", "2222222222",
-             "3333333333", "4444444444", "5555555555", "6666666666",
-             "7777777777", "8888888888", "9999999999"
-           ];
-           const countryLengthMap = {
-             in: [10],
-             ae: [9],
-             us: [10],
-             ca: [10],
-             gb: [10, 11],
-             sa: [9],
-             ph: [10],
-             id: [10, 11],
-             sg: [8],
-             au: [9],
-             nz: [8, 9],
-             pk: [10],
-             bd: [10],
-             lk: [9],
-             ng: [10, 11],
-             ke: [9],
-             za: [9, 10],
-             my: [9, 10],
-             th: [9, 10],
-             vn: [9, 10],
-             kr: [9, 10, 11],
-             jp: [10, 11],
-             cn: [11],
-             hk: [8],
-             tw: [9, 10],
-             de: [10, 11],
-             fr: [9, 10],
-             it: [10],
-             es: [9],
-             br: [10, 11],
-             mx: [10],
-             ar: [10, 11],
-             ru: [10],
-             tr: [10],
-             eg: [10, 11],
-             iq: [10],
-             gt: [8]
-           };
-         
-           function getMaxLengthForCountry() {
-             const countryCode = iti.getSelectedCountryData().iso2;
-             const allowedLengths = countryLengthMap[countryCode];
-             return allowedLengths ? Math.max(...allowedLengths) : 15;
-           }
-           let phoneTouched = false;
-         
-           $("#phone").on("focus input", function () {
-             phoneTouched = true;
-             validatePhone();
-           });
-         
-         
-           phoneInput.addEventListener("input", () => {
-             phoneInput.value = phoneInput.value.replace(/\D/g, "");
-             const maxLength = getMaxLengthForCountry();
-             if (phoneInput.value.length > maxLength) {
-               phoneInput.value = phoneInput.value.slice(0, maxLength);
-             }
-             validatePhone();
-           });
-         
-           phoneInput.addEventListener("countrychange", () => {
-             const maxLength = getMaxLengthForCountry();
-             phoneInput.value = phoneInput.value.slice(0, maxLength);
-             validatePhone();
-           });
-         
-           function validateName() {
-             const val = $("#name").val().trim();
-             if (!val || val.length > 30) {
-               $("#nameError").removeClass("d-none");
-               return false;
-             }
-             $("#nameError").addClass("d-none");
-             return true;
-           }
-         function validateCompName() {
-             const val = $("#comp_name").val().trim();
-             if (!val || val.length > 30) {
-               $("#comp_nameError").removeClass("d-none");
-               return false;
-             }
-             $("#comp_nameError").addClass("d-none");
-             return true;
-           }
-         
-           function validateEmail() {
-             const val = $("#email").val().trim();
-             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-             if (!val || !emailPattern.test(val)) {
-               $("#emailError").removeClass("d-none");
-               return false;
-             }
-             $("#emailError").addClass("d-none");
-             return true;
-           }
-         
-           function validatePhone() {
-             const phoneNational = phoneInput.value;
-             const selectedCountry = iti.getSelectedCountryData().iso2;
-             const validLengths = countryLengthMap[selectedCountry];
-             if (!phoneTouched) {
-               $("#phoneError").addClass("d-none");
-               return false;
-             }
-             if (!iti.isValidNumber()) {
-               $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-               return false;
-             }
-         
-             if (fakeNumbers.includes(phoneNational)) {
-               $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-               return false;
-             }
-         
-             if (validLengths && !validLengths.includes(phoneNational.length)) {
-               $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
-               return false;
-             }
-         
-             $("#phoneError").addClass("d-none");
-             return true;
-           }
-         
-           function validateAgents() {
-             if (!$("#agents").val()) {
-               $("#agentsError").removeClass("d-none");
-               return false;
-             }
-             $("#agentsError").addClass("d-none");
-             return true;
-           }
-         
-            function validateKnowruno() {
-             if (!$("#know_runo").val()) {
-               $("#knowError").removeClass("d-none");
-               return false;
-             }
-             $("#knowError").addClass("d-none");
-             return true;
-           }
-         
-           $("#name").on("input", validateName);
-           $("#email").on("input", validateEmail);
-           $("#phone").on("input", validatePhone);
-           $("#comp_name").on("input", validateCompName);
-           $("#agents").on("change", validateAgents);
-           $("#know_runo").on("change", validateKnowruno);
-         
-           $("#demo-form").on("submit", function (event) {
-             event.preventDefault();
-         
-             const validName = validateName();
-             const validEmail = validateEmail();
-             const validPhone = validatePhone();
-             const validCompName = validateCompName();
-             const validAgents = validateAgents();
-             const validKnowruno=validateKnowruno();
-         
-             if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
-               return;
-             }
-         
-             const formData = $(this).serializeArray().reduce(function (obj, item) {
-               obj[item.name] = item.value;
-               return obj;
-             }, {});
-         
-             formData["your_phone"] = iti.getNumber(); // international format
-             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
-             
-             const uuid = $(this).data("uuid");
-         
-             submitForm("demo-form", formData, uuid);
-           });
-         });
-      </script>
+
       <!-- Thank You Modal -->
       <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
@@ -654,9 +304,15 @@
                      </div>
                   </div>
                </div>
-               <div class="col-lg-6">
-                  <img src="../img/telecaller/telecaller.webp" class="pro-img img-fluid"  loading="lazy" alt="Runo Telecaller CRM">
+                  <div class="col-lg-6">
+                  <img src="/img/telecaller/telecaller.webp"
+                     class="pro-img img-fluid"
+                     width="600" height="450"
+                     alt="Runo Telecaller CRM"
+                     fetchpriority="high"
+                     decoding="async">
                </div>
+
             </div>
          </div>
       </div>
@@ -1249,7 +905,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/8.webp" class="img-fluid" alt="AI Call Summaries">
+                     <img src="../img/feature/8.webp" class="img-fluid" alt="AI Call Summaries" loading="lazy">
                   </div>
                </div>
                <!-- Feature 3 -->
@@ -1262,7 +918,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/5.webp" class="img-fluid" alt="AI Sentiment Analysis">
+                     <img src="../img/feature/5.webp" class="img-fluid" alt="AI Sentiment Analysis" loading="lazy">
                   </div>
                </div>
                <!-- Feature 4 -->
@@ -1275,7 +931,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/mom.webp" class="img-fluid" alt="Meeting Notes (MoM)">
+                     <img src="../img/feature/mom.webp" class="img-fluid" alt="Meeting Notes (MoM)" loading="lazy">
                   </div>
                </div>
                <!-- Feature 5 -->
@@ -1288,7 +944,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/agent-customer.webp" class="img-fluid" alt="Agent-Customer Talk Ratio">
+                     <img src="../img/feature/agent-customer.webp" class="img-fluid" alt="Agent-Customer Talk Ratio" loading="lazy">
                   </div>
                </div>
                <!-- Feature 6 -->
@@ -1301,7 +957,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/call-quality.webp" class="img-fluid" alt="Call Quality Scoring">
+                     <img src="../img/feature/call-quality.webp" class="img-fluid" alt="Call Quality Scoring"  loading="lazy">
                   </div>
                </div>
                <!-- Feature 7 -->
@@ -1314,7 +970,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/4.webp" class="img-fluid" alt="AI Assistant">
+                     <img src="../img/feature/4.webp" class="img-fluid" alt="AI Assistant" loading="lazy">
                   </div>
                </div>
             </div>
@@ -1334,7 +990,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/8.webp" class="card-img-top img-fluid mb-3" alt="AI Call Summaries">
+                  <img src="../img/feature/8.webp" class="card-img-top img-fluid mb-3" alt="AI Call Summaries" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">AI Call Summaries</h5>
                      <p class="feat-text">View the key highlights from each call. Quickly understand
@@ -1344,7 +1000,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/5.webp" class="card-img-top img-fluid mb-3" alt="Sentiment Analysis">
+                  <img src="../img/feature/5.webp" class="card-img-top img-fluid mb-3" alt="Sentiment Analysis" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">Sentiment Analysis</h5>
                      <p class="feat-text">See whether a call went positively or negatively. Spot
@@ -1354,7 +1010,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/mom.webp" class="card-img-top img-fluid mb-3" alt="Meeting Notes (MoM)">
+                  <img src="../img/feature/mom.webp" class="card-img-top img-fluid mb-3" alt="Meeting Notes (MoM)" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">Meeting Notes (MoM)</h5>
                      <p class="feat-text">Captures key takeaways, urgency level, and action items
@@ -1364,7 +1020,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/agent-customer.webp" class="card-img-top img-fluid mb-3"
+                  <img src="../img/feature/agent-customer.webp" class="card-img-top img-fluid mb-3" loading="lazy"
                      alt="Agent-Customer Talk Ratio">
                   <div class="card-body">
                      <h5 class="card-title">Agent-Customer Talk Ratio</h5>
@@ -1375,7 +1031,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/call-quality.webp" class="card-img-top img-fluid mb-3"
+                  <img src="../img/feature/call-quality.webp" class="card-img-top img-fluid mb-3" loading="lazy"
                      alt="Call Quality Scoring">
                   <div class="card-body">
                      <h5 class="card-title">Call Quality Scoring</h5>
@@ -1386,7 +1042,7 @@
                   </div>
                </div>
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/4.webp" class="card-img-top img-fluid mb-3" alt="AI Assistant">
+                  <img src="../img/feature/4.webp" class="card-img-top img-fluid mb-3" alt="AI Assistant" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">AI Sales Assistant </h5>
                      <p class="feat-text">Runo's AI Sales Assistant leverages LLMs and proprietary
@@ -1413,7 +1069,7 @@
          </div>
       </section>
       <!-- Testimonial Section -->
-      <div class="our-tesimonial-page mt-space" style="background:url('../img/testimonial-background.webp') !important">
+      <div class="our-tesimonial-page">
          <div class="container">
             <!-- Section Title Row with Navigation -->
             <div class="row section-row align-items-center justify-content-between mb-4 " data--delay="0.2s">
@@ -1774,8 +1430,8 @@
                </h2>
             </div>
             <!-- Right Image -->
-            <div class="col-md-5 text-md-end text-center security-badges">s
-               <img src="../img/security.webp" alt="ISO Badge" class="img-fluid">
+            <div class="col-md-5 text-md-end text-center security-badges">
+               <img src="../img/security.webp" loading="lazy" alt="ISO Badge" class="img-fluid">
             </div>
          </div>
       </section>
@@ -2051,8 +1707,381 @@
                      });
                  };
                  document.body.appendChild(script);
-             }, 6000);
+             }, 10000);
          });
+      </script>
+
+      <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                jQuery(function ($) {
+           const phoneInput = document.querySelector("#phone");
+           const iti = window.intlTelInput(phoneInput, {
+             initialCountry: "auto", // <-- add this line
+             geoIpLookup: function (callback) {
+         
+               fetch('https://ipapi.co/json/')
+                 .then(res => {
+         
+                   return res.json();
+                 })
+                 .then(data => {
+         
+                   const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
+         
+                   callback(countryCode);
+                 })
+                 .catch(err => {
+                   console.error("geoIpLookup error:", err);
+                   callback('in');
+                 });
+             },
+             separateDialCode: true,
+             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
+           });
+         
+           const fakeNumbers = [
+             "1234567890", "0000000000", "1111111111", "2222222222",
+             "3333333333", "4444444444", "5555555555", "6666666666",
+             "7777777777", "8888888888", "9999999999"
+           ];
+           const countryLengthMap = {
+             in: [10],
+             ae: [9],
+             us: [10],
+             ca: [10],
+             gb: [10, 11],
+             sa: [9],
+             ph: [10],
+             id: [10, 11],
+             sg: [8],
+             au: [9],
+             nz: [8, 9],
+             pk: [10],
+             bd: [10],
+             lk: [9],
+             ng: [10, 11],
+             ke: [9],
+             za: [9, 10],
+             my: [9, 10],
+             th: [9, 10],
+             vn: [9, 10],
+             kr: [9, 10, 11],
+             jp: [10, 11],
+             cn: [11],
+             hk: [8],
+             tw: [9, 10],
+             de: [10, 11],
+             fr: [9, 10],
+             it: [10],
+             es: [9],
+             br: [10, 11],
+             mx: [10],
+             ar: [10, 11],
+             ru: [10],
+             tr: [10],
+             eg: [10, 11],
+             iq: [10],
+             gt: [8]
+           };
+         
+           function getMaxLengthForCountry() {
+             const countryCode = iti.getSelectedCountryData().iso2;
+             const allowedLengths = countryLengthMap[countryCode];
+             return allowedLengths ? Math.max(...allowedLengths) : 15;
+           }
+           let phoneTouched = false;
+         
+           $("#phone").on("focus input", function () {
+             phoneTouched = true;
+             validatePhone();
+           });
+         
+         
+           phoneInput.addEventListener("input", () => {
+             phoneInput.value = phoneInput.value.replace(/\D/g, "");
+             const maxLength = getMaxLengthForCountry();
+             if (phoneInput.value.length > maxLength) {
+               phoneInput.value = phoneInput.value.slice(0, maxLength);
+             }
+             validatePhone();
+           });
+         
+           phoneInput.addEventListener("countrychange", () => {
+             const maxLength = getMaxLengthForCountry();
+             phoneInput.value = phoneInput.value.slice(0, maxLength);
+             validatePhone();
+           });
+         
+           function validateName() {
+             const val = $("#name").val().trim();
+             if (!val || val.length > 30) {
+               $("#nameError").removeClass("d-none");
+               return false;
+             }
+             $("#nameError").addClass("d-none");
+             return true;
+           }
+         function validateCompName() {
+             const val = $("#comp_name").val().trim();
+             if (!val || val.length > 30) {
+               $("#comp_nameError").removeClass("d-none");
+               return false;
+             }
+             $("#comp_nameError").addClass("d-none");
+             return true;
+           }
+         
+           function validateEmail() {
+             const val = $("#email").val().trim();
+             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+             if (!val || !emailPattern.test(val)) {
+               $("#emailError").removeClass("d-none");
+               return false;
+             }
+             $("#emailError").addClass("d-none");
+             return true;
+           }
+         
+           function validatePhone() {
+             const phoneNational = phoneInput.value;
+             const selectedCountry = iti.getSelectedCountryData().iso2;
+             const validLengths = countryLengthMap[selectedCountry];
+             if (!phoneTouched) {
+               $("#phoneError").addClass("d-none");
+               return false;
+             }
+             if (!iti.isValidNumber()) {
+               $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+               return false;
+             }
+         
+             if (fakeNumbers.includes(phoneNational)) {
+               $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+               return false;
+             }
+         
+             if (validLengths && !validLengths.includes(phoneNational.length)) {
+               $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
+               return false;
+             }
+         
+             $("#phoneError").addClass("d-none");
+             return true;
+           }
+         
+           function validateAgents() {
+             if (!$("#agents").val()) {
+               $("#agentsError").removeClass("d-none");
+               return false;
+             }
+             $("#agentsError").addClass("d-none");
+             return true;
+           }
+         
+            function validateKnowruno() {
+             if (!$("#know_runo").val()) {
+               $("#knowError").removeClass("d-none");
+               return false;
+             }
+             $("#knowError").addClass("d-none");
+             return true;
+           }
+         
+           $("#name").on("input", validateName);
+           $("#email").on("input", validateEmail);
+           $("#phone").on("input", validatePhone);
+           $("#comp_name").on("input", validateCompName);
+           $("#agents").on("change", validateAgents);
+           $("#know_runo").on("change", validateKnowruno);
+         
+           $("#demo-form").on("submit", function (event) {
+             event.preventDefault();
+         
+             const validName = validateName();
+             const validEmail = validateEmail();
+             const validPhone = validatePhone();
+             const validCompName = validateCompName();
+             const validAgents = validateAgents();
+             const validKnowruno=validateKnowruno();
+         
+             if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+               return;
+             }
+         
+             const formData = $(this).serializeArray().reduce(function (obj, item) {
+               obj[item.name] = item.value;
+               return obj;
+             }, {});
+         
+             formData["your_phone"] = iti.getNumber(); // international format
+             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
+             
+             const uuid = $(this).data("uuid");
+         
+             submitForm("demo-form", formData, uuid);
+           });
+         });
+          });
+      </script>
+
+
+
+
+
+
+
+
+        <script type="application/ld+json">
+         {
+           "@context": "https://schema.org/",
+           "@type": "Product",
+           "name": "Telecaller App with Built-In CRM",
+           "image": [
+             "https://runo.ai/img/telecaller/telecaller.webp"
+           ],
+           "description": "AI-powered Telecaller App with auto dialer, lead management, call tracking, and CRM integration. It helps telecallers boost productivity and stay on top of every lead from their mobile device.",
+           "brand": {
+             "@type": "Brand",
+             "name": "Runo"
+           },
+           "url": "https://runo.ai/product/telecaller-app",
+           "offers": {
+             "@type": "Offer",
+             "url": "https://runo.ai/pricing",
+             "priceCurrency": "INR",
+             "price": "599",
+             "itemCondition": "https://schema.org/NewCondition",
+             "availability": "https://schema.org/InStock"
+           },
+           "aggregateRating": {
+             "@type": "AggregateRating",
+             "ratingValue": "4.7",
+             "reviewCount": "1882"
+           }
+         }
+      </script>
+      <script type="application/ld+json">
+         {
+           "@context": "https://schema.org",
+           "@type": "BreadcrumbList",
+           "itemListElement": [
+             {
+               "@type": "ListItem",
+               "position": 1,
+               "name": "Home",
+               "item": "https://runo.ai/"
+             },
+             {
+               "@type": "ListItem",
+               "position": 2,
+               "name": "Products",
+               "item": "https://runo.ai/product/"
+             },
+             {
+               "@type": "ListItem",
+               "position": 3,
+               "name": "Telecaller App",
+               "item": "https://runo.ai/product/telecaller-app"
+             }
+           ]
+         }
+      </script>
+      <script type="application/ld+json">
+         {
+           "@context": "https://schema.org",
+           "@type": "FAQPage",
+           "mainEntity": [
+             {
+               "@type": "Question",
+               "name": "What is a SIM-based telecaller app?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "A SIM-based telecaller app allows your team to make business calls using their phone’s SIM card. It also helps manage leads, track calls, and follow up with prospects, all from within the app, without relying on cloud telephony."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How does Runo work for telecalling?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Runo lets agents call from their own SIM, update lead details, get follow-up reminders, and log calls. Managers can track performance and call activity in real time."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How is this different from cloud or VoIP apps?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Cloud or VoIP apps rely on internet-based calling using virtual or masked numbers, which often get flagged or ignored by customers. Runo uses your team’s actual SIM numbers, so calls appear like regular mobile calls and are more likely to be answered. Unlike cloud systems, Runo doesn’t need internet, PBX, or complex setup. It works directly from your phone, with better call quality and higher connect rates."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Can I track outgoing and incoming calls?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo tracks and logs both outgoing and incoming calls made through the app."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Does it support call recording?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. All calls are automatically recorded and stored securely for future reference."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Does Runo offer CRM integration?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo has a built-in CRM and also integrates with tools like Zoho, LeadSquared, and others."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Can I monitor agent performance?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. You can view call activity, follow-up progress, and live agent status in one dashboard."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Is this suitable for remote or field teams?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo works anywhere your SIM works, making it perfect for remote and on-the-go teams."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Can I automate follow-ups or reminders?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "The app automatically reminds agents when it’s time to follow up on leads."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Is my call data secure?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo encrypts and protects all call logs, recordings, and lead data."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Who is this app meant for?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Runo is ideal for any business that depends on telecalling, including sales teams, customer support teams, and telecalling agencies in industries like real estate, finance, education, and healthcare."
+               }
+             }
+           ]
+         }
+         
       </script>
    </body>
 </html>
