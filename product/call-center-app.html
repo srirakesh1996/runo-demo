@@ -35,18 +35,16 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <!-- Preload LCP and other important images -->
-      <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp">
-      <link rel="preload" as="image" href="/img/auto-dialer/auto-dialer.webp" type="image/webp" imagesrcset="/img/auto-dialer/auto-dialer.webp 1x">
-      <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
-
+      <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp">
+      <link rel="preload" as="image" href="../img/call-center/call-center.webp" type="image/webp" imagesrcset="../img/call-center/call-center.webp 1x">
        <style>
          html { font-display: swap; }
       </style>
       <!-- Google Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
       
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
       <!-- CSS Preload + Load -->
       <link rel="preload" as="style" href="/css/bootstrap.min.css">
       <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
@@ -58,7 +56,6 @@
          <link rel="stylesheet" href="/css/runo.css">
       </noscript>
       <!-- Inline Style -->
-     
       <!-- Font Awesome (preload + async apply) -->
       <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -711,7 +708,7 @@
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img src="/img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation">
+                  <img loading="lazy" src="/img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation">
                   <h5>Lead Auto Allocation</h5>
                   <p class="feat-text">Assign leads instantly based on source, region, or
                      rules you set.
@@ -730,7 +727,7 @@
                   <p class="feat-text">No switching between tools, CRM is built right in.</p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
+                  <img loading="lazy" src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
                   <h5>Live Agent Status</h5>
                   <p class="feat-text">Know who’s active, available, or idle at any given
                      moment.
@@ -1585,43 +1582,43 @@
             </div>
          </div>
       </footer>
-      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
       <!-- Plugins (Deferred) -->
       <script src="/js/jquery.slicknav.js" defer></script>
       <script src="/js/function.js" defer ></script>
-   <script>
-      document.addEventListener("DOMContentLoaded", function () {
-  const interval = setInterval(() => {
-    const buttons = document.querySelectorAll(".runo-web-crm");
-    if (buttons.length > 0) {
-      clearInterval(interval);
-
-      const utmSource = localStorage.getItem("utm_source");
-      const utmCampaign = localStorage.getItem("utm_campaign");
-
-     // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
-
-      const baseUrl = "https://web.runo.in";
-      const params = new URLSearchParams();
-
-      if (utmSource) params.append("utm_source", utmSource);
-      if (utmCampaign) params.append("utm_campaign", utmCampaign);
-
-      const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
-     // console.log("Final URL:", finalUrl); // debug
-
-      buttons.forEach((btn) => {
-        btn.href = finalUrl;
-        btn.addEventListener("click", function (e) {
-          e.preventDefault();
-          window.location.href = finalUrl;
-        });
-      });
-    }
-  }, 100);
-});
-   </script>
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+         const interval = setInterval(() => {
+         const buttons = document.querySelectorAll(".runo-web-crm");
+         if (buttons.length > 0) {
+         clearInterval(interval);
+         
+         const utmSource = localStorage.getItem("utm_source");
+         const utmCampaign = localStorage.getItem("utm_campaign");
+         
+         // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
+         
+         const baseUrl = "https://web.runo.in";
+         const params = new URLSearchParams();
+         
+         if (utmSource) params.append("utm_source", utmSource);
+         if (utmCampaign) params.append("utm_campaign", utmCampaign);
+         
+         const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+         // console.log("Final URL:", finalUrl); // debug
+         
+         buttons.forEach((btn) => {
+           btn.href = finalUrl;
+           btn.addEventListener("click", function (e) {
+             e.preventDefault();
+             window.location.href = finalUrl;
+           });
+         });
+         }
+         }, 100);
+         });
+      </script>
       <!-- UTM Tracker -->
       <script>
          const params = new URLSearchParams(window.location.search);
@@ -1641,14 +1638,14 @@
              }
          });
          
-         window.addEventListener('load', function () {
+         /*  window.addEventListener('load', function () {
              const preloader = document.querySelector('.runo-preloader');
              if (preloader) {
                  preloader.style.opacity = '0';
                  preloader.style.transition = 'opacity 0.5s ease';
                  setTimeout(() => (preloader.style.display = 'none'), 350);
              }
-         });
+         });*/
          
          //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
          
