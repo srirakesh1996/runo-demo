@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
       <title>Call Center App for Sales Calling with CRM & Tracking</title>
       <meta name="description"
          content="AI-powered call center app for outbound sales teams, with mobile CRM, automated dialer, call recording, agent tracking, and lead management for call centers.">
@@ -15,9 +18,7 @@
       <meta name="twitter:description"
          content="AI-powered call center app for outbound sales teams, with mobile CRM, automated dialer, call recording, agent tracking, and lead management for call centers.">
       <link rel="canonical" href="https://runo.ai/product/call-center-app" />
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+     
       <!-- SEO Meta -->
       <meta name="robots" content="index, follow">
       <!-- changed from no-index -->
@@ -30,212 +31,75 @@
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:image" content="https://runo.ai/img/og/call-center.png">
       <meta name="twitter:url" content="https://runo.ai/img/og/call-center.png">
-            <!-- Preload LCP background image -->
-      <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp"/>
-      <!-- Favicon -->
-      <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16">
-      <link rel="preload" as="style" href="css/bootstrap.min.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+       <!-- Preconnect (critical for fonts & GTM) -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Preload LCP and other important images -->
+      <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp">
+      <link rel="preload" as="image" href="/img/auto-dialer/auto-dialer.webp" type="image/webp" imagesrcset="/img/auto-dialer/auto-dialer.webp 1x">
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
+      <!-- CSS Preload + Load -->
+      <link rel="preload" as="style" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/bootstrap.min.css" media="all">
+      <link rel="stylesheet" href="/css/slicknav.min.css">
+      <link rel="stylesheet" href="/css/custom.css">
+      <!-- Preload critical CSS -->
+      <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript>
+         <link rel="stylesheet" href="/css/runo.css">
+      </noscript>
+      <!-- Inline Style -->
+      <style>
+         html { font-display: swap; }
+      </style>
       <!-- Google Fonts -->
-      <link
-         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-         rel="stylesheet">
-      <!-- Stylesheets -->
-      <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
-      <link rel="stylesheet" href="../css/slicknav.min.css">
-      <link rel="stylesheet" href="../css/all.min.css">
-      <link rel="stylesheet" href="../css/custom.css">
-      <link rel="stylesheet" href="../css/runo.css">
-      <!-- Animate.css and WOW.js -->
-      <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>-->
-      <!-- Font Awesome (CDN) -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <!-- Swiper CSS (from CDN) -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-      <!-- Swiper JS (CDN, defer to reduce INP impact) -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <!-- intl-tel-input -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+      <!-- Font Awesome (preload + async apply) -->
+      <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+      <!-- Swiper CSS -->
+      <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'">
+      <!-- intl-tel-input CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css">
+      <!-- Fallback for no-JS users -->
+      <noscript>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+      </noscript>
+      <!-- jQuery (can be moved before </body> if not critical) -->
+      <script src="/js/jquery-3.7.1.min.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
       <!-- Google Tag Manager -->
-      <script>(function (w, d, s, l, i) {
-         w[l] = w[l] || []; w[l].push({
-             'gtm.start':
-                 new Date().getTime(), event: 'gtm.js'
-         }); var f = d.getElementsByTagName(s)[0],
-             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-         })(window, document, 'script', 'dataLayer', 'GTM-M7SSPG7W');
-      </script>
-      <!-- End Google Tag Manager -->
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org/",
-           "@type": "Product",
-           "name": "Call Center CRM App",
-           "image": [
-             "https://runo.ai/img/call-center/call-center.webp"
-           ],
-           "description": "AI-powered Call Center App with auto dialer, call recording, agent tracking, and lead management. It equips teams to handle outbound and inbound calls efficiently from a single mobile app.",
-           "brand": {
-             "@type": "Brand",
-             "name": "Runo"
-           },
-           "url": "https://runo.ai/product/call-center-app",
-           "offers": {
-             "@type": "Offer",
-             "url": "https://runo.ai/pricing",
-             "priceCurrency": "INR",
-             "price": "599",
-             "itemCondition": "https://schema.org/NewCondition",
-             "availability": "https://schema.org/InStock"
-           },
-           "aggregateRating": {
-             "@type": "AggregateRating",
-             "ratingValue": "4.7",
-             "reviewCount": "1882"
-           }
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "BreadcrumbList",
-           "itemListElement": [
-             {
-               "@type": "ListItem",
-               "position": 1,
-               "name": "Home",
-               "item": "https://runo.ai/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 2,
-               "name": "Products",
-               "item": "https://runo.ai/product/"
-             },
-             {
-               "@type": "ListItem",
-               "position": 3,
-               "name": "Call Center App",
-               "item": "https://runo.ai/product/call-center-app"
-             }
-           ]
-         }
-      </script>
-      <script type="application/ld+json">
-         {
-           "@context": "https://schema.org",
-           "@type": "FAQPage",
-           "mainEntity": [
-             {
-               "@type": "Question",
-               "name": "What is a call center app?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "A call center app helps teams manage outbound or inbound calls, assign leads, track agent performance, and handle follow-ups. It brings calling and CRM workflows together in one place."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does Runo work for call centers?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo is a SIM-based call center app that works on mobile devices. It lets your team make and track calls, manage leads, record conversations, and monitor performance without using cloud telephony or PBX systems."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Does the app support call tracking and analytics?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo provides real-time call logs, daily summaries, and detailed insights so you can monitor team activity and call outcomes."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I record calls using Runo?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Every call is automatically recorded and saved securely. You can use recordings for training, audits, or compliance."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does the auto-dialer work?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "The auto-dialer queues up the next number for each rep, so they don’t waste time dialing manually. It helps speed up outreach and keeps the team focused."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How does lead management work in the app?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo captures leads from multiple sources and auto-assigns them to the right reps. Each lead is tracked in real time with status updates, notes, and reminders."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Can I integrate this app with other business tools?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo integrates with Google Sheets, popular CRMs, and other tools your team already uses."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Does the app support WhatsApp integration?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. You can send pre-approved WhatsApp templates directly from within Runo alongside your calls and emails."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "How easy is it to connect with my existing CRM?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Very easy. Runo supports plug-and-play CRM integrations, so you can connect your system without needing technical help."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Is the app secure and compliant with regulations?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. Runo supports DNC scrubbing, call logging, access controls, and more to help you stay compliant and protect customer data."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Is there a free trial available?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Yes. You can try Runo free for 10 days with full access to all features. No credit card required."
-               }
-             },
-             {
-               "@type": "Question",
-               "name": "Who is this SIM-based call center app for?",
-               "acceptedAnswer": {
-                 "@type": "Answer",
-                 "text": "Runo is designed for businesses that rely on outbound calling to connect with leads and customers, especially those looking to improve their call pickup rates and reduce operational complexity. It’s a perfect fit for SMBs, distributed teams, and industries like real estate, finance, healthcare, and education. Unlike cloud telephony systems that use virtual numbers, Runo uses your team’s actual SIM-based numbers, which show up as real caller IDs—leading to higher answer rates and fewer drop-offs."
-               }
-             }
-           ]
-         }
+      <script>
+         window.addEventListener("load", function() {
+           if (window.gtmDidInit) return;
+           window.gtmDidInit = true;
          
-      </script>
+           function loadGTM(){
+             (function(w,d,s,l,i){
+               w[l]=w[l]||[];
+               w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+               var f=d.getElementsByTagName(s)[0],
+                   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+               j.async=true;
+               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+               f.parentNode.insertBefore(j,f);
+             })(window,document,'script','dataLayer','GTM-M7SSPG7W');
+           }
+         
+           if (window.requestIdleCallback) {
+             requestIdleCallback(loadGTM, {timeout: 3500});
+           } else {
+             setTimeout(loadGTM, 3500);
+           }
+         });
+
+         </script>
+
+      <!-- End Google Tag Manager -->
+    
    </head>
    <body>
       <!-- Google Tag Manager (noscript) -->
@@ -247,7 +111,7 @@
          <div class="runo-preloader-inner">
             <div class="runo-spinner"></div>
             <div class="runo-logo">
-               <img src="../img/logo.png" alt="Runo Loading">
+               <img src="/img/logo.png" alt="Runo Loading">
             </div>
          </div>
       </div>
@@ -316,221 +180,12 @@
             </div>
          </div>
       </div>
-      <script>
-         jQuery(function ($) {
-           const phoneInput = document.querySelector("#phone");
-           const iti = window.intlTelInput(phoneInput, {
-             initialCountry: "auto", // <-- add this line
-             geoIpLookup: function (callback) {
-         
-               fetch('https://ipapi.co/json/')
-                 .then(res => {
-         
-                   return res.json();
-                 })
-                 .then(data => {
-         
-                   const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
-         
-                   callback(countryCode);
-                 })
-                 .catch(err => {
-                   console.error("geoIpLookup error:", err);
-                   callback('in');
-                 });
-             },
-             separateDialCode: true,
-             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
-           });
-         
-           const fakeNumbers = [
-             "1234567890", "0000000000", "1111111111", "2222222222",
-             "3333333333", "4444444444", "5555555555", "6666666666",
-             "7777777777", "8888888888", "9999999999"
-           ];
-           const countryLengthMap = {
-             in: [10],
-             ae: [9],
-             us: [10],
-             ca: [10],
-             gb: [10, 11],
-             sa: [9],
-             ph: [10],
-             id: [10, 11],
-             sg: [8],
-             au: [9],
-             nz: [8, 9],
-             pk: [10],
-             bd: [10],
-             lk: [9],
-             ng: [10, 11],
-             ke: [9],
-             za: [9, 10],
-             my: [9, 10],
-             th: [9, 10],
-             vn: [9, 10],
-             kr: [9, 10, 11],
-             jp: [10, 11],
-             cn: [11],
-             hk: [8],
-             tw: [9, 10],
-             de: [10, 11],
-             fr: [9, 10],
-             it: [10],
-             es: [9],
-             br: [10, 11],
-             mx: [10],
-             ar: [10, 11],
-             ru: [10],
-             tr: [10],
-             eg: [10, 11],
-             iq: [10],
-             gt: [8]
-           };
-         
-           function getMaxLengthForCountry() {
-             const countryCode = iti.getSelectedCountryData().iso2;
-             const allowedLengths = countryLengthMap[countryCode];
-             return allowedLengths ? Math.max(...allowedLengths) : 15;
-           }
-           let phoneTouched = false;
-         
-           $("#phone").on("focus input", function () {
-             phoneTouched = true;
-             validatePhone();
-           });
-         
-         
-           phoneInput.addEventListener("input", () => {
-             phoneInput.value = phoneInput.value.replace(/\D/g, "");
-             const maxLength = getMaxLengthForCountry();
-             if (phoneInput.value.length > maxLength) {
-               phoneInput.value = phoneInput.value.slice(0, maxLength);
-             }
-             validatePhone();
-           });
-         
-           phoneInput.addEventListener("countrychange", () => {
-             const maxLength = getMaxLengthForCountry();
-             phoneInput.value = phoneInput.value.slice(0, maxLength);
-             validatePhone();
-           });
-         
-           function validateName() {
-             const val = $("#name").val().trim();
-             if (!val || val.length > 30) {
-               $("#nameError").removeClass("d-none");
-               return false;
-             }
-             $("#nameError").addClass("d-none");
-             return true;
-           }
-         function validateCompName() {
-             const val = $("#comp_name").val().trim();
-             if (!val || val.length > 30) {
-               $("#comp_nameError").removeClass("d-none");
-               return false;
-             }
-             $("#comp_nameError").addClass("d-none");
-             return true;
-           }
-         
-           function validateEmail() {
-             const val = $("#email").val().trim();
-             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-             if (!val || !emailPattern.test(val)) {
-               $("#emailError").removeClass("d-none");
-               return false;
-             }
-             $("#emailError").addClass("d-none");
-             return true;
-           }
-         
-           function validatePhone() {
-             const phoneNational = phoneInput.value;
-             const selectedCountry = iti.getSelectedCountryData().iso2;
-             const validLengths = countryLengthMap[selectedCountry];
-             if (!phoneTouched) {
-               $("#phoneError").addClass("d-none");
-               return false;
-             }
-             if (!iti.isValidNumber()) {
-               $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-               return false;
-             }
-         
-             if (fakeNumbers.includes(phoneNational)) {
-               $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-               return false;
-             }
-         
-             if (validLengths && !validLengths.includes(phoneNational.length)) {
-               $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
-               return false;
-             }
-         
-             $("#phoneError").addClass("d-none");
-             return true;
-           }
-         
-           function validateAgents() {
-             if (!$("#agents").val()) {
-               $("#agentsError").removeClass("d-none");
-               return false;
-             }
-             $("#agentsError").addClass("d-none");
-             return true;
-           }
-         
-            function validateKnowruno() {
-             if (!$("#know_runo").val()) {
-               $("#knowError").removeClass("d-none");
-               return false;
-             }
-             $("#knowError").addClass("d-none");
-             return true;
-           }
-         
-           $("#name").on("input", validateName);
-           $("#email").on("input", validateEmail);
-           $("#phone").on("input", validatePhone);
-           $("#comp_name").on("input", validateCompName);
-           $("#agents").on("change", validateAgents);
-           $("#know_runo").on("change", validateKnowruno);
-         
-           $("#demo-form").on("submit", function (event) {
-             event.preventDefault();
-         
-             const validName = validateName();
-             const validEmail = validateEmail();
-             const validPhone = validatePhone();
-             const validCompName = validateCompName();
-             const validAgents = validateAgents();
-             const validKnowruno=validateKnowruno();
-         
-             if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
-               return;
-             }
-         
-             const formData = $(this).serializeArray().reduce(function (obj, item) {
-               obj[item.name] = item.value;
-               return obj;
-             }, {});
-         
-             formData["your_phone"] = iti.getNumber(); // international format
-             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
-             
-             const uuid = $(this).data("uuid");
-         
-             submitForm("demo-form", formData, uuid);
-           });
-         });
-      </script>
+   
       <!-- Thank You Modal -->
       <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
-               <img src="../img/success.webp" alt="success" style="margin:10px auto; display:block;width:50px">
+               <img src="/img/success.webp" alt="success" style="margin:10px auto; display:block;width:50px">
                <h5 class="mb-3">Thank you!</h5>
                <p style="margin-bottom:5px">Your submission has been received. Our team will get back to you shortly.
                </p>
@@ -545,7 +200,7 @@
                <div class="container">
                   <!-- Logo Start -->
                   <a class="navbar-brand" href="/">
-                  <img src="../img/logo.png" alt="Logo" style="width: 100px;">
+                  <img src="/img/logo.png" alt="Logo" style="width: 100px;">
                   </a>
                   <!-- Logo End -->
                   <!-- Main Menu Start -->
@@ -590,10 +245,10 @@
                            <div class="app-header-icons">
                               <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506"
                                  target="_blank">
-                              <img src="../img/app-ico.png" width="40px"></a>
+                              <img src="/img/app-ico.png" width="40px" loading="lazy"></a>
                               <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN"
                                  target="_blank">
-                              <img src="../img/play-ico.png" width="40px"></a>
+                              <img src="/img/play-ico.png" width="40px" loading="lazy"></a>
                            </div>
                         </ul>
                      </div>
@@ -662,7 +317,7 @@
                   </div>
                </div>
                <div class="col-lg-6">
-                  <img src="../img/call-center/call-center.webp" class="pro-img img-fluid"  loading="lazy" alt="Runo Call Center CRM">
+                  <img src="/img/call-center/call-center.webp" class="pro-img img-fluid"  loading="lazy" alt="Runo Call Center CRM">
                </div>
             </div>
          </div>
@@ -681,67 +336,67 @@
                <div class="clients-logos-wrapper" style="overflow: hidden; position: relative;">
                   <div class="clients-logos">
                      <!-- Logos (set 1) -->
-                     <img loading="lazy" src="../img/clients/anupam-royals.webp" alt="Anupam Royals" width="150"
+                     <img loading="lazy" src="/img/clients/anupam-royals.webp" alt="Anupam Royals" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/bond-bazar.webp" alt="Bond Bazar" width="150"
+                     <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/confidence-petroleum.webp" alt="Confidence Petroleum"
+                     <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/futurense-technologies.webp"
+                     <img loading="lazy" src="/img/clients/futurense-technologies.webp"
                         alt="Futurense Technologies" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/go-digit.webp" alt="Go Digit" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/invesmate.webp" alt="Invesmate" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/isbm.webp" alt="ISBM" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/jbilinat-foodworks.webp" alt="Jbilinat Foodworks"
+                     <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/jbilinat-foodworks.webp" alt="Jbilinat Foodworks"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150"
+                     <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/kc-overseas.webp" alt="KC Overseas" width="150"
+                     <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/kotak-securities.webp" alt="Kotak Securities"
+                     <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics"
+                     <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/mswipe.webp" alt="Mswipe" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/newton-school.webp" alt="Newton School" width="150"
+                     <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/property-pistol.webp" alt="Property Pistol" width="150"
+                     <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/toyoto-financial.webp" alt="Toyota Financial"
+                     <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/vedantu.webp" alt="Vedantu" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75">
                      <!-- Logos (set 2 - duplicate for infinite loop) -->
-                     <img loading="lazy" src="../img/clients/anupam-royals.webp" alt="Anupam Royals" width="150"
+                     <img loading="lazy" src="/img/clients/anupam-royals.webp" alt="Anupam Royals" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/bond-bazar.webp" alt="Bond Bazar" width="150"
+                     <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/confidence-petroleum.webp" alt="Confidence Petroleum"
+                     <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/futurense-technologies.webp"
+                     <img loading="lazy" src="/img/clients/futurense-technologies.webp"
                         alt="Futurense Technologies" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/go-digit.webp" alt="Go Digit" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/invesmate.webp" alt="Invesmate" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/isbm.webp" alt="ISBM" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/jbilinat-foodworks.webp" alt="Jbilinat Foodworks"
+                     <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/jbilinat-foodworks.webp" alt="Jbilinat Foodworks"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150"
+                     <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/kc-overseas.webp" alt="KC Overseas" width="150"
+                     <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/kotak-securities.webp" alt="Kotak Securities"
+                     <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics"
+                     <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/mswipe.webp" alt="Mswipe" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/newton-school.webp" alt="Newton School" width="150"
+                     <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/property-pistol.webp" alt="Property Pistol" width="150"
+                     <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150"
                         height="75">
-                     <img loading="lazy" src="../img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75">
-                     <img loading="lazy" src="../img/clients/toyoto-financial.webp" alt="Toyota Financial"
+                     <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial"
                         width="150" height="75">
-                     <img loading="lazy" src="../img/clients/vedantu.webp" alt="Vedantu" width="150" height="75">
+                     <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75">
                   </div>
                </div>
             </div>
@@ -772,7 +427,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                              <img src="../img/call-center/low-operating.webp" class="img-preview"
+                              <img src="/img/call-center/low-operating.webp" class="img-preview"
                                  alt="70% Lower Operating Cost">
                            </div>
                         </div>
@@ -785,7 +440,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display:none;">
-                              <img src="../img/call-center/cloud-telephony.webp" class="img-preview" loading="lazy"
+                              <img src="/img/call-center/cloud-telephony.webp" class="img-preview" loading="lazy"
                                  alt="No IVR, Cloud Telephony, or ACD Friction">
                            </div>
                         </div>
@@ -798,7 +453,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display:none;">
-                              <img src="../img/call-center/higher-call.webp" class="img-preview" loading="lazy"
+                              <img src="/img/call-center/higher-call.webp" class="img-preview" loading="lazy"
                                  alt="2x Higher Call Pickup Rate">
                            </div>
                         </div>
@@ -811,7 +466,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display:none;">
-                              <img src="../img/call-center/visibility.webp" class="img-preview" loading="lazy"
+                              <img src="/img/call-center/visibility.webp" class="img-preview" loading="lazy"
                                  alt="100% Visibility Into Remote Teams">
                            </div>
                         </div>
@@ -825,7 +480,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display:none;">
-                              <img src="../img/call-center/all-in-one.webp" class="img-preview" loading="lazy"
+                              <img src="/img/call-center/all-in-one.webp" class="img-preview" loading="lazy"
                                  alt="One App to Replace Your Dialer, CRM, and Spreadsheets">
                            </div>
                         </div>
@@ -838,7 +493,7 @@
                               </p>
                            </button>
                            <div class="mobile-tab-img d-md-none" id="mobileImg5" style="display:none;">
-                              <img src="../img/call-center/30-min.webp" class="img-preview" loading="lazy"
+                              <img src="/img/call-center/30-min.webp" class="img-preview" loading="lazy"
                                  alt="30-Minute Setup Time">
                            </div>
                         </div>
@@ -849,27 +504,27 @@
                <div class="col-md-6 d-none d-md-block">
                   <div class="tab-content text-center">
                      <div class="tab-pane fade show active" id="tab1">
-                        <img src="../img/call-center/low-operating.webp" class="img-preview"
+                        <img src="/img/call-center/low-operating.webp" class="img-preview"
                            alt="70% Lower Operating Cost">
                      </div>
                      <div class="tab-pane fade" id="tab2">
-                        <img src="../img/call-center/cloud-telephony.webp" class="img-preview" loading="lazy"
+                        <img src="/img/call-center/cloud-telephony.webp" class="img-preview" loading="lazy"
                            alt="No IVR, Cloud Telephony, or ACD Friction">
                      </div>
                      <div class="tab-pane fade" id="tab3">
-                        <img src="../img/call-center/higher-call.webp" class="img-preview" loading="lazy"
+                        <img src="/img/call-center/higher-call.webp" class="img-preview" loading="lazy"
                            alt="2x Higher Call Pickup Rate">
                      </div>
                      <div class="tab-pane fade" id="tab4">
-                        <img src="../img/call-center/visibility.webp" class="img-preview" loading="lazy"
+                        <img src="/img/call-center/visibility.webp" class="img-preview" loading="lazy"
                            alt="100% Visibility Into Remote Teams">
                      </div>
                      <div class="tab-pane fade" id="tab5">
-                        <img src="../img/call-center/all-in-one.webp" class="img-preview" loading="lazy"
+                        <img src="/img/call-center/all-in-one.webp" class="img-preview" loading="lazy"
                            alt="One App to Replace Your Dialer, CRM, and Spreadsheets">
                      </div>
                      <div class="tab-pane fade" id="tab6">
-                        <img src="../img/call-center/30-min.webp" class="img-preview" alt="30-Minute Setup Time" loading="lazy">
+                        <img src="/img/call-center/30-min.webp" class="img-preview" alt="30-Minute Setup Time" loading="lazy">
                      </div>
                   </div>
                </div>
@@ -1018,7 +673,7 @@
                   </div>
                   <div class="col-lg-7 text-center">
                      <div class="sales-image-wrapper position-relative">
-                        <img src="../img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" loading="lazy" />
+                        <img src="/img/waba.webp" alt="Sales Process Flowchart" class="sales-flow-image" loading="lazy" />
                      </div>
                   </div>
                   <div class="waba-btn text-center" id="waba-mob">
@@ -1042,52 +697,52 @@
             <!-- Desktop Layout -->
             <div class="row d-none d-md-flex">
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img src="../img/feature/7.webp" class="img-fluid mb-2" alt="Auto Dialer">
+                  <img src="/img/feature/7.webp" class="img-fluid mb-2" alt="Auto Dialer">
                   <h5>Auto Dialer</h5>
                   <p class="feat-text">Call faster without manual dialing between calls.</p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img loading="lazy" src="../img/feature/2.webp" class="img-fluid mb-2" alt="Call Recording">
+                  <img loading="lazy" src="/img/feature/2.webp" class="img-fluid mb-2" alt="Call Recording">
                   <h5>Call Recording</h5>
                   <p class="feat-text">Record every call for training, compliance, and quality
                      checks
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img loading="lazy" src="../img/feature/9.webp" class="img-fluid mb-2"
+                  <img loading="lazy" src="/img/feature/9.webp" class="img-fluid mb-2"
                      alt="Real-Time Call Tracking">
                   <h5>Real-Time Call Tracking</h5>
                   <p class="feat-text">See every call status, duration, and outcome instantly
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img src="../img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation">
+                  <img src="/img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation">
                   <h5>Lead Auto Allocation</h5>
                   <p class="feat-text">Assign leads instantly based on source, region, or
                      rules you set.
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img loading="lazy" src="../img/feature/6.webp" class="img-fluid mb-2" alt="Follow-Up Reminders">
+                  <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2" alt="Follow-Up Reminders">
                   <h5>Follow-Up Reminders</h5>
                   <p class="feat-text">Get notified when it’s time to call back or check in on
                      a lead.
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img loading="lazy" src="../img/feature/13.webp" class="img-fluid mb-2" alt="Built-in CRM">
+                  <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" alt="Built-in CRM">
                   <h5>Built-in CRM</h5>
                   <p class="feat-text">No switching between tools, CRM is built right in.</p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img src="../img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
+                  <img src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
                   <h5>Live Agent Status</h5>
                   <p class="feat-text">Know who’s active, available, or idle at any given
                      moment.
                   </p>
                </div>
                <div class="col-md-4 mb-4 text-center zoom-hover">
-                  <img loading="lazy" src="../img/feature/12.webp" class="img-fluid mb-2" alt="Interaction Timeline">
+                  <img loading="lazy" src="/img/feature/12.webp" class="img-fluid mb-2" alt="Interaction Timeline">
                   <h5>Interaction Timeline</h5>
                   <p class="feat-text">Access full call history and notes for every lead
                      instant
@@ -1098,35 +753,35 @@
             <div class="swiper-container d-block d-md-none mt-4">
                <div class="swiper-wrapper text-center">
                   <div class="swiper-slide">
-                     <img src="../img/feature/7.webp" class="img-fluid mb-2" alt="Auto Dialer">
+                     <img src="/img/feature/7.webp" class="img-fluid mb-2" alt="Auto Dialer">
                      <h5>Auto Dialer</h5>
                      <p class="feat-text">Call faster without manual dialing between calls.
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img loading="lazy" src="../img/feature/2.webp" class="img-fluid mb-2" alt="Call Recording">
+                     <img loading="lazy" src="/img/feature/2.webp" class="img-fluid mb-2" alt="Call Recording">
                      <h5>Call Recording</h5>
                      <p class="feat-text">Record every call for training, compliance, and
                         quality checks
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img loading="lazy" src="../img/feature/9.webp" class="img-fluid mb-2"
-                        alt="Real-Time Call Tracking">
+                     <img loading="lazy" src="/img/feature/9.webp" class="img-fluid mb-2"
+                        alt="Real-Time Call Tracking" loading="lazy">
                      <h5>Real-Time Call Tracking</h5>
                      <p class="feat-text">See every call status, duration, and outcome
                         instantly
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img src="../img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation">
+                     <img src="/img/feature/10.webp" class="img-fluid mb-2" alt="Lead Auto Allocation" loading="lazy">
                      <h5>Lead Auto Allocation</h5>
                      <p class="feat-text">Assign leads instantly based on source, region, or
                         rules you set.
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img loading="lazy" src="../img/feature/6.webp" class="img-fluid mb-2"
+                     <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2"
                         alt="Follow-Up Reminders">
                      <h5>Follow-Up Reminders</h5>
                      <p class="feat-text">Get notified when it’s time to call back or check
@@ -1134,20 +789,20 @@
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img loading="lazy" src="../img/feature/13.webp" class="img-fluid mb-2" alt="Built-in CRM">
+                     <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" alt="Built-in CRM">
                      <h5>Built-in CRM</h5>
                      <p class="feat-text">No switching between tools, CRM is built right in.
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img src="../img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
+                     <img loading="lazy" src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Status">
                      <h5>Live Agent Status</h5>
                      <p class="feat-text">Know who’s active, available, or idle at any given
                         moment.
                      </p>
                   </div>
                   <div class="swiper-slide">
-                     <img loading="lazy" src="../img/feature/12.webp" class="img-fluid mb-2"
+                     <img loading="lazy" src="/img/feature/12.webp" class="img-fluid mb-2"
                         alt="Interaction Timeline">
                      <h5>Interaction Timeline</h5>
                      <p class="feat-text">Access full call history and notes for every lead
@@ -1169,6 +824,7 @@
          </div>
       </section>
       <script>
+         document.addEventListener("DOMContentLoaded", function () {
          var swiper = new Swiper('.swiper-container', {
              loop: true,
              autoplay: {
@@ -1182,6 +838,7 @@
                  prevEl: '.swiper-custom-prev',
              },
          });
+          });
       </script>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
          <div class="container">
@@ -1217,7 +874,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/ts.webp" class="img-fluid" alt="AI Call Transcripts">
+                     <img src="/img/feature/ts.webp" class="img-fluid" alt="AI Call Transcripts">
                   </div>
                </div>
                <!-- Feature 2 -->
@@ -1230,7 +887,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/8.webp" class="img-fluid" alt="AI Call Summaries">
+                     <img src="/img/feature/8.webp" class="img-fluid" alt="AI Call Summaries" loading="lazy">
                   </div>
                </div>
                <!-- Feature 3 -->
@@ -1243,7 +900,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/5.webp" class="img-fluid" alt="AI Sentiment Analysis">
+                     <img src="/img/feature/5.webp" class="img-fluid" alt="AI Sentiment Analysis" loading="lazy">
                   </div>
                </div>
                <!-- Feature 4 -->
@@ -1255,7 +912,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/mom.webp" class="img-fluid" alt="Meeting Notes (MoM)">
+                     <img src="/img/feature/mom.webp" class="img-fluid" alt="Meeting Notes (MoM)"  loading="lazy">
                   </div>
                </div>
                <!-- Feature 5 -->
@@ -1269,7 +926,7 @@
                      </p>
                   </div>
                   <div class="col-md-6 text-center">
-                     <img src="../img/feature/4.webp" class="img-fluid" alt="AI Chat Assistant">
+                     <img src="/img/feature/4.webp" class="img-fluid" alt="AI Chat Assistant"  loading="lazy">
                   </div>
                </div>
             </div>
@@ -1279,7 +936,7 @@
                style="background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 9.63%, rgba(255, 255, 255, 0) 16.05%);">
                <!-- Feature 1 -->
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/ts.webp" class="card-img-top img-fluid mb-3" alt="Auto Call Transcripts">
+                  <img src="/img/feature/ts.webp" class="card-img-top img-fluid mb-3" alt="Auto Call Transcripts">
                   <div class="card-body">
                      <h5 class="card-title">Auto Call Transcripts</h5>
                      <p class="feat-text">Converts spoken conversations into accurate, readable text.
@@ -1288,7 +945,7 @@
                </div>
                <!-- Feature 2 -->
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/8.webp" class="card-img-top img-fluid mb-3" alt="Call Summaries">
+                  <img src="/img/feature/8.webp" class="card-img-top img-fluid mb-3" alt="Call Summaries"  loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">Call Summaries</h5>
                      <p class="feat-text">Highlights the key points from each call, so managers and
@@ -1299,7 +956,7 @@
                </div>
                <!-- Feature 3 -->
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/5.webp" class="card-img-top img-fluid mb-3" alt="Sentiment Analysis">
+                  <img src="/img/feature/5.webp" class="card-img-top img-fluid mb-3" alt="Sentiment Analysis"  loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">Sentiment Analysis</h5>
                      <p class="feat-text">Detects the emotional tone of the conversation (positive,
@@ -1310,7 +967,7 @@
                </div>
                <!-- Feature 4 -->
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/mom.webp" class="card-img-top img-fluid mb-3" alt="Meeting Notes (MoM)">
+                  <img src="/img/feature/mom.webp" class="card-img-top img-fluid mb-3" alt="Meeting Notes (MoM)" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">Meeting Notes (MoM) Capture</h5>
                      <p class="feat-text">Automatically pulls out action items, urgency, and
@@ -1320,7 +977,7 @@
                </div>
                <!-- Feature 5 -->
                <div class="card border-0 shadow-sm mb-4 text-center">
-                  <img src="../img/feature/4.webp" class="card-img-top img-fluid mb-3" alt="AI Assistant">
+                  <img src="/img/feature/4.webp" class="card-img-top img-fluid mb-3" alt="AI Assistant" loading="lazy">
                   <div class="card-body">
                      <h5 class="card-title">AI Assistant</h5>
                      <p class="feat-text">A chat-style assistant for managers and reps to ask
@@ -1335,6 +992,7 @@
          </div>
       </section>
       <script>
+            document.addEventListener("DOMContentLoaded", function () {
          var swiper = new Swiper('.swiper-container2', {
              loop: true,
              autoplay: {
@@ -1348,6 +1006,7 @@
                  prevEl: '.swiper-custom-prev1',
              },
          });
+           });
       </script>
       <section class="home-app-cta  animate__animated animate__fadeInUp" data--delay="0.2s">
          <div class="container">
@@ -1359,7 +1018,7 @@
          </div>
       </section>
       <!-- Testimonial Section -->
-      <div class="our-tesimonial-page mt-space" style="background:url('../img/testimonial-background.webp') !important">
+      <div class="our-tesimonial-page mt-space" style="background:url('/img/testimonial-background.webp') !important">
          <div class="container">
             <!-- Section Title Row with Navigation -->
             <div class="row section-row align-items-center justify-content-between mb-4 " data--delay="0.2s">
@@ -1394,7 +1053,7 @@
                                     <div class="people">
                                        <div class="author-image">
                                           <figure class="image-anime">
-                                             <img src="../img/testimonials/surendranath.webp" loading='lazy'
+                                             <img src="/img/testimonials/surendranath.webp" loading='lazy'
                                                 alt="">
                                           </figure>
                                        </div>
@@ -1421,7 +1080,7 @@
                                     <div class="people">
                                        <div class="author-image">
                                           <figure class="image-anime">
-                                             <img src="../img/testimonials/anas-rahman.webp" loading='lazy'
+                                             <img src="/img/testimonials/anas-rahman.webp" loading='lazy'
                                                 alt="">
                                           </figure>
                                        </div>
@@ -1448,7 +1107,7 @@
                                     <div class="people">
                                        <div class="author-image">
                                           <figure class="image-anime">
-                                             <img src="../img/testimonials/monish-patel.webp" loading='lazy'
+                                             <img src="/img/testimonials/monish-patel.webp" loading='lazy'
                                                 alt="">
                                           </figure>
                                        </div>
@@ -1759,7 +1418,7 @@
             </div>
             <!-- Right Image -->
             <div class="col-md-5 text-md-end text-center security-badges">s
-               <img src="../img/security.webp" alt="ISO Badge" class="img-fluid">
+               <img src="/img/security.webp" alt="ISO Badge" class="img-fluid">
             </div>
          </div>
       </section>
@@ -1776,9 +1435,9 @@
             </p>
             <div class="store-buttons  animate__animated animate__fadeIn" data--delay="0.8s">
                <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" target="_blank"
-                  class="zoom-hover"> <img loading="lazy" src="../img/ios.webp" alt="App Store" /></a>
+                  class="zoom-hover"> <img loading="lazy" src="/img/ios.webp" alt="App Store" /></a>
                <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" target="_blank"
-                  class="zoom-hover"> <img loading="lazy" src="../img/google-play.webp" alt="Google Play"></a>
+                  class="zoom-hover"> <img loading="lazy" src="/img/google-play.webp" alt="Google Play"></a>
             </div>
             <div class="rating  animate__animated animate__fadeInUp" data--delay="1s">
                <span class="stars">★★★★★</span>
@@ -1860,23 +1519,23 @@
                <div class="col-12 col-md-6 col-lg-2 review">
                   <h6 class="text-white fw-bold mb-3 text-center">Review Us</h6>
                   <a href="https://www.g2.com/products/runo-call-management-crm/reviews" target="_blank"><img
-                     loading="lazy" src="../img/reviews/1.webp" alt="G2 Review"
+                     loading="lazy" src="/img/reviews/1.webp" loading="lazy" alt="G2 Review"
                      class="img-fluid rounded mt-20"></a>
                   <a href="https://www.capterra.com/p/214472/Call-Management-CRM/" target="_blank"> <img
-                     loading="lazy" src="../img/reviews/2.webp" alt="Capterra"
+                     loading="lazy" src="/img/reviews/2.webp" loading="lazy" alt="Capterra"
                      class="img-fluid rounded mt-20"></a>
                   <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank"> <img
-                     loading="lazy" src="../img/reviews/3.webp" alt="Crozdesk Rating"
+                     loading="lazy" src="/img/reviews/3.webp" loading="lazy" alt="Crozdesk Rating"
                      class="img-fluid rounded mt-20"></a>
                   <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank"> <img
-                     loading="lazy" src="../img/reviews/4.webp" alt="Crozdesk Badge"
+                     loading="lazy" src="/img/reviews/4.webp" loading="lazy" alt="Crozdesk Badge"
                      class="img-fluid rounded-circle mt-20 badge-ico" style="width:100px;"></a>
                </div>
             </div>
             <!-- Bottom Row -->
             <div class="row align-items-center text-center text-md-start mb-20 mt-10">
                <div class="col-md-5 mb-3 mb-md-0">
-                  <a href="/"> <img loading="lazy" src="../img/runo-white.png" alt="Runo Logo" class="img-fluid"
+                  <a href="/"> <img loading="lazy" src="/img/runo-white.png" alt="Runo Logo" class="img-fluid"
                      width="200px"></a>
                   <!--  <p class="text-white mt-20">Your partner in digital transformation smart solutions for smarter businesses</p>-->
                </div>
@@ -1884,10 +1543,10 @@
                   <h6 class="text-white fw-semibold mb-20">Get the app</h6>
                   <div class="footer-app-icons">
                      <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506"
-                        class="zoom-hover" target="_blank"><img loading="lazy" src="../img/ios.webp" alt="App Store"
+                        class="zoom-hover" target="_blank"><img loading="lazy" src="/img/ios.webp" alt="App Store"
                         style="width: 130px;"></a>
                      <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN"
-                        class="zoom-hover" target="_blank"><img loading="lazy" src="../img/google-play.webp"
+                        class="zoom-hover" target="_blank"><img loading="lazy" src="/img/google-play.webp"
                         alt="Google Play" style="width: 130px;"></a>
                   </div>
                </div>
@@ -1931,14 +1590,11 @@
             </div>
          </div>
       </footer>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
       <!-- Plugins (Deferred) -->
-      <script src="../js/jquery.slicknav.js" defer></script>
-      <script src="../js/jquery.magnific-popup.min.js" defer></script>
-      <script src="../js/SmoothScroll.js" defer></script>
-
-      
-        <script src="../js/function.js" defer ></script>
+      <script src="/js/jquery.slicknav.js" defer></script>
+      <script src="/js/function.js" defer ></script>
    <script>
       document.addEventListener("DOMContentLoaded", function () {
   const interval = setInterval(() => {
@@ -2037,8 +1693,382 @@
                      });
                  };
                  document.body.appendChild(script);
-             }, 6000);
+             }, 10000);
          });
+      </script>
+   <script>
+        document.addEventListener("DOMContentLoaded", function () {
+         jQuery(function ($) {
+           const phoneInput = document.querySelector("#phone");
+           const iti = window.intlTelInput(phoneInput, {
+             initialCountry: "auto", // <-- add this line
+             geoIpLookup: function (callback) {
+         
+               fetch('https://ipapi.co/json/')
+                 .then(res => {
+         
+                   return res.json();
+                 })
+                 .then(data => {
+         
+                   const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
+         
+                   callback(countryCode);
+                 })
+                 .catch(err => {
+                   console.error("geoIpLookup error:", err);
+                   callback('in');
+                 });
+             },
+             separateDialCode: true,
+             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
+           });
+         
+           const fakeNumbers = [
+             "1234567890", "0000000000", "1111111111", "2222222222",
+             "3333333333", "4444444444", "5555555555", "6666666666",
+             "7777777777", "8888888888", "9999999999"
+           ];
+           const countryLengthMap = {
+             in: [10],
+             ae: [9],
+             us: [10],
+             ca: [10],
+             gb: [10, 11],
+             sa: [9],
+             ph: [10],
+             id: [10, 11],
+             sg: [8],
+             au: [9],
+             nz: [8, 9],
+             pk: [10],
+             bd: [10],
+             lk: [9],
+             ng: [10, 11],
+             ke: [9],
+             za: [9, 10],
+             my: [9, 10],
+             th: [9, 10],
+             vn: [9, 10],
+             kr: [9, 10, 11],
+             jp: [10, 11],
+             cn: [11],
+             hk: [8],
+             tw: [9, 10],
+             de: [10, 11],
+             fr: [9, 10],
+             it: [10],
+             es: [9],
+             br: [10, 11],
+             mx: [10],
+             ar: [10, 11],
+             ru: [10],
+             tr: [10],
+             eg: [10, 11],
+             iq: [10],
+             gt: [8]
+           };
+         
+           function getMaxLengthForCountry() {
+             const countryCode = iti.getSelectedCountryData().iso2;
+             const allowedLengths = countryLengthMap[countryCode];
+             return allowedLengths ? Math.max(...allowedLengths) : 15;
+           }
+           let phoneTouched = false;
+         
+           $("#phone").on("focus input", function () {
+             phoneTouched = true;
+             validatePhone();
+           });
+         
+         
+           phoneInput.addEventListener("input", () => {
+             phoneInput.value = phoneInput.value.replace(/\D/g, "");
+             const maxLength = getMaxLengthForCountry();
+             if (phoneInput.value.length > maxLength) {
+               phoneInput.value = phoneInput.value.slice(0, maxLength);
+             }
+             validatePhone();
+           });
+         
+           phoneInput.addEventListener("countrychange", () => {
+             const maxLength = getMaxLengthForCountry();
+             phoneInput.value = phoneInput.value.slice(0, maxLength);
+             validatePhone();
+           });
+         
+           function validateName() {
+             const val = $("#name").val().trim();
+             if (!val || val.length > 30) {
+               $("#nameError").removeClass("d-none");
+               return false;
+             }
+             $("#nameError").addClass("d-none");
+             return true;
+           }
+         function validateCompName() {
+             const val = $("#comp_name").val().trim();
+             if (!val || val.length > 30) {
+               $("#comp_nameError").removeClass("d-none");
+               return false;
+             }
+             $("#comp_nameError").addClass("d-none");
+             return true;
+           }
+         
+           function validateEmail() {
+             const val = $("#email").val().trim();
+             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+             if (!val || !emailPattern.test(val)) {
+               $("#emailError").removeClass("d-none");
+               return false;
+             }
+             $("#emailError").addClass("d-none");
+             return true;
+           }
+         
+           function validatePhone() {
+             const phoneNational = phoneInput.value;
+             const selectedCountry = iti.getSelectedCountryData().iso2;
+             const validLengths = countryLengthMap[selectedCountry];
+             if (!phoneTouched) {
+               $("#phoneError").addClass("d-none");
+               return false;
+             }
+             if (!iti.isValidNumber()) {
+               $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+               return false;
+             }
+         
+             if (fakeNumbers.includes(phoneNational)) {
+               $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+               return false;
+             }
+         
+             if (validLengths && !validLengths.includes(phoneNational.length)) {
+               $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
+               return false;
+             }
+         
+             $("#phoneError").addClass("d-none");
+             return true;
+           }
+         
+           function validateAgents() {
+             if (!$("#agents").val()) {
+               $("#agentsError").removeClass("d-none");
+               return false;
+             }
+             $("#agentsError").addClass("d-none");
+             return true;
+           }
+         
+            function validateKnowruno() {
+             if (!$("#know_runo").val()) {
+               $("#knowError").removeClass("d-none");
+               return false;
+             }
+             $("#knowError").addClass("d-none");
+             return true;
+           }
+         
+           $("#name").on("input", validateName);
+           $("#email").on("input", validateEmail);
+           $("#phone").on("input", validatePhone);
+           $("#comp_name").on("input", validateCompName);
+           $("#agents").on("change", validateAgents);
+           $("#know_runo").on("change", validateKnowruno);
+         
+           $("#demo-form").on("submit", function (event) {
+             event.preventDefault();
+         
+             const validName = validateName();
+             const validEmail = validateEmail();
+             const validPhone = validatePhone();
+             const validCompName = validateCompName();
+             const validAgents = validateAgents();
+             const validKnowruno=validateKnowruno();
+         
+             if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+               return;
+             }
+         
+             const formData = $(this).serializeArray().reduce(function (obj, item) {
+               obj[item.name] = item.value;
+               return obj;
+             }, {});
+         
+             formData["your_phone"] = iti.getNumber(); // international format
+             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
+             
+             const uuid = $(this).data("uuid");
+         
+             submitForm("demo-form", formData, uuid);
+           });
+         });
+            });
+      </script>
+
+
+        <script type="application/ld+json">
+         {
+           "@context": "https://schema.org/",
+           "@type": "Product",
+           "name": "Call Center CRM App",
+           "image": [
+             "https://runo.ai/img/call-center/call-center.webp"
+           ],
+           "description": "AI-powered Call Center App with auto dialer, call recording, agent tracking, and lead management. It equips teams to handle outbound and inbound calls efficiently from a single mobile app.",
+           "brand": {
+             "@type": "Brand",
+             "name": "Runo"
+           },
+           "url": "https://runo.ai/product/call-center-app",
+           "offers": {
+             "@type": "Offer",
+             "url": "https://runo.ai/pricing",
+             "priceCurrency": "INR",
+             "price": "599",
+             "itemCondition": "https://schema.org/NewCondition",
+             "availability": "https://schema.org/InStock"
+           },
+           "aggregateRating": {
+             "@type": "AggregateRating",
+             "ratingValue": "4.7",
+             "reviewCount": "1882"
+           }
+         }
+      </script>
+      <script type="application/ld+json">
+         {
+           "@context": "https://schema.org",
+           "@type": "BreadcrumbList",
+           "itemListElement": [
+             {
+               "@type": "ListItem",
+               "position": 1,
+               "name": "Home",
+               "item": "https://runo.ai/"
+             },
+             {
+               "@type": "ListItem",
+               "position": 2,
+               "name": "Products",
+               "item": "https://runo.ai/product/"
+             },
+             {
+               "@type": "ListItem",
+               "position": 3,
+               "name": "Call Center App",
+               "item": "https://runo.ai/product/call-center-app"
+             }
+           ]
+         }
+      </script>
+      <script type="application/ld+json">
+         {
+           "@context": "https://schema.org",
+           "@type": "FAQPage",
+           "mainEntity": [
+             {
+               "@type": "Question",
+               "name": "What is a call center app?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "A call center app helps teams manage outbound or inbound calls, assign leads, track agent performance, and handle follow-ups. It brings calling and CRM workflows together in one place."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How does Runo work for call centers?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Runo is a SIM-based call center app that works on mobile devices. It lets your team make and track calls, manage leads, record conversations, and monitor performance without using cloud telephony or PBX systems."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Does the app support call tracking and analytics?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo provides real-time call logs, daily summaries, and detailed insights so you can monitor team activity and call outcomes."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Can I record calls using Runo?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Every call is automatically recorded and saved securely. You can use recordings for training, audits, or compliance."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How does the auto-dialer work?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "The auto-dialer queues up the next number for each rep, so they don’t waste time dialing manually. It helps speed up outreach and keeps the team focused."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How does lead management work in the app?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Runo captures leads from multiple sources and auto-assigns them to the right reps. Each lead is tracked in real time with status updates, notes, and reminders."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Can I integrate this app with other business tools?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo integrates with Google Sheets, popular CRMs, and other tools your team already uses."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Does the app support WhatsApp integration?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. You can send pre-approved WhatsApp templates directly from within Runo alongside your calls and emails."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "How easy is it to connect with my existing CRM?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Very easy. Runo supports plug-and-play CRM integrations, so you can connect your system without needing technical help."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Is the app secure and compliant with regulations?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. Runo supports DNC scrubbing, call logging, access controls, and more to help you stay compliant and protect customer data."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Is there a free trial available?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Yes. You can try Runo free for 10 days with full access to all features. No credit card required."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Who is this SIM-based call center app for?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Runo is designed for businesses that rely on outbound calling to connect with leads and customers, especially those looking to improve their call pickup rates and reduce operational complexity. It’s a perfect fit for SMBs, distributed teams, and industries like real estate, finance, healthcare, and education. Unlike cloud telephony systems that use virtual numbers, Runo uses your team’s actual SIM-based numbers, which show up as real caller IDs—leading to higher answer rates and fewer drop-offs."
+               }
+             }
+           ]
+         }
+         
       </script>
    </body>
 </html>
