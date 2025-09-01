@@ -46,6 +46,13 @@
   <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp">
   <link rel="preload" as="image" href="/img/call-management/call-management.webp" type="image/webp">
 
+
+  
+  <!-- Other Styles (Deferred) -->
+  <link rel="stylesheet" href="/css/slicknav.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/custom.css" media="print" onload="this.media='all'">
+
+  
   <!-- Preload + Load Main CSS (runo.css) -->
   <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/runo.css"></noscript>
@@ -53,10 +60,6 @@
   <!-- Optional: Bootstrap (if used) -->
   <link rel="preload" as="style" href="/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/bootstrap.min.css"></noscript>
-
-  <!-- Other Styles (Deferred) -->
-  <link rel="stylesheet" href="/css/slicknav.min.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/custom.css" media="print" onload="this.media='all'">
 
   <!-- Font Awesome (non-blocking) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
