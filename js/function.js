@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 /*ends */
 
+
 /* Send utm to web.runo.in Starts */
 document.addEventListener("DOMContentLoaded", function () {
   const interval = setInterval(() => {
@@ -149,30 +150,30 @@ document.addEventListener("DOMContentLoaded", function () {
     if (buttons.length > 0) {
       clearInterval(interval);
 
+      const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Website";
       const utmSource = localStorage.getItem("utm_source");
       const utmCampaign = localStorage.getItem("utm_campaign");
 
       const baseUrl = "https://web.runo.in";
       const params = new URLSearchParams();
 
+      // Page name first
+      params.append("page_name", pageName);
+
+      // UTMs last
       if (utmSource) params.append("utm_source", utmSource);
       if (utmCampaign) params.append("utm_campaign", utmCampaign);
 
-      if (params.toString()) {
-        const finalUrl = `${baseUrl}?${params.toString()}`;
-        // console.log("✅ Updating all .runo-crm buttons to:", finalUrl);
+      const finalUrl = `${baseUrl}?${params.toString()}`;
 
-        buttons.forEach((btn) => {
-          // Set href
-          btn.href = finalUrl;
+      buttons.forEach((btn) => {
+        btn.href = finalUrl;
 
-          // Force redirect on click
-          btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            window.location.href = finalUrl;
-          });
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.href = finalUrl;
         });
-      }
+      });
     }
   }, 100);
 });
