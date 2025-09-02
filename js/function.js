@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (buttons.length > 0) {
       clearInterval(interval);
 
-      const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Website";
+      const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
       const utmSource = localStorage.getItem("utm_source");
       const utmCampaign = localStorage.getItem("utm_campaign");
 
