@@ -3451,3 +3451,19 @@ body.modal-open {
     box-sizing: border-box;
   }
 }
+
+  .slight-blue{
+
+    background: #E1F0FFB2;
+
+  }
+
+
+   .slight-yellow{
+
+background: #FFF4DEB2;
+
+  }
+  .benifits-section .card{
+    border-radius:20px;
+  }
