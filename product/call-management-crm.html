@@ -185,6 +185,8 @@
                                  </li>
                                  <li class="nav-item"><a class="nav-link" href="sales-management-software">Sales Management Software</a></li>
                                  <li class="nav-item"><a class="nav-link" href="sales-call-tracking-software">Sales Call Tracking Software</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="telemarketing-crm-software">Telemarketing CRM Software</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="whatsapp-crm">WhatsApp CRM</a></li>
                               </ul>
                            </li>
                            <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
@@ -461,11 +463,11 @@
                            alt="AI Call Quality Scoring for Efficient Calling">
                      </div>
                      <div class="tab-pane fade" id="tab3">
-                        <img loading="lazy" src="/img/call-management/lead-status.webp" class="img-preview" 
+                        <img loading="lazy" src="/img/call-management/lead-status.webp" class="img-preview"
                            alt="Instant Lead Status Updates in CRM">
                      </div>
                      <div class="tab-pane fade" id="tab4">
-                        <img loading="lazy" src="/img/call-management/monitor-status.webp" class="img-preview" 
+                        <img loading="lazy" src="/img/call-management/monitor-status.webp" class="img-preview"
                            alt="Real-Time Sales Monitoring Dashboard">
                      </div>
                      <div class="tab-pane fade" id="tab5">
@@ -482,12 +484,12 @@
          const tabs = document.querySelectorAll(".tab-btn");
          const panes = document.querySelectorAll(".tab-pane");
          const scrollIndicator = document.getElementById("scrollIndicator");
-         
+
          let index = 0;
          let autoSlideInterval;
          let observerStarted = false;
          let isAnimating = false;
-         
+
          function animateScrollIndicator(toTop) {
              const startTop = parseFloat(scrollIndicator.style.top) || 0;
              const startHeight = parseFloat(scrollIndicator.style.height) || 0;
@@ -495,83 +497,83 @@
              const targetHeight = isMobile ? 138 : 90;
              const duration = 500;
              const startTime = performance.now();
-         
+
              function animate(currentTime) {
                  const elapsed = currentTime - startTime;
                  const progress = Math.min(elapsed / duration, 1);
                  const newTop = startTop + (toTop - startTop) * progress;
                  const newHeight = startHeight + (targetHeight - startHeight) * progress;
-         
+
                  scrollIndicator.style.top = `${newTop}px`;
                  scrollIndicator.style.height = `${newHeight}px`;
-         
+
                  if (progress < 1) {
                      requestAnimationFrame(animate);
                  }
              }
-         
+
              requestAnimationFrame(animate);
          }
-         
+
          function updateScrollIndicator(i) {
              const spacingTop = tabs[i].offsetTop + 35;
              animateScrollIndicator(spacingTop);
          }
-         
+
          function switchTab(i) {
              if (isAnimating || index === i) return;
              isAnimating = true;
-         
+
              // Hide all mobile images
              const mobileImgs = document.querySelectorAll('.mobile-tab-img');
              mobileImgs.forEach(img => img.style.display = 'none');
-         
+
              // Show active mobile image
              if (window.innerWidth <= 767) {
                  const currentMobileImg = document.getElementById(`mobileImg${i}`);
                  if (currentMobileImg) currentMobileImg.style.display = 'block';
              }
-         
+
              const currentPane = document.querySelector(".tab-pane.show.active");
              const nextTab = tabs[i];
              const nextPaneId = nextTab.getAttribute("data-bs-target");
              const nextPane = document.querySelector(nextPaneId);
-         
+
              if (!nextPane) {
                  isAnimating = false;
                  return;
              }
-         
+
              tabs.forEach(tab => tab.classList.remove("active"));
              nextTab.classList.add("active");
-         
+
              currentPane.classList.remove("show", "active");
              nextPane.classList.add("show", "active");
-         
+
              updateScrollIndicator(i);
              index = i;
              isAnimating = false;
          }
-         
+
          function startAutoSlide() {
              autoSlideInterval = setInterval(() => {
                  const nextIndex = (index + 1) % tabs.length;
                  switchTab(nextIndex);
              }, 8000);
          }
-         
+
          function resetAutoSlide() {
              clearInterval(autoSlideInterval);
              startAutoSlide();
          }
-         
+
          tabs.forEach((tab, i) => {
              tab.addEventListener("click", () => {
                  switchTab(i);
                  resetAutoSlide();
              });
          });
-         
+
          function observeSection() {
              const section = document.getElementById("dealsSection");
              const observer = new IntersectionObserver((entries) => {
@@ -585,10 +587,10 @@
              }, {
                  threshold: 0.3
              });
-         
+
              observer.observe(section);
          }
-         
+
          document.addEventListener("DOMContentLoaded", observeSection);
       </script>
       <!-- why choose runo ends-->
@@ -1054,8 +1056,8 @@
                               <div id="collapse122" class="accordion-collapse collapse show"
                                  aria-labelledby="heading122" data-bs-parent="#accordionRuno">
                                  <div class="accordion-body">
-                                    A Call Management App is a software solution designed to help businesses effectively organize, track, and analyze both inbound and outbound phone calls. It offers features like caller ID, call history, <a href="https://runo.ai/product/auto-dialer-software" target="_blank">auto-dialer</a>, call recordings, transcriptions, and real-time dashboards. 
-                                    <br>The best <a href="https://runo.ai/product/sales-call-tracking-software" target="_blank">call tracking software</a> also allows teams to monitor performance, assign leads, and integrate with CRMs and lead sources, ensuring no customer interaction is missed. 
+                                    A Call Management App is a software solution designed to help businesses effectively organize, track, and analyze both inbound and outbound phone calls. It offers features like caller ID, call history, <a href="https://runo.ai/product/auto-dialer-software" target="_blank">auto-dialer</a>, call recordings, transcriptions, and real-time dashboards.
+                                    <br>The best <a href="https://runo.ai/product/sales-call-tracking-software" target="_blank">call tracking software</a> also allows teams to monitor performance, assign leads, and integrate with CRMs and lead sources, ensuring no customer interaction is missed.
                                     <br>By providing visibility into team activities and improving response times, call management apps are especially useful for sales teams, support centers, and small to mid-sized businesses looking to enhance productivity, customer experience, and overall communication efficiency.
                                  </div>
                               </div>
@@ -1419,21 +1421,21 @@
          const buttons = document.querySelectorAll(".runo-web-crm");
          if (buttons.length > 0) {
          clearInterval(interval);
-         
+
          const utmSource = localStorage.getItem("utm_source");
          const utmCampaign = localStorage.getItem("utm_campaign");
-         
+
          // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
-         
+
          const baseUrl = "https://web.runo.in";
          const params = new URLSearchParams();
-         
+
          if (utmSource) params.append("utm_source", utmSource);
          if (utmCampaign) params.append("utm_campaign", utmCampaign);
-         
+
          const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
          // console.log("Final URL:", finalUrl); // debug
-         
+
          buttons.forEach((btn) => {
            btn.href = finalUrl;
            btn.addEventListener("click", function (e) {
@@ -1452,9 +1454,9 @@
          const utmCampaign = params.get("utm_campaign");
          if (utmSource) localStorage.setItem("utm_source", utmSource);
          if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
+
          // Sticky Header and Preloader JS
-         
+
          window.addEventListener('scroll', function () {
              const header = document.querySelector('.header-sticky');
              if (window.scrollY > 100) {
@@ -1463,7 +1465,7 @@
                  header?.classList.remove('active');
              }
          });
-         
+
          /*  window.addEventListener('load', function () {
              const preloader = document.querySelector('.runo-preloader');
              if (preloader) {
@@ -1472,9 +1474,9 @@
                  setTimeout(() => (preloader.style.display = 'none'), 350);
              }
          });*/
-         
-         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
-         
+
+         //Lazy-load PopupSmart Chat Widget after 3s to improve INP
+
          window.addEventListener('load', () => {
              setTimeout(() => {
                  const script = document.createElement('script');
@@ -1521,16 +1523,16 @@
              const iti = window.intlTelInput(phoneInput, {
                initialCountry: "auto", // <-- add this line
                geoIpLookup: function (callback) {
-           
+
                  fetch('https://ipapi.co/json/')
                    .then(res => {
-           
+
                      return res.json();
                    })
                    .then(data => {
-           
+
                      const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
-           
+
                      callback(countryCode);
                    })
                    .catch(err => {
@@ -1541,7 +1543,7 @@
                separateDialCode: true,
                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
              });
-           
+
              const fakeNumbers = [
                "1234567890", "0000000000", "1111111111", "2222222222",
                "3333333333", "4444444444", "5555555555", "6666666666",
@@ -1586,20 +1588,20 @@
                iq: [10],
                gt: [8]
              };
-           
+
              function getMaxLengthForCountry() {
                const countryCode = iti.getSelectedCountryData().iso2;
                const allowedLengths = countryLengthMap[countryCode];
                return allowedLengths ? Math.max(...allowedLengths) : 15;
              }
              let phoneTouched = false;
-           
+
              $("#phone").on("focus input", function () {
                phoneTouched = true;
                validatePhone();
              });
-           
-           
+
+
              phoneInput.addEventListener("input", () => {
                phoneInput.value = phoneInput.value.replace(/\D/g, "");
                const maxLength = getMaxLengthForCountry();
@@ -1608,13 +1610,13 @@
                }
                validatePhone();
              });
-           
+
              phoneInput.addEventListener("countrychange", () => {
                const maxLength = getMaxLengthForCountry();
                phoneInput.value = phoneInput.value.slice(0, maxLength);
                validatePhone();
              });
-           
+
              function validateName() {
                const val = $("#name").val().trim();
                if (!val || val.length > 30) {
@@ -1633,7 +1635,7 @@
                $("#comp_nameError").addClass("d-none");
                return true;
              }
-           
+
              function validateEmail() {
                const val = $("#email").val().trim();
                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1644,7 +1646,7 @@
                $("#emailError").addClass("d-none");
                return true;
              }
-           
+
              function validatePhone() {
                const phoneNational = phoneInput.value;
                const selectedCountry = iti.getSelectedCountryData().iso2;
@@ -1657,21 +1659,21 @@
                  $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
                  return false;
                }
-           
+
                if (fakeNumbers.includes(phoneNational)) {
                  $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
                  return false;
                }
-           
+
                if (validLengths && !validLengths.includes(phoneNational.length)) {
                  $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
                  return false;
                }
-           
+
                $("#phoneError").addClass("d-none");
                return true;
              }
-           
+
              function validateAgents() {
                if (!$("#agents").val()) {
                  $("#agentsError").removeClass("d-none");
@@ -1680,7 +1682,7 @@
                $("#agentsError").addClass("d-none");
                return true;
              }
-           
+
               function validateKnowruno() {
                if (!$("#know_runo").val()) {
                  $("#knowError").removeClass("d-none");
@@ -1689,42 +1691,42 @@
                $("#knowError").addClass("d-none");
                return true;
              }
-           
+
              $("#name").on("input", validateName);
              $("#email").on("input", validateEmail);
              $("#phone").on("input", validatePhone);
              $("#comp_name").on("input", validateCompName);
              $("#agents").on("change", validateAgents);
              $("#know_runo").on("change", validateKnowruno);
-           
+
              $("#demo-form").on("submit", function (event) {
                event.preventDefault();
-           
+
                const validName = validateName();
                const validEmail = validateEmail();
                const validPhone = validatePhone();
                const validCompName = validateCompName();
                const validAgents = validateAgents();
                const validKnowruno=validateKnowruno();
-           
+
                if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
                  return;
                }
-           
+
                const formData = $(this).serializeArray().reduce(function (obj, item) {
                  obj[item.name] = item.value;
                  return obj;
                }, {});
-           
+
                formData["your_phone"] = iti.getNumber(); // international format
                formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
-               
+
                const uuid = $(this).data("uuid");
-           
+
                submitForm("demo-form", formData, uuid);
              });
            });
-         
+
          });
       </script>
       <script type="application/ld+json">
@@ -1861,7 +1863,7 @@
              }
            ]
          }
-         
+
       </script>
    </body>
 </html>

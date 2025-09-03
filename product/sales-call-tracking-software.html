@@ -40,7 +40,7 @@
       </style>
       <!-- Google Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-      
+
       <!-- Favicon -->
       <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16">
       <!-- CSS Preload + Load -->
@@ -75,7 +75,7 @@
          window.addEventListener("load", function() {
            if (window.gtmDidInit) return;
            window.gtmDidInit = true;
-         
+
            function loadGTM(){
              (function(w,d,s,l,i){
                w[l]=w[l]||[];
@@ -87,7 +87,7 @@
                f.parentNode.insertBefore(j,f);
              })(window,document,'script','dataLayer','GTM-M7SSPG7W');
            }
-         
+
            if (window.requestIdleCallback) {
              requestIdleCallback(loadGTM, {timeout: 4000});
            } else {
@@ -98,7 +98,7 @@
          </script>
 
       <!-- End Google Tag Manager -->
-   
+
     <style>
       .runo-step-title {
         min-height: 48px;
@@ -120,7 +120,7 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-   
+
     <!-- Modal -->
     <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
       <div class="modal-dialog modal-dialog-centered">
@@ -224,6 +224,8 @@
                       <li class="nav-item"><a class="nav-link" href="telecaller-app">Telecaller App</a></li>
                       <li class="nav-item"><a class="nav-link" href="sales-management-software">Sales Management Software</a></li>
                       <li class="nav-item"><a class="nav-link" href="sales-call-tracking-software">Sales Call Tracking Software</a></li>
+                       <li class="nav-item"><a class="nav-link" href="telemarketing-crm-software">Telemarketing CRM Software</a></li>
+                      <li class="nav-item"><a class="nav-link" href="whatsapp-crm">WhatsApp CRM</a></li>
                     </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
@@ -432,7 +434,7 @@
               </ul>
               <div class="waba-btn" id="waba-web">
                 <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - WABA Web">Request a Demo</a>
-    
+
               </div>
             </div>
           </div>
@@ -1019,21 +1021,21 @@
          const buttons = document.querySelectorAll(".runo-web-crm");
          if (buttons.length > 0) {
          clearInterval(interval);
-         
+
          const utmSource = localStorage.getItem("utm_source");
          const utmCampaign = localStorage.getItem("utm_campaign");
-         
+
          // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
-         
+
          const baseUrl = "https://web.runo.in";
          const params = new URLSearchParams();
-         
+
          if (utmSource) params.append("utm_source", utmSource);
          if (utmCampaign) params.append("utm_campaign", utmCampaign);
-         
+
          const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
          // console.log("Final URL:", finalUrl); // debug
-         
+
          buttons.forEach((btn) => {
            btn.href = finalUrl;
            btn.addEventListener("click", function (e) {
@@ -1052,9 +1054,9 @@
          const utmCampaign = params.get("utm_campaign");
          if (utmSource) localStorage.setItem("utm_source", utmSource);
          if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
+
          // Sticky Header and Preloader JS
-         
+
          window.addEventListener('scroll', function () {
              const header = document.querySelector('.header-sticky');
              if (window.scrollY > 100) {
@@ -1063,7 +1065,7 @@
                  header?.classList.remove('active');
              }
          });
-         
+
          /*  window.addEventListener('load', function () {
              const preloader = document.querySelector('.runo-preloader');
              if (preloader) {
@@ -1072,9 +1074,9 @@
                  setTimeout(() => (preloader.style.display = 'none'), 350);
              }
          });*/
-         
-         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
-         
+
+         //Lazy-load PopupSmart Chat Widget after 3s to improve INP
+
          window.addEventListener('load', () => {
              setTimeout(() => {
                  const script = document.createElement('script');
