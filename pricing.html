@@ -275,7 +275,7 @@
                     })
                     .then((data) => {
                       const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
-            
+
                       callback(countryCode);
                     })
                     .catch((err) => {
@@ -286,7 +286,7 @@
                 separateDialCode: true,
                 utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
               });
-            
+
               const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
               const countryLengthMap = {
                 in: [10],
@@ -327,19 +327,19 @@
                 iq: [10],
                 gt: [8],
               };
-            
+
               function getMaxLengthForCountry() {
                 const countryCode = iti.getSelectedCountryData().iso2;
                 const allowedLengths = countryLengthMap[countryCode];
                 return allowedLengths ? Math.max(...allowedLengths) : 15;
               }
               let phoneTouched = false;
-            
+
               $("#phone").on("focus input", function () {
                 phoneTouched = true;
                 validatePhone();
               });
-            
+
               phoneInput.addEventListener("input", () => {
                 phoneInput.value = phoneInput.value.replace(/\D/g, "");
                 const maxLength = getMaxLengthForCountry();
@@ -348,13 +348,13 @@
                 }
                 validatePhone();
               });
-            
+
               phoneInput.addEventListener("countrychange", () => {
                 const maxLength = getMaxLengthForCountry();
                 phoneInput.value = phoneInput.value.slice(0, maxLength);
                 validatePhone();
               });
-            
+
               function validateName() {
                 const val = $("#name").val().trim();
                 if (!val || val.length > 30) {
@@ -373,7 +373,7 @@
                 $("#comp_nameError").addClass("d-none");
                 return true;
               }
-            
+
               function validateEmail() {
                 const val = $("#email").val().trim();
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -384,7 +384,7 @@
                 $("#emailError").addClass("d-none");
                 return true;
               }
-            
+
               function validatePhone() {
                 const phoneNational = phoneInput.value;
                 const selectedCountry = iti.getSelectedCountryData().iso2;
@@ -397,23 +397,23 @@
                   $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
                   return false;
                 }
-            
+
                 if (fakeNumbers.includes(phoneNational)) {
                   $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
                   return false;
                 }
-            
+
                 if (validLengths && !validLengths.includes(phoneNational.length)) {
                   $("#phoneError")
                     .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
                     .removeClass("d-none");
                   return false;
                 }
-            
+
                 $("#phoneError").addClass("d-none");
                 return true;
               }
-            
+
               function validateAgents() {
                 if (!$("#agents").val()) {
                   $("#agentsError").removeClass("d-none");
@@ -422,7 +422,7 @@
                 $("#agentsError").addClass("d-none");
                 return true;
               }
-            
+
               function validateKnowruno() {
                 if (!$("#know_runo").val()) {
                   $("#knowError").removeClass("d-none");
@@ -431,40 +431,40 @@
                 $("#knowError").addClass("d-none");
                 return true;
               }
-            
+
               $("#name").on("input", validateName);
               $("#email").on("input", validateEmail);
               $("#phone").on("input", validatePhone);
               $("#comp_name").on("input", validateCompName);
               $("#agents").on("change", validateAgents);
               $("#know_runo").on("change", validateKnowruno);
-            
+
               $("#demo-form").on("submit", function (event) {
                 event.preventDefault();
-            
+
                 const validName = validateName();
                 const validEmail = validateEmail();
                 const validPhone = validatePhone();
                 const validCompName = validateCompName();
                 const validAgents = validateAgents();
                 const validKnowruno = validateKnowruno();
-            
+
                 if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
                   return;
                 }
-            
+
                 const formData = $(this)
                   .serializeArray()
                   .reduce(function (obj, item) {
                     obj[item.name] = item.value;
                     return obj;
                   }, {});
-            
+
                 formData["your_phone"] = iti.getNumber(); // international format
                 formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Pricing";
-            
+
                 const uuid = $(this).data("uuid");
-            
+
                 submitForm("demo-form", formData, uuid);
               });
             });
@@ -579,7 +579,7 @@
                                  <span class="dollar">$ 18</span>
                               </h3>
                               <p class="text-muted small">per user/month</p>
-                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" 
+                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in"
                                  data-label="Start 10-day free trial - Pricing 3M">
                               Start 10-Day Free Trial
                               </a>
@@ -629,7 +629,7 @@
                                  <span class="dollar">$ 10 </span>
                               </h3>
                               <p class="text-muted small">per user/month</p>
-                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in" 
+                              <a class="btn-runo track-btn runo-web-crm" href="https://web.runo.in"
                                  data-label="Start 10-day free trial - Pricing 12M">
                               Start 10-Day Free Trial
                               </a>
@@ -1370,6 +1370,8 @@
                      </li>
                      <li><a href="product/sales-management-software" class="text-light text-decoration-none d-block mb-1">Sales Management Software</a></li>
                      <li><a href="product/sales-call-tracking-software" class="text-light text-decoration-none d-block mb-1">Sales Call Tracking Software</a></li>
+              <li><a href="product/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
+              <li><a href="product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
                   </ul>
                </div>
                <!-- Support -->
@@ -1485,29 +1487,29 @@
          function updateNavState(swiper) {
              const prevBtn = document.querySelector(".testimonial-prev-btn");
              const nextBtn = document.querySelector(".testimonial-next-btn");
-         
+
              if (swiper.isBeginning) {
                  prevBtn.classList.add("swiper-button-disabled");
              } else {
                  prevBtn.classList.remove("swiper-button-disabled");
              }
-         
+
              if (swiper.isEnd) {
                  nextBtn.classList.add("swiper-button-disabled");
              } else {
                  nextBtn.classList.remove("swiper-button-disabled");
              }
          }
-         
-         
+
+
          const params = new URLSearchParams(window.location.search);
          const utmSource = params.get("utm_source");
          const utmCampaign = params.get("utm_campaign");
          if (utmSource) localStorage.setItem("utm_source", utmSource);
          if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
+
          // Sticky Header and Preloader JS
-         
+
          window.addEventListener('scroll', function () {
              const header = document.querySelector('.header-sticky');
              if (window.scrollY > 100) {
@@ -1516,7 +1518,7 @@
                  header?.classList.remove('active');
              }
          });
-         
+
          window.addEventListener('load', function () {
              const preloader = document.querySelector('.runo-preloader');
              if (preloader) {
@@ -1525,9 +1527,9 @@
                  setTimeout(() => (preloader.style.display = 'none'), 300);
              }
          });
-         
-         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
-         
+
+         //Lazy-load PopupSmart Chat Widget after 3s to improve INP
+
          window.addEventListener('load', () => {
              setTimeout(() => {
                  const script = document.createElement('script');

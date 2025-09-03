@@ -184,16 +184,16 @@
               const iti = window.intlTelInput(phoneInput, {
                 initialCountry: "auto", // <-- add this line
                 geoIpLookup: function (callback) {
-            
+
                   fetch('https://ipapi.co/json/')
                     .then(res => {
-            
+
                       return res.json();
                     })
                     .then(data => {
-            
+
                       const countryCode = (data && data.country_code) ? data.country_code.toLowerCase() : 'in';
-            
+
                       callback(countryCode);
                     })
                     .catch(err => {
@@ -204,7 +204,7 @@
                 separateDialCode: true,
                 utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
               });
-            
+
               const fakeNumbers = [
                 "1234567890", "0000000000", "1111111111", "2222222222",
                 "3333333333", "4444444444", "5555555555", "6666666666",
@@ -249,20 +249,20 @@
                 iq: [10],
                 gt: [8]
               };
-            
+
               function getMaxLengthForCountry() {
                 const countryCode = iti.getSelectedCountryData().iso2;
                 const allowedLengths = countryLengthMap[countryCode];
                 return allowedLengths ? Math.max(...allowedLengths) : 15;
               }
               let phoneTouched = false;
-            
+
               $("#phone").on("focus input", function () {
                 phoneTouched = true;
                 validatePhone();
               });
-            
-            
+
+
               phoneInput.addEventListener("input", () => {
                 phoneInput.value = phoneInput.value.replace(/\D/g, "");
                 const maxLength = getMaxLengthForCountry();
@@ -271,13 +271,13 @@
                 }
                 validatePhone();
               });
-            
+
               phoneInput.addEventListener("countrychange", () => {
                 const maxLength = getMaxLengthForCountry();
                 phoneInput.value = phoneInput.value.slice(0, maxLength);
                 validatePhone();
               });
-            
+
               function validateName() {
                 const val = $("#name").val().trim();
                 if (!val || val.length > 30) {
@@ -296,7 +296,7 @@
                 $("#comp_nameError").addClass("d-none");
                 return true;
               }
-            
+
               function validateEmail() {
                 const val = $("#email").val().trim();
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -307,7 +307,7 @@
                 $("#emailError").addClass("d-none");
                 return true;
               }
-            
+
               function validatePhone() {
                 const phoneNational = phoneInput.value;
                 const selectedCountry = iti.getSelectedCountryData().iso2;
@@ -320,21 +320,21 @@
                   $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
                   return false;
                 }
-            
+
                 if (fakeNumbers.includes(phoneNational)) {
                   $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
                   return false;
                 }
-            
+
                 if (validLengths && !validLengths.includes(phoneNational.length)) {
                   $("#phoneError").text(`Phone number must be ${validLengths.join(" or ")} digits.`).removeClass("d-none");
                   return false;
                 }
-            
+
                 $("#phoneError").addClass("d-none");
                 return true;
               }
-            
+
               function validateAgents() {
                 if (!$("#agents").val()) {
                   $("#agentsError").removeClass("d-none");
@@ -343,7 +343,7 @@
                 $("#agentsError").addClass("d-none");
                 return true;
               }
-            
+
                function validateKnowruno() {
                 if (!$("#know_runo").val()) {
                   $("#knowError").removeClass("d-none");
@@ -352,38 +352,38 @@
                 $("#knowError").addClass("d-none");
                 return true;
               }
-            
+
               $("#name").on("input", validateName);
               $("#email").on("input", validateEmail);
               $("#phone").on("input", validatePhone);
               $("#comp_name").on("input", validateCompName);
               $("#agents").on("change", validateAgents);
               $("#know_runo").on("change", validateKnowruno);
-            
+
               $("#demo-form").on("submit", function (event) {
                 event.preventDefault();
-            
+
                 const validName = validateName();
                 const validEmail = validateEmail();
                 const validPhone = validatePhone();
                 const validCompName = validateCompName();
                 const validAgents = validateAgents();
                 const validKnowruno=validateKnowruno();
-            
+
                 if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
                   return;
                 }
-            
+
                 const formData = $(this).serializeArray().reduce(function (obj, item) {
                   obj[item.name] = item.value;
                   return obj;
                 }, {});
-            
+
                 formData["your_phone"] = iti.getNumber(); // international format
                 formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-                
+
                 const uuid = $(this).data("uuid");
-            
+
                 submitForm("demo-form", formData, uuid);
               });
             });
@@ -464,7 +464,7 @@
             </div>
          </header>
          <!-- Header End -->
-         <!-- 
+         <!--
             <header class="main-header">
                 <div class="header-sticky">
                     <nav class="navbar navbar-expand-lg">
@@ -489,7 +489,7 @@
                                         <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
                                         <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                                         <li class="nav-item"><a class="header-btn-plain" href="https://web.runo.in/">Login</a></li>
-                                     
+
                                         <li class="nav-item">
                                             <a class="header-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal">Request a Demo</a>
                                         </li>
@@ -809,26 +809,26 @@
                                alt: "Biz Whatsapp Integration"
                              }
                            };
-                           
+
                            const buttons = document.querySelectorAll('#feature-buttons .feature-btn');
                            const image = document.getElementById('webImage');
-                           
+
                            // Handle feature button clicks (no fade)
                            buttons.forEach(btn => {
                              btn.addEventListener('click', () => {
                                buttons.forEach(b => b.classList.remove('active'));
                                btn.classList.add('active');
-                           
+
                                const text = btn.textContent.trim();
                                const feature = featureMap[text];
-                           
+
                                if (feature) {
                                  image.src = feature.src;
                                  image.alt = feature.alt;
                                }
                              });
                            });
-                           
+
                            // Set initial image on page load
                            window.addEventListener('DOMContentLoaded', () => {
                              const activeBtn = document.querySelector('.feature-btn.active');
@@ -841,7 +841,7 @@
                                }
                              }
                            });
-                           
+
                            // Lazy preload images after full page load
                            window.addEventListener('load', () => {
                              setTimeout(() => {
@@ -1088,12 +1088,12 @@
             const tabs = document.querySelectorAll(".tab-btn");
             const panes = document.querySelectorAll(".tab-pane");
             const scrollIndicator = document.getElementById("scrollIndicator");
-            
+
             let index = 0;
             let autoSlideInterval;
             let observerStarted = false;
             let isAnimating = false;
-            
+
             function animateScrollIndicator(toTop) {
               const startTop = parseFloat(scrollIndicator.style.top) || 0;
               const startHeight = parseFloat(scrollIndicator.style.height) || 0;
@@ -1101,83 +1101,83 @@
               const targetHeight = isMobile ? 135 : 88;
               const duration = 500;
               const startTime = performance.now();
-            
+
               function animate(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 const newTop = startTop + (toTop - startTop) * progress;
                 const newHeight = startHeight + (targetHeight - startHeight) * progress;
-            
+
                 scrollIndicator.style.top = `${newTop}px`;
                 scrollIndicator.style.height = `${newHeight}px`;
-            
+
                 if (progress < 1) {
                   requestAnimationFrame(animate);
                 }
               }
-            
+
               requestAnimationFrame(animate);
             }
-            
+
             function updateScrollIndicator(i) {
               const spacingTop = tabs[i].offsetTop + 35;
               animateScrollIndicator(spacingTop);
             }
-            
+
             function switchTab(i) {
               if (isAnimating || index === i) return;
               isAnimating = true;
-            
+
               // Hide all mobile images
               const mobileImgs = document.querySelectorAll('.mobile-tab-img');
               mobileImgs.forEach(img => img.style.display = 'none');
-            
+
               // Show active mobile image
               if (window.innerWidth <= 767) {
                 const currentMobileImg = document.getElementById(`mobileImg${i}`);
                 if (currentMobileImg) currentMobileImg.style.display = 'block';
               }
-            
+
               const currentPane = document.querySelector(".tab-pane.show.active");
               const nextTab = tabs[i];
               const nextPaneId = nextTab.getAttribute("data-bs-target");
               const nextPane = document.querySelector(nextPaneId);
-            
+
               if (!nextPane) {
                 isAnimating = false;
                 return;
               }
-            
+
               tabs.forEach(tab => tab.classList.remove("active"));
               nextTab.classList.add("active");
-            
+
               currentPane.classList.remove("show", "active");
               nextPane.classList.add("show", "active");
-            
+
               updateScrollIndicator(i);
               index = i;
               isAnimating = false;
             }
-            
+
             function startAutoSlide() {
               autoSlideInterval = setInterval(() => {
                 const nextIndex = (index + 1) % tabs.length;
                 switchTab(nextIndex);
               }, 6500);
             }
-            
+
             function resetAutoSlide() {
               clearInterval(autoSlideInterval);
               startAutoSlide();
             }
-            
+
             tabs.forEach((tab, i) => {
               tab.addEventListener("click", () => {
                 switchTab(i);
                 resetAutoSlide();
               });
             });
-            
+
             function observeSection() {
               const section = document.getElementById("dealsSection");
               const observer = new IntersectionObserver((entries) => {
@@ -1191,10 +1191,10 @@
               }, {
                 threshold: 0.3
               });
-            
+
               observer.observe(section);
             }
-            
+
             document.addEventListener("DOMContentLoaded", observeSection);
          </script>
          <section class="sales-execution-section py-5">
@@ -1245,11 +1245,11 @@
                   <!-- Video Wrapper -->
                   <div class="video-wrapper" style="position: relative; background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%); overflow: hidden;">
                      <!-- Thumbnail -->
-                     <img 
-                        loading="lazy" 
-                        src="img/runo-video.webp" 
-                        alt="Runo AI in Action" 
-                        class="video-thumbnail" 
+                     <img
+                        loading="lazy"
+                        src="img/runo-video.webp"
+                        alt="Runo AI in Action"
+                        class="video-thumbnail"
                         id="videoThumbnail"
                         style="width: 100%; height: auto; display: block;"
                         >
@@ -1258,12 +1258,12 @@
                      <button class="play-button" id="playVideo" aria-label="Play Video">
                      <i class="fas fa-play"></i>
                      </button>                     <!-- Video (hidden initially) -->
-                     <video 
-                        id="localVideo" 
-                        controls 
-                        preload="none" 
-                        playsinline 
-                        webkit-playsinline 
+                     <video
+                        id="localVideo"
+                        controls
+                        preload="none"
+                        playsinline
+                        webkit-playsinline
                         style="display:none; width:100%; height:auto; border-radius:12px;"
                         >
                         <source src="runo.mp4" type="video/mp4">
@@ -1284,12 +1284,12 @@
             const playButton = document.getElementById('playVideo');
             const videoThumbnail = document.getElementById('videoThumbnail');
             const localVideo = document.getElementById('localVideo');
-            
+
             playButton.addEventListener('click', () => {
               // Hide image & play button
               videoThumbnail.style.display = 'none';
               playButton.style.display = 'none';
-            
+
               // Show video & play with audio
               localVideo.style.display = 'block';
               localVideo.play().catch(err => console.log('Play prevented:', err));
@@ -2125,6 +2125,8 @@
                      </li>
                      <li><a href="product/sales-management-software" class="text-light text-decoration-none d-block mb-1">Sales Management Software</a></li>
                      <li><a href="product/sales-call-tracking-software" class="text-light text-decoration-none d-block mb-1">Sales Call Tracking Software</a></li>
+              <li><a href="product/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
+              <li><a href="product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
                   </ul>
                </div>
                <!-- Support -->
@@ -2238,34 +2240,34 @@
          </script>
       <!-- UTM Tracker -->
       <script>
-         
+
          /*Testimonials Slider */
          function updateNavState(swiper) {
            const prevBtn = document.querySelector(".testimonial-prev-btn");
            const nextBtn = document.querySelector(".testimonial-next-btn");
-         
+
            if (swiper.isBeginning) {
              prevBtn.classList.add("swiper-button-disabled");
            } else {
              prevBtn.classList.remove("swiper-button-disabled");
            }
-         
+
            if (swiper.isEnd) {
              nextBtn.classList.add("swiper-button-disabled");
            } else {
              nextBtn.classList.remove("swiper-button-disabled");
            }
          }
-         
-         
+
+
          const params = new URLSearchParams(window.location.search);
          const utmSource = params.get("utm_source");
          const utmCampaign = params.get("utm_campaign");
          if (utmSource) localStorage.setItem("utm_source", utmSource);
          if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
+
          // Sticky Header and Preloader JS
-         
+
          window.addEventListener('scroll', function () {
            const header = document.querySelector('.header-sticky');
            if (window.scrollY > 100) {
@@ -2274,7 +2276,7 @@
              header?.classList.remove('active');
            }
          });
-         
+
          window.addEventListener('load', function () {
            const preloader = document.querySelector('.runo-preloader');
            if (preloader) {
@@ -2283,9 +2285,9 @@
              setTimeout(() => (preloader.style.display = 'none'), 300);
            }
          });
-         
-         //Lazy-load PopupSmart Chat Widget after 3s to improve INP 
-         
+
+         //Lazy-load PopupSmart Chat Widget after 3s to improve INP
+
          window.addEventListener('load', () => {
            setTimeout(() => {
              const script = document.createElement('script');

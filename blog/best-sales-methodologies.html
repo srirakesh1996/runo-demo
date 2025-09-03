@@ -109,7 +109,7 @@
       </style>
       <style>
          .wp-block-image{
-         width: 60%;    
+         width: 60%;
          margin: 15px auto !important;
          }
          .blog-content h2 {
@@ -332,21 +332,21 @@
          jQuery(document).ready(function ($) {
            var progressBar = $("#progressBar");
            var progressContainer = $(".progress-container");
-         
+
            $(window).on("scroll", function () {
              var scrollTop = $(document).scrollTop();
              var scrollHeight = $(document).height() - $(window).height();
              var scrolled = (scrollTop / scrollHeight) * 100;
-         
+
              progressBar.css("width", scrolled + "%");
-         
+
              // Show progress bar only after 10% scroll
              if (scrolled >= 5) {
                progressContainer.fadeIn(200);
              } else {
                progressContainer.fadeOut(200);
              }
-         
+
              // Apply scroll class only on desktop
              if (window.innerWidth >= 768) {
                if (scrollTop > 0) {
@@ -356,7 +356,7 @@
                }
              }
            });
-         
+
            // Hide initially
            progressContainer.hide();
          });
@@ -437,7 +437,7 @@
                  })
                  .then((data) => {
                    const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
-         
+
                    callback(countryCode);
                  })
                  .catch((err) => {
@@ -448,7 +448,7 @@
              separateDialCode: true,
              utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
            });
-         
+
            const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
            const countryLengthMap = {
              in: [10],
@@ -489,19 +489,19 @@
              iq: [10],
              gt: [8],
            };
-         
+
            function getMaxLengthForCountry() {
              const countryCode = iti.getSelectedCountryData().iso2;
              const allowedLengths = countryLengthMap[countryCode];
              return allowedLengths ? Math.max(...allowedLengths) : 15;
            }
            let phoneTouched = false;
-         
+
            $("#phone").on("focus input", function () {
              phoneTouched = true;
              validatePhone();
            });
-         
+
            phoneInput.addEventListener("input", () => {
              phoneInput.value = phoneInput.value.replace(/\D/g, "");
              const maxLength = getMaxLengthForCountry();
@@ -510,13 +510,13 @@
              }
              validatePhone();
            });
-         
+
            phoneInput.addEventListener("countrychange", () => {
              const maxLength = getMaxLengthForCountry();
              phoneInput.value = phoneInput.value.slice(0, maxLength);
              validatePhone();
            });
-         
+
            function validateName() {
              const val = $("#name").val().trim();
              if (!val || val.length > 30) {
@@ -535,7 +535,7 @@
              $("#comp_nameError").addClass("d-none");
              return true;
            }
-         
+
            function validateEmail() {
              const val = $("#email").val().trim();
              const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -546,7 +546,7 @@
              $("#emailError").addClass("d-none");
              return true;
            }
-         
+
            function validatePhone() {
              const phoneNational = phoneInput.value;
              const selectedCountry = iti.getSelectedCountryData().iso2;
@@ -559,23 +559,23 @@
                $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
                return false;
              }
-         
+
              if (fakeNumbers.includes(phoneNational)) {
                $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
                return false;
              }
-         
+
              if (validLengths && !validLengths.includes(phoneNational.length)) {
                $("#phoneError")
                  .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
                  .removeClass("d-none");
                return false;
              }
-         
+
              $("#phoneError").addClass("d-none");
              return true;
            }
-         
+
            function validateAgents() {
              if (!$("#agents").val()) {
                $("#agentsError").removeClass("d-none");
@@ -584,7 +584,7 @@
              $("#agentsError").addClass("d-none");
              return true;
            }
-         
+
            function validateKnowruno() {
              if (!$("#know_runo").val()) {
                $("#knowError").removeClass("d-none");
@@ -593,40 +593,40 @@
              $("#knowError").addClass("d-none");
              return true;
            }
-         
+
            $("#name").on("input", validateName);
            $("#email").on("input", validateEmail);
            $("#phone").on("input", validatePhone);
            $("#comp_name").on("input", validateCompName);
            $("#agents").on("change", validateAgents);
            $("#know_runo").on("change", validateKnowruno);
-         
+
            $("#demo-form").on("submit", function (event) {
              event.preventDefault();
-         
+
              const validName = validateName();
              const validEmail = validateEmail();
              const validPhone = validatePhone();
              const validCompName = validateCompName();
              const validAgents = validateAgents();
              const validKnowruno = validateKnowruno();
-         
+
              if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
                return;
              }
-         
+
              const formData = $(this)
                .serializeArray()
                .reduce(function (obj, item) {
                  obj[item.name] = item.value;
                  return obj;
                }, {});
-         
+
              formData["your_phone"] = iti.getNumber(); // international format
              formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog Pages";
-         
+
              const uuid = $(this).data("uuid");
-         
+
              submitForm("demo-form", formData, uuid);
            });
          });
@@ -668,7 +668,7 @@
                                  <li class="nav-item"><a class="nav-link" href="/product/sales-management-software">Sales Management Software</a></li>
                                  <li class="nav-item"><a class="nav-link" href="/product/sales-call-tracking-software">Sales Call Tracking Software</a></li>
                                  <li class="nav-item"><a class="nav-link" href="/product/telemarketing-crm-software">Telemarketing CRM Software</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="/product/whatsapp-crm">WhatsApp CRM</a></li>  
+                                 <li class="nav-item"><a class="nav-link" href="/product/whatsapp-crm">WhatsApp CRM</a></li>
                             </ul>
                            </li>
                            <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
@@ -701,12 +701,12 @@
             <!-- TOC Column - Hidden on small devices -->
             <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
                <div class="sticky-top" style="top: 100px">
-               
+
                  <div class="mb-3">
                    <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
                  </div>
-               
-               
+
+
                  <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
                    <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
                    <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
@@ -861,7 +861,8 @@
                      <li><a href="/product/telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
                      <li><a href="/product/sales-management-software" class="text-light text-decoration-none d-block mb-1">Sales Management Software</a></li>
                      <li><a href="/product/sales-call-tracking-software" class="text-light text-decoration-none d-block mb-1">Sales Call Tracking Software</a></li>
-                  </ul>
+                      <li><a href="/product/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
+                      <li><a href="/product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>                  </ul>
                </div>
                <!-- Support -->
                <div class="col-6 col-md-4 col-lg-2">
@@ -975,9 +976,9 @@
          const utmCampaign = params.get("utm_campaign");
          if (utmSource) localStorage.setItem("utm_source", utmSource);
          if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
-         
+
          // Sticky Header and Preloader JS
-         
+
          window.addEventListener("scroll", function () {
            const header = document.querySelector(".header-sticky");
            if (window.scrollY > 100) {
@@ -986,7 +987,7 @@
              header?.classList.remove("active");
            }
          });
-         
+
          window.addEventListener("load", function () {
            const preloader = document.querySelector(".runo-preloader");
            if (preloader) {
@@ -995,9 +996,9 @@
              setTimeout(() => (preloader.style.display = "none"), 350);
            }
          });
-         
+
          //Lazy-load PopupSmart Chat Widget after 3s to improve INP
-         
+
          window.addEventListener("load", () => {
            setTimeout(() => {
              const script = document.createElement("script");
