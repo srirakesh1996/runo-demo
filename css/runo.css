@@ -1125,8 +1125,6 @@
   }
 }
 
-
-
 .cta-button {
   background: orange;
   color: black;
@@ -2722,12 +2720,7 @@ input::placeholder {
   overflow: hidden;
 
   /* Show gradient first */
-  background: linear-gradient(
-    180deg,
-    rgba(245, 243, 237, 0) 0%,
-    #f5f3ed 40%,
-    #f5f3ed 100%
-  );
+  background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
 
   /* Background image (loaded after preload hint) */
   background-image: url("/img/testimonial-background.webp");
@@ -2735,7 +2728,6 @@ input::placeholder {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .telecaller-hero {
   position: relative;
@@ -3414,23 +3406,19 @@ body.modal-open {
   background: #fff !important;
 }
 
-
-
-  .demo-section .close-button{
-
-   z-index:9999999;
+.demo-section .close-button {
+  z-index: 9999999;
 }
-  /* Modal video styling */
-  #localVideo {
-    width: 100%;
-  
-  }
+/* Modal video styling */
+#localVideo {
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   #localVideo {
-    width: 100%;         /* Full width */
-    height: auto;        /* Natural height */
-    max-height: 80vh;    /* Avoid overflowing screen */
+    width: 100%; /* Full width */
+    height: auto; /* Natural height */
+    max-height: 80vh; /* Avoid overflowing screen */
     object-fit: contain; /* Keep proportions */
     display: block;
   }
@@ -3452,18 +3440,13 @@ body.modal-open {
   }
 }
 
-  .slight-blue{
+.slight-blue {
+  background: #e1f0ffb2;
+}
 
-    background: #E1F0FFB2;
-
-  }
-
-
-   .slight-yellow{
-
-background: #FFF4DEB2;
-
-  }
-  .benifits-section .card{
-    border-radius:20px;
-  }
+.slight-yellow {
+  background: #fff4deb2;
+}
+.benifits-section .card {
+  border-radius: 20px;
+}
