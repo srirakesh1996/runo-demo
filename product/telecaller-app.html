@@ -29,18 +29,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
     <!-- Preload LCP and other important images -->
-    <link rel="preload" as="image" href="../img/banner-lpimg.webp" fetchpriority="high" type="image/webp" />
-    <link rel="preload" as="image" href="../img/telecaller/telecaller.webp" type="image/webp" imagesrcset="../img/telecaller/telecaller.webp 1x" />
-    <style>
-      html {
-        font-display: swap;
-      }
-    </style>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp" />
+    <link rel="preload" as="image" href="/img/telecaller/telecaller.webp" type="image/webp" imagesrcset="/img/telecaller/telecaller.webp 1x" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
@@ -52,6 +44,8 @@
       <link rel="stylesheet" href="/css/runo.css" />
     </noscript>
     <!-- Inline Style -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <!-- Font Awesome (preload + async apply) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
