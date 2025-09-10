@@ -1729,18 +1729,7 @@
         </div>
       </div>
     </footer>
-    <script>
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          var script = document.createElement("script");
-          script.src = "/js/swiper.js"; // Path to your swiper script
-          script.type = "text/javascript";
-          script.defer = true; // Ensure it’s still deferred once it starts loading
-          document.body.appendChild(script); // Adds the script to the page after the delay
-        }, 4000); // Delay of 3 seconds
-      });
-    </script>
-
+    <script src="/js/swiper.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
