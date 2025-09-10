@@ -38,8 +38,12 @@
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
 
-    <link rel="stylesheet" href="/css/custom.css" />
     <!-- Preload critical CSS -->
+    <link rel="preload" href="/css/custom.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/custom.css" />
+    </noscript>
+
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
       <link rel="stylesheet" href="/css/runo.css" />
