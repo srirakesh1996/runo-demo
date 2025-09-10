@@ -25,15 +25,24 @@
     <meta name="twitter:url" content="https://runo.ai/product/auto-dialer-software" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
-
+    <!-- Preconnect (critical for fonts & GTM) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload LCP and other important images -->
     <link rel="preload" as="image" href="../img/banner-lpimg.avif" fetchpriority="high" type="image/avif" />
     <link rel="preload" as="image" href="../img/auto-dialer/auto-dialer.avif" type="image/avif" imagesrcset="../img/auto-dialer/auto-dialer.avif 1x" />
-    <link rel="preload" as="style" href="/css/custom.css" />
-    <link rel="stylesheet" href="/css/custom.css" media="all" />
+    <!-- Google Fonts with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/css/custom.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/custom.css" />
+    </noscript>
 
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
@@ -55,24 +64,43 @@
     </noscript>
     <!-- jQuery (can be moved before </body> if not critical) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+    <script>
+      // Replace with lazy load on interaction
+      document.querySelectorAll('input[type="tel"]').forEach((input) => {
+        input.addEventListener("focus", async () => {
+          if (!window.intlTelInput) {
+            const module = await import("https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js");
+            window.intlTelInput(input, {
+              // your config here
+            });
+          }
+        });
+      });
+    </script>
     <!-- Google Tag Manager -->
+    <script>
+      window.addEventListener("load", function () {
+        if (window.gtmDidInit) return;
+        window.gtmDidInit = true;
 
-    <script async>
-      window.addEventListener("scroll", function () {
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({
-            "gtm.start": new Date().getTime(),
-            event: "gtm.js",
-          });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-          j.async = true;
-          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+        function loadGTM() {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+        }
+
+        if (window.requestIdleCallback) {
+          requestIdleCallback(loadGTM, { timeout: 4000 });
+        } else {
+          setTimeout(loadGTM, 4000);
+        }
       });
     </script>
     <!-- End Google Tag Manager -->
