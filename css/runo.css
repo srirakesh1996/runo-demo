@@ -2735,7 +2735,9 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: #f5f3ed;
+  background: url("/img/banner-lpimg.avif") no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .telecaller-hero .banner-cont {
@@ -2747,6 +2749,7 @@ input::placeholder {
 
 .telecaller-hero .banner-cont h1 {
   color: #111111 !important;
+  font-family: "Inter", sans-serif;
 }
 
 .telecaller-hero .banner-cont p {
@@ -2828,7 +2831,11 @@ body.modal-open {
   display: block;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+  .telecaller-hero {
+    background: #f5f3ed !important;
+  }
+
   .cta-p {
     width: 100%;
   }

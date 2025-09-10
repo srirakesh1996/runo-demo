@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload LCP and other important images -->
-    <link rel="preload" as="image" href="../img/banner-lpimg.avif" fetchpriority="high" type="image/avif" />
+
     <link rel="preload" as="image" href="../img/auto-dialer/auto-dialer.avif" type="image/avif" imagesrcset="../img/auto-dialer/auto-dialer.avif 1x" />
     <!-- Google Fonts with font-display: swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -38,11 +38,7 @@
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
 
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="/css/custom.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="/css/custom.css" />
-    </noscript>
+    <link rel="stylesheet" href="/css/custom.css" />
 
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
@@ -65,9 +61,6 @@
     <!-- jQuery (can be moved before </body> if not critical) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-    <!-- Preload the Swiper script to fetch it early -->
-    <link rel="preload" href="/js/swiper.js" as="script" />
-
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
@@ -829,7 +822,7 @@
                     <li><a href="../product/">Product</a></li>
                     <li>Auto Dialer Software</li>
                   </ul>
-                  <h1 class="fadeInUpCustom" data--delay="0.4s">Advanced Auto Dialer That Ends Manual Calling for Good</h1>
+                  <h1>Advanced Auto Dialer That Ends Manual Calling for Good</h1>
                   <p>Integrated with Runo’s Call Management CRM, it speeds up outreach and helps your team stay on track with every lead.</p>
                   <ul>
                     <li>Auto Dial 100+ leads/ day</li>
@@ -1175,7 +1168,6 @@
         </div>
       </div>
     </section>
-    <!-- Features Section -->
     <section class="features-section mt-70" id="features">
       <div class="container">
         <!-- Section Title -->
@@ -1183,12 +1175,10 @@
           <h2>The Essentials for High-Volume Calling</h2>
           <p class="feat-text">Built for teams that call all day</p>
         </div>
-
         <!-- Desktop Layout -->
         <div class="row d-none d-md-flex">
-          <!-- Feature Blocks with Lazy Images -->
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img src="/img/feature/1.webp" class="img-fluid mb-2" alt="Advanced Caller ID" loading="lazy" />
+            <img src="/img/feature/1.webp" class="img-fluid mb-2" alt="Advanced Caller ID" />
             <h5>Advanced Caller ID</h5>
             <p class="feat-text">Stay informed with names, context, and call history before each auto-dialed call</p>
           </div>
@@ -1213,12 +1203,12 @@
             <p class="feat-text">Leads go to the right person automatically, speeding up first response time</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img src="/img/feature/12.webp" class="img-fluid mb-2" alt="Interaction Timeline" loading="lazy" />
+            <img loading="lazy" src="/img/feature/12.webp" class="img-fluid mb-2" alt="Interaction Timeline" loading="lazy" />
             <h5>Interaction Timeline</h5>
             <p class="feat-text">Track the entire conversation history with each lead in one place</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img src="/img/feature/13.webp" class="img-fluid mb-2" alt="CRM Field Customisation" loading="lazy" />
+            <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" loading="lazy" alt="CRM Field Customisation" />
             <h5>CRM Field Customisation</h5>
             <p class="feat-text">Customise fields and workflows without needing a tech team</p>
           </div>
@@ -1228,23 +1218,22 @@
             <p class="feat-text">Track every agent’s live status to manage your team better</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img src="/img/feature/9.webp" class="img-fluid mb-2" alt="Real-Time Dashboards" loading="lazy" />
+            <img loading="lazy" src="/img/feature/9.webp" class="img-fluid mb-2" alt="Real-Time Dashboards" loading="lazy" />
             <h5>Real-Time Dashboards</h5>
             <p class="feat-text">See call volume, agent status, and lead progress in real time</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img src="/img/feature/6.webp" class="img-fluid mb-2" alt="Follow-Up Notifications" loading="lazy" />
+            <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2" loading="lazy" alt="Follow-Up Notifications" />
             <h5>Follow-Up Notifications</h5>
             <p class="feat-text">Timely nudges to follow up with the right lead at the right moment</p>
           </div>
         </div>
-
         <!-- Mobile Swiper Layout -->
         <div class="swiper-container d-block d-md-none mt-4">
           <div class="swiper-wrapper text-center">
             <!-- Slide 1 -->
             <div class="swiper-slide">
-              <img src="/img/feature/1.webp" class="img-fluid mb-2" alt="Advanced Caller ID" loading="lazy" />
+              <img src="/img/feature/1.webp" class="img-fluid mb-2" alt="Advanced Caller ID" />
               <h5>Advanced Caller ID</h5>
               <p class="feat-text">Stay informed with names, context, and call history before each auto-dialed call</p>
             </div>
@@ -1274,13 +1263,13 @@
             </div>
             <!-- Slide 6 -->
             <div class="swiper-slide">
-              <img src="/img/feature/12.webp" class="img-fluid mb-2" alt="Interaction Timeline" loading="lazy" />
+              <img loading="lazy" src="/img/feature/12.webp" class="img-fluid mb-2" loading="lazy" alt="Interaction Timeline" />
               <h5>Interaction Timeline</h5>
               <p class="feat-text">Track the entire conversation history with each lead in one place</p>
             </div>
             <!-- Slide 7 -->
             <div class="swiper-slide">
-              <img src="/img/feature/13.webp" class="img-fluid mb-2" alt="CRM Field Customisation" loading="lazy" />
+              <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" loading="lazy" alt="CRM Field Customisation" />
               <h5>CRM Field Customisation</h5>
               <p class="feat-text">Customise fields and workflows without needing a tech team</p>
             </div>
@@ -1291,12 +1280,12 @@
               <p class="feat-text">Track every agent’s live status to manage your team better</p>
             </div>
             <div class="swiper-slide">
-              <img src="/img/feature/9.webp" class="img-fluid mb-2" alt="Real-Time Dashboards" loading="lazy" />
+              <img loading="lazy" src="/img/feature/9.webp" class="img-fluid mb-2" loading="lazy" alt="Real-Time Dashboards" />
               <h5>Real-Time Dashboards</h5>
               <p class="feat-text">See call volume, agent status, and lead progress in real time</p>
             </div>
             <div class="swiper-slide">
-              <img src="/img/feature/6.webp" class="img-fluid mb-2" alt="Follow-Up Notifications" loading="lazy" />
+              <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2" loading="lazy" alt="Follow-Up Notifications" />
               <h5>Follow-Up Notifications</h5>
               <p class="feat-text">Timely nudges to follow up with the right lead at the right moment</p>
             </div>
@@ -1309,50 +1298,23 @@
         </div>
       </div>
     </section>
-
-    <!-- Lazy Load Swiper Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const swiperElement = document.querySelector(".swiper-container");
-        const swiperScript = document.createElement("script");
-        swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper@8.0.6/swiper-bundle.min.js";
-        swiperScript.defer = true;
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // Append Swiper script to body
-                document.body.appendChild(swiperScript);
-
-                // Initialize Swiper once the script has loaded
-                swiperScript.onload = function () {
-                  new Swiper(".swiper-container", {
-                    loop: true,
-                    autoplay: {
-                      delay: 3000,
-                      disableOnInteraction: false,
-                    },
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                    navigation: {
-                      nextEl: ".swiper-custom-next",
-                      prevEl: ".swiper-custom-prev",
-                    },
-                  });
-                };
-
-                observer.disconnect(); // Stop observing once Swiper is initialized
-              }
-            });
+        new Swiper(".swiper-container", {
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
           },
-          { threshold: 0.1 }
-        );
-
-        observer.observe(swiperElement); // Observe the Swiper container
+          slidesPerView: 1,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".swiper-custom-next",
+            prevEl: ".swiper-custom-prev",
+          },
+        });
       });
     </script>
-
     <section class="home-app-cta animate__animated animate__fadeInUp" data--delay="0.2s">
       <div class="container">
         <h2 class="animate__animated animate__fadeInDown" data--delay="0.4s">
@@ -1488,68 +1450,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Optimized Swiper Initialization -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const testimonialSliderElement = document.querySelector(".testimonial-slider");
-        const swiperScript = document.createElement("script");
-        swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper@8.0.6/swiper-bundle.min.js";
-        swiperScript.defer = true;
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // Append Swiper script to body
-                document.body.appendChild(swiperScript);
-
-                // Initialize Swiper once the script has loaded
-                swiperScript.onload = function () {
-                  const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
-                    slidesPerView: 2.5, // Default: 1 slide on mobile and tablet
-                    speed: 1000,
-                    spaceBetween: 30,
-                    loop: true,
-                    autoplay: {
-                      delay: 5000,
-                    },
-                    navigation: {
-                      nextEl: ".testimonial-next-btn",
-                      prevEl: ".testimonial-prev-btn",
-                    },
-                    breakpoints: {
-                      0: {
-                        slidesPerView: 1,
-                        spaceBetween: 12,
-                      },
-                      800: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
-                      },
-                      990: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
-                      },
-                      1200: {
-                        slidesPerView: 2.5,
-                        spaceBetween: 30,
-                      },
-                    },
-                  });
-                };
-
-                observer.disconnect(); // Stop observing once Swiper is initialized
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        observer.observe(testimonialSliderElement); // Observe the testimonial slider
-      });
-    </script>
-
     <!-- Page Faqs Start -->
     <div class="page-faqs">
       <div class="container">
@@ -1825,7 +1725,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="/js/swiper.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
