@@ -2731,13 +2731,20 @@ input::placeholder {
 
 .telecaller-hero {
   position: relative;
-  padding: 10px 0px;
+  padding: 10px 0;
   overflow: hidden;
-  /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-lpimg.avif") no-repeat;
-  background-position: center center;
+  background: url("/img/banner-lpimg.avif") no-repeat center center;
   background-size: cover;
+}
+
+/* Optional: add overlay for contrast */
+.telecaller-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6); /* adjust if text needs more contrast */
+  z-index: -1;
 }
 
 .telecaller-hero .banner-cont {

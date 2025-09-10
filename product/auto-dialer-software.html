@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload LCP and other important images -->
-    <link rel="preload" as="image" href="../img/banner-lpimg.avif" fetchpriority="high" type="image/avif" />
+    <link rel="preload" as="image" href="/img/banner-lpimg.avif" fetchpriority="high" type="image/avif" />
     <link rel="preload" as="image" href="../img/auto-dialer/auto-dialer.avif" type="image/avif" imagesrcset="../img/auto-dialer/auto-dialer.avif 1x" />
     <!-- Google Fonts with font-display: swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -111,7 +111,7 @@
       .slicknav_btn {
         position: relative;
         display: block;
-        vertical-align: middle;
+
         float: right;
         padding: 0.438em 0.625em;
         line-height: 1.125em;
@@ -814,14 +814,13 @@
     <!-- Header End -->
     <div class="telecaller-hero mb-20">
       <div class="container">
-        <!-- Header Start -->
         <div class="row align-items-center">
+          <!-- Left Content -->
           <div class="col-lg-6">
-            <!-- Hero Content Start -->
             <div class="hero-content">
               <div class="banner-cont">
                 <div class="section-title dark-section Custom" data--delay="0.3s" style="width: 100%">
-                  <ul class="breadcrumb" style="padding: 0px !important">
+                  <ul class="breadcrumb" style="padding: 0 !important">
                     <li><a href="/">Home</a></li>
                     <li><a href="../product/">Product</a></li>
                     <li>Auto Dialer Software</li>
@@ -840,19 +839,21 @@
                     </div>
                     <div class="hero-btn">
                       <a href="https://web.runo.in" class="btn-default btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Auto Dialer Banner">Start 10-day free trial</a>
-                      <p style="font-size: 13px; margin: 0px; text-align: center; color: #525252 !important">No Credit Card Required</p>
+                      <p style="font-size: 13px; margin: 0; text-align: center; color: #525252 !important">No Credit Card Required</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Right Image -->
           <div class="col-lg-6">
-            <img src="/img/auto-dialer/auto-dialer.avif" class="pro-img img-fluid" loading="lazy" width="600" height="450" alt="Runo Auto Dialer CRM" fetchpriority="high" decoding="async" />
+            <img src="/img/auto-dialer/auto-dialer.avif" class="pro-img img-fluid" width="600" height="450" alt="Runo Auto Dialer CRM" fetchpriority="high" decoding="async" />
           </div>
         </div>
       </div>
     </div>
+
     <!-- Hero Section End -->
     <!-- Clients Section Start -->
     <section class="clients-section py-80">
