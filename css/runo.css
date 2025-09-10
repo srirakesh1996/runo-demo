@@ -2016,7 +2016,7 @@ th {
 }
 
 .page-title {
-  background: url(/img/background-cta.webp) no-repeat center center;
+  background: url(/img/background-cta.avif) no-repeat center center;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -2510,7 +2510,7 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("/img/background-cta.webp") no-repeat center center;
+  background: url("/img/background-cta.avif") no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -2832,10 +2832,6 @@ body.modal-open {
 }
 
 @media only screen and (max-width: 768px) {
-  .telecaller-hero {
-    background: #f5f3ed !important;
-  }
-
   .cta-p {
     width: 100%;
   }
@@ -3367,7 +3363,7 @@ body.modal-open {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
   }
   #ban {
-    background: #fff url("/img/waba-mbg.webp") no-repeat center;
+    background: #fff url("/img/waba-mbg.avif") no-repeat center;
     background-size: inherit;
     position: relative;
     border-radius: 30px;
