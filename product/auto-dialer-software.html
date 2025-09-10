@@ -64,19 +64,7 @@
     </noscript>
     <!-- jQuery (can be moved before </body> if not critical) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
-    <script>
-      // Replace with lazy load on interaction
-      document.querySelectorAll('input[type="tel"]').forEach((input) => {
-        input.addEventListener("focus", async () => {
-          if (!window.intlTelInput) {
-            const module = await import("https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js");
-            window.intlTelInput(input, {
-              // your config here
-            });
-          }
-        });
-      });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {

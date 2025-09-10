@@ -2723,7 +2723,7 @@ input::placeholder {
   background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
 
   /* Background image (loaded after preload hint) */
-  background-image: url("/img/testimonial-background.webp");
+  background-image: url("/img/testimonial-background.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2735,9 +2735,7 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-lpimg.avif") no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: #f5f3ed;
 }
 
 .telecaller-hero .banner-cont {
