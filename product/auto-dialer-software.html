@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload LCP and other important images -->
-
+    <link rel="preload" as="image" href="../img/banner-lpimg.avif" fetchpriority="high" type="image/avif" />
     <link rel="preload" as="image" href="../img/auto-dialer/auto-dialer.avif" type="image/avif" imagesrcset="../img/auto-dialer/auto-dialer.avif 1x" />
     <!-- Google Fonts with font-display: swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -65,6 +65,12 @@
     <!-- jQuery (can be moved before </body> if not critical) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+    <!-- Preload the Swiper script to fetch it early -->
+    <link rel="preload" href="/js/swiper.js" as="script" />
+
+    <!-- Use defer to load the script after the HTML is parsed -->
+    <script src="/js/swiper.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
