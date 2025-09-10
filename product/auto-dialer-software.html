@@ -37,10 +37,6 @@
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
-    <link rel="preload" href="/css/custom.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="/css/custom.css" />
-    </noscript>
 
     <!-- Preload critical CSS -->
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -92,6 +88,396 @@
     </script>
     <!-- End Google Tag Manager -->
     <style>
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #f5f3ed;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu,
+      .navbar-toggle {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 8px;
+        color: var(--primary-color);
+        position: absolute;
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
       /*!
  * SlickNav Responsive Mobile Menu v1.0.10
  * (c) 2016 Josh Cope
