@@ -2082,5 +2082,19 @@
 
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
+    <script>
+      window.$zoho = window.$zoho || {};
+      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          var s = document.createElement("script");
+          s.id = "zsiqscript";
+          s.src = "https://salesiq.zohopublic.in/widget?wc=siq6eccc236ec41dc97bd076881c518a38f975cc5e7294dd59290537774f9eec39c";
+          s.defer = true;
+          document.body.appendChild(s);
+        }, 4000); // delay 5 seconds
+      });
+    </script>
   </body>
 </html>

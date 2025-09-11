@@ -141,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 /*ends */
 
-
 /* Send utm to web.runo.in Starts */
 document.addEventListener("DOMContentLoaded", function () {
   const interval = setInterval(() => {
