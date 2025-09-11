@@ -2082,18 +2082,24 @@
 
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
+    <!-- Zobot Setup -->
     <script>
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+    </script>
 
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          var s = document.createElement("script");
-          s.id = "zsiqscript";
-          s.src = "https://salesiq.zohopublic.in/widget?wc=siq6eccc236ec41dc97bd076881c518a38f975cc5e7294dd59290537774f9eec39c";
-          s.defer = true;
-          document.body.appendChild(s);
-        }, 4000); // delay 5 seconds
+    <!-- Zobot Widget Script (Live Chat Hidden) -->
+    <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siqdda07a142c66669bc3313626115f8656050c9c4052cc7109bcbba135654cc539&showchatbutton=false" defer></script>
+
+    <!-- Trigger Button -->
+    <button id="open-zobot" style="padding: 10px 20px; font-size: 16px; cursor: pointer">Chat with Zobot</button>
+
+    <!-- Open Zobot on Click -->
+    <script>
+      document.getElementById("open-zobot").addEventListener("click", function () {
+        if (window.$zoho && $zoho.salesiq) {
+          $zoho.salesiq.chat.open(); // Opens Zobot
+        }
       });
     </script>
   </body>
