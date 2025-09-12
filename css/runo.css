@@ -3451,3 +3451,7 @@ body.modal-open {
 .benifits-section .card {
   border-radius: 20px;
 }
+#zsiq_float {
+  right: 20px;
+  bottom: 20px;
+}
