@@ -26,36 +26,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload LCP image -->
-    <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp" />
-    <link rel="preload" as="image" href="/img/call-management/call-management.avif" type="image/avif" imagesrcset="/img/call-management/call-management.avif 1x" />
+    <link rel="preload" as="image" href="/img/banner-lpimg.avif" type="image/avif" fetchpriority="high" media="(min-width: 769px)" />
+    <link rel="preload" as="image" href="/img/call-management/call-management.avif" type="image/avif" fetchpriority="high" />
+    <!-- Google Fonts with font-display: swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
+    <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="/css/slicknav.min.css" />
+
     <link rel="stylesheet" href="/css/custom.css" />
+
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
       <link rel="stylesheet" href="/css/runo.css" />
     </noscript>
-    <!-- Icons & Plugins -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <!-- Inline Style -->
+    <!-- Font Awesome (preload + async apply) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <!-- intl-tel-input CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+    <!-- Fallback for no-JS users -->
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     </noscript>
-    <!-- JS -->
+    <!-- jQuery (can be moved before </body> if not critical) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-    <!-- GTM -->
+    <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
         if (window.gtmDidInit) return;
         window.gtmDidInit = true;
+
         function loadGTM() {
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -68,10 +76,594 @@
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
-        if (window.requestIdleCallback) requestIdleCallback(loadGTM, { timeout: 4000 });
-        else setTimeout(loadGTM, 4000);
+
+        if (window.requestIdleCallback) {
+          requestIdleCallback(loadGTM, { timeout: 4000 });
+        } else {
+          setTimeout(loadGTM, 4000);
+        }
       });
     </script>
+    <!-- End Google Tag Manager -->
+    <style>
+      @media only screen and (max-width: 768px) {
+        .telecaller-hero {
+          background: #f5f3ed !important;
+        }
+      }
+      /*!
+ * SlickNav Responsive Mobile Menu v1.0.10
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+      .slicknav_btn,
+      .slicknav_nav .slicknav_item {
+        cursor: pointer;
+      }
+
+      .slicknav_menu,
+      .slicknav_menu * {
+        box-sizing: border-box;
+      }
+
+      .slicknav_btn {
+        position: relative;
+        display: block;
+
+        float: right;
+        padding: 0.438em 0.625em;
+        line-height: 1.125em;
+      }
+
+      .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+        margin-top: 0.188em;
+      }
+
+      .slicknav_menu .slicknav_menutxt {
+        display: block;
+        line-height: 1.188em;
+        float: left;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      .slicknav_menu .slicknav_icon {
+        float: left;
+        width: 1.125em;
+        height: 0.875em;
+        margin: 0.188em 0 0 0.438em;
+      }
+
+      .slicknav_menu .slicknav_icon:before {
+        background: 0 0;
+        width: 1.125em;
+        height: 0.875em;
+        display: block;
+        content: "";
+        position: absolute;
+      }
+
+      .slicknav_menu .slicknav_no-text {
+        margin: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: 0.125em;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .slicknav_menu:after,
+      .slicknav_menu:before {
+        content: " ";
+        display: table;
+      }
+
+      .slicknav_menu:after {
+        clear: both;
+      }
+
+      .slicknav_nav li,
+      .slicknav_nav ul {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_arrow {
+        font-size: 0.8em;
+        margin: 0 0 0 0.4em;
+      }
+
+      .slicknav_nav .slicknav_item a {
+        display: inline;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_parent-link a {
+        display: inline;
+      }
+
+      .slicknav_menu {
+        zoom: 1;
+        font-size: 16px;
+        background: #4c4c4c;
+        padding: 5px;
+      }
+
+      .slicknav_nav,
+      .slicknav_nav ul {
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        background-color: #fff;
+      }
+
+      .slicknav_btn {
+        margin: 5px 5px 6px;
+        text-decoration: none;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+
+      .slicknav_nav {
+        clear: both;
+        color: #fff;
+        margin: 0;
+        font-size: 0.875em;
+      }
+
+      .slicknav_nav ul {
+        margin: 0 0 0 20px;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        padding: 5px 10px;
+        margin: 2px 5px;
+      }
+
+      .slicknav_nav .slicknav_row:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #fff;
+      }
+
+      .slicknav_nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .slicknav_nav a:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #222;
+      }
+
+      .slicknav_nav .slicknav_txtnode {
+        margin-left: 15px;
+      }
+
+      .slicknav_nav .slicknav_item a,
+      .slicknav_nav .slicknav_parent-link a {
+        padding: 0;
+        margin: 0;
+      }
+
+      .slicknav_brand {
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 7px 12px;
+        height: 44px;
+      }
+
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #f5f3ed;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 8px;
+        color: var(--primary-color);
+        position: absolute;
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
+    </style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
