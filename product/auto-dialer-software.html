@@ -26,15 +26,24 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
     <!-- Preconnect (critical for fonts & GTM) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload LCP and other important images -->
+
     <!-- Preload LCP Desktop Only -->
-    <!-- Preload LCP Desktop Only -->
-    <link rel="preload" as="image" href="/img/banner-lpimg.avif" type="image/avif" fetchpriority="high" media="(min-width: 769px)" />
     <link rel="preload" as="image" href="/img/auto-dialer/auto-dialer.avif" type="image/avif" fetchpriority="high" />
     <!-- Google Fonts with font-display: swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <!-- Preconnect to improve DNS + TLS resolution -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Google Fonts stylesheet -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+
+    <!-- Load the Google Fonts stylesheet non-blocking -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for no-JS users -->
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
@@ -851,7 +860,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="/img/auto-dialer/auto-dialer.avif" class="pro-img img-fluid" loading="lazy" width="600" height="450" alt="Runo Auto Dialer CRM" fetchpriority="high" decoding="async" />
+            <img src="/img/auto-dialer/auto-dialer.avif" class="pro-img img-fluid" loading="lazy" fetchpriority="low" width="600" height="450" alt="Runo Auto Dialer CRM" decoding="async" />
           </div>
         </div>
       </div>
