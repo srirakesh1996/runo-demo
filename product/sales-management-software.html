@@ -26,43 +26,50 @@
     <meta name="twitter:url" content="https://runo.ai/product/sales-management-software" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
-    <!-- Preconnect (critical for fonts & GTM) -->
+
+    <!-- Preload LCP and other important images -->
+    <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" type="image/avif" fetchpriority="high" />
+
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload LCP and other important images -->
-    <link rel="preload" as="image" href="/img/banner-lpimg.webp" fetchpriority="high" type="image/webp" />
-    <link rel="preload" as="image" href="/img/sales-management/sales-management.webp" type="image/webp" imagesrcset="/img/sales-management/sales-management.webp 1x" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="/css/slicknav.min.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <!-- Preload critical CSS -->
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="/css/runo.css" />
-    </noscript>
-    <!-- Inline Style -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <!-- Font Awesome (preload + async apply) -->
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
+
+    <!-- Font Awesome (async) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
     <!-- Swiper CSS -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
     <!-- intl-tel-input CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-    <!-- Fallback for no-JS users -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for no-JS -->
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
-    <!-- jQuery (can be moved before </body> if not critical) -->
+
+    <!-- JS (defer) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
@@ -89,9 +96,631 @@
         }
       });
     </script>
-
     <!-- End Google Tag Manager -->
 
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
+      }
+    </style>
+
+    <style>
+      @media only screen and (max-width: 768px) {
+        .telecaller-hero {
+          background: #f5f3ed !important;
+        }
+      }
+
+      .section-title h1 {
+        font-size: 45px;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #111111;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .section-title h1 {
+          font-size: 32px;
+        }
+      }
+
+      /*!
+ * SlickNav Responsive Mobile Menu v1.0.10
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+      .slicknav_btn,
+      .slicknav_nav .slicknav_item {
+        cursor: pointer;
+      }
+
+      .slicknav_menu,
+      .slicknav_menu * {
+        box-sizing: border-box;
+      }
+
+      .slicknav_btn {
+        position: relative;
+        display: block;
+
+        float: right;
+        padding: 0.438em 0.625em;
+        line-height: 1.125em;
+      }
+
+      .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+        margin-top: 0.188em;
+      }
+
+      .slicknav_menu .slicknav_menutxt {
+        display: block;
+        line-height: 1.188em;
+        float: left;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      .slicknav_menu .slicknav_icon {
+        float: left;
+        width: 1.125em;
+        height: 0.875em;
+        margin: 0.188em 0 0 0.438em;
+      }
+
+      .slicknav_menu .slicknav_icon:before {
+        background: 0 0;
+        width: 1.125em;
+        height: 0.875em;
+        display: block;
+        content: "";
+        position: absolute;
+      }
+
+      .slicknav_menu .slicknav_no-text {
+        margin: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: 0.125em;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .slicknav_menu:after,
+      .slicknav_menu:before {
+        content: " ";
+        display: table;
+      }
+
+      .slicknav_menu:after {
+        clear: both;
+      }
+
+      .slicknav_nav li,
+      .slicknav_nav ul {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_arrow {
+        font-size: 0.8em;
+        margin: 0 0 0 0.4em;
+      }
+
+      .slicknav_nav .slicknav_item a {
+        display: inline;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_parent-link a {
+        display: inline;
+      }
+
+      .slicknav_menu {
+        zoom: 1;
+        font-size: 16px;
+        background: #4c4c4c;
+        padding: 5px;
+      }
+
+      .slicknav_nav,
+      .slicknav_nav ul {
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        background-color: #fff;
+      }
+
+      .slicknav_btn {
+        margin: 5px 5px 6px;
+        text-decoration: none;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+
+      .slicknav_nav {
+        clear: both;
+        color: #fff;
+        margin: 0;
+        font-size: 0.875em;
+      }
+
+      .slicknav_nav ul {
+        margin: 0 0 0 20px;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        padding: 5px 10px;
+        margin: 2px 5px;
+      }
+
+      .slicknav_nav .slicknav_row:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #fff;
+      }
+
+      .slicknav_nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .slicknav_nav a:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #222;
+      }
+
+      .slicknav_nav .slicknav_txtnode {
+        margin-left: 15px;
+      }
+
+      .slicknav_nav .slicknav_item a,
+      .slicknav_nav .slicknav_parent-link a {
+        padding: 0;
+        margin: 0;
+      }
+
+      .slicknav_brand {
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 7px 12px;
+        height: 44px;
+      }
+
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #f5f3ed;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 18px !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 8px;
+        color: var(--primary-color);
+        position: absolute;
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
+    </style>
     <style>
       .runo-step-title {
         min-height: 48px;
@@ -109,6 +738,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
@@ -254,13 +884,13 @@
             <!-- Hero Content Start -->
             <div class="hero-content">
               <div class="banner-cont">
-                <div class="section-title dark-section Custom" data--delay="0.3s" style="width: 100%">
+                <div class="section-title dark-section" style="width: 100%">
                   <ul class="breadcrumb" style="padding: 0px !important">
                     <li><a href="/">Home</a></li>
                     <li><a href="../product/">Product</a></li>
                     <li>Sales Management Software</li>
                   </ul>
-                  <h1 class="fadeInUpCustom" data--delay="0.4s">AI-Powered Sales Management App</h1>
+                  <h1>AI-Powered Sales Management App</h1>
                   <ul>
                     <li>Manage leads, SIM + virtual number calls, and follow-ups in one app</li>
                     <li>Auto-assign leads to the right sales reps</li>
@@ -269,7 +899,7 @@
                     <li>Get AI-powered summaries and follow-up nudges</li>
                   </ul>
                   <!-- Hero Buttons -->
-                  <div class="hero-body Custom mt-50" data--delay="0.3s" data--duration="0.7s">
+                  <div class="hero-body Custom mt-50">
                     <div class="hero-btn">
                       <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Auto Dialer Banner">Book a Demo</a>
                       <p class="banner-btn1">&nbsp;</p>
@@ -284,7 +914,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="/img/sales-management/sales-management.webp" class="pro-img img-fluid" loading="lazy" alt="Runo Sales Management CRM" />
+            <img src="/img/sales-management/sales-management.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="Runo Sales Management CRM" />
           </div>
         </div>
       </div>
@@ -368,7 +998,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="/img/sales-management/leads.webp" class="img-fluid" loading="lazy" alt="Manage Leads" />
+                <img src="/img/sales-management/leads.avif" class="img-fluid" loading="lazy" alt="Manage Leads" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">2. Manage Leads & Teams</h5>
               <p class="text-muted runo-step-para">Assign leads instantly, track rep activity live, and organize your sales funnel.</p>
@@ -378,7 +1008,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="/img/sales-management/sales-perf.webp" class="img-fluid" loading="lazy" alt="Sales Performance" />
+                <img src="/img/sales-management/sales-perf.avif" class="img-fluid" loading="lazy" alt="Sales Performance" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">3. Monitor Sales Performance in Real Time</h5>
               <p class="text-muted runo-step-para">View dashboards, follow-up alerts, AI-powered summaries, and complete lead timelines inside your in-built CRM.</p>
@@ -596,7 +1226,7 @@
           </div>
           <!-- Video Wrapper -->
           <div>
-            <img loading="lazy" src="/img/home-integration.webp" alt="Lead Source" class="video-thumbnail" style="width: 100%; height: auto; border-radius: 12px" />
+            <img loading="lazy" src="/img/home-integration.avif" alt="Lead Source" class="video-thumbnail" style="width: 100%; height: auto; border-radius: 12px" />
           </div>
           <!-- Hero Button -->
           <div class="hero-btn demo-btn text-center" data--delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp">
