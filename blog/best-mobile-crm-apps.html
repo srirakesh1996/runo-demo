@@ -1150,9 +1150,30 @@
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
     <script>
+      // Don't load the widget initially
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+
+      // Function to inject the script
+      function loadZohoWidget() {
+        if (document.getElementById("zsiqscript")) return; // Prevent duplicate load
+        var d = document;
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.id = "zsiqscript";
+        s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        d.body.appendChild(s);
+      }
+
+      // Load on first scroll or touch
+      function initZohoOnScroll() {
+        loadZohoWidget();
+        window.removeEventListener("scroll", initZohoOnScroll);
+        window.removeEventListener("touchstart", initZohoOnScroll);
+      }
+
+      window.addEventListener("scroll", initZohoOnScroll, { passive: true });
+      window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
-    <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0" defer></script>
   </body>
 </html>
