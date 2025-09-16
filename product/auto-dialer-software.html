@@ -2205,7 +2205,6 @@
       }
     </script>
     <script>
-      // Don't load the widget initially
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
 
@@ -2216,25 +2215,18 @@
         s.id = "zsiqscript";
         s.defer = true;
         s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        document.body.appendChild(s);
+        (document.body || document.documentElement).appendChild(s);
       }
 
-      function initZoho() {
+      function initZohoOnScroll() {
         loadZohoWidget();
-        window.removeEventListener("scroll", initZoho);
-        window.removeEventListener("touchstart", initZoho);
-        window.removeEventListener("click", initZoho);
-        window.removeEventListener("mousemove", initZoho);
+        window.removeEventListener("scroll", initZohoOnScroll);
       }
 
-      // Multiple triggers → mobile + desktop safe
-      window.addEventListener("scroll", initZoho, { passive: true });
-      window.addEventListener("touchstart", initZoho, { passive: true });
-      window.addEventListener("click", initZoho, { passive: true });
-      window.addEventListener("mousemove", initZoho, { passive: true });
-
-      // Fallback: force load after 10s if user doesn’t interact
-      setTimeout(loadZohoWidget, 10000);
+      // Ensure script attaches after DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("scroll", initZohoOnScroll, { passive: true });
+      });
     </script>
   </body>
 </html>
