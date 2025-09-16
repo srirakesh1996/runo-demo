@@ -31,17 +31,13 @@
 
     <!-- Preload LCP and other important images -->
     <link rel="preload" as="image" href="/img/telecaller/telecaller.avif" type="image/avif" fetchpriority="high" />
-    <!-- Preconnect to improve DNS + TLS resolution -->
+
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Preload Google Fonts stylesheet -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
-
-    <!-- Load the Google Fonts stylesheet non-blocking -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-
-    <!-- Fallback for no-JS users -->
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
@@ -49,39 +45,33 @@
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
-
     <link rel="stylesheet" href="/css/custom.css" />
-
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="/css/runo.css" />
-    </noscript>
-    <!-- Inline Style -->
-    <!-- Font Awesome (preload + async apply) -->
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
+
+    <!-- Font Awesome (async) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
     <!-- Swiper CSS -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
-    <!-- intl-tel-input CSS -->
-    <!-- Preload intl-tel-input CSS -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
 
-    <!-- Apply CSS async -->
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
-    <!-- Fallback for no-JS users -->
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-    </noscript>
-    <!-- Fallback for no-JS users -->
+    <!-- Fallback for no-JS -->
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
 
+    <!-- JS (defer) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
@@ -109,6 +99,35 @@
       });
     </script>
     <!-- End Google Tag Manager -->
+
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
+      }
+    </style>
     <style>
       @media only screen and (max-width: 768px) {
         .telecaller-hero {
@@ -2292,30 +2311,30 @@
       }
     </script>
     <script>
-      // don't load the widget initially
+      // Don't load the widget initially
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
 
-      // function to inject the script
-      function loadzohowidget() {
-        if (document.getelementbyid("zsiqscript")) return; // prevent duplicate load
+      // Function to inject the script
+      function loadZohoWidget() {
+        if (document.getElementById("zsiqscript")) return; // Prevent duplicate load
         var d = document;
-        var s = d.createelement("script");
+        var s = d.createElement("script");
         s.type = "text/javascript";
         s.id = "zsiqscript";
         s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        d.body.appendchild(s);
+        d.body.appendChild(s);
       }
 
-      // load on first scroll or touch
-      function initzohoonscroll() {
-        loadzohowidget();
-        window.removeeventlistener("scroll", initzohoonscroll);
-        window.removeeventlistener("touchstart", initzohoonscroll);
+      // Load on first scroll or touch
+      function initZohoOnScroll() {
+        loadZohoWidget();
+        window.removeEventListener("scroll", initZohoOnScroll);
+        window.removeEventListener("touchstart", initZohoOnScroll);
       }
 
-      window.addeventlistener("scroll", initzohoonscroll, { passive: true });
-      window.addeventlistener("touchstart", initzohoonscroll, { passive: true });
+      window.addEventListener("scroll", initZohoOnScroll, { passive: true });
+      window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
   </body>
 </html>
