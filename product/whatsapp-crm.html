@@ -1499,9 +1499,30 @@
       }
     </script>
     <script>
+      // don't load the widget initially
       window.$zoho = window.$zoho || {};
       $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+
+      // function to inject the script
+      function loadzohowidget() {
+        if (document.getelementbyid("zsiqscript")) return; // prevent duplicate load
+        var d = document;
+        var s = d.createelement("script");
+        s.type = "text/javascript";
+        s.id = "zsiqscript";
+        s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        d.body.appendchild(s);
+      }
+
+      // load on first scroll or touch
+      function initzohoonscroll() {
+        loadzohowidget();
+        window.removeeventlistener("scroll", initzohoonscroll);
+        window.removeeventlistener("touchstart", initzohoonscroll);
+      }
+
+      window.addeventlistener("scroll", initzohoonscroll, { passive: true });
+      window.addeventlistener("touchstart", initzohoonscroll, { passive: true });
     </script>
-    <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0" defer></script>
   </body>
 </html>
