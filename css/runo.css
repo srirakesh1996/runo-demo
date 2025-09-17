@@ -3596,7 +3596,7 @@ body.modal-open {
     zoom: 1;
 
     /* NEW */
-    max-height: 80vh; /* limit height to 80% of viewport */
+    max-height: 90vh; /* limit height to 90% of viewport */
     overflow-y: auto; /* enable vertical scroll inside menu */
   }
 }
