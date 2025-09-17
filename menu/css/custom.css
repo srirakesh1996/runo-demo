@@ -620,6 +620,7 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li a {
+  text-decoration: none;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
@@ -633,7 +634,7 @@ header.main-header .header-sticky.active {
 @media screen and (min-width: 1000px) and (max-width: 1299px) {
   .main-menu ul li a {
     font-size: 16px;
-    padding: 10px 18px !important;
+    padding: 10px 8px !important;
   }
 }
 
@@ -6149,3 +6150,4 @@ background-size: cover;
     height: 350px;
   }
 }
+
