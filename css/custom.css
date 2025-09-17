@@ -634,7 +634,7 @@ header.main-header .header-sticky.active {
 @media screen and (min-width: 1000px) and (max-width: 1299px) {
   .main-menu ul li a {
     font-size: 16px;
-    padding: 10px 8px !important;
+    padding: 10px 12px !important;
   }
 }
 
@@ -6150,4 +6150,3 @@ background-size: cover;
     height: 350px;
   }
 }
-

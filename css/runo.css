@@ -3500,7 +3500,7 @@ body.modal-open {
 /* ✅ Mega menu */
 .main-menu .mega-menu .submenu-list {
   left: 50%;
-  transform: translateX(-30%);
+  transform: translateX(-33%);
   min-width: 900px; /* wide enough for 5 cols */
   max-width: 90vw;
   background: var(--accent-secondary-color);
@@ -3520,7 +3520,7 @@ body.modal-open {
 }
 .bghd {
   background: #f443360b;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 20px 0px 0px 0px;
 }
 .header-left {
   text-align: left;
@@ -3605,4 +3605,15 @@ body.modal-open {
 .menu-icon svg {
   width: 30px;
   height: 30px;
+}
+
+.btns {
+  background: #f44336;
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+}
+
+.btns a {
+  color: #fff !important;
 }
