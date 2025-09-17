@@ -3600,3 +3600,8 @@ body.modal-open {
     overflow-y: auto; /* enable vertical scroll inside menu */
   }
 }
+
+.menu-icon svg {
+  width: 30px;
+  height: 30px;
+}
