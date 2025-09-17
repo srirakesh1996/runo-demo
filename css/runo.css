@@ -3460,7 +3460,7 @@ body.modal-open {
 /* Dropdown Menu CSS */
 
 .submenu-list h6 {
-  font-size: 20px;
+  font-size: 17px;
   text-align: left !important;
   margin: 6px 0px;
   padding: 0px 10px !important;
@@ -3582,6 +3582,7 @@ body.modal-open {
 
 .main-menu .header-right a {
   padding: 10px 25px !important;
+  font-size: 15px !important;
 }
 
 @media only screen and (max-width: 991px) {
