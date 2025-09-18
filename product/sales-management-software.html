@@ -736,214 +736,214 @@
         justify-content: center;
         text-align: center;
       }
-   
-/* Dropdown Menu CSS */
 
-.submenu-list h6 {
-  font-size: 17px;
-  text-align: left !important;
-  margin: 6px 0px;
-  padding: 0px 10px !important;
-}
+      /* Dropdown Menu CSS */
 
-@media (min-width: 1200px) and (max-width: 1300px) {
-  .submenu-list h6 {
-    padding: 0px 10px !important;
-  }
-}
+      .submenu-list h6 {
+        font-size: 17px;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
 
-.submenu-list .row {
-  flex-wrap: wrap; /* allow multiple lines */
-}
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+      }
 
-/* Hide dropdowns by default */
-.main-menu .submenu .submenu-list {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 99;
+      .submenu-list .row {
+        flex-wrap: wrap; /* allow multiple lines */
+      }
 
-  pointer-events: none;
-}
+      /* Hide dropdowns by default */
+      .main-menu .submenu .submenu-list {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99;
 
-/* Show on hover */
-.main-menu .submenu:hover .submenu-list {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-}
+        pointer-events: none;
+      }
 
-/* ✅ Normal dropdown */
+      /* Show on hover */
+      .main-menu .submenu:hover .submenu-list {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-/* ✅ Mega menu */
-.main-menu .mega-menu .submenu-list {
-  left: 50%;
-  transform: translateX(-35%);
-  min-width: 900px; /* wide enough for 5 cols */
-  max-width: 90vw;
-  background: var(--accent-secondary-color);
-  border-radius: 20px;
+      /* ✅ Normal dropdown */
 
-  display: flex;
-  flex-wrap: wrap;
-}
+      /* ✅ Mega menu */
+      .main-menu .mega-menu .submenu-list {
+        left: 50%;
+        transform: translateX(-35%);
+        min-width: 900px; /* wide enough for 5 cols */
+        max-width: 90vw;
+        background: var(--accent-secondary-color);
+        border-radius: 20px;
 
-.main-menu .mega-menu h6 {
-  font-weight: 600;
-  margin-bottom: 0.5em;
-}
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-.compliance {
-  padding: 0px 0px 0px 10px;
-}
-.bghd {
-  background: #f443360b;
-  border-radius: 20px 0px 0px 0px;
-}
-.header-left {
-  text-align: left;
-  padding: 20px 10px;
-}
+      .main-menu .mega-menu h6 {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
 
-.header-right {
-  text-align: left;
-  padding: 20px 20px;
-}
+      .compliance {
+        padding: 0px 0px 0px 10px;
+      }
+      .bghd {
+        background: #f443360b;
+        border-radius: 20px 0px 0px 0px;
+      }
+      .header-left {
+        text-align: left;
+        padding: 20px 10px;
+      }
 
-.header-left a {
-  text-align: left !important;
-}
-.header-right a {
-  text-align: left !important;
-  padding: 0px 25px !important;
-}
+      .header-right {
+        text-align: left;
+        padding: 20px 20px;
+      }
 
-.compliance p {
-  margin-bottom: 12px !important;
-  font-size: 14px !important;
-}
-#web-menu {
-  display: block !important;
-}
-#mob-menu {
-  display: none !important;
-}
+      .header-left a {
+        text-align: left !important;
+      }
+      .header-right a {
+        text-align: left !important;
+        padding: 0px 25px !important;
+      }
 
-@media only screen and (max-width: 991px) {
-  .submenu-list {
-    box-shadow: none !important;
-    background: hwb(0deg 100% 0%) !important;
-    border-radius: 10px;
-  }
+      .compliance p {
+        margin-bottom: 12px !important;
+        font-size: 14px !important;
+      }
+      #web-menu {
+        display: block !important;
+      }
+      #mob-menu {
+        display: none !important;
+      }
 
-  .slicknav_nav li .mega-menu {
-    display: none !important;
-  }
+      @media only screen and (max-width: 991px) {
+        .submenu-list {
+          box-shadow: none !important;
+          background: hwb(0deg 100% 0%) !important;
+          border-radius: 10px;
+        }
 
-  .mega-menu {
-    display: none !important;
-  }
-  #mob-menu {
-    display: block !important;
-  }
+        .slicknav_nav li .mega-menu {
+          display: none !important;
+        }
 
-  #web-menu {
-    display: none !important;
-  }
-}
+        .mega-menu {
+          display: none !important;
+        }
+        #mob-menu {
+          display: block !important;
+        }
 
-.menu-icon {
-  display: flex;
-  margin-left: -15px;
-  align-items: center;
-}
+        #web-menu {
+          display: none !important;
+        }
+      }
 
-.main-menu .header-right a {
-  padding: 10px 25px !important;
-  font-size: 15px !important;
-}
+      .menu-icon {
+        display: flex;
+        margin-left: -15px;
+        align-items: center;
+      }
 
-@media only screen and (max-width: 991px) {
-  .menu-icon {
-    display: flex;
-    margin-left: 5px;
-  }
-  .slicknav_nav .mega .submenu-list li a {
-    padding: 10px 45px !important;
-  }
-  .slicknav_menu {
-    zoom: 1;
+      .main-menu .header-right a {
+        padding: 10px 25px !important;
+        font-size: 15px !important;
+      }
 
-    /* NEW */
-    max-height: 90vh; /* limit height to 90% of viewport */
-    overflow-y: auto; /* enable vertical scroll inside menu */
-  }
-}
+      @media only screen and (max-width: 991px) {
+        .menu-icon {
+          display: flex;
+          margin-left: 5px;
+        }
+        .slicknav_nav .mega .submenu-list li a {
+          padding: 10px 45px !important;
+        }
+        .slicknav_menu {
+          zoom: 1;
 
-.menu-icon svg {
-  width: 30px;
-  height: 30px;
-}
-.btns {
-  background: #f44336;
-  color: #fff;
-  text-align: left;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-.btns a {
-  position: relative;
-  color: #fff !important;
-  text-decoration: none;
-  padding-right: 28px; /* enough space for arrow */
-  font-weight: 600;
-  font-size: 14px !important;
-  transition: all 0.3s ease;
-}
-.btns a:hover {
-  text-decoration: underline;
-}
+          /* NEW */
+          max-height: 90vh; /* limit height to 90% of viewport */
+          overflow-y: auto; /* enable vertical scroll inside menu */
+        }
+      }
 
-.btns a::after {
-  content: "→";
-  position: absolute;
-  right: -5px; /* fixed gap from text */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px !important;
-  transition: transform 0.3s ease;
-}
+      .menu-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+      .btns {
+        background: #f44336;
+        color: #fff;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .btns a {
+        position: relative;
+        color: #fff !important;
+        text-decoration: none;
+        padding-right: 28px; /* enough space for arrow */
+        font-weight: 600;
+        font-size: 14px !important;
+        transition: all 0.3s ease;
+      }
+      .btns a:hover {
+        text-decoration: underline;
+      }
 
-.btns a:hover::after {
-  transform: translate(3px, -50%); /* slide to right */
-}
+      .btns a::after {
+        content: "→";
+        position: absolute;
+        right: -5px; /* fixed gap from text */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px !important;
+        transition: transform 0.3s ease;
+      }
 
-.main-menu ul ul .menu-icon {
-  margin-left: 0px;
-}
-.main-menu ul ul .menu-icon svg {
-  margin-right: 7px;
-  width: 25px;
-  height: 25px;
-}
+      .btns a:hover::after {
+        transform: translate(3px, -50%); /* slide to right */
+      }
 
-@media only screen and (max-width: 991px) {
-  .slicknav_nav .submenu-list li a {
-    padding: 10px 15px !important;
-  }
-  .slicknav_nav .menu-icon a svg {
-    margin-right: 7px;
-  }
-}
+      .main-menu ul ul .menu-icon {
+        margin-left: 0px;
+      }
+      .main-menu ul ul .menu-icon svg {
+        margin-right: 7px;
+        width: 25px;
+        height: 25px;
+      }
 
-.security-sec {
-  position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
-  bottom: 60px;
-}
- </style>
+      @media only screen and (max-width: 991px) {
+        .slicknav_nav .submenu-list li a {
+          padding: 10px 15px !important;
+        }
+        .slicknav_nav .menu-icon a svg {
+          margin-right: 7px;
+        }
+      }
+
+      .security-sec {
+        position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
+        bottom: 60px;
+      }
+    </style>
   </head>
 
   <body>
@@ -2086,14 +2086,15 @@
             <h6 class="text-white fw-bold mb-3">PRODUCTS</h6>
             <ul class="list-unstyled">
               <li><a href="call-management-crm" class="text-light text-decoration-none d-block mb-1">Call Management CRM</a></li>
-              <li><a href="lead-management-crm" class="text-light text-decoration-none d-block mb-1">Lead Management System</a></li>
-              <li><a href="call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a></li>
-              <li><a href="auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a></li>
-              <li><a href="telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
-              <li><a href="sales-management-software" class="text-light text-decoration-none d-block mb-1">Sales Management Software</a></li>
-              <li><a href="sales-call-tracking-software" class="text-light text-decoration-none d-block mb-1">Sales Call Tracking Software</a></li>
               <li><a href="telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
               <li><a href="whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
+              <li><a href="telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
+              <li><a href="call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a></li>
+              <li><a href="auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a></li>
+
+              <li>
+                <a href="/product" class="text-light text-decoration-none d-block mb-1">More Products →</a>
+              </li>
             </ul>
           </div>
           <!-- Support -->
