@@ -3658,3 +3658,8 @@ body.modal-open {
     margin-right: 7px;
   }
 }
+
+.security-sec {
+  position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
+  bottom: 60px;
+}
