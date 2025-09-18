@@ -3590,7 +3590,7 @@ body.modal-open {
     display: flex;
     margin-left: 5px;
   }
-  .slicknav_nav .submenu-list li a {
+  .slicknav_nav .mega .submenu-list li a {
     padding: 10px 45px !important;
   }
   .slicknav_menu {
@@ -3616,4 +3616,20 @@ body.modal-open {
 
 .btns a {
   color: #fff !important;
+}
+
+.main-menu ul ul .menu-icon {
+  margin-left: 0px;
+}
+.main-menu ul ul .menu-icon svg {
+  margin-right: 7px;
+}
+
+@media only screen and (max-width: 991px) {
+  .slicknav_nav .submenu-list li a {
+    padding: 10px 15px !important;
+  }
+  .slicknav_nav .menu-icon a svg {
+    margin-right: 7px;
+  }
 }
