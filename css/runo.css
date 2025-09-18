@@ -3638,7 +3638,7 @@ body.modal-open {
 }
 
 .btns a:hover::after {
-  transform: translate(5px, -50%); /* slide to right */
+  transform: translate(3px, -50%); /* slide to right */
 }
 
 .main-menu ul ul .menu-icon {
