@@ -3606,16 +3606,39 @@ body.modal-open {
   width: 30px;
   height: 30px;
 }
-
 .btns {
   background: #f44336;
   color: #fff;
   text-align: left;
   padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.btns a {
+  position: relative;
+  color: #fff !important;
+  text-decoration: none;
+  padding-right: 28px; /* enough space for arrow */
+  font-weight: 600;
+  font-size: 14px !important;
+  transition: all 0.3s ease;
+}
+.btns a:hover {
+  text-decoration: underline;
 }
 
-.btns a {
-  color: #fff !important;
+.btns a::after {
+  content: "→";
+  position: absolute;
+  right: -5px; /* fixed gap from text */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px !important;
+  transition: transform 0.3s ease;
+}
+
+.btns a:hover::after {
+  transform: translate(5px, -50%); /* slide to right */
 }
 
 .main-menu ul ul .menu-icon {
