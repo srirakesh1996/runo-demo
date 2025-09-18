@@ -666,7 +666,9 @@ header.main-header .header-sticky.active {
 .header-sticky.active .main-menu ul li .header-btn:hover {
   color: #f44336 !important;
 }
-
+.header-sticky.active .main-menu ul li a:hover {
+  color: #f44336 !important;
+}
 .main-menu ul li.submenu > a:after {
   content: "\f107";
   font-family: "FontAwesome";
