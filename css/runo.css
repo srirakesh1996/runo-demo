@@ -3623,6 +3623,8 @@ body.modal-open {
 }
 .main-menu ul ul .menu-icon svg {
   margin-right: 7px;
+  width: 25px;
+  height: 25px;
 }
 
 @media only screen and (max-width: 991px) {
