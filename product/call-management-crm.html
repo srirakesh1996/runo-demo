@@ -488,7 +488,11 @@
           padding: 10px 15px !important;
         }
       }
-
+      @media screen and (min-width: 992px) and (max-width: 1029px) {
+        .main-menu ul li a {
+          padding: 10px 8px !important;
+        }
+      }
       .header-sticky.active .main-menu ul li a {
         color: #111111 !important;
       }
@@ -761,7 +765,7 @@
       /* ✅ Mega menu */
       .main-menu .mega-menu .submenu-list {
         left: 50%;
-        transform: translateX(-35%);
+        transform: translateX(-33%);
         min-width: 900px; /* wide enough for 5 cols */
         max-width: 90vw;
         background: var(--accent-secondary-color);

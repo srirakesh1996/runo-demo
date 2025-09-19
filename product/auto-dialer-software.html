@@ -470,34 +470,36 @@
         position: relative;
       }
 
-    
-.main-menu ul li a {
-  text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.2em;
-  padding: 10px 18px !important;
-  color: #303030;
-  text-transform: capitalize;
-  /* transition: all 0.3s ease-in-out;*/
-}
+      .main-menu ul li a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
 
-@media screen and (min-width: 1000px) and (max-width: 1299px) {
-  .main-menu ul li a {
-    font-size: 16px;
-    padding: 10px 12px !important;
-  }
-}
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 12px !important;
+        }
+      }
 
-@media screen and (min-width: 1299px) and (max-width: 1400px) {
-  .main-menu ul li a {
-    font-size: 16px;
-    padding: 10px 15px !important;
-  }
-}
-
-
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 15px !important;
+        }
+      }
+      @media screen and (min-width: 992px) and (max-width: 1029px) {
+        .main-menu ul li a {
+          padding: 10px 8px !important;
+        }
+      }
 
       .header-sticky.active .main-menu ul li a {
         color: #111111 !important;
@@ -771,7 +773,7 @@
       /* ✅ Mega menu */
       .main-menu .mega-menu .submenu-list {
         left: 50%;
-        transform: translateX(-35%);
+        transform: translateX(-33%);
         min-width: 900px; /* wide enough for 5 cols */
         max-width: 90vw;
         background: var(--accent-secondary-color);

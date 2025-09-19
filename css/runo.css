@@ -3663,3 +3663,9 @@ body.modal-open {
   position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
   bottom: 60px;
 }
+
+@media screen and (min-width: 992px) and (max-width: 1029px) {
+  .main-menu ul li a {
+    padding: 10px 8px !important;
+  }
+}
