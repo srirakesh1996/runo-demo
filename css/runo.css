@@ -3500,7 +3500,7 @@ body.modal-open {
 /* ✅ Mega menu */
 .main-menu .mega-menu .submenu-list {
   left: 50%;
-  transform: translateX(-35%);
+  transform: translateX(-33%);
   min-width: 900px; /* wide enough for 5 cols */
   max-width: 90vw;
   background: var(--accent-secondary-color);
@@ -3652,7 +3652,7 @@ body.modal-open {
 
 @media only screen and (max-width: 991px) {
   .slicknav_nav .submenu-list li a {
-    padding: 10px 15px !important;
+    padding: 10px 10px !important;
   }
   .slicknav_nav .menu-icon a svg {
     margin-right: 7px;
