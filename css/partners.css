@@ -258,6 +258,10 @@ h4 {
   .integration-box {
     padding: 30px 40px;
   }
+
+  .section-title {
+    width: 100% !important;
+  }
 }
 .crm-icons span {
   margin-right: 20px;

@@ -1062,21 +1062,21 @@
               <div class="contact-us-content fadeInLeft" data--delay="0.2s">
                 <div class="section-title" style="width: 100%">
                   <h2 class="text-anime-style-2" data-cursor="-opaque">Partner with Runo</h2>
-
-                  <h3 style="color: #ff603a; text-align: left; padding: 10px 0px 0px 0px; font-weight: bold">India's #1 SIM + Cloud Call Management Solution for CRMs</h3>
-                  <p class="fadeInUp" data--delay="0.3s">Add powerful call management to Zoho, LeadSquared, HubSpot, and more. Unlock new revenue opportunities for your clients – and for you.</p>
+                  <h3 style="color: #ff603a; text-align: left; padding: 10px 0 0 0; font-weight: bold">India's #1 Call Management Solution with Built-in CRM</h3>
+                  <p class="fadeInUp" data--delay="0.3s">Integrates seamlessly with Zoho, LeadSquared, HubSpot - or works standalone with its own CRM. Build a recurring revenue stream while helping your clients close more deals.</p>
                 </div>
+
                 <div class="row">
                   <!-- Left Column -->
                   <div class="col-lg-6 col-md-6">
                     <ul class="list-unstyled">
-                      <li class="d-flex align-items-start mb-2">
-                        <img src="img/partners-icon/1.svg" width="24" class="me-2 mt-1" />
-                        <span>Deep CRM Integration</span>
+                      <li class="d-flex mb-2">
+                        <span class="tick-circle flex-shrink-0 me-2"></span>
+                        <span>Recurring Revenue Model</span>
                       </li>
-                      <li class="d-flex align-items-start mb-2">
-                        <img src="img/partners-icon/2.svg" width="24" class="me-2 mt-1" />
-                        <span>AI-Powered Analytics</span>
+                      <li class="d-flex mb-2">
+                        <span class="tick-circle flex-shrink-0 me-2"></span>
+                        <span>No Technical Expertise Needed</span>
                       </li>
                     </ul>
                   </div>
@@ -1084,42 +1084,64 @@
                   <!-- Right Column -->
                   <div class="col-lg-6 col-md-6">
                     <ul class="list-unstyled">
-                      <li class="d-flex align-items-start mb-2">
-                        <img src="img/partners-icon/3.svg" width="24" class="me-2 mt-1" />
-                        <span>20% Commission</span>
+                      <li class="d-flex mb-2">
+                        <span class="tick-circle flex-shrink-0 me-2"></span>
+                        <span>Up to 20% Commission</span>
                       </li>
-                      <li class="d-flex align-items-start">
-                        <img src="img/partners-icon/4.svg" width="24" class="me-2 mt-1" />
-                        <span>30min Setup</span>
+                      <li class="d-flex mb-2">
+                        <span class="tick-circle flex-shrink-0 me-2"></span>
+                        <span>Full Sales Support</span>
                       </li>
                     </ul>
                   </div>
                 </div>
+
+                <style>
+                  .tick-circle {
+                    width: 24px;
+                    height: 24px;
+                    background-color: #4caf50; /* green circle */
+                    border-radius: 50%;
+                    display: flex; /* center the checkmark */
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0; /* prevent stretching when text wraps */
+                    margin-top: 4px; /* adjust alignment with multi-line text */
+                  }
+
+                  .tick-circle::before {
+                    content: "✔"; /* white check mark */
+                    color: #fff;
+                    font-size: 14px;
+                    line-height: 1;
+                  }
+                </style>
               </div>
               <!-- Contact Us Content End -->
             </div>
+
             <div class="col-lg-6">
               <!-- Contact Form Start -->
-              <div class="contact-form fadeInRight" data--delay="0.4s">
+              <div class="contact-form fadeInRight" data--delay="0.4s" style="padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); border-radius: 20px">
                 <form id="partnersForm" method="POST" data-page-name="Partners" data-uuid="5fcdd0a1-f308-42a0-939d-ed88680f6ad7">
                   <div class="row">
-                    <div class="form-group col-md-12 mb-4">
+                    <div class="form-group col-md-12 mb-2">
                       <label for="name">Your Name</label>
                       <input type="text" name="your_name" class="form-control" id="pname" placeholder="Your Name" maxlength="30" />
                       <small class="text-danger d-none" id="nameError2">Name is required and must be less than 30 characters.</small>
                     </div>
-                    <div class="form-group col-md-12 mb-4">
+                    <div class="form-group col-md-12 mb-2">
                       <label for="email">Your Email</label>
                       <input type="email" name="your_email" class="form-control" id="pemail" placeholder="Your Email" />
                       <small class="text-danger d-none" id="emailError2">Valid email is required.</small>
                     </div>
-                    <div class="form-group col-md-12 mb-4">
+                    <div class="form-group col-md-12 mb-2">
                       <label for="phone">Your Phone</label>
                       <input type="text" name="your_phone" class="form-control" id="phone2" placeholder="Your Phone" />
                       <small class="text-danger d-none" id="phoneError2">Phone number is required, numeric, and max 10 digits.</small>
                     </div>
 
-                    <div class="form-group col-md-12 mb-3">
+                    <div class="form-group col-md-12 mb-2">
                       <label>Current CRM Partnership</label>
                       <select name="custom_Sales/Calling Team Size" class="form-select" id="agents">
                         <option value="" disabled selected style="color: #858585">Select your CRM partnership</option>
@@ -1131,7 +1153,7 @@
                       </select>
                       <small class="text-danger d-none" id="agentsError">Select your CRM partnership</small>
                     </div>
-                    <div class="form-group col-md-12 mb-3">
+                    <div class="form-group col-md-12 mb-2">
                       <label>Preferred Partnership Type</label>
                       <select name="custom_We entered source" class="form-select" id="know_runo">
                         <option value="" disabled selected style="color: #858585">Choose partnership type</option>
@@ -1144,17 +1166,18 @@
                       <small class="text-danger d-none" id="knowError">Choose partnership type</small>
                     </div>
 
-                    <p style="font-size: 12px">
+                    <p class="mb-2" style="font-size: 12px">
                       By submitting this form, I agree to the
                       <a href="privacy-policy" target="_blank">privacy policy</a>
                       .
                     </p>
                     <div class="col-md-12">
                       <button type="submit" id="partnersForm-btn" class="btn-default btn-highlighted fadeInUp">
-                        <span class="btn-text">Become a Partner</span>
+                        <span class="btn-text">Apply Now to Become a Partner</span>
                         <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
                       </button>
                     </div>
+                    <p class="mt-10" style="font-size: 13px !important; color: #858585">Get approved in 24 hours .Start earning immediately</p>
                   </div>
                 </form>
                 <script>
@@ -1371,7 +1394,7 @@
         <div class="row text-center g-4">
           <div class="section-title text-center" data--delay="0.3s">
             <h2>Why Partner with Runo?</h2>
-            <p>Runo fills the call management gap that major CRMs can't address, creating huge opportunities for partners to add value and generate revenue.</p>
+            <p>Tap into a massive market opportunity. Runo works as a standalone solution with its own built-in CRM, or integrates seamlessly with major CRMs like Zoho, LeadSquared, and HubSpot. You don't need to be a CRM reseller—anyone can partner with us.</p>
           </div>
         </div>
 
@@ -1429,8 +1452,8 @@
                     ></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Fill the CRM Gap</h5>
-                <p class="text-muted mb-0">CRMs like Zoho, LeadSquared, and HubSpot do not offer in-built call management. Runo bridges this critical gap.</p>
+                <h5 class="fw-bold">Expand Your Portfolio</h5>
+                <p class="text-muted mb-0">Add a powerful call management solution to your offerings without needing existing CRM partnerships.</p>
               </div>
             </div>
 
@@ -1445,8 +1468,8 @@
                     <path d="M8 17v-3"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Higher Connect Ratios</h5>
-                <p class="text-muted mb-0">Your clients get improved sales outcomes with advanced AI-powered analytics and call scoring.</p>
+                <h5 class="fw-bold">Predictable Revenue Stream</h5>
+                <p class="text-muted mb-0">Earn consistent commissions on every license sold—build a scalable, recurring revenue business.</p>
               </div>
             </div>
 
@@ -1458,8 +1481,8 @@
                     <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Lightning Fast Setup</h5>
-                <p class="text-muted mb-0">Under 30 minutes setup time means faster client onboarding and quicker time-to-value.</p>
+                <h5 class="fw-bold">Zero Technical Barriers</h5>
+                <p class="text-muted mb-0">No development needed, no technical expertise required—we handle the product, you close the deals.</p>
               </div>
             </div>
 
@@ -1473,8 +1496,8 @@
                     <circle cx="12" cy="12" r="2"></circle>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Steady Commission Stream</h5>
-                <p class="text-muted mb-0">Build a reliable revenue stream with recurring commissions and business growth opportunities.</p>
+                <h5 class="fw-bold">Full Sales Support</h5>
+                <p class="text-muted mb-0">From demos to deal closure, our team backs you up every step to maximize your success rate.</p>
               </div>
             </div>
           </div>
@@ -1485,16 +1508,16 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-md-4 mb-4 mb-md-0">
-              <div class="metric-value">30min</div>
-              <div class="metric-label">Average Setup Time</div>
+              <div class="metric-value">10-20%</div>
+              <div class="metric-label">Commission on Every Sale</div>
             </div>
             <div class="col-12 col-md-4 mb-4 mb-md-0">
-              <div class="metric-value">2X</div>
-              <div class="metric-label">Improved connect rates</div>
+              <div class="metric-value">24hrs</div>
+              <div class="metric-label">Approval Time</div>
             </div>
             <div class="col-12 col-md-4">
-              <div class="metric-value">20%</div>
-              <div class="metric-label">Max Commision Rate</div>
+              <div class="metric-value">Zero</div>
+              <div class="metric-label">Investment Required*</div>
             </div>
           </div>
         </div>
@@ -1507,7 +1530,7 @@
           <div class="row text-center g-4">
             <div class="section-title text-center" data--delay="0.3s">
               <h2>Choose the Partnership That Works Best for You</h2>
-              <p>Runo offers three structured partnership tracks. Pick the one that matches your strengths and business goals.</p>
+              <p>Whether you're looking to refer clients casually or build a full reseller business, we have a partnership model that fits your goals and growth ambitions.</p>
             </div>
           </div>
 
@@ -1666,17 +1689,18 @@
         <div class="container">
           <div class="row text-center g-4">
             <div class="section-title text-center" data--delay="0.3s">
-              <h2>Everything You Need to Succeed as a Partner</h2>
+              <h2>Partner Benefits That Drive Your Growth</h2>
               <p>
-                From dedicated support to cutting-edge product features, we provide everything you
+                We've designed our partner program to make it easy for you to succeed.
                 <br />
-                need to win deals and grow your business.
+                From marketing support to dedicated account management, we invest in your success as much as our own.
               </p>
             </div>
           </div>
 
           <div class="row g-4">
             <h4 style="color: #111111; margin: 20px 0px; text-align: center">What You Get as a Runo Partner</h4>
+
             <!-- Card 1 -->
             <div class="col-md-6 col-lg-3">
               <div class="card h-100 shadow-sm border-0 text-center p-3">
@@ -1689,8 +1713,8 @@
                     <path d="M3 4h8"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Co-Marketing Support</h5>
-                <p class="text-muted mb-0">Joint marketing campaigns, co-branded materials, and shared promotional activities to boost your reach.</p>
+                <h5 class="fw-bold">Generous Commissions</h5>
+                <p class="text-muted mb-0">Earn 10-20% on every license sold. The more you sell, the more you earn—it's that simple.</p>
               </div>
             </div>
 
@@ -1705,8 +1729,8 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Dedicated Partner Manager</h5>
-                <p class="text-muted mb-0">Personal support from a dedicated partner success manager to help you maximize opportunities.</p>
+                <h5 class="fw-bold">Dedicated Support Team</h5>
+                <p class="text-muted mb-0">Get priority support and a dedicated partner manager (for resellers) to help you close deals faster.</p>
               </div>
             </div>
 
@@ -1721,8 +1745,8 @@
                     <path d="M8 17v-3"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Sales Enablement</h5>
-                <p class="text-muted mb-0">Complete sales training, product demos, competitive analysis, and closing support materials.</p>
+                <h5 class="fw-bold">Sales Training & Enablement</h5>
+                <p class="text-muted mb-0">We train your team on product features and provide ongoing sales support to maximize conversions.</p>
               </div>
             </div>
 
@@ -1734,8 +1758,8 @@
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                   </svg>
                 </div>
-                <h5 class="fw-bold">Partner Protection</h5>
-                <p class="text-muted mb-0">Territory protection, deal registration, and conflict resolution to secure your partnership investment.</p>
+                <h5 class="fw-bold">Co-Marketing Resources</h5>
+                <p class="text-muted mb-0">Access co-branded collateral, case studies, and marketing materials to accelerate your sales cycle.</p>
               </div>
             </div>
           </div>
@@ -1746,7 +1770,8 @@
       <section class="partners-features">
         <div class="container">
           <div class="row g-4">
-            <h4 style="color: #111111; margin: 20px 0px; text-align: center">Product Features That Drive Sales</h4>
+            <h4 style="color: #111111; margin: 20px 0px; text-align: center">Additional Partnership Advantages</h4>
+
             <!-- Card 1 -->
             <div class="col-md-6">
               <div class="card h-100 shadow-sm border-0 rounded-4 p-3">
@@ -1755,11 +1780,8 @@
                     <i class="bi bi-phone"></i>
                   </div>
                   <div>
-                    <h5 class="fw-bold mb-1">
-                      SIM + Cloud Unified
-                      <span class="badge bg-success ms-2">Industry First</span>
-                    </h5>
-                    <p class="mb-0">Unique dual-mode telephony combining SIM-based and cloud calling in one seamless platform.</p>
+                    <h5 class="fw-bold mb-1">No Technical Overhead</h5>
+                    <p class="mb-0">We handle product development, updates, and support—you focus purely on selling and earning.</p>
                   </div>
                 </div>
               </div>
@@ -1773,11 +1795,8 @@
                     <i class="bi bi-cpu"></i>
                   </div>
                   <div>
-                    <h5 class="fw-bold mb-1">
-                      AI-Powered Analytics
-                      <span class="badge bg-success ms-2">Advanced AI</span>
-                    </h5>
-                    <p class="mb-0">Real-time call transcripts, sentiment analysis, call scoring, and performance insights.</p>
+                    <h5 class="fw-bold mb-1">Partner Dashboard</h5>
+                    <p class="mb-0">Track your leads, commissions, and performance in real-time through a dedicated partner portal.</p>
                   </div>
                 </div>
               </div>
@@ -1791,11 +1810,8 @@
                     <i class="bi bi-cloud"></i>
                   </div>
                   <div>
-                    <h5 class="fw-bold mb-1">
-                      Deep CRM Integration
-                      <span class="badge bg-success ms-2">50+ Integrations</span>
-                    </h5>
-                    <p class="mb-0">Native integrations with Zoho, HubSpot, LeadSquared, Salesforce, and 50+ other platforms.</p>
+                    <h5 class="fw-bold mb-1">Fast Deal Closure</h5>
+                    <p class="mb-0">Our sales team supports you through demos, negotiations, and closures to maximize win rates.</p>
                   </div>
                 </div>
               </div>
@@ -1809,11 +1825,8 @@
                     <i class="bi bi-lightning-charge"></i>
                   </div>
                   <div>
-                    <h5 class="fw-bold mb-1">
-                      Instant Deployment
-                      <span class="badge bg-success ms-2">30min Setup</span>
-                    </h5>
-                    <p class="mb-0">Zero infrastructure setup, cloud-based solution with under 30-minute implementation time.</p>
+                    <h5 class="fw-bold mb-1">Recurring Revenue Model</h5>
+                    <p class="mb-0">License-based pricing means you earn consistently over time, not just one-time commissions.</p>
                   </div>
                 </div>
               </div>
@@ -1828,33 +1841,33 @@
         <div class="container">
           <div class="row text-center g-4">
             <div class="section-title text-center" data--delay="0.3s">
-              <h2>Why Clients Choose Runo</h2>
+              <h2>Why Partners Succeed with Runo</h2>
             </div>
           </div>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
               <div class="metric-box">
-                <div class="metric-value">50+</div>
-                <div class="metric-label">CRM Integrations</div>
+                <div class="metric-value">24hrs</div>
+                <div class="metric-label">Partner Approval Time</div>
               </div>
             </div>
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
               <div class="metric-box">
-                <div class="metric-value">99.9%</div>
-                <div class="metric-label">Uptime SLA</div>
+                <div class="metric-value">10-20%</div>
+                <div class="metric-label">Commission Range</div>
               </div>
             </div>
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
               <div class="metric-box">
-                <div class="metric-value">2x</div>
-                <div class="metric-label">Better Connect Rates</div>
+                <div class="metric-value">Unlimited</div>
+                <div class="metric-label">Earning Potential</div>
               </div>
             </div>
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
               <div class="metric-box">
-                <div class="metric-value">30min</div>
-                <div class="metric-label">Setup Time</div>
+                <div class="metric-value">Full</div>
+                <div class="metric-label">Sales Support Included</div>
               </div>
             </div>
           </div>
@@ -1992,23 +2005,23 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
-              <div class="metric-value">30min</div>
-              <div class="metric-label">Average Setup Time</div>
+              <div class="metric-value">150%</div>
+              <div class="metric-label">Average Partner Revenue Growth</div>
             </div>
 
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
-              <div class="metric-value">2X</div>
-              <div class="metric-label">Improved Connect Rates</div>
+              <div class="metric-value">24hrs</div>
+              <div class="metric-label">Partner Approval Time</div>
             </div>
 
             <div class="col-12 col-md-3 mb-4 mb-md-0 text-center">
-              <div class="metric-value">20%</div>
-              <div class="metric-label">Max Commission Rate</div>
+              <div class="metric-value">95%</div>
+              <div class="metric-label">Client Satisfaction Score</div>
             </div>
 
             <div class="col-12 col-md-3 text-center">
-              <div class="metric-value">95%</div>
-              <div class="metric-label">Client Satisfaction Score</div>
+              <div class="metric-value">60%</div>
+              <div class="metric-label">Faster Deal Closure</div>
             </div>
           </div>
         </div>
