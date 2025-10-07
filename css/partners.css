@@ -1,0 +1,319 @@
+.partner-cta p {
+  color: #fff;
+}
+.partner-cta h6 {
+  color: #fff;
+}
+
+.partner-cta h2,
+h4 {
+  color: #fff;
+}
+
+.partner-cta {
+  padding: 30px 0px;
+}
+.plan-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: 0.3s;
+  background: #fff;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* allow pushing footer down */
+}
+.plan-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.plan-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  background: #f44336;
+  color: #fff;
+  font-size: 28px;
+}
+.plan-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111111;
+}
+.plan-percent {
+  font-size: 28px;
+  font-weight: 800;
+  color: #f44336;
+  margin-bottom: 15px;
+}
+.plan-features {
+  text-align: left;
+  margin: 20px 0;
+  flex-grow: 1; /* fill available space */
+}
+.plan-features li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.plan-features i {
+  color: #4caf50;
+  font-size: 18px;
+}
+.plan-commitment {
+  color: #111111;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.btn-plan {
+  background-color: #f44336;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+}
+.btn-plan:hover {
+  background-color: #d32f2f;
+}
+.badge-popular {
+  background: #f44336;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+.list-unstyled li {
+  color: #111111;
+}
+
+.pricing-partners {
+  margin: 40px 0px;
+}
+
+.referral-partner {
+  background: #fafafa;
+  padding: 30px;
+  border-radius: 20px;
+}
+.referral-partner li {
+  color: #111111 !important;
+  line-height: 1.8;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.partners-features .bg-primary {
+  background: #f44336 !important;
+}
+
+.partners-features .bi {
+  width: 50px;
+  text-align: center;
+}
+
+.partners-features .badge {
+  border-radius: 20px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.feedback-partner {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.trusted-partners .partner-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: #f9f9f9;
+  color: #111111;
+}
+
+@media (hover: hover) {
+  .trusted-partners .partner-name:hover {
+    background: #f0f0f0;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.section-title p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.section-title {
+  width: 80%;
+  margin: 20px auto 30px auto !important;
+}
+.runo-box-svg {
+  background: linear-gradient(90deg, #cc2e00 0%, #f09874 100%);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: visible; /* important for shadow visibility */
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  /* bigger shadow with spread to show on top */
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.metrics-section {
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.bg-teal {
+  background: hsl(185, 85%, 45%) !important;
+}
+
+.bg-green {
+  background: hsl(140, 75%, 45%) !important;
+}
+
+.highlight {
+  border: 1px solid #ff5430 !important;
+}
+
+.referral-partner {
+  background: #f9f9f9 !important;
+}
+.metrics-section .container {
+  background: #f9f9f9 !important;
+}
+
+.partner-succeed {
+  padding: 30px 0px 10px 0px;
+}
+
+.partners-features {
+  padding: 30px 0px 15px 0px;
+}
+
+.metrics-section .section-title h2 {
+  font-size: 25px;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Hide vertical arrow on desktop */
+.arrow-vertical {
+  display: none;
+}
+
+/* Hide horizontal arrow on mobile */
+@media (max-width: 991px) {
+  .arrow-horizontal {
+    display: none;
+  }
+  .arrow-vertical {
+    display: inline;
+  }
+}
+
+.integration-box {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 30px 130px;
+}
+
+@media (max-width: 991px) {
+  .integration-box {
+    padding: 30px 40px;
+  }
+
+  .section-title {
+    width: 100% !important;
+  }
+}
+.crm-icons span {
+  margin-right: 20px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+.crm-icons i {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+.zoho {
+  background: #e94b35;
+}
+.hubspot {
+  background: #f28c2a;
+}
+.leadsquared {
+  background: #2d8cff;
+}
+.salesforce {
+  background: #586aea;
+}
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #001f5c;
+}
+.runo-box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+}
+.runo-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+.runo-sub {
+  font-size: 14px;
+  color: gray;
+}
+.crm-icons span {
+  color: #111111;
+}
+
+.ico-box {
+  background-color: #f44336;
+  padding: 20px;
+  border-radius: 20px;
+}
