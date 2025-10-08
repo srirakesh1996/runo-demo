@@ -456,3 +456,12 @@ h4 {
   border: 1px solid #fff;
   color: #fff;
 }
+
+.what-is-runo img {
+  max-width: 90%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.what-is-runo img:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
