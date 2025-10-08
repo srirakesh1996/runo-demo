@@ -1,6 +1,6 @@
 .tick-circle {
-  width: 24px;
-  height: 24px;
+  width: 13px;
+  height: 13px;
   background-color: #4caf50; /* green circle */
   border-radius: 50%;
   display: flex; /* center the checkmark */
