@@ -382,7 +382,7 @@ h4 {
 
 @media only screen and (max-width: 800px) {
   .partners .testimonial-item {
-    height: 380px !important;
+    height: 400px !important;
     padding: 30px;
   }
 }
