@@ -9,8 +9,7 @@
   flex-shrink: 0; /* prevent stretching when text wraps */
   margin-top: 4px; /* adjust alignment with multi-line text */
 }
-
-.tick-circle::before {
+plan-commitment .tick-circle::before {
   content: "✔"; /* white check mark */
   color: #fff;
   font-size: 14px;
@@ -391,6 +390,7 @@ h4 {
 .partners .plan-commitment {
   color: green !important;
   font-weight: bold;
+  font-size: 12px !important;
 }
 .star-rating {
   display: inline-flex;
