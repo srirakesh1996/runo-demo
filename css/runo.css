@@ -3,6 +3,17 @@
   bottom: 20px;
 }
 
+.hero-text-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 25px;
+  border: 2.5px solid transparent;
+  background: linear-gradient(#f5f4ed, #f5f4ed) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px !important;
+}
+
 .bg-dark {
   background-color: #191919 !important;
 }
