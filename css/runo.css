@@ -2,7 +2,6 @@
   right: 20px;
   bottom: 20px;
 }
-
 .hero-text-tag {
   display: inline-block;
   padding: 6px 18px;
@@ -3692,6 +3691,8 @@ body.modal-open {
     padding: 10px 8px !important;
   }
 }
+
+/* Hello Bar default (desktop ≥1200px) */
 .hello-bar {
   background-color: #f44336;
   color: #fff;
@@ -3700,6 +3701,7 @@ body.modal-open {
   position: relative;
   line-height: 1.4;
   padding: 10px 0;
+  display: block; /* visible on desktop ≥1200px */
 }
 
 .hello-bar p {
@@ -3740,32 +3742,13 @@ body.modal-open {
   opacity: 1;
 }
 
-/* 🔹 Mobile adjustments */
-@media (max-width: 1200px) {
+/* 🔹 Hide Hello Bar for screens <1200px */
+@media (max-width: 1199.98px) {
   .hello-bar {
-    font-size: 14px;
-    padding: 12px 10px;
+    display: none; /* hidden below 1200px */
   }
 
-  .hello-bar .container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hello-bar a.btn-light {
-    margin-top: 6px;
-    padding: 5px 16px;
-  }
-
-  .close-hello {
-    top: 8px;
-    right: 0px;
-    font-size: 25px;
-    font-weight: bold;
-    padding: 0px;
-  }
-
-  /* Hide “in Sales Tech” text on mobile */
+  /* Hide “in Sales Tech” text if needed */
   .hide-mobile {
     display: none;
   }
