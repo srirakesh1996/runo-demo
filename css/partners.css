@@ -9,12 +9,19 @@
   flex-shrink: 0; /* prevent stretching when text wraps */
   margin-top: 4px; /* adjust alignment with multi-line text */
 }
-plan-commitment .tick-circle::before {
+.plan-commitment .tick-circle::before {
   content: "✔"; /* white check mark */
   color: #fff;
   font-size: 14px;
   line-height: 1;
 }
+.program-details li {
+  color: #111111 !important;
+}
+.program-details p {
+  margin-bottom: 4px !important;
+}
+
 .partner-cta p {
   color: #fff;
 }
@@ -91,6 +98,7 @@ h4 {
   padding: 10px;
   margin-bottom: 20px;
   font-size: 14px;
+  text-align: left;
 }
 .btn-plan {
   background-color: #f44336;
@@ -352,6 +360,16 @@ h4 {
   color: #fff;
   margin-bottom: 10px !important;
 }
+.tier-badge {
+  font-size: 10px !important;
+  line-height: 1.8;
+  background: #d4d4d4;
+  padding: 0px 10px;
+  border-radius: 30px;
+  display: inline-block;
+  color: #111111;
+  margin-bottom: 10px !important;
+}
 
 .partners .testimonial-item {
   height: 370px;
@@ -464,4 +482,11 @@ h4 {
 
 .what-is-runo img:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-partners p {
+  font-size: 14px !important;
+}
+.pricing-partners li {
+  font-size: 14px !important;
 }
