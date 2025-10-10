@@ -3698,10 +3698,15 @@ body.modal-open {
   font-size: 15px;
   font-weight: 500;
   position: relative;
+  line-height: 1.4;
+  padding: 10px 0;
 }
+
 .hello-bar p {
+  margin: 0;
   color: #fff !important;
 }
+
 .hello-bar a.btn-light {
   background: #fff;
   color: #f44336;
@@ -3727,10 +3732,41 @@ body.modal-open {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 
 .close-hello:hover {
   opacity: 1;
+}
+
+/* 🔹 Mobile adjustments */
+@media (max-width: 1200px) {
+  .hello-bar {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .hello-bar .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hello-bar a.btn-light {
+    margin-top: 6px;
+    padding: 5px 16px;
+  }
+
+  .close-hello {
+    top: 8px;
+    right: 0px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0px;
+  }
+
+  /* Hide “in Sales Tech” text on mobile */
+  .hide-mobile {
+    display: none;
+  }
 }
