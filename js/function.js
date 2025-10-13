@@ -40,6 +40,24 @@
     });
   }
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const helloBar = document.getElementById("helloBar");
+    const closeBtn = document.querySelector(".close-hello");
+
+    // Check if the bar was closed before
+    if (localStorage.getItem("helloBarClosed") === "true") {
+      helloBar.style.display = "none";
+    }
+
+    // When user closes the bar
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        helloBar.style.display = "none";
+        localStorage.setItem("helloBarClosed", "true");
+      });
+    }
+  });
+
   /* testimonial Slider JS */
   if ($(".testimonial-slider").length) {
     const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
@@ -140,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 /*ends */
-
 
 /* Send utm to web.runo.in Starts */
 document.addEventListener("DOMContentLoaded", function () {
