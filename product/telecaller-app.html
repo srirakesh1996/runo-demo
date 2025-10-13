@@ -129,6 +129,75 @@
       }
     </style>
     <style>
+      /* Hello Bar */
+      .hello-bar {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        line-height: 1.5;
+        padding: 12px 15px;
+      }
+
+      .hello-bar p {
+        margin: 0;
+        text-align: center;
+        color: #fff !important;
+        padding-right: 45px; /* space so text doesn't touch close button */
+      }
+
+      /* Close Button */
+      .close-hello {
+        position: absolute;
+
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-hello:hover {
+        background: rgba(255, 255, 255, 0.35);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 767.98px) {
+        .hello-bar p {
+          text-align: left;
+        }
+
+        .hello-bar {
+          font-size: 14px;
+          padding: 10px 12px;
+        }
+
+        .close-hello {
+          top: 6px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
+          font-size: 18px;
+        }
+
+        .hello-bar p {
+          padding-right: 40px;
+        }
+      }
+    </style>
+    <style>
       @media only screen and (max-width: 768px) {
         .telecaller-hero {
           background: #f5f3ed !important;
@@ -2762,6 +2831,38 @@
     <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
     <script src="/js/function.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const helloBar = document.getElementById("helloBar");
+        const closeBtn = document.querySelector(".close-hello");
+        const storageKey = "helloBarClosed";
+        const oneDay = 24 * 60 * 60 * 1000; // 1 day in milliseconds
+
+        if (!helloBar) return; // stop if bar not on page
+
+        // Get stored timestamp
+        const closedTime = localStorage.getItem(storageKey);
+
+        if (closedTime) {
+          const now = Date.now();
+          if (now - parseInt(closedTime, 10) < oneDay) {
+            // less than 1 day → hide the bar
+            helloBar.style.display = "none";
+          } else {
+            // expired → remove storage so bar shows again
+            localStorage.removeItem(storageKey);
+          }
+        }
+
+        // Close button click
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function () {
+            helloBar.style.display = "none";
+            localStorage.setItem(storageKey, Date.now()); // store current timestamp
+          });
+        }
+      });
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const interval = setInterval(() => {
