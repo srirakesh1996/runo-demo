@@ -43,17 +43,30 @@
   document.addEventListener("DOMContentLoaded", function () {
     const helloBar = document.getElementById("helloBar");
     const closeBtn = document.querySelector(".close-hello");
+    const storageKey = "helloBarClosed";
+    const oneDay = 24 * 60 * 60 * 1000; // 1 day in milliseconds
 
-    // Check if the bar was closed before
-    if (localStorage.getItem("helloBarClosed") === "true") {
-      helloBar.style.display = "none";
+    if (!helloBar) return; // stop if bar not on page
+
+    // Get stored timestamp
+    const closedTime = localStorage.getItem(storageKey);
+
+    if (closedTime) {
+      const now = Date.now();
+      if (now - parseInt(closedTime, 10) < oneDay) {
+        // less than 1 day → hide the bar
+        helloBar.style.display = "none";
+      } else {
+        // expired → remove storage so bar shows again
+        localStorage.removeItem(storageKey);
+      }
     }
 
-    // When user closes the bar
+    // Close button click
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {
         helloBar.style.display = "none";
-        localStorage.setItem("helloBarClosed", "true");
+        localStorage.setItem(storageKey, Date.now()); // store current timestamp
       });
     }
   });
