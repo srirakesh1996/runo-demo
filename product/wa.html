@@ -1891,7 +1891,7 @@
 
           <div class="row text-center justify-content-center">
             <!-- Step 1 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2">
               <div class="step-card position-relative h-100">
                 <div class="step-number">1</div>
                 <div class="icon mb-3">
@@ -1907,7 +1907,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2">
               <div class="step-card position-relative h-100">
                 <div class="step-number">2</div>
                 <div class="icon mb-3">
@@ -1923,7 +1923,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2">
               <div class="step-card position-relative h-100">
                 <div class="step-number">3</div>
                 <div class="icon mb-3">
@@ -1940,7 +1940,7 @@
             </div>
 
             <!-- Step 4 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2">
               <div class="step-card position-relative h-100">
                 <div class="step-number">4</div>
                 <div class="icon mb-3">
@@ -1955,7 +1955,7 @@
             </div>
 
             <!-- Step 5 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2">
               <div class="step-card position-relative h-100">
                 <div class="step-number">5</div>
                 <div class="icon mb-3">
@@ -2465,12 +2465,12 @@
                   <!-- Item 1 -->
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="usecaseHeading1">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse1" aria-expanded="false" aria-controls="usecaseCollapse1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse1" aria-expanded="true" aria-controls="usecaseCollapse1">
                         <span class="icon-box"><i class="fas fa-chart-line"></i></span>
                         How does Runo’s WhatsApp CRM help sales teams?
                       </button>
                     </h2>
-                    <div id="usecaseCollapse1" class="accordion-collapse collapse" aria-labelledby="usecaseHeading1" data-bs-parent="#accordionUsecases">
+                    <div id="usecaseCollapse1" class="accordion-collapse collapse show" aria-labelledby="usecaseHeading1" data-bs-parent="#accordionUsecases">
                       <div class="accordion-body">
                         By unifying all lead communications, automating assignments, and tracking every deal step for faster closures. Sales teams can see the complete customer journey, never miss a follow-up, and prioritize hot leads based on engagement data — all from one dashboard.
                       </div>
@@ -2512,29 +2512,37 @@
     </div>
 
     <style>
+      .industry-usecases .accordion-button {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px;
+        text-align: left;
+      }
+
       .industry-usecases .icon-box {
-        display: inline-flex;
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
         align-items: center;
         justify-content: center;
         background: #f4433635;
         color: #f44336;
         border-radius: 12px;
-        width: 40px;
-        height: 40px;
-        margin-right: 15px;
         font-size: 18px;
+        margin-top: 0; /* remove extra margin */
       }
 
+      /* Mobile responsive adjustments */
       @media (max-width: 576px) {
         .industry-usecases .accordion-button {
           font-size: 15px;
+          gap: 15px;
         }
 
         .industry-usecases .icon-box {
-          width: 70px;
+          flex: 0 0 50px;
           height: 50px;
           font-size: 16px;
-          margin-right: 20px;
         }
       }
     </style>
