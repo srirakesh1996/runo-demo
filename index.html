@@ -395,7 +395,7 @@
         </div>
       </div>
       <!-- Hello Bar Start -->
-      <section id="helloBar" class="hello-bar text-white py-2">
+      <section class="hello-bar text-white py-2">
         <div class="container position-relative">
           <button type="button" class="close-hello" aria-label="Close">&times;</button>
           <p class="mb-0">
@@ -406,6 +406,20 @@
         </div>
       </section>
       <!-- Hello Bar End -->
+
+      <script>
+        // Hide hello bar on close click
+        document.addEventListener("DOMContentLoaded", function () {
+          const closeBtn = document.querySelector(".close-hello");
+          const helloBar = document.querySelector(".hello-bar");
+          if (closeBtn && helloBar) {
+            closeBtn.addEventListener("click", function () {
+              helloBar.style.display = "none";
+            });
+          }
+        });
+      </script>
+
       <!-- Header Start -->
       <header class="main-header">
         <div class="header-sticky">
@@ -1416,52 +1430,34 @@
 
                   const buttons = document.querySelectorAll("#feature-buttons .feature-btn");
                   const image = document.getElementById("webImage");
-                  let currentIndex = 0;
-                  let autoChangeInterval;
 
-                  // Function to activate a button and change the image
-                  function activateFeature(index) {
-                    buttons.forEach((b) => b.classList.remove("active"));
-                    const btn = buttons[index];
-                    if (!btn) return;
-
-                    btn.classList.add("active");
-                    const text = btn.textContent.trim();
-                    const feature = featureMap[text];
-                    if (feature) {
-                      image.src = feature.src;
-                      image.alt = feature.alt;
-                    }
-                    currentIndex = index;
-                  }
-
-                  // Auto change every 3 seconds
-                  function startAutoChange() {
-                    clearInterval(autoChangeInterval);
-                    autoChangeInterval = setInterval(() => {
-                      currentIndex = (currentIndex + 1) % buttons.length;
-                      activateFeature(currentIndex);
-                    }, 4000);
-                  }
-
-                  // Handle feature button clicks (manual override)
-                  buttons.forEach((btn, index) => {
+                  // Handle feature button clicks (no fade)
+                  buttons.forEach((btn) => {
                     btn.addEventListener("click", () => {
-                      activateFeature(index);
-                      startAutoChange(); // restart auto rotation from clicked one
+                      buttons.forEach((b) => b.classList.remove("active"));
+                      btn.classList.add("active");
+
+                      const text = btn.textContent.trim();
+                      const feature = featureMap[text];
+
+                      if (feature) {
+                        image.src = feature.src;
+                        image.alt = feature.alt;
+                      }
                     });
                   });
 
-                  // Initial setup on page load
+                  // Set initial image on page load
                   window.addEventListener("DOMContentLoaded", () => {
                     const activeBtn = document.querySelector(".feature-btn.active");
                     if (activeBtn) {
-                      currentIndex = Array.from(buttons).indexOf(activeBtn);
-                      activateFeature(currentIndex);
-                    } else {
-                      activateFeature(0);
+                      const text = activeBtn.textContent.trim();
+                      const feature = featureMap[text];
+                      if (feature) {
+                        image.src = feature.src;
+                        image.alt = feature.alt;
+                      }
                     }
-                    startAutoChange();
                   });
 
                   // Lazy preload images after full page load
@@ -1471,10 +1467,9 @@
                         const img = new Image();
                         img.src = feature.src;
                       });
-                    }, 500);
+                    }, 500); // Delay to not block banner load
                   });
                 </script>
-
                 <!-- Mobile Hero Swiper -->
                 <div class="swiper mobile-hero-swiper wow zoomIn" id="mobile-hero">
                   <div class="swiper-wrapper">
@@ -1569,218 +1564,283 @@
           </div>
         </div>
       </section>
-      <section class="deals-section" id="dealsSection">
-        <div class="container">
-          <div class="row deals-content">
-            <div class="section-title text-center">
-              <h2>Whooosh…That’s the Sound of Closing Deals Faster</h2>
-            </div>
-            <!-- Tabs and Mobile Images -->
-            <div class="col-md-6">
-              <div class="left-tabs" id="tabContainer">
-                <div class="scroll-bar"></div>
-                <div class="scroll-indicator" id="scrollIndicator"></div>
-                <div class="btn-group-vertical w-100" id="tabButtons">
-                  <div class="scroll-bord">
-                    <button class="tab-btn active" data-tab-index="0" data-bs-target="#tab1">
-                      <span>Boost Call Connect Rates with SIM + Virtual Calling</span>
-                      <p>Use your real number or our mobile-series look alike virtual numbers for calling, which means more trust and better pickup rates.</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                      <img src="img/call-connect.webp" class="img-preview" alt="SIM-based calling for better call connect rates" />
-                    </div>
-                  </div>
-                  <div class="scroll-bord">
-                    <button class="tab-btn" data-tab-index="1" data-bs-target="#tab2">
-                      <span>Improve Call Efficiency With AI Call Scoring & Evaluation</span>
-                      <p>Calls are recorded, transcribed, and summarized, with AI providing sentiment analysis and quality scores.</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display: none">
-                      <img src="img/call-efficiency.webp" class="img-preview" alt="AI call scoring and transcription for efficiency" />
-                    </div>
-                  </div>
-                  <div class="scroll-bord">
-                    <button class="tab-btn" data-tab-index="2" data-bs-target="#tab3">
-                      <span>Never Miss Follow-Ups With Smart Reminders</span>
-                      <p>Get automated reminders to ensure timely follow-ups for every lead on calls or WhatsApp.</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display: none">
-                      <img src="img/follow-ups.webp" class="img-preview" alt="Automated follow-up reminders for leads" />
-                    </div>
-                  </div>
-                  <div class="scroll-bord">
-                    <button class="tab-btn" data-tab-index="3" data-bs-target="#tab4">
-                      <span>Get Instant Visibility With Live Team Tracking</span>
-                      <p>Stay on top of your team’s activity with real-time status updates for active, idle, offline and on-call</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display: none">
-                      <img src="img/live-tracking.webp" class="img-preview" alt="Live team tracking with real-time status updates" />
-                    </div>
-                  </div>
-                  <div class="scroll-bord">
-                    <button class="tab-btn" data-tab-index="4" data-bs-target="#tab5">
-                      <span>Improve CRM Adoption With User-Friendly Interface</span>
-                      <p>Get your team to adopt CRM faster with a simple, sales-friendly interface that’s easy to learn and use every day</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display: none">
-                      <img src="img/user-friendly.webp" class="img-preview" alt="Easy-to-use CRM interface for faster adoption" />
-                    </div>
-                  </div>
-                  <div class="scroll-bord">
-                    <button class="tab-btn" data-tab-index="5" data-bs-target="#tab6">
-                      <span>Get Started With 30-Minute Quick Setup</span>
-                      <p>Set up Runo in under 30 minutes and start managing calls, leads, and follow-ups without any delays.</p>
-                    </button>
-                    <div class="mobile-tab-img d-md-none" id="mobileImg5" style="display: none">
-                      <img src="img/30-min-setup.webp" class="img-preview" alt="Quick 30-minute CRM setup and onboarding" />
-                    </div>
-                  </div>
+      <section class="runo-tabs py-5">
+        <div class="container text-center mb-4">
+          <h2 class="fw-bold mb-3">Why Choose Runo CRM</h2>
+          <p class="text-muted">Experience performance, intelligence, and simplicity — all in one place.</p>
+        </div>
+
+        <!-- ===== DESKTOP TABS ===== -->
+        <div class="tab-container">
+          <div class="tab-header">
+            <div class="tab-highlight"></div>
+            <button class="tab-btn active" data-target="#tab1">78% Call Connect</button>
+            <button class="tab-btn" data-target="#tab2">AI Call Scoring</button>
+            <button class="tab-btn" data-target="#tab3">Smart Follow-ups</button>
+            <button class="tab-btn" data-target="#tab4">Live Tracking</button>
+            <button class="tab-btn" data-target="#tab5">CRM Adoption</button>
+            <button class="tab-btn" data-target="#tab6">30-min Setup</button>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>78% Call Connect Ratio</h3>
+                  <p>Use your real number or our mobile-series look-alike virtual numbers for calling, ensuring more trust and better pickup rates.</p>
+                </div>
+                <div class="col-md-5">
+                  <img src="img/call-connect.webp" alt="High call connect ratio" class="img-fluid rounded" />
                 </div>
               </div>
             </div>
-            <!-- Desktop Image Preview -->
-            <div class="col-md-6 d-none d-md-block">
-              <div class="tab-content text-center">
-                <div class="tab-pane fade show active" id="tab1">
-                  <img src="img/call-connect.webp" class="img-preview" alt="SIM-based calling for better call connect rates" />
+
+            <div class="tab-pane" id="tab2">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>AI Call Scoring</h3>
+                  <p>Calls are recorded, transcribed, and summarized with AI providing sentiment analysis and quality scores.</p>
                 </div>
-                <div class="tab-pane fade" id="tab2">
-                  <img src="img/call-efficiency.webp" class="img-preview" alt="AI call scoring and transcription for efficiency" />
+                <div class="col-md-5">
+                  <img src="img/call-efficiency.webp" alt="AI call scoring" class="img-fluid rounded" />
                 </div>
-                <div class="tab-pane fade" id="tab3">
-                  <img src="img/follow-ups.webp" class="img-preview" alt="Automated follow-up reminders for leads" />
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab3">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Smart Follow Reminders</h3>
+                  <p>Get automated reminders to ensure timely follow-ups for every lead on calls or WhatsApp.</p>
                 </div>
-                <div class="tab-pane fade" id="tab4">
-                  <img src="img/live-tracking.webp" class="img-preview" alt="Live team tracking with real-time status updates" />
+                <div class="col-md-5 flex-end">
+                  <img src="img/follow-ups.webp" alt="Automated follow-up reminders" class="img-fluid rounded" />
                 </div>
-                <div class="tab-pane fade" id="tab5">
-                  <img src="img/user-friendly.webp" class="img-preview" alt="Easy-to-use CRM interface for faster adoption" />
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab4">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Live Tracking</h3>
+                  <p>Stay on top of your team’s activity with real-time status updates for active, idle, offline, and on-call.</p>
                 </div>
-                <div class="tab-pane fade" id="tab6">
-                  <img src="img/30-min-setup.webp" class="img-preview" alt="Quick 30-minute CRM setup and onboarding" />
+                <div class="col-md-5 flex-end">
+                  <img src="img/live-tracking.webp" alt="Live team tracking" class="img-fluid rounded" />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab5">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>++CRM Adoption</h3>
+                  <p>Get your team to adopt CRM faster with a simple, sales-friendly interface that’s easy to learn and use every day.</p>
+                </div>
+                <div class="col-md-5 flex-end">
+                  <img src="img/user-friendly.webp" alt="Easy-to-use CRM" class="img-fluid rounded" />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab6">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>30-min Setup</h3>
+                  <p>Set up Runo in under 30 minutes and start managing calls, leads, and follow-ups without any delays.</p>
+                </div>
+                <div class="col-md-5 flex-end">
+                  <img src="img/30-min-setup.webp" alt="Quick setup" class="img-fluid rounded" />
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- ===== MOBILE SWIPER ===== -->
+        <div class="mobile-slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h4>78% Call Connect Ratio</h4>
+              <p>Use your real number or our mobile-series look-alike virtual numbers for calling, ensuring more trust and better pickup rates.</p>
+              <img src="img/call-connect.webp" alt="Call connect" />
+            </div>
+            <div class="swiper-slide">
+              <h4>AI Call Scoring</h4>
+              <p>Calls are recorded, transcribed, and summarized with AI providing sentiment analysis and quality scores.</p>
+              <img src="img/call-efficiency.webp" alt="AI call scoring" />
+            </div>
+            <div class="swiper-slide">
+              <h4>Smart Follow Reminders</h4>
+              <p>Get automated reminders to ensure timely follow-ups for every lead on calls or WhatsApp.</p>
+              <img src="img/follow-ups.webp" alt="Follow-up reminders" />
+            </div>
+            <div class="swiper-slide">
+              <h4>Live Tracking</h4>
+              <p>Stay on top of your team’s activity with real-time updates for active, idle, offline, and on-call.</p>
+              <img src="img/live-tracking.webp" alt="Live tracking" />
+            </div>
+            <div class="swiper-slide">
+              <h4>++CRM Adoption</h4>
+              <p>Get your team to adopt CRM faster with a simple interface that’s easy to use every day.</p>
+              <img src="img/user-friendly.webp" alt="CRM adoption" />
+            </div>
+            <div class="swiper-slide">
+              <h4>30-min Setup</h4>
+              <p>Set up Runo in under 30 minutes and start managing calls, leads, and follow-ups without delays.</p>
+              <img src="img/30-min-setup.webp" alt="Quick setup" />
+            </div>
+          </div>
+        </div>
       </section>
-      <!-- Scripts -->
+
+      <style>
+        /* ---------- DESKTOP ---------- */
+        .tab-container {
+          width: 85%;
+          margin: 0 auto 60px;
+          background: #fff;
+
+          overflow: hidden;
+        }
+
+        .tab-header {
+          display: flex;
+          position: relative;
+          height: 60px;
+          border-radius: 50px;
+          border: 1px solid #e7e7e7;
+        }
+
+        .tab-btn {
+          font-size: 15px !important;
+          text-align: center;
+          flex: 1;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          font-weight: 500;
+          color: #333;
+          z-index: 2;
+          transition: color 0.3s ease;
+        }
+
+        .tab-btn.active {
+          color: #fff;
+        }
+
+        .tab-highlight {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: calc(100% / 6);
+          background: linear-gradient(90deg, #f44336, #ff6a00);
+          border-radius: 50px;
+          transition: left 0.5s ease;
+          z-index: 1;
+        }
+
+        /* “V” indicator */
+        .tab-btn.active::after {
+          position: absolute;
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #f44336;
+          font-weight: 700;
+          font-size: 16px;
+        }
+        .runo-tabs .tab-pane img {
+          margin: 0px 0px;
+        }
+        /* ---------- CONTENT ---------- */
+        .tab-content {
+          background: #fff;
+          border-radius: 30px;
+          margin-top: 30px;
+          padding: 40px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-pane {
+          display: none;
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease;
+        }
+
+        .tab-pane.active {
+          display: block;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .tab-pane img {
+          width: 100%;
+          border-radius: 20px;
+          transition: transform 0.4s ease;
+        }
+
+        .tab-pane img:hover {
+          transform: scale(1.05);
+        }
+
+        /* ---------- MOBILE ---------- */
+        .mobile-slider {
+          display: none;
+          margin-top: 30px;
+        }
+
+        .mobile-slider .swiper-slide {
+          background: #fff;
+          border-radius: 25px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+          padding: 30px 20px;
+          text-align: center;
+        }
+
+        .mobile-slider img {
+          width: 90%;
+          border-radius: 15px;
+          margin-top: 15px;
+        }
+
+        @media (max-width: 992px) {
+          .tab-container {
+            display: none;
+          }
+          .mobile-slider {
+            display: block;
+          }
+        }
+      </style>
+
       <script>
+        // ===== DESKTOP TABS =====
         const tabs = document.querySelectorAll(".tab-btn");
         const panes = document.querySelectorAll(".tab-pane");
-        const scrollIndicator = document.getElementById("scrollIndicator");
+        const highlight = document.querySelector(".tab-highlight");
 
-        let index = 0;
-        let autoSlideInterval;
-        let observerStarted = false;
-        let isAnimating = false;
-
-        function animateScrollIndicator(toTop) {
-          const startTop = parseFloat(scrollIndicator.style.top) || 0;
-          const startHeight = parseFloat(scrollIndicator.style.height) || 0;
-          const isMobile = window.innerWidth <= 767;
-          const targetHeight = isMobile ? 135 : 88;
-          const duration = 500;
-          const startTime = performance.now();
-
-          function animate(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const newTop = startTop + (toTop - startTop) * progress;
-            const newHeight = startHeight + (targetHeight - startHeight) * progress;
-
-            scrollIndicator.style.top = `${newTop}px`;
-            scrollIndicator.style.height = `${newHeight}px`;
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          }
-
-          requestAnimationFrame(animate);
-        }
-
-        function updateScrollIndicator(i) {
-          const spacingTop = tabs[i].offsetTop + 35;
-          animateScrollIndicator(spacingTop);
-        }
-
-        function switchTab(i) {
-          if (isAnimating || index === i) return;
-          isAnimating = true;
-
-          // Hide all mobile images
-          const mobileImgs = document.querySelectorAll(".mobile-tab-img");
-          mobileImgs.forEach((img) => (img.style.display = "none"));
-
-          // Show active mobile image
-          if (window.innerWidth <= 767) {
-            const currentMobileImg = document.getElementById(`mobileImg${i}`);
-            if (currentMobileImg) currentMobileImg.style.display = "block";
-          }
-
-          const currentPane = document.querySelector(".tab-pane.show.active");
-          const nextTab = tabs[i];
-          const nextPaneId = nextTab.getAttribute("data-bs-target");
-          const nextPane = document.querySelector(nextPaneId);
-
-          if (!nextPane) {
-            isAnimating = false;
-            return;
-          }
-
-          tabs.forEach((tab) => tab.classList.remove("active"));
-          nextTab.classList.add("active");
-
-          currentPane.classList.remove("show", "active");
-          nextPane.classList.add("show", "active");
-
-          updateScrollIndicator(i);
-          index = i;
-          isAnimating = false;
-        }
-
-        function startAutoSlide() {
-          autoSlideInterval = setInterval(() => {
-            const nextIndex = (index + 1) % tabs.length;
-            switchTab(nextIndex);
-          }, 6500);
-        }
-
-        function resetAutoSlide() {
-          clearInterval(autoSlideInterval);
-          startAutoSlide();
-        }
-
-        tabs.forEach((tab, i) => {
+        tabs.forEach((tab, index) => {
           tab.addEventListener("click", () => {
-            switchTab(i);
-            resetAutoSlide();
+            document.querySelector(".tab-btn.active").classList.remove("active");
+            document.querySelector(".tab-pane.active").classList.remove("active");
+
+            tab.classList.add("active");
+            panes[index].classList.add("active");
+
+            highlight.style.left = `calc(${index} * (100% / ${tabs.length}))`;
           });
         });
 
-        function observeSection() {
-          const section = document.getElementById("dealsSection");
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting && !observerStarted) {
-                  observerStarted = true;
-                  updateScrollIndicator(0);
-                  startAutoSlide();
-                }
-              });
-            },
-            {
-              threshold: 0.3,
-            }
-          );
-
-          observer.observe(section);
-        }
-
-        document.addEventListener("DOMContentLoaded", observeSection);
+        // ===== MOBILE SWIPER =====
+        const mobileSwiper = new Swiper(".mobile-slider", {
+          loop: true,
+          autoplay: { delay: 4000, disableOnInteraction: false },
+        });
       </script>
+
       <section class="sales-execution-section py-5">
         <div class="container">
           <div class="section-title text-center">
@@ -1844,7 +1904,7 @@
               <h2>Watch How Runo Works: Quick Video Overview</h2>
             </div>
             <!-- Video Wrapper -->
-            <div class="video-wrapper">
+            <div class="video-wrapper" style="position: relative; background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%); overflow: hidden">
               <!-- Thumbnail -->
               <img loading="lazy" src="img/runo-video.webp" alt="Runo AI in Action" class="video-thumbnail" id="videoThumbnail" style="width: 100%; height: auto; display: block" />
               <!-- Play Button -->
