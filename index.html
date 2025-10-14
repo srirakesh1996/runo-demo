@@ -1564,7 +1564,7 @@
           </div>
         </div>
       </section>
-      <section class="runo-tabs py-5">
+      <section class="runo-tabs">
         <div class="container text-center mb-4">
           <div class="section-title text-center">
             <h2>What makes Runo the favorite Telecalling CRM for 3500+ businesses?</h2>
@@ -1712,153 +1712,81 @@
         </div>
       </section>
 
-      <style>
-        /* ---------- DESKTOP ---------- */
-        .runo-tabs .tab-container {
-          margin: 0 auto 60px;
-          background: #fff;
-
-          overflow: hidden;
-        }
-
-        .runo-tabs .tab-header {
-          display: flex;
-          position: relative;
-          height: 60px;
-          border-radius: 50px;
-          border: 1px solid #e7e7e7;
-        }
-
-        .runo-tabs .tab-btn {
-          font-size: 15px !important;
-          text-align: center;
-          flex: 1;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          font-weight: 500;
-          color: #333;
-          z-index: 2;
-          transition: color 0.3s ease;
-        }
-
-        .runo-tabs .tab-btn.active {
-          color: #fff;
-        }
-
-        .runo-tabs .tab-highlight {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: calc(100% / 6);
-          background: linear-gradient(90deg, #f44336, #ff6a00);
-          border-radius: 50px;
-          transition: left 0.5s ease;
-          z-index: 1;
-        }
-
-        /* “V” indicator */
-        .runo-tabs .tab-btn.active::after {
-          position: absolute;
-          bottom: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: #f44336;
-          font-weight: 700;
-          font-size: 16px;
-        }
-        .runo-tabs .tab-pane img {
-          margin: 0px 0px;
-        }
-        /* ---------- CONTENT ---------- */
-        .runo-tabs .tab-content {
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
-          border-radius: 30px !important;
-          margin-top: 30px;
-          padding: 40px;
-          box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.1), 0 1.5px 8px 0 rgba(44, 62, 80, 0.06);
-        }
-
-        .runo-tabs .tab-pane {
-          display: none;
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s ease;
-        }
-
-        .runo-tabs .tab-pane.active {
-          display: block;
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .runo-tabs .tab-pane img {
-          width: 100%;
-          border-radius: 20px;
-          transition: transform 0.4s ease;
-        }
-
-        .runo-tabs .tab-pane img:hover {
-          transform: scale(1.05);
-        }
-
-        /* ---------- MOBILE ---------- */
-        .runo-tabs .mobile-slider {
-          display: none;
-          margin-top: 30px;
-        }
-
-        .runo-tabs .mobile-slider .swiper-slide {
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
-          border-radius: 25px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-          padding: 30px 20px;
-          text-align: center;
-        }
-
-        .runo-tabs .mobile-slider img {
-          width: 90%;
-          border-radius: 15px;
-          margin-top: 15px;
-        }
-
-        @media (max-width: 992px) {
-          .runo-tabs .tab-container {
-            display: none;
-          }
-          .runo-tabs .mobile-slider {
-            display: block;
-          }
-        }
-      </style>
-
       <script>
         // ===== DESKTOP TABS =====
         const tabs = document.querySelectorAll(".tab-btn");
         const panes = document.querySelectorAll(".tab-pane");
         const highlight = document.querySelector(".tab-highlight");
+        let currentIndex = 0;
+        let autoSwitchInterval;
+
+        function activateTab(index) {
+          tabs.forEach((tab) => tab.classList.remove("active"));
+          panes.forEach((pane) => pane.classList.remove("active"));
+
+          tabs[index].classList.add("active");
+          panes[index].classList.add("active");
+
+          highlight.style.left = `calc(${index} * (100% / ${tabs.length}))`;
+          currentIndex = index;
+        }
 
         tabs.forEach((tab, index) => {
           tab.addEventListener("click", () => {
-            document.querySelector(".tab-btn.active").classList.remove("active");
-            document.querySelector(".tab-pane.active").classList.remove("active");
-
-            tab.classList.add("active");
-            panes[index].classList.add("active");
-
-            highlight.style.left = `calc(${index} * (100% / ${tabs.length}))`;
+            activateTab(index);
+            resetAutoSwitch();
           });
         });
+
+        // Auto switch every 5 seconds
+        function startAutoSwitch() {
+          if (autoSwitchInterval) return;
+          autoSwitchInterval = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % tabs.length;
+            activateTab(nextIndex);
+          }, 5000);
+        }
+
+        function stopAutoSwitch() {
+          clearInterval(autoSwitchInterval);
+          autoSwitchInterval = null;
+        }
+
+        function resetAutoSwitch() {
+          stopAutoSwitch();
+          startAutoSwitch();
+        }
+
+        // Start auto switch only when section is visible
+        const section = document.querySelector(".runo-tabs");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                startAutoSwitch();
+              } else {
+                stopAutoSwitch();
+              }
+            });
+          },
+          { threshold: 0.5 } // section is at least 50% visible
+        );
+
+        observer.observe(section);
+
+        // Initialize first tab
+        activateTab(0);
 
         // ===== MOBILE SWIPER =====
         const mobileSwiper = new Swiper(".mobile-slider", {
           loop: true,
           autoplay: { delay: 4000, disableOnInteraction: false },
+          slidesPerView: 1,
+          spaceBetween: 20,
         });
       </script>
 
-      <section class="sales-execution-section py-5">
+      <section class="sales-execution-section mb-5 pb-5">
         <div class="container">
           <div class="section-title text-center">
             <h2>Runo + WhatsApp Business: Engage, Track, and Convert Better</h2>
@@ -1921,7 +1849,7 @@
               <h2>Watch How Runo Works: Quick Video Overview</h2>
             </div>
             <!-- Video Wrapper -->
-            <div class="video-wrapper" style="position: relative; background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%); overflow: hidden">
+            <div class="video-wrapper">
               <!-- Thumbnail -->
               <img loading="lazy" src="img/runo-video.webp" alt="Runo AI in Action" class="video-thumbnail" id="videoThumbnail" style="width: 100%; height: auto; display: block" />
               <!-- Play Button -->

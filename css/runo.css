@@ -902,7 +902,129 @@
   }
 }
 
-/* Homepage Header & Banner Ends */
+/* Homepage Header & Banner Ends *
+
+/* RUno Tabs */
+
+/* ---------- DESKTOP ---------- */
+.runo-tabs .tab-container {
+  margin: 0 auto 60px;
+  background: #fff;
+
+  overflow: hidden;
+}
+
+.runo-tabs .tab-header {
+  display: flex;
+  position: relative;
+  height: 60px;
+  border-radius: 50px;
+  border: 1px solid #e7e7e7;
+}
+
+.runo-tabs .tab-btn {
+  font-size: 15px !important;
+  text-align: center;
+  flex: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.runo-tabs .tab-btn.active {
+  color: #fff;
+}
+
+.runo-tabs .tab-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% / 6);
+  background: linear-gradient(90deg, #f44336, #ff6a00);
+  border-radius: 50px;
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+/* “V” indicator */
+.runo-tabs .tab-btn.active::after {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f44336;
+  font-weight: 700;
+  font-size: 16px;
+}
+.runo-tabs .tab-pane img {
+  margin: 0px 0px;
+}
+/* ---------- CONTENT ---------- */
+.runo-tabs .tab-content {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
+  border-radius: 30px; /* Rounded corners */
+  margin-top: 40px;
+  padding: 40px;
+}
+
+.runo-tabs .tab-pane {
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.runo-tabs .tab-pane.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.runo-tabs .tab-pane img {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+.runo-tabs .tab-pane img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- MOBILE ---------- */
+.runo-tabs .mobile-slider {
+  display: none;
+  margin-top: 30px;
+}
+
+.runo-tabs .mobile-slider .swiper-slide {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.runo-tabs .mobile-slider img {
+  width: 90%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+@media (max-width: 1190px) {
+  .runo-tabs .tab-container {
+    display: none;
+  }
+  .runo-tabs .mobile-slider {
+    display: block;
+  }
+}
+
+/* Runo Tabs Ends*/
 
 /* Home deals*/
 
