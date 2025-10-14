@@ -395,7 +395,7 @@
         </div>
       </div>
       <!-- Hello Bar Start -->
-      <section class="hello-bar text-white py-2">
+      <section id="helloBar" class="hello-bar text-white py-2">
         <div class="container position-relative">
           <button type="button" class="close-hello" aria-label="Close">&times;</button>
           <p class="mb-0">
@@ -406,20 +406,6 @@
         </div>
       </section>
       <!-- Hello Bar End -->
-
-      <script>
-        // Hide hello bar on close click
-        document.addEventListener("DOMContentLoaded", function () {
-          const closeBtn = document.querySelector(".close-hello");
-          const helloBar = document.querySelector(".hello-bar");
-          if (closeBtn && helloBar) {
-            closeBtn.addEventListener("click", function () {
-              helloBar.style.display = "none";
-            });
-          }
-        });
-      </script>
-
       <!-- Header Start -->
       <header class="main-header">
         <div class="header-sticky">
@@ -1430,34 +1416,52 @@
 
                   const buttons = document.querySelectorAll("#feature-buttons .feature-btn");
                   const image = document.getElementById("webImage");
+                  let currentIndex = 0;
+                  let autoChangeInterval;
 
-                  // Handle feature button clicks (no fade)
-                  buttons.forEach((btn) => {
+                  // Function to activate a button and change the image
+                  function activateFeature(index) {
+                    buttons.forEach((b) => b.classList.remove("active"));
+                    const btn = buttons[index];
+                    if (!btn) return;
+
+                    btn.classList.add("active");
+                    const text = btn.textContent.trim();
+                    const feature = featureMap[text];
+                    if (feature) {
+                      image.src = feature.src;
+                      image.alt = feature.alt;
+                    }
+                    currentIndex = index;
+                  }
+
+                  // Auto change every 3 seconds
+                  function startAutoChange() {
+                    clearInterval(autoChangeInterval);
+                    autoChangeInterval = setInterval(() => {
+                      currentIndex = (currentIndex + 1) % buttons.length;
+                      activateFeature(currentIndex);
+                    }, 4000);
+                  }
+
+                  // Handle feature button clicks (manual override)
+                  buttons.forEach((btn, index) => {
                     btn.addEventListener("click", () => {
-                      buttons.forEach((b) => b.classList.remove("active"));
-                      btn.classList.add("active");
-
-                      const text = btn.textContent.trim();
-                      const feature = featureMap[text];
-
-                      if (feature) {
-                        image.src = feature.src;
-                        image.alt = feature.alt;
-                      }
+                      activateFeature(index);
+                      startAutoChange(); // restart auto rotation from clicked one
                     });
                   });
 
-                  // Set initial image on page load
+                  // Initial setup on page load
                   window.addEventListener("DOMContentLoaded", () => {
                     const activeBtn = document.querySelector(".feature-btn.active");
                     if (activeBtn) {
-                      const text = activeBtn.textContent.trim();
-                      const feature = featureMap[text];
-                      if (feature) {
-                        image.src = feature.src;
-                        image.alt = feature.alt;
-                      }
+                      currentIndex = Array.from(buttons).indexOf(activeBtn);
+                      activateFeature(currentIndex);
+                    } else {
+                      activateFeature(0);
                     }
+                    startAutoChange();
                   });
 
                   // Lazy preload images after full page load
@@ -1467,9 +1471,10 @@
                         const img = new Image();
                         img.src = feature.src;
                       });
-                    }, 500); // Delay to not block banner load
+                    }, 500);
                   });
                 </script>
+
                 <!-- Mobile Hero Swiper -->
                 <div class="swiper mobile-hero-swiper wow zoomIn" id="mobile-hero">
                   <div class="swiper-wrapper">
@@ -1564,6 +1569,8 @@
           </div>
         </div>
       </section>
+      <!-- Runo Tabs Section -->
+
       <section class="runo-tabs">
         <div class="container text-center mb-4">
           <div class="section-title text-center">
@@ -1678,31 +1685,37 @@
           <div class="mobile-slider swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
+                <p class="deals-tab-tag">8% Call Connect</p>
                 <h4>More Connects. More Conversations. More Conversions.</h4>
                 <p class="mt-3">Runo’s SIM-based calling ensures 2.3× higher connect ratios than cloud telephony—so your team spends more time talking to prospects, not waiting on ring tones.</p>
                 <img src="img/call-connect.webp" alt="Call connect" />
               </div>
               <div class="swiper-slide">
+                <p class="deals-tab-tag">AI Call Scoring</p>
                 <h4>Your Sales Coach, Now Powered by AI.</h4>
                 <p class="mt-3">Every call is automatically analyzed for tone, sentiment, and outcome—helping managers identify what’s working, coach smarter, and scale top performance.</p>
                 <img src="img/call-efficiency.webp" alt="AI call scoring" />
               </div>
               <div class="swiper-slide">
+                <p class="deals-tab-tag">Smart Follow-ups</p>
                 <h4>Never Miss a Follow-Up Again.</h4>
                 <p class="mt-3">Runo intelligently reminds reps when it’s time to reconnect, ensuring no lead slips through the cracks and every opportunity gets the attention it deserves.</p>
                 <img src="img/follow-ups.webp" alt="Follow-up reminders" />
               </div>
               <div class="swiper-slide">
+                <p class="deals-tab-tag">Live Tracking</p>
                 <h4>Know What’s Happening, As It Happens.</h4>
                 <p class="mt-3">Monitor team performance, live call activity, and response times in real time—so you can guide your team from anywhere, without waiting for end-of-day reports.</p>
                 <img src="img/live-tracking.webp" alt="Live tracking" />
               </div>
               <div class="swiper-slide">
+                <p class="deals-tab-tag">CRM Adoption</p>
                 <h4>The CRM Your Team Actually Loves Using.</h4>
                 <p class="mt-3">Runo brings calling and CRM together in one app—so your team updates data naturally, without extra effort. More usage. More visibility. Better sales discipline.</p>
                 <img src="img/user-friendly.webp" alt="CRM adoption" />
               </div>
               <div class="swiper-slide">
+                <p class="deals-tab-tag">30-min Setup</p>
                 <h4>Up and Calling in Under 30 Minutes.</h4>
                 <p class="mt-3">No hardware, no complex onboarding. Just install, import your leads, and start calling—Runo is built to perform from day one.</p>
                 <img src="img/30-min-setup.webp" alt="Quick setup" />
@@ -1717,7 +1730,7 @@
         const tabs = document.querySelectorAll(".tab-btn");
         const panes = document.querySelectorAll(".tab-pane");
         const highlight = document.querySelector(".tab-highlight");
-        let currentIndex = 0;
+        let currentIndex2 = 0;
         let autoSwitchInterval;
 
         function activateTab(index) {
@@ -1728,7 +1741,7 @@
           panes[index].classList.add("active");
 
           highlight.style.left = `calc(${index} * (100% / ${tabs.length}))`;
-          currentIndex = index;
+          currentIndex2 = index;
         }
 
         tabs.forEach((tab, index) => {
@@ -1742,7 +1755,7 @@
         function startAutoSwitch() {
           if (autoSwitchInterval) return;
           autoSwitchInterval = setInterval(() => {
-            let nextIndex = (currentIndex + 1) % tabs.length;
+            let nextIndex = (currentIndex2 + 1) % tabs.length;
             activateTab(nextIndex);
           }, 5000);
         }
@@ -1786,7 +1799,8 @@
         });
       </script>
 
-      <section class="sales-execution-section mb-5 pb-5">
+      <!-- WhatsApp CRM Section-->
+      <section class="sales-execution-section py-5">
         <div class="container">
           <div class="section-title text-center">
             <h2>Runo + WhatsApp Business: Engage, Track, and Convert Better</h2>

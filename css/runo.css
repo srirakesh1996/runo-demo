@@ -3881,3 +3881,18 @@ body.modal-open {
     padding-right: 40px;
   }
 }
+
+/* small tag*/
+
+.deals-tab-tag {
+  font-size: 14px !important;
+  background: #ff5730;
+  padding: 4px 10px;
+  border-radius: 30px;
+  display: inline-block;
+  color: #fff !important;
+  font-weight: 600px !important;
+  margin-bottom: 15px !important;
+}
+
+/* tag ends */
