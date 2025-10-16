@@ -1017,6 +1017,190 @@
         position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
         bottom: 60px;
       }
+
+      .inte-sec .icon-box {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+      .inte-sec h5 {
+        line-height: 1.5;
+      }
+
+      .mt-1 {
+        margin-top: 5px;
+      }
+      .mt-4 {
+        margin-top: 20px;
+      }
+      .text-left p {
+        margin-top: 5px;
+      }
+      .crm-features-section .crm-feature-card {
+        text-align: left;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+      }
+      .crm-features-section .feature-icon {
+        width: 45px;
+        height: 45px;
+        background: #f4433643;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 22px;
+        color: #f44336;
+        flex-shrink: 0;
+      }
+
+      /* Text alignment */
+      .step-card p {
+        text-align: left !important;
+      }
+
+      .step-card h6 {
+        text-align: left !important;
+        line-height: 1.5;
+      }
+      .step-card h6 {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-card p {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Card styling */
+      .step-card {
+        padding: 25px 15px 10px 15px;
+      }
+
+      .how-it-works .step-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .how-it-works .step-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Number badge */
+      .how-it-works .step-number {
+        position: absolute;
+        top: -15px;
+        left: 15%;
+        transform: translateX(-50%);
+        background: #f44336;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        z-index: 3;
+      }
+
+      /* Icon */
+      .how-it-works .icon {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+
+      /* Connecting line */
+      .timeline-line {
+        position: absolute;
+        top: 150px; /* aligns with icons */
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #f44336;
+        opacity: 0.2;
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      @media (max-width: 991px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 45%;
+          max-width: 45%;
+          margin-bottom: 20px;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      .industry-usecases .accordion-button {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px;
+        text-align: left;
+      }
+
+      .industry-usecases .icon-box {
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4433635;
+        color: #f44336;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 0; /* remove extra margin */
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 576px) {
+        .industry-usecases .accordion-button {
+          font-size: 15px;
+          gap: 15px;
+        }
+
+        .industry-usecases .icon-box {
+          flex: 0 0 50px;
+          height: 50px;
+          font-size: 16px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1877,23 +2061,6 @@
     </section>
     <!-- Clients Section End -->
 
-    <style>
-      .inte-sec .icon-box {
-        background: #ffb3713b;
-        color: #f44336;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
-        font-size: 28px;
-      }
-      .inte-sec h5 {
-        line-height: 1.5;
-      }
-    </style>
-
     <!-- WhatsApp CRM Integration Section -->
     <section class="inte-sec py-5" style="background-color: #f8fafc">
       <div class="container">
@@ -2042,114 +2209,6 @@
         </div>
       </div>
     </section>
-
-    <style>
-      /* Text alignment */
-      .step-card p {
-        text-align: left !important;
-      }
-
-      .step-card h6 {
-        text-align: left !important;
-        line-height: 1.5;
-      }
-      .step-card h6 {
-        min-height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .step-card p {
-        min-height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      /* Card styling */
-      .step-card {
-        padding: 25px 15px 10px 15px;
-      }
-
-      .how-it-works .step-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        height: 100%;
-        z-index: 2;
-      }
-
-      .how-it-works .step-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Number badge */
-      .how-it-works .step-number {
-        position: absolute;
-        top: -15px;
-        left: 15%;
-        transform: translateX(-50%);
-        background: #f44336;
-        color: #fff;
-        font-weight: 600;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        font-size: 14px;
-        z-index: 3;
-      }
-
-      /* Icon */
-      .how-it-works .icon {
-        background: #ffb3713b;
-        color: #f44336;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
-        font-size: 28px;
-      }
-
-      /* Connecting line */
-      .timeline-line {
-        position: absolute;
-        top: 150px; /* aligns with icons */
-        left: 10%;
-        right: 10%;
-        height: 3px;
-        background: #f44336;
-        opacity: 0.2;
-        border-radius: 2px;
-        z-index: 1;
-      }
-
-      @media (max-width: 991px) {
-        .how-it-works .col-lg-2 {
-          flex: 0 0 45%;
-          max-width: 45%;
-          margin-bottom: 20px;
-        }
-
-        .timeline-line {
-          display: none;
-        }
-      }
-
-      @media (max-width: 575px) {
-        .how-it-works .col-lg-2 {
-          flex: 0 0 100%;
-          max-width: 100%;
-        }
-
-        .timeline-line {
-          display: none;
-        }
-      }
-    </style>
 
     <!-- Demo Section Start -->
     <section class="demo-section">
@@ -2318,37 +2377,6 @@
         </div>
       </div>
     </section>
-
-    <style>
-      .mt-1 {
-        margin-top: 5px;
-      }
-      .mt-4 {
-        margin-top: 20px;
-      }
-      .text-left p {
-        margin-top: 5px;
-      }
-      .crm-features-section .crm-feature-card {
-        text-align: left;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        padding: 30px;
-      }
-      .crm-features-section .feature-icon {
-        width: 45px;
-        height: 45px;
-        background: #f4433643;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        font-size: 22px;
-        color: #f44336;
-        flex-shrink: 0;
-      }
-    </style>
 
     <section class="sales-execution-section py-5">
       <div class="container">
@@ -2653,42 +2681,6 @@
         </div>
       </div>
     </div>
-
-    <style>
-      .industry-usecases .accordion-button {
-        display: flex;
-        align-items: center; /* Center vertically */
-        gap: 15px;
-        text-align: left;
-      }
-
-      .industry-usecases .icon-box {
-        flex: 0 0 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f4433635;
-        color: #f44336;
-        border-radius: 12px;
-        font-size: 18px;
-        margin-top: 0; /* remove extra margin */
-      }
-
-      /* Mobile responsive adjustments */
-      @media (max-width: 576px) {
-        .industry-usecases .accordion-button {
-          font-size: 15px;
-          gap: 15px;
-        }
-
-        .industry-usecases .icon-box {
-          flex: 0 0 50px;
-          height: 50px;
-          font-size: 16px;
-        }
-      }
-    </style>
 
     <!-- Testimonial Section -->
     <div class="our-tesimonial-page mt-5">
@@ -3450,118 +3442,7 @@
         });
       });
     </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the CRM for WhatsApp?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "It’s a platform that connects WhatsApp Business with Runo CRM, so you can manage chats like you manage calls and emails."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the cost of WhatsApp CRM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Pricing depends on your team size and features. [Check pricing here]."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between WhatsApp API and WhatsApp CRM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The API provides the infrastructure; the CRM adds lead tracking, workflows, and automation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does a WhatsApp CRM help sales teams?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "It centralizes chats, speeds up responses, and ensures no lead is missed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I send bulk messages through WhatsApp CRM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, using pre-approved templates, compliant with WhatsApp rules."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is it possible to automate WhatsApp follow-ups?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, follow-up alerts are built in, and automated replies are coming soon."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can multiple team members use the same WhatsApp number?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Runo enables shared inbox access for teams."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does WhatsApp CRM support message templates?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, you can create and use pre-approved templates for faster responses."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is this CRM integrated with calling and lead tracking?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Runo unifies calls, chats, and leads in one system."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I track delivery, read receipts, and replies?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, all message statuses are visible in the dashboard."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is it compliant with WhatsApp Business API rules?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Runo WhatsApp CRM is fully compliant with WhatsApp Business API policies."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I connect my existing WhatsApp Business number?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, you can onboard your current number securely."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I integrate this with my existing CRM or lead sources?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Runo supports multiple integrations via API."
-            }
-          }
-        ]
-      }
-    </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
