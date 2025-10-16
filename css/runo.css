@@ -964,7 +964,7 @@
 }
 /* ---------- CONTENT ---------- */
 .runo-tabs .tab-content {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
+  background: #f5f3ed ;
   border-radius: 30px; /* Rounded corners */
   margin-top: 40px;
   padding: 40px;
