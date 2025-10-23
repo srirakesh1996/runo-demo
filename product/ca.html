@@ -2296,18 +2296,15 @@
     </style>
 
     <!-- Comparison Section -->
-    <section class="comparison-section py-5" style="background: #fffaf9">
+    <section class="comparison-section py-5">
       <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="fw-bold text-dark">
-            Traditional Dialer vs
-            <span style="color: #f44336">Runo Call Management</span>
-          </h2>
-          <p class="text-muted">Discover how Runo redefines your business calling experience</p>
+        <div class="section-title text-center">
+          <h2>Runo vs Traditional Call Dialers</h2>
+          <p>See the complete breakdown of why 3,500+ businesses have switched from legacy dialers to Runo's intelligent call management platform</p>
         </div>
 
         <div class="table-responsive">
-          <table class="table align-middle text-center">
+          <table class="table align-middle">
             <thead style="background: #f44336; color: #fff">
               <tr>
                 <th scope="col" class="py-3 fs-5">Feature</th>
@@ -2316,143 +2313,173 @@
               </tr>
             </thead>
             <tbody>
+              <!-- Internet Dependency -->
               <tr>
                 <td><strong>Internet Dependency</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Requires stable internet. Calls drop in poor network.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Requires stable internet connection. Call quality drops during network latency or offline scenarios.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  SIM-based calling works offline, syncs later.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>SIM-based calling with fallback options. Works offline, syncs when reconnected. Zero dependency on WiFi or mobile data.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- CRM & Lead Tracking -->
               <tr>
                 <td><strong>CRM & Lead Tracking</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  No integrated CRM; manual updates needed.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Standalone tool with no native CRM. Requires manual entry or third-party integrations (often paid add-ons).</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Built-in CRM with auto logging & AI summaries.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Fully integrated CRM with automatic call logging, lead tracking, timeline views, and AI-powered summaries—all built-in.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Team Scalability -->
               <tr>
                 <td><strong>Team Scalability</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Manual setup for new agents, time-consuming.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Adding agents requires physical SIM cards, hardware setup, or manual provisioning. Time-consuming and costly.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Add unlimited agents instantly—no hardware.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Add unlimited agents instantly via cloud dialer. Virtual numbers can be allocated in seconds without any hardware.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Analytics & Insights -->
               <tr>
                 <td><strong>Analytics & Insights</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Limited reports & no real-time tracking.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Basic call logs and reports. Limited visibility into team performance, lead status, or conversion metrics.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Real-time dashboards & conversion insights.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Real-time dashboards with call duration, conversion rates, agent productivity, lead funnel analysis, and custom reports.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Call Routing & Assignment -->
               <tr>
                 <td><strong>Call Routing & Assignment</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  No intelligent routing or scheduling.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Fixed routing rules. No dynamic assignment based on agent availability, skill, or workload distribution.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Smart routing—round-robin, priority & skill-based.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Smart call routing with round-robin, priority-based, skill-based assignment. Automatic follow-up scheduling and reminders.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Call Quality & Reliability -->
               <tr>
                 <td><strong>Call Quality & Reliability</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Prone to drops, echoes in weak network.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Prone to drops, echoes, and delays during poor internet connectivity. No fallback mechanism.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  HD quality via SIM/VoIP with fallback switching.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>HD voice quality over SIM with intelligent switching between SIM and VoIP based on network conditions for consistent performance.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Mobile-First Experience -->
               <tr>
                 <td><strong>Mobile-First Experience</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Limited or outdated mobile apps.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Desktop-focused with clunky mobile apps. Limited on-the-go functionality for field teams or remote reps.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Optimized mobile app with CRM & analytics.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Built mobile-first. Full CRM, calling, and analytics available on smartphone. Perfect for field sales and distributed teams.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Setup & Onboarding Time -->
               <tr>
-                <td><strong>Setup & Onboarding</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Requires IT support and hardware setup.
+                <td><strong>Setup & Onboarding Time</strong></td>
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Complex setup requiring IT support, hardware installation, and extensive training. Can take days or weeks.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Quick setup—start calling in minutes.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Get started in minutes. Download app, add team members, import leads, and start calling—no technical setup required.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Call Recording & Compliance -->
               <tr>
                 <td><strong>Call Recording & Compliance</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  Limited storage, manual data control.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>Optional or paid add-on. Limited storage. Manual compliance management and data retention policies.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Unlimited cloud storage, GDPR-ready compliance.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Automatic call recording with unlimited cloud storage. GDPR-ready compliance, role-based access, and encryption by default.</span>
+                  </div>
                 </td>
               </tr>
 
+              <!-- Cost Structure -->
               <tr>
                 <td><strong>Cost Structure</strong></td>
-                <td>
-                  <i class="bi bi-x-circle-fill text-danger fs-5"></i>
-
-                  High setup cost & hidden fees.
+                <td data-label="Traditional Dialer">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill text-danger fs-5 me-2"></i>
+                    <span>High upfront costs for licenses, hardware, and per-user fees. Hidden charges for integrations and support.</span>
+                  </div>
                 </td>
-                <td>
-                  <i class="bi bi-check-circle-fill text-success fs-5"></i>
-
-                  Transparent pricing, no hardware costs.
+                <td data-label="Runo Call Management">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <span>Transparent pricing with no hardware costs. All-inclusive package with CRM, calling, analytics, and integrations included.</span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -2461,7 +2488,7 @@
       </div>
     </section>
 
-    <!-- Add Bootstrap Icons CDN -->
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
     <style>
@@ -2471,8 +2498,9 @@
         background: transparent;
       }
       .comparison-section tbody tr {
-        background: #fff;
-        border-radius: 12px;
+        background: #fffaf9 !important;
+
+        border-radius: 20px;
         box-shadow: 0 2px 8px rgba(244, 67, 54, 0.1);
         transition: all 0.3s ease;
       }
@@ -2495,14 +2523,6 @@
       }
       .text-danger {
         color: #f44336 !important;
-      }
-
-      tbody td {
-        text-align: left !important;
-        gap: 10px !important;
-      }
-      th {
-        text-align: left !important;
       }
 
       /* Mobile Layout */
@@ -2531,13 +2551,28 @@
         .table td:first-child {
           font-weight: 700;
           color: #f44336;
-          border-bottom: 1px solid #f1f1f1;
-          margin-bottom: 0.4rem;
+
+          margin-bottom: 0.6rem;
+        }
+
+        /* Show column headings for clarity */
+        .table td[data-label]::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: #f44336;
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        /* Vertically center icon with text on mobile */
+        .d-flex.align-items-center {
+          display: flex !important;
+          align-items: center !important;
         }
       }
     </style>
 
-    <section class="how-it-works py-5">
+    <section class="how-it-works py-5" style="background-color: #fafafa">
       <div class="container" style="width: 100%; max-width: 100%">
         <div class="row">
           <div class="section-title text-center">
@@ -2633,230 +2668,101 @@
       </div>
     </section>
 
-    <!-- why choose runo-->
-    <section class="deals-section mt-20" id="dealsSection">
+    <section class="crm-features-section mt-20 py-5">
       <div class="container">
-        <div class="row deals-content">
+        <div class="row text-center g-4">
           <div class="section-title text-center" data--delay="0.3s">
-            <h2>Boost Sales with Smart Call Management & Tracking</h2>
+            <h2>Features That Empower Every Team</h2>
+            <p>Designed to enhance productivity and collaboration across your organization</p>
           </div>
-          <!-- Tabs and Mobile Images -->
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1 -->
           <div class="col-md-6">
-            <div class="left-tabs" id="tabContainer">
-              <div class="scroll-bar"></div>
-              <div class="scroll-indicator" id="scrollIndicator"></div>
-              <div class="btn-group-vertical w-100" id="tabButtons">
-                <!-- Tab Buttons -->
-                <div class="scroll-bord">
-                  <button class="tab-btn active" data-tab-index="0" data-bs-target="#tab1">
-                    <span>Increase Call Pickup Rate</span>
-                    <p>With SIM integration and virtual number calling, every call shows a real, reachable number which increase the call connect ratio to over 70%.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                    <img src="/img/call-management/call-pickup.avif" class="img-preview" alt="Increase Call Pickup Rate with Real Number" />
-                  </div>
+            <div class="crm-feature-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="1" data-bs-target="#tab2">
-                    <span>Better Calling Efficiency with AI Call Quality Scores</span>
-                    <p>Each call is automatically scored with insights on quality. Your team improves calling efficiency with less guesswork.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display: none">
-                    <img loading="lazy" src="/img/call-management/call-quality.avif" class="img-preview" alt="AI Call Quality Scoring for Efficient Calling" />
-                  </div>
-                </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="2" data-bs-target="#tab3">
-                    <span>Keep Your Pipeline Intact With Instant Lead Status Updates</span>
-                    <p>Every call outcome syncs live into the CRM, so your team always knows what’s done and what’s next.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display: none">
-                    <img loading="lazy" src="/img/call-management/lead-status.avif" class="img-preview" alt="Instant Lead Status Updates in CRM" />
-                  </div>
-                </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="3" data-bs-target="#tab4">
-                    <span>Monitor Sales Momentum with an Intuitive Dashboard</span>
-                    <p>From call volume to lead status, everything updates in real time. You get a clear view of team performance and sales progress without delay.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display: none">
-                    <img loading="lazy" src="/img/call-management/monitor-status.avif" class="img-preview" alt="Real-Time Sales Monitoring Dashboard" />
-                  </div>
-                </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="4" data-bs-target="#tab5">
-                    <span>Never Miss a Follow-Up with Smart Reminders</span>
-                    <p>Your team gets smart reminders to follow up at the right time, whether it’s through a call, WhatsApp message, or email. No lead slips through the cracks.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display: none">
-                    <img loading="lazy" src="/img/call-management/follow-up.avif" class="img-preview" alt="Smart Reminders for Follow-Ups" />
-                  </div>
-                </div>
+                <h4 class="feature-title mb-0">Sales Teams</h4>
+              </div>
+              <div class="text-left mt-4">
+                <h6>How can sales teams use Runo?</h6>
+                <p>Track every sales call, automate follow-ups, and measure team performance to close deals faster with comprehensive analytics and lead scoring.</p>
               </div>
             </div>
           </div>
-          <!-- Desktop Image Preview -->
-          <div class="col-md-6 d-none d-md-block">
-            <div class="tab-content text-center">
-              <div class="tab-pane fade show active" id="tab1">
-                <img src="/img/call-management/call-pickup.avif" class="img-preview" alt="Increase Call Pickup Rate with Real Number" />
+
+          <!-- Card 2 -->
+          <div class="col-md-6">
+            <div class="crm-feature-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-life-buoy w-6 h-6">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                    <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                    <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                    <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                    <line x1="9.17" y1="14.83" x2="4.93" y2="19.07"></line>
+                  </svg>
+                </div>
+                <h4 class="feature-title mb-0">Support Teams</h4>
               </div>
-              <div class="tab-pane fade" id="tab2">
-                <img loading="lazy" src="/img/call-management/call-quality.avif" class="img-preview" alt="AI Call Quality Scoring for Efficient Calling" />
+              <div class="text-left mt-4">
+                <h6>How can support teams benefit?</h6>
+                <p>Provide fast, consistent service with instant access to customer histories across calls and CRM records, ensuring no detail is ever missed.</p>
               </div>
-              <div class="tab-pane fade" id="tab3">
-                <img loading="lazy" src="/img/call-management/lead-status.avif" class="img-preview" alt="Instant Lead Status Updates in CRM" />
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6">
+            <div class="crm-feature-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <h4 class="feature-title mb-0">Business Scaling</h4>
               </div>
-              <div class="tab-pane fade" id="tab4">
-                <img loading="lazy" src="/img/call-management/monitor-status.avif" class="img-preview" alt="Real-Time Sales Monitoring Dashboard" />
+              <div class="text-left mt-4">
+                <h6>How do businesses scale with Runo?</h6>
+                <p>Seamlessly add agents or phone lines via cloud telephony without extra devices or SIM management, expanding operations instantly.</p>
               </div>
-              <div class="tab-pane fade" id="tab5">
-                <img loading="lazy" src="/img/call-management/follow-up.avif" class="img-preview" alt="Smart Reminders for Follow-Ups" />
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6">
+            <div class="crm-feature-card h-100">
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-6 h-6">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <h4 class="feature-title mb-0">Field Teams</h4>
+              </div>
+              <div class="text-left mt-4">
+                <h6>Can remote or field teams use Runo?</h6>
+                <p>Yes. Field reps can manage calls, update CRM notes, and log customer interactions in real-time from anywhere with mobile access.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Scripts -->
-    <script>
-      const tabs = document.querySelectorAll(".tab-btn");
-      const panes = document.querySelectorAll(".tab-pane");
-      const scrollIndicator = document.getElementById("scrollIndicator");
 
-      let index = 0;
-      let autoSlideInterval;
-      let observerStarted = false;
-      let isAnimating = false;
-
-      function animateScrollIndicator(toTop) {
-        const startTop = parseFloat(scrollIndicator.style.top) || 0;
-        const startHeight = parseFloat(scrollIndicator.style.height) || 0;
-        const isMobile = window.innerWidth <= 767;
-        const targetHeight = isMobile ? 138 : 90;
-        const duration = 500;
-        const startTime = performance.now();
-
-        function animate(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const newTop = startTop + (toTop - startTop) * progress;
-          const newHeight = startHeight + (targetHeight - startHeight) * progress;
-
-          scrollIndicator.style.top = `${newTop}px`;
-          scrollIndicator.style.height = `${newHeight}px`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        requestAnimationFrame(animate);
-      }
-
-      function updateScrollIndicator(i) {
-        const spacingTop = tabs[i].offsetTop + 35;
-        animateScrollIndicator(spacingTop);
-      }
-
-      function switchTab(i) {
-        if (isAnimating || index === i) return;
-        isAnimating = true;
-
-        // Hide all mobile images
-        const mobileImgs = document.querySelectorAll(".mobile-tab-img");
-        mobileImgs.forEach((img) => (img.style.display = "none"));
-
-        // Show active mobile image
-        if (window.innerWidth <= 767) {
-          const currentMobileImg = document.getElementById(`mobileImg${i}`);
-          if (currentMobileImg) currentMobileImg.style.display = "block";
-        }
-
-        const currentPane = document.querySelector(".tab-pane.show.active");
-        const nextTab = tabs[i];
-        const nextPaneId = nextTab.getAttribute("data-bs-target");
-        const nextPane = document.querySelector(nextPaneId);
-
-        if (!nextPane) {
-          isAnimating = false;
-          return;
-        }
-
-        tabs.forEach((tab) => tab.classList.remove("active"));
-        nextTab.classList.add("active");
-
-        currentPane.classList.remove("show", "active");
-        nextPane.classList.add("show", "active");
-
-        updateScrollIndicator(i);
-        index = i;
-        isAnimating = false;
-      }
-
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-          const nextIndex = (index + 1) % tabs.length;
-          switchTab(nextIndex);
-        }, 8000);
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-      }
-
-      tabs.forEach((tab, i) => {
-        tab.addEventListener("click", () => {
-          switchTab(i);
-          resetAutoSlide();
-        });
-      });
-
-      function observeSection() {
-        const section = document.getElementById("dealsSection");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !observerStarted) {
-                observerStarted = true;
-                updateScrollIndicator(0);
-                startAutoSlide();
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-          }
-        );
-
-        observer.observe(section);
-      }
-
-      document.addEventListener("DOMContentLoaded", observeSection);
-    </script>
-    <!-- why choose runo ends-->
-    <section class="metrics-section mt-70">
-      <div class="container">
-        <div class="section-title text-center" data--delay="0.3s">
-          <h2 style="font-size: 25px">What Mobile-First Sales Teams Love About Runo</h2>
-        </div>
-        <div class="row justify-content-center" style="margin-top: 35px">
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="metric-value">1 Timeline</div>
-            <div class="metric-label">to track every conversation from start to close</div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="metric-value">100%</div>
-            <div class="metric-label">of calls auto-logged and synced to CRM</div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="metric-value">24/7</div>
-            <div class="metric-label">access to real-time analytics from any device</div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="sales-execution-section py-5">
       <div class="container">
         <div class="section-title text-center">
@@ -3060,11 +2966,7 @@
         <div class="row">
           <!-- Section Title -->
           <div class="section-title text-center" data--delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp">
-            <h2>
-              Seamless Integrations with Your
-              <br />
-              Lead Sources & CRM
-            </h2>
+            <h2>Seamless Integrations with Your Lead Sources & CRM</h2>
           </div>
           <!-- Video Wrapper -->
           <div>
@@ -3188,7 +3090,8 @@
       <div class="container">
         <div class="row">
           <div class="section-title text-center" data--delay="0.2s">
-            <h2>Got Questions? We’ve Got Answers</h2>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about Runo</p>
           </div>
           <div class="col-lg-10" style="margin: 0 auto">
             <div class="page-faqs-catagery">
@@ -3196,104 +3099,72 @@
                 <div class="faq-accordion" id="accordionRuno">
                   <!-- Updated FAQ Items Start -->
                   <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading122">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse122" aria-expanded="true" aria-controls="collapse122">What is Call Management App?</button>
+                    <h2 class="accordion-header" id="heading1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">What's the difference between call management app and call center software?</button>
                     </h2>
-                    <div id="collapse122" class="accordion-collapse collapse show" aria-labelledby="heading122" data-bs-parent="#accordionRuno">
+                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionRuno">
                       <div class="accordion-body">
-                        A Call Management App is a software solution designed to help businesses effectively organize, track, and analyze both inbound and outbound phone calls. It offers features like caller ID, call history,
-                        <a href="https://runo.ai/product/auto-dialer-software" target="_blank">auto-dialer</a>
-                        ,
-                        <a href="https://runo.ai/product/sales-call-recording-software" target="_blank">call recordings</a>
-                        , transcriptions, and real-time dashboards.
-                        <br />
-                        The best
-                        <a href="https://runo.ai/product/sales-call-tracking-software" target="_blank">call tracking software</a>
-                        also allows teams to monitor performance, assign leads, and integrate with CRMs and lead sources, ensuring no customer interaction is missed.
-                        <br />
-                        By providing visibility into team activities and improving response times, call management apps are especially useful for sales teams, support centers, and small to mid-sized businesses looking to enhance productivity, customer experience, and overall communication
-                        efficiency.
+                        A call management app focuses on tracking, routing, and analyzing individual business calls with CRM integration, while call center software is typically designed for high-volume customer service operations with features like IVR and queue management. Runo combines the best
+                        of both—offering enterprise call center capabilities with the simplicity of a call management app.
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading1">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">What is a SIM-based Call Management App?</button>
-                    </h2>
-                    <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">It’s a mobile-first call management CRM that works with your phone’s SIM card and virtual number. Your team makes real outbound calls using real numbers, which boosts trust and improves connect rates.</div>
-                    </div>
-                  </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading2">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">How does the AI feature support my team?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Can I manage inbound and outbound calls on the same platform?</button>
                     </h2>
                     <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">Runo’s AI call management software listens to calls, generates summaries, scores performance, and sends smart follow-up reminders. It helps agents focus on conversations while the system takes care of tracking and insights.</div>
+                      <div class="accordion-body">Yes! Runo handles both inbound and outbound calls seamlessly. Track all communications in one unified dashboard, whether you're receiving customer inquiries or making sales calls.</div>
                     </div>
                   </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading3">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">How does this CRM help with call compliance?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Is Runo's call management app suitable for small and mid-sized teams?</button>
                     </h2>
                     <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">
-                        <a href="https://runo.ai/" target="_blank">Runo</a>
-                        records all calls, maintains a clear interaction history, and includes DNC scrubbing. You get full visibility and audit readiness without needing extra compliance tools.
-                      </div>
+                      <div class="accordion-body">Absolutely. Runo scales with your business—from solo entrepreneurs to teams of 100+. Start with basic call tracking and add features as you grow, with pricing that matches your team size.</div>
                     </div>
                   </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading4">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">What are the key benefits of using AI for call management?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">What's the advantage of using SIM-based vs cloud-only apps?</button>
                     </h2>
                     <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">AI removes the need for manual updates and call logs. It gives your team performance analytics in real time, flags high-priority leads, and helps managers coach reps based on real conversations.</div>
+                      <div class="accordion-body">
+                        SIM-based systems like Runo work independently of internet connectivity, ensuring reliable call quality and zero downtime. Cloud-only apps depend on stable internet, which can cause dropped calls and poor audio quality. Runo offers both SIM reliability and cloud scalability.
+                      </div>
                     </div>
                   </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading5">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Can this CRM integrate with our current lead sources and tools?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">How do I scale or add new agents/numbers in Runo?</button>
                     </h2>
                     <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">
-                        Yes.
-                        <a href="https://runo.ai/integrations" target="_blank">Runo integrates</a>
-                        with major CRMs like Zoho, Salesforce, and HubSpot, and connects with lead sources like Facebook, IndiaMart, and your website. It’s designed to work within your existing sales setup.
-                      </div>
+                      <div class="accordion-body">Adding new team members takes seconds—simply invite users via email, assign virtual numbers, and they're ready to make calls. No new SIM cards or hardware required. Scale from 1 to 1000+ agents instantly.</div>
                     </div>
                   </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading6">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Does it offer real-time visibility into team performance?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">What analytics does Runo offer for calls and leads?</button>
                     </h2>
                     <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">Absolutely. Runo shows live agent status, call outcomes, and lead progress through a real-time performance dashboard, so you’re always in the loop.</div>
+                      <div class="accordion-body">
+                        Runo provides comprehensive dashboards showing call duration, response times, lead conversion rates, agent performance metrics, missed call analysis, peak calling hours, and ROI tracking. Export reports in multiple formats for stakeholder presentations.
+                      </div>
                     </div>
                   </div>
+
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="heading7">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">How does this call management app improve our sales call results?</button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">Is setup easy, and can I use my existing SIMs?</button>
                     </h2>
                     <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">
-                        By using AI summaries, caller ID context, follow-up nudges, and
-                        <a href="https://runo.ai/product/auto-dialer-software" target="_blank">SIM-based dialing,</a>
-                        your team connects faster, follows up smarter, and closes more deals, all from one call management app.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading8">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">Can I use this CRM on both mobile and desktop?</button>
-                    </h2>
-                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionRuno">
-                      <div class="accordion-body">
-                        Yes. Runo offers both a mobile app and a web version, so you can
-                        <a href="https://runo.ai/product/lead-management-crm" target="_blank">manage leads,</a>
-                        <a href="https://runo.ai/product/call-center-monitoring-software" target="_blank">monitor team activity</a>
-                        , and review call history whether you’re in the office or on the move.
-                      </div>
+                      <div class="accordion-body">Setup takes less than 5 minutes. Yes, you can absolutely use your existing business SIM cards—just sync them with Runo. Alternatively, get instant virtual numbers without any physical SIM requirements.</div>
                     </div>
                   </div>
                   <!-- Updated FAQ Items End -->
@@ -3304,32 +3175,93 @@
         </div>
       </div>
     </div>
+
     <!-- Page Faq End -->
-    <!-- Security Section with  animations -->
-    <section class="security-section" data--delay="0.2s" style="background: #f5f3ed; margin: 0px auto 50px auto">
-      <div class="row align-items-center">
-        <!-- Left Text -->
-        <div class="col-md-7 security-text">
-          <h2>
-            Enterprise-Grade Security.
-            <br />
-            Built In by Default.
-          </h2>
-        </div>
-        <!-- Right Image -->
-        <div class="col-md-5 text-md-end text-center security-badges">
-          <img loading="lazy" src="/img/security.avif" alt="ISO Badge" class="img-fluid" />
+
+    <style>
+      .security-features-section .feature-card {
+        border-radius: 16px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+        padding: 32px 24px;
+        background: #fff;
+        height: 100%;
+        transition: box-shadow 0.3s;
+        cursor: auto;
+      }
+      .security-features-section .feature-card:hover {
+        box-shadow: 0 4px 12px rgba(60, 72, 90, 0.11);
+      }
+      .security-features-section .feature-icon {
+        font-size: 36px;
+        color: #3366cc;
+        margin-bottom: 18px;
+      }
+    </style>
+    <section class="security-features-section" style="background: #f5f3ed">
+      <div class="container py-5">
+        <div class="row g-4">
+          <div class="section-title text-center" data--delay="0.2s">
+            <h2>Security & Compliance</h2>
+            <p>Your data is protected with industry-leading security standards</p>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-card text-center h-100">
+              <div class="feature-icon"><i class="bi-shield-lock"></i></div>
+              <h5>Enterprise-Grade Security</h5>
+              <p class="mt-3">Bank-level encryption for all call data and customer information</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-card text-center h-100">
+              <div class="feature-icon"><i class="bi-lock"></i></div>
+              <h5>GDPR Compliant</h5>
+              <p class="mt-3">Full compliance with data protection and privacy regulations</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-card text-center h-100">
+              <div class="feature-icon"><i class="bi-key"></i></div>
+              <h5>Role-Based Access</h5>
+              <p class="mt-3">Granular permissions and access control for team members</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-card text-center h-100">
+              <div class="feature-icon"><i class="bi-check-circle"></i></div>
+              <h5>Seamless Integration</h5>
+              <p class="mt-3">Connects with popular CRMs, WhatsApp, and cloud APIs</p>
+            </div>
+          </div>
+
+          <div class="security-section mt-40" data--delay="0.2s" style="background: #ffffff; margin: 50px auto 50px auto">
+            <div class="row align-items-center">
+              <!-- Left Text -->
+              <div class="col-md-7 security-text">
+                <h2>Is the Call Management App secure?</h2>
+                <p>Yes. Runo stores all call data securely with encryption and role-based access, ensuring customer privacy and regulatory compliance (GDPR-ready).</p>
+                <h2 class="mt-10">Does it integrate with existing tools?</h2>
+                <p>Runo connects with popular CRMs, WhatsApp, and cloud APIs, integrating all business communication in one hub.</p>
+              </div>
+              <!-- Right Image -->
+              <div class="col-md-5 text-md-end text-center security-badges">
+                <img loading="lazy" src="/img/security.avif" alt="ISO Badge" class="img-fluid" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <!-- Security Section with  animations -->
+
     <section class="home-app-cta animate__animated animate__fadeInUp" data--delay="0.2s">
       <div class="container">
         <h2 class="animate__animated animate__fadeInDown" data--delay="0.4s">
-          The CRM Your Sales Team
+          Start Managing Every Business
           <br />
-          Can Carry in Their Pocket
+          Call with Confidence
         </h2>
-        <p class="cta-p">Track calls, view insights, and get AI-written summaries in seconds. Runo makes mobile CRM smart, simple, and sales-ready.</p>
+        <p class="cta-p">Runo helps teams stay connected, accountable, and ahead. Try the world's only SIM-based Call Management App today.</p>
         <div class="store-buttons">
           <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" target="_blank" class="zoom-hover"><img loading="lazy" src="/img/ios.webp" alt="App Store" /></a>
           <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" target="_blank" class="zoom-hover"><img loading="lazy" src="/img/google-play.webp" alt="Google Play" /></a>
