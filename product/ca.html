@@ -2291,100 +2291,92 @@
       }
     </style>
 
-    <style>
-      .steps-section {
-        padding: 60px 0;
-      }
-
-      .step-box {
-        background: #fff;
-        border-radius: 16px;
-        padding: 30px 25px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      .step-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-      }
-
-      .step-number {
-        background: #0047ff;
-        color: #fff;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 18px;
-        position: absolute;
-        top: -22px;
-        left: 20px;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .step-icon {
-        font-size: 30px;
-        color: #0047ff;
-        margin-bottom: 15px;
-      }
-
-      @media (max-width: 767px) {
-        .step-box {
-          margin-bottom: 25px;
-        }
-      }
-    </style>
-
-    <section class="steps-section container text-center">
-      <h2 class="fw-bold mb-5">How It Works</h2>
-      <div class="row g-4">
-        <div class="col-md-4 col-lg-4 mx-auto">
-          <div class="step-box">
-            <div class="step-number">1</div>
-            <div class="step-icon">📱</div>
-            <h5 class="fw-bold">Connect Your Team's SIMs or Virtual Numbers</h5>
-            <p class="text-muted">Sync business phone numbers or enable virtual ones for agents in minutes.</p>
+    <section class="how-it-works py-5">
+      <div class="container" style="width: 100%; max-width: 100%">
+        <div class="row">
+          <div class="section-title text-center">
+            <h2>How Runo Works</h2>
+            <p>Get started in 5 simple steps</p>
           </div>
         </div>
 
-        <div class="col-md-4 col-lg-4 mx-auto">
-          <div class="step-box">
-            <div class="step-number">2</div>
-            <div class="step-icon">💾</div>
-            <h5 class="fw-bold">Auto-Log Calls in CRM</h5>
-            <p class="text-muted">Every inbound and outbound call syncs automatically with client details and notes.</p>
-          </div>
-        </div>
+        <div class="position-relative mt-3">
+          <!-- Timeline Line -->
+          <div class="timeline-line"></div>
 
-        <div class="col-md-4 col-lg-4 mx-auto">
-          <div class="step-box">
-            <div class="step-number">3</div>
-            <div class="step-icon">🔔</div>
-            <h5 class="fw-bold">Assign, Tag & Follow-Up</h5>
-            <p class="text-muted">Runo auto-assigns leads, routes calls, and creates follow-up reminders intelligently.</p>
-          </div>
-        </div>
+          <div class="row text-center justify-content-center">
+            <!-- Step 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3">
+              <div class="step-card position-relative h-100">
+                <div class="icon mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone w-10 h-10 text-primary">
+                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                    <path d="M12 18h.01"></path>
+                  </svg>
+                </div>
+                <h6 class="fw-semibold mb-2">Connect Your Team's SIMs or Virtual Numbers</h6>
+                <p class="text-muted small">Sync business phone numbers or enable virtual ones for agents in minutes.</p>
+              </div>
+            </div>
 
-        <div class="col-md-4 col-lg-4 mx-auto">
-          <div class="step-box">
-            <div class="step-number">4</div>
-            <div class="step-icon">📊</div>
-            <h5 class="fw-bold">Monitor Team Calls & Campaigns</h5>
-            <p class="text-muted">View all calls, recordings, and performance metrics on one unified dashboard.</p>
-          </div>
-        </div>
+            <!-- Step 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3">
+              <div class="step-card position-relative h-100">
+                <div class="icon mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database w-10 h-10 text-primary">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                    <path d="M3 12A9 3 0 0 0 21 12"></path>
+                  </svg>
+                </div>
+                <h6 class="fw-semibold mb-2">Auto-Log Calls in CRM</h6>
+                <p class="text-muted small">Every inbound and outbound call syncs automatically with client details and notes.</p>
+              </div>
+            </div>
 
-        <div class="col-md-4 col-lg-4 mx-auto">
-          <div class="step-box">
-            <div class="step-number">5</div>
-            <div class="step-icon">🚀</div>
-            <h5 class="fw-bold">Analyze & Scale</h5>
-            <p class="text-muted">Use insights to train agents, improve scripts, and expand operations seamlessly.</p>
+            <!-- Step 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3">
+              <div class="step-card position-relative h-100">
+                <div class="icon mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell w-10 h-10 text-primary">
+                    <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                    <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                  </svg>
+                </div>
+                <h6 class="fw-semibold mb-2">Assign, Tag & Follow-Up</h6>
+                <p class="text-muted small">Runo auto-assigns leads, routes calls, and creates follow-up reminders intelligently.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3">
+              <div class="step-card position-relative h-100">
+                <div class="icon mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-line w-10 h-10 text-primary">
+                    <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                    <path d="m19 9-5 5-4-4-3 3"></path>
+                  </svg>
+                </div>
+                <h6 class="fw-semibold mb-2">Monitor Team Calls & Campaigns</h6>
+                <p class="text-muted small">View all calls, recordings, and performance metrics on one unified dashboard.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-3">
+              <div class="step-card position-relative h-100">
+                <div class="icon mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket w-10 h-10 text-primary">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                  </svg>
+                </div>
+                <h6 class="fw-semibold mb-2">Analyze & Scale</h6>
+                <p class="text-muted small">Use insights to train agents, improve scripts, and expand operations seamlessly.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
