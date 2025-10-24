@@ -115,72 +115,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 100);
 });
-
-// Updated submitForm function for Zapier & CRM
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
-
   $(".text-danger").addClass("d-none");
-  $btn.prop("disabled", true);
+  $btn.prop("disabled", !0);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
-
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
   formData.custom_source = "Website Enquiry- IB";
   formData.custom_status = "Api Allocation";
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
-
-  if (formId === "cert-form") {
-    // Zapier webhook
-    $.ajax({
-      type: "POST",
-      url: "https://hooks.zapier.com/hooks/catch/23828444/urnp451/",
-      data: JSON.stringify(formData),
-      contentType: "application/json",
-      headers: { "Content-Type": "application/json" },
+  $.ajax({ type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json", headers: { "Content-Type": "application/json" } })
+    .done(function (data) {
+      $form[0].reset();
+      const $modal = $form.closest(".modal");
+      if ($modal.length) {
+        $modal.modal("hide");
+      }
+      $("#thankYouModal").modal("show");
     })
-      .done(function () {
-        $form[0].reset();
-        const $modal = $form.closest(".modal");
-        if ($modal.length) $modal.modal("hide");
-        $("#thankYouModal").modal("show");
-      })
-      .fail(function () {
-        alert("Oops! Something went wrong while sending to Zapier.");
-      })
-      .always(function () {
-        $btn.prop("disabled", false);
-        $spinner.addClass("d-none");
-        $btnText.text(defaultText);
-      });
-  } else {
-    // CRM webhook
-    $.ajax({
-      type: "POST",
-      url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
-      data: JSON.stringify(formData),
-      contentType: "application/json",
-      headers: { "Content-Type": "application/json" },
+    .fail(function () {
+      alert("Oops! Something went wrong.");
     })
-      .done(function (data) {
-        $form[0].reset();
-        const $modal = $form.closest(".modal");
-        if ($modal.length) $modal.modal("hide");
-        $("#thankYouModal").modal("show");
-      })
-      .fail(function () {
-        alert("Oops! Something went wrong.");
-      })
-      .always(function () {
-        $btn.prop("disabled", false);
-        $spinner.addClass("d-none");
-        $btnText.text(defaultText);
-      });
-  }
+    .always(function () {
+      $btn.prop("disabled", !1);
+      $spinner.addClass("d-none");
+      $btnText.text(defaultText);
+    });
 }
