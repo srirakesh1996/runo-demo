@@ -89,6 +89,17 @@
         background: url("img/banner-img.webp") no-repeat center center;
         background-size: cover;
       }
+      #reason::placeholder {
+        color: #898989; /* placeholder text color */
+        font-style: italic; /* optional: italic style */
+        font-size: 14px; /* optional: font size */
+        opacity: 1; /* ensures full opacity in some browsers */
+      }
+
+      /* Optional: add focus effect */
+      #reason:focus::placeholder {
+        color: #898989; /* change color when focused */
+      }
     </style>
   </head>
   <body>
@@ -1256,23 +1267,14 @@
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
           });
 
-          // Validation functions (name, email, phone, company, agents, know_runo)
+          // Validation functions
           function validateName() {
             const val = $("#name1").val().trim();
             if (!val || val.length > 30) {
               $("#nameError1").removeClass("d-none");
               return false;
             }
-            $("#nameError").addClass("d-none");
-            return true;
-          }
-          function validateCompName() {
-            const val = $("#comp_name1").val().trim();
-            if (!val || val.length > 30) {
-              $("#comp_nameError").removeClass("d-none");
-              return false;
-            }
-            $("#comp_nameError1").addClass("d-none");
+            $("#nameError1").addClass("d-none");
             return true;
           }
           function validateEmail() {
@@ -1282,16 +1284,41 @@
               $("#emailError1").removeClass("d-none");
               return false;
             }
-            $("#emailError").addClass("d-none");
+            $("#emailError1").addClass("d-none");
             return true;
           }
           function validatePhone() {
-            const val = phoneInput.value;
             if (!iti.isValidNumber()) {
               $("#phoneError").removeClass("d-none").text("Enter valid number");
               return false;
             }
             $("#phoneError").addClass("d-none");
+            return true;
+          }
+          function validateCompName() {
+            const val = $("#comp_name1").val().trim();
+            if (!val || val.length > 30) {
+              $("#comp_nameError1").removeClass("d-none");
+              return false;
+            }
+            $("#comp_nameError1").addClass("d-none");
+            return true;
+          }
+          function validateCertificate() {
+            if (!$("#certificate").val()) {
+              $("#certificateError").removeClass("d-none");
+              return false;
+            }
+            $("#certificateError").addClass("d-none");
+            return true;
+          }
+          function validateReason() {
+            const val = $("#reason").val().trim();
+            if (!val || val.length > 200) {
+              $("#reasonError").removeClass("d-none");
+              return false;
+            }
+            $("#reasonError").addClass("d-none");
             return true;
           }
 
@@ -1300,22 +1327,23 @@
           $("#email1").on("input", validateEmail);
           $("#phone2").on("input", validatePhone);
           $("#comp_name1").on("input", validateCompName);
+          $("#certificate").on("change", validateCertificate);
+          $("#reason").on("input", validateReason);
 
-          $("#cert-form").on("submit", function (e) {
+          // Submit handler
+          $form.on("submit", function (e) {
             e.preventDefault();
 
-            // Validate fields
-            const valid = validateName() && validateEmail() && validatePhone() && validateCompName();
+            const valid = validateName() && validateEmail() && validatePhone() && validateCompName() && validateCertificate() && validateReason();
+
             if (!valid) return;
 
-            // Collect form data
             const formData = $(this)
               .serializeArray()
               .reduce((obj, item) => {
                 obj[item.name] = item.value;
                 return obj;
               }, {});
-
             formData["your_phone"] = iti.getNumber(); // International format
 
             const $btn = $(this).find("button[type='submit']");
@@ -1327,24 +1355,24 @@
             $spinner.removeClass("d-none");
             $btnText.text("Submitting...");
 
-            // Prepare Zapier-friendly data (form-encoded)
+            // Prepare Zapier-friendly data
             const zapierData = {
               name: formData["your_name"] || "",
               email: formData["your_email"] || "",
               phone: formData["your_phone"] || "",
               company: formData["your_company"] || "",
-
+              certificate_requested: formData["certificate_requested"] || "",
+              reason: formData["reason"] || "",
               opted_in: true,
             };
 
-            // Send to Zapier
             $.ajax({
               type: "POST",
-              url: "https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/", // your Zap URL
+              url: "https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/", // Zap URL
               data: zapierData, // form-encoded
               success: function (response) {
                 console.log("✅ Zapier response:", response);
-                $("#cert-form")[0].reset();
+                $form[0].reset();
                 $("#requestcert").modal("hide");
                 $("#thankYouModal2").modal("show");
               },
