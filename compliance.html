@@ -1208,6 +1208,22 @@
                     <input type="text" name="your_company" class="form-control" id="comp_name1" placeholder="Company Name" />
                     <small class="text-danger d-none" id="comp_nameError1">Company Name is required.</small>
                   </div>
+                  <!-- Certificate Requested -->
+                  <div class="mb-1">
+                    <select name="certificate_requested" class="form-select" id="certificate">
+                      <option value="" disabled selected style="color: #858585">Select Certificate Requested</option>
+                      <option value="SOC 2 Type I">SOC 2 Type I</option>
+                      <option value="ISO 27001">ISO 27001</option>
+                      <option value="GDPR Compliance">GDPR Compliance</option>
+                    </select>
+                    <small class="text-danger d-none" id="certificateError">Please select a certificate.</small>
+                  </div>
+
+                  <!-- Reason -->
+                  <div class="mb-2">
+                    <textarea name="reason" class="form-control" id="reason" rows="3" placeholder="Reason for requesting certificate"></textarea>
+                    <small class="text-danger d-none" id="reasonError">Reason is required.</small>
+                  </div>
 
                   <p style="font-size: 12px !important; margin-bottom: 10px">
                     By submitting this form, I agree to the
@@ -1285,23 +1301,24 @@
           $("#phone2").on("input", validatePhone);
           $("#comp_name1").on("input", validateCompName);
 
-          // Submit handler for #cert-form
-          $form.on("submit", function (e) {
+          $("#cert-form").on("submit", function (e) {
             e.preventDefault();
 
+            // Validate fields
             const valid = validateName() && validateEmail() && validatePhone() && validateCompName();
             if (!valid) return;
 
+            // Collect form data
             const formData = $(this)
               .serializeArray()
               .reduce((obj, item) => {
                 obj[item.name] = item.value;
                 return obj;
               }, {});
-            formData["your_phone"] = iti.getNumber();
-            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Compliance";
 
-            const $btn = $form.find("button[type='submit']");
+            formData["your_phone"] = iti.getNumber(); // International format
+
+            const $btn = $(this).find("button[type='submit']");
             const $spinner = $btn.find(".spinner-border");
             const $btnText = $btn.find(".btn-text");
             const defaultText = $btnText.text();
@@ -1310,19 +1327,30 @@
             $spinner.removeClass("d-none");
             $btnText.text("Submitting...");
 
+            // Prepare Zapier-friendly data (form-encoded)
+            const zapierData = {
+              name: formData["your_name"] || "",
+              email: formData["your_email"] || "",
+              phone: formData["your_phone"] || "",
+              company: formData["your_company"] || "",
+
+              opted_in: true,
+            };
+
+            // Send to Zapier
             $.ajax({
               type: "POST",
-              url: "https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/",
-              data: JSON.stringify(formData),
-              contentType: "application/json",
+              url: "https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/", // your Zap URL
+              data: zapierData, // form-encoded
               success: function (response) {
-                console.log("Zapier Response:", response); // ✅ log response
-                $form[0].reset();
-                $form.closest(".modal").modal("hide");
+                console.log("✅ Zapier response:", response);
+                $("#cert-form")[0].reset();
+                $("#requestcert").modal("hide");
                 $("#thankYouModal2").modal("show");
               },
-              error: function (err) {
-                console.error("Zapier Error:", err);
+              error: function (jqXHR, textStatus, errorThrown) {
+                console.warn("❌ Zapier failed:", textStatus, errorThrown);
+                console.log("🔍 Response text:", jqXHR.responseText);
                 alert("Oops! Something went wrong while sending to Zapier.");
               },
               complete: function () {
