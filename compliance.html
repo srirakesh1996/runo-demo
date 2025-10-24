@@ -1358,12 +1358,12 @@
               page: window.location.pathname,
             };
 
-            submitForm("cert-form", formData);
+            submitForm2("cert-form", formData);
           });
         });
 
         // SubmitForm for Zapier-only form
-        function submitForm(formId, formData) {
+        function submitForm2(formId, formData) {
           const $form = $(`#${formId}`);
           const $btn = $form.find("button[type='submit']");
           const $spinner = $btn.find(".spinner-border");
