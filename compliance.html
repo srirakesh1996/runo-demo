@@ -1213,7 +1213,7 @@
                   </div>
                   <div class="mb-1">
                     <input type="tel" name="your_phone" class="form-control" id="phone2" placeholder="Phone Number" autocomplete="tel" />
-                    <small class="text-danger d-none" id="phoneError">Enter a valid phone number.</small>
+                    <small class="text-danger d-none" id="phoneError1">Enter a valid phone number.</small>
                   </div>
                   <div class="mb-1">
                     <input type="text" name="your_company" class="form-control" id="comp_name1" placeholder="Company Name" />
@@ -1289,7 +1289,7 @@
           }
           function validatePhone() {
             if (!iti.isValidNumber()) {
-              $("#phoneError").removeClass("d-none").text("Enter valid number");
+              $("#phoneError1").removeClass("d-none").text("Enter valid number");
               return false;
             }
             $("#phoneError").addClass("d-none");
