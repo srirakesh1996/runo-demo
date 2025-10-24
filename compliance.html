@@ -1178,7 +1178,8 @@
       <!-- Certifications Section End -->
 
       <!-- Certifications Section End -->
-      <!-- Certificate Request Modal -->
+
+      <!-- Modal -->
       <div class="modal fade" id="requestcert" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -1188,48 +1189,24 @@
                   <h5>Download Certificate!</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <form id="cert-form" method="POST">
-                  <!-- Name -->
+                <form id="cert-form" method="POST" data-page-name="Refund &amp; Cancellation Policy" data-uuid="540c6a38-0072-4c48-9fac-b443f814a999">
+                  <!-- Modal and variables -->
+                  <!-- You can convert these to JS-based modal init if needed -->
                   <div class="mb-1">
-                    <input type="text" name="cert_name" class="form-control" id="cert_name" placeholder="Name" />
-                    <small class="text-danger d-none" id="cert_nameError">Name is required.</small>
+                    <input type="text" name="your_name" class="form-control" id="name1" placeholder="Name" />
+                    <small class="text-danger d-none" id="nameError1">Name is required.</small>
                   </div>
-
-                  <!-- Company Name -->
                   <div class="mb-1">
-                    <input type="text" name="cert_company" class="form-control" id="cert_comp_name" placeholder="Company Name" />
-                    <small class="text-danger d-none" id="cert_comp_nameError">Company Name is required.</small>
+                    <input type="email" name="your_email" class="form-control" id="email1" placeholder="Email Address" />
+                    <small class="text-danger d-none" id="emailError1">Valid email is required.</small>
                   </div>
-
-                  <!-- Email -->
-                  <div class="mb-1">
-                    <input type="email" name="cert_email" class="form-control" id="cert_email" placeholder="Email Address" />
-                    <small class="text-danger d-none" id="cert_emailError">Valid email is required.</small>
-                  </div>
-
-                  <!-- Phone -->
                   <div class="mb-1">
                     <input type="tel" name="your_phone" class="form-control" id="phone2" placeholder="Phone Number" autocomplete="tel" />
                     <small class="text-danger d-none" id="phoneError">Enter a valid phone number.</small>
                   </div>
-
-                  <!-- Certificate Requested -->
                   <div class="mb-1">
-                    <select name="cert_certificate_requested" class="form-select" id="cert_certificate">
-                      <option value="" disabled selected style="color: #858585">Select Certificate Requested</option>
-                      <option value="ISO 27001">ISO 27001</option>
-                      <option value="SOC 2 Type II">SOC 2 Type II</option>
-                      <option value="GDPR Compliance">GDPR Compliance</option>
-                      <option value="PCI DSS">PCI DSS</option>
-                    </select>
-                    <small class="text-danger d-none" id="cert_certificateError">Please select a certificate.</small>
-                  </div>
-
-                  <!-- Reason -->
-                  <div class="mb-2">
-                    <textarea name="cert_reason" class="form-control" id="cert_reason" rows="3" placeholder="Reason for requesting certificate"></textarea>
-                    <small class="text-danger d-none" id="cert_reasonError">Reason is required.</small>
+                    <input type="text" name="your_company" class="form-control" id="comp_name1" placeholder="Company Name" />
+                    <small class="text-danger d-none" id="comp_nameError1">Company Name is required.</small>
                   </div>
 
                   <p style="font-size: 12px !important; margin-bottom: 10px">
@@ -1237,8 +1214,7 @@
                     <a href="privacy-policy" target="_blank">privacy policy</a>
                     .
                   </p>
-
-                  <button type="submit" id="cert_form_btn" class="btn-default btn-highlighted" style="width: 100%">
+                  <button type="submit" id="cert-form-btn" class="btn-default btn-highlighted" style="width: 100%">
                     <span class="btn-text">Submit</span>
                     <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
                   </button>
@@ -1248,7 +1224,116 @@
           </div>
         </div>
       </div>
+      <script>
+        jQuery(function ($) {
+          const $form = $("#cert-form");
+          const phoneInput = document.querySelector("#phone2");
+          const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto",
+            geoIpLookup: function (callback) {
+              fetch("https://ipapi.co/json/")
+                .then((res) => res.json())
+                .then((data) => callback(data?.country_code?.toLowerCase() || "in"))
+                .catch(() => callback("in"));
+            },
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
+          });
 
+          // Validation functions (name, email, phone, company, agents, know_runo)
+          function validateName() {
+            const val = $("#name1").val().trim();
+            if (!val || val.length > 30) {
+              $("#nameError1").removeClass("d-none");
+              return false;
+            }
+            $("#nameError").addClass("d-none");
+            return true;
+          }
+          function validateCompName() {
+            const val = $("#comp_name1").val().trim();
+            if (!val || val.length > 30) {
+              $("#comp_nameError").removeClass("d-none");
+              return false;
+            }
+            $("#comp_nameError1").addClass("d-none");
+            return true;
+          }
+          function validateEmail() {
+            const val = $("#email1").val().trim();
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !pattern.test(val)) {
+              $("#emailError1").removeClass("d-none");
+              return false;
+            }
+            $("#emailError").addClass("d-none");
+            return true;
+          }
+          function validatePhone() {
+            const val = phoneInput.value;
+            if (!iti.isValidNumber()) {
+              $("#phoneError").removeClass("d-none").text("Enter valid number");
+              return false;
+            }
+            $("#phoneError").addClass("d-none");
+            return true;
+          }
+
+          // Realtime validation
+          $("#name1").on("input", validateName);
+          $("#email1").on("input", validateEmail);
+          $("#phone2").on("input", validatePhone);
+          $("#comp_name1").on("input", validateCompName);
+
+          // Submit handler for #cert-form
+          $form.on("submit", function (e) {
+            e.preventDefault();
+
+            const valid = validateName() && validateEmail() && validatePhone() && validateCompName();
+            if (!valid) return;
+
+            const formData = $(this)
+              .serializeArray()
+              .reduce((obj, item) => {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
+            formData["your_phone"] = iti.getNumber();
+            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Compliance";
+
+            const $btn = $form.find("button[type='submit']");
+            const $spinner = $btn.find(".spinner-border");
+            const $btnText = $btn.find(".btn-text");
+            const defaultText = $btnText.text();
+
+            $btn.prop("disabled", true);
+            $spinner.removeClass("d-none");
+            $btnText.text("Submitting...");
+
+            $.ajax({
+              type: "POST",
+              url: "https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/",
+              data: JSON.stringify(formData),
+              contentType: "application/json",
+              success: function (response) {
+                console.log("Zapier Response:", response); // ✅ log response
+                $form[0].reset();
+                $form.closest(".modal").modal("hide");
+                $("#thankYouModal2").modal("show");
+              },
+              error: function (err) {
+                console.error("Zapier Error:", err);
+                alert("Oops! Something went wrong while sending to Zapier.");
+              },
+              complete: function () {
+                $btn.prop("disabled", false);
+                $spinner.addClass("d-none");
+                $btnText.text(defaultText);
+              },
+            });
+          });
+        });
+      </script>
       <!-- Thank You Modal -->
       <div class="modal fade" id="thankYouModal2" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1261,143 +1346,6 @@
         </div>
       </div>
 
-      <script>
-        jQuery(function ($) {
-          // Initialize intl-tel-input
-          const phoneInput = document.querySelector("#phone2");
-          const iti = window.intlTelInput(phoneInput, {
-            initialCountry: "auto",
-            geoIpLookup: function (callback) {
-              fetch("https://ipapi.co/json/")
-                .then((res) => res.json())
-                .then((data) => callback(data.country_code ? data.country_code.toLowerCase() : "in"))
-                .catch(() => callback("in"));
-            },
-            separateDialCode: true,
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
-          });
-
-          // Validation functions
-          function validateCertName() {
-            const val = $("#cert_name").val().trim();
-            if (!val) {
-              $("#cert_nameError").removeClass("d-none");
-              return false;
-            }
-            $("#cert_nameError").addClass("d-none");
-            return true;
-          }
-          function validateCertCompName() {
-            const val = $("#cert_comp_name").val().trim();
-            if (!val) {
-              $("#cert_comp_nameError").removeClass("d-none");
-              return false;
-            }
-            $("#cert_comp_nameError").addClass("d-none");
-            return true;
-          }
-          function validateCertEmail() {
-            const val = $("#cert_email").val().trim();
-            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!val || !pattern.test(val)) {
-              $("#cert_emailError").removeClass("d-none");
-              return false;
-            }
-            $("#cert_emailError").addClass("d-none");
-            return true;
-          }
-          function validateCertPhone() {
-            if (!iti.isValidNumber()) {
-              $("#phoneError").removeClass("d-none");
-              return false;
-            }
-            $("#phoneError").addClass("d-none");
-            return true;
-          }
-          function validateCertCertificate() {
-            if (!$("#cert_certificate").val()) {
-              $("#cert_certificateError").removeClass("d-none");
-              return false;
-            }
-            $("#cert_certificateError").addClass("d-none");
-            return true;
-          }
-          function validateCertReason() {
-            const val = $("#cert_reason").val().trim();
-            if (!val) {
-              $("#cert_reasonError").removeClass("d-none");
-              return false;
-            }
-            $("#cert_reasonError").addClass("d-none");
-            return true;
-          }
-
-          // Real-time validation
-          $("#cert_name, #cert_comp_name, #cert_email, #cert_reason").on("input", function () {
-            validateCertName();
-            validateCertCompName();
-            validateCertEmail();
-            validateCertReason();
-          });
-          $("#cert_certificate").on("change", validateCertCertificate);
-
-          // Submit
-          $("#cert-form").on("submit", function (e) {
-            e.preventDefault();
-
-            const valid = validateCertName() && validateCertCompName() && validateCertEmail() && validateCertPhone() && validateCertCertificate() && validateCertReason();
-            if (!valid) return;
-
-            const formData = {
-              name: $("#cert_name").val(),
-              company: $("#cert_comp_name").val(),
-              email: $("#cert_email").val(),
-              phone: iti.getNumber(),
-              certificate_requested: $("#cert_certificate").val(),
-              reason: $("#cert_reason").val(),
-              page: window.location.pathname,
-            };
-
-            submitForm2("cert-form", formData);
-          });
-        });
-
-        // SubmitForm for Zapier-only form
-        function submitForm2(formId, formData) {
-          const $form = $(`#${formId}`);
-          const $btn = $form.find("button[type='submit']");
-          const $spinner = $btn.find(".spinner-border");
-          const $btnText = $btn.find(".btn-text");
-          const defaultText = $btnText.text();
-
-          $(".text-danger").addClass("d-none");
-          $btn.prop("disabled", true);
-          $spinner.removeClass("d-none");
-          $btnText.text("Submitting...");
-
-          $.ajax({
-            type: "POST",
-            url: "https://hooks.zapier.com/hooks/catch/23828444/urnp451/",
-            data: JSON.stringify(formData),
-            contentType: "application/json",
-            headers: { "Content-Type": "application/json" },
-          })
-            .done(function () {
-              $form[0].reset();
-              const $modal = $form.closest(".modal");
-              if ($modal.length) $modal.modal("hide");
-              $("#thankYouModal2").modal("show");
-            })
-            .fail(function () {
-              alert("Oops! Something went wrong while sending to Zapier.");
-            })
-            .always(function () {
-              $btn.prop("disabled", false);
-              $spinner.addClass("d-none");
-              $btnText.text(defaultText);
-            });
-        }
-      </script>
       <!-- Cancellation and Refund Policy Section End -->
       <footer class="bg-dark text-light pt-5 pb-4">
         <div class="container">
