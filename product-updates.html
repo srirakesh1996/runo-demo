@@ -1047,7 +1047,6 @@
       </div>
     </header>
     <!-- Product Releases Section -->
-    <!-- Product Releases Section -->
     <section class="product-releases py-5">
       <div class="container">
         <div class="row">
@@ -1065,7 +1064,7 @@
 
           <!-- Right Content -->
           <div class="col-md-9">
-            <!-- Breadcrumbs -->
+            <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb custom-breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -1074,138 +1073,199 @@
             </nav>
 
             <div class="tab-content" id="nav-tabContent">
-              <!-- Release 6.2 -->
+              <!-- ===================== Release 6.2 ===================== -->
               <div class="tab-pane fade show active" id="release-6-2-content" role="tabpanel">
                 <div class="release-card shadow-sm p-4 rounded-4 bg-white">
-                  <h3 class="fw-bold text-danger mb-3">Release 6.2 Notes</h3>
+                  <h3 class="fw-bold text-danger mb-4">Release 6.2 Notes</h3>
 
-                  <ul class="nav nav-pills mb-4 sub-tabs" id="6-2-filter" role="tablist">
-                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#6-2-all" type="button">All</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-features" type="button">🚀 New Features</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-enhancements" type="button">🔧 Enhancements</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-bugs" type="button">🐞 Bug Fixes</button></li>
+                  <!-- Sub Tabs -->
+                  <ul class="nav nav-pills mb-4 sub-tabs" id="subTab6_2" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_2" type="button">All</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_2" type="button">🚀 New Features</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#enhancements-6_2" type="button">🔧 Enhancements</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_2" type="button">🐞 Bug Fixes</button></li>
                   </ul>
 
                   <div class="tab-content">
                     <!-- All -->
-                    <div class="tab-pane fade show active" id="6-2-all">
-                      <h5 class="fw-semibold mb-2">Overview</h5>
-                      <p>Release 6.2 is focused on improving product stability, introducing major API updates, and enhancing the overall performance. We’ve listened to user feedback and rolled out a set of impactful features, design improvements, and bug resolutions.</p>
-                      <p>Highlights include a new dark mode interface, improved dashboard analytics, real-time sync enhancements, and updated notification management.</p>
-                      <p>This release sets the foundation for our upcoming 7.0 launch, focusing on predictive analytics and automation.</p>
+                    <div class="tab-pane fade show active" id="all-6_2">
+                      <p>Release 6.2 brings performance boosts, smarter analytics, and enhanced integrations for seamless CRM experience.</p>
                     </div>
 
-                    <!-- New Features -->
-                    <div class="tab-pane fade" id="6-2-features">
-                      <h5 class="fw-semibold mb-3">🚀 Major New Features in 6.2</h5>
-                      <ul class="feature-list">
-                        <li>
-                          <strong>Dark Mode:</strong>
-                          A brand-new dark theme for better nighttime usability.
-                        </li>
-                        <li>
-                          <strong>Smart Notifications:</strong>
-                          AI-based prioritization for messages and alerts.
-                        </li>
-                        <li>
-                          <strong>API Gateway:</strong>
-                          Enhanced integration layer for third-party CRMs and tools.
-                        </li>
-                        <li>
-                          <strong>Advanced Dashboard Widgets:</strong>
-                          Customizable tiles for real-time data.
-                        </li>
-                        <li>
-                          <strong>Voice Commands:</strong>
-                          Introduced speech-to-action capabilities for admins.
-                        </li>
-                      </ul>
-                      <p class="mt-3">These features are designed to boost productivity and align Runo with the latest enterprise standards.</p>
+                    <!-- Features -->
+                    <div class="tab-pane fade" id="features-6_2">
+                      <div class="accordion" id="featuresAccordion6_2">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1_6_2">Dark Mode</button>
+                          </h2>
+                          <div id="f1_6_2" class="accordion-collapse collapse show" data-bs-parent="#featuresAccordion6_2">
+                            <div class="accordion-body">New dark theme improves nighttime usability and reduces eye strain.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2_6_2">AI Notifications</button>
+                          </h2>
+                          <div id="f2_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                            <div class="accordion-body">Smart alerts prioritize critical updates using AI models.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <!-- Enhancements -->
-                    <div class="tab-pane fade" id="6-2-enhancements">
-                      <h5 class="fw-semibold mb-3">🔧 Enhancements</h5>
-                      <ul class="feature-list">
-                        <li>Improved loading performance on slower networks.</li>
-                        <li>Optimized database queries resulting in a 30% speed boost.</li>
-                        <li>Refined animations and visual transitions across UI.</li>
-                        <li>Enhanced user management with batch role editing.</li>
-                        <li>Updated backend security libraries to latest versions.</li>
-                        <li>Better session handling for users with intermittent connectivity.</li>
-                      </ul>
+                    <div class="tab-pane fade" id="enhancements-6_2">
+                      <div class="accordion" id="enhAccordion6_2">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#e1_6_2">Faster Dashboard</button>
+                          </h2>
+                          <div id="e1_6_2" class="accordion-collapse collapse show" data-bs-parent="#enhAccordion6_2">
+                            <div class="accordion-body">Optimized query execution reduces dashboard loading time by 30%.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e2_6_2">Improved UI</button>
+                          </h2>
+                          <div id="e2_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                            <div class="accordion-body">Minor visual upgrades across reports and analytics sections.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <!-- Bug Fixes -->
-                    <div class="tab-pane fade" id="6-2-bugs">
-                      <h5 class="fw-semibold mb-3">🐞 Bug Fixes</h5>
-                      <ul class="feature-list">
-                        <li>Fixed issue with exporting CSVs that caused duplicate headers.</li>
-                        <li>Resolved alignment issues in mobile dashboard view.</li>
-                        <li>Patched notification misfires during API throttling.</li>
-                        <li>Corrected memory leak in analytics engine.</li>
-                        <li>Fixed tooltip flickering in settings panel.</li>
-                      </ul>
+                    <div class="tab-pane fade" id="bugs-6_2">
+                      <div class="accordion" id="bugAccordion6_2">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#b1_6_2">Export CSV Duplication</button>
+                          </h2>
+                          <div id="b1_6_2" class="accordion-collapse collapse show" data-bs-parent="#bugAccordion6_2">
+                            <div class="accordion-body">Resolved an issue where CSV exports contained duplicate headers.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#b2_6_2">Tooltip Flicker</button>
+                          </h2>
+                          <div id="b2_6_2" class="accordion-collapse collapse" data-bs-parent="#bugAccordion6_2">
+                            <div class="accordion-body">Fixed tooltip flickering in user settings page.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Release 6.1 -->
+              <!-- ===================== Release 6.1 ===================== -->
               <div class="tab-pane fade" id="release-6-1-content" role="tabpanel">
                 <div class="release-card shadow-sm p-4 rounded-4 bg-white">
-                  <h3 class="fw-bold text-danger mb-3">Release 6.1 Notes</h3>
+                  <h3 class="fw-bold text-danger mb-4">Release 6.1 Notes</h3>
 
-                  <ul class="nav nav-pills mb-4 sub-tabs" id="6-1-filter" role="tablist">
-                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#6-1-all" type="button">All</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-features" type="button">🚀 New Features</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-enhancements" type="button">🔧 Enhancements</button></li>
-                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-bugs" type="button">🐞 Bug Fixes</button></li>
+                  <ul class="nav nav-pills mb-4 sub-tabs">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_1">All</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_1">🚀 New Features</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#enhancements-6_1">🔧 Enhancements</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_1">🐞 Bug Fixes</button></li>
                   </ul>
 
                   <div class="tab-content">
-                    <div class="tab-pane fade show active" id="6-1-all">
-                      <p>Release 6.1 was focused on enhancing analytical capabilities and refining the reporting engine. With this release, users gained new data visualizations, improved role management, and enhanced error recovery systems.</p>
+                    <div class="tab-pane fade show active" id="all-6_1"><p>Release 6.1 introduced new analytics and reporting modules with enhanced data filters.</p></div>
+
+                    <div class="tab-pane fade" id="features-6_1">
+                      <div class="accordion" id="featuresAccordion6_1">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#f1_6_1">Advanced Reporting</button></h2>
+                          <div id="f1_6_1" class="accordion-collapse collapse show" data-bs-parent="#featuresAccordion6_1">
+                            <div class="accordion-body">Added advanced KPI charts for managers to monitor performance in real-time.</div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2_6_1">Timeline Tracking</button></h2>
+                          <div id="f2_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                            <div class="accordion-body">New timeline shows user activities and communication history in sequence.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="tab-pane fade" id="6-1-features">
-                      <ul class="feature-list">
-                        <li>New reporting dashboard with customizable KPIs.</li>
-                        <li>Cross-platform login sync for unified user access.</li>
-                        <li>New “Timeline” feature for historical user tracking.</li>
-                      </ul>
+                    <div class="tab-pane fade" id="enhancements-6_1">
+                      <div class="accordion" id="enhAccordion6_1">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#e1_6_1">Data Export Speed</button></h2>
+                          <div id="e1_6_1" class="accordion-collapse collapse show" data-bs-parent="#enhAccordion6_1">
+                            <div class="accordion-body">Data exports now run 25% faster for large datasets.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="tab-pane fade" id="6-1-enhancements">
-                      <ul class="feature-list">
-                        <li>UI refinements for better accessibility.</li>
-                        <li>Improved query caching mechanism.</li>
-                        <li>Optimized data exports for faster delivery.</li>
-                      </ul>
-                    </div>
-
-                    <div class="tab-pane fade" id="6-1-bugs">
-                      <ul class="feature-list">
-                        <li>Resolved error in bulk user upload process.</li>
-                        <li>Fixed pagination issues in logs section.</li>
-                        <li>Corrected timezone mismatches in report exports.</li>
-                      </ul>
+                    <div class="tab-pane fade" id="bugs-6_1">
+                      <div class="accordion" id="bugAccordion6_1">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#b1_6_1">Pagination Issue</button></h2>
+                          <div id="b1_6_1" class="accordion-collapse collapse show" data-bs-parent="#bugAccordion6_1">
+                            <div class="accordion-body">Fixed pagination bug on reports page where last entries were missing.</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Release 6.0 -->
+              <!-- ===================== Release 6.0 ===================== -->
               <div class="tab-pane fade" id="release-6-0-content" role="tabpanel">
                 <div class="release-card shadow-sm p-4 rounded-4 bg-white">
-                  <h3 class="fw-bold text-danger mb-3">Release 6.0 Notes</h3>
-                  <p>This was our foundation release that introduced Runo’s modern interface, responsive layout, and modular API design. It established the core of our architecture with features that have since evolved.</p>
-                  <ul class="feature-list">
-                    <li>Completely redesigned UI framework.</li>
-                    <li>New role-based access control module.</li>
-                    <li>Core notification center introduced.</li>
-                    <li>New analytics and tracking layer for admins.</li>
+                  <h3 class="fw-bold text-danger mb-4">Release 6.0 Notes</h3>
+
+                  <ul class="nav nav-pills mb-4 sub-tabs">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_0">All</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_0">🚀 New Features</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#enhancements-6_0">🔧 Enhancements</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_0">🐞 Bug Fixes</button></li>
                   </ul>
+
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="all-6_0"><p>Release 6.0 introduced the foundation for the new Runo architecture and modular APIs.</p></div>
+
+                    <div class="tab-pane fade" id="features-6_0">
+                      <div class="accordion" id="featuresAccordion6_0">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#f1_6_0">New UI Framework</button></h2>
+                          <div id="f1_6_0" class="accordion-collapse collapse show" data-bs-parent="#featuresAccordion6_0">
+                            <div class="accordion-body">Completely redesigned modern and responsive interface.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="enhancements-6_0">
+                      <div class="accordion" id="enhAccordion6_0">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#e1_6_0">Security Library Update</button></h2>
+                          <div id="e1_6_0" class="accordion-collapse collapse show" data-bs-parent="#enhAccordion6_0">
+                            <div class="accordion-body">Upgraded core libraries for enhanced encryption and authentication.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="bugs-6_0">
+                      <div class="accordion" id="bugAccordion6_0">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#b1_6_0">Login Redirect Fix</button></h2>
+                          <div id="b1_6_0" class="accordion-collapse collapse show" data-bs-parent="#bugAccordion6_0">
+                            <div class="accordion-body">Resolved issue where users were redirected to the wrong page after login.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1216,6 +1276,15 @@
 
     <!-- Custom Styles -->
     <style>
+      .accordion-button {
+        background-color: #fff;
+        color: #333;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(244, 67, 54, 0.05);
+      }
+
       .breadcrumb {
         --bs-breadcrumb-divider: "/";
       }
@@ -1234,6 +1303,13 @@
         padding: 10px 20px;
         box-shadow: 0 2px 6px rgba(244, 67, 54, 0.1);
       }
+      .accordion-button:focus {
+        z-index: 3;
+        outline: none;
+        border-color: #f44336;
+        box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
+      }
+
       .breadcrumb-item a {
         color: #f44336;
         text-decoration: none;
@@ -1359,9 +1435,22 @@
       .tab-content li {
         color: #111111;
       }
+
+      /* Accordion */
+      .accordion-button:not(.collapsed) {
+        color: #f44336;
+        background-color: rgba(244, 67, 54, 0.247);
+        border-radius: 10px;
+        box-shadow: none;
+      }
+      .accordion-item {
+        border-radius: 10px;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+      }
     </style>
 
-    <!-- Breadcrumb Update Script -->
+    <!-- Breadcrumb Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const breadcrumb = document.querySelector(".release-breadcrumb");
