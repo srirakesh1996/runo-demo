@@ -1046,398 +1046,345 @@
         <div class="responsive-menu"></div>
       </div>
     </header>
-    <!-- Product Updates Section -->
-    <!-- Modern What's New Section -->
-    <!-- Product Updates / What's New Section -->
-
-    <style>
-      .whats-new-section {
-        padding: 50px 0;
-      }
-
-      .whats-new-section h1 {
-        text-align: center;
-        font-weight: 800;
-        font-size: 2.3rem;
-        margin-bottom: 50px;
-      }
-
-      .whats-new-wrapper {
-        display: flex;
-        gap: 30px;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      /* Left Tabs */
-      .whats-new-tabs {
-        flex: 0 0 260px;
-        background: rgba(255, 255, 255, 0.65);
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-        padding: 20px;
-        position: sticky;
-        top: 100px;
-        height: fit-content;
-      }
-
-      .whats-new-tabs .nav-link {
-        border: none;
-        border-radius: 10px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #444;
-        transition: all 0.3s ease;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 15px;
-      }
-
-      .whats-new-tabs .nav-link.active {
-        background: linear-gradient(90deg, #ff5f6d, #ffc371);
-        color: #fff;
-        transform: scale(1.03);
-        box-shadow: 0 3px 10px rgba(255, 95, 109, 0.4);
-      }
-
-      .fire-badge {
-        background: rgba(255, 255, 255, 0.25);
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 0.9rem;
-        animation: firePulse 1.5s infinite;
-      }
-
-      @keyframes firePulse {
-        0% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.25);
-          opacity: 0.7;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      /* Right Content */
-      .whats-new-content {
-        flex: 1;
-        background: #fff;
-        border-radius: 20px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-        padding: 40px;
-        position: relative;
-        overflow: hidden;
-        min-height: 500px;
-      }
-
-      .update-pane {
-        display: none;
-        animation: fadeIn 0.5s ease;
-      }
-
-      .update-pane.active {
-        display: block;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .update-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-
-      .update-version {
-        background: #ff5f6d;
-        color: #fff;
-        border-radius: 10px;
-        padding: 4px 10px;
-        font-weight: 700;
-      }
-
-      .update-date {
-        color: #777;
-      }
-
-      .update-title {
-        font-weight: 700;
-        font-size: 1.6rem;
-        margin-bottom: 20px;
-      }
-
-      .update-desc {
-        color: #555;
-        line-height: 1.7;
-        margin-bottom: 25px;
-      }
-
-      .update-content h4 {
-        margin-top: 25px;
-        font-weight: 700;
-        color: #333;
-      }
-
-      .update-content ul {
-        margin-left: 20px;
-        list-style: disc;
-      }
-
-      .read-more {
-        color: #ff5f6d;
-        font-weight: 600;
-        text-decoration: none;
-      }
-
-      .read-more:hover {
-        text-decoration: underline;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .whats-new-wrapper {
-          flex-direction: column;
-        }
-
-        .whats-new-tabs {
-          flex: 1 1 auto;
-          display: flex;
-          overflow-x: auto;
-          border-radius: 12px;
-          top: 0;
-          position: relative;
-        }
-
-        .whats-new-tabs .nav-link {
-          flex: 1;
-          white-space: nowrap;
-          justify-content: center;
-        }
-
-        .whats-new-content {
-          padding: 25px;
-        }
-      }
-    </style>
-
-    <div class="whats-new-section">
+    <!-- Product Releases Section -->
+    <!-- Product Releases Section -->
+    <section class="product-releases py-5">
       <div class="container">
-        <h1 class="mb-20 text-center">🔥 Product Updates & Releases</h1>
-        <div class="whats-new-wrapper">
-          <!-- Left Tabs -->
-          <div class="whats-new-tabs nav flex-column" id="newTabs">
-            <a class="nav-link active" data-target="update1">
-              v3.0.0
-              <span class="fire-badge">🔥</span>
-            </a>
-            <a class="nav-link" data-target="update2">v2.9.0</a>
-            <a class="nav-link" data-target="update3">v2.8.0</a>
+        <div class="row">
+          <!-- Left Sidebar -->
+          <div class="col-md-3 mb-4 mb-md-0">
+            <div class="release-sidebar shadow-sm rounded-4 p-3 bg-white">
+              <h5 class="mb-3 fw-bold text-uppercase text-danger text-center">Product Releases</h5>
+              <div class="list-group release-list" id="release-list" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="release-6-2-list" data-bs-toggle="list" href="#release-6-2-content" role="tab">Release 6.2 (Current)</a>
+                <a class="list-group-item list-group-item-action" id="release-6-1-list" data-bs-toggle="list" href="#release-6-1-content" role="tab">Release 6.1</a>
+                <a class="list-group-item list-group-item-action" id="release-6-0-list" data-bs-toggle="list" href="#release-6-0-content" role="tab">Release 6.0</a>
+              </div>
+            </div>
           </div>
 
           <!-- Right Content -->
-          <div class="whats-new-content">
-            <!-- v3.0.0 -->
-            <div class="update-pane active" id="update1">
-              <div class="update-header">
-                <span class="update-version">v3.0.0</span>
-                <span class="update-date">October 2025</span>
+          <div class="col-md-9">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb custom-breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active release-breadcrumb" aria-current="page">Release 6.2 (All)</li>
+              </ol>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <!-- Release 6.2 -->
+              <div class="tab-pane fade show active" id="release-6-2-content" role="tabpanel">
+                <div class="release-card shadow-sm p-4 rounded-4 bg-white">
+                  <h3 class="fw-bold text-danger mb-3">Release 6.2 Notes</h3>
+
+                  <ul class="nav nav-pills mb-4 sub-tabs" id="6-2-filter" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#6-2-all" type="button">All</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-features" type="button">🚀 New Features</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-enhancements" type="button">🔧 Enhancements</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-2-bugs" type="button">🐞 Bug Fixes</button></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <!-- All -->
+                    <div class="tab-pane fade show active" id="6-2-all">
+                      <h5 class="fw-semibold mb-2">Overview</h5>
+                      <p>Release 6.2 is focused on improving product stability, introducing major API updates, and enhancing the overall performance. We’ve listened to user feedback and rolled out a set of impactful features, design improvements, and bug resolutions.</p>
+                      <p>Highlights include a new dark mode interface, improved dashboard analytics, real-time sync enhancements, and updated notification management.</p>
+                      <p>This release sets the foundation for our upcoming 7.0 launch, focusing on predictive analytics and automation.</p>
+                    </div>
+
+                    <!-- New Features -->
+                    <div class="tab-pane fade" id="6-2-features">
+                      <h5 class="fw-semibold mb-3">🚀 Major New Features in 6.2</h5>
+                      <ul class="feature-list">
+                        <li>
+                          <strong>Dark Mode:</strong>
+                          A brand-new dark theme for better nighttime usability.
+                        </li>
+                        <li>
+                          <strong>Smart Notifications:</strong>
+                          AI-based prioritization for messages and alerts.
+                        </li>
+                        <li>
+                          <strong>API Gateway:</strong>
+                          Enhanced integration layer for third-party CRMs and tools.
+                        </li>
+                        <li>
+                          <strong>Advanced Dashboard Widgets:</strong>
+                          Customizable tiles for real-time data.
+                        </li>
+                        <li>
+                          <strong>Voice Commands:</strong>
+                          Introduced speech-to-action capabilities for admins.
+                        </li>
+                      </ul>
+                      <p class="mt-3">These features are designed to boost productivity and align Runo with the latest enterprise standards.</p>
+                    </div>
+
+                    <!-- Enhancements -->
+                    <div class="tab-pane fade" id="6-2-enhancements">
+                      <h5 class="fw-semibold mb-3">🔧 Enhancements</h5>
+                      <ul class="feature-list">
+                        <li>Improved loading performance on slower networks.</li>
+                        <li>Optimized database queries resulting in a 30% speed boost.</li>
+                        <li>Refined animations and visual transitions across UI.</li>
+                        <li>Enhanced user management with batch role editing.</li>
+                        <li>Updated backend security libraries to latest versions.</li>
+                        <li>Better session handling for users with intermittent connectivity.</li>
+                      </ul>
+                    </div>
+
+                    <!-- Bug Fixes -->
+                    <div class="tab-pane fade" id="6-2-bugs">
+                      <h5 class="fw-semibold mb-3">🐞 Bug Fixes</h5>
+                      <ul class="feature-list">
+                        <li>Fixed issue with exporting CSVs that caused duplicate headers.</li>
+                        <li>Resolved alignment issues in mobile dashboard view.</li>
+                        <li>Patched notification misfires during API throttling.</li>
+                        <li>Corrected memory leak in analytics engine.</li>
+                        <li>Fixed tooltip flickering in settings panel.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="update-title">AI Call Insights & Smart Summary Sharing</h3>
-              <div class="update-content">
-                <p class="update-desc">The new **Runo Smart AI 3.0** introduces a complete transformation in the way you understand customer conversations. With real-time speech recognition, sentiment analysis, and topic clustering — your sales calls are now more insightful than ever.</p>
 
-                <h4>✨ Highlights</h4>
-                <ul>
-                  <li>Instant AI-generated summaries with sentiment tagging</li>
-                  <li>Multilingual transcription (supports 6 Indian languages)</li>
-                  <li>Smart share: send summaries via WhatsApp or Email</li>
-                  <li>Enhanced CRM sync for Salesforce & Zoho</li>
-                </ul>
+              <!-- Release 6.1 -->
+              <div class="tab-pane fade" id="release-6-1-content" role="tabpanel">
+                <div class="release-card shadow-sm p-4 rounded-4 bg-white">
+                  <h3 class="fw-bold text-danger mb-3">Release 6.1 Notes</h3>
 
-                <h4>🚀 Performance Improvements</h4>
-                <p>Backend pipeline optimized to process call data 40% faster. Data caching and queue management have been improved, reducing latency significantly.</p>
+                  <ul class="nav nav-pills mb-4 sub-tabs" id="6-1-filter" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#6-1-all" type="button">All</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-features" type="button">🚀 New Features</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-enhancements" type="button">🔧 Enhancements</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#6-1-bugs" type="button">🐞 Bug Fixes</button></li>
+                  </ul>
 
-                <h4>🪲 Bug Fixes</h4>
-                <ul>
-                  <li>Resolved AI summary delay issue in mobile dashboard</li>
-                  <li>Fixed duplicate logs in Activity History</li>
-                  <li>Improved UI responsiveness in tablet view</li>
-                </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="6-1-all">
+                      <p>Release 6.1 was focused on enhancing analytical capabilities and refining the reporting engine. With this release, users gained new data visualizations, improved role management, and enhanced error recovery systems.</p>
+                    </div>
 
-                <p>This release marks the beginning of **Runo AI 3.0** — faster, smarter, and built to scale with your business.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
+                    <div class="tab-pane fade" id="6-1-features">
+                      <ul class="feature-list">
+                        <li>New reporting dashboard with customizable KPIs.</li>
+                        <li>Cross-platform login sync for unified user access.</li>
+                        <li>New “Timeline” feature for historical user tracking.</li>
+                      </ul>
+                    </div>
 
-                <a href="#" class="read-more">Read Full Release Notes →</a>
+                    <div class="tab-pane fade" id="6-1-enhancements">
+                      <ul class="feature-list">
+                        <li>UI refinements for better accessibility.</li>
+                        <li>Improved query caching mechanism.</li>
+                        <li>Optimized data exports for faster delivery.</li>
+                      </ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="6-1-bugs">
+                      <ul class="feature-list">
+                        <li>Resolved error in bulk user upload process.</li>
+                        <li>Fixed pagination issues in logs section.</li>
+                        <li>Corrected timezone mismatches in report exports.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- v2.9.0 -->
-            <div class="update-pane" id="update2">
-              <div class="update-header">
-                <span class="update-version">v2.9.0</span>
-                <span class="update-date">September 2025</span>
-              </div>
-              <h3 class="update-title">Advanced Analytics Dashboard</h3>
-              <div class="update-content">
-                <p class="update-desc">We’ve revamped the analytics module with beautiful new visuals, interactive charts, and export capabilities. You can now drill down by team, region, or agent.</p>
-
-                <h4>New Features</h4>
-                <ul>
-                  <li>Custom time-range filter</li>
-                  <li>Export to Excel / PDF</li>
-                  <li>Faster data aggregation (up to 2×)</li>
-                  <li>Dark mode support</li>
-                </ul>
-
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-
-                <a href="#" class="read-more">Read Full Update →</a>
-              </div>
-            </div>
-
-            <!-- v2.8.0 -->
-            <div class="update-pane" id="update3">
-              <div class="update-header">
-                <span class="update-version">v2.8.0</span>
-                <span class="update-date">August 2025</span>
-              </div>
-              <h3 class="update-title">Improved Lead Distribution Engine</h3>
-              <div class="update-content">
-                <p class="update-desc">Our improved routing system ensures that leads are assigned efficiently using AI-driven scoring and workload balancing.</p>
-
-                <h4>Core Updates</h4>
-                <ul>
-                  <li>Dynamic lead priority management</li>
-                  <li>Real-time agent load tracking</li>
-                  <li>Faster assignment logic with 99.9% uptime</li>
-                </ul>
-
-                <p>These upgrades make Runo more resilient and adaptable for enterprise-scale lead management.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-                <h4>Design Overhaul</h4>
-                <p>The new dashboard adopts a clean and modern layout with adaptive widgets. Every component scales beautifully across devices.</p>
-
-                <a href="#" class="read-more">Read Full Update →</a>
+              <!-- Release 6.0 -->
+              <div class="tab-pane fade" id="release-6-0-content" role="tabpanel">
+                <div class="release-card shadow-sm p-4 rounded-4 bg-white">
+                  <h3 class="fw-bold text-danger mb-3">Release 6.0 Notes</h3>
+                  <p>This was our foundation release that introduced Runo’s modern interface, responsive layout, and modular API design. It established the core of our architecture with features that have since evolved.</p>
+                  <ul class="feature-list">
+                    <li>Completely redesigned UI framework.</li>
+                    <li>New role-based access control module.</li>
+                    <li>Core notification center introduced.</li>
+                    <li>New analytics and tracking layer for admins.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <!-- Custom Styles -->
+    <style>
+      .breadcrumb {
+        --bs-breadcrumb-divider: "/";
+      }
+
+      .breadcrumb-item + .breadcrumb-item::before {
+        content: var(--bs-breadcrumb-divider);
+        color: #999; /* optional - makes divider lighter */
+      }
+
+      .product-releases {
+        background-color: #fff;
+      }
+      .custom-breadcrumb {
+        background-color: #fff5f5;
+        border-radius: 50px;
+        padding: 10px 20px;
+        box-shadow: 0 2px 6px rgba(244, 67, 54, 0.1);
+      }
+      .breadcrumb-item a {
+        color: #f44336;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .breadcrumb-item.active {
+        color: #222;
+        font-weight: 600;
+      }
+      .release-sidebar {
+        border: 1px solid #f2f2f2;
+        transition: box-shadow 0.3s ease;
+        border-radius: 20px;
+      }
+      .release-sidebar:hover {
+        box-shadow: 0 8px 20px rgba(244, 67, 54, 0.15);
+      }
+      .release-list .list-group-item {
+        border: none;
+        border-left: 4px solid transparent;
+        padding: 12px 16px;
+        font-weight: 500;
+        color: #555;
+        border-radius: 6px;
+        margin-bottom: 6px;
+        transition: all 0.3s ease;
+      }
+      .release-list .list-group-item:hover {
+        background-color: #fff5f5;
+        border-left-color: #f44336;
+        color: #f44336;
+      }
+      .release-list .list-group-item.active {
+        background-color: #f44336 !important;
+        color: #fff !important;
+        border-left-color: #f44336;
+        font-weight: 600;
+      }
+      .release-card {
+        border: 1px solid #f2f2f2;
+        transition: all 0.3s ease;
+        border-radius: 20px;
+      }
+      .release-card:hover {
+        box-shadow: 0 8px 25px rgba(244, 67, 54, 0.12);
+        transform: translateY(-2px);
+      }
+      .sub-tabs .nav-link {
+        border-radius: 50px;
+        padding: 6px 16px;
+        font-weight: 500;
+        color: #f44336;
+        border: 1px solid #f44336;
+        background-color: transparent;
+        margin-right: 8px;
+        transition: 0.3s;
+      }
+      .sub-tabs .nav-link.active,
+      .sub-tabs .nav-link:hover {
+        background-color: #f44336;
+        color: #fff;
+      }
+      .feature-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .feature-list li {
+        margin-bottom: 6px;
+      }
+
+      /* ===== Sub-tabs layout (desktop default) ===== */
+      .sub-tabs .nav-item {
+        margin-right: 10px;
+      }
+
+      .sub-tabs .nav-link {
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 500;
+        color: #444;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .sub-tabs .nav-link.active {
+        background-color: #f44336;
+        color: #fff;
+        border-color: #f44336;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+      }
+
+      /* ===== Mobile layout (2-per-row equal pills) ===== */
+      @media (max-width: 767.98px) {
+        .sub-tabs {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .sub-tabs .nav-item {
+          margin: 0; /* remove side margins */
+          width: 100%;
+        }
+
+        .sub-tabs .nav-link {
+          width: 100%;
+          text-align: center;
+          font-size: 14px;
+          padding: 10px 0;
+          border-radius: 12px;
+          background: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .sub-tabs .nav-link.active {
+          background: #f44336;
+          color: #fff;
+          border-color: #f44336;
+          font-weight: 600;
+        }
+      }
+      .tab-content li {
+        color: #111111;
+      }
+    </style>
+
+    <!-- Breadcrumb Update Script -->
     <script>
-      // Tab switching
-      document.querySelectorAll("#newTabs .nav-link").forEach((tab) => {
-        tab.addEventListener("click", function () {
-          document.querySelectorAll("#newTabs .nav-link").forEach((t) => t.classList.remove("active"));
-          document.querySelectorAll(".update-pane").forEach((pane) => pane.classList.remove("active"));
+      document.addEventListener("DOMContentLoaded", function () {
+        const breadcrumb = document.querySelector(".release-breadcrumb");
+        const releaseLinks = document.querySelectorAll(".release-list a");
+        const subTabs = document.querySelectorAll(".sub-tabs .nav-link");
 
-          this.classList.add("active");
-          const target = this.getAttribute("data-target");
-          document.getElementById(target).classList.add("active");
+        let currentRelease = "Release 6.2";
+        let currentSection = "All";
+
+        releaseLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            currentRelease = this.textContent.trim();
+            currentSection = "All";
+            breadcrumb.textContent = `${currentRelease} (${currentSection})`;
+          });
+        });
+
+        subTabs.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            const sectionName = this.textContent.replace(/🚀|🔧|🐞/g, "").trim();
+            currentSection = sectionName;
+            breadcrumb.textContent = `${currentRelease} (${currentSection})`;
+          });
         });
       });
     </script>
