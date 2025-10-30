@@ -84,6 +84,179 @@
         min-height: 44px;
         /* optional: keeps card heights consistent */
       }
+
+      .accordion-button {
+        background-color: #fff;
+        color: #333;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(244, 67, 54, 0.05);
+      }
+
+      .breadcrumb {
+        --bs-breadcrumb-divider: '/';
+      }
+
+      .breadcrumb-item + .breadcrumb-item::before {
+        content: var(--bs-breadcrumb-divider);
+        color: #999; /* optional - makes divider lighter */
+      }
+
+      .product-releases {
+        background-color: #fff;
+      }
+      .custom-breadcrumb {
+        background-color: #ffe9e9;
+        border-radius: 50px;
+        padding: 10px 20px;
+        box-shadow: 0 2px 6px rgba(244, 67, 54, 0.1);
+      }
+      .accordion-button:focus {
+        z-index: 3;
+        outline: none;
+        border-color: #f44336;
+        box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
+      }
+
+      .breadcrumb-item a {
+        color: #f44336;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .breadcrumb-item.active {
+        color: #222;
+        font-weight: 600;
+      }
+      .release-sidebar {
+        border: 1px solid #f2f2f2;
+        transition: box-shadow 0.3s ease;
+        border-radius: 20px;
+      }
+      .release-sidebar:hover {
+        box-shadow: 0 8px 20px rgba(244, 67, 54, 0.15);
+      }
+      .release-list .list-group-item {
+        border: none;
+        border-left: 4px solid transparent;
+        padding: 12px 16px;
+        font-weight: 500;
+        color: #555;
+        border-radius: 6px;
+        margin-bottom: 6px;
+        transition: all 0.3s ease;
+      }
+      .release-list .list-group-item:hover {
+        background-color: #fff5f5;
+        border-left-color: #f44336;
+        color: #f44336;
+      }
+      .release-list .list-group-item.active {
+        background-color: #f44336 !important;
+        color: #fff !important;
+        border-left-color: #f44336;
+        font-weight: 600;
+      }
+      .release-card {
+        border: 1px solid #f2f2f2;
+        transition: all 0.3s ease;
+        border-radius: 20px;
+      }
+      .release-card:hover {
+        box-shadow: 0 8px 25px rgba(244, 67, 54, 0.12);
+        transform: translateY(-2px);
+      }
+      .sub-tabs .nav-link {
+        border-radius: 50px;
+        padding: 6px 16px;
+        font-weight: 500;
+        color: #f44336;
+        border: 1px solid #f44336;
+        background-color: transparent;
+        margin-right: 8px;
+        transition: 0.3s;
+      }
+      .sub-tabs .nav-link.active,
+      .sub-tabs .nav-link:hover {
+        background-color: #f44336;
+        color: #fff;
+      }
+      .feature-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .feature-list li {
+        margin-bottom: 6px;
+      }
+
+      /* ===== Sub-tabs layout (desktop default) ===== */
+      .sub-tabs .nav-item {
+        margin-right: 10px;
+      }
+
+      .sub-tabs .nav-link {
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 500;
+        color: #444;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .sub-tabs .nav-link.active {
+        background-color: #f44336;
+        color: #fff;
+        border-color: #f44336;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+      }
+
+      /* ===== Mobile layout (2-per-row equal pills) ===== */
+      @media (max-width: 767.98px) {
+        .sub-tabs {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .sub-tabs .nav-item {
+          margin: 0; /* remove side margins */
+          width: 100%;
+        }
+
+        .sub-tabs .nav-link {
+          width: 100%;
+          text-align: center;
+          font-size: 14px;
+          padding: 10px 0;
+          border-radius: 12px;
+          background: #fff;
+          border: 1px solid #ddd;
+        }
+
+        .sub-tabs .nav-link.active {
+          background: #f44336;
+          color: #fff;
+          border-color: #f44336;
+          font-weight: 600;
+        }
+      }
+      .tab-content li {
+        color: #111111;
+      }
+
+      /* Accordion */
+      .accordion-button:not(.collapsed) {
+        color: #f44336;
+        background-color: #ffe9e9;
+        border-radius: 0px;
+        box-shadow: none;
+      }
+      .accordion-item {
+        border-radius: 10px;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+      }
     </style>
   </head>
   <body>
@@ -910,7 +1083,7 @@
                   <!-- Sub Tabs -->
                   <ul class="nav nav-pills mb-4 sub-tabs" id="subTab6_2" role="tablist">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_2" type="button">All</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_2" type="button">Overview</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_2" type="button">🚀 New Features</button>
@@ -1011,7 +1184,7 @@
 
                   <ul class="nav nav-pills mb-4 sub-tabs">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_1">All</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_1">Overview</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_1">🚀 New Features</button>
@@ -1092,7 +1265,7 @@
 
                   <ul class="nav nav-pills mb-4 sub-tabs">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_0">All</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_0">Overview</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_0">🚀 New Features</button>
@@ -1100,9 +1273,9 @@
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#enhancements-6_0">🔧 Enhancements</button>
                     </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_0">🐞 Bug Fixes</button>
-                    </li>
+                    <!--<li class="nav-item">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_0">🐞 Bug Fixes</button>
+      </li>-->
                   </ul>
 
                   <div class="tab-content">
@@ -1110,8 +1283,13 @@
                       <h2 class="mb-3">Runo Updates: Version 6.0 Brings Smarter Workflows and Seamless Communication</h2>
                       <p>Welcome to a new edition of Runo Updates, and it’s a big one! 🎉</p>
                       <p>Over the past few weeks, our team has been working behind the scenes to make Runo more advanced and more effortless than ever before.</p>
-                      <p>With Runo v6.0, we’re taking a huge leap forward with introducing new ways to connect, analyze, and manage your workflows. From WhatsApp Business Integration to Runo AI… this release is built to power the next phase of your sales workflow.⚡</p>
+                      <p>With Runo v6.0, we’re taking a huge leap forward by introducing new ways to connect, analyze, and manage your workflows. From WhatsApp Business Integration to Runo AI — this release is built to power the next phase of your sales workflow.⚡</p>
                       <p>So, let’s dive in and explore what’s new in Runo v6.0…</p>
+
+                      <h2 class="mb-3">Wrapping Up…</h2>
+                      <p>Runo v6.0 marks a big step forward in making your sales process smarter, faster, and more connected.</p>
+                      <p>From powerful WhatsApp Integration and AI-driven insights to seamless billing and deeper performance visibility, every update is designed to help your team work with more clarity and confidence.</p>
+                      <p>And we’re just getting started. Stay tuned… even bigger things are on the way! 🚀</p>
                     </div>
 
                     <div class="tab-pane fade" id="features-6_0">
@@ -1123,30 +1301,14 @@
                           </h2>
                           <div id="f1_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
                             <div class="accordion-body">
-                              <p>
-                                <strong>WhatsApp isn’t just for chats anymore…</strong>
-                                It’s now your team’s most powerful sales and engagement channel inside Runo.
-                              </p>
-                              <p>
-                                With the all-new
-                                <strong>WhatsApp Business Integration</strong>
-                                , you can connect your business number directly to Runo and manage every customer conversation from one unified space.
-                              </p>
+                              <p><strong>WhatsApp isn’t just for chats anymore…</strong> It’s now your team’s most powerful sales and engagement channel inside Runo.</p>
+                              <p>With the all-new <strong>WhatsApp Business Integration</strong>, you can connect your business number directly to Runo and manage every customer conversation from one unified space.</p>
 
                               <p><strong>Here’s what makes this integration a game-changer:</strong></p>
                               <ul>
-                                <li>
-                                  <strong>One Centralized Number:</strong>
-                                  Send bulk or personalized WhatsApp messages to segmented audiences using a single verified business number.
-                                </li>
-                                <li>
-                                  <strong>Share rich content:</strong>
-                                  Add images, videos, documents, or even location pins to make every interaction more engaging.
-                                </li>
-                                <li>
-                                  <strong>Unified Inbox & Timeline:</strong>
-                                  Every WhatsApp chat automatically syncs with your calls, emails, and notes, giving you a complete view of every customer interaction history.
-                                </li>
+                                <li><strong>One Centralized Number:</strong> Send bulk or personalized WhatsApp messages to segmented audiences using a single verified business number.</li>
+                                <li><strong>Share rich content:</strong> Add images, videos, documents, or even location pins to make every interaction more engaging.</li>
+                                <li><strong>Unified Inbox & Timeline:</strong> Every WhatsApp chat automatically syncs with your calls, emails, and notes, giving you a complete view of every customer interaction history.</li>
                               </ul>
 
                               <p>With Runo + WABA, WhatsApp becomes more than just a chat platform. It becomes a scalable, trackable sales and customer engagement engine. 🚀</p>
@@ -1158,9 +1320,9 @@
                                 <li>Under Integrations, select WhatsApp and connect your WhatsApp Cloud API.</li>
                                 <li>Complete the embedded Meta signup form to link your business account.</li>
                                 <li>Once done, you’ll land on the Configuration page. Here, you can add or sync your WhatsApp business numbers, map them to the correct Processes, manage connected WABA accounts, and enable or disable numbers at any time.</li>
-                                <li>Assign access to specific users. It can be done either individually or by selecting multiple users at once. You can assign WhatsApp access on an individual user level by enabling it in the ‘Add-ons’ section.</li>
-                                <li>If you wish to give access to multiple users at the same time, then from the ‘Teammates’ section, select the users and click on the ‘Assign Add-on’ button.</li>
-                                <li>Admins and assigned users can then access the WhatsApp Inbox to message customers, create & manage templates, and collaborate seamlessly all within Runo.</li>
+                                <li>Assign access to specific users. It can be done either individually or by selecting multiple users at once.</li>
+                                <li>If you wish to give access to multiple users at the same time, go to the ‘Teammates’ section, select users, and click on the ‘Assign Add-on’ button.</li>
+                                <li>Admins and assigned users can then access the WhatsApp Inbox to message customers, create & manage templates, and collaborate seamlessly within Runo.</li>
                               </ol>
                             </div>
                           </div>
@@ -1173,43 +1335,23 @@
                           </h2>
                           <div id="f2_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
                             <div class="accordion-body">
-                              <p>
-                                <strong>Introducing Runo AI Copilot</strong>
-                                – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.
-                              </p>
-                              <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot is here to help you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds, it can do it all.</p>
+                              <p><strong>Introducing Runo AI Copilot</strong> – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.</p>
+                              <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot helps you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds — it can do it all.</p>
 
                               <p><strong>Here’s what it brings to your experience:</strong></p>
                               <ul>
-                                <li>
-                                  <strong>Ask anything:</strong>
-                                  From “Show me my team’s call performance” to “Summarize last week’s customer interactions,” Copilot is ready with instant, contextual insights.
-                                </li>
-                                <li>
-                                  <strong>Contextual intelligence:</strong>
-                                  Each response comes with suggested follow-up prompts, helping you dig deeper into metrics, performance patterns, or specific team actions.
-                                </li>
-                                <li>
-                                  <strong>Chat history & summaries:</strong>
-                                  Pick up right where you left off and even generate complete chat summaries when you need quick recaps.
-                                </li>
+                                <li><strong>Ask anything:</strong> From “Show me my team’s call performance” to “Summarize last week’s customer interactions,” Copilot gives instant, contextual insights.</li>
+                                <li><strong>Contextual intelligence:</strong> Each response includes suggested follow-up prompts to dig deeper into performance and patterns.</li>
+                                <li><strong>Chat history & summaries:</strong> Continue previous chats or generate quick summaries anytime.</li>
                               </ul>
 
-                              <p>On web or mobile, Runo AI Copilot gives you instant clarity on every call, helping you save time, learn faster, and lead with insight.</p>
-
-                              <h5>How to Use Runo AI Copilot?</h5>
+                              <p><strong>How to Use Runo AI Copilot?</strong></p>
                               <ul>
-                                <li>
-                                  <strong>On Web:</strong>
-                                  Click the Runo AI Copilot button at the top right of the navigation bar.
-                                </li>
-                                <li>
-                                  <strong>On Mobile:</strong>
-                                  Access it from the top right corner of the app bar on the home screen.
-                                </li>
+                                <li><strong>On Web:</strong> Click the Runo AI Copilot button at the top right of the navigation bar.</li>
+                                <li><strong>On Mobile:</strong> Access it from the top right corner of the app bar on the home screen.</li>
                               </ul>
 
-                              <p>Once open, simply type your query. Copilot will respond instantly and even suggest follow-up prompts to guide you further. You can revisit your previous chats anytime or generate a summary of your conversation for quick reference.</p>
+                              <p>Simply type your query — Copilot responds instantly and suggests follow-ups to guide you further. You can revisit previous chats or generate a summary anytime.</p>
                             </div>
                           </div>
                         </div>
@@ -1221,17 +1363,17 @@
                           </h2>
                           <div id="f3_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
                             <div class="accordion-body">
-                              <p>For every eligible call, get detailed insights including speaking time, loudness, sentiment, filler words, and call conduct reviews, along with auto-generated summaries, transcripts, and key discussion points.</p>
-                              <p>For AI Call Insights, look for the AI Insights icon on eligible call logs (defined by your admin).</p>
+                              <p>For every eligible call, get detailed insights including speaking time, loudness, sentiment, filler words, and conduct reviews, along with auto-generated summaries, transcripts, and key discussion points.</p>
+                              <p>Look for the AI Insights icon on eligible call logs (defined by your admin).</p>
 
-                              <p><strong>Here’s what the icons stand for:</strong></p>
+                              <p><strong>Icon meanings:</strong></p>
                               <ul>
-                                <li>AI insights are ready:</li>
-                                <li>Eligible, Click to generate:</li>
-                                <li>AI insights are being generated. Please wait:</li>
+                                <li>AI insights ready</li>
+                                <li>Eligible – Click to generate</li>
+                                <li>Generating insights – Please wait</li>
                               </ul>
 
-                              <p>Clicking the icon opens the detailed report, which includes:</p>
+                              <p>Clicking the icon opens a detailed report including:</p>
                               <ul>
                                 <li>Speaking Time</li>
                                 <li>Average Speaker Loudness</li>
@@ -1240,17 +1382,17 @@
                                 <li>Call Conduct Review</li>
                               </ul>
 
-                              <p><strong>Plus, you’ll also see:</strong></p>
+                              <p><strong>Plus:</strong></p>
                               <ul>
                                 <li>Call Summary</li>
                                 <li>Transcript</li>
-                                <li>Key Questions & Issues Discussed</li>
+                                <li>Key Questions & Issues</li>
                                 <li>Notes</li>
                                 <li>Action Items</li>
-                                <li>Evidence for Call Conduct</li>
+                                <li>Conduct Evidence</li>
                               </ul>
 
-                              <p>With Runo AI, every call tells a clear story… one that helps your team understand, improve, and perform better with data-driven confidence.</p>
+                              <p>With Runo AI, every call tells a clear story — helping your team understand, improve, and perform better with data-driven confidence.</p>
                             </div>
                           </div>
                         </div>
@@ -1262,17 +1404,13 @@
                         <!-- Enhancement 1 -->
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1_6_0">User performance - deeper insights for every teammate</button>
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1_6_0">User Performance - Deeper Insights for Every Teammate</button>
                           </h2>
                           <div id="e1_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Understanding how your team performs just got a whole lot easier. In the User Performance section, you can now view detailed insights into each agent’s activity — from calls made to customers engaged… all in one place.
-                              <br />
-                              <br />
-                              Performance metrics are now allocation-based, giving admins a clearer picture of how effectively leads are being handled and followed up on. Simply click on the numbers next to any teammate’s name to dive into deeper insights for their individual calls and interactions.
-                              <br />
-                              <br />
-                              This update gives managers better visibility, helps identify top performers, and makes it easier to spot where training can make the biggest impact.
+                              <p>Understanding how your team performs just got a whole lot easier. In the User Performance section, you can now view detailed insights into each agent’s activity — from calls made to customers engaged — all in one place.</p>
+                              <p>Performance metrics are now allocation-based, giving admins a clearer picture of how effectively leads are being handled and followed up on. Simply click the numbers next to any teammate’s name to view deeper insights for their individual calls and interactions.</p>
+                              <p>This update gives managers better visibility, helps identify top performers, and highlights where training can make the biggest impact.</p>
                             </div>
                           </div>
                         </div>
@@ -1284,19 +1422,14 @@
                           </h2>
                           <div id="e2_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              From the Transfer Data page, you can easily move all customer details (including interactions, follow-ups, etc) from one teammate to another without losing any information.
-                              <br />
-                              <br />
-                              With this update, you can now:
-                              <br />
-                              • Use filters to narrow down the exact data you want to transfer.
-                              <br />
-                              • Get counts to understand how much is being transferred.
-                              <br />
-                              • Identify and manage unmatched data, which can now be assigned to a specific teammate.
-                              <br />
-                              <br />
-                              This ensures that every handover is seamless, transparent, and completely traceable, so no lead or follow-up ever slips through the cracks.
+                              <p>From the Transfer Data page, you can easily move all customer details (including interactions, follow-ups, etc.) from one teammate to another without losing any information.</p>
+                              <p>With this update, you can now:</p>
+                              <ul>
+                                <li>Use filters to narrow down the exact data you want to transfer.</li>
+                                <li>Get counts to understand how much is being transferred.</li>
+                                <li>Identify and manage unmatched data, which can now be assigned to a specific teammate.</li>
+                              </ul>
+                              <p>This ensures every handover is seamless, transparent, and completely traceable — so no lead or follow-up ever slips through the cracks.</p>
                             </div>
                           </div>
                         </div>
@@ -1304,16 +1437,13 @@
                         <!-- Enhancement 3 -->
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3_6_0">Follow-ups - date range selection is possible</button>
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3_6_0">Follow-ups - Date Range Selection is Possible</button>
                           </h2>
                           <div id="e3_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Stay in control of your schedule with smarter follow-up tracking.
-                              <br />
-                              You can now set a custom date range for your pending or upcoming follow-ups using the calendar icon.
-                              <br />
-                              <br />
-                              Whether you’re planning your week or reviewing last month’s activities, this new ‘date range’ filter helps you focus on the right conversations, at the right time.
+                              <p>Stay in control of your schedule with smarter follow-up tracking.</p>
+                              <p>You can now set a custom date range for your pending or upcoming follow-ups using the calendar icon.</p>
+                              <p>Whether you’re planning your week or reviewing last month’s activities, this new ‘date range’ filter helps you focus on the right conversations at the right time.</p>
                             </div>
                           </div>
                         </div>
@@ -1325,15 +1455,9 @@
                           </h2>
                           <div id="e4_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Filling out customer details is now faster and more accurate than before.
-                              <br />
-                              You can now select the right city and state values from a dropdown list while adding or editing a customer.
-                              <br />
-                              <br />
-                              And here’s the best part — once you enter a Pincode, Runo will automatically fill in the City and State for you.
-                              <br />
-                              <br />
-                              Lesser typing, fewer errors, and a lot more efficiency every time you add a lead.
+                              <p>Filling out customer details is now faster and more accurate than before.</p>
+                              <p>You can now select the right city and state from a dropdown list while adding or editing a customer.</p>
+                              <p>Once you enter a Pincode, Runo will automatically fill in the City and State for you — less typing, fewer errors, and more efficiency.</p>
                             </div>
                           </div>
                         </div>
@@ -1345,12 +1469,8 @@
                           </h2>
                           <div id="e5_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Zoho integration in Runo got even stronger.
-                              <br />
-                              You can now connect not just leads, but also Accounts and Contacts modules from Zoho, giving you a complete sync between your CRM and calling workflows.
-                              <br />
-                              <br />
-                              With this update, every contact and account you manage in Zoho stays perfectly aligned with your data in Runo, ensuring smoother handoffs, cleaner records, and zero duplication.
+                              <p>Zoho integration in Runo just got stronger. You can now connect not only Leads, but also Accounts and Contacts modules from Zoho — giving you a complete sync between your CRM and calling workflows.</p>
+                              <p>With this update, every contact and account you manage in Zoho stays perfectly aligned with your Runo data, ensuring smoother handoffs, cleaner records, and zero duplication.</p>
                             </div>
                           </div>
                         </div>
@@ -1362,15 +1482,8 @@
                           </h2>
                           <div id="e6_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Get instant clarity on lead ownership without extra clicks with this new UI enhancement.
-                              <br />
-                              You can now see the ‘Assigned To’ field right under each customer’s information in the mobile app.
-                              <br />
-                              <br />
-                              This lets you quickly identify which teammate a lead is currently assigned to, without having to open the full customer profile.
-                              <br />
-                              <br />
-                              A small detail, but one that makes managing leads on the go a whole lot smoother.
+                              <p>Get instant clarity on lead ownership without extra clicks. You can now see the ‘Assigned To’ field directly under each customer’s information in the mobile app.</p>
+                              <p>This lets you quickly identify which teammate a lead is currently assigned to without opening the full customer profile.</p>
                             </div>
                           </div>
                         </div>
@@ -1382,12 +1495,7 @@
                           </h2>
                           <div id="e7_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Admins now have more control over team alerts and updates.
-                              <br />
-                              From the Configuration page, admins can easily set up and manage notifications for user activities and allocations, ensuring the right people are informed at the right time.
-                              <br />
-                              <br />
-                              A simple way to stay on top of team actions and keep everyone aligned.
+                              <p>Admins now have more control over team alerts and updates. From the Configuration page, admins can easily set up and manage notifications for user activities and allocations — ensuring the right people are informed at the right time.</p>
                             </div>
                           </div>
                         </div>
@@ -1399,75 +1507,65 @@
                           </h2>
                           <div id="e8_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
                             <div class="accordion-body">
-                              Admins can subscribe, manage, or review billing details — all from one centralized Account & Billing page.
-                              <br />
-                              <br />
-                              <strong>Access & Permissions:</strong>
-                              <br />
-                              • The Account & Billing section is accessible only to Admins.
-                              <br />
-                              • You can subscribe or manage your plan directly from this page.
-                              <br />
-                              • Nudges (Subscribe / Manage) appear as CTAs within the app for quick navigation.
-                              <br />
-                              • Payments can currently be made only through the Web App (not available on mobile).
-                              <br />
-                              <br />
-                              <strong>What You’ll See on the Billing Page:</strong>
-                              <br />
-                              • Billing & Plan Info: View your current plan details and license information.
-                              <br />
-                              • Current Subscription: Manage or change your plan using dedicated CTAs.
-                              <br />
-                              • Payment History: Track your past payments and invoices for easy reference.
-                              <br />
-                              <br />
-                              <strong>How to Subscribe:</strong>
-                              <br />
-                              1. Choose a Plan: Select your plan, licenses, and any add-ons.
-                              <br />
-                              2. Enter Billing Details: Fill in the company name, billing email, and GSTIN.
-                              <br />
-                              3. Confirm & Pay: Review your summary and complete the payment.
-                              <br />
-                              <br />
-                              <strong>Managing an Active Plan:</strong>
-                              <br />
-                              Even when your plan is active, you can increase the number of licenses, add new add-ons, & upgrade existing add-on licenses. All changes are billed on a pro-rata basis.
-                              <br />
-                              Note: Downgrading licenses or changing the billing cycle isn’t allowed during an active plan.
-                              <br />
-                              <br />
-                              <strong>Changing an Inactive Plan:</strong>
-                              <br />
-                              If your plan becomes inactive, you can:
-                              <br />
-                              • Change the billing cycle
-                              <br />
-                              • Increase or decrease licenses
-                              <br />
-                              • Modify add-ons or add-on licenses
-                              <br />
-                              <br />
-                              This flexibility ensures your plan always aligns with your team’s needs and growth.
+                              <p>Admins can subscribe, manage, or review billing details — all from one centralized Account & Billing page.</p>
+
+                              <p><strong>Access & Permissions:</strong></p>
+                              <ul>
+                                <li>The Account & Billing section is accessible only to Admins.</li>
+                                <li>You can subscribe or manage your plan directly from this page.</li>
+                                <li>Nudges (Subscribe / Manage) appear as CTAs within the app for quick navigation.</li>
+                                <li>Payments can currently be made only through the Web App (not available on mobile).</li>
+                              </ul>
+
+                              <p><strong>What You’ll See on the Billing Page:</strong></p>
+                              <ul>
+                                <li>Billing & Plan Info: View your current plan details and license information.</li>
+                                <li>Current Subscription: Manage or change your plan using dedicated CTAs.</li>
+                                <li>Payment History: Track past payments and invoices for easy reference.</li>
+                              </ul>
+
+                              <p><strong>How to Subscribe:</strong></p>
+                              <ol>
+                                <li>Choose a Plan: Select your plan, licenses, and any add-ons.</li>
+                                <li>Enter Billing Details: Fill in company name, billing email, and GSTIN.</li>
+                                <li>Confirm & Pay: Review your summary and complete payment.</li>
+                              </ol>
+
+                              <p><strong>Managing an Active Plan:</strong></p>
+                              <p>When your plan is active, you can:</p>
+                              <ul>
+                                <li>Increase licenses</li>
+                                <li>Add new add-ons</li>
+                                <li>Upgrade existing add-on licenses</li>
+                              </ul>
+                              <p>All changes are billed on a pro-rata basis. Note: Downgrading licenses or changing the billing cycle isn’t allowed during an active plan.</p>
+
+                              <p><strong>Changing an Inactive Plan:</strong></p>
+                              <ul>
+                                <li>Change the billing cycle</li>
+                                <li>Increase or decrease licenses</li>
+                                <li>Modify add-ons or add-on licenses</li>
+                              </ul>
+
+                              <p>This flexibility ensures your plan always aligns with your team’s needs and growth.</p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="tab-pane fade" id="bugs-6_0">
-                      <div class="accordion" id="bugAccordion6_0">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#b1_6_0">Login Redirect Fix</button>
-                          </h2>
-                          <div id="b1_6_0" class="accordion-collapse collapse" data-bs-parent="#bugAccordion6_0">
-                            <div class="accordion-body">Resolved issue where users were redirected to the wrong page after login.</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <!--<div class="tab-pane fade" id="bugs-6_0">
+        <div class="accordion" id="bugAccordion6_0">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#b1_6_0">Login Redirect Fix</button>
+            </h2>
+            <div id="b1_6_0" class="accordion-collapse collapse" data-bs-parent="#bugAccordion6_0">
+              <div class="accordion-body">Resolved issue where users were redirected to the wrong page after login.</div>
+            </div>
+          </div>
+        </div>
+      </div>-->
                   </div>
                 </div>
               </div>
@@ -1476,182 +1574,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Custom Styles -->
-    <style>
-      .accordion-button {
-        background-color: #fff;
-        color: #333;
-        font-weight: 500;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(244, 67, 54, 0.05);
-      }
-
-      .breadcrumb {
-        --bs-breadcrumb-divider: '/';
-      }
-
-      .breadcrumb-item + .breadcrumb-item::before {
-        content: var(--bs-breadcrumb-divider);
-        color: #999; /* optional - makes divider lighter */
-      }
-
-      .product-releases {
-        background-color: #fff;
-      }
-      .custom-breadcrumb {
-        background-color: #ffe9e9;
-        border-radius: 50px;
-        padding: 10px 20px;
-        box-shadow: 0 2px 6px rgba(244, 67, 54, 0.1);
-      }
-      .accordion-button:focus {
-        z-index: 3;
-        outline: none;
-        border-color: #f44336;
-        box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
-      }
-
-      .breadcrumb-item a {
-        color: #f44336;
-        text-decoration: none;
-        font-weight: 500;
-      }
-      .breadcrumb-item.active {
-        color: #222;
-        font-weight: 600;
-      }
-      .release-sidebar {
-        border: 1px solid #f2f2f2;
-        transition: box-shadow 0.3s ease;
-        border-radius: 20px;
-      }
-      .release-sidebar:hover {
-        box-shadow: 0 8px 20px rgba(244, 67, 54, 0.15);
-      }
-      .release-list .list-group-item {
-        border: none;
-        border-left: 4px solid transparent;
-        padding: 12px 16px;
-        font-weight: 500;
-        color: #555;
-        border-radius: 6px;
-        margin-bottom: 6px;
-        transition: all 0.3s ease;
-      }
-      .release-list .list-group-item:hover {
-        background-color: #fff5f5;
-        border-left-color: #f44336;
-        color: #f44336;
-      }
-      .release-list .list-group-item.active {
-        background-color: #f44336 !important;
-        color: #fff !important;
-        border-left-color: #f44336;
-        font-weight: 600;
-      }
-      .release-card {
-        border: 1px solid #f2f2f2;
-        transition: all 0.3s ease;
-        border-radius: 20px;
-      }
-      .release-card:hover {
-        box-shadow: 0 8px 25px rgba(244, 67, 54, 0.12);
-        transform: translateY(-2px);
-      }
-      .sub-tabs .nav-link {
-        border-radius: 50px;
-        padding: 6px 16px;
-        font-weight: 500;
-        color: #f44336;
-        border: 1px solid #f44336;
-        background-color: transparent;
-        margin-right: 8px;
-        transition: 0.3s;
-      }
-      .sub-tabs .nav-link.active,
-      .sub-tabs .nav-link:hover {
-        background-color: #f44336;
-        color: #fff;
-      }
-      .feature-list {
-        margin: 0;
-        padding-left: 20px;
-      }
-      .feature-list li {
-        margin-bottom: 6px;
-      }
-
-      /* ===== Sub-tabs layout (desktop default) ===== */
-      .sub-tabs .nav-item {
-        margin-right: 10px;
-      }
-
-      .sub-tabs .nav-link {
-        border-radius: 50px;
-        padding: 8px 20px;
-        font-weight: 500;
-        color: #444;
-        border: 1px solid #ddd;
-        transition: all 0.3s ease;
-      }
-
-      .sub-tabs .nav-link.active {
-        background-color: #f44336;
-        color: #fff;
-        border-color: #f44336;
-        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
-      }
-
-      /* ===== Mobile layout (2-per-row equal pills) ===== */
-      @media (max-width: 767.98px) {
-        .sub-tabs {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
-          justify-content: center;
-        }
-
-        .sub-tabs .nav-item {
-          margin: 0; /* remove side margins */
-          width: 100%;
-        }
-
-        .sub-tabs .nav-link {
-          width: 100%;
-          text-align: center;
-          font-size: 14px;
-          padding: 10px 0;
-          border-radius: 12px;
-          background: #fff;
-          border: 1px solid #ddd;
-        }
-
-        .sub-tabs .nav-link.active {
-          background: #f44336;
-          color: #fff;
-          border-color: #f44336;
-          font-weight: 600;
-        }
-      }
-      .tab-content li {
-        color: #111111;
-      }
-
-      /* Accordion */
-      .accordion-button:not(.collapsed) {
-        color: #f44336;
-        background-color: #ffe9e9;
-        border-radius: 0px;
-        box-shadow: none;
-      }
-      .accordion-item {
-        border-radius: 10px;
-        border: 1px solid #eee;
-        margin-bottom: 10px;
-      }
-    </style>
 
     <!-- Breadcrumb Script -->
     <script>
@@ -1663,7 +1585,7 @@
         const hash = window.location.hash;
 
         let currentRelease = 'Release Notes 6.2';
-        let currentSection = 'All';
+        let currentSection = 'Overview';
 
         // --- Function to update breadcrumb ---
         function updateBreadcrumb() {
@@ -1685,7 +1607,7 @@
         releaseLinks.forEach((link) => {
           link.addEventListener('click', function () {
             currentRelease = this.textContent.trim();
-            currentSection = 'All';
+            currentSection = 'Overview';
             updateBreadcrumb();
           });
         });
@@ -1694,7 +1616,7 @@
         subTabs.forEach((tab) => {
           tab.addEventListener('click', function () {
             const sectionName = this.textContent.replace(/🚀|🔧|🐞/g, '').trim();
-            currentSection = sectionName || 'All';
+            currentSection = sectionName || 'Overview';
             updateBreadcrumb();
           });
         });
@@ -1726,7 +1648,7 @@
               currentRelease = 'Release Notes 6.0';
               history.replaceState(null, '', '#six-zero');
             }
-            currentSection = 'All';
+            currentSection = 'Overview';
             updateBreadcrumb();
           });
         });
