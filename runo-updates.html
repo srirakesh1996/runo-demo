@@ -257,6 +257,31 @@
         border: 1px solid #eee;
         margin-bottom: 10px;
       }
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* small spacing between items */
+        background: #fff5f5; /* your pink background */
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .breadcrumb a {
+        color: #ff4d4d; /* your red for Home */
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .breadcrumb span,
+      .breadcrumb li {
+        display: inline-flex;
+        align-items: center;
+        color: #333;
+      }
     </style>
   </head>
   <body>
@@ -1574,6 +1599,95 @@
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const releaseSidebar = document.querySelector('.release-sidebar');
+        const tabContent = document.querySelector('.tab-content');
+        const breadcrumb = document.querySelector('.breadcrumb');
+        const breadcrumbLabel = document.querySelector('.release-breadcrumb');
+        const homeLink = document.querySelector('.breadcrumb-item a');
+
+        // Function to handle mobile/desktop view state
+        function handleView() {
+          if (window.innerWidth < 768) {
+            // Mobile
+            if (window.location.hash) {
+              // Viewing a release tab
+              releaseSidebar.style.display = 'none';
+              tabContent.style.display = 'block';
+              breadcrumb.style.display = 'block'; // show breadcrumb
+            } else {
+              // Home view (updates list)
+              releaseSidebar.style.display = 'block';
+              tabContent.style.display = 'none';
+              breadcrumb.style.display = 'none'; // hide breadcrumb
+            }
+          } else {
+            // Desktop view
+            releaseSidebar.style.display = 'block';
+            tabContent.style.display = 'block';
+            breadcrumb.style.display = 'block';
+          }
+        }
+
+        handleView();
+        window.addEventListener('resize', handleView);
+
+        // Activate release tab function
+        function activateRelease(targetId, labelText) {
+          const tabTrigger = document.querySelector(targetId);
+          if (tabTrigger) {
+            const tab = new bootstrap.Tab(tabTrigger);
+            tab.show();
+          }
+          breadcrumbLabel.textContent = labelText;
+
+          if (window.innerWidth < 768) {
+            releaseSidebar.style.display = 'none';
+            tabContent.style.display = 'block';
+            breadcrumb.style.display = 'block'; // show breadcrumb when viewing release
+          }
+        }
+
+        // When clicking on sidebar links
+        document.querySelectorAll('.release-list a').forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const labelText = this.textContent.trim();
+            activateRelease(targetId, labelText);
+
+            // Update hash in URL
+            const hashValue = targetId.replace('-content', '').replace('#release-', '#six-');
+            history.pushState(null, null, hashValue);
+          });
+        });
+
+        // When clicking "Home" in breadcrumb
+        if (homeLink) {
+          homeLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (window.innerWidth < 768) {
+              releaseSidebar.style.display = 'block';
+              tabContent.style.display = 'none';
+              breadcrumb.style.display = 'none'; // hide breadcrumb on home
+              breadcrumbLabel.textContent = 'Runo Updates';
+              history.pushState(null, null, '#');
+            }
+          });
+        }
+
+        // Auto-load based on hash
+        const hash = window.location.hash;
+        if (hash === '#six-two') {
+          activateRelease('#release-6-2-list', 'Release Notes 6.2');
+        } else if (hash === '#six-one') {
+          activateRelease('#release-6-1-list', 'Release Notes 6.1');
+        } else if (hash === '#six-zero') {
+          activateRelease('#release-6-0-list', 'Release Notes 6.0');
+        }
+      });
+    </script>
 
     <!-- Breadcrumb Script -->
     <script>
