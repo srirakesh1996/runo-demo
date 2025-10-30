@@ -89,6 +89,17 @@
         background: url('img/banner-img.webp') no-repeat center center;
         background-size: cover;
       }
+      #reason::placeholder {
+        color: #898989; /* placeholder text color */
+
+        font-size: 14px; /* optional: font size */
+        opacity: 1; /* ensures full opacity in some browsers */
+      }
+
+      /* Optional: add focus effect */
+      #reason:focus::placeholder {
+        color: #898989; /* change color when focused */
+      }
     </style>
   </head>
   <body>
@@ -893,7 +904,7 @@
               <img src="img/soc.avif" alt="SOC 2 Type I" class="mb-3" style="max-width: 150px" />
               <p><strong>Engagements No.18</strong></p>
               <p><strong>SOC 2 Type I</strong></p>
-              <a href="contact" class="btn-plain track-btn">Contact Us to Download Certificate</a>
+              <a href="#" class="btn-plain track-btn" data-bs-toggle="modal" data-bs-target="#requestcert" data-label="book a demo - Home Header">Contact Us to Download Certificate</a>
               <p class="mt-2">
                 <strong>Issue Date:</strong>
                 16-May-2025
@@ -923,7 +934,7 @@
               <img src="img/iso.avif" alt="ISO 27001" class="mb-3" style="max-width: 150px" />
               <p><strong>CB-MS-3824</strong></p>
               <p><strong>ISO/IEC 27001:2022</strong></p>
-              <a href="contact" class="btn-plain track-btn">Contact Us to Download Certificate</a>
+              <a href="#" class="btn-plain track-btn" data-bs-toggle="modal" data-bs-target="#requestcert" data-label="book a demo - Home Header">Contact Us to Download Certificate</a>
 
               <p class="mt-2">
                 <strong>Valid Upto :</strong>
@@ -957,7 +968,7 @@
                 UQ-2025100612
               </p>
               <p><strong>UKCert – GDPR Management Standard</strong></p>
-              <a href="contact" class="btn-plain track-btn">Contact Us to Download Certificate</a>
+              <a href="#" class="btn-plain track-btn" data-bs-toggle="modal" data-bs-target="#requestcert" data-label="book a demo - Home Header">Contact Us to Download Certificate</a>
               <p class="mt-2">
                 <strong>Valid Upto:</strong>
                 05-Oct-2028
@@ -986,7 +997,313 @@
       </section>
       <!-- Certifications Section End -->
 
-      <!-- Certifications Section End -->
+      <!-- Modal -->
+      <div class="modal fade" id="requestcert" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="custom-modal-box">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h5>Download Certificate!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="cert-form" method="POST" data-page-name="Refund &amp; Cancellation Policy" data-uuid="540c6a38-0072-4c48-9fac-b443f814a999">
+                  <!-- Modal and variables -->
+                  <!-- You can convert these to JS-based modal init if needed -->
+                  <div class="mb-1">
+                    <input type="text" name="your_name" class="form-control" id="name1" placeholder="Name" />
+                    <small class="text-danger d-none" id="nameError1">Name is required.</small>
+                  </div>
+                  <div class="mb-1">
+                    <input type="email" name="your_email" class="form-control" id="email1" placeholder="Email Address" />
+                    <small class="text-danger d-none" id="emailError1">Valid email is required.</small>
+                  </div>
+                  <div class="mb-1">
+                    <input type="tel" name="your_phone" class="form-control" id="phone2" placeholder="Phone Number" autocomplete="tel" />
+                    <small class="text-danger d-none" id="phoneError1">Enter a valid phone number.</small>
+                  </div>
+                  <div class="mb-1">
+                    <input type="text" name="your_company" class="form-control" id="comp_name1" placeholder="Company Name" />
+                    <small class="text-danger d-none" id="comp_nameError1">Company Name is required.</small>
+                  </div>
+                  <!-- Certificate Requested -->
+                  <div class="mb-1">
+                    <select name="certificate_requested" class="form-select" id="certificate">
+                      <option value="" disabled selected style="color: #858585">Select Certificate Requested</option>
+                      <option value="SOC 2 Type I">SOC 2 Type I</option>
+                      <option value="ISO 27001">ISO 27001</option>
+                      <option value="GDPR Compliance">GDPR Compliance</option>
+                    </select>
+                    <small class="text-danger d-none" id="certificateError">Please select a certificate.</small>
+                  </div>
+
+                  <!-- Reason -->
+                  <div class="mb-2">
+                    <textarea name="reason" class="form-control" id="reason" rows="3" placeholder="Reason for requesting certificate"></textarea>
+                    <small class="text-danger d-none" id="reasonError">Reason is required.</small>
+                  </div>
+
+                  <p style="font-size: 12px !important; margin-bottom: 10px">
+                    By submitting this form, I agree to the
+                    <a href="privacy-policy" target="_blank">privacy policy</a>
+                    .
+                  </p>
+                  <button type="submit" id="cert-form-btn" class="btn-default btn-highlighted" style="width: 100%">
+                    <span class="btn-text">Submit</span>
+                    <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        jQuery(function ($) {
+          const $form = $('#cert-form');
+          const phoneInput = document.querySelector('#phone2');
+          const iti = window.intlTelInput(phoneInput, {
+            initialCountry: 'auto', // <-- add this line
+            geoIpLookup: function (callback) {
+              fetch('https://ipapi.co/json/')
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data) => {
+                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : 'in';
+
+                  callback(countryCode);
+                })
+                .catch((err) => {
+                  console.error('geoIpLookup error:', err);
+                  callback('in');
+                });
+            },
+            separateDialCode: true,
+            utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js',
+          });
+
+          const fakeNumbers = ['1234567890', '0000000000', '1111111111', '2222222222', '3333333333', '4444444444', '5555555555', '6666666666', '7777777777', '8888888888', '9999999999'];
+          const countryLengthMap = {
+            in: [10],
+            ae: [9],
+            us: [10],
+            ca: [10],
+            gb: [10, 11],
+            sa: [9],
+            ph: [10],
+            id: [10, 11],
+            sg: [8],
+            au: [9],
+            nz: [8, 9],
+            pk: [10],
+            bd: [10],
+            lk: [9],
+            ng: [10, 11],
+            ke: [9],
+            za: [9, 10],
+            my: [9, 10],
+            th: [9, 10],
+            vn: [9, 10],
+            kr: [9, 10, 11],
+            jp: [10, 11],
+            cn: [11],
+            hk: [8],
+            tw: [9, 10],
+            de: [10, 11],
+            fr: [9, 10],
+            it: [10],
+            es: [9],
+            br: [10, 11],
+            mx: [10],
+            ar: [10, 11],
+            ru: [10],
+            tr: [10],
+            eg: [10, 11],
+            iq: [10],
+            gt: [8],
+          };
+
+          function getMaxLengthForCountry() {
+            const countryCode = iti.getSelectedCountryData().iso2;
+            const allowedLengths = countryLengthMap[countryCode];
+            return allowedLengths ? Math.max(...allowedLengths) : 15;
+          }
+          let phoneTouched = false;
+
+          $('#phone2').on('focus input', function () {
+            phoneTouched = true;
+            validatePhone();
+          });
+
+          phoneInput.addEventListener('input', () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, '');
+            const maxLength = getMaxLengthForCountry();
+            if (phoneInput.value.length > maxLength) {
+              phoneInput.value = phoneInput.value.slice(0, maxLength);
+            }
+            validatePhone();
+          });
+
+          phoneInput.addEventListener('countrychange', () => {
+            const maxLength = getMaxLengthForCountry();
+            phoneInput.value = phoneInput.value.slice(0, maxLength);
+            validatePhone();
+          });
+          // Validation functions
+          function validateName() {
+            const val = $('#name1').val().trim();
+            if (!val || val.length > 30) {
+              $('#nameError1').removeClass('d-none');
+              return false;
+            }
+            $('#nameError1').addClass('d-none');
+            return true;
+          }
+          function validateEmail() {
+            const val = $('#email1').val().trim();
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !pattern.test(val)) {
+              $('#emailError1').removeClass('d-none');
+              return false;
+            }
+            $('#emailError1').addClass('d-none');
+            return true;
+          }
+          function validatePhone() {
+            const phoneNational = phoneInput.value;
+            const selectedCountry = iti.getSelectedCountryData().iso2;
+            const validLengths = countryLengthMap[selectedCountry];
+            if (!phoneTouched) {
+              $('#phoneError1').addClass('d-none');
+              return false;
+            }
+            if (!iti.isValidNumber()) {
+              $('#phoneError1').text('Please enter a valid phone number.').removeClass('d-none');
+              return false;
+            }
+
+            if (fakeNumbers.includes(phoneNational)) {
+              $('#phoneError1').text('Please enter a real phone number.').removeClass('d-none');
+              return false;
+            }
+
+            if (validLengths && !validLengths.includes(phoneNational.length)) {
+              $('#phoneError1')
+                .text(`Phone number must be ${validLengths.join(' or ')} digits.`)
+                .removeClass('d-none');
+              return false;
+            }
+
+            $('#phoneError1').addClass('d-none');
+            return true;
+          }
+          function validateCompName() {
+            const val = $('#comp_name1').val().trim();
+            if (!val || val.length > 30) {
+              $('#comp_nameError1').removeClass('d-none');
+              return false;
+            }
+            $('#comp_nameError1').addClass('d-none');
+            return true;
+          }
+          function validateCertificate() {
+            if (!$('#certificate').val()) {
+              $('#certificateError').removeClass('d-none');
+              return false;
+            }
+            $('#certificateError').addClass('d-none');
+            return true;
+          }
+          function validateReason() {
+            const val = $('#reason').val().trim();
+            if (!val || val.length > 200) {
+              $('#reasonError').removeClass('d-none');
+              return false;
+            }
+            $('#reasonError').addClass('d-none');
+            return true;
+          }
+
+          // Realtime validation
+          $('#name1').on('input', validateName);
+          $('#email1').on('input', validateEmail);
+          $('#phone2').on('input', validatePhone);
+          $('#comp_name1').on('input', validateCompName);
+          $('#certificate').on('change', validateCertificate);
+          $('#reason').on('input', validateReason);
+
+          // Submit handler
+          $form.on('submit', function (e) {
+            e.preventDefault();
+
+            const valid = validateName() && validateEmail() && validatePhone() && validateCompName() && validateCertificate() && validateReason();
+
+            if (!valid) return;
+
+            const formData = $(this)
+              .serializeArray()
+              .reduce((obj, item) => {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
+            formData['your_phone'] = iti.getNumber(); // International format
+
+            const $btn = $(this).find("button[type='submit']");
+            const $spinner = $btn.find('.spinner-border');
+            const $btnText = $btn.find('.btn-text');
+            const defaultText = $btnText.text();
+
+            $btn.prop('disabled', true);
+            $spinner.removeClass('d-none');
+            $btnText.text('Submitting...');
+
+            // Prepare Zapier-friendly data
+            const zapierData = {
+              name: formData['your_name'] || '',
+              email: formData['your_email'] || '',
+              phone: formData['your_phone'] || '',
+              company: formData['your_company'] || '',
+              certificate_requested: formData['certificate_requested'] || '',
+              reason: formData['reason'] || '',
+              opted_in: true,
+            };
+
+            $.ajax({
+              type: 'POST',
+              url: 'https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/', // Zap URL
+              data: zapierData, // form-encoded
+              success: function (response) {
+                console.log('✅ Zapier response:', response);
+                $form[0].reset();
+                $('#requestcert').modal('hide');
+                $('#thankYouModal2').modal('show');
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                console.warn('❌ Zapier failed:', textStatus, errorThrown);
+                console.log('🔍 Response text:', jqXHR.responseText);
+                alert('Oops! Something went wrong while sending to Zapier.');
+              },
+              complete: function () {
+                $btn.prop('disabled', false);
+                $spinner.addClass('d-none');
+                $btnText.text(defaultText);
+              },
+            });
+          });
+        });
+      </script>
+      <!-- Thank You Modal -->
+      <div class="modal fade" id="thankYouModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center p-4">
+            <img src="img/success.webp" alt="success" style="margin: 10px auto; display: block; width: 50px" />
+            <h5 class="mb-3">Thank you!</h5>
+            <p style="margin-bottom: 5px">Your submission has been received. Our team will get back to you shortly.</p>
+            <button type="button" class="btn-default btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
 
       <!-- Cancellation and Refund Policy Section End -->
       <footer class="bg-dark text-light pt-5 pb-4">

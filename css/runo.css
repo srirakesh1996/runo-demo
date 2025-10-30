@@ -319,7 +319,7 @@
   width: 100% !important;
   display: block;
   margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 15px;
 }
 
 .submenu-list li a:hover {
@@ -327,7 +327,7 @@
   width: 100% !important;
   display: block;
   margin: 0 auto;
-  border-radius: 16px;
+  border-radius: 15px;
   padding: 10px 18px !important;
 }
 
