@@ -1092,7 +1092,7 @@
                   <!-- Sub Tabs -->
                   <ul class="nav nav-pills mb-4 sub-tabs" id="subTab6_2" role="tablist">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_2" type="button">Overview</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_2" type="button">All</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_2" type="button">🚀 New Features</button>
@@ -1615,7 +1615,7 @@
 
                   <ul class="nav nav-pills mb-4 sub-tabs">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_1">Overview</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_1">All</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_1">🚀 New Features</button>
@@ -1901,7 +1901,7 @@
 
                   <ul class="nav nav-pills mb-4 sub-tabs">
                     <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_0">Overview</button>
+                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-6_0">All</button>
                     </li>
                     <li class="nav-item">
                       <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-6_0">🚀 New Features</button>
@@ -2539,7 +2539,7 @@
         const hash = window.location.hash;
 
         let currentRelease = 'Release Notes 6.2';
-        let currentSection = 'Overview';
+        let currentSection = 'All';
 
         // --- Function to update breadcrumb ---
         function updateBreadcrumb() {
@@ -2561,7 +2561,7 @@
         releaseLinks.forEach((link) => {
           link.addEventListener('click', function () {
             currentRelease = this.textContent.trim();
-            currentSection = 'Overview';
+            currentSection = 'All';
             updateBreadcrumb();
           });
         });
@@ -2570,7 +2570,7 @@
         subTabs.forEach((tab) => {
           tab.addEventListener('click', function () {
             const sectionName = this.textContent.replace(/🚀|🔧|🐞/g, '').trim();
-            currentSection = sectionName || 'Overview';
+            currentSection = sectionName || 'All';
             updateBreadcrumb();
           });
         });
@@ -2602,7 +2602,7 @@
               currentRelease = 'Release Notes 6.0';
               history.replaceState(null, '', '#six-zero');
             }
-            currentSection = 'Overview';
+            currentSection = 'All';
             updateBreadcrumb();
           });
         });
