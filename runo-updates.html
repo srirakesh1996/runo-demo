@@ -87,11 +87,12 @@
 
       .accordion-button {
         background-color: #fff;
+        border-radius: 10px !important;
+
         color: #333;
         font-weight: 500;
-        border-radius: 10px;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(244, 67, 54, 0.05);
+        box-shadow: 0 2px 4px rgba(244, 67, 54, 0.17);
       }
 
       .breadcrumb {
@@ -116,7 +117,7 @@
         z-index: 3;
         outline: none;
         border-color: #f44336;
-        box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
+        box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.18);
       }
 
       .breadcrumb-item a {
@@ -189,6 +190,10 @@
         margin-bottom: 6px;
       }
 
+      .accordion .accordion-item {
+        border: 1px solid #eeeeee78 !important;
+      }
+
       /* ===== Sub-tabs layout (desktop default) ===== */
       .sub-tabs .nav-item {
         margin-right: 10px;
@@ -253,9 +258,8 @@
         box-shadow: none;
       }
       .accordion-item {
-        border-radius: 10px;
         border: 1px solid #eee;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
 
       .product-releases .breadcrumb li:last-child {
@@ -1122,7 +1126,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf1_6_2"> SIM & Cloud Telephony Hybrid </button>
                           </h2>
-                          <div id="allf1_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="allf1_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Runo v6.2 introduces Hybrid Calling - a powerful new addition for Cloud Telephony users! With this feature, users can now make calls using both SIM and Virtual Numbers, giving your team the flexibility to choose how they connect with customers. </p>
                               <p>Here’s what’s new:</p>
@@ -1167,7 +1171,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf2_6_2"> Allocation Automation Rules - Assigning Leads on Autopilot </button>
                           </h2>
-                          <div id="allf2_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="allf2_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Manually assigning leads is so last season. </p>
                               <p> With the new <strong>Allocation Rules</strong>, admins can now create filters that automatically route leads to the right agents - saving time and ensuring no lead slips through the cracks. </p>
@@ -1200,7 +1204,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf3_6_2"> Do Not Track List - You Decide Who Stays Off the Radar </button>
                           </h2>
-                          <div id="allf3_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="allf3_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Not every number deserves to be tracked, and now, you decide which ones don’t. <br /> </p><p> With the new <strong>Do Not Track (DNT) List</strong>, admins can exclude up to 1000 numbers from SIM call tracking. </p>
 
@@ -1233,7 +1237,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf4_6_2"> Deactivate Users - Stay in Control of Who’s Active </button>
                           </h2>
-                          <div id="allf4_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="allf4_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Keeping your workspace organized just got easier! </p>
                               <p>
@@ -1259,7 +1263,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle1_6_2"> Sticky Interaction Menu - Navigate with Ease, Anytime </button>
                           </h2>
-                          <div id="alle1_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="alle1_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> We’ve made navigating customer details smoother than ever! </p>
                               <p> Now, the <strong>top menu in the ‘Customers’ </strong>page stays fixed while you scroll through the interactions, so you can switch between tabs instantly without scrolling all the way back up. </p>
@@ -1272,7 +1276,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle2_6_2"> Data Cleanup Preview - Double-Check Before You Clean </button>
                           </h2>
-                          <div id="alle2_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="alle2_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Having Second-guesses during the cleanup process? Not anymore! </p>
                               <p> Admins can now preview the list of all matched customers along with their count before proceeding with data cleanup. </p>
@@ -1290,7 +1294,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle3_6_2"> Unselect Options in CRM Dropdown fields </button>
                           </h2>
-                          <div id="alle3_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="alle3_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>
                                 Ever selected the wrong option in the CRM form and wished you could just undo it?<br />
@@ -1309,7 +1313,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle4_6_2"> Manage Columns - See What Matters Most </button>
                           </h2>
-                          <div id="alle4_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="alle4_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> We get it… not every column matters every time. With the new Customize Columns feature, you can now choose exactly which columns to display on your tables, giving you a workspace that’s focused. </p>
                               <p>How to use:</p>
@@ -1328,7 +1332,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle5_6_2"> Rechurn Logic - Select Your Preferred Date Range </button>
                           </h2>
-                          <div id="alle5_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="alle5_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>
                                 We’ve made Rechurn more flexible.<br />
@@ -1355,7 +1359,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1_6_2"> SIM & Cloud Telephony Hybrid </button>
                           </h2>
-                          <div id="f1_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="f1_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Runo v6.2 introduces Hybrid Calling - a powerful new addition for Cloud Telephony users! With this feature, users can now make calls using both SIM and Virtual Numbers, giving your team the flexibility to choose how they connect with customers. </p>
                               <p>Here’s what’s new:</p>
@@ -1400,7 +1404,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2_6_2"> Allocation Automation Rules - Assigning Leads on Autopilot </button>
                           </h2>
-                          <div id="f2_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="f2_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Manually assigning leads is so last season. </p>
                               <p> With the new <strong>Allocation Rules</strong>, admins can now create filters that automatically route leads to the right agents - saving time and ensuring no lead slips through the cracks. </p>
@@ -1433,7 +1437,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3_6_2"> Do Not Track List - You Decide Who Stays Off the Radar </button>
                           </h2>
-                          <div id="f3_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="f3_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Not every number deserves to be tracked, and now, you decide which ones don’t. <br /> </p><p> With the new <strong>Do Not Track (DNT) List</strong>, admins can exclude up to 1000 numbers from SIM call tracking. </p>
 
@@ -1466,7 +1470,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4_6_2"> Deactivate Users - Stay in Control of Who’s Active </button>
                           </h2>
-                          <div id="f4_6_2" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_2">
+                          <div id="f4_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Keeping your workspace organized just got easier! </p>
                               <p>
@@ -1495,7 +1499,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1_6_2"> Sticky Interaction Menu - Navigate with Ease, Anytime </button>
                           </h2>
-                          <div id="e1_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="e1_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> We’ve made navigating customer details smoother than ever! </p>
                               <p> Now, the <strong>top menu in the ‘Customers’ </strong>page stays fixed while you scroll through the interactions, so you can switch between tabs instantly without scrolling all the way back up. </p>
@@ -1508,7 +1512,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e2_6_2"> Data Cleanup Preview - Double-Check Before You Clean </button>
                           </h2>
-                          <div id="e2_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="e2_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Having Second-guesses during the cleanup process? Not anymore! </p>
                               <p> Admins can now preview the list of all matched customers along with their count before proceeding with data cleanup. </p>
@@ -1526,7 +1530,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3_6_2"> Unselect Options in CRM Dropdown fields </button>
                           </h2>
-                          <div id="e3_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="e3_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>
                                 Ever selected the wrong option in the CRM form and wished you could just undo it?<br />
@@ -1545,7 +1549,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e4_6_2"> Manage Columns - See What Matters Most </button>
                           </h2>
-                          <div id="e4_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="e4_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> We get it… not every column matters every time. With the new Customize Columns feature, you can now choose exactly which columns to display on your tables, giving you a workspace that’s focused. </p>
                               <p>How to use:</p>
@@ -1564,7 +1568,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e5_6_2"> Rechurn Logic - Select Your Preferred Date Range </button>
                           </h2>
-                          <div id="e5_6_2" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_2">
+                          <div id="e5_6_2" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>
                                 We’ve made Rechurn more flexible.<br />
@@ -1641,7 +1645,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf1_6_1"> Log Interactions for Unknown Numbers - Never Miss a Lead Again </button>
                           </h2>
-                          <div id="allf1_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="allf1_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Forgot to log an interaction for an unknown number? Don’t worry, your lead is still within reach.</p>
                               <p>With this update, you can now add interactions anytime from the <strong>‘Call Logs’</strong> tab, even if you missed it right after the call.</p>
@@ -1659,7 +1663,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf2_6_1"> Export Your Analytics - In Just a Click </button>
                           </h2>
-                          <div id="allf2_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="allf2_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Getting your analytics data out of Runo just got easier.</p>
                               <p>From the ‘Analytics’ tab, users can view detailed insights such as call trends, customer stages, top-performing teammates, etc, all in one place.</p>
@@ -1679,7 +1683,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf3_6_1"> Smarter Call Log Management for Admins </button>
                           </h2>
-                          <div id="allf3_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="allf3_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have the flexibility to delete call records for customers directly from the web app.</p>
                               <p>From the <strong>‘Call Logs’</strong> tab, select all the calls you wish to delete and click on the <strong>‘Delete’</strong> option at the top.</p>
@@ -1698,7 +1702,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle1_6_1"> Switch ‘Process’ from Any Tab on the Web </button>
                           </h2>
-                          <div id="alle1_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="alle1_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Switching between one Process to another in the web app just got a lot smoother.</p>
                               <p>No more returning to the dashboard to switch Processes, you can now toggle between them from any tab, like Analytics, Call Logs, or Customers. </p>
@@ -1713,7 +1717,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle2_6_1"> Webhook Management - Now in Your Control </button>
                           </h2>
-                          <div id="alle2_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="alle2_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have complete control over how webhook errors are managed.</p>
                               <p>When setting up or configuring a webhook, if an error occurs, you can choose whether the webhook should be automatically disabled or remain enabled for further troubleshooting.</p>
@@ -1728,7 +1732,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle3_6_1"> Advanced Contact Search </button>
                           </h2>
-                          <div id="alle3_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="alle3_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Searching for customers just got simpler.</p>
                               <p>In the <strong>‘Allocations’</strong> tab, you no longer need to switch between separate options for name and number.</p>
@@ -1745,7 +1749,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle4_6_1"> Simplified Data Sharing and Role Management </button>
                           </h2>
-                          <div id="alle4_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="alle4_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>This update also brings finer control in data and permission management for the admins with:</p>
                               <p><strong>1. Transfer Data to Multiple Users:</strong> Admins can now transfer customer data from one agent to multiple agents at once, saving time and ensuring smooth handovers across teams. </p>
@@ -1765,7 +1769,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1_6_1"> Log Interactions for Unknown Numbers - Never Miss a Lead Again </button>
                           </h2>
-                          <div id="f1_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="f1_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Forgot to log an interaction for an unknown number? Don’t worry, your lead is still within reach.</p>
                               <p>With this update, you can now add interactions anytime from the <strong>‘Call Logs’</strong> tab, even if you missed it right after the call.</p>
@@ -1783,7 +1787,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2_6_1"> Export Your Analytics - In Just a Click </button>
                           </h2>
-                          <div id="f2_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="f2_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Getting your analytics data out of Runo just got easier.</p>
                               <p>From the ‘Analytics’ tab, users can view detailed insights such as call trends, customer stages, top-performing teammates, etc, all in one place.</p>
@@ -1803,7 +1807,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3_6_1"> Smarter Call Log Management for Admins </button>
                           </h2>
-                          <div id="f3_6_1" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_1">
+                          <div id="f3_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have the flexibility to delete call records for customers directly from the web app.</p>
                               <p>From the <strong>‘Call Logs’</strong> tab, select all the calls you wish to delete and click on the <strong>‘Delete’</strong> option at the top.</p>
@@ -1825,7 +1829,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1_6_1"> Switch ‘Process’ from Any Tab on the Web </button>
                           </h2>
-                          <div id="e1_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="e1_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Switching between one Process to another in the web app just got a lot smoother.</p>
                               <p>No more returning to the dashboard to switch Processes, you can now toggle between them from any tab, like Analytics, Call Logs, or Customers. </p>
@@ -1840,7 +1844,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e2_6_1"> Webhook Management - Now in Your Control </button>
                           </h2>
-                          <div id="e2_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="e2_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have complete control over how webhook errors are managed.</p>
                               <p>When setting up or configuring a webhook, if an error occurs, you can choose whether the webhook should be automatically disabled or remain enabled for further troubleshooting.</p>
@@ -1855,7 +1859,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3_6_1"> Advanced Contact Search </button>
                           </h2>
-                          <div id="e3_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="e3_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Searching for customers just got simpler.</p>
                               <p>In the <strong>‘Allocations’</strong> tab, you no longer need to switch between separate options for name and number.</p>
@@ -1872,7 +1876,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e4_6_1"> Simplified Data Sharing and Role Management </button>
                           </h2>
-                          <div id="e4_6_1" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_1">
+                          <div id="e4_6_1" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>This update also brings finer control in data and permission management for the admins with:</p>
                               <p><strong>1. Transfer Data to Multiple Users:</strong> Admins can now transfer customer data from one agent to multiple agents at once, saving time and ensuring smooth handovers across teams. </p>
@@ -1934,7 +1938,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf1_6_0">WhatsApp Business Integration – Bring Every Conversation Closer</button>
                           </h2>
-                          <div id="allf1_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="allf1_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>WhatsApp isn’t just for chats anymore… It’s now your team’s most powerful sales and engagement channel inside Runo.</p>
                               <p>With the all-new <strong>WhatsApp Business Integration</strong>, you can connect your business number directly to Runo and manage every customer conversation from one unified space.</p>
@@ -1976,7 +1980,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf2_6_0">Runo AI Copilot – Your Smartest Teammate Yet</button>
                           </h2>
-                          <div id="allf2_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="allf2_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p><strong>Introducing Runo AI Copilot</strong> – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.</p>
                               <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot is here to help you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds, it can do it all. </p>
@@ -2008,7 +2012,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#allf3_6_0">AI Call Insights</button>
                           </h2>
-                          <div id="allf3_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="allf3_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>For every eligible call, get detailed insights including speaking time, loudness, sentiment, filler words, and call conduct reviews, along with auto-generated summaries, transcripts, and key discussion points.</p>
                               <p>For <strong>AI Call Insights</strong>, in the ‘Call Logs’ tab, look for the AI Insights icon on eligible call logs (defined by your admin).</p>
@@ -2050,7 +2054,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle1_6_0">User Performance - Deeper Insights for Every Teammate</button>
                           </h2>
-                          <div id="alle1_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle1_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Understanding how your team performs just got a whole lot easier. </p>
                               <p>In the Analytics tab, under the <strong>User Performance section</strong>, you can now view detailed insights into each agent’s activity- from calls made to customers engaged… all in one place. </p>
@@ -2067,7 +2071,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle2_6_0">Enhanced Transfer Data - Smoother, Smarter Handovers</button>
                           </h2>
-                          <div id="alle2_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle2_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>From the Transfer Data page, you can easily move all customer details (including interactions, follow-ups, etc.) from one teammate to another without losing any information.</p>
                               <p>With this update, you can now:</p>
@@ -2087,7 +2091,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle3_6_0">Follow-ups - Date Range Selection is Possible</button>
                           </h2>
-                          <div id="alle3_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle3_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Stay in control of your schedule with smarter follow-up tracking.</p>
                               <p>You can now set a custom date range for your pending or upcoming follow-ups using the calendar icon.</p>
@@ -2102,7 +2106,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle4_6_0">Updated CRM Fields - For Smarter Data Entry</button>
                           </h2>
-                          <div id="alle4_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle4_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Filling out customer details is now faster and more accurate than before.</p>
                               <p>You can now select the right city and state values from a dropdown list while adding or editing a customer.</p>
@@ -2119,7 +2123,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle5_6_0">Zoho Integration - Now with Accounts & Contacts Modules</button>
                           </h2>
-                          <div id="alle5_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle5_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Zoho integration in Runo got even stronger.</p>
                               <p>You can now connect not just leads, but also <strong>Accounts</strong> and <strong>Contacts modules </strong>from Zoho, so your CRM and calling data stay perfectly in sync.</p>
@@ -2135,7 +2139,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle6_6_0">UI Enhancement - ‘Assigned To’ Added in Mobile View</button>
                           </h2>
-                          <div id="alle6_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle6_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Get instant clarity on lead ownership without extra clicks with this new UI enhancement.</p>
                               <p>You can now see the <strong>‘Assigned To’</strong> field right under each customer’s information in the mobile app.</p>
@@ -2153,7 +2157,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle7_6_0">Configure Notifications - Admin</button>
                           </h2>
-                          <div id="alle7_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle7_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have more control over team alerts and updates.</p>
                               <p>From the <strong>Configuration</strong> page, admins can easily <strong>set up and manage notifications</strong> for user activities and allocations, ensuring the right people are informed at the right time. </p>
@@ -2168,7 +2172,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#alle8_6_0"> Billing & Subscription Management </button>
                           </h2>
-                          <div id="alle8_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="alle8_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins can subscribe, manage, or review billing details - all from one centralized <strong>Account & Billing</strong> page.</p>
 
@@ -2224,7 +2228,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1_6_0">WhatsApp Business Integration – Bring Every Conversation Closer</button>
                           </h2>
-                          <div id="f1_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="f1_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>WhatsApp isn’t just for chats anymore… It’s now your team’s most powerful sales and engagement channel inside Runo.</p>
                               <p>With the all-new <strong>WhatsApp Business Integration</strong>, you can connect your business number directly to Runo and manage every customer conversation from one unified space.</p>
@@ -2266,7 +2270,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2_6_0">Runo AI Copilot – Your Smartest Teammate Yet</button>
                           </h2>
-                          <div id="f2_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="f2_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p><strong>Introducing Runo AI Copilot</strong> – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.</p>
                               <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot is here to help you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds, it can do it all. </p>
@@ -2298,7 +2302,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3_6_0">AI Call Insights</button>
                           </h2>
-                          <div id="f3_6_0" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion6_0">
+                          <div id="f3_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>For every eligible call, get detailed insights including speaking time, loudness, sentiment, filler words, and call conduct reviews, along with auto-generated summaries, transcripts, and key discussion points.</p>
                               <p>For <strong>AI Call Insights</strong>, in the ‘Call Logs’ tab, look for the AI Insights icon on eligible call logs (defined by your admin).</p>
@@ -2341,7 +2345,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e1_6_0">User Performance - Deeper Insights for Every Teammate</button>
                           </h2>
-                          <div id="e1_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e1_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Understanding how your team performs just got a whole lot easier. </p>
                               <p>In the Analytics tab, under the <strong>User Performance section</strong>, you can now view detailed insights into each agent’s activity- from calls made to customers engaged… all in one place. </p>
@@ -2358,7 +2362,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e2_6_0">Enhanced Transfer Data - Smoother, Smarter Handovers</button>
                           </h2>
-                          <div id="e2_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e2_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>From the Transfer Data page, you can easily move all customer details (including interactions, follow-ups, etc.) from one teammate to another without losing any information.</p>
                               <p>With this update, you can now:</p>
@@ -2378,7 +2382,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e3_6_0">Follow-ups - Date Range Selection is Possible</button>
                           </h2>
-                          <div id="e3_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e3_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Stay in control of your schedule with smarter follow-up tracking.</p>
                               <p>You can now set a custom date range for your pending or upcoming follow-ups using the calendar icon.</p>
@@ -2393,7 +2397,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e4_6_0">Updated CRM Fields - For Smarter Data Entry</button>
                           </h2>
-                          <div id="e4_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e4_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Filling out customer details is now faster and more accurate than before.</p>
                               <p>You can now select the right city and state values from a dropdown list while adding or editing a customer.</p>
@@ -2410,7 +2414,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e5_6_0">Zoho Integration - Now with Accounts & Contacts Modules</button>
                           </h2>
-                          <div id="e5_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e5_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p> Zoho integration in Runo got even stronger.</p>
                               <p>You can now connect not just leads, but also <strong>Accounts</strong> and <strong>Contacts modules </strong>from Zoho, so your CRM and calling data stay perfectly in sync.</p>
@@ -2426,7 +2430,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e6_6_0">UI Enhancement - ‘Assigned To’ Added in Mobile View</button>
                           </h2>
-                          <div id="e6_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e6_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Get instant clarity on lead ownership without extra clicks with this new UI enhancement.</p>
                               <p>You can now see the <strong>‘Assigned To’</strong> field right under each customer’s information in the mobile app.</p>
@@ -2444,7 +2448,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e7_6_0">Configure Notifications - Admin</button>
                           </h2>
-                          <div id="e7_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e7_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins now have more control over team alerts and updates.</p>
                               <p>From the <strong>Configuration</strong> page, admins can easily <strong>set up and manage notifications</strong> for user activities and allocations, ensuring the right people are informed at the right time. </p>
@@ -2459,7 +2463,7 @@
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#e8_6_0"> Billing & Subscription Management </button>
                           </h2>
-                          <div id="e8_6_0" class="accordion-collapse collapse" data-bs-parent="#enhAccordion6_0">
+                          <div id="e8_6_0" class="accordion-collapse collapse">
                             <div class="accordion-body">
                               <p>Admins can subscribe, manage, or review billing details - all from one centralized <strong>Account & Billing</strong> page.</p>
 
