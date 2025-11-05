@@ -2,12 +2,24 @@
   right: 20px;
   bottom: 20px;
 }
+
+/*
 .hero-text-tag {
   display: inline-block;
   padding: 6px 18px;
   border-radius: 25px;
   border: 2.5px solid transparent;
   background: linear-gradient(#f5f4ed, #f5f4ed) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 15px !important;
+}*/
+
+.hero-text-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 25px;
+  background: #e9e9e9;
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 15px !important;
@@ -201,8 +213,8 @@
 /*header*/
 
 #home-menu ul li.submenu > a:after {
-  content: "\f107";
-  font-family: "FontAwesome";
+  content: '\f107';
+  font-family: 'FontAwesome';
   font-weight: 900;
   font-size: 14px;
   margin-left: 8px;
@@ -255,7 +267,7 @@
 }
 
 #home-menu ul li.submenu ul li.submenu > a:after {
-  content: "\f105";
+  content: '\f105';
   float: right;
 }
 
@@ -711,7 +723,7 @@
 
   .custom-shadow-box {
     border: 10px solid #f5f5f5;
-    box-shadow: 25px 25px 25px rgb(255 87 48 / 10%);
+    /* box-shadow: 25px 25px 25px rgb(255 87 48 / 10%); */
     border-radius: 16px;
     background-color: #ffffff;
     padding: 25px;
@@ -811,7 +823,7 @@
 
 .custom-shadow-box {
   border: 10px solid #f5f5f5;
-  box-shadow: 25px 25px 25px rgb(255 87 48 / 10%);
+  /* box-shadow: 25px 25px 25px rgb(255 87 48 / 10%); */
   border-radius: 16px;
   background-color: #ffffff;
   padding: 12px 25px;
@@ -914,7 +926,7 @@
 .runo-tabs .tab-header {
   display: flex;
   position: relative;
-  height: 60px;
+  height: 45px;
   border-radius: 50px;
   border: 1px solid #e7e7e7;
 }
@@ -942,7 +954,8 @@
   left: 0;
   height: 100%;
   width: calc(100% / 6);
-  background: linear-gradient(90deg, #f44336, #ff6a00);
+  /*background: linear-gradient(90deg, #f44336, #ff6a00);*/
+  background: #000;
   border-radius: 50px;
   transition: left 0.5s ease;
   z-index: 1;
@@ -963,7 +976,7 @@
 }
 /* ---------- CONTENT ---------- */
 .runo-tabs .tab-content {
-  background: #f5f3ed;
+  background: #fafafa;
   border-radius: 30px; /* Rounded corners */
   margin-top: 40px;
   padding: 40px;
@@ -999,7 +1012,7 @@
 }
 
 .runo-tabs .mobile-slider .swiper-slide {
-  background: #f5f3ed;
+  background: #fafafa;
   border-radius: 30px;
   padding: 30px 20px;
   text-align: center;
@@ -1172,7 +1185,7 @@
 /*Home cloud section*/
 
 .cloud-tech-section {
-  background: url("/img/cloud-back.webp") no-repeat center center;
+  background: url('/img/cloud-back.webp') no-repeat center center;
   background-size: cover;
   padding: 50px 0px;
   margin-bottom: 20px;
@@ -1314,8 +1327,8 @@
 
 /* home feature section */
 .features-section {
-  padding: 0;
-  /*background-color: #fff6f6 !important;*/
+  padding: 30px 0px;
+  background-color: #fafafa !important;
 }
 
 .zoom-hover img {
@@ -1620,7 +1633,8 @@
 }
 
 .compare-web {
-  background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%) !important;
+  /*background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%) !important;*/
+  background: #fafafa;
 }
 
 .comparison-wrapper {
@@ -1826,7 +1840,7 @@ th {
 
 .contact-section {
   position: relative;
-  background: url("/img/contact.png") no-repeat center center/cover;
+  background: url('/img/contact.png') no-repeat center center/cover;
   border-radius: 20px;
   overflow: hidden;
   padding: 50px;
@@ -2523,16 +2537,8 @@ h2 button {
 }
 
 .btn-default.btn-highlighted {
-  background-color: #007bff;
-  color: white;
+  background-color: #f44336;
   border: none;
-
-  transition: background 0.3s ease;
-}
-
-.btn-default.btn-highlighted:hover {
-  background-color: #0056b3;
-  color: white;
 }
 
 .page-contact-us li {
@@ -2655,7 +2661,7 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("/img/background-cta.avif") no-repeat center center;
+  background: url('/img/background-cta.avif') no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -2868,7 +2874,7 @@ input::placeholder {
   background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
 
   /* Background image (loaded after preload hint) */
-  background-image: url("/img/testimonial-background.avif");
+  background-image: url('/img/testimonial-background.avif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2880,7 +2886,7 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-lpimg.avif") no-repeat;
+  background: url('/img/banner-lpimg.avif') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -2894,7 +2900,7 @@ input::placeholder {
 
 .telecaller-hero .banner-cont h1 {
   color: #111111 !important;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .telecaller-hero .banner-cont p {
@@ -3120,7 +3126,7 @@ body.modal-open {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-img.webp") no-repeat;
+  background: url('/img/banner-img.webp') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3134,7 +3140,7 @@ body.modal-open {
 
 /* Gradient border effect */
 .popular-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -3167,7 +3173,7 @@ body.modal-open {
 /* Top Image Background */
 
 .card-top-bg::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
@@ -3176,7 +3182,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/blue.webp");
+  background-image: url('/img/blue.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3185,7 +3191,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/gold.webp");
+  background-image: url('/img/gold.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3194,7 +3200,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/green.webp");
+  background-image: url('/img/green.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3293,7 +3299,7 @@ body.modal-open {
 .addon-section {
   padding: 60px 0;
   background: #fef9f6;
-  background: url("/img/banner-img.webp") no-repeat;
+  background: url('/img/banner-img.webp') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3389,7 +3395,7 @@ body.modal-open {
 }
 
 .breadcrumb li + li::before {
-  content: ">";
+  content: '>';
   padding: 0 7px;
   color: #aaa;
 }
@@ -3426,7 +3432,9 @@ body.modal-open {
 }
 
 .sales-execution-section {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
+  /*ackground: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);*/
+  padding: 30px 0px;
+  background: #fafafa;
 }
 
 .sales-execution-section .section-title h2 {
@@ -3434,8 +3442,7 @@ body.modal-open {
   line-height: 1.4;
 }
 #ban {
-  background: #f5f3ed;
-  background: #fff url("/img/waba-wbg.webp") no-repeat center center;
+  background: #fff;
   background-size: cover;
   position: relative;
   position: relative;
@@ -3505,10 +3512,10 @@ body.modal-open {
     display: none;
   }
   .sales-execution-section {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
+    background: #fafafa;
   }
   #ban {
-    background: #fff url("/img/waba-mbg.avif") no-repeat center;
+    background: #fff;
     background-size: inherit;
     position: relative;
     border-radius: 30px;
@@ -3577,7 +3584,7 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
-  .demo-section .modal[style*="display: block"] {
+  .demo-section .modal[style*='display: block'] {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -3768,7 +3775,7 @@ body.modal-open {
 }
 
 .btns a::after {
-  content: "→";
+  content: '→';
   position: absolute;
   right: -5px; /* fixed gap from text */
   top: 50%;
