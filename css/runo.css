@@ -1024,7 +1024,7 @@
   margin-top: 15px;
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 1230px) {
   .runo-tabs .tab-container {
     display: none;
   }
