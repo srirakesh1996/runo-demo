@@ -2661,9 +2661,9 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url('/img/background-cta.avif') no-repeat center center;
+  background: #adb5bd;
   background-size: cover;
-  color: white;
+  color: #111111;
   text-align: center;
   padding: 60px 20px;
 }
