@@ -6,18 +6,25 @@
 .home-app-cta-sm .color-dark {
   color: #111111 !important;
 }
-/*
+
+.tab-pane h3 {
+  font-weight: 400 !important;
+}
+.fw-bold {
+  font-weight: 400 !important;
+}
+
 .hero-text-tag {
   display: inline-block;
   padding: 6px 18px;
   border-radius: 25px;
   border: 2.5px solid transparent;
-  background: linear-gradient(#f5f4ed, #f5f4ed) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
+  background: linear-gradient(#fafafa, #fafafa) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 15px !important;
-}*/
-
+}
+/*
 .hero-text-tag {
   display: inline-block;
   padding: 6px 18px;
@@ -26,7 +33,7 @@
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 15px !important;
-}
+}*/
 
 .bg-dark {
   background-color: #191919 !important;
@@ -1501,6 +1508,7 @@
 
 .clients-title h2 {
   font-size: 25px !important;
+  font-weight: 400;
 }
 
 .clients-section h2 {
