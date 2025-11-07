@@ -266,7 +266,7 @@ function submitForm(formId, formData, formToken) {
 
       // 🔹 Send CleverTap event after successful form submission
       if (typeof clevertap !== 'undefined') {
-        clevertap.event.push('website-lead-form', {
+        clevertap.event.push('submitted-lead-form', {
           Name: formData.name || formData.your_name || '',
           Email: formData.email || formData.your_email || '',
           Phone: formData.phone || formData.your_phone || '',
