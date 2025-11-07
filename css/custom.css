@@ -709,6 +709,13 @@ header.main-header .header-sticky.active {
 .header-sticky.active .main-menu ul li a {
   color: #111111 !important;
 }
+.header-sticky.active .main-menu ul li .header-btn-dark {
+  color: #fff !important;
+}
+
+.header-sticky.active .main-menu ul li .header-btn-dark:hover {
+  color: #000 !important;
+}
 
 .header-sticky.active .submenu ul li a {
   color: #111111 !important;
