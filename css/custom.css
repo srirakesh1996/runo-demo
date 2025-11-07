@@ -197,6 +197,22 @@ body {
   z-index: 1;
 }
 
+.btn-default-dark {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1em;
+  text-transform: capitalize;
+  background: #000;
+  color: #fff;
+  border-radius: 0;
+  padding: 16px 30px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+}
+
 .btn-default:hover,
 .btn-default:focus {
   color: var(--primary-color);
@@ -235,7 +251,7 @@ body {
 .btn-plain {
   background: none;
   border: 1px solid #f44336;
-  color: #f44336;
+  color: #303030;
   border-radius: 12px;
   display: inline-block;
   font-size: 14px;
@@ -305,6 +321,24 @@ body {
 .btn-default.btn-highlighted:hover {
   color: #f44336 !important;
   border: 1px solid #f44336 !important;
+}
+
+.btn-default-dark.btn-highlighted {
+  background: #000;
+  color: #fff;
+  border-radius: 12px;
+
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.btn-default-dark.btn-highlighted:hover {
+  color: #111 !important;
+  border: 1px solid #000 !important;
+  background: #fff;
 }
 
 .btn-default.btn-highlighted::before {

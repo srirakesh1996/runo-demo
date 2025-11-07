@@ -3,6 +3,9 @@
   bottom: 20px;
 }
 
+.home-app-cta-sm .color-dark {
+  color: #111111 !important;
+}
 /*
 .hero-text-tag {
   display: inline-block;
@@ -316,15 +319,27 @@
   position: relative;
 }
 
+/*
 .header-btn-plain:hover {
   background: #f44336;
   color: #ffffff !important;
+  text-decoration: underline;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(255, 87, 48, 0.4);
 }
+*/
+
+.main-menu ul li .login:hover {
+  text-decoration: underline !important;
+}
+
+.header-btn-plain:hover {
+  color: #303030 !important;
+  text-decoration: underline;
+}
 
 .header-sticky.active .main-menu ul li .header-btn-plain:hover {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .submenu-list li a {
@@ -2659,11 +2674,29 @@ label {
 /* Testimonial section ends */
 
 /* Home contact us section */
-
-.home-app-cta {
-  background: #adb5bd;
+.home-app-cta-sm {
+  background: #f2f4f7;
   background-size: cover;
   color: #111111;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-app-cta-sm {
+    padding: 40px 20px;
+  }
+}
+
+.home-app-cta0-sm h2 {
+  color: #fff !important;
+  margin: 10px 0px 35px 0px !important;
+}
+
+.home-app-cta {
+  background: url('/img/background-cta.avif') no-repeat center center;
+  background-size: cover;
+  color: white;
   text-align: center;
   padding: 60px 20px;
 }
@@ -2699,6 +2732,28 @@ label {
   background-color: #d84323;
   border: 1px solid #fff;
   color: #fff;
+}
+
+.btn-dark {
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin: 30px 0;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(33, 30, 29, 0.35);
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
 }
 
 .store-buttons {
