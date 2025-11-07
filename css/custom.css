@@ -264,6 +264,22 @@ body {
   z-index: 1;
   position: relative;
 }
+.btn-plain-dark {
+  background: none;
+  border: 1px solid #000;
+  color: #303030;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1em;
+  text-transform: capitalize;
+  padding: 16px 30px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
 
 .btn-runo {
   background: #f44336;
@@ -304,6 +320,12 @@ body {
   color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(255, 87, 48, 0.4);
+}
+.btn-plain-dark:hover {
+  background: #000;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(57, 57, 57, 0.4);
 }
 
 .btn-default.btn-highlighted {
