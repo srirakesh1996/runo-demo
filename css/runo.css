@@ -4026,12 +4026,6 @@ body.modal-open {
   display: none;
 }
 
-.compare-web .section-title h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 50px;
-}
-
 .cards-wrapper {
   display: flex;
   justify-content: center;
