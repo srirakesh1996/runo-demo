@@ -201,8 +201,8 @@
 /*header*/
 
 #home-menu ul li.submenu > a:after {
-  content: "\f107";
-  font-family: "FontAwesome";
+  content: '\f107';
+  font-family: 'FontAwesome';
   font-weight: 900;
   font-size: 14px;
   margin-left: 8px;
@@ -255,7 +255,7 @@
 }
 
 #home-menu ul li.submenu ul li.submenu > a:after {
-  content: "\f105";
+  content: '\f105';
   float: right;
 }
 
@@ -1172,7 +1172,7 @@
 /*Home cloud section*/
 
 .cloud-tech-section {
-  background: url("/img/cloud-back.webp") no-repeat center center;
+  background: url('/img/cloud-back.webp') no-repeat center center;
   background-size: cover;
   padding: 50px 0px;
   margin-bottom: 20px;
@@ -1826,7 +1826,7 @@ th {
 
 .contact-section {
   position: relative;
-  background: url("/img/contact.png") no-repeat center center/cover;
+  background: url('/img/contact.png') no-repeat center center/cover;
   border-radius: 20px;
   overflow: hidden;
   padding: 50px;
@@ -2655,7 +2655,7 @@ label {
 /* Home contact us section */
 
 .home-app-cta {
-  background: url("/img/background-cta.avif") no-repeat center center;
+  background: url('/img/background-cta.avif') no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -2868,7 +2868,7 @@ input::placeholder {
   background: linear-gradient(180deg, rgba(245, 243, 237, 0) 0%, #f5f3ed 40%, #f5f3ed 100%);
 
   /* Background image (loaded after preload hint) */
-  background-image: url("/img/testimonial-background.avif");
+  background-image: url('/img/testimonial-background.avif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2880,7 +2880,7 @@ input::placeholder {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-lpimg.avif") no-repeat;
+  background: url('/img/banner-lpimg.avif') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -2894,7 +2894,7 @@ input::placeholder {
 
 .telecaller-hero .banner-cont h1 {
   color: #111111 !important;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .telecaller-hero .banner-cont p {
@@ -3120,7 +3120,7 @@ body.modal-open {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-img.webp") no-repeat;
+  background: url('/img/banner-img.webp') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3134,7 +3134,7 @@ body.modal-open {
 
 /* Gradient border effect */
 .popular-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -3167,7 +3167,7 @@ body.modal-open {
 /* Top Image Background */
 
 .card-top-bg::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
@@ -3176,7 +3176,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/blue.webp");
+  background-image: url('/img/blue.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3185,7 +3185,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/gold.webp");
+  background-image: url('/img/gold.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3194,7 +3194,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/green.webp");
+  background-image: url('/img/green.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3293,7 +3293,7 @@ body.modal-open {
 .addon-section {
   padding: 60px 0;
   background: #fef9f6;
-  background: url("/img/banner-img.webp") no-repeat;
+  background: url('/img/banner-img.webp') no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3389,7 +3389,7 @@ body.modal-open {
 }
 
 .breadcrumb li + li::before {
-  content: ">";
+  content: '>';
   padding: 0 7px;
   color: #aaa;
 }
@@ -3435,7 +3435,7 @@ body.modal-open {
 }
 #ban {
   background: #f5f3ed;
-  background: #fff url("/img/waba-wbg.webp") no-repeat center center;
+  background: #fff url('/img/waba-wbg.webp') no-repeat center center;
   background-size: cover;
   position: relative;
   position: relative;
@@ -3508,7 +3508,7 @@ body.modal-open {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f5f3ed 35%, #f5f3ed 100%);
   }
   #ban {
-    background: #fff url("/img/waba-mbg.avif") no-repeat center;
+    background: #fff url('/img/waba-mbg.avif') no-repeat center;
     background-size: inherit;
     position: relative;
     border-radius: 30px;
@@ -3577,7 +3577,7 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
-  .demo-section .modal[style*="display: block"] {
+  .demo-section .modal[style*='display: block'] {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -3606,8 +3606,19 @@ body.modal-open {
   padding: 0px 10px !important;
 }
 
+.submenu-list .menu-head {
+  font-size: 17px;
+  text-align: left !important;
+  margin: 6px 0px;
+  padding: 0px 10px !important;
+}
+
 @media (min-width: 1200px) and (max-width: 1300px) {
   .submenu-list h6 {
+    padding: 0px 10px !important;
+  }
+
+  .submenu-list .menu-head {
     padding: 0px 10px !important;
   }
 }
@@ -3651,6 +3662,11 @@ body.modal-open {
 }
 
 .main-menu .mega-menu h6 {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.main-menu .mega-menu .menu-head {
   font-weight: 600;
   margin-bottom: 0.5em;
 }
@@ -3768,7 +3784,7 @@ body.modal-open {
 }
 
 .btns a::after {
-  content: "→";
+  content: '→';
   position: absolute;
   right: -5px; /* fixed gap from text */
   top: 50%;
