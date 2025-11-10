@@ -12,6 +12,9 @@
   font-size: 18px;
   margin-bottom: 15px !important;
 }
+.text-blck {
+  color: #111111 !important;
+}
 
 .bg-dark {
   background-color: #191919 !important;
@@ -3609,6 +3612,7 @@ body.modal-open {
 .submenu-list .menu-head {
   font-size: 17px;
   color: #111111 !important;
+  font-weight: 700 !important;
   text-align: left !important;
   margin: 6px 0px;
   padding: 0px 10px !important;
