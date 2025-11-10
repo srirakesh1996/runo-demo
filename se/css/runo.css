@@ -3608,6 +3608,7 @@ body.modal-open {
 
 .submenu-list .menu-head {
   font-size: 17px;
+  color: #111111 !important;
   text-align: left !important;
   margin: 6px 0px;
   padding: 0px 10px !important;
