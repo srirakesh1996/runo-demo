@@ -1747,9 +1747,9 @@
 }
 
 .col-runo {
-  background: #fa3c3217;
-  /*  background-color: #fa3c32;*/
-  color: #343a40;
+  /*  background: #fa3c3217;
+ background-color: #fa3c32;*/
+  color: #22c55e !important;
   font-weight: 700;
   flex-direction: column;
   border-left: none;
@@ -1759,7 +1759,7 @@
 .col-rest {
   background: #3a40470a !important;
   font-weight: 600;
-  color: #343a40;
+  color: #fa3c32 !important;
 }
 
 .header-row .col-feature,
