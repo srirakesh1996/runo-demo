@@ -8,14 +8,14 @@
 }
 
 .tab-pane h3 {
-  font-weight: 300 !important;
+  font-weight: 200 !important;
 }
 .fw-bold {
-  font-weight: 300 !important;
+  font-weight: 200 !important;
 }
 
 .section-title h1 {
-  font-weight: 300 !important;
+  font-weight: 200 !important;
 }
 
 .hero-text-tag {
@@ -1560,7 +1560,7 @@
 
 .clients-title h2 {
   font-size: 25px !important;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .clients-section h2 {
