@@ -1964,11 +1964,133 @@
             </div>
             <!-- Video Wrapper -->
             <div>
-              <img loading="lazy" src="img/home-integration.avif" alt="Runo Integrations" class="video-thumbnail" style="width: 100%; height: auto; border-radius: 12px" />
-            </div>
-            <!-- Hero Button -->
-            <div class="hero-btn demo-btn text-center">
-              <a href="https://web.runo.in" class="btn-dark track-btn runo-web-crm">Start Your 10-Day Free Trial</a>
+              <style>
+                .integration-section {
+                  text-align: center;
+                  padding: 20px 15px;
+                }
+
+                .integration-section h5 {
+                  font-weight: 600;
+                  color: #6c757d;
+                  text-transform: uppercase;
+                  letter-spacing: 0.5px;
+                  margin-bottom: 20px;
+                }
+
+                .integration-btn {
+                  border: 1px solid #dee2e6;
+                  border-radius: 10px;
+                  padding: 10px 18px;
+                  margin: 8px;
+                  font-size: 16px;
+                  background-color: #fff;
+                  color: #333;
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 8px;
+                  transition: all 0.2s ease;
+                }
+
+                .integration-btn:hover {
+                  border-color: #000;
+                  color: #111111;
+                  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+                }
+
+                .custom-card {
+                  background: #eef5ff;
+                  border-radius: 15px;
+                  padding: 25px;
+                  max-width: 500px;
+                  margin: 50px auto 0;
+                }
+
+                .custom-card p {
+                  font-weight: 500;
+                  color: #333;
+                  margin-bottom: 20px;
+                }
+
+                @media (max-width: 576px) {
+                  .integration-btn {
+                    width: 100%;
+                    justify-content: center;
+                  }
+
+                  .custom-card {
+                    margin-top: 30px;
+                    padding: 20px;
+                  }
+                }
+
+                .integration-section {
+                  text-align: center;
+                  padding: 20px 15px;
+                }
+
+                .integration-btn {
+                  border: 1px solid #dee2e6;
+                  border-radius: 10px;
+                  padding: 10px 18px;
+                  margin: 8px;
+                  font-size: 16px;
+                  background-color: #fff;
+                  color: #333;
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 8px;
+                  transition: all 0.2s ease;
+                }
+
+                /* ✅ Make buttons wrap 2 per row on mobile */
+                @media (max-width: 576px) {
+                  .integration-btn {
+                    flex: 0 0 calc(50% - 16px); /* 2 per row with margin adjustment */
+                    justify-content: center;
+                  }
+
+                  /* ✅ Center the last (odd) button */
+                  .integration-section .d-flex.flex-wrap.justify-content-center > .integration-btn:last-child:nth-child(odd) {
+                    flex: 0 0 100%;
+                    justify-content: center;
+                  }
+
+                  .custom-card {
+                    margin-top: 30px;
+                    padding: 20px;
+                  }
+                }
+              </style>
+
+              <div class="integration-section">
+                <!-- Lead Sources -->
+                <h5>LEAD SOURCES</h5>
+                <div class="d-flex flex-wrap justify-content-center">
+                  <button class="integration-btn"><i class="bi bi-facebook"></i> Facebook</button>
+                  <button class="integration-btn"><i class="bi bi-instagram"></i> Instagram</button>
+                  <button class="integration-btn"><i class="bi bi-linkedin"></i> LinkedIn Ads</button>
+                  <button class="integration-btn"><i class="bi bi-building"></i> Housing.com</button>
+                  <button class="integration-btn"><i class="bi bi-globe"></i> Website</button>
+                  <button class="integration-btn"><i class="bi bi-stars"></i> More Marketplaces</button>
+                </div>
+
+                <!-- CRM Systems -->
+                <h5 class="mt-5">CRM SYSTEMS</h5>
+                <div class="d-flex flex-wrap justify-content-center">
+                  <button class="integration-btn"><i class="bi bi-diagram-3"></i> Salesforce</button>
+                  <button class="integration-btn"><i class="bi bi-diagram-3"></i> Zoho</button>
+                  <button class="integration-btn"><i class="bi bi-diagram-3"></i> LeadSquared</button>
+                  <button class="integration-btn"><i class="bi bi-diagram-3"></i> HubSpot</button>
+                  <button class="integration-btn"><i class="bi bi-diagram-3"></i> In-House CRMs</button>
+                </div>
+
+                <!-- Custom Integration Card -->
+                <div class="custom-card shadow-sm">
+                  <p>Need a custom integration?</p>
+                  <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Request Custom Integration - Home Banner">Request Custom Integration</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
