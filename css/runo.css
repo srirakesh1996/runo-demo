@@ -4004,7 +4004,7 @@ body.modal-open {
 
 .deals-tab-tag {
   font-size: 14px !important;
-  background: #ff5730;
+  background: #000;
   padding: 4px 10px;
   border-radius: 30px;
   display: inline-block;
