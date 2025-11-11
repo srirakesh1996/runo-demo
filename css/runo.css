@@ -3721,6 +3721,8 @@ body.modal-open {
 
 /* Dropdown Menu CSS */
 
+/* Dropdown Menu CSS */
+
 .submenu-list h6 {
   font-size: 17px;
   text-align: left !important;
@@ -3728,8 +3730,21 @@ body.modal-open {
   padding: 0px 10px !important;
 }
 
+.submenu-list .menu-head {
+  font-size: 17px;
+  color: #111111 !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  margin: 6px 0px;
+  padding: 0px 10px !important;
+}
+
 @media (min-width: 1200px) and (max-width: 1300px) {
   .submenu-list h6 {
+    padding: 0px 10px !important;
+  }
+
+  .submenu-list .menu-head {
     padding: 0px 10px !important;
   }
 }
@@ -3776,7 +3791,10 @@ body.modal-open {
   font-weight: 600;
   margin-bottom: 0.5em;
 }
-
+.main-menu .mega-menu .menu-head {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
 .compliance {
   padding: 0px 0px 0px 10px;
 }
