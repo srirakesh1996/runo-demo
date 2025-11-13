@@ -246,9 +246,9 @@ function submitForm(formId, formData, formToken) {
         Phone: userPhone,
       },
     });
-    console.log('✅ CleverTap user identified:', userEmail || userPhone);
+   // console.log('✅ CleverTap user identified:', userEmail || userPhone);
   } else {
-    console.warn('⚠️ CleverTap SDK not loaded — skipping user identification');
+    //console.warn('⚠️ CleverTap SDK not loaded — skipping user identification');
   }
 
   // 🔹 Submit to Runo CRM API
@@ -262,7 +262,7 @@ function submitForm(formId, formData, formToken) {
     },
   })
     .done(function (data) {
-      console.log('✅ Runo API success:', data);
+    //  console.log('✅ Runo API success:', data);
 
       // 🔹 Send CleverTap event after successful form submission
       if (typeof clevertap !== 'undefined') {
@@ -276,9 +276,9 @@ function submitForm(formId, formData, formToken) {
           Timestamp: new Date().toISOString(),
         });
 
-        console.log('🚀 website-lead-form event sent:', formData);
+      //  console.log('🚀 website-lead-form event sent:', formData);
       } else {
-        console.warn('⚠️ CleverTap SDK not available — event not sent');
+     //   console.warn('⚠️ CleverTap SDK not available — event not sent');
       }
 
       // Reset and show Thank You modal
@@ -288,7 +288,7 @@ function submitForm(formId, formData, formToken) {
       $('#thankYouModal').modal('show');
     })
     .fail(function (xhr, status, error) {
-      console.error('❌ Runo API error:', status, error, xhr.responseText);
+     // console.error('❌ Runo API error:', status, error, xhr.responseText);
       alert('Oops! Something went wrong while submitting the form.');
     })
     .always(function () {
