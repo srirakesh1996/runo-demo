@@ -1299,16 +1299,16 @@
 
             $.ajax({
               type: 'POST',
-              url: 'https://hooks.zapier.com/hooks/catch/23828444/ur7ygvb/', // Zap URL
+              url: 'https://hooks.zapier.com/hooks/catch/23828444/u8sutqi/', // Zap URL
               data: zapierData, // form-encoded
               success: function (response) {
-                //  console.log('✅ Zapier response:', response);
+                  console.log('✅ Zapier response:', response);
                 $form[0].reset();
                 $('#requestcert').modal('hide');
                 $('#thankYouModal2').modal('show');
               },
               error: function (jqXHR, textStatus, errorThrown) {
-                // console.warn('❌ Zapier failed:', textStatus, errorThrown);
+               console.warn('❌ Zapier failed:', textStatus, errorThrown);
                 //  console.log('🔍 Response text:', jqXHR.responseText);
                 alert('Oops! Something went wrong while sending to Zapier.');
               },
