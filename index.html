@@ -131,7 +131,37 @@
     <link rel="preload" as="image" href="img/hero-images/web/call-summaryw.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
     <!-- Mobile -->
     <link rel="preload" as="image" href="img/hero-images/mobile/call-summary.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
-  </head>
+     <script type="text/javascript">
+      // ✅ Initialize CleverTap object
+      var clevertap = {
+        event: [],
+        profile: [],
+        account: [],
+        onUserLogin: [],
+        notifications: [],
+        privacy: [],
+      };
+
+      // ✅ Your account ID and region
+      clevertap.account.push({ id: '6Z8-RRZ-957Z' });
+      clevertap.region = 'eu1';
+
+      // ✅ Privacy settings for local testing
+      clevertap.privacy.push({ optOut: false });
+      clevertap.privacy.push({ useIP: false });
+
+      // ✅ Load from CloudFront fallback CDN (working globally)
+      (function () {
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+      })();
+    </script>
+
+</head>
   <body>
     <div id="home">
       <!-- Google Tag Manager (noscript) -->
