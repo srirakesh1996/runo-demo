@@ -3074,15 +3074,15 @@ body.modal-open {
 }
 
 .metrics-section .container {
-  background-color: #eaf1ff;
+  background-color: #fafafa;
   padding: 30px;
   border-radius: 20px;
 }
 
 .metric-value {
-  font-size: 25px;
-  font-weight: 800;
-  color: #f44336;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
 }
 
 .metric-label {
