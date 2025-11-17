@@ -4143,3 +4143,7 @@ body.modal-open {
 .page-faqs h5 {
   font-weight: 600 !important;
 }
+
+footer .fw-bold {
+  font-weight: 600 !important;
+}
