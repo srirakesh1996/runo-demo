@@ -98,8 +98,8 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Inline Critical Font-Face (latin only for Inter) -->
-    <style>
+        <!-- Inline Critical Font-Face (latin only for Inter) -->
+  <style>
       @font-face {
         font-family: 'Inter';
         font-style: normal;
@@ -226,7 +226,7 @@
     <style>
       @media only screen and (max-width: 768px) {
         .telecaller-hero {
-          background: #f5f3ed !important;
+          background: #ffffff !important;
         }
       }
 
@@ -501,7 +501,7 @@
 
       header.main-header {
         position: relative;
-        background: #f5f3ed;
+        background: #fff;
         z-index: 100;
       }
 
@@ -593,7 +593,6 @@
           padding: 10px 8px !important;
         }
       }
-
       .header-sticky.active .main-menu ul li a {
         color: #111111 !important;
       }
@@ -984,6 +983,13 @@
         }
       }
 
+      .text-destructive {
+        color: red !important;
+      }
+      .text-green-500 {
+        color: #22c55e !important;
+      }
+
       .menu-icon svg {
         width: 30px;
         height: 30px;
@@ -1044,6 +1050,385 @@
       .security-sec {
         position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
         bottom: 60px;
+      }
+
+      .inte-sec .icon-box {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+      .inte-sec h5 {
+        line-height: 1.5;
+      }
+
+      .mt-1 {
+        margin-top: 5px;
+      }
+      .mt-4 {
+        margin-top: 20px;
+      }
+      .text-left p {
+        margin-top: 5px;
+      }
+      .crm-features-section .crm-feature-card {
+        text-align: left;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+      }
+      .crm-features-section .feature-icon {
+        width: 45px;
+        height: 45px;
+        background: #ffb3713b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 22px;
+        color: #f44336;
+        flex-shrink: 0;
+      }
+
+      /* Text alignment */
+      .step-card p {
+        text-align: left !important;
+      }
+
+      .step-card h6 {
+        text-align: left !important;
+        line-height: 1.5;
+      }
+      .step-card h6 {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-card p {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Card styling */
+      .step-card {
+        padding: 25px 15px 10px 15px;
+      }
+
+      .how-it-works .step-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .how-it-works .step-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Number badge */
+      .how-it-works .step-number {
+        position: absolute;
+        top: -15px;
+        left: 15%;
+        transform: translateX(-50%);
+        background: #f44336;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        z-index: 3;
+      }
+
+      /* Icon */
+      .how-it-works .icon {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+
+      /* Connecting line */
+      .timeline-line {
+        position: absolute;
+        top: 150px; /* aligns with icons */
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #f44336;
+        opacity: 0.2;
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      @media (max-width: 991px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 45%;
+          max-width: 45%;
+          margin-bottom: 20px;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      .security-features-section .feature-icon svg {
+        color: #f44336 !important;
+        width: 50px;
+        height: 50px;
+      }
+
+      .industry-usecases .accordion-button {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px;
+        text-align: left;
+      }
+
+      .industry-usecases .icon-box {
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffb3713b;
+        color: #f44336;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 0; /* remove extra margin */
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 576px) {
+        .industry-usecases .accordion-button {
+          font-size: 15px;
+          gap: 15px;
+        }
+
+        .industry-usecases .icon-box {
+          flex: 0 0 50px;
+          height: 50px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 768px) {
+        .store-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .store-buttons .btn-schedule {
+          margin: 5px 0;
+        }
+      }
+
+      .features-crm-section {
+        background-color: #fafafa;
+      }
+
+      .feature-crm-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .feature-crm-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-box {
+        background: #ffb3713b;
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+   /*   .icon-box i {
+        color: #000;
+      }*/
+
+      .icon-box svg {
+        color: #f44336 !important;
+      }
+
+      /* Gradient borders */
+      .icon-box.blue {
+        border-image: linear-gradient(45deg, #007bff, #00b4ff) 1;
+      }
+
+      .icon-box.purple {
+        border-image: linear-gradient(45deg, #a855f7, #ec4899) 1;
+      }
+
+      .icon-box.orange {
+        border-image: linear-gradient(45deg, #f97316, #ef4444) 1;
+      }
+
+      .icon-box.green {
+        border-image: linear-gradient(45deg, #22c55e, #16a34a) 1;
+      }
+
+      .icon-box.violet {
+        border-image: linear-gradient(45deg, #6366f1, #9333ea) 1;
+      }
+
+      .icon-box.pink {
+        border-image: linear-gradient(45deg, #ec4899, #f43f5e) 1;
+      }
+
+      .feature-crm-card h5 {
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .feature-crm-card p {
+        color: #555;
+        font-size: 15px;
+        margin-bottom: 0;
+      }
+
+      .icon svg {
+        color: #f44336 !important;
+      }
+
+      .comparison-section .table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+        background: transparent;
+      }
+      .comparison-section tbody tr {
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.1);
+        transition: all 0.3s ease;
+      }
+      .comparison-section tbody tr:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 14px rgba(244, 67, 54, 0.2);
+      }
+      .comparison-section td {
+        padding: 1.2rem;
+        vertical-align: middle;
+        font-size: 0.95rem;
+        color: #555;
+      }
+      .comparison-section td strong {
+        color: #111;
+        font-weight: 600;
+      }
+      .text-success {
+        color: #2ecc71 !important;
+      }
+      .text-danger {
+        color: #f44336 !important;
+      }
+      .table > :not(caption) > * > * {
+        border-bottom-width: 0 !important;
+      }
+
+      /* Mobile Layout */
+      @media (max-width: 768px) {
+        .table thead {
+          display: none;
+        }
+        .table,
+        .table tbody,
+        .table tr,
+        .table td {
+          display: block;
+          width: 100%;
+        }
+        .table tr {
+          margin-bottom: 1rem;
+          border-radius: 12px;
+          padding: 1rem;
+          background: #fff;
+        }
+        .table td {
+          text-align: left;
+          border: none;
+          padding: 0.6rem 0;
+        }
+        .table td:first-child {
+          font-weight: 700;
+          color: #f44336;
+
+          margin-bottom: 0.6rem;
+        }
+
+        /* Show column headings for clarity */
+        .table td[data-label]::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: #f44336;
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        /* Vertically center icon with text on mobile */
+        .d-flex.align-items-center {
+          display: flex !important;
+          align-items: center !important;
+        }
+      }
+
+      .security-features-section .feature-card {
+        border-radius: 16px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+        padding: 32px 24px;
+        background: #fff;
+        height: 100%;
+        transition: box-shadow 0.3s;
+        cursor: auto;
+      }
+      .security-features-section .feature-card:hover {
+        box-shadow: 0 4px 12px rgba(60, 72, 90, 0.11);
+      }
+      .security-features-section .feature-icon {
+        font-size: 36px;
+        color: #3366cc;
+        margin-bottom: 18px;
       }
     </style>
      <script type="text/javascript">
@@ -1524,24 +1909,23 @@
                     </ul>
                   </li>
 
-                  <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
-                  <li class="nav-item"><a class="header-btn-plain track-btn runo-web-crm" data-label="Login - Header" href="https://web.runo.in/">Login</a></li>
-
-                  <li class="nav-item">
-                    <a class="header-btn track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="book a demo - Home Header">Request a Demo</a>
-                  </li>
-                  <div class="app-header-icons">
-                    <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" target="_blank">
-                      <img src="/img/app-ico.png" width="40px" alt="Runo App" />
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" target="_blank">
-                      <img src="/img/play-ico.png" width="40px" alt="Runo App" />
-                    </a>
-                  </div>
-                </ul>
+              <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link login track-btn runo-web-crm" href="https://web.runo.in/">Login</a></li>
+                    <li class="nav-item">
+                      <a class="header-btn-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="book a demo - Product Header">Request a Demo</a>
+                    </li>
+                    <div class="app-header-icons">
+                      <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" target="_blank">
+                        <img src="/img/app-ico.png" width="40px" alt="Runo App" />
+                      </a>
+                      <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" target="_blank">
+                        <img src="/img/play-ico.png" width="40px" alt="Runo App" />
+                      </a>
+                    </div>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <!-- Main Menu End -->
+              <!-- Main Menu End -->
 
             <div class="navbar-toggle"></div>
           </div>
@@ -1576,11 +1960,11 @@
                   <!-- Hero Buttons -->
                   <div class="hero-body Custom mt-50">
                     <div class="hero-btn">
-                      <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Auto Dialer Banner">Book a Demo</a>
+                      <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Auto Dialer Banner">Book a Demo</a>
                       <p class="banner-btn1">&nbsp;</p>
                     </div>
                     <div class="hero-btn">
-                      <a href="https://web.runo.in" class="btn-default btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Auto Dialer Banner">Start 10-day free trial</a>
+                      <a href="https://web.runo.in" class="btn-default-dark btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Auto Dialer Banner">Start 10-day free trial</a>
                       <p style="font-size: 13px; margin: 0px; text-align: center; color: #525252 !important">No Credit Card Required</p>
                     </div>
                   </div>
@@ -1663,7 +2047,7 @@
           <div class="col-md-4 d-flex">
             <div class="rounded-4 p-3 h-100 w-100">
               <div class="rounded-4">
-                <img src="/img/sales-management/runo-app.webp" class="img-fluid" loading="lazy" alt="Runo App" />
+                <img src="/img/sales-management/runo-app.avif" class="img-fluid" loading="lazy" alt="Runo App" />
               </div>
               <h5 class="mt-4 fw-semibold runo-step-title">1. Install the Runo App</h5>
               <p class="text-muted runo-step-para">Get started in under 30 minutes. No complex setup or IT help required.</p>
@@ -1754,7 +2138,7 @@
                 </li>
               </ul>
               <div class="waba-btn" id="waba-web">
-                <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - WABA Web">Request a Demo</a>
+                <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - WABA Web">Request a Demo</a>
               </div>
             </div>
           </div>
@@ -1764,7 +2148,7 @@
             </div>
           </div>
           <div class="waba-btn text-center" id="waba-mob">
-            <a class="btn-plain track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - WABA Mobile">Request a Demo</a>
+            <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - WABA Mobile">Request a Demo</a>
           </div>
         </div>
       </div>
@@ -1783,47 +2167,47 @@
         <!-- Desktop Layout -->
         <div class="row d-none d-md-flex">
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/9.webp" class="img-fluid mb-2" alt="Sales Team Performance Analytics" />
+            <img loading="lazy" src="/img/feature/dashboard.avif" class="img-fluid mb-2" alt="Sales Team Performance Analytics" />
             <h5>Sales Team Performance Analytics</h5>
             <p class="feat-text">View live dashboards to track rep activity, call volume, and follow-up progress across your entire team.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/14.webp" class="img-fluid mb-2" alt="Lead and Contact Management" />
+            <img loading="lazy" src="/img/feature/funnel.avif" class="img-fluid mb-2" alt="Lead and Contact Management" />
             <h5>Lead and Contact Management</h5>
             <p class="feat-text">Organize, assign, and manage leads with full visibility through every stage of the sales funnel.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/1.webp" class="img-fluid mb-2" alt="Call Tracking and Logging" />
+            <img loading="lazy" src="/img/feature/caller_id.avif" class="img-fluid mb-2" alt="Call Tracking and Logging" />
             <h5>Call Tracking and Logging</h5>
             <p class="feat-text">Automatically log every incoming and outgoing call with time stamps, recordings, and notes inside the CRM.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2" alt="Automated Reminders and Follow-Ups" />
+            <img loading="lazy" src="/img/feature/followup.avif" class="img-fluid mb-2" alt="Automated Reminders and Follow-Ups" />
             <h5>Automated Reminders and Follow-Ups</h5>
             <p class="feat-text">Get smart nudges and reminders so your team never forgets to follow up on a lead or opportunity.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Tracking" />
+            <img loading="lazy" src="/img/feature/team_status.avif" class="img-fluid mb-2" alt="Live Agent Tracking" />
             <h5>Live Agent Tracking</h5>
             <p class="feat-text">Monitor real-time status of your sales reps. See who’s on a call, who’s idle, and how your team is performing.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/8.webp" class="img-fluid mb-2" alt="AI Call Summaries" />
+            <img loading="lazy" src="/img/feature/ai-summary.avif" class="img-fluid mb-2" alt="AI Call Summaries" />
             <h5>AI Call Summaries</h5>
             <p class="feat-text">Every sales call is summarized automatically with key points captured for quick review and easy follow-up.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" alt="Call Management CRM" />
+            <img loading="lazy" src="/img/feature/customization.avif" class="img-fluid mb-2" alt="Call Management CRM" />
             <h5>Call Management CRM</h5>
             <p class="feat-text">Runo includes an in-built CRM designed specifically for calling teams. No need for third-party tools.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/5.webp" class="img-fluid mb-2" alt="AI Sentiment Analysis" />
+            <img loading="lazy" src="/img/feature/sent_analysis.avif" class="img-fluid mb-2" alt="AI Sentiment Analysis" />
             <h5>AI Sentiment Analysis</h5>
             <p class="feat-text">Understand the quality of every call with sentiment scoring, talk ratio breakdowns, and conversation tone analysis.</p>
           </div>
           <div class="col-md-4 mb-4 text-center zoom-hover">
-            <img loading="lazy" src="/img/feature/security.webp" loading="lazy" class="img-fluid mb-2" alt="Compliance and Security" />
+            <img loading="lazy" src="/img/feature/security.avif" loading="lazy" class="img-fluid mb-2" alt="Compliance and Security" />
             <h5>Compliance and Security</h5>
             <p class="feat-text">
               Protect your business with built-in DNC and DND checks,
@@ -1836,47 +2220,47 @@
         <div class="swiper-container d-block d-md-none mt-4">
           <div class="swiper-wrapper text-center">
             <div class="swiper-slide">
-              <img src="/img/feature/9.webp" class="img-fluid mb-2" alt="Sales Team Performance Analytics" />
+              <img src="/img/feature/dashboard.avif" class="img-fluid mb-2" alt="Sales Team Performance Analytics" />
               <h5>Sales Team Performance Analytics</h5>
               <p class="feat-text">View live dashboards to track rep activity, call volume, and follow-up progress across your entire team.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/14.webp" class="img-fluid mb-2" alt="Lead and Contact Management" />
+              <img loading="lazy" src="/img/feature/funnel.avif" class="img-fluid mb-2" alt="Lead and Contact Management" />
               <h5>Lead and Contact Management</h5>
               <p class="feat-text">Organize, assign, and manage leads with full visibility through every stage of the sales funnel.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/1.webp" class="img-fluid mb-2" alt="Call Tracking and Logging" />
+              <img loading="lazy" src="/img/feature/caller_id.avif" class="img-fluid mb-2" alt="Call Tracking and Logging" />
               <h5>Call Tracking and Logging</h5>
               <p class="feat-text">Automatically log every incoming and outgoing call with time stamps, recordings, and notes inside the CRM.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/6.webp" class="img-fluid mb-2" alt="Automated Reminders and Follow-Ups" />
+              <img loading="lazy" src="/img/feature/followup.avif" class="img-fluid mb-2" alt="Automated Reminders and Follow-Ups" />
               <h5>Automated Reminders and Follow-Ups</h5>
               <p class="feat-text">Get smart nudges and reminders so your team never forgets to follow up on a lead or opportunity.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/3.webp" class="img-fluid mb-2" alt="Live Agent Tracking" />
+              <img loading="lazy" src="/img/feature/team_status.avif" class="img-fluid mb-2" alt="Live Agent Tracking" />
               <h5>Live Agent Tracking</h5>
               <p class="feat-text">Monitor real-time status of your sales reps. See who’s on a call, who’s idle, and how your team is performing.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/8.webp" class="img-fluid mb-2" alt="AI Call Summaries" />
+              <img loading="lazy" src="/img/feature/ai-summary.avif" class="img-fluid mb-2" alt="AI Call Summaries" />
               <h5>AI Call Summaries</h5>
               <p class="feat-text">Every sales call is summarized automatically with key points captured for quick review and easy follow-up.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/13.webp" class="img-fluid mb-2" alt="Call Management CRM" />
+              <img loading="lazy" src="/img/feature/customization.avif" class="img-fluid mb-2" alt="Call Management CRM" />
               <h5>Call Management CRM</h5>
               <p class="feat-text">Runo includes an in-built CRM designed specifically for calling teams. No need for third-party tools.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/5.webp" class="img-fluid mb-2" alt="AI Sentiment Analysis" />
+              <img loading="lazy" src="/img/feature/sent_analysis.avif" class="img-fluid mb-2" alt="AI Sentiment Analysis" />
               <h5>AI Sentiment Analysis</h5>
               <p class="feat-text">Understand the quality of every call with sentiment scoring, talk ratio breakdowns, and conversation tone analysis.</p>
             </div>
             <div class="swiper-slide">
-              <img loading="lazy" src="/img/feature/security.webp" class="img-fluid mb-2" alt="Compliance and Security" />
+              <img loading="lazy" src="/img/feature/security.avif" class="img-fluid mb-2" alt="Compliance and Security" />
               <h5>Compliance and Security</h5>
               <p class="feat-text">
                 Protect your business with built-in DNC and DND checks,
@@ -1910,14 +2294,14 @@
         });
       });
     </script>
-    <section class="home-app-cta animate__animated animate__fadeInUp" data--delay="0.2s">
+    <section class="home-app-cta-sm animate__animated animate__fadeInUp" data--delay="0.2s">
       <div class="container">
-        <h2 class="animate__animated animate__fadeInDown" data--delay="0.4s">
+         <h2 class="fw-bold mb-4 color-dark" data--delay="0.4s">
           See how real sales management
           <br />
           looks in action
         </h2>
-        <a href="https://web.runo.in" class="btn-schedule runo-web-crm animate__animated animate__zoomIn mt-20" data--delay="0.6s">Start 10-day free trial</a>
+        <a href="https://web.runo.in" class="btn-dark runo-web-crm animate__animated animate__zoomIn mt-20" data--delay="0.6s">Start 10-day free trial</a>
       </div>
     </section>
     <section class="lead-section">
@@ -1933,7 +2317,7 @@
           </div>
           <!-- Hero Button -->
           <div class="hero-btn demo-btn text-center" data--delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp">
-            <a href="/integrations" class="btn-plain track-btn">See all Integrations</a>
+            <a href="/integrations" class="btn-dark track-btn">See all Integrations</a>
           </div>
         </div>
       </div>
