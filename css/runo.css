@@ -23,7 +23,7 @@
   padding: 6px 18px;
   border-radius: 25px;
   border: 2.5px solid transparent;
-  background: linear-gradient(#fafafa, #fafafa) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%) border-box;
   font-weight: 300;
   font-size: 18px;
   margin-bottom: 15px !important;
@@ -227,8 +227,8 @@
 /*header*/
 
 #home-menu ul li.submenu > a:after {
-  content: '\f107';
-  font-family: 'FontAwesome';
+  content: "\f107";
+  font-family: "FontAwesome";
   font-weight: 900;
   font-size: 14px;
   margin-left: 8px;
@@ -281,7 +281,7 @@
 }
 
 #home-menu ul li.submenu ul li.submenu > a:after {
-  content: '\f105';
+  content: "\f105";
   float: right;
 }
 
@@ -1259,7 +1259,7 @@
 /*Home cloud section*/
 
 .cloud-tech-section {
-  background: url('/img/cloud-back.webp') no-repeat center center;
+  background: url("/img/cloud-back.webp") no-repeat center center;
   background-size: cover;
   padding: 50px 0px;
   margin-bottom: 20px;
@@ -1915,7 +1915,7 @@ th {
 
 .contact-section {
   position: relative;
-  background: url('/img/contact.png') no-repeat center center/cover;
+  background: url("/img/contact.png") no-repeat center center/cover;
   border-radius: 20px;
   overflow: hidden;
   padding: 50px;
@@ -2755,7 +2755,7 @@ label {
 }
 
 .home-app-cta {
-  background: url('/img/background-cta.avif') no-repeat center center;
+  background: url("/img/background-cta.avif") no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -2987,7 +2987,7 @@ input::placeholder {
   overflow: hidden;
 
   /* Show gradient first */
-  background:#fafafa;
+  background: #fafafa;
 
   /* Background image (loaded after preload hint) */
   /*background-image: url('/img/testimonial-background.avif');*/
@@ -3016,7 +3016,7 @@ input::placeholder {
 
 .telecaller-hero .banner-cont h1 {
   color: #111111 !important;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .telecaller-hero .banner-cont p {
@@ -3242,7 +3242,7 @@ body.modal-open {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url('/img/banner-img.webp') no-repeat;
+  background: url("/img/banner-img.webp") no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3256,7 +3256,7 @@ body.modal-open {
 
 /* Gradient border effect */
 .popular-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -3289,7 +3289,7 @@ body.modal-open {
 /* Top Image Background */
 
 .card-top-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
@@ -3298,7 +3298,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url('/img/blue.webp');
+  background-image: url("/img/blue.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3307,7 +3307,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url('/img/gold.webp');
+  background-image: url("/img/gold.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3316,7 +3316,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url('/img/green.webp');
+  background-image: url("/img/green.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3415,7 +3415,7 @@ body.modal-open {
 .addon-section {
   padding: 60px 0;
   background: #fef9f6;
-  background: url('/img/banner-img.webp') no-repeat;
+  background: url("/img/banner-img.webp") no-repeat;
   background-position: center center;
   background-size: cover;
 }
@@ -3511,7 +3511,7 @@ body.modal-open {
 }
 
 .breadcrumb li + li::before {
-  content: '>';
+  content: ">";
   padding: 0 7px;
   color: #aaa;
 }
@@ -3700,7 +3700,7 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
-  .demo-section .modal[style*='display: block'] {
+  .demo-section .modal[style*="display: block"] {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -3909,7 +3909,7 @@ body.modal-open {
 }
 
 .btns a::after {
-  content: '→';
+  content: "→";
   position: absolute;
   right: -5px; /* fixed gap from text */
   top: 50%;
@@ -4140,6 +4140,6 @@ body.modal-open {
   margin: -10px 0px 12px 0px;
 }
 
-.page-faqs h5{
-      font-weight: 600 !important;
+.page-faqs h5 {
+  font-weight: 600 !important;
 }
