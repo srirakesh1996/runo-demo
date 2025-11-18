@@ -13,7 +13,7 @@
   --divider-color: #3b545024;
   --dark-divider-color: #ffffff3d;
   --error-color: rgb(230, 87, 87);
-  --default-font: 'Inter', sans-serif;
+  --default-font: "Inter", sans-serif;
 }
 
 /************************************/
@@ -21,7 +21,7 @@
 /************************************/
 
 body {
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7em;
@@ -126,7 +126,7 @@ body {
 }
 
 .image-anime:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 200%;
   height: 0%;
@@ -220,7 +220,7 @@ body {
 
 .btn-default:before,
 .btn-default:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -268,6 +268,40 @@ body {
   background: none;
   border: 1px solid #000;
   color: #303030;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1em;
+  text-transform: capitalize;
+  padding: 16px 30px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
+
+.btn-runo-dark {
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1em;
+  text-transform: capitalize;
+  padding: 16px 30px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
+
+.btn-runo-dark:hover {
+  background: none;
+  border: 1px solid #000;
+  color: #000;
   border-radius: 12px;
   display: inline-block;
   font-size: 14px;
@@ -364,7 +398,7 @@ body {
 }
 
 .btn-default.btn-highlighted::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: #ff5730;
@@ -488,12 +522,12 @@ body {
 }
 
 .section-title h3::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  background: url('../images/icon-sub-heading.svg');
+  background: url("../images/icon-sub-heading.svg");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: cover;
@@ -532,7 +566,7 @@ body {
 }
 
 .section-title.dark-section h3::before {
-  background: url('../images/icon-sub-heading-accent.svg');
+  background: url("../images/icon-sub-heading-accent.svg");
 }
 
 .help-block.with-errors ul {
@@ -738,8 +772,8 @@ header.main-header .header-sticky.active {
   color: #f44336 !important;
 }
 .main-menu ul li.submenu > a:after {
-  content: '\f107';
-  font-family: 'FontAwesome';
+  content: "\f107";
+  font-family: "FontAwesome";
   font-weight: 900;
   font-size: 14px;
   margin-left: 8px;
@@ -791,7 +825,7 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul li.submenu ul li.submenu > a:after {
-  content: '\f105';
+  content: "\f105";
   float: right;
 }
 
@@ -931,8 +965,8 @@ header.main-header .header-sticky.active {
 }
 
 .slicknav_arrow:after {
-  content: '\f107';
-  font-family: 'FontAwesome';
+  content: "\f107";
+  font-family: "FontAwesome";
   font-weight: 900;
   font-size: 12px;
   margin-left: 8px;
@@ -967,14 +1001,14 @@ background-size: cover;
 */
 .hero.hero-image {
   position: relative;
-  background: url('../images/hero-bg.jpg') no-repeat;
+  background: url("../images/hero-bg.jpg") no-repeat;
   background-position: center center;
   background-size: cover;
   padding: 200px 0;
 }
 
 .hero.hero-image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1014,7 +1048,7 @@ background-size: cover;
 }
 
 .hero.hero-image.hero-slider-layout .hero-slide::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1369,7 +1403,7 @@ background-size: cover;
 }
 
 .process-step-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 0;
@@ -1398,7 +1432,7 @@ background-size: cover;
 }
 
 .process-step-box::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   right: 0;
@@ -1427,7 +1461,7 @@ background-size: cover;
 }
 
 .process-step-box .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -1497,7 +1531,7 @@ background-size: cover;
 
 .our-clients {
   padding: 100px 0;
-  background: url('../images/our-clients-bg.png') no-repeat, var(--primary-color);
+  background: url("../images/our-clients-bg.png") no-repeat, var(--primary-color);
   background-position: center center;
   background-size: contain;
 }
@@ -1557,7 +1591,7 @@ background-size: cover;
 }
 
 .company-activity-image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 40px;
   left: 0;
@@ -1611,9 +1645,9 @@ background-size: cover;
 }
 
 .company-activity-list ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -1637,7 +1671,7 @@ background-size: cover;
 }
 
 .our-pricing::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
@@ -1707,9 +1741,9 @@ background-size: cover;
 }
 
 .pricing-body ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -1796,9 +1830,9 @@ background-size: cover;
 }
 
 .company-success-content ul li::before {
-  content: '\f00c';
+  content: "\f00c";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 16px;
   font-weight: 900;
   line-height: normal;
@@ -1862,7 +1896,7 @@ background-size: cover;
 }
 
 .company-work-list-item .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -2009,7 +2043,7 @@ background-size: cover;
 }
 
 .our-feature-nav ul li .nav-link::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: -33px;
@@ -2082,9 +2116,9 @@ background-size: cover;
 }
 
 .feature-tab-content-list ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -2113,7 +2147,7 @@ background-size: cover;
 }
 
 .integration-featured-item {
-  background: url('../images/integration-featured-bg.svg'), var(--accent-color);
+  background: url("../images/integration-featured-bg.svg"), var(--accent-color);
   background-repeat: no-repeat;
   background-position: right top;
   background-size: auto;
@@ -2157,7 +2191,7 @@ background-size: cover;
 }
 
 .integration-item:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   right: 0;
@@ -2388,8 +2422,8 @@ background-size: cover;
 
 .faq-accordion .accordion-item .accordion-button::after,
 .faq-accordion .accordion-item .accordion-button.collapsed::after {
-  content: '\f063';
-  font-family: 'FontAwesome';
+  content: "\f063";
+  font-family: "FontAwesome";
   font-size: 14px;
   font-weight: 900;
   position: absolute;
@@ -2488,11 +2522,11 @@ background-size: cover;
 }
 
 .readmore-btn:after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 4px;
-  background: url('../images/arrow-accent.svg') no-repeat;
+  background: url("../images/arrow-accent.svg") no-repeat;
   background-position: right center;
   background-size: cover;
   width: 18px;
@@ -2691,7 +2725,7 @@ background-size: cover;
 }
 
 .footer-menu ul li::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: -18px;
@@ -2720,7 +2754,7 @@ background-size: cover;
 
 .page-header {
   position: relative;
-  background: url('../images/page-header-bg.png'), var(--accent-color);
+  background: url("../images/page-header-bg.png"), var(--accent-color);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 80%;
@@ -2843,8 +2877,8 @@ background-size: cover;
 }
 
 .about-content-body ul li:after {
-  content: '\f058';
-  font-family: 'Font Awesome 6 Free';
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 18px;
   color: var(--primary-color);
@@ -2903,7 +2937,7 @@ background-size: cover;
 }
 
 .about-result-box .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -2964,7 +2998,7 @@ background-size: cover;
 }
 
 .mission-vision-item .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -3206,7 +3240,7 @@ background-size: cover;
 }
 
 .service-item::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   right: 0;
@@ -3231,7 +3265,7 @@ background-size: cover;
 }
 
 .service-item .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -3336,7 +3370,7 @@ background-size: cover;
 }
 
 .service-catagery-list ul li a::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 0;
@@ -3372,7 +3406,7 @@ background-size: cover;
 }
 
 .sidebar-cta-box .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -3489,9 +3523,9 @@ background-size: cover;
 }
 
 .service-entry ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -3520,7 +3554,7 @@ background-size: cover;
 }
 
 .service-support-item .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: calc(50% - 10px);
   right: 0;
@@ -3568,7 +3602,7 @@ background-size: cover;
 }
 
 .service-expertise-item::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   right: 0;
@@ -3593,7 +3627,7 @@ background-size: cover;
 }
 
 .service-expertise-item .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -3727,7 +3761,7 @@ background-size: cover;
 }
 
 .post-entry:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -3831,7 +3865,7 @@ background-size: cover;
 }
 
 .post-entry blockquote {
-  background: url('../images/icon-blockquote.svg'), var(--accent-color);
+  background: url("../images/icon-blockquote.svg"), var(--accent-color);
   background-repeat: no-repeat;
   background-position: 35px 36px;
   background-size: 50px;
@@ -3955,7 +3989,7 @@ background-size: cover;
 }
 
 .our-Project-nav ul li a::before {
-  content: '/';
+  content: "/";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -3986,7 +4020,7 @@ background-size: cover;
 }
 
 .project-image figure::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -4070,7 +4104,7 @@ background-size: cover;
 }
 
 .project-detail-item .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -4160,9 +4194,9 @@ background-size: cover;
 }
 
 .project-security-growth-list ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -4262,9 +4296,9 @@ background-size: cover;
 }
 
 .member-involvement-list ul li:before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'Font Awesome 6 Free';
+  font-family: "Font Awesome 6 Free";
   top: 5px;
   left: 0;
   font-weight: 900;
@@ -4389,9 +4423,9 @@ background-size: cover;
 }
 
 .video-guide-content-list ul li::before {
-  content: '\f058';
+  content: "\f058";
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 18px;
   font-weight: 900;
   line-height: normal;
@@ -4450,7 +4484,7 @@ background-size: cover;
 }
 
 .faq-catagery-list ul li a::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   right: 0;
@@ -4494,7 +4528,7 @@ background-size: cover;
 }
 
 .contact-info-item:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: -40px;
@@ -4517,7 +4551,7 @@ background-size: cover;
 }
 
 .contact-info-item .icon-box:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;

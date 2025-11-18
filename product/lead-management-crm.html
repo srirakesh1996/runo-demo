@@ -2102,207 +2102,197 @@
     </section>
     <!-- Clients Section End -->
     <!-- why choose runo-->
-    <section class="deals-section mt-20" id="dealsSection">
-      <div class="container">
-        <div class="row deals-content">
-          <div class="section-title text-center" data--delay="0.3s">
-            <h2>Convert More Leads With Less Manual Efforts</h2>
+    <section class="runo-tabs py-4" id="leadTabs">
+      <div class="container text-center mb-4">
+        <div class="section-title text-center">
+          <h2>Convert More Leads With Less Manual Efforts</h2>
+        </div>
+
+        <!-- ===== DESKTOP TABS ===== -->
+        <div class="tab-container d-none d-md-block">
+          <div class="tab-header">
+            <div class="tab-highlight"></div>
+
+            <button class="tab-btn active" data-target="#t1">Lead Capture</button>
+            <button class="tab-btn" data-target="#t2">Lead Allocation</button>
+            <button class="tab-btn" data-target="#t3">Real-Time Tracking</button>
+            <button class="tab-btn" data-target="#t4">Follow-Up Reminders</button>
+            <button class="tab-btn" data-target="#t5">Team Tracking</button>
           </div>
-          <!-- Tabs and Mobile Images -->
-          <div class="col-md-6">
-            <div class="left-tabs" id="tabContainer">
-              <div class="scroll-bar"></div>
-              <div class="scroll-indicator" id="scrollIndicator"></div>
-              <div class="btn-group-vertical w-100" id="tabButtons">
-                <!-- Tab Buttons -->
-                <div class="scroll-bord">
-                  <button class="tab-btn active" data-tab-index="0" data-bs-target="#tab1">
-                    <span>Never Miss a Lead With Multi-Source Lead Capture</span>
-                    <p>Runo captures leads instantly from websites, ads, marketplaces, CSV uploads, and other key sources, so your team can connect while the lead is still interested</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                    <img src="../img/lead-management/lead-capture.avif" class="img-preview" alt="Multi-Source Lead Capture Illustration" />
-                  </div>
+
+          <div class="tab-content">
+            <!-- TAB 1 -->
+            <div class="tab-pane active" id="t1">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Never Miss a Lead With Multi-Source Lead Capture</h3>
+                  <p class="mt-3">Runo captures leads instantly from websites, ads, marketplaces, CSV uploads, and other key sources, so your team can connect while the lead is still interested</p>
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="1" data-bs-target="#tab2">
-                    <span>Reach Out Faster With Instant Lead Allocation</span>
-                    <p>New leads are auto-allocated to your sales reps based on source, region, or custom rules, so there’s no waiting, no manual work, and no missed leads</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display: none">
-                    <img src="../img/lead-management/lead-allocation.avif" class="img-preview" loading="lazy" alt="Instant Lead Allocation Graphic" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="../img/lead-management/lead-capture.avif" class="img-fluid rounded" alt="" />
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="2" data-bs-target="#tab3">
-                    <span>Follow Every Lead’s Journey With Real-Time Tracking</span>
-                    <p>Track every update, follow-up, and status change in real time, so you’re always in control of your pipeline</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display: none">
-                    <img src="../img/lead-management/real-time-tracking.avif" class="img-preview" loading="lazy" alt="Real-Time Lead Tracking Visual" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="tab-pane" id="t2">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Reach Out Faster With Instant Lead Allocation</h3>
+                  <p class="mt-3">New leads are auto-allocated to your sales reps based on source, region, or custom rules, so there’s no waiting, no manual work, and no missed leads</p>
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="3" data-bs-target="#tab4">
-                    <span>Keep Leads Warm With Follow-Ups Reminders</span>
-                    <p>Timely reminders help your team follow up before leads lose interest, keeping conversations active and deals moving</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display: none">
-                    <img src="../img/lead-management/follow-up.avif" class="img-preview" loading="lazy" alt="Follow-Up Reminder Notification" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="../img/lead-management/lead-allocation.avif" class="img-fluid rounded" alt="" />
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="4" data-bs-target="#tab5">
-                    <span>Improve Accountability With Live Team Tracking</span>
-                    <p>Track your team’s engagement with each lead in a timeline view. Every call, message, and update is recorded in one place</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display: none">
-                    <img src="../img/lead-management/team-status.avif" class="img-preview" loading="lazy" alt="Live Team Tracking Dashboard" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 3 -->
+            <div class="tab-pane" id="t3">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Follow Every Lead’s Journey With Real-Time Tracking</h3>
+                  <p class="mt-3">Track every update, follow-up, and status change in real time, so you’re always in control of your pipeline</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="../img/lead-management/real-time-tracking.avif" class="img-fluid rounded" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4 -->
+            <div class="tab-pane" id="t4">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Keep Leads Warm With Follow-Ups Reminders</h3>
+                  <p class="mt-3">Timely reminders help your team follow up before leads lose interest, keeping conversations active and deals moving</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="../img/lead-management/follow-up.avif" class="img-fluid rounded" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 5 -->
+            <div class="tab-pane" id="t5">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Improve Accountability With Live Team Tracking</h3>
+                  <p class="mt-3">Track your team’s engagement with each lead in a timeline view. Every call, message, and update is recorded in one place</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="../img/lead-management/team-status.avif" class="img-fluid rounded" alt="" />
                 </div>
               </div>
             </div>
           </div>
-          <!-- Desktop Image Preview -->
-          <div class="col-md-6 d-none d-md-block">
-            <div class="tab-content text-center">
-              <div class="tab-pane fade show active" id="tab1">
-                <img src="../img/lead-management/lead-capture.avif" class="img-preview" alt="Multi-Source Lead Capture Illustration" />
-              </div>
-              <div class="tab-pane fade" id="tab2">
-                <img src="../img/lead-management/lead-allocation.avif" class="img-preview" loading="lazy" alt="Instant Lead Allocation Graphic" />
-              </div>
-              <div class="tab-pane fade" id="tab3">
-                <img src="../img/lead-management/real-time-tracking.avif" class="img-preview" loading="lazy" alt="Real-Time Lead Tracking Visual" />
-              </div>
-              <div class="tab-pane fade" id="tab4">
-                <img src="../img/lead-management/follow-up.avif" class="img-preview" loading="lazy" alt="Follow-Up Reminder Notification" />
-              </div>
-              <div class="tab-pane fade" id="tab5">
-                <img src="../img/lead-management/team-status.avif" class="img-preview" loading="lazy" alt="Live Team Tracking Dashboard" />
-              </div>
+        </div>
+
+        <!-- ===== MOBILE SWIPER ===== -->
+        <div class="mobile-slider swiper d-md-none mt-4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Lead Capture</p>
+              <h4>Never Miss a Lead With Multi-Source Lead Capture</h4>
+              <p class="mt-3">Runo captures leads instantly from websites, ads, marketplaces, CSV uploads, and other key sources, so your team can connect while the lead is still interested</p>
+              <img src="../img/lead-management/lead-capture.avif" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Lead Allocation</p>
+              <h4>Reach Out Faster With Instant Lead Allocation</h4>
+              <p class="mt-3">New leads are auto-allocated to your sales reps based on source, region, or custom rules, so there’s no waiting, no manual work, and no missed leads</p>
+              <img src="../img/lead-management/lead-allocation.avif" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Real-Time Tracking</p>
+              <h4>Follow Every Lead’s Journey With Real-Time Tracking</h4>
+              <p class="mt-3">Track every update, follow-up, and status change in real time, so you’re always in control of your pipeline</p>
+              <img src="../img/lead-management/real-time-tracking.avif" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Follow-Up Reminders</p>
+              <h4>Keep Leads Warm With Follow-Ups Reminders</h4>
+              <p class="mt-3">Timely reminders help your team follow up before leads lose interest, keeping conversations active and deals moving</p>
+              <img src="../img/lead-management/follow-up.avif" alt="" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Team Tracking</p>
+              <h4>Improve Accountability With Live Team Tracking</h4>
+              <p class="mt-3">Track your team’s engagement with each lead in a timeline view. Every call, message, and update is recorded in one place</p>
+              <img src="../img/lead-management/team-status.avif" alt="" />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Scripts -->
+
     <script>
-      const tabs = document.querySelectorAll(".tab-btn");
-      const panes = document.querySelectorAll(".tab-pane");
-      const scrollIndicator = document.getElementById("scrollIndicator");
+      const tBtns = document.querySelectorAll(".tab-btn");
+      const tPanes = document.querySelectorAll(".tab-pane");
+      const tHighlight = document.querySelector(".tab-highlight");
 
-      let index = 0;
-      let autoSlideInterval;
-      let observerStarted = false;
-      let isAnimating = false;
+      let tIndex = 0;
+      let autoSwitch;
 
-      function animateScrollIndicator(toTop) {
-        const startTop = parseFloat(scrollIndicator.style.top) || 0;
-        const startHeight = parseFloat(scrollIndicator.style.height) || 0;
-        const isMobile = window.innerWidth <= 767;
-        const targetHeight = isMobile ? 138 : 90;
-        const duration = 500;
-        const startTime = performance.now();
+      function updateHighlight(idx) {
+        const btn = tBtns[idx];
+        const left = btn.offsetLeft;
+        const width = btn.offsetWidth;
 
-        function animate(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const newTop = startTop + (toTop - startTop) * progress;
-          const newHeight = startHeight + (targetHeight - startHeight) * progress;
-
-          scrollIndicator.style.top = `${newTop}px`;
-          scrollIndicator.style.height = `${newHeight}px`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        requestAnimationFrame(animate);
+        tHighlight.style.left = left + "px";
+        tHighlight.style.width = width + "px";
       }
 
-      function updateScrollIndicator(i) {
-        const spacingTop = tabs[i].offsetTop + 35;
-        animateScrollIndicator(spacingTop);
+      function activateTab(idx) {
+        tBtns.forEach((b) => b.classList.remove("active"));
+        tPanes.forEach((p) => p.classList.remove("active"));
+
+        tBtns[idx].classList.add("active");
+        tPanes[idx].classList.add("active");
+
+        updateHighlight(idx);
+
+        tIndex = idx;
       }
 
-      function switchTab(i) {
-        if (isAnimating || index === i) return;
-        isAnimating = true;
-
-        // Hide all mobile images
-        const mobileImgs = document.querySelectorAll(".mobile-tab-img");
-        mobileImgs.forEach((img) => (img.style.display = "none"));
-
-        // Show active mobile image
-        if (window.innerWidth <= 767) {
-          const currentMobileImg = document.getElementById(`mobileImg${i}`);
-          if (currentMobileImg) currentMobileImg.style.display = "block";
-        }
-
-        const currentPane = document.querySelector(".tab-pane.show.active");
-        const nextTab = tabs[i];
-        const nextPaneId = nextTab.getAttribute("data-bs-target");
-        const nextPane = document.querySelector(nextPaneId);
-
-        if (!nextPane) {
-          isAnimating = false;
-          return;
-        }
-
-        tabs.forEach((tab) => tab.classList.remove("active"));
-        nextTab.classList.add("active");
-
-        currentPane.classList.remove("show", "active");
-        nextPane.classList.add("show", "active");
-
-        updateScrollIndicator(i);
-        index = i;
-        isAnimating = false;
-      }
-
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-          const nextIndex = (index + 1) % tabs.length;
-          switchTab(nextIndex);
-        }, 8000);
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-      }
-
-      tabs.forEach((tab, i) => {
-        tab.addEventListener("click", () => {
-          switchTab(i);
-          resetAutoSlide();
+      tBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          activateTab(i);
+          resetAuto();
         });
       });
 
-      function observeSection() {
-        const section = document.getElementById("dealsSection");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !observerStarted) {
-                observerStarted = true;
-                updateScrollIndicator(0);
-                startAutoSlide();
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-          }
-        );
-
-        observer.observe(section);
+      function startAuto() {
+        autoSwitch = setInterval(() => {
+          activateTab((tIndex + 1) % tBtns.length);
+        }, 6000);
       }
 
-      document.addEventListener("DOMContentLoaded", observeSection);
+      function resetAuto() {
+        clearInterval(autoSwitch);
+        startAuto();
+      }
+
+      window.addEventListener("resize", () => updateHighlight(tIndex));
+
+      activateTab(0);
+      startAuto();
+
+      // Mobile Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".mobile-slider", {
+          loop: true,
+          autoplay: { delay: 4000, disableOnInteraction: false },
+          slidesPerView: 1,
+          spaceBetween: 20,
+        });
+      });
     </script>
+
     <!-- why choose runo ends-->
     <section class="metrics-section mt-70 mb-40">
       <div class="container">
@@ -2791,7 +2781,7 @@
               <li><a href="/newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a></li>
               <li><a href="/partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
-            <h6 class="fw-bold mt-4 mb-2 text-white">Contact</h6>
+            <h6 class="fw-bold mt-4 mb-2 text-white">CONTACT</h6>
             <a href="mailto:care@runo.ai">
               <p class="mb-1 text-white ptb-5">
                 <i class="fas fa-envelope me-2"></i>
@@ -2853,7 +2843,7 @@
         <!-- Bottom Row -->
         <div class="row align-items-center text-center text-md-start mb-20 mt-10">
           <div class="col-md-5 mb-3 mb-md-0">
-            <a href="/"><img loading="lazy" src="../img/runo-white.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
+            <a href="/"><img loading="lazy" src="/img/logo.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
             <!--  <p class="text-white mt-20">Your partner in digital transformation smart solutions for smarter businesses</p>-->
           </div>
           <div class="col-md-4 mb-3 mb-md-0">

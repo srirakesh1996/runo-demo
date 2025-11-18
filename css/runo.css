@@ -2826,7 +2826,7 @@ label {
 
 .store-buttons img {
   width: 150px;
-  margin: 30px 0px !important;
+  margin: 10px 0px !important;
 }
 
 .rating {
@@ -3242,7 +3242,7 @@ body.modal-open {
   overflow: hidden;
   /* ensure pseudo-element stays contained */
   z-index: 1;
-  background: url("/img/banner-img.webp") no-repeat;
+  /* background: url("/img/banner-img.webp") no-repeat;*/
   background-position: center center;
   background-size: cover;
 }
@@ -3298,7 +3298,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/blue.webp");
+  /* background-image: url("/img/blue.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3307,7 +3307,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/gold.webp");
+  /* background-image: url("/img/gold.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3316,7 +3316,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url("/img/green.webp");
+  /* background-image: url("/img/green.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3363,6 +3363,10 @@ body.modal-open {
   padding: 70px 20px 40px 20px;
   position: absolute;
   z-index: 5;
+  font-weight: 400 !important;
+}
+.top-content h5 {
+  font-weight: 400 !important;
 }
 
 .card-body {
@@ -3414,8 +3418,8 @@ body.modal-open {
 
 .addon-section {
   padding: 60px 0;
-  background: #fef9f6;
-  background: url("/img/banner-img.webp") no-repeat;
+  /*background: #fef9f6;*/
+  /* background: url("/img/banner-img.webp") no-repeat;*/
   background-position: center center;
   background-size: cover;
 }
@@ -3449,27 +3453,32 @@ body.modal-open {
 }
 
 .gradient-purple {
-  background: linear-gradient(181deg, rgba(234, 230, 255, 0.5) 60%, rgba(187, 173, 255, 0.5) 130%);
+  /* background: linear-gradient(181deg, rgba(234, 230, 255, 0.5) 60%, rgba(187, 173, 255, 0.5) 130%);*/
+  background: none;
   border: 1px solid #bbadff;
 }
 
 .gradient-green {
-  background: linear-gradient(180deg, rgba(230, 255, 239, 0.5) 60%, rgba(150, 227, 178, 0.5) 130%);
+  /* background: linear-gradient(180deg, rgba(230, 255, 239, 0.5) 60%, rgba(150, 227, 178, 0.5) 130%);*/
+  background: none;
   border: 1px solid #96e3b2;
 }
 
 .gradient-blue {
-  background: linear-gradient(180deg, rgba(225, 241, 255, 0.5) 60%, rgba(130, 193, 251, 0.5) 130%);
+  /*background: linear-gradient(180deg, rgba(225, 241, 255, 0.5) 60%, rgba(130, 193, 251, 0.5) 130%);*/
+  background: none;
   border: 1px solid #82c1fb;
 }
 
 .gradient-pink {
-  background: linear-gradient(180deg, rgba(249, 223, 255, 0.5) 60%, rgba(237, 163, 255, 0.5) 130%);
+  /*background: linear-gradient(180deg, rgba(249, 223, 255, 0.5) 60%, rgba(237, 163, 255, 0.5) 130%);*/
+  background: none;
   border: 1px solid #eda3ff;
 }
 
 .gradient-orange {
-  background: linear-gradient(180deg, rgba(255, 229, 223, 0.5) 60%, rgba(255, 173, 154, 0.5) 130%);
+  /* background: linear-gradient(180deg, rgba(255, 229, 223, 0.5) 60%, rgba(255, 173, 154, 0.5) 130%);*/
+  background: none;
   border: 1px solid #ffad9a;
 }
 

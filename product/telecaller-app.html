@@ -2071,207 +2071,196 @@
     </section>
     <!-- Clients Section End -->
     <!-- why choose runo-->
-    <section class="deals-section mt-20" id="dealsSection">
-      <div class="container">
-        <div class="row deals-content">
-          <div class="section-title text-center" data--delay="0.3s">
-            <h2>Why Growing Teams Choose Runo</h2>
+    <section class="runo-tabs py-4" id="telecallerTabs">
+      <div class="container text-center mb-4">
+        <div class="section-title text-center">
+          <h2>Why Growing Teams Choose Runo</h2>
+        </div>
+
+        <!-- ================= DESKTOP TABS ================= -->
+        <div class="tab-container d-none d-md-block">
+          <div class="tab-header">
+            <div class="tab-highlight"></div>
+
+            <button class="tab-btn active" data-target="#tc1">3x Faster</button>
+            <button class="tab-btn" data-target="#tc2">PBX-Free Calling</button>
+            <button class="tab-btn" data-target="#tc3">Real-Time Tracking</button>
+            <button class="tab-btn" data-target="#tc4">60% Cost Saving</button>
+            <button class="tab-btn" data-target="#tc5">Zero Training</button>
           </div>
-          <!-- Tabs and Mobile Images -->
-          <div class="col-md-6">
-            <div class="left-tabs" id="tabContainer">
-              <div class="scroll-bar"></div>
-              <div class="scroll-indicator" id="scrollIndicator"></div>
-              <div class="btn-group-vertical w-100" id="tabButtons">
-                <!-- Mobile Images -->
-                <div class="scroll-bord">
-                  <button class="tab-btn active" data-tab-index="0" data-bs-target="#tab1">
-                    <span>Connect 3x Faster</span>
-                    <p>No more shuffling through Excel sheets. Leads are auto-assigned and queued for calling, so your agents can start dialing instantly.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                    <img src="/img/telecaller/3x.avif" class="img-preview" alt="Connect 3x Faster with Auto Lead Assignment" />
-                  </div>
+
+          <div class="tab-content">
+            <!-- TAB 1 -->
+            <div class="tab-pane active" id="tc1">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Connect 3x Faster</h3>
+                  <p class="mt-3">No more shuffling through Excel sheets. Leads are auto-assigned and queued for calling, so your agents can start dialing instantly.</p>
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="1" data-bs-target="#tab2">
-                    <span>Independent of PBX</span>
-                    <p>Call directly using your phone’s SIM or virtual numbers. Scale up easily with almost 0 capex.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display: none">
-                    <img src="/img/telecaller/cloud-telephony.avif" class="img-preview" loading="lazy" alt="Call Without Cloud Telephony or PBX" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/telecaller/3x.avif" class="img-fluid rounded" alt="Connect 3x Faster with Auto Lead Assignment" />
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="2" data-bs-target="#tab3">
-                    <span>Track Every Call, Follow-Up, and Agent in Real Time</span>
-                    <p>View live call activity, follow-up status, and team performance in one dashboard.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display: none">
-                    <img src="/img/telecaller/instant-visibility.avif" class="img-preview" loading="lazy" alt="Real-Time Call and Agent Tracking Dashboard" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="tab-pane" id="tc2">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Independent of PBX</h3>
+                  <p class="mt-3">Call directly using your phone’s SIM or virtual numbers. Scale up easily with almost 0 capex.</p>
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="3" data-bs-target="#tab4">
-                    <span>Cut Telecalling Costs by 60%</span>
-                    <p>One app replaces your dialer, CRM, and call tracker. No extra tools. No cloud bills.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display: none">
-                    <img src="/img/telecaller/cost.avif" class="img-preview" loading="lazy" alt="Reduce Telecalling Costs by 60%" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/telecaller/cloud-telephony.avif" class="img-fluid rounded" alt="Call Without Cloud Telephony or PBX" />
                 </div>
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="4" data-bs-target="#tab5">
-                    <span>Zero training. Get Started in 30 minutes</span>
-                    <p>Get started quickly with no IT help. Set up, onboard your team, and start calling in under 30 minutes</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display: none">
-                    <img src="/img/telecaller/zero-training.avif" class="img-preview" loading="lazy" alt="Get Started with Telecalling in 30 Minutes" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 3 -->
+            <div class="tab-pane" id="tc3">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Track Every Call, Follow-Up, and Agent in Real Time</h3>
+                  <p class="mt-3">View live call activity, follow-up status, and team performance in one dashboard.</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/telecaller/instant-visibility.avif" class="img-fluid rounded" alt="Real-Time Call and Agent Tracking Dashboard" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4 -->
+            <div class="tab-pane" id="tc4">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Cut Telecalling Costs by 60%</h3>
+                  <p class="mt-3">One app replaces your dialer, CRM, and call tracker. No extra tools. No cloud bills.</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/telecaller/cost.avif" class="img-fluid rounded" alt="Reduce Telecalling Costs by 60%" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 5 -->
+            <div class="tab-pane" id="tc5">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Zero training. Get Started in 30 minutes</h3>
+                  <p class="mt-3">Get started quickly with no IT help. Set up, onboard your team, and start calling in under 30 minutes</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/telecaller/zero-training.avif" class="img-fluid rounded" alt="Get Started with Telecalling in 30 Minutes" />
                 </div>
               </div>
             </div>
           </div>
-          <!-- Desktop Image Preview -->
-          <div class="col-md-6 d-none d-md-block">
-            <div class="tab-content text-center">
-              <div class="tab-pane fade show active" id="tab1">
-                <img src="/img/telecaller/3x.avif" class="img-preview" alt="Connect 3x Faster with Auto Lead Assignment" />
-              </div>
-              <div class="tab-pane fade" id="tab2">
-                <img src="/img/telecaller/cloud-telephony.avif" class="img-preview" loading="lazy" alt="Call Without Cloud Telephony or PBX" />
-              </div>
-              <div class="tab-pane fade" id="tab3">
-                <img src="/img/telecaller/instant-visibility.avif" class="img-preview" loading="lazy" alt="Real-Time Call and Agent Tracking Dashboard" />
-              </div>
-              <div class="tab-pane fade" id="tab4">
-                <img src="/img/telecaller/cost.avif" class="img-preview" loading="lazy" alt="Reduce Telecalling Costs by 60%" />
-              </div>
-              <div class="tab-pane fade" id="tab5">
-                <img src="/img/telecaller/zero-training.avif" class="img-preview" loading="lazy" alt="Get Started with Telecalling in 30 Minutes" />
-              </div>
+        </div>
+
+        <!-- ================= MOBILE SWIPER ================= -->
+        <div class="mobile-slider swiper d-md-none mt-4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">3x Faster</p>
+              <h4>Connect 3x Faster</h4>
+              <p class="mt-3">No more shuffling through Excel sheets. Leads are auto-assigned and queued for calling, so your agents can start dialing instantly.</p>
+              <img src="/img/telecaller/3x.avif" alt="Connect 3x Faster with Auto Lead Assignment" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">PBX Free</p>
+              <h4>Independent of PBX</h4>
+              <p class="mt-3">Call directly using your phone’s SIM or virtual numbers. Scale up easily with almost 0 capex.</p>
+              <img src="/img/telecaller/cloud-telephony.avif" alt="Call Without Cloud Telephony or PBX" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Live Tracking</p>
+              <h4>Track Every Call, Follow-Up, and Agent in Real Time</h4>
+              <p class="mt-3">View live call activity, follow-up status, and team performance in one dashboard.</p>
+              <img src="/img/telecaller/instant-visibility.avif" alt="Real-Time Call and Agent Tracking Dashboard" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Cost Saving</p>
+              <h4>Cut Telecalling Costs by 60%</h4>
+              <p class="mt-3">One app replaces your dialer, CRM, and call tracker. No extra tools. No cloud bills.</p>
+              <img src="/img/telecaller/cost.avif" alt="Reduce Telecalling Costs by 60%" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Zero Training</p>
+              <h4>Zero training. Get Started in 30 minutes</h4>
+              <p class="mt-3">Get started quickly with no IT help. Set up, onboard your team, and start calling in under 30 minutes</p>
+              <img src="/img/telecaller/zero-training.avif" alt="Get Started with Telecalling in 30 Minutes" />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Scripts -->
     <script>
-      const tabs = document.querySelectorAll(".tab-btn");
-      const panes = document.querySelectorAll(".tab-pane");
-      const scrollIndicator = document.getElementById("scrollIndicator");
+      const tBtns = document.querySelectorAll(".tab-btn");
+      const tPanes = document.querySelectorAll(".tab-pane");
+      const tHighlight = document.querySelector(".tab-highlight");
 
-      let index = 0;
-      let autoSlideInterval;
-      let observerStarted = false;
-      let isAnimating = false;
+      let tIndex = 0;
+      let autoSwitch;
 
-      function animateScrollIndicator(toTop) {
-        const startTop = parseFloat(scrollIndicator.style.top) || 0;
-        const startHeight = parseFloat(scrollIndicator.style.height) || 0;
-        const isMobile = window.innerWidth <= 767;
-        const targetHeight = isMobile ? 138 : 90;
-        const duration = 500;
-        const startTime = performance.now();
+      function updateHighlight(idx) {
+        const btn = tBtns[idx];
+        const left = btn.offsetLeft;
+        const width = btn.offsetWidth;
 
-        function animate(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const newTop = startTop + (toTop - startTop) * progress;
-          const newHeight = startHeight + (targetHeight - startHeight) * progress;
-
-          scrollIndicator.style.top = `${newTop}px`;
-          scrollIndicator.style.height = `${newHeight}px`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        requestAnimationFrame(animate);
+        tHighlight.style.left = left + "px";
+        tHighlight.style.width = width + "px";
       }
 
-      function updateScrollIndicator(i) {
-        const spacingTop = tabs[i].offsetTop + 35;
-        animateScrollIndicator(spacingTop);
+      function activateTab(idx) {
+        tBtns.forEach((b) => b.classList.remove("active"));
+        tPanes.forEach((p) => p.classList.remove("active"));
+
+        tBtns[idx].classList.add("active");
+        tPanes[idx].classList.add("active");
+
+        updateHighlight(idx);
+
+        tIndex = idx;
       }
 
-      function switchTab(i) {
-        if (isAnimating || index === i) return;
-        isAnimating = true;
-
-        // Hide all mobile images
-        const mobileImgs = document.querySelectorAll(".mobile-tab-img");
-        mobileImgs.forEach((img) => (img.style.display = "none"));
-
-        // Show active mobile image
-        if (window.innerWidth <= 767) {
-          const currentMobileImg = document.getElementById(`mobileImg${i}`);
-          if (currentMobileImg) currentMobileImg.style.display = "block";
-        }
-
-        const currentPane = document.querySelector(".tab-pane.show.active");
-        const nextTab = tabs[i];
-        const nextPaneId = nextTab.getAttribute("data-bs-target");
-        const nextPane = document.querySelector(nextPaneId);
-
-        if (!nextPane) {
-          isAnimating = false;
-          return;
-        }
-
-        tabs.forEach((tab) => tab.classList.remove("active"));
-        nextTab.classList.add("active");
-
-        currentPane.classList.remove("show", "active");
-        nextPane.classList.add("show", "active");
-
-        updateScrollIndicator(i);
-        index = i;
-        isAnimating = false;
-      }
-
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-          const nextIndex = (index + 1) % tabs.length;
-          switchTab(nextIndex);
-        }, 8000);
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-      }
-
-      tabs.forEach((tab, i) => {
-        tab.addEventListener("click", () => {
-          switchTab(i);
-          resetAutoSlide();
+      tBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          activateTab(i);
+          resetAuto();
         });
       });
 
-      function observeSection() {
-        const section = document.getElementById("dealsSection");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !observerStarted) {
-                observerStarted = true;
-                updateScrollIndicator(0);
-                startAutoSlide();
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-          }
-        );
-
-        observer.observe(section);
+      function startAuto() {
+        autoSwitch = setInterval(() => {
+          activateTab((tIndex + 1) % tBtns.length);
+        }, 6000);
       }
 
-      document.addEventListener("DOMContentLoaded", observeSection);
+      function resetAuto() {
+        clearInterval(autoSwitch);
+        startAuto();
+      }
+
+      window.addEventListener("resize", () => updateHighlight(tIndex));
+
+      activateTab(0);
+      startAuto();
+
+      // Mobile Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".mobile-slider", {
+          loop: true,
+          autoplay: { delay: 4000, disableOnInteraction: false },
+          slidesPerView: 1,
+          spaceBetween: 20,
+        });
+      });
     </script>
+
     <!-- why choose runo ends-->
     <section class="sales-execution-section py-5">
       <div class="container">
@@ -2908,7 +2897,7 @@
               <li><a href="/newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a></li>
               <li><a href="/partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
-            <h6 class="fw-bold mt-4 mb-2 text-white">Contact</h6>
+            <h6 class="fw-bold mt-4 mb-2 text-white">CONTACT</h6>
             <a href="mailto:care@runo.ai">
               <p class="mb-1 text-white ptb-5">
                 <i class="fas fa-envelope me-2"></i>
@@ -2970,7 +2959,7 @@
         <!-- Bottom Row -->
         <div class="row align-items-center text-center text-md-start mb-20 mt-10">
           <div class="col-md-5 mb-3 mb-md-0">
-            <a href="/"><img loading="lazy" src="/img/runo-white.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
+            <a href="/"><img loading="lazy" src="/img/logo.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
             <!--  <p class="text-white mt-20">Your partner in digital transformation smart solutions for smarter businesses</p>-->
           </div>
           <div class="col-md-4 mb-3 mb-md-0">

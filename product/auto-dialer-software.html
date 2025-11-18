@@ -2071,211 +2071,196 @@
     </section>
     <!-- Clients Section End -->
     <!-- why choose runo-->
-    <section class="deals-section mt-20" id="dealsSection">
-      <div class="container">
-        <div class="row deals-content">
-          <div class="section-title text-center" data--delay="0.3s">
-            <h2>The Only Auto Dialer with a Built-In AI-Powered CRM</h2>
+    <section class="runo-tabs py-4" id="autoDialerTabs">
+      <div class="container text-center mb-4">
+        <div class="section-title text-center">
+          <h2>The Only Auto Dialer with a Built-In AI-Powered CRM</h2>
+        </div>
+
+        <!-- ================= DESKTOP TABS ================= -->
+        <div class="tab-container d-none d-md-block">
+          <div class="tab-header">
+            <div class="tab-highlight"></div>
+
+            <button class="tab-btn active" data-target="#ad1">2x Productivity</button>
+            <button class="tab-btn" data-target="#ad2">Call Connect Rate</button>
+            <button class="tab-btn" data-target="#ad3">Lead Flow</button>
+            <button class="tab-btn" data-target="#ad4">Follow Ups</button>
+            <button class="tab-btn" data-target="#ad5">AI Call Quality</button>
           </div>
-          <!-- Tabs and Mobile Images -->
-          <div class="col-md-6">
-            <div class="left-tabs" id="tabContainer">
-              <div class="scroll-bar"></div>
-              <div class="scroll-indicator" id="scrollIndicator"></div>
-              <div class="btn-group-vertical w-100" id="tabButtons">
-                <!-- Tab 1 -->
-                <div class="scroll-bord">
-                  <button class="tab-btn active" data-tab-index="0" data-bs-target="#tab1">
-                    <span>2x Calling Productivity</span>
-                    <p>Auto-dial the next lead, log every call instantly, and update lead status without manual effort. Agents stay focused on conversations instead of backend tasks.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg0">
-                    <img src="/img/auto-dialer/2x-productvity.avif" class="img-preview" alt="2x Calling Productivity" />
-                  </div>
+
+          <div class="tab-content">
+            <!-- TAB 1 -->
+            <div class="tab-pane active" id="ad1">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>2x Calling Productivity</h3>
+                  <p class="mt-3">Auto-dial the next lead, log every call instantly, and update lead status without manual effort. Agents stay focused on conversations instead of backend tasks.</p>
                 </div>
-                <!-- Tab 2 -->
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="1" data-bs-target="#tab2">
-                    <span>Higher Call Connect Rate</span>
-                    <p>Place calls using your phone’s SIM or a reliable virtual number, so your caller ID appears real and familiar. This builds trust and increases the chances of people answering.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg1" style="display: none">
-                    <img src="/img/auto-dialer/call-connect.avif" class="img-preview" loading="lazy" alt="Higher Call Connect Rate" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/auto-dialer/2x-productvity.avif" class="img-fluid rounded" alt="2x Calling Productivity" />
                 </div>
-                <!-- Tab 3 -->
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="2" data-bs-target="#tab3">
-                    <span>Zero Gap in Lead Flow</span>
-                    <p>Leads are assigned instantly, updates happen in real time, and your team always knows who’s next in line.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg2" style="display: none">
-                    <img src="/img/auto-dialer/lead-flow.avif" class="img-preview" loading="lazy" alt="Zero Gap in Lead Flow" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="tab-pane" id="ad2">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Higher Call Connect Rate</h3>
+                  <p class="mt-3">Place calls using your phone’s SIM or a reliable virtual number, so your caller ID appears real and familiar. This builds trust and increases the chances of people answering.</p>
                 </div>
-                <!-- Tab 4 -->
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="3" data-bs-target="#tab4">
-                    <span>No Missed Follow Ups</span>
-                    <p>Automated reminders help your team stay on top of every lead with timely follow-ups through calls or WhatsApp.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg3" style="display: none">
-                    <img src="/img/auto-dialer/follow-up.avif" class="img-preview" loading="lazy" alt="No Missed Follow Ups" />
-                  </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/auto-dialer/call-connect.avif" class="img-fluid rounded" alt="Higher Call Connect Rate" />
                 </div>
-                <!-- Tab 5 -->
-                <div class="scroll-bord">
-                  <button class="tab-btn" data-tab-index="4" data-bs-target="#tab5">
-                    <span>Call Quality Score, Powered by AI</span>
-                    <p>Calls can be transcribed and analyzed with AI to highlight sentiment, talk-time balance, and quality scores.</p>
-                  </button>
-                  <div class="mobile-tab-img d-md-none" id="mobileImg4" style="display: none">
-                    <img src="/img/auto-dialer/call-quality.avif" class="img-preview" loading="lazy" alt="Call Quality Score, Powered by AI" />
-                  </div>
+              </div>
+            </div>
+
+            <!-- TAB 3 -->
+            <div class="tab-pane" id="ad3">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Zero Gap in Lead Flow</h3>
+                  <p class="mt-3">Leads are assigned instantly, updates happen in real time, and your team always knows who’s next in line.</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/auto-dialer/lead-flow.avif" class="img-fluid rounded" alt="Zero Gap in Lead Flow" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4 -->
+            <div class="tab-pane" id="ad4">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>No Missed Follow Ups</h3>
+                  <p class="mt-3">Automated reminders help your team stay on top of every lead with timely follow-ups through calls or WhatsApp.</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/auto-dialer/follow-up.avif" class="img-fluid rounded" alt="No Missed Follow Ups" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 5 -->
+            <div class="tab-pane" id="ad5">
+              <div class="row align-items-center">
+                <div class="col-md-7 text-start">
+                  <h3>Call Quality Score, Powered by AI</h3>
+                  <p class="mt-3">Calls can be transcribed and analyzed with AI to highlight sentiment, talk-time balance, and quality scores.</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                  <img src="/img/auto-dialer/call-quality.avif" class="img-fluid rounded" alt="Call Quality Score, Powered by AI" />
                 </div>
               </div>
             </div>
           </div>
-          <!-- Desktop Image Preview -->
-          <div class="col-md-6 d-none d-md-block">
-            <div class="tab-content text-center">
-              <div class="tab-pane fade show active" id="tab1">
-                <img src="/img/auto-dialer/2x-productvity.avif" class="img-preview" alt="2x Calling Productivity" />
-              </div>
-              <div class="tab-pane fade" id="tab2">
-                <img src="/img/auto-dialer/call-connect.avif" class="img-preview" loading="lazy" alt="Higher Call Connect Rate" />
-              </div>
-              <div class="tab-pane fade" id="tab3">
-                <img src="/img/auto-dialer/lead-flow.avif" class="img-preview" loading="lazy" alt="Zero Gap in Lead Flow" />
-              </div>
-              <div class="tab-pane fade" id="tab4">
-                <img src="/img/auto-dialer/follow-up.avif" class="img-preview" alt="No Missed Follow Ups" loading="lazy" />
-              </div>
-              <div class="tab-pane fade" id="tab5">
-                <img src="/img/auto-dialer/call-quality.avif" class="img-preview" loading="lazy" alt="Call Quality Score, Powered by AI" />
-              </div>
+        </div>
+
+        <!-- ================= MOBILE SWIPER ================= -->
+        <div class="mobile-slider swiper d-md-none mt-4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">2x Productivity</p>
+              <h4>2x Calling Productivity</h4>
+              <p class="mt-3">Auto-dial the next lead, log every call instantly, and update lead status without manual effort. Agents stay focused on conversations instead of backend tasks.</p>
+              <img src="/img/auto-dialer/2x-productvity.avif" alt="2x Calling Productivity" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Call Connect</p>
+              <h4>Higher Call Connect Rate</h4>
+              <p class="mt-3">Place calls using your phone’s SIM or a reliable virtual number, so your caller ID appears real and familiar. This builds trust and increases the chances of people answering.</p>
+              <img src="/img/auto-dialer/call-connect.avif" alt="Higher Call Connect Rate" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Lead Flow</p>
+              <h4>Zero Gap in Lead Flow</h4>
+              <p class="mt-3">Leads are assigned instantly, updates happen in real time, and your team always knows who’s next in line.</p>
+              <img src="/img/auto-dialer/lead-flow.avif" alt="Zero Gap in Lead Flow" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">Follow Ups</p>
+              <h4>No Missed Follow Ups</h4>
+              <p class="mt-3">Automated reminders help your team stay on top of every lead with timely follow-ups through calls or WhatsApp.</p>
+              <img src="/img/auto-dialer/follow-up.avif" alt="No Missed Follow Ups" />
+            </div>
+
+            <div class="swiper-slide">
+              <p class="deals-tab-tag">AI Quality</p>
+              <h4>Call Quality Score, Powered by AI</h4>
+              <p class="mt-3">Calls can be transcribed and analyzed with AI to highlight sentiment, talk-time balance, and quality scores.</p>
+              <img src="/img/auto-dialer/call-quality.avif" alt="Call Quality Score, Powered by AI" />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Scripts -->
     <script>
-      const tabs = document.querySelectorAll(".tab-btn");
-      const panes = document.querySelectorAll(".tab-pane");
-      const scrollIndicator = document.getElementById("scrollIndicator");
+      const tBtns = document.querySelectorAll(".tab-btn");
+      const tPanes = document.querySelectorAll(".tab-pane");
+      const tHighlight = document.querySelector(".tab-highlight");
 
-      let index = 0;
-      let autoSlideInterval;
-      let observerStarted = false;
-      let isAnimating = false;
+      let tIndex = 0;
+      let autoSwitch;
 
-      function animateScrollIndicator(toTop) {
-        const startTop = parseFloat(scrollIndicator.style.top) || 0;
-        const startHeight = parseFloat(scrollIndicator.style.height) || 0;
-        const isMobile = window.innerWidth <= 767;
-        const targetHeight = isMobile ? 138 : 90;
-        const duration = 500;
-        const startTime = performance.now();
+      function updateHighlight(idx) {
+        const btn = tBtns[idx];
+        const left = btn.offsetLeft;
+        const width = btn.offsetWidth;
 
-        function animate(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const newTop = startTop + (toTop - startTop) * progress;
-          const newHeight = startHeight + (targetHeight - startHeight) * progress;
-
-          scrollIndicator.style.top = `${newTop}px`;
-          scrollIndicator.style.height = `${newHeight}px`;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        requestAnimationFrame(animate);
+        tHighlight.style.left = left + "px";
+        tHighlight.style.width = width + "px";
       }
 
-      function updateScrollIndicator(i) {
-        const spacingTop = tabs[i].offsetTop + 35;
-        animateScrollIndicator(spacingTop);
+      function activateTab(idx) {
+        tBtns.forEach((b) => b.classList.remove("active"));
+        tPanes.forEach((p) => p.classList.remove("active"));
+
+        tBtns[idx].classList.add("active");
+        tPanes[idx].classList.add("active");
+
+        updateHighlight(idx);
+
+        tIndex = idx;
       }
 
-      function switchTab(i) {
-        if (isAnimating || index === i) return;
-        isAnimating = true;
-
-        // Hide all mobile images
-        const mobileImgs = document.querySelectorAll(".mobile-tab-img");
-        mobileImgs.forEach((img) => (img.style.display = "none"));
-
-        // Show active mobile image
-        if (window.innerWidth <= 767) {
-          const currentMobileImg = document.getElementById(`mobileImg${i}`);
-          if (currentMobileImg) currentMobileImg.style.display = "block";
-        }
-
-        const currentPane = document.querySelector(".tab-pane.show.active");
-        const nextTab = tabs[i];
-        const nextPaneId = nextTab.getAttribute("data-bs-target");
-        const nextPane = document.querySelector(nextPaneId);
-
-        if (!nextPane) {
-          isAnimating = false;
-          return;
-        }
-
-        tabs.forEach((tab) => tab.classList.remove("active"));
-        nextTab.classList.add("active");
-
-        currentPane.classList.remove("show", "active");
-        nextPane.classList.add("show", "active");
-
-        updateScrollIndicator(i);
-        index = i;
-        isAnimating = false;
-      }
-
-      function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-          const nextIndex = (index + 1) % tabs.length;
-          switchTab(nextIndex);
-        }, 8000);
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-      }
-
-      tabs.forEach((tab, i) => {
-        tab.addEventListener("click", () => {
-          switchTab(i);
-          resetAutoSlide();
+      tBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          activateTab(i);
+          resetAuto();
         });
       });
 
-      function observeSection() {
-        const section = document.getElementById("dealsSection");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !observerStarted) {
-                observerStarted = true;
-                updateScrollIndicator(0);
-                startAutoSlide();
-              }
-            });
-          },
-          {
-            threshold: 0.3,
-          }
-        );
-
-        observer.observe(section);
+      function startAuto() {
+        autoSwitch = setInterval(() => {
+          activateTab((tIndex + 1) % tBtns.length);
+        }, 6000);
       }
 
-      document.addEventListener("DOMContentLoaded", observeSection);
+      function resetAuto() {
+        clearInterval(autoSwitch);
+        startAuto();
+      }
+
+      window.addEventListener("resize", () => updateHighlight(tIndex));
+
+      activateTab(0);
+      startAuto();
+
+      // Mobile Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".mobile-slider", {
+          loop: true,
+          autoplay: { delay: 4000, disableOnInteraction: false },
+          slidesPerView: 1,
+          spaceBetween: 20,
+        });
+      });
     </script>
+
     <!-- why choose runo ends-->
     <section class="metrics-section mt-70">
       <div class="container">
@@ -2801,7 +2786,7 @@
               <li><a href="/newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a></li>
               <li><a href="/partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
-            <h6 class="fw-bold mt-4 mb-2 text-white">Contact</h6>
+            <h6 class="fw-bold mt-4 mb-2 text-white">CONTACT</h6>
             <a href="mailto:care@runo.ai">
               <p class="mb-1 text-white ptb-5">
                 <i class="fas fa-envelope me-2"></i>
@@ -2863,7 +2848,7 @@
         <!-- Bottom Row -->
         <div class="row align-items-center text-center text-md-start mb-20 mt-10">
           <div class="col-md-5 mb-3 mb-md-0">
-            <a href="/"><img loading="lazy" src="/img/runo-white.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
+            <a href="/"><img loading="lazy" src="/img/logo.png" alt="Runo Logo" class="img-fluid" width="200px" /></a>
             <!--  <p class="text-white mt-20">Your partner in digital transformation smart solutions for smarter businesses</p>-->
           </div>
           <div class="col-md-4 mb-3 mb-md-0">
