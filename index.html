@@ -70,36 +70,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <script type="text/javascript">
-      // ✅ Initialize CleverTap object
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: [],
-      };
-
-      // ✅ Your account ID and region
-      clevertap.account.push({ id: "6Z8-RRZ-957Z" });
-      clevertap.region = "eu1";
-
-      // ✅ Privacy settings for local testing
-      clevertap.privacy.push({ optOut: false });
-      clevertap.privacy.push({ useIP: false });
-
-      // ✅ Load from CloudFront fallback CDN (working globally)
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script>
-
     <!-- Optional: WOW.js & Animate.css -->
     <!--
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">

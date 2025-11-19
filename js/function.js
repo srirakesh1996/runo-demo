@@ -27,11 +27,15 @@
     });
   }
 
-  /* Slick Menu JS */
-  $("#menu").slicknav({
-    label: "",
-    prependTo: ".responsive-menu",
-  });
+  /* Slick Menu JS (SAFE) */
+  if ($.fn.slicknav) {
+    $("#menu").slicknav({
+      label: "",
+      prependTo: ".responsive-menu",
+    });
+  } else {
+    console.warn("⚠️ SlickNav not loaded — skipping menu init");
+  }
 
   if ($("a[href='#top']").length) {
     $(document).on("click", "a[href='#top']", function () {
@@ -44,29 +48,25 @@
     const helloBar = document.getElementById("helloBar");
     const closeBtn = document.querySelector(".close-hello");
     const storageKey = "helloBarClosed";
-    const oneDay = 24 * 60 * 60 * 1000; // 1 day in milliseconds
+    const oneDay = 24 * 60 * 60 * 1000;
 
-    if (!helloBar) return; // stop if bar not on page
+    if (!helloBar) return;
 
-    // Get stored timestamp
     const closedTime = localStorage.getItem(storageKey);
 
     if (closedTime) {
       const now = Date.now();
       if (now - parseInt(closedTime, 10) < oneDay) {
-        // less than 1 day → hide the bar
         helloBar.style.display = "none";
       } else {
-        // expired → remove storage so bar shows again
         localStorage.removeItem(storageKey);
       }
     }
 
-    // Close button click
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {
         helloBar.style.display = "none";
-        localStorage.setItem(storageKey, Date.now()); // store current timestamp
+        localStorage.setItem(storageKey, Date.now());
       });
     }
   });
@@ -74,7 +74,7 @@
   /* testimonial Slider JS */
   if ($(".testimonial-slider").length) {
     const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
-      slidesPerView: 2.5, // Default: 1 slide on mobile and tablet
+      slidesPerView: 2.5,
       speed: 1000,
       spaceBetween: 30,
       loop: true,
@@ -94,11 +94,6 @@
           slidesPerView: 2,
           spaceBetween: 30,
         },
-        990: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-
         1200: {
           slidesPerView: 2.5,
           spaceBetween: 30,
@@ -120,20 +115,9 @@
           event_label: label,
           page_path: pagePath,
         });
-
-        // For debugging:
-        // console.log("DataLayer push:", {
-        //   event: "button_click",
-        //   event_category: "CTA",
-        //   event_label: label,
-        //   page_path: pagePath,
-        // });
       });
     });
   });
-
-  /* Animated Wow Js */
-  /*new WOW().init();*/
 
   /* Popup Video */
   if ($(".popup-video").length) {
@@ -148,7 +132,6 @@
 })(jQuery);
 
 /*Hide 1st Option in Select*/
-
 document.addEventListener("DOMContentLoaded", function () {
   const selectBoxes = [document.getElementById("agents"), document.getElementById("know_runo")];
 
@@ -170,9 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-/*ends */
 
-/* Send utm to web.runo.in Starts */
+/* Send utm to web.runo.in */
 document.addEventListener("DOMContentLoaded", function () {
   const interval = setInterval(() => {
     const buttons = document.querySelectorAll(".runo-web-crm");
@@ -187,10 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const baseUrl = "https://web.runo.in";
       const params = new URLSearchParams();
 
-      // Page name first
       params.append("page_name", pageName);
 
-      // UTMs last
       if (utmSource) params.append("utm_source", utmSource);
       if (utmCampaign) params.append("utm_campaign", utmCampaign);
 
@@ -207,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 100);
 });
-/* Send utm to web.runo.in ends */
 
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
@@ -223,32 +202,30 @@ function submitForm(formId, formData, formToken) {
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
 
-  // UTM (for Runo API only)
+  // Retrieve UTM values
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
-  // Required custom fields for Runo API
   formData["custom_source"] = "Website Enquiry - IB";
   formData["custom_status"] = "Api Allocation";
-  if (utmSource) formData["custom_utm_source"] = utmSource;
-  if (utmCampaign) formData["custom_utm_campaign"] = utmCampaign;
+  if (utmSource) formData["custom_utm source"] = utmSource;
+  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
 
   console.log("📦 FORM DATA:", formData);
 
   /* --------------------------------------------------
-      CLEVERTAP PROFILE IDENTIFY
+      CLEVERTAP IDENTIFY — BEFORE API
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
-    const phoneRaw = String(formData.your_phone || "");
-    const fixedPhone = phoneRaw.startsWith("+") ? phoneRaw : "+" + phoneRaw;
+    const rawPhone = String(formData.your_phone || formData.phone || "");
+    const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
 
     const profilePayload = {
-      Name: formData.your_name || "",
-      Email: formData.your_email || "",
-      Identity: formData.your_email || fixedPhone || "anonymous_user",
-
-      Phone: fixedPhone, // Always send +91 format
-      "Company Name": formData.your_company || "",
+      Name: formData.your_name || formData.name || "",
+      Email: formData.your_email || formData.email || "",
+      Identity: formData.your_email || formData.email || fixedPhone || "anonymous_user",
+      Phone: fixedPhone,
+      "Company Name": formData.your_company || formData.company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
     };
@@ -258,11 +235,11 @@ function submitForm(formId, formData, formToken) {
   }
 
   /* --------------------------------------------------
-      CLEVERTAP EVENT
+      CLEVERTAP EVENT — BEFORE API
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
-    const phoneRaw = String(formData.your_phone || "");
-    const fixedPhone = phoneRaw.startsWith("+") ? phoneRaw : "+" + phoneRaw;
+    const rawPhone = String(formData.your_phone || formData.phone || "");
+    const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
 
     const eventPayload = {
       Name: formData.your_name || "",
@@ -271,6 +248,8 @@ function submitForm(formId, formData, formToken) {
       "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
+      Source: utmSource || "Website",
+      Campaign: utmCampaign || "",
       Timestamp: new Date().toISOString(),
     };
 
@@ -279,7 +258,7 @@ function submitForm(formId, formData, formToken) {
   }
 
   /* --------------------------------------------------
-      RUNO API
+      RUNO CRM API — AFTER CT EVENT
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
@@ -295,9 +274,8 @@ function submitForm(formId, formData, formToken) {
       if ($modal.length) $modal.modal("hide");
       $("#thankYouModal").modal("show");
     })
-    .fail(function (xhr, status, error) {
+    .fail(function () {
       alert("Oops! Something went wrong while submitting the form.");
-      console.error("❌ Runo API error:", status, error, xhr.responseText);
     })
     .always(function () {
       $btn.prop("disabled", false);
