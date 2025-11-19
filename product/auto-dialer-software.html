@@ -2083,10 +2083,10 @@
             <div class="tab-highlight"></div>
 
             <button class="tab-btn active" data-target="#ad1">2x Productivity</button>
-            <button class="tab-btn" data-target="#ad2">Call Connect Rate</button>
-            <button class="tab-btn" data-target="#ad3">Lead Flow</button>
-            <button class="tab-btn" data-target="#ad4">Follow Ups</button>
-            <button class="tab-btn" data-target="#ad5">AI Call Quality</button>
+            <button class="tab-btn" data-target="#ad2">High Call Connect %</button>
+            <button class="tab-btn" data-target="#ad3">0 Lead Dropdown</button>
+            <button class="tab-btn" data-target="#ad4">Follow Up Reminders</button>
+            <button class="tab-btn" data-target="#ad5">AI Call Scoring</button>
           </div>
 
           <div class="tab-content">
@@ -2168,28 +2168,28 @@
             </div>
 
             <div class="swiper-slide">
-              <p class="deals-tab-tag">Call Connect</p>
+              <p class="deals-tab-tag">High Call Connect %</p>
               <h4>Higher Call Connect Rate</h4>
               <p class="mt-3">Place calls using your phone’s SIM or a reliable virtual number, so your caller ID appears real and familiar. This builds trust and increases the chances of people answering.</p>
               <img src="/img/auto-dialer/call-connect.avif" alt="Higher Call Connect Rate" />
             </div>
 
             <div class="swiper-slide">
-              <p class="deals-tab-tag">Lead Flow</p>
+              <p class="deals-tab-tag">0 Lead Drop</p>
               <h4>Zero Gap in Lead Flow</h4>
               <p class="mt-3">Leads are assigned instantly, updates happen in real time, and your team always knows who’s next in line.</p>
               <img src="/img/auto-dialer/lead-flow.avif" alt="Zero Gap in Lead Flow" />
             </div>
 
             <div class="swiper-slide">
-              <p class="deals-tab-tag">Follow Ups</p>
+              <p class="deals-tab-tag">Follow Up Reminders</p>
               <h4>No Missed Follow Ups</h4>
               <p class="mt-3">Automated reminders help your team stay on top of every lead with timely follow-ups through calls or WhatsApp.</p>
               <img src="/img/auto-dialer/follow-up.avif" alt="No Missed Follow Ups" />
             </div>
 
             <div class="swiper-slide">
-              <p class="deals-tab-tag">AI Quality</p>
+              <p class="deals-tab-tag">AI Call Scoring</p>
               <h4>Call Quality Score, Powered by AI</h4>
               <p class="mt-3">Calls can be transcribed and analyzed with AI to highlight sentiment, talk-time balance, and quality scores.</p>
               <img src="/img/auto-dialer/call-quality.avif" alt="Call Quality Score, Powered by AI" />
@@ -2199,57 +2199,59 @@
       </div>
     </section>
     <script>
-      const tBtns = document.querySelectorAll(".tab-btn");
-      const tPanes = document.querySelectorAll(".tab-pane");
-      const tHighlight = document.querySelector(".tab-highlight");
+      // Mobile Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        const tBtns = document.querySelectorAll(".tab-btn");
+        const tPanes = document.querySelectorAll(".tab-pane");
+        const tHighlight = document.querySelector(".tab-highlight");
 
-      let tIndex = 0;
-      let autoSwitch;
+        let tIndex = 0;
+        let autoSwitch;
 
-      function updateHighlight(idx) {
-        const btn = tBtns[idx];
-        const left = btn.offsetLeft;
-        const width = btn.offsetWidth;
+        function updateHighlight(idx) {
+          const btn = tBtns[idx];
+          const left = btn.offsetLeft;
+          const width = btn.offsetWidth;
 
-        tHighlight.style.left = left + "px";
-        tHighlight.style.width = width + "px";
-      }
+          tHighlight.style.left = left + "px";
+          tHighlight.style.width = width + "px";
+        }
 
-      function activateTab(idx) {
-        tBtns.forEach((b) => b.classList.remove("active"));
-        tPanes.forEach((p) => p.classList.remove("active"));
+        function activateTab(idx) {
+          tBtns.forEach((b) => b.classList.remove("active"));
+          tPanes.forEach((p) => p.classList.remove("active"));
 
-        tBtns[idx].classList.add("active");
-        tPanes[idx].classList.add("active");
+          tBtns[idx].classList.add("active");
+          tPanes[idx].classList.add("active");
 
-        updateHighlight(idx);
+          updateHighlight(idx);
 
-        tIndex = idx;
-      }
+          tIndex = idx;
+        }
 
-      tBtns.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-          activateTab(i);
-          resetAuto();
+        tBtns.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            activateTab(i);
+            resetAuto();
+          });
         });
-      });
 
-      function startAuto() {
-        autoSwitch = setInterval(() => {
-          activateTab((tIndex + 1) % tBtns.length);
-        }, 6000);
-      }
+        function startAuto() {
+          autoSwitch = setInterval(() => {
+            activateTab((tIndex + 1) % tBtns.length);
+          }, 6000);
+        }
 
-      function resetAuto() {
-        clearInterval(autoSwitch);
+        function resetAuto() {
+          clearInterval(autoSwitch);
+          startAuto();
+        }
+
+        window.addEventListener("resize", () => updateHighlight(tIndex));
+
+        activateTab(0);
         startAuto();
-      }
-
-      window.addEventListener("resize", () => updateHighlight(tIndex));
-
-      activateTab(0);
-      startAuto();
-
+      });
       // Mobile Swiper
       document.addEventListener("DOMContentLoaded", function () {
         new Swiper(".mobile-slider", {

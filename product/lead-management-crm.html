@@ -2114,7 +2114,7 @@
             <div class="tab-highlight"></div>
 
             <button class="tab-btn active" data-target="#t1">Lead Capture</button>
-            <button class="tab-btn" data-target="#t2">Lead Allocation</button>
+            <button class="tab-btn" data-target="#t2">Auto Allocation</button>
             <button class="tab-btn" data-target="#t3">Real-Time Tracking</button>
             <button class="tab-btn" data-target="#t4">Follow-Up Reminders</button>
             <button class="tab-btn" data-target="#t5">Team Tracking</button>
@@ -2199,7 +2199,7 @@
             </div>
 
             <div class="swiper-slide">
-              <p class="deals-tab-tag">Lead Allocation</p>
+              <p class="deals-tab-tag">Auto Allocation</p>
               <h4>Reach Out Faster With Instant Lead Allocation</h4>
               <p class="mt-3">New leads are auto-allocated to your sales reps based on source, region, or custom rules, so there’s no waiting, no manual work, and no missed leads</p>
               <img src="../img/lead-management/lead-allocation.avif" alt="" />
@@ -2231,57 +2231,59 @@
     </section>
 
     <script>
-      const tBtns = document.querySelectorAll(".tab-btn");
-      const tPanes = document.querySelectorAll(".tab-pane");
-      const tHighlight = document.querySelector(".tab-highlight");
+      // Mobile Swiper
+      document.addEventListener("DOMContentLoaded", function () {
+        const tBtns = document.querySelectorAll(".tab-btn");
+        const tPanes = document.querySelectorAll(".tab-pane");
+        const tHighlight = document.querySelector(".tab-highlight");
 
-      let tIndex = 0;
-      let autoSwitch;
+        let tIndex = 0;
+        let autoSwitch;
 
-      function updateHighlight(idx) {
-        const btn = tBtns[idx];
-        const left = btn.offsetLeft;
-        const width = btn.offsetWidth;
+        function updateHighlight(idx) {
+          const btn = tBtns[idx];
+          const left = btn.offsetLeft;
+          const width = btn.offsetWidth;
 
-        tHighlight.style.left = left + "px";
-        tHighlight.style.width = width + "px";
-      }
+          tHighlight.style.left = left + "px";
+          tHighlight.style.width = width + "px";
+        }
 
-      function activateTab(idx) {
-        tBtns.forEach((b) => b.classList.remove("active"));
-        tPanes.forEach((p) => p.classList.remove("active"));
+        function activateTab(idx) {
+          tBtns.forEach((b) => b.classList.remove("active"));
+          tPanes.forEach((p) => p.classList.remove("active"));
 
-        tBtns[idx].classList.add("active");
-        tPanes[idx].classList.add("active");
+          tBtns[idx].classList.add("active");
+          tPanes[idx].classList.add("active");
 
-        updateHighlight(idx);
+          updateHighlight(idx);
 
-        tIndex = idx;
-      }
+          tIndex = idx;
+        }
 
-      tBtns.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-          activateTab(i);
-          resetAuto();
+        tBtns.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            activateTab(i);
+            resetAuto();
+          });
         });
-      });
 
-      function startAuto() {
-        autoSwitch = setInterval(() => {
-          activateTab((tIndex + 1) % tBtns.length);
-        }, 6000);
-      }
+        function startAuto() {
+          autoSwitch = setInterval(() => {
+            activateTab((tIndex + 1) % tBtns.length);
+          }, 6000);
+        }
 
-      function resetAuto() {
-        clearInterval(autoSwitch);
+        function resetAuto() {
+          clearInterval(autoSwitch);
+          startAuto();
+        }
+
+        window.addEventListener("resize", () => updateHighlight(tIndex));
+
+        activateTab(0);
         startAuto();
-      }
-
-      window.addEventListener("resize", () => updateHighlight(tIndex));
-
-      activateTab(0);
-      startAuto();
-
+      });
       // Mobile Swiper
       document.addEventListener("DOMContentLoaded", function () {
         new Swiper(".mobile-slider", {
@@ -2292,7 +2294,6 @@
         });
       });
     </script>
-
     <!-- why choose runo ends-->
     <section class="metrics-section mt-70 mb-40">
       <div class="container">
