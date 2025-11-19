@@ -232,16 +232,19 @@ function submitForm(formId, formData, formToken) {
   if (utmCampaign) formData["custom_utm_campaign"] = utmCampaign;
 
   console.log("📦 FORM DATA:", formData);
-
   /* --------------------------------------------------
-     CLEVERTAP USER PROFILE (ONLY your 6 fields)
+      CLEVERTAP PROFILE IDENTIFY
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
+    const phoneRaw = String(formData.your_phone || "");
+    const fixedPhone = phoneRaw.startsWith("+") ? phoneRaw : "+" + phoneRaw;
+
     const profilePayload = {
       Name: formData.your_name || "",
       Email: formData.your_email || "",
-      Identity: formData.your_email || formData.your_phone || "anonymous_user",
-      Phone: formData.your_phone || "",
+      Identity: formData.your_email || fixedPhone || "anonymous_user",
+
+      Phone: fixedPhone, // Always send +91 format
       "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
@@ -255,10 +258,13 @@ function submitForm(formId, formData, formToken) {
       CLEVERTAP EVENT
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
+    const phoneRaw = String(formData.your_phone || "");
+    const fixedPhone = phoneRaw.startsWith("+") ? phoneRaw : "+" + phoneRaw;
+
     const eventPayload = {
       Name: formData.your_name || "",
       Email: formData.your_email || "",
-      Phone: formData.your_phone || "",
+      Phone: fixedPhone,
       "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
@@ -274,7 +280,7 @@ function submitForm(formId, formData, formToken) {
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
-    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
+    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/`,
     data: JSON.stringify(formData),
     contentType: "application/json",
   })
