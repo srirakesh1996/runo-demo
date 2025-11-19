@@ -208,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 100);
 });
 /* Send utm to web.runo.in ends */
-
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
@@ -227,31 +226,48 @@ function submitForm(formId, formData, formToken) {
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
+  // Add custom fields
   formData["custom_source"] = "Website Enquiry - IB";
   formData["custom_status"] = "Api Allocation";
-  if (utmSource) formData["custom_utm source"] = utmSource;
-  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
+  if (utmSource) formData["custom_utm_source"] = utmSource;
+  if (utmCampaign) formData["custom_utm_campaign"] = utmCampaign;
 
-  // Identify user before event (ensures profile association)
+  console.log("📦 FULL FORM DATA SENT:", formData);
+
+  // ------------------------------------------------
+  // 🔹 CLEVERTAP — PROFILE (before submission)
+  // ------------------------------------------------
   if (typeof clevertap !== "undefined") {
     const userEmail = formData.email || formData.your_email || "";
     const userName = formData.name || formData.your_name || "Website User";
     const userPhone = formData.phone || formData.your_phone || "";
 
-    clevertap.onUserLogin.push({
-      Site: {
-        Name: userName,
-        Email: userEmail,
-        Identity: userEmail || userPhone || "anonymous_user",
-        Phone: userPhone,
-      },
-    });
-    // console.log('✅ CleverTap user identified:', userEmail || userPhone);
-  } else {
-    //console.warn('⚠️ CleverTap SDK not loaded — skipping user identification');
+    const profilePayload = {
+      Name: userName,
+      Email: userEmail,
+      Identity: userEmail || userPhone || "anonymous_user",
+      Phone: userPhone,
+
+      // Extra fields you wanted added
+      Company: formData.your_company || "",
+      TeamSize: formData["custom_Sales/Calling Team Size"] || "",
+      KnowSource: formData["custom_We entered source"] || "",
+      UTMSource: utmSource || "",
+      UTMCampaign: utmCampaign || "",
+      CustomSource: formData.custom_source || "",
+      CustomStatus: formData.custom_status || "",
+    };
+
+    console.log("📤 CleverTap PROFILE → onUserLogin:", profilePayload);
+
+    clevertap.onUserLogin.push({ Site: profilePayload });
+
+    console.log("✅ CleverTap onUserLogin triggered");
   }
 
-  // 🔹 Submit to Runo CRM API
+  // ------------------------------------------------
+  // 🔹 RUNO CRM API — Submit Form
+  // ------------------------------------------------
   $.ajax({
     type: "POST",
     url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
@@ -262,9 +278,11 @@ function submitForm(formId, formData, formToken) {
     },
   })
     .done(function (data) {
-      //  console.log('✅ Runo API success:', data);
+      console.log("✅ Runo API success:", data);
 
-      // 🔹 Send CleverTap event after successful form submission
+      // ------------------------------------------------
+      // 🔹 CLEVERTAP — EVENT (after successful submission)
+      // ------------------------------------------------
       if (typeof clevertap !== "undefined") {
         const eventPayload = {
           name: formData.your_name || "",
@@ -274,22 +292,20 @@ function submitForm(formId, formData, formToken) {
 
           team_size: formData["custom_Sales/Calling Team Size"] || "",
           know_source: formData["custom_We entered source"] || "",
-
           utm_source: utmSource || "",
           utm_campaign: utmCampaign || "",
+
+          custom_source: formData.custom_source || "",
+          custom_status: formData.custom_status || "",
 
           submitted_at: new Date().toISOString(),
         };
 
-        // Log full event payload
-        console.log("📤 CleverTap EVENT → submitted-lead-form", eventPayload);
+        console.log("📤 CleverTap EVENT → submitted-lead-form:", eventPayload);
 
-        // Send event
         clevertap.event.push("submitted-lead-form", eventPayload);
 
         console.log("✅ CleverTap event 'submitted-lead-form' triggered");
-      } else {
-        //   console.warn('⚠️ CleverTap SDK not available — event not sent');
       }
 
       // Reset and show Thank You modal
@@ -299,7 +315,7 @@ function submitForm(formId, formData, formToken) {
       $("#thankYouModal").modal("show");
     })
     .fail(function (xhr, status, error) {
-      // console.error('❌ Runo API error:', status, error, xhr.responseText);
+      console.error("❌ Runo API error:", status, error, xhr.responseText);
       alert("Oops! Something went wrong while submitting the form.");
     })
     .always(function () {
