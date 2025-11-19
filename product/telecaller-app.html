@@ -2208,57 +2208,58 @@
       </div>
     </section>
     <script>
-      const tBtns = document.querySelectorAll(".tab-btn");
-      const tPanes = document.querySelectorAll(".tab-pane");
-      const tHighlight = document.querySelector(".tab-highlight");
+      document.addEventListener("DOMContentLoaded", function () {
+        const tBtns = document.querySelectorAll(".tab-btn");
+        const tPanes = document.querySelectorAll(".tab-pane");
+        const tHighlight = document.querySelector(".tab-highlight");
 
-      let tIndex = 0;
-      let autoSwitch;
+        let tIndex = 0;
+        let autoSwitch;
 
-      function updateHighlight(idx) {
-        const btn = tBtns[idx];
-        const left = btn.offsetLeft;
-        const width = btn.offsetWidth;
+        function updateHighlight(idx) {
+          const btn = tBtns[idx];
+          const left = btn.offsetLeft;
+          const width = btn.offsetWidth;
 
-        tHighlight.style.left = left + "px";
-        tHighlight.style.width = width + "px";
-      }
+          tHighlight.style.left = left + "px";
+          tHighlight.style.width = width + "px";
+        }
 
-      function activateTab(idx) {
-        tBtns.forEach((b) => b.classList.remove("active"));
-        tPanes.forEach((p) => p.classList.remove("active"));
+        function activateTab(idx) {
+          tBtns.forEach((b) => b.classList.remove("active"));
+          tPanes.forEach((p) => p.classList.remove("active"));
 
-        tBtns[idx].classList.add("active");
-        tPanes[idx].classList.add("active");
+          tBtns[idx].classList.add("active");
+          tPanes[idx].classList.add("active");
 
-        updateHighlight(idx);
+          updateHighlight(idx);
 
-        tIndex = idx;
-      }
+          tIndex = idx;
+        }
 
-      tBtns.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-          activateTab(i);
-          resetAuto();
+        tBtns.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            activateTab(i);
+            resetAuto();
+          });
         });
-      });
 
-      function startAuto() {
-        autoSwitch = setInterval(() => {
-          activateTab((tIndex + 1) % tBtns.length);
-        }, 6000);
-      }
+        function startAuto() {
+          autoSwitch = setInterval(() => {
+            activateTab((tIndex + 1) % tBtns.length);
+          }, 6000);
+        }
 
-      function resetAuto() {
-        clearInterval(autoSwitch);
+        function resetAuto() {
+          clearInterval(autoSwitch);
+          startAuto();
+        }
+
+        window.addEventListener("resize", () => updateHighlight(tIndex));
+
+        activateTab(0);
         startAuto();
-      }
-
-      window.addEventListener("resize", () => updateHighlight(tIndex));
-
-      activateTab(0);
-      startAuto();
-
+      });
       // Mobile Swiper
       document.addEventListener("DOMContentLoaded", function () {
         new Swiper(".mobile-slider", {
