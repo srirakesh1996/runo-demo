@@ -227,7 +227,7 @@ function submitForm(formId, formData, formToken) {
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
-  formData["custom_source"] = "Website Enquiry - IB";
+  formData["custom_source"] = "Website Enquiry- IB";
   formData["custom_status"] = "Api Allocation";
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
