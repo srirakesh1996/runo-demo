@@ -3455,31 +3455,31 @@ body.modal-open {
 .gradient-purple {
   /* background: linear-gradient(181deg, rgba(234, 230, 255, 0.5) 60%, rgba(187, 173, 255, 0.5) 130%);*/
   background: none;
-  border: 1px solid #bbadff;
+  border: 1px solid #bbbbbb;
 }
 
 .gradient-green {
   /* background: linear-gradient(180deg, rgba(230, 255, 239, 0.5) 60%, rgba(150, 227, 178, 0.5) 130%);*/
   background: none;
-  border: 1px solid #96e3b2;
+  border: 1px solid #bbbbbb;
 }
 
 .gradient-blue {
   /*background: linear-gradient(180deg, rgba(225, 241, 255, 0.5) 60%, rgba(130, 193, 251, 0.5) 130%);*/
   background: none;
-  border: 1px solid #82c1fb;
+  border: 1px solid #bbbbbb;
 }
 
 .gradient-pink {
   /*background: linear-gradient(180deg, rgba(249, 223, 255, 0.5) 60%, rgba(237, 163, 255, 0.5) 130%);*/
   background: none;
-  border: 1px solid #eda3ff;
+  border: 1px solid #bbbbbb;
 }
 
 .gradient-orange {
   /* background: linear-gradient(180deg, rgba(255, 229, 223, 0.5) 60%, rgba(255, 173, 154, 0.5) 130%);*/
   background: none;
-  border: 1px solid #ffad9a;
+  border: 1px solid #bbbbbb;
 }
 
 /* hide for now*/
