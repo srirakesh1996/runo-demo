@@ -208,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 100);
 });
 /* Send utm to web.runo.in ends */
+
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
@@ -226,12 +227,14 @@ function submitForm(formId, formData, formToken) {
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
+  // Required custom fields for Runo API
   formData["custom_source"] = "Website Enquiry - IB";
   formData["custom_status"] = "Api Allocation";
   if (utmSource) formData["custom_utm_source"] = utmSource;
   if (utmCampaign) formData["custom_utm_campaign"] = utmCampaign;
 
   console.log("📦 FORM DATA:", formData);
+
   /* --------------------------------------------------
       CLEVERTAP PROFILE IDENTIFY
   -------------------------------------------------- */
@@ -276,7 +279,7 @@ function submitForm(formId, formData, formToken) {
   }
 
   /* --------------------------------------------------
-      RUNO CRM API
+      RUNO API
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
@@ -287,7 +290,6 @@ function submitForm(formId, formData, formToken) {
     .done(function (data) {
       console.log("✅ Runo API success:", data);
 
-      // Reset and show Thank You modal
       $form[0].reset();
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
