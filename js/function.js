@@ -256,7 +256,7 @@ function submitForm(formId, formData, formToken) {
   // 🔹 Submit to Runo CRM API
   $.ajax({
     type: "POST",
-    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
+    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/`,
     data: JSON.stringify(formData),
     contentType: "application/json",
     headers: {
@@ -277,8 +277,7 @@ function submitForm(formId, formData, formToken) {
           Campaign: utmCampaign || "",
           Timestamp: new Date().toISOString(),
         });
-
-        //  console.log('🚀 website-lead-form event sent:', formData);
+        console.log("🚀 website-lead-form event sent:", formData);
       } else {
         //   console.warn('⚠️ CleverTap SDK not available — event not sent');
       }
