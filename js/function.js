@@ -235,9 +235,9 @@ function submitForm(formId, formData, formToken) {
 
   console.log("📦 FORM DATA:", formData);
 
-  // ------------------------------------------------------
-  // 🔹 CLEVERTAP USER PROFILE (ONLY your required fields)
-  // ------------------------------------------------------
+  /* --------------------------------------------------
+     CLEVERTAP USER PROFILE (ONLY your required fields)
+  -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
     const profilePayload = {
       Name: formData.your_name || "",
@@ -245,7 +245,6 @@ function submitForm(formId, formData, formToken) {
       Identity: formData.your_email || formData.your_phone || "anonymous_user",
       Phone: formData.your_phone || "",
 
-      // EXACT CT PROPERTIES YOU REQUESTED (ONLY THESE)
       "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
@@ -253,6 +252,24 @@ function submitForm(formId, formData, formToken) {
 
     clevertap.onUserLogin.push({ Site: profilePayload });
     console.log("📤 CT PROFILE SENT:", profilePayload);
+  }
+
+  /* --------------------------------------------------
+     CLEVERTAP EVENT
+  -------------------------------------------------- */
+  if (typeof clevertap !== "undefined") {
+    const eventPayload = {
+      Name: formData.your_name || "",
+      Email: formData.your_email || "",
+      Phone: formData.your_phone || "",
+      "Company Name": formData.your_company || "",
+      license_count: formData["custom_Sales/Calling Team Size"] || "",
+      KnowSource: formData["custom_We entered source"] || "",
+      Timestamp: new Date().toISOString(),
+    };
+
+    clevertap.event.push("submitted-lead-form", eventPayload);
+    console.log("📤 CT EVENT SENT:", eventPayload);
   }
 
   // ------------------------------------------------------
@@ -269,25 +286,6 @@ function submitForm(formId, formData, formToken) {
   })
     .done(function (data) {
       console.log("✅ Runo API success:", data);
-
-      // ------------------------------------------------------
-      // 🔹 CLEVERTAP EVENT (ONLY your required fields)
-      // ------------------------------------------------------
-      if (typeof clevertap !== "undefined") {
-        const eventPayload = {
-          Name: formData.your_name || "",
-          Email: formData.your_email || "",
-          Phone: formData.your_phone || "",
-          "Company Name": formData.your_company || "",
-          license_count: formData["custom_Sales/Calling Team Size"] || "",
-          KnowSource: formData["custom_We entered source"] || "",
-          Timestamp: new Date().toISOString(),
-        };
-
-        clevertap.event.push("submitted-lead-form", eventPayload);
-        console.log("📤 CT EVENT SENT:", eventPayload);
-      }
-
       // Reset and show Thank You modal
       $form[0].reset();
       const $modal = $form.closest(".modal");
