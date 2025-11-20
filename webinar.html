@@ -98,6 +98,1383 @@
         s.parentNode.insertBefore(wzrk, s);
       })();
     </script>
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
+      }
+    </style>
+
+    <style>
+      /* FOr Product pAges*/
+
+      .main-menu .mega-menu .menu-head {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .submenu-list .menu-head {
+        font-size: 17px;
+        color: #111111 !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+
+        .submenu-list .menu-head {
+          padding: 0px 10px !important;
+        }
+      }
+    </style>
+    <style>
+      /* Hello Bar */
+      .hello-bar {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        line-height: 1.5;
+        padding: 12px 15px;
+      }
+
+      .hello-bar p {
+        margin: 0;
+        text-align: center;
+        color: #fff !important;
+        padding-right: 45px; /* space so text doesn't touch close button */
+      }
+
+      /* Close Button */
+      .close-hello {
+        position: absolute;
+
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-hello:hover {
+        background: rgba(255, 255, 255, 0.35);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 767.98px) {
+        .hello-bar p {
+          text-align: left;
+        }
+
+        .hello-bar {
+          font-size: 14px;
+          padding: 10px 12px;
+        }
+
+        .close-hello {
+          top: 6px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
+          font-size: 18px;
+        }
+
+        .hello-bar p {
+          padding-right: 40px;
+        }
+      }
+    </style>
+    <style>
+      @media only screen and (max-width: 768px) {
+        .telecaller-hero {
+          background: #ffffff !important;
+        }
+      }
+
+      .section-title h1 {
+        font-size: 45px;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #111111;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .section-title h1 {
+          font-size: 32px;
+        }
+      }
+
+      /*!
+ * SlickNav Responsive Mobile Menu v1.0.10
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+      .slicknav_btn,
+      .slicknav_nav .slicknav_item {
+        cursor: pointer;
+      }
+
+      .slicknav_menu,
+      .slicknav_menu * {
+        box-sizing: border-box;
+      }
+
+      .slicknav_btn {
+        position: relative;
+        display: block;
+
+        float: right;
+        padding: 0.438em 0.625em;
+        line-height: 1.125em;
+      }
+
+      .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+        margin-top: 0.188em;
+      }
+
+      .slicknav_menu .slicknav_menutxt {
+        display: block;
+        line-height: 1.188em;
+        float: left;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      .slicknav_menu .slicknav_icon {
+        float: left;
+        width: 1.125em;
+        height: 0.875em;
+        margin: 0.188em 0 0 0.438em;
+      }
+
+      .slicknav_menu .slicknav_icon:before {
+        background: 0 0;
+        width: 1.125em;
+        height: 0.875em;
+        display: block;
+        content: "";
+        position: absolute;
+      }
+
+      .slicknav_menu .slicknav_no-text {
+        margin: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: 0.125em;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .slicknav_menu:after,
+      .slicknav_menu:before {
+        content: " ";
+        display: table;
+      }
+
+      .slicknav_menu:after {
+        clear: both;
+      }
+
+      .slicknav_nav li,
+      .slicknav_nav ul {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_arrow {
+        font-size: 0.8em;
+        margin: 0 0 0 0.4em;
+      }
+
+      .slicknav_nav .slicknav_item a {
+        display: inline;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_parent-link a {
+        display: inline;
+      }
+
+      .slicknav_menu {
+        zoom: 1;
+        font-size: 16px;
+        background: #4c4c4c;
+        padding: 5px;
+      }
+
+      .slicknav_nav,
+      .slicknav_nav ul {
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        background-color: #fff;
+      }
+
+      .slicknav_btn {
+        margin: 5px 5px 6px;
+        text-decoration: none;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+
+      .slicknav_nav {
+        clear: both;
+        color: #fff;
+        margin: 0;
+        font-size: 0.875em;
+      }
+
+      .slicknav_nav ul {
+        margin: 0 0 0 20px;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        padding: 5px 10px;
+        margin: 2px 5px;
+      }
+
+      .slicknav_nav .slicknav_row:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #fff;
+      }
+
+      .slicknav_nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .slicknav_nav a:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #222;
+      }
+
+      .slicknav_nav .slicknav_txtnode {
+        margin-left: 15px;
+      }
+
+      .slicknav_nav .slicknav_item a,
+      .slicknav_nav .slicknav_parent-link a {
+        padding: 0;
+        margin: 0;
+      }
+
+      .slicknav_brand {
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 7px 12px;
+        height: 44px;
+      }
+
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #fff;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 12px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 15px !important;
+        }
+      }
+      @media screen and (min-width: 992px) and (max-width: 1029px) {
+        .main-menu ul li a {
+          padding: 10px 8px !important;
+        }
+      }
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 8px;
+        color: var(--primary-color);
+        position: absolute;
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
+    </style>
+    <style>
+      .runo-step-title {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .runo-step-para {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Dropdown Menu CSS */
+
+      .submenu-list h6 {
+        font-size: 17px;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+      }
+
+      .submenu-list .row {
+        flex-wrap: wrap; /* allow multiple lines */
+      }
+
+      /* Hide dropdowns by default */
+      .main-menu .submenu .submenu-list {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+
+        pointer-events: none;
+      }
+
+      /* Show on hover */
+      .main-menu .submenu:hover .submenu-list {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ✅ Normal dropdown */
+
+      /* ✅ Mega menu */
+      .main-menu .mega-menu .submenu-list {
+        left: 50%;
+        transform: translateX(-30%);
+        min-width: 900px; /* wide enough for 5 cols */
+        max-width: 90vw;
+        background: var(--accent-secondary-color);
+        border-radius: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .main-menu .mega-menu h6 {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .compliance {
+        padding: 0px 0px 0px 10px;
+      }
+      .bghd {
+        background: #f443360b;
+        border-radius: 20px 0px 0px 0px;
+      }
+      .header-left {
+        text-align: left;
+        padding: 20px 10px;
+      }
+
+      .header-right {
+        text-align: left;
+        padding: 20px 20px;
+      }
+
+      .header-left a {
+        text-align: left !important;
+      }
+      .header-right a {
+        text-align: left !important;
+        padding: 0px 25px !important;
+      }
+
+      .compliance p {
+        margin-bottom: 12px !important;
+        font-size: 14px !important;
+      }
+      #web-menu {
+        display: block !important;
+      }
+      #mob-menu {
+        display: none !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .submenu-list {
+          box-shadow: none !important;
+          background: hwb(0deg 100% 0%) !important;
+          border-radius: 10px;
+        }
+
+        .slicknav_nav li .mega-menu {
+          display: none !important;
+        }
+
+        .mega-menu {
+          display: none !important;
+        }
+        #mob-menu {
+          display: block !important;
+        }
+
+        #web-menu {
+          display: none !important;
+        }
+      }
+
+      .menu-icon {
+        display: flex;
+        margin-left: -15px;
+        align-items: center;
+      }
+
+      .main-menu .header-right a {
+        padding: 10px 25px !important;
+        font-size: 15px !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .menu-icon {
+          display: flex;
+          margin-left: 5px;
+        }
+        .slicknav_nav .mega .submenu-list li a {
+          padding: 10px 45px !important;
+        }
+        .slicknav_menu {
+          zoom: 1;
+
+          /* NEW */
+          max-height: 90vh; /* limit height to 90% of viewport */
+          overflow-y: auto; /* enable vertical scroll inside menu */
+        }
+      }
+
+      .text-destructive {
+        color: red !important;
+      }
+      .text-green-500 {
+        color: #22c55e !important;
+      }
+
+      .menu-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+      .btns {
+        background: #f44336;
+        color: #fff;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .btns a {
+        position: relative;
+        color: #fff !important;
+        text-decoration: none;
+        padding-right: 28px; /* enough space for arrow */
+        font-weight: 600;
+        font-size: 14px !important;
+        transition: all 0.3s ease;
+      }
+      .btns a:hover {
+        text-decoration: underline;
+      }
+
+      .btns a::after {
+        content: "→";
+        position: absolute;
+        right: -5px; /* fixed gap from text */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px !important;
+        transition: transform 0.3s ease;
+      }
+
+      .btns a:hover::after {
+        transform: translate(3px, -50%); /* slide to right */
+      }
+
+      .main-menu ul ul .menu-icon {
+        margin-left: 0px;
+      }
+      .main-menu ul ul .menu-icon svg {
+        margin-right: 7px;
+        width: 25px;
+        height: 25px;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .slicknav_nav .submenu-list li a {
+          padding: 10px 15px !important;
+        }
+        .slicknav_nav .menu-icon a svg {
+          margin-right: 7px;
+        }
+      }
+
+      .security-sec {
+        position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
+        bottom: 60px;
+      }
+
+      .inte-sec .icon-box {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+      .inte-sec h5 {
+        line-height: 1.5;
+      }
+
+      .mt-1 {
+        margin-top: 5px;
+      }
+      .mt-4 {
+        margin-top: 20px;
+      }
+      .text-left p {
+        margin-top: 5px;
+      }
+      .crm-features-section .crm-feature-card {
+        text-align: left;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+      }
+      .crm-features-section .feature-icon {
+        width: 45px;
+        height: 45px;
+        background: #ffb3713b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 22px;
+        color: #f44336;
+        flex-shrink: 0;
+      }
+
+      /* Text alignment */
+      .step-card p {
+        text-align: left !important;
+      }
+
+      .step-card h6 {
+        text-align: left !important;
+        line-height: 1.5;
+      }
+      .step-card h6 {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-card p {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Card styling */
+      .step-card {
+        padding: 25px 15px 10px 15px;
+      }
+
+      .how-it-works .step-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .how-it-works .step-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Number badge */
+      .how-it-works .step-number {
+        position: absolute;
+        top: -15px;
+        left: 15%;
+        transform: translateX(-50%);
+        background: #000;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        z-index: 3;
+      }
+
+      /* Icon */
+      .how-it-works .icon {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+
+      /* Connecting line */
+      .timeline-line {
+        position: absolute;
+        top: 150px; /* aligns with icons */
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #f44336;
+        opacity: 0.2;
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      @media (max-width: 991px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 45%;
+          max-width: 45%;
+          margin-bottom: 20px;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      .security-features-section .feature-icon svg {
+        color: #f44336 !important;
+        width: 50px;
+        height: 50px;
+      }
+
+      .industry-usecases .accordion-button {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px;
+        text-align: left;
+      }
+
+      .industry-usecases .icon-box {
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffb3713b;
+        color: #f44336;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 0; /* remove extra margin */
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 576px) {
+        .industry-usecases .accordion-button {
+          font-size: 15px;
+          gap: 15px;
+        }
+
+        .industry-usecases .icon-box {
+          flex: 0 0 50px;
+          height: 50px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 768px) {
+        .store-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .store-buttons .btn-schedule {
+          margin: 5px 0;
+        }
+      }
+
+      .features-crm-section {
+        background-color: #fafafa;
+      }
+
+      .feature-crm-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .feature-crm-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-box {
+        background: #ffb3713b;
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      /*   .icon-box i {
+        color: #000;
+      }*/
+
+      .icon-box svg {
+        color: #f44336 !important;
+      }
+
+      /* Gradient borders */
+      .icon-box.blue {
+        border-image: linear-gradient(45deg, #007bff, #00b4ff) 1;
+      }
+
+      .icon-box.purple {
+        border-image: linear-gradient(45deg, #a855f7, #ec4899) 1;
+      }
+
+      .icon-box.orange {
+        border-image: linear-gradient(45deg, #f97316, #ef4444) 1;
+      }
+
+      .icon-box.green {
+        border-image: linear-gradient(45deg, #22c55e, #16a34a) 1;
+      }
+
+      .icon-box.violet {
+        border-image: linear-gradient(45deg, #6366f1, #9333ea) 1;
+      }
+
+      .icon-box.pink {
+        border-image: linear-gradient(45deg, #ec4899, #f43f5e) 1;
+      }
+
+      .feature-crm-card h5 {
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .feature-crm-card p {
+        color: #555;
+        font-size: 15px;
+        margin-bottom: 0;
+      }
+
+      .icon svg {
+        color: #f44336 !important;
+      }
+
+      .comparison-section .table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+        background: transparent;
+      }
+      .comparison-section tbody tr {
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.1);
+        transition: all 0.3s ease;
+      }
+      .comparison-section tbody tr:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 14px rgba(244, 67, 54, 0.2);
+      }
+      .comparison-section td {
+        padding: 1.2rem;
+        vertical-align: middle;
+        font-size: 0.95rem;
+        color: #555;
+      }
+      .comparison-section td strong {
+        color: #111;
+        font-weight: 600;
+      }
+      .text-success {
+        color: #2ecc71 !important;
+      }
+      .text-danger {
+        color: #f44336 !important;
+      }
+      .table > :not(caption) > * > * {
+        border-bottom-width: 0 !important;
+      }
+
+      /* Mobile Layout */
+      @media (max-width: 768px) {
+        .table thead {
+          display: none;
+        }
+        .table,
+        .table tbody,
+        .table tr,
+        .table td {
+          display: block;
+          width: 100%;
+        }
+        .table tr {
+          margin-bottom: 1rem;
+          border-radius: 12px;
+          padding: 1rem;
+          background: #fff;
+        }
+        .table td {
+          text-align: left;
+          border: none;
+          padding: 0.6rem 0;
+        }
+        .table td:first-child {
+          font-weight: 700;
+          color: #f44336;
+
+          margin-bottom: 0.6rem;
+        }
+
+        /* Show column headings for clarity */
+        .table td[data-label]::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: #f44336;
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        /* Vertically center icon with text on mobile */
+        .d-flex.align-items-center {
+          display: flex !important;
+          align-items: center !important;
+        }
+      }
+
+      .security-features-section .feature-card {
+        border-radius: 16px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+        padding: 32px 24px;
+        background: #fff;
+        height: 100%;
+        transition: box-shadow 0.3s;
+        cursor: auto;
+      }
+      .security-features-section .feature-card:hover {
+        box-shadow: 0 4px 12px rgba(60, 72, 90, 0.11);
+      }
+      .security-features-section .feature-icon {
+        font-size: 36px;
+        color: #3366cc;
+        margin-bottom: 18px;
+      }
+
+      .partner-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+        font-size: 1.4rem;
+        color: #9ca3af; /* gray tone similar to your image */
+      }
+
+      .partner-list strong {
+        font-weight: 800;
+        transition: color 0.3s;
+      }
+
+      @media (max-width: 576px) {
+        .partner-list {
+          gap: 1.5rem;
+          font-size: 1.1rem;
+        }
+      }
+
+      .partner-cta .btn-schedule {
+        background-color: white;
+        color: #d84323;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 8px;
+        margin: 30px 0;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+
+      .partner-cta .btn-schedule:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(216, 67, 35, 0.35);
+        background-color: #d84323;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+    </style>
   </head>
 
   <body>
@@ -927,6 +2304,14 @@
         </div>
       </header>
       <!-- Header End -->
+
+      <div class="container text-center mt-10 mb-4">
+        <div class="section-title text-center">
+          <h2>Turn Your Sales Calls into Measurable Wins - Runo Webinars</h2>
+          <p>Join Runo's free 1-hour live webinar to learn how to set up your account, track every interaction, and access insights that help your sales team close faster.</p>
+        </div>
+      </div>
+
       <section class="webinar-sec py-5">
         <div class="container">
           <div class="row g-4">
@@ -948,30 +2333,34 @@
 
               <div class="session-box active" data-slot="Tuesday, Nov 14 — 10:00 AM EST">
                 <div>
-                  <strong>Tuesday, Nov 14</strong>
-                  <div class="small text-muted"><i class="bi bi-clock"></i> 10:00 AM EST</div>
+                  <strong class="text-dark">Tuesday, Nov 14</strong>
+                  <div class="small text-dark"><i class="bi bi-clock"></i> 10:00 AM EST</div>
                 </div>
-                <div class="small text-muted"><i class="bi bi-people"></i> 12 spots left</div>
+                <div class="small text-dark"><i class="bi bi-people"></i> 12 spots left</div>
               </div>
 
               <div class="session-box" data-slot="Wednesday, Nov 15 — 2:00 PM EST">
                 <div>
-                  <strong>Wednesday, Nov 15</strong>
-                  <div class="small text-muted"><i class="bi bi-clock"></i> 2:00 PM EST</div>
+                  <strong class="text-dark">Wednesday, Nov 15</strong>
+                  <div class="small text-dark"><i class="bi bi-clock"></i> 2:00 PM EST</div>
                 </div>
-                <div class="small text-muted"><i class="bi bi-people"></i> 8 spots left</div>
+                <div class="small text-dark"><i class="bi bi-people"></i> 8 spots left</div>
               </div>
 
-              <button class="btn btn-dark w-100 mt-3 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#requestcert" id="openModalBtn">Register Now</button>
+              <button class="btn-dark w-100 mt-3 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#requestcert" id="openModalBtn">Register Now</button>
             </div>
           </div>
         </div>
       </section>
 
       <style>
+        .webinar-sec .container {
+          width: 100% !important;
+        }
         .webinar-sec {
           background: #fafafa;
           width: 80%;
+          padding: 30px;
           margin: 0 auto;
           border-radius: 20px;
         }
@@ -983,7 +2372,7 @@
 
         .session-box {
           border: 1px solid #eee;
-          padding: 15px 20px;
+          padding: 10px 20px;
           border-radius: 10px;
           margin-bottom: 12px;
           display: flex;
@@ -997,11 +2386,6 @@
           border-color: #f44336;
         }
 
-        .session-box.active {
-          border-color: #f44336;
-          background: #fff6f6;
-        }
-
         .btn-register {
           background: #ffbbab;
           padding: 12px;
@@ -1011,273 +2395,314 @@
         }
       </style>
 
-      <!-- Modal -->
-      <div class="modal fade" id="requestcert" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="custom-modal-box">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h5>Download Certificate!</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <section class="expert-hosts py-5">
+        <div class="container">
+          <div class="section-title text-center">
+            <h2>Meet Your Expert Hosts</h2>
+          </div>
+          <div class="row g-4">
+            <!-- Host 1 -->
+            <div class="col-md-6">
+              <div class="host-card p-4 d-flex align-items-start">
+                <img src="https://via.placeholder.com/120" class="host-img me-3" alt="Host Image" />
+
+                <div>
+                  <h4 class="fw-bold mb-1">Deepika</h4>
+                  <p class="role-text mb-1">Senior Product Specialist</p>
+                  <p class="description mb-0">Passionate about helping teams get the most out of Runo – from smarter calls to actionable insights that drive growth.</p>
                 </div>
-                <form id="cert-form" method="POST" data-page-name="Refund &amp; Cancellation Policy" data-uuid="540c6a38-0072-4c48-9fac-b443f814a999">
-                  <!-- Modal and variables -->
-                  <!-- You can convert these to JS-based modal init if needed -->
-                  <div class="mb-1">
-                    <input type="text" name="your_name" class="form-control" id="name1" placeholder="Name" />
-                    <small class="text-danger d-none" id="nameError1">Name is required.</small>
-                  </div>
-                  <div class="mb-1">
-                    <input type="email" name="your_email" class="form-control" id="email1" placeholder="Email Address" />
-                    <small class="text-danger d-none" id="emailError1">Valid email is required.</small>
-                  </div>
-                  <div class="mb-1">
-                    <input type="tel" name="your_phone" class="form-control" id="phone2" placeholder="Phone Number" autocomplete="tel" />
-                    <small class="text-danger d-none" id="phoneError1">Enter a valid phone number.</small>
-                  </div>
-                  <div class="mb-1">
-                    <input type="text" name="your_company" class="form-control" id="comp_name1" placeholder="Company Name" />
-                    <small class="text-danger d-none" id="comp_nameError1">Company Name is required.</small>
-                  </div>
-                  <!-- Certificate Requested -->
-                  <div class="mb-1">
-                    <select name="certificate_requested" class="form-select" id="certificate">
-                      <option value="" disabled selected style="color: #858585">Select Certificate Requested</option>
-                      <option value="SOC 2 Type I">SOC 2 Type I</option>
-                      <option value="ISO 27001">ISO 27001</option>
-                      <option value="GDPR Compliance">GDPR Compliance</option>
-                    </select>
-                    <small class="text-danger d-none" id="certificateError">Please select a certificate.</small>
-                  </div>
+              </div>
+            </div>
 
-                  <!-- Reason -->
-                  <div class="mb-2">
-                    <textarea name="reason" class="form-control" id="reason" rows="3" placeholder="Reason for requesting certificate"></textarea>
-                    <small class="text-danger d-none" id="reasonError">Reason is required.</small>
-                  </div>
+            <!-- Host 2 -->
+            <div class="col-md-6">
+              <div class="host-card p-4 d-flex align-items-start">
+                <img src="https://via.placeholder.com/120" class="host-img me-3" alt="Host Image" />
 
-                  <p style="font-size: 12px !important; margin-bottom: 10px">
-                    By submitting this form, I agree to the
-                    <a href="../privacy-policy" target="_blank">privacy policy</a>.
-                  </p>
-                  <button type="submit" id="cert-form-btn" class="btn-default btn-highlighted" style="width: 100%">
-                    <span class="btn-text">Submit</span>
-                    <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
-                  </button>
-                </form>
+                <div>
+                  <h4 class="fw-bold mb-1">Speaker 2</h4>
+                  <p class="role-text mb-1">Role</p>
+                  <p class="description mb-0">Passionate about helping teams get the most out of Runo – from smarter calls to actionable insights that drive growth.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <script>
-        jQuery(function ($) {
-          const $form = $("#cert-form");
-          const phoneInput = document.querySelector("#phone2");
-          const iti = window.intlTelInput(phoneInput, {
-            initialCountry: "auto", // <-- add this line
-            geoIpLookup: function (callback) {
-              fetch("https://ipapi.co/json/")
-                .then((res) => {
-                  return res.json();
-                })
-                .then((data) => {
-                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
+      </section>
 
-                  callback(countryCode);
-                })
-                .catch((err) => {
-                  console.error("geoIpLookup error:", err);
-                  callback("in");
-                });
-            },
-            separateDialCode: true,
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
-          });
+      <style>
+        .expert-hosts {
+          background: #fff;
+        }
 
-          const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-          const countryLengthMap = {
-            in: [10],
-            ae: [9],
-            us: [10],
-            ca: [10],
-            gb: [10, 11],
-            sa: [9],
-            ph: [10],
-            id: [10, 11],
-            sg: [8],
-            au: [9],
-            nz: [8, 9],
-            pk: [10],
-            bd: [10],
-            lk: [9],
-            ng: [10, 11],
-            ke: [9],
-            za: [9, 10],
-            my: [9, 10],
-            th: [9, 10],
-            vn: [9, 10],
-            kr: [9, 10, 11],
-            jp: [10, 11],
-            cn: [11],
-            hk: [8],
-            tw: [9, 10],
-            de: [10, 11],
-            fr: [9, 10],
-            it: [10],
-            es: [9],
-            br: [10, 11],
-            mx: [10],
-            ar: [10, 11],
-            ru: [10],
-            tr: [10],
-            eg: [10, 11],
-            iq: [10],
-            gt: [8],
-          };
+        .host-card {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 14px;
+          transition: 0.2s ease;
+        }
 
-          function getMaxLengthForCountry() {
-            const countryCode = iti.getSelectedCountryData().iso2;
-            const allowedLengths = countryLengthMap[countryCode];
-            return allowedLengths ? Math.max(...allowedLengths) : 15;
-          }
-          let phoneTouched = false;
+        .host-card:hover {
+          border-color: #d0d0d0;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-          $("#phone2").on("focus input", function () {
-            phoneTouched = true;
-            validatePhone();
-          });
+        .host-img {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
 
-          phoneInput.addEventListener("input", () => {
-            phoneInput.value = phoneInput.value.replace(/\D/g, "");
-            const maxLength = getMaxLengthForCountry();
-            if (phoneInput.value.length > maxLength) {
-              phoneInput.value = phoneInput.value.slice(0, maxLength);
-            }
-            validatePhone();
-          });
+        .role-text {
+          color: #e63923; /* same orange as your screenshot */
+          font-weight: 500;
+        }
 
-          phoneInput.addEventListener("countrychange", () => {
-            const maxLength = getMaxLengthForCountry();
-            phoneInput.value = phoneInput.value.slice(0, maxLength);
-            validatePhone();
-          });
-          // Validation functions
-          function validateName() {
-            const val = $("#name1").val().trim();
-            if (!val || val.length > 30) {
-              $("#nameError1").removeClass("d-none");
-              return false;
-            }
-            $("#nameError1").addClass("d-none");
-            return true;
-          }
-          function validateEmail() {
-            const val = $("#email1").val().trim();
-            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!val || !pattern.test(val)) {
-              $("#emailError1").removeClass("d-none");
-              return false;
-            }
-            $("#emailError1").addClass("d-none");
-            return true;
-          }
-          function validatePhone() {
-            const phoneNational = phoneInput.value;
-            const selectedCountry = iti.getSelectedCountryData().iso2;
-            const validLengths = countryLengthMap[selectedCountry];
-            if (!phoneTouched) {
-              $("#phoneError1").addClass("d-none");
-              return false;
-            }
-            if (!iti.isValidNumber()) {
-              $("#phoneError1").text("Please enter a valid phone number.").removeClass("d-none");
-              return false;
-            }
+        .description {
+          font-size: 15px;
+          color: #555;
+        }
+      </style>
 
-            if (fakeNumbers.includes(phoneNational)) {
-              $("#phoneError1").text("Please enter a real phone number.").removeClass("d-none");
-              return false;
-            }
+      <section class="learn-sec py-5">
+        <div class="container">
+          <!-- Title -->
+          <h2 class="text-center fw-bold mb-5">What You'll Learn:</h2>
 
-            if (validLengths && !validLengths.includes(phoneNational.length)) {
-              $("#phoneError1")
-                .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
-                .removeClass("d-none");
-              return false;
-            }
+          <!-- Top Large Card -->
+          <div class="topics-card p-4 mb-5">
+            <h5 class="fw-bold mb-3">Topics Covered</h5>
 
-            $("#phoneError1").addClass("d-none");
-            return true;
-          }
-          function validateCompName() {
-            const val = $("#comp_name1").val().trim();
-            if (!val || val.length > 30) {
-              $("#comp_nameError1").removeClass("d-none");
-              return false;
-            }
-            $("#comp_nameError1").addClass("d-none");
-            return true;
-          }
-          function validateCertificate() {
-            if (!$("#certificate").val()) {
-              $("#certificateError").removeClass("d-none");
-              return false;
-            }
-            $("#certificateError").addClass("d-none");
-            return true;
-          }
-          function validateReason() {
-            const val = $("#reason").val().trim();
-            if (!val || val.length > 200) {
-              $("#reasonError").removeClass("d-none");
-              return false;
-            }
-            $("#reasonError").addClass("d-none");
-            return true;
-          }
+            <ul class="topics-list">
+              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Build your Runo workspace within minutes</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Centralize leads and customer data from multiple sources</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Track every call & message automatically in one unified timeline</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Access insights, reports & reminders that keep your team aligned</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Create quick-send email & WhatsApp templates for faster follow-ups</li>
+            </ul>
+          </div>
 
-          // Realtime validation
-          $("#name1").on("input", validateName);
-          $("#email1").on("input", validateEmail);
-          $("#phone2").on("input", validatePhone);
-          $("#comp_name1").on("input", validateCompName);
-          $("#certificate").on("change", validateCertificate);
-          $("#reason").on("input", validateReason);
+          <!-- Three Feature Cards -->
+          <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+              <div class="learn-box p-4 text-center">
+                <div class="icon-wrapper mb-3 mx-auto">
+                  <i class="bi bi-bullseye fs-4 text-orange"></i>
+                </div>
+                <h5 class="fw-semibold mb-1">Perfect for Decision Makers</h5>
+                <p class="text-muted mb-0">Understand ROI and implementation timelines</p>
+              </div>
+            </div>
 
-          // Submit handler
-          $form.on("submit", function (e) {
-            e.preventDefault();
+            <!-- Card 2 -->
+            <div class="col-md-4">
+              <div class="learn-box p-4 text-center">
+                <div class="icon-wrapper mb-3 mx-auto">
+                  <i class="bi bi-graph-up-arrow fs-4 text-orange"></i>
+                </div>
+                <h5 class="fw-semibold mb-1">Boost Team Efficiency</h5>
+                <p class="text-muted mb-0">Learn how teams save 10+ hours per week</p>
+              </div>
+            </div>
 
-            const valid = validateName() && validateEmail() && validatePhone() && validateCompName() && validateCertificate() && validateReason();
+            <!-- Card 3 -->
+            <div class="col-md-4">
+              <div class="learn-box p-4 text-center">
+                <div class="icon-wrapper mb-3 mx-auto">
+                  <i class="bi bi-check2-circle fs-4 text-orange"></i>
+                </div>
+                <h5 class="fw-semibold mb-1">Get Started Fast</h5>
+                <p class="text-muted mb-0">Walk away ready to deploy same day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            if (!valid) return;
+      <style>
+        .learn-sec {
+          background: #fff;
+        }
 
-            const formData = $(this)
-              .serializeArray()
-              .reduce((obj, item) => {
-                obj[item.name] = item.value;
-                return obj;
-              }, {});
-            formData["your_phone"] = iti.getNumber(); // International format
-            formData["your_phone"] = iti.getNumber(); // international format
-            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Compliance";
+        /* Large Top Card */
+        .topics-card {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 14px;
+        }
 
-            const uuid = $(this).data("uuid");
+        /* Orange Check Icons */
+        .text-orange {
+          color: #ff6633;
+        }
 
-            submitForm("demo-form", formData, uuid);
-          });
-        });
-      </script>
-      <!-- Thank You Modal -->
-      <div class="modal fade" id="thankYouModal2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content text-center p-4">
-            <img src="img/success.webp" alt="success" style="margin: 10px auto; display: block; width: 50px" />
-            <h5 class="mb-3">Thank you!</h5>
-            <p style="margin-bottom: 5px">Your submission has been received. Our team will get back to you shortly.</p>
-            <button type="button" class="btn-default btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
+        .topics-list li {
+          margin-bottom: 10px;
+          font-size: 16px;
+          color: #333;
+          list-style-type: none !important;
+        }
+
+        /* Feature Cards */
+        .learn-box {
+          background: #ffffff;
+          border: 1px solid #e5e5e5;
+          border-radius: 14px;
+          transition: 0.2s ease;
+        }
+
+        .learn-box:hover {
+          border-color: #d0d0d0;
+          box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.07);
+        }
+
+        /* Icon background square */
+        .icon-wrapper {
+          width: 60px;
+          height: 60px;
+          background: #ffece5;
+          border-radius: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      </style>
+      <!-- Trusted Partners Section -->
+      <section class="trusted-partners mt-20 mb-10">
+        <div class="container">
+          <div class="section-title text-center">
+            <h2>Trusted by leading CRM partners across India</h2>
+          </div>
+
+          <div class="row g-3 justify-content-center text-center">
+            <div class="partner-list">
+              <strong>Zoho</strong>
+              <strong>HubSpot</strong>
+              <strong>LeadSquared</strong>
+              <strong>Salesforce</strong>
+              <strong>Pipedrive</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="security-features-section pt-3">
+        <div class="container py-5">
+          <div class="row g-4">
+            <div class="section-title text-center" data--delay="0.2s">
+              <h2>Security & Compliance</h2>
+              <p>Your data is protected with industry-leading security standards</p>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="feature-card text-center h-100">
+                <div class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-10 h-10">
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                  </svg>
+                </div>
+                <h5>Enterprise-Grade Security</h5>
+                <p class="mt-3">Bank-level encryption for all call data and customer information</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="feature-card text-center h-100">
+                <div class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock w-10 h-10">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h5>GDPR Compliant</h5>
+                <p class="mt-3">Full compliance with data protection and privacy regulations</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="feature-card text-center h-100">
+                <div class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key w-10 h-10">
+                    <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+                    <path d="m21 2-9.6 9.6"></path>
+                    <circle cx="7.5" cy="15.5" r="5.5"></circle>
+                  </svg>
+                </div>
+                <h5>Role-Based Access</h5>
+                <p class="mt-3">Granular permissions and access control for team members</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="feature-card text-center h-100">
+                <div class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big w-10 h-10">
+                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                    <path d="m9 11 3 3L22 4"></path>
+                  </svg>
+                </div>
+                <h5>Seamless Integration</h5>
+                <p class="mt-3">Connects with popular CRMs, WhatsApp, and cloud APIs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Security Section with  animations -->
+
+      <div class="page-faqs industry-usecases mb-10">
+        <div class="container">
+          <div class="row">
+            <div class="section-title text-center" data--delay="0.2s">
+              <h2>Industry Use Cases</h2>
+              <p>Discover how different teams leverage Runo WhatsApp CRM Tool</p>
+            </div>
+            <div class="col-lg-10" style="margin: 0 auto">
+              <div class="page-faqs-catagery">
+                <div class="faq-accordion page-faq-accordion" id="runo_usecases">
+                  <div class="faq-accordion" id="accordionUsecases">
+                    <!-- Item 1 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="usecaseHeading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse1" aria-expanded="true" aria-controls="usecaseCollapse1">
+                          <span class="icon-box"><i class="fas fa-chart-line"></i></span>
+                          How does Runo’s WhatsApp CRM help sales teams?
+                        </button>
+                      </h2>
+                      <div id="usecaseCollapse1" class="accordion-collapse collapse show" aria-labelledby="usecaseHeading1" data-bs-parent="#accordionUsecases">
+                        <div class="accordion-body">By unifying all lead communications, automating assignments, and tracking every deal step for faster closures. Sales teams can see the complete customer journey, never miss a follow-up, and prioritize hot leads based on engagement data all from one dashboard.</div>
+                      </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="usecaseHeading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse2" aria-expanded="false" aria-controls="usecaseCollapse2">
+                          <span class="icon-box"><i class="fas fa-headset"></i></span>
+                          Can customer support teams resolve tickets via Runo’s WhatsApp CRM?
+                        </button>
+                      </h2>
+                      <div id="usecaseCollapse2" class="accordion-collapse collapse" aria-labelledby="usecaseHeading2" data-bs-parent="#accordionUsecases">
+                        <div class="accordion-body">Yes, with one inbox for all WhatsApp chats, support teams never miss a request and can resolve tickets faster. Auto-routing ensures the right specialist handles each query, while chat history provides complete context for personalized support.</div>
+                      </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="usecaseHeading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse3" aria-expanded="false" aria-controls="usecaseCollapse3">
+                          <span class="icon-box"><i class="fas fa-calendar-alt"></i></span>
+                          Is Runo’s WhatsApp CRM suitable for scheduling and reminders?
+                        </button>
+                      </h2>
+                      <div id="usecaseCollapse3" class="accordion-collapse collapse" aria-labelledby="usecaseHeading3" data-bs-parent="#accordionUsecases">
+                        <div class="accordion-body">Yes, use templated or automated WhatsApp messages for timely appointment reminders and notifications. Perfect for healthcare providers, service businesses, and educational institutions to reduce no-shows and keep customers informed.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /faq-accordion -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
