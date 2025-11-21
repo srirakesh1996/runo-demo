@@ -26,6 +26,25 @@
       $("header .header-sticky").toggleClass("active", fromTop > 600);
     });
   }
+  // API to get country from IP
+  fetch("https://ipapi.co/json/")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("IP Data:", data);
+
+      const userCountry = data.country_name;
+      const bookBtn = document.getElementById("country-btn");
+
+      // Check country
+      if (userCountry === "India") {
+        bookBtn.style.display = "inline-block"; // Show button
+      } else {
+        bookBtn.style.display = "none"; // Hide button
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching location:", error);
+    });
 
   /* Slick Menu JS */
   $("#menu").slicknav({
