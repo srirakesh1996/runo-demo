@@ -3,22 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Country Check Demo</title>
-    <style>
-      #bookDemoBtn {
-        padding: 10px 20px;
-        background: #007bff;
-        color: #fff;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        display: none; /* hidden by default */
-      }
-    </style>
   </head>
   <body>
     <h2>Country Based Button Visibility</h2>
-    <button id="bookDemoBtn">Book a Demo</button>
+    <a href="#" id="country-btn">Book a Demo</a>
 
     <script>
       // API to get country from IP
@@ -28,7 +16,7 @@
           console.log("IP Data:", data);
 
           const userCountry = data.country_name;
-          const bookBtn = document.getElementById("bookDemoBtn");
+          const bookBtn = document.getElementById("country-btn");
 
           // Check country
           if (userCountry === "India") {
