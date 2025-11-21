@@ -2305,7 +2305,7 @@
       </header>
       <!-- Header End -->
 
-      <div class="container text-center mt-10 mb-4">
+      <div class="container text-center mt-20 mb-4">
         <div class="section-title text-center">
           <h2>Turn Your Sales Calls into Measurable Wins - Runo Webinars</h2>
           <p>Join Runo's free 1-hour live webinar to learn how to set up your account, track every interaction, and access insights that help your sales team close faster.</p>
@@ -2364,7 +2364,11 @@
           margin: 0 auto;
           border-radius: 20px;
         }
-
+        @media screen and (max-width: 768px) {
+          .webinar-sec {
+            width: 100%;
+          }
+        }
         .webinar-list li {
           margin-bottom: 10px;
           font-size: 15px;
@@ -2475,19 +2479,19 @@
             <h5 class="fw-bold mb-3">Topics Covered</h5>
 
             <ul class="topics-list">
-              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Build your Runo workspace within minutes</li>
-              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Centralize leads and customer data from multiple sources</li>
-              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Track every call & message automatically in one unified timeline</li>
-              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Access insights, reports & reminders that keep your team aligned</li>
-              <li><i class="bi bi-check-circle-fill text-orange me-2"></i>Create quick-send email & WhatsApp templates for faster follow-ups</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-1"></i>Build your Runo workspace within minutes</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-1"></i>Centralize leads and customer data from multiple sources</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-1"></i>Track every call & message automatically in one unified timeline</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-1"></i>Access insights, reports & reminders that keep your team aligned</li>
+              <li><i class="bi bi-check-circle-fill text-orange me-1"></i>Create quick-send email & WhatsApp templates for faster follow-ups</li>
             </ul>
           </div>
 
           <!-- Three Feature Cards -->
-          <div class="row g-4">
+          <div class="row g-4 align-items-stretch">
             <!-- Card 1 -->
             <div class="col-md-4">
-              <div class="learn-box p-4 text-center">
+              <div class="learn-box p-4 text-center h-100">
                 <div class="icon-wrapper mb-3 mx-auto">
                   <i class="bi bi-bullseye fs-4 text-orange"></i>
                 </div>
@@ -2498,7 +2502,7 @@
 
             <!-- Card 2 -->
             <div class="col-md-4">
-              <div class="learn-box p-4 text-center">
+              <div class="learn-box p-4 text-center h-100">
                 <div class="icon-wrapper mb-3 mx-auto">
                   <i class="bi bi-graph-up-arrow fs-4 text-orange"></i>
                 </div>
@@ -2509,7 +2513,7 @@
 
             <!-- Card 3 -->
             <div class="col-md-4">
-              <div class="learn-box p-4 text-center">
+              <div class="learn-box p-4 text-center h-100">
                 <div class="icon-wrapper mb-3 mx-auto">
                   <i class="bi bi-check2-circle fs-4 text-orange"></i>
                 </div>
@@ -2538,11 +2542,28 @@
           color: #ff6633;
         }
 
+        .topics-list {
+          padding-left: 0px !important;
+          list-style: none;
+          margin: 0;
+        }
+
         .topics-list li {
-          margin-bottom: 10px;
+          display: flex; /* FIX 1 */
+          align-items: flex-start; /* FIX 2 */
+          gap: 10px; /* spacing between icon and text */
+          margin-bottom: 12px;
           font-size: 16px;
           color: #333;
-          list-style-type: none !important;
+          line-height: 1.5;
+        }
+
+        .topics-list li i {
+          flex-shrink: 0; /* FIX 3: icon stays left */
+        }
+
+        .topics-list li span {
+          display: block; /* ensures long text flows nicely */
         }
 
         /* Feature Cards */
@@ -2570,7 +2591,7 @@
         }
       </style>
       <!-- Trusted Partners Section -->
-      <section class="trusted-partners mt-20 mb-10">
+      <section class="trusted-partners mt-20 mb-20">
         <div class="container">
           <div class="section-title text-center">
             <h2>Trusted by leading CRM partners across India</h2>
@@ -2588,12 +2609,25 @@
         </div>
       </section>
 
-      <section class="security-features-section pt-3">
+      <section class="security-features-section pt-4">
         <div class="container py-5">
           <div class="row g-4">
             <div class="section-title text-center" data--delay="0.2s">
-              <h2>Security & Compliance</h2>
-              <p>Your data is protected with industry-leading security standards</p>
+              <h2>Enterprise-Grade Security</h2>
+              <p>Your data security is our top priority. Runo meets the highest industry standards.</p>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="feature-card text-center h-100">
+                <div class="feature-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big w-10 h-10">
+                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                    <path d="m9 11 3 3L22 4"></path>
+                  </svg>
+                </div>
+                <h5>SOC 2 Type II Certified</h5>
+                <p class="mt-3">Enterprise-grade security standards</p>
+              </div>
             </div>
 
             <div class="col-md-3 col-sm-6">
@@ -2603,8 +2637,8 @@
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                   </svg>
                 </div>
-                <h5>Enterprise-Grade Security</h5>
-                <p class="mt-3">Bank-level encryption for all call data and customer information</p>
+                <h5>End-to-End Encryption</h5>
+                <p class="mt-3">Your data is always protected</p>
               </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -2616,7 +2650,7 @@
                   </svg>
                 </div>
                 <h5>GDPR Compliant</h5>
-                <p class="mt-3">Full compliance with data protection and privacy regulations</p>
+                <p class="mt-3">Full data privacy compliance</p>
               </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -2628,84 +2662,91 @@
                     <circle cx="7.5" cy="15.5" r="5.5"></circle>
                   </svg>
                 </div>
-                <h5>Role-Based Access</h5>
-                <p class="mt-3">Granular permissions and access control for team members</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="feature-card text-center h-100">
-                <div class="feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big w-10 h-10">
-                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-                    <path d="m9 11 3 3L22 4"></path>
-                  </svg>
-                </div>
-                <h5>Seamless Integration</h5>
-                <p class="mt-3">Connects with popular CRMs, WhatsApp, and cloud APIs</p>
+                <h5>99.9% Uptime SLA</h5>
+                <p class="mt-3">Reliable and always available</p>
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Security Section with  animations -->
-
-      <div class="page-faqs industry-usecases mb-10">
+      <!-- Page Faqs Start -->
+      <div class="page-faqs">
         <div class="container">
           <div class="row">
-            <div class="section-title text-center" data--delay="0.2s">
-              <h2>Industry Use Cases</h2>
-              <p>Discover how different teams leverage Runo WhatsApp CRM Tool</p>
+            <div class="section-title text-center">
+              <h2>Got Doubts? Let’s Smash ‘Em Together</h2>
             </div>
-            <div class="col-lg-10" style="margin: 0 auto">
+
+            <div class="col-lg-10" style="margin: 10px auto">
               <div class="page-faqs-catagery">
-                <div class="faq-accordion page-faq-accordion" id="runo_usecases">
-                  <div class="faq-accordion" id="accordionUsecases">
-                    <!-- Item 1 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="usecaseHeading1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse1" aria-expanded="true" aria-controls="usecaseCollapse1">
-                          <span class="icon-box"><i class="fas fa-chart-line"></i></span>
-                          How does Runo’s WhatsApp CRM help sales teams?
-                        </button>
+                <div class="faq-accordion page-faq-accordion" id="runo_faqs">
+                  <div class="faq-accordion" id="accordionRuno">
+                    <!-- FAQ Items Start -->
+
+                    <!-- 1 -->
+                    <div class="accordion-item wow fadeInUp">
+                      <h2 class="accordion-header" id="heading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Is this session free to attend?</button>
                       </h2>
-                      <div id="usecaseCollapse1" class="accordion-collapse collapse show" aria-labelledby="usecaseHeading1" data-bs-parent="#accordionUsecases">
-                        <div class="accordion-body">By unifying all lead communications, automating assignments, and tracking every deal step for faster closures. Sales teams can see the complete customer journey, never miss a follow-up, and prioritize hot leads based on engagement data all from one dashboard.</div>
+                      <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionRuno">
+                        <div class="accordion-body">Yes! The webinar is completely free.</div>
                       </div>
                     </div>
 
-                    <!-- Item 2 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="usecaseHeading2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse2" aria-expanded="false" aria-controls="usecaseCollapse2">
-                          <span class="icon-box"><i class="fas fa-headset"></i></span>
-                          Can customer support teams resolve tickets via Runo’s WhatsApp CRM?
-                        </button>
+                    <!-- 2 -->
+                    <div class="accordion-item wow fadeInUp">
+                      <h2 class="accordion-header" id="heading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Who should attend this session?</button>
                       </h2>
-                      <div id="usecaseCollapse2" class="accordion-collapse collapse" aria-labelledby="usecaseHeading2" data-bs-parent="#accordionUsecases">
-                        <div class="accordion-body">Yes, with one inbox for all WhatsApp chats, support teams never miss a request and can resolve tickets faster. Auto-routing ensures the right specialist handles each query, while chat history provides complete context for personalized support.</div>
+                      <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionRuno">
+                        <div class="accordion-body">This session is ideal for sales leads, admins, and calling teams who want to make the most out of Runo, whether you’re new or already using it.</div>
                       </div>
                     </div>
 
-                    <!-- Item 3 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="usecaseHeading3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse3" aria-expanded="false" aria-controls="usecaseCollapse3">
-                          <span class="icon-box"><i class="fas fa-calendar-alt"></i></span>
-                          Is Runo’s WhatsApp CRM suitable for scheduling and reminders?
-                        </button>
+                    <!-- 3 -->
+                    <div class="accordion-item wow fadeInUp">
+                      <h2 class="accordion-header" id="heading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Will I get a recording of the session?</button>
                       </h2>
-                      <div id="usecaseCollapse3" class="accordion-collapse collapse" aria-labelledby="usecaseHeading3" data-bs-parent="#accordionUsecases">
-                        <div class="accordion-body">Yes, use templated or automated WhatsApp messages for timely appointment reminders and notifications. Perfect for healthcare providers, service businesses, and educational institutions to reduce no-shows and keep customers informed.</div>
+                      <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionRuno">
+                        <div class="accordion-body">Yes, a recording will be shared with all attendees so you can revisit the session anytime.</div>
                       </div>
                     </div>
+
+                    <!-- 4 -->
+                    <div class="accordion-item wow fadeInUp">
+                      <h2 class="accordion-header" id="heading4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">How long is the session?</button>
+                      </h2>
+                      <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionRuno">
+                        <div class="accordion-body">Each live session runs for about 60 minutes, including a product walkthrough, expert tips, and a live Q&A.</div>
+                      </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="accordion-item wow fadeInUp">
+                      <h2 class="accordion-header" id="heading5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Will I need a Runo account before joining?</button>
+                      </h2>
+                      <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionRuno">
+                        <div class="accordion-body">We recommend downloading Runo before the session so you can get started instantly after.</div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ Items End -->
                   </div>
-                  <!-- /faq-accordion -->
                 </div>
               </div>
             </div>
+
+            <!-- FAQ Accordion End -->
           </div>
+          <!-- FAQs section End -->
         </div>
+        <!-- Page FAQs Catagery End -->
       </div>
+      <!-- Page Faq End -->
     </div>
     <footer class="bg-dark text-light pt-5 pb-4">
       <div class="container">
