@@ -2674,6 +2674,7 @@
 
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
+
       document.addEventListener("DOMContentLoaded", function () {
         const btn = document.getElementById("country-btn");
 
@@ -2683,14 +2684,12 @@
             const country = (data.country_name || "").toLowerCase();
 
             if (country !== "india") {
-              btn.style.display = "none"; // hide button
-            } else {
-              btn.style.display = "inline-block"; // show if India
+              btn.classList.add("hide-btn");
             }
           })
           .catch((err) => {
             console.error("Location error:", err);
-            btn.style.display = "none"; // default hide on error
+            btn.classList.add("hide-btn"); // hide on error
           });
       });
     </script>

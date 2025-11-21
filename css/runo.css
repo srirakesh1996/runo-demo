@@ -4156,3 +4156,6 @@ body.modal-open {
 footer .fw-bold {
   font-weight: 600 !important;
 }
+.hide-btn {
+  display: none !important;
+}
