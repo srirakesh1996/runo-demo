@@ -2674,7 +2674,9 @@
 
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
+    </script>
 
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         const btn = document.getElementById("country-btn");
 
@@ -2682,14 +2684,14 @@
           .then((r) => r.json())
           .then((data) => {
             const country = (data.country_name || "").toLowerCase();
+            console.log("COUNTRY:", country);
 
             if (country !== "india") {
-              btn.classList.add("hide-btn");
+              btn.classList.add("hide-btn"); // hide button
             }
           })
-          .catch((err) => {
-            console.error("Location error:", err);
-            btn.classList.add("hide-btn"); // hide on error
+          .catch(() => {
+            btn.classList.add("hide-btn"); // hide if API fails
           });
       });
     </script>
