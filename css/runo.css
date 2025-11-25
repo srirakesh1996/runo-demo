@@ -4158,5 +4158,11 @@ footer .fw-bold {
 }
 
 .blog-content h3 strong {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+}
+.blog-title {
+  font-weight: 300 !important;
+}
+.blog-content p strong {
+  margin-bottom: 10px !important;
 }
