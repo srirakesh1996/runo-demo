@@ -4156,3 +4156,7 @@ body.modal-open {
 footer .fw-bold {
   font-weight: 600 !important;
 }
+
+.blog-content h3 strong {
+  font-weight: 700 !important;
+}
