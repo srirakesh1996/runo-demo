@@ -3444,7 +3444,7 @@ body.modal-open {
 }
 
 .addon-card .price-tag {
-  background: white;
+  background: #eaeaea;
   border-radius: 12px;
   display: inline-block;
   padding: 8px 16px;
