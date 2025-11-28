@@ -3483,11 +3483,11 @@ body.modal-open {
 }
 
 /* hide for now*/
-
+/*
 .addon-card .price-tag {
   display: none !important;
 }
-
+*/
 .icon-hover-message {
   font-size: 12px !important;
 }
