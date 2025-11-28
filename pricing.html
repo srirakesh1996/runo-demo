@@ -56,6 +56,9 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
     <!-- Google Tag Manager -->
     <style>
+      .addon-card .form-select {
+        border: 1px solid #111 !important;
+      }
       .price-tag {
         color: #000;
         font-size: 13px;
@@ -66,9 +69,7 @@
       .wa-plan-price {
         color: #000;
       }
-      .form-select {
-        color: #000 !important;
-      }
+
       #wa-plan-selector {
         width: 150px;
         cursor: pointer !important;
@@ -90,7 +91,7 @@
       .wa-plan-price1 {
         color: #000;
       }
-      .form-select {
+      #wa-plan-selector {
         color: #000 !important;
       }
       #wa-plan-selector1 {
@@ -1393,10 +1394,7 @@
                 <p>Send bulk WhatsApp messages directly from Runo, track delivery and replies, and manage all conversations.</p>
                 <!-- Price Display with Dropdown -->
                 <div class="d-flex align-items-center justify-content-between flex-wrap">
-                  <span class="price-tag">
-                    <strong id="wa-plan-title">Billed Yearly:</strong>
-                    <span id="wa-plan-price">₹149</span>/user/month + GST
-                  </span>
+                  <span class="price-tag"> <span id="wa-plan-price">₹149</span>/user/month + GST </span>
                   <select id="wa-plan-selector" class="form-select mt-2 mt-md-0">
                     <option value="yearly" selected>Billed Yearly</option>
                     <option value="half-yearly">Billed Half-Yearly</option>
@@ -1427,7 +1425,7 @@
 
               waPlanSelector.addEventListener("change", function () {
                 const selectedPlan = waPlanSelector.value;
-                waPlanTitle.textContent = waPlans[selectedPlan].title;
+
                 waPlanPrice.textContent = waPlans[selectedPlan].price;
               });
             </script>
