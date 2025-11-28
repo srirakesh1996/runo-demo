@@ -2970,7 +2970,7 @@ input::placeholder {
 }
 
 .form-select:focus {
-  border-color: #f44336;
+  border-color: #000;
   outline: 0;
   box-shadow: none !important;
 }

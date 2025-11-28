@@ -55,6 +55,52 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
     <!-- Google Tag Manager -->
+    <style>
+      .price-tag {
+        color: #000;
+        font-size: 13px;
+      }
+      .wa-plan-title {
+        color: #000;
+      }
+      .wa-plan-price {
+        color: #000;
+      }
+      .form-select {
+        color: #000 !important;
+      }
+      #wa-plan-selector {
+        width: 150px;
+      }
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector {
+          width: 200px;
+        }
+      }
+      .form-select:focus {
+        font-size: 13px !important;
+      }
+      .addon-card .price-tag {
+        margin: 10px 0px !important;
+      } /*2 nd car*/
+      .price-tag {
+        color: #000;
+      }
+      .wa-plan-price1 {
+        color: #000;
+      }
+      .form-select {
+        color: #000 !important;
+      }
+      #wa-plan-selector1 {
+        width: 160px;
+      }
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector1 {
+          width: 200px;
+        }
+      }
+    </style>
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -1344,35 +1390,68 @@
               <div class="addon-card gradient-purple">
                 <h5>WhatsApp Business</h5>
                 <p>Send bulk WhatsApp messages directly from Runo, track delivery and replies, and manage all conversations.</p>
-                <span class="price-tag">₹ xxx/user/month</span>
+                <!-- Price Display with Dropdown -->
+                <div class="d-flex align-items-center justify-content-between flex-wrap">
+                  <span class="price-tag">
+                    <strong id="wa-plan-title">Billed Yearly:</strong>
+                    <span id="wa-plan-price">₹149</span>/user/month + GST
+                  </span>
+                  <select id="wa-plan-selector" class="form-select mt-2 mt-md-0">
+                    <option value="yearly" selected>Billed Yearly</option>
+                    <option value="half-yearly">Billed Half-Yearly</option>
+                    <option value="quarterly">Billed Quarterly</option>
+                  </select>
+                </div>
               </div>
             </div>
+            <script>
+              const waPlanSelector = document.getElementById("wa-plan-selector");
+              const waPlanTitle = document.getElementById("wa-plan-title");
+              const waPlanPrice = document.getElementById("wa-plan-price");
+
+              const waPlans = {
+                yearly: {
+                  title: "Billed Yearly:",
+                  price: "₹149",
+                },
+                "half-yearly": {
+                  title: "Billed Half-Yearly:",
+                  price: "₹199",
+                },
+                quarterly: {
+                  title: "Billed Quarterly:",
+                  price: "₹249",
+                },
+              };
+
+              waPlanSelector.addEventListener("change", function () {
+                const selectedPlan = waPlanSelector.value;
+                waPlanTitle.textContent = waPlans[selectedPlan].title;
+                waPlanPrice.textContent = waPlans[selectedPlan].price;
+              });
+            </script>
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-green">
                 <h5>AI Call Intelligence</h5>
                 <p>Get automatic call summaries, sentiment analysis, talk-time ratios, and call quality scores to coach reps and improve every conversation.</p>
-                <span class="price-tag">₹ xxx/user/month</span>
               </div>
             </div>
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-blue">
                 <h5>AI Chat Assistant</h5>
                 <p>Get instant answers about your sales pipeline and ask the AI to perform tasks like booking calls or setting follow-ups</p>
-                <span class="price-tag">₹ xxx/user/month</span>
               </div>
             </div>
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-pink">
                 <h5>Guided Onboarding</h5>
                 <p>Get help with setup, CRM customisation, and training to get your team up and running smoothly</p>
-                <span class="price-tag">₹ xxx/user/month</span>
               </div>
             </div>
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-orange">
                 <h5>Storage Boost</h5>
                 <p>Increase your storage limit to keep more call recordings, reports, and lead data without interruptions.</p>
-                <span class="price-tag">₹ xxx/user/month</span>
               </div>
             </div>
           </div>
