@@ -69,6 +69,36 @@
       .wa-plan-price {
         color: #000;
       }
+      /* Clean select with box-shadow instead of border */
+      .addon-card .form-select {
+        border: none !important; /* Remove border */
+        background-color: #fff !important;
+        border-radius: 8px !important;
+        padding: 6px 12px !important;
+        font-size: 14px;
+        color: #000 !important;
+
+        /* Soft box-shadow style */
+        box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      /* On focus: slightly darker shadow */
+      .addon-card .form-select:focus {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25) !important;
+        outline: none !important;
+      }
+
+      /* Width control */
+      #wa-plan-selector {
+        width: 160px;
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector {
+          width: 200px;
+        }
+      }
 
       #wa-plan-selector {
         width: 150px;
