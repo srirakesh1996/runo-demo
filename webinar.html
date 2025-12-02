@@ -2377,32 +2377,54 @@
             <div class="col-md-6">
               <h4 class="fw-semibold text-black mb-3">Select Your Session</h4>
 
-              <div class="session-box active" data-slot="Tuesday, Nov 14 — 10:00 AM EST">
+              <!-- Session 1 -->
+              <div class="session-box active" data-link="https://live.zoho.in/xyuf-raj-xjl">
                 <div>
-                  <strong class="text-dark">Tuesday, Nov 14</strong>
-                  <div class="small text-dark"><i class="bi bi-clock"></i> 10:00 AM EST</div>
+                  <strong class="text-dark">Wed, Dec 10, 2025</strong>
+                  <div class="small text-dark"><i class="bi bi-clock"></i> 4 PM IST</div>
                 </div>
                 <div class="small text-dark"><i class="bi bi-people"></i> 12 spots left</div>
               </div>
 
-              <div class="session-box" data-slot="Wednesday, Nov 15 — 2:00 PM EST">
+              <!-- Session 2 -->
+              <div class="session-box" data-link="https://live.zoho.in/spzw-wdk-pje">
                 <div>
-                  <strong class="text-dark">Wednesday, Nov 15</strong>
-                  <div class="small text-dark"><i class="bi bi-clock"></i> 2:00 PM EST</div>
+                  <strong class="text-dark">Wed, Dec 17, 2025</strong>
+                  <div class="small text-dark"><i class="bi bi-clock"></i> 4 PM IST</div>
                 </div>
                 <div class="small text-dark"><i class="bi bi-people"></i> 8 spots left</div>
               </div>
 
-              <button class="btn-dark w-100 mt-3 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#requestcert" id="openModalBtn">Register Now</button>
+              <!-- Button -->
+              <a id="registerBtn" href="https://live.zoho.in/xyuf-raj-xjl" class="btn-dark w-100 mt-3 py-2 fw-semibold" style="display: block; text-align: center"> Register Now </a>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Script -->
+      <script>
+        document.querySelectorAll(".session-box").forEach((box) => {
+          box.addEventListener("click", function () {
+            // Remove active from all
+            document.querySelectorAll(".session-box").forEach((b) => b.classList.remove("active"));
+
+            // Add active to selected
+            this.classList.add("active");
+
+            // Update button link
+            const selectedLink = this.getAttribute("data-link");
+            document.getElementById("registerBtn").setAttribute("href", selectedLink);
+          });
+        });
+      </script>
+
+      <!-- Styles -->
       <style>
         .webinar-sec .container {
           width: 100% !important;
         }
+
         .webinar-sec {
           background: #fafafa;
           width: 80%;
@@ -2410,11 +2432,13 @@
           margin: 0 auto;
           border-radius: 20px;
         }
+
         @media screen and (max-width: 768px) {
           .webinar-sec {
             width: 100%;
           }
         }
+
         .webinar-list li {
           margin-bottom: 10px;
           font-size: 15px;
@@ -2429,19 +2453,18 @@
           justify-content: space-between;
           align-items: center;
           cursor: pointer;
-          transition: 0.2s ease;
+          transition: 0.25s ease;
         }
 
+        /* Hover effect */
         .session-box:hover {
           border-color: #f44336;
         }
 
-        .btn-register {
-          background: #ffbbab;
-          padding: 12px;
-          border-radius: 8px;
-          font-weight: 600;
-          border: none;
+        /* ACTIVE HIGHLIGHT */
+        .session-box.active {
+          border: 2px solid #f44336 !important;
+          background: #fff5f4;
         }
       </style>
 
@@ -2450,10 +2473,11 @@
           <div class="section-title text-center">
             <h2>Meet Your Expert Hosts</h2>
           </div>
-          <div class="row g-4">
+
+          <div class="row g-4 align-items-stretch">
             <!-- Host 1 -->
             <div class="col-md-6">
-              <div class="host-card p-4 d-flex align-items-start">
+              <div class="host-card p-4 d-flex align-items-start h-100">
                 <img src="img/webinar/deepika.webp" class="host-img me-3" alt="Host Image" />
 
                 <div>
@@ -2466,7 +2490,7 @@
 
             <!-- Host 2 -->
             <div class="col-md-6">
-              <div class="host-card p-4 d-flex align-items-start">
+              <div class="host-card p-4 d-flex align-items-start h-100">
                 <img src="img/webinar/prakyat.webp" class="host-img me-3" alt="Host Image" />
 
                 <div>
@@ -2505,7 +2529,7 @@
         }
 
         .role-text {
-          color: #e63923; /* same orange as your screenshot */
+          color: #e63923;
           font-weight: 500;
         }
 
@@ -2514,6 +2538,7 @@
           color: #555;
         }
       </style>
+
       <!-- Clients Section -->
       <section class="clients-section py-80" style="overflow: hidden">
         <div class="container">
@@ -2866,7 +2891,7 @@
           </h2>
 
           <div class="store-buttons animate__animated animate__fadeIn" data--delay="1s">
-            <a class="btn-dark track-btn runo-web-crm mb-20" data-label="Login - Header" href="https://web.runo.in?page_name=Backups%2F19-11%2Fproduct%2Fcall-management-crm">Save My Spot</a>
+            <a class="btn-dark track-btn mb-20" data-label="Login - Header" href="https://live.zoho.in/xyuf-raj-xjl">Save My Spot</a>
           </div>
         </div>
       </section>
