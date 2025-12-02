@@ -179,4 +179,10 @@
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
+<url>
+<loc>https://runo.ai/webinar</loc>
+<lastmod>2025-12-02</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
 </urlset>
