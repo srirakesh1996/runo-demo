@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /404.html
-
-Sitemap: https://runo.ai/sitemap.xml
-Sitemap: https://runo.ai/blog/sitemap.xml
