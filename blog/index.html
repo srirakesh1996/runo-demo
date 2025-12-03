@@ -1487,6 +1487,13 @@
           const pagination = document.getElementById("pagination");
           pagination.innerHTML = "";
 
+          // Previous Button
+          pagination.innerHTML += `
+            <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+                <a class="page-link" href="?page=${currentPage - 1}" aria-label="Previous">Previous</a>
+            </li>
+        `;
+
           // Page Numbers
           for (let i = 1; i <= totalPages; i++) {
             pagination.innerHTML += `
@@ -1495,39 +1502,57 @@
                 </li>
             `;
           }
+
+          // Next Button
+          pagination.innerHTML += `
+            <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+                <a class="page-link" href="?page=${currentPage + 1}" aria-label="Next">Next</a>
+            </li>
+        `;
         }
 
         showPage(currentPage);
         renderPagination();
       });
     </script>
-
     <style>
-      /* Default (not active) page buttons */
+      /* Default (NOT active) */
       .pagination .page-link {
         background-color: #fff !important;
         color: #000 !important;
         border: 1px solid #000 !important;
+        transition: 0.2s ease;
+        box-shadow: none !important; /* remove shadow */
       }
 
-      /* Active page button */
+      /* Active page */
       .pagination .active .page-link {
         background-color: #000 !important;
         color: #fff !important;
         border: 1px solid #000 !important;
+        box-shadow: none !important; /* remove shadow */
       }
 
-      /* Disabled buttons */
+      /* Hover (non-active buttons including Prev/Next) */
+      .pagination .page-item:not(.active):not(.disabled) .page-link:hover {
+        background-color: #e5e5e5 !important;
+        color: #000 !important;
+        box-shadow: none !important; /* remove shadow */
+      }
+
+      /* Remove click shadow + active shadow */
+      .pagination .page-link:focus,
+      .pagination .page-link:active {
+        box-shadow: none !important;
+        outline: none !important;
+      }
+
+      /* Disabled state */
       .pagination .disabled .page-link {
         background-color: #f2f2f2 !important;
         color: #888 !important;
         border: 1px solid #ccc !important;
-      }
-
-      /* Hover for non-active */
-      .pagination .page-item:not(.active) .page-link:hover {
-        background-color: #e5e5e5 !important;
-        color: #000 !important;
+        box-shadow: none !important;
       }
     </style>
 
