@@ -1025,7 +1025,7 @@
     <div class="blogs">
       <div class="container py-5">
         <h1 class="mb-20 text-center">Latest Blog Posts</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div id="blogList" class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
             <div class="card blog-card h-100">
               <div class="card-head">
@@ -1458,8 +1458,79 @@
           </div>
         </div>
         <div class="mt-5"></div>
+        <nav>
+          <ul class="pagination justify-content-center mt-4" id="pagination"></ul>
+        </nav>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const blogsPerPage = 15;
+        const blogList = document.querySelectorAll("#blogList .col");
+        const totalBlogs = blogList.length;
+        const totalPages = Math.ceil(totalBlogs / blogsPerPage);
+
+        // Get page number from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentPage = parseInt(urlParams.get("page")) || 1;
+
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        function showPage(page) {
+          blogList.forEach((blog, index) => {
+            blog.style.display = index >= (page - 1) * blogsPerPage && index < page * blogsPerPage ? "block" : "none";
+          });
+        }
+
+        function renderPagination() {
+          const pagination = document.getElementById("pagination");
+          pagination.innerHTML = "";
+
+          // Page Numbers
+          for (let i = 1; i <= totalPages; i++) {
+            pagination.innerHTML += `
+                <li class="page-item ${i === currentPage ? "active" : ""}">
+                    <a class="page-link" href="?page=${i}">${i}</a>
+                </li>
+            `;
+          }
+        }
+
+        showPage(currentPage);
+        renderPagination();
+      });
+    </script>
+
+    <style>
+      /* Default (not active) page buttons */
+      .pagination .page-link {
+        background-color: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+      }
+
+      /* Active page button */
+      .pagination .active .page-link {
+        background-color: #000 !important;
+        color: #fff !important;
+        border: 1px solid #000 !important;
+      }
+
+      /* Disabled buttons */
+      .pagination .disabled .page-link {
+        background-color: #f2f2f2 !important;
+        color: #888 !important;
+        border: 1px solid #ccc !important;
+      }
+
+      /* Hover for non-active */
+      .pagination .page-item:not(.active) .page-link:hover {
+        background-color: #e5e5e5 !important;
+        color: #000 !important;
+      }
+    </style>
+
     <footer class="bg-dark text-light pt-5 pb-4">
       <div class="container">
         <div class="row gy-4">
