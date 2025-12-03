@@ -81,6 +81,34 @@
          </script>
          -->
     <!-- Inline Hero Banner Style -->
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
+      }
+    </style>
 
     <style>
       .hero {
@@ -134,16 +162,6 @@
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
-      <!-- Preloader Start -->
-      <div class="runo-preloader">
-        <div class="runo-preloader-inner">
-          <div class="runo-spinner"></div>
-          <div class="runo-logo">
-            <img src="img/logo.png" alt="Runo Loading" />
-          </div>
-        </div>
-      </div>
-      <!-- Preloader End -->
 
       <!-- Hello Bar Start -->
       <section id="helloBar" class="hello-bar text-white py-2">
