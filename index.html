@@ -15,50 +15,57 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Runo – World’s First AI-Powered SIM & Virtual Calling CRM" />
-    <meta property="og:description" content="Runo is an AI-powered, mobile-first CRM with SIM-based and virtual calling. It auto-logs calls, tracks leads, adds notes, generates AI summaries, and streamlines your entire sales workflow." />
+    <meta property="og:description" content="Runo is an AI-powered, mobile-first CRM with SIM-based and virtual calling. It auto-logs calls, tracks leads, adds notes, generates AI summaries." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://runo.ai" />
     <meta property="og:image" content="https://runo.ai/img/og/og-home.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Runo – World’s First AI-Powered SIM & Virtual Calling CRM" />
-    <meta name="twitter:description" content="Runo is an AI-powered, mobile-first CRM with SIM-based and virtual calling." />
+    <meta name="twitter:title" content="Runo – AI-Powered SIM & Virtual Calling CRM" />
+    <meta name="twitter:description" content="Runo automates calling, lead tracking, notes, AI summaries, and workflows." />
     <meta name="twitter:image" content="https://runo.ai/img/og/og-home.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 
-    <!-- Preconnect & Preload -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <!-- Preload Bootstrap (critical) -->
+    <link rel="preload" href="css/bootstrap.min.css" as="style" />
 
-    <!-- Core Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="css/slicknav.min.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/runo.css" />
+    <!-- Load Bootstrap normally -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
 
+    <!-- Load remaining CSS non-blocking -->
+    <link rel="preload" href="css/runo.css" as="style" />
+    <link rel="stylesheet" href="css/runo.css" media="print" onload="this.media='all'" />
+
+    <link rel="preload" href="css/custom.css" as="style" />
+    <link rel="stylesheet" href="css/custom.css" media="print" onload="this.media='all'" />
+
+    <link rel="stylesheet" href="css/slicknav.min.css" media="print" onload="this.media='all'" />
+
+    <!-- REMOVE: duplicate Font Awesome (keeping ONLY CDN version below) -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Swiper & intl-tel-input CSS (lazy load) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+    <!-- Google Fonts (non-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
 
     <!-- Preload Hero Images -->
     <link rel="preload" as="image" href="img/banner-img.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="img/hero-images/web/call-summaryw.webp" media="(min-width:769px)" fetchpriority="high" />
     <link rel="preload" as="image" href="img/hero-images/mobile/call-summary.webp" media="(max-width:768px)" fetchpriority="high" />
 
-    <!-- JS Libraries (Deferred for INP improvement) -->
+    <!-- Deferred JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
