@@ -4167,3 +4167,11 @@ footer .fw-bold {
 .blog-content p strong {
   margin-bottom: 10px !important;
 }
+
+.store-buttons .btn-dark {
+  margin: 10px 0 !important;
+}
+
+.tab-pane h2 {
+  font-weight: 400 !important;
+}
