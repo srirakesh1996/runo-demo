@@ -2504,8 +2504,6 @@
 
           <!-- MAIN CATEGORY MENU (with arrows) -->
           <div class="main-menu-wrapper mb-3 align-items-center">
-            <button class="menu-arrow left main-left-arrow">◄</button>
-
             <nav class="main-category-menu">
               <ul id="mainTabsMenu">
                 <li class="active" data-main="conference">Conference</li>
@@ -2514,8 +2512,6 @@
                 <li data-main="outing">Team Outing</li>
               </ul>
             </nav>
-
-            <button class="menu-arrow right main-right-arrow">►</button>
           </div>
 
           <!-- SUB-FOLDER TABS (with arrows) -->
@@ -2546,51 +2542,81 @@
           </div>
         </div>
       </div>
-
       <style>
         /* ============================================================
-   MAIN CATEGORY MENU (Header-style menu)
+   MAIN CATEGORY MENU (Header-style with fade scroll hint)
 ============================================================ */
         .main-menu-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
           position: relative;
           width: 100%;
           margin-bottom: 15px;
         }
 
-        /* Scrollable main menu container */
+        /* Scrollable main menu */
         .main-category-menu {
-          flex-grow: 1;
           overflow-x: auto;
           white-space: nowrap;
           scrollbar-width: none;
-          display: flex;
-          justify-content: center;
+          display: block;
+          text-align: center;
         }
         .main-category-menu::-webkit-scrollbar {
           display: none;
         }
 
-        /* Main tabs list */
+        /* Main menu list */
         #mainTabsMenu {
-          display: flex;
-          gap: 30px;
+          display: inline-flex;
+          gap: 28px;
           list-style: none;
-          padding: 0;
+          padding: 5px 0;
           margin: 0;
           font-size: 17px;
           font-weight: 600;
           align-items: center;
         }
 
-        /* Main tabs style */
+        /* Main tabs */
         #mainTabsMenu li {
           cursor: pointer;
           color: #444;
-          transition: 0.25s;
+          transition: 0.25s ease;
         }
+        /* Desktop/Default */
+        .main-category-menu {
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+
+        /* ================================
+   MOBILE SCROLLBAR WITH TOP MARGIN
+================================ */
+        @media (max-width: 576px) {
+          .main-category-menu {
+            overflow-x: auto;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #757575 #e6e6e6;
+            margin-top: 10px; /* <<-- SPACE ABOVE SCROLLBAR */
+            padding-bottom: 6px; /* <<-- ENSURES SCROLLBAR DOES NOT TOUCH TABS */
+          }
+
+          /* WebKit Browsers (Chrome/Safari/Android) */
+          .main-category-menu::-webkit-scrollbar {
+            height: 6px;
+          }
+
+          .main-category-menu::-webkit-scrollbar-track {
+            background: #e6e6e6;
+            border-radius: 10px;
+            margin-top: 10px; /* <<-- Adds visual spacing below */
+          }
+
+          .main-category-menu::-webkit-scrollbar-thumb {
+            background: #757575;
+            border-radius: 10px;
+          }
+        }
+
         #mainTabsMenu li:hover {
           color: #000;
         }
@@ -2601,47 +2627,48 @@
         }
 
         /* ============================================================
-   MAIN MENU ARROWS
+   FADE SHADOW INDICATORS (mobile only)
 ============================================================ */
-        .menu-arrow {
-          width: 30px;
-          height: 30px;
-          background: #000;
-          color: #fff;
-          border-radius: 50%;
-          border: none;
-          font-size: 14px;
-          display: none;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
+        .main-menu-wrapper::before,
+        .main-menu-wrapper::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 40px;
+          pointer-events: none;
+          z-index: 5;
+          display: none; /* visible only on mobile */
         }
 
-        @media (max-width: 576px) {
-          /* Arrows stay fixed left & right */
-          .main-left-arrow {
-            position: absolute;
-            left: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex !important;
+        /* Left fade */
+        .main-menu-wrapper::before {
+          left: 0;
+        }
+
+        /* Right fade */
+        .main-menu-wrapper::after {
+          right: 0;
+        }
+
+        @media (max-width: 768px) {
+          .main-menu-wrapper::before,
+          .main-menu-wrapper::after {
+            display: block;
           }
-          .main-right-arrow {
-            position: absolute;
-            right: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex !important;
+          #mainTabsMenu li.active {
+            border-bottom: none;
           }
         }
 
         /* ============================================================
-   SUB-TABS (Desktop – horizontal scroll)
+   SUB-TABS — DESKTOP (scroll row)
 ============================================================ */
         .subtabs-wrapper {
+          width: 100%;
           display: flex;
           align-items: center;
-          width: 100%;
+          justify-content: center;
         }
 
         #subTabs {
@@ -2650,7 +2677,6 @@
           overflow-x: auto;
           white-space: nowrap;
           scrollbar-width: none;
-          flex-grow: 1;
           justify-content: center;
           margin-bottom: 15px;
         }
@@ -2664,14 +2690,15 @@
 
         #subTabs .nav-link {
           border: 1px solid #aaa;
-          padding: 6px 12px;
+          padding: 2px 5px;
           border-radius: 20px;
-          font-size: 11px;
-          background: #fff;
+          font-size: 10px;
           white-space: nowrap;
+          background: #fff;
           color: #000;
-          min-width: 120px;
+          min-width: 100px;
           text-align: center;
+          transition: 0.25s ease;
         }
 
         #subTabs .nav-link.active {
@@ -2681,21 +2708,21 @@
         }
 
         /* ============================================================
-   SUB-TABS (Mobile – grid layout, 2 per row)
+   SUB-TABS — MOBILE (2 per row grid)
 ============================================================ */
         @media (max-width: 576px) {
           .subtabs-wrapper {
-            display: block; /* Remove stretching */
+            display: block;
           }
 
           #subTabs {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            overflow: hidden !important; /* Remove horizontal scroll */
+            overflow: hidden !important;
             white-space: normal !important;
             padding: 0;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
           }
 
           #subTabs .nav-item {
@@ -2704,14 +2731,13 @@
 
           #subTabs .nav-link {
             width: 100%;
-            text-align: center;
-            padding: 10px;
+            padding: 10px 12px;
             font-size: 13px;
-            min-height: 42px;
             border-radius: 25px;
+            min-height: 42px;
           }
 
-          /* Hide sub arrows */
+          /* Remove sub-arrows completely */
           .sub-left-arrow,
           .sub-right-arrow {
             display: none !important;
@@ -2730,6 +2756,7 @@
           opacity: 1;
           transform: translateY(0);
         }
+
         .gallery-card img {
           border-radius: 12px;
           transition: 0.3s ease;
