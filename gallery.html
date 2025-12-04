@@ -2502,53 +2502,33 @@
         <div class="container">
           <h2 class="text-center fw-bold mb-4">Our Gallery</h2>
 
-          <!-- BOOTSTRAP NAV-PILLS -->
-          <ul class="nav nav-pills justify-content-center mb-4" id="galleryTabs">
-            <li class="nav-item"><button class="nav-link active" data-category="all">All</button></li>
-            <li class="nav-item"><button class="nav-link" data-category="conference">Conferences</button></li>
-            <li class="nav-item"><button class="nav-link" data-category="company">Company Events</button></li>
-            <li class="nav-item"><button class="nav-link" data-category="awards">Awards</button></li>
-            <li class="nav-item"><button class="nav-link" data-category="outing">Team Outing</button></li>
-          </ul>
+          <!-- MAIN CATEGORY MENU (with arrows) -->
+          <div class="main-menu-wrapper mb-3 align-items-center">
+            <button class="menu-arrow left main-left-arrow">◄</button>
+
+            <nav class="main-category-menu">
+              <ul id="mainTabsMenu">
+                <li class="active" data-main="conference">Conference</li>
+                <li data-main="company">Company Events</li>
+                <li data-main="awards">Awards</li>
+                <li data-main="outing">Team Outing</li>
+              </ul>
+            </nav>
+
+            <button class="menu-arrow right main-right-arrow">►</button>
+          </div>
+
+          <!-- SUB-FOLDER TABS (with arrows) -->
+          <div class="subtabs-wrapper mb-3 d-none" id="subTabsWrapper">
+            <button class="menu-arrow left sub-left-arrow">◄</button>
+
+            <ul class="nav" id="subTabs"></ul>
+
+            <button class="menu-arrow right sub-right-arrow">►</button>
+          </div>
 
           <!-- GALLERY GRID -->
-          <div class="row g-4" id="galleryGrid">
-            <div class="col-md-4 gallery-item" data-category="conference">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=1" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-
-            <div class="col-md-4 gallery-item" data-category="company">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=2" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-
-            <div class="col-md-4 gallery-item" data-category="awards">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=3" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-
-            <div class="col-md-4 gallery-item" data-category="outing">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=4" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-
-            <div class="col-md-4 gallery-item" data-category="conference">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=5" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-
-            <div class="col-md-4 gallery-item" data-category="company">
-              <div class="card border-0 shadow-sm gallery-card">
-                <img src="https://picsum.photos/600/400?random=6" class="card-img-top gallery-img" alt="" />
-              </div>
-            </div>
-          </div>
+          <div class="row g-4" id="galleryGrid"></div>
         </div>
       </section>
 
@@ -2560,118 +2540,143 @@
             <div class="modal-body text-center position-relative">
               <img id="modalImage" src="" class="img-fluid rounded shadow" />
 
-              <!-- LEFT ARROW -->
-              <button class="carousel-control-prev custom-arrow" id="prevBtn">
-                <span>&#10094;</span>
-              </button>
-
-              <!-- RIGHT ARROW -->
-              <button class="carousel-control-next custom-arrow" id="nextBtn">
-                <span>&#10095;</span>
-              </button>
+              <button class="carousel-control-prev custom-arrow" id="prevBtn"><span>&#10094;</span></button>
+              <button class="carousel-control-next custom-arrow" id="nextBtn"><span>&#10095;</span></button>
             </div>
           </div>
         </div>
       </div>
 
       <style>
-        /* --- Mobile: 2-per-row uniform pills --- */
-        @media (max-width: 576px) {
-          /* Make the nav container a 2-column grid */
-          .nav-pills {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            justify-items: center; /* center items inside each grid cell */
-            align-items: center;
-            padding: 0 8px 8px;
-            list-style: none;
-          }
-
-          /* Ensure each nav-item doesn't add extra spacing */
-          .nav-pills .nav-item {
-            width: 100%;
-            margin: 0;
-          }
-
-          /* Make each button fill its grid cell and have equal height */
-          .nav-pills .nav-link {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            min-height: 44px; /* adjustable: increases tappable area */
-            padding: 8px 12px;
-            font-size: 14px;
-            border-radius: 999px; /* pill shape */
-            box-sizing: border-box;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-
-          /* Active styling remains full-width of the cell */
-          .nav-pills .nav-link.active {
-            color: #fff;
-            background: #000;
-            border-color: #000;
-          }
-
-          /* Make sure border is visible on non-active */
-          .nav-pills .nav-link {
-            border: 1px solid #000;
-            color: #000;
-            background: transparent;
-          }
+        /* MAIN CATEGORY MENU */
+        .main-menu-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
         }
-
-        .gallery-card img {
-          transition: transform 0.4s ease;
-          border-radius: 12px;
+        .main-category-menu {
+          flex-grow: 1;
+          overflow-x: auto;
+          white-space: nowrap;
+          scrollbar-width: none;
         }
-        .gallery-card:hover img {
-          transform: scale(1.07);
+        .main-category-menu::-webkit-scrollbar {
+          display: none;
         }
-
-        .nav-pills .nav-link {
-          border: 1px solid #000;
+        #mainTabsMenu {
+          display: flex;
+          gap: 30px;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          font-size: 17px;
           font-weight: 600;
-          color: #000;
-          padding: 10px 18px;
-          margin: 0 6px;
-          border-radius: 50px;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 15px;
         }
-        .nav-pills .nav-link.active {
+        #mainTabsMenu li {
+          cursor: pointer;
+          color: #444;
+          transition: 0.25s;
+        }
+        #mainTabsMenu li:hover {
+          color: #000;
+        }
+        #mainTabsMenu li.active {
+          color: #000;
+          border-bottom: 2px solid #000;
+          padding-bottom: 4px;
+        }
+
+        /* SUB TABS */
+        .subtabs-wrapper {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+        #subTabs {
+          overflow-x: auto;
+          flex-grow: 1;
+          white-space: nowrap;
+          gap: 10px;
+          display: flex;
+          scrollbar-width: none;
+          justify-content: center;
+          margin-bottom: 15px;
+        }
+        #subTabs::-webkit-scrollbar {
+          display: none;
+        }
+        #subTabs .nav-item {
+          flex: 0 0 auto;
+        }
+        #subTabs .nav-link {
+          border: 1px solid #aaa;
+          padding: 5px 12px;
+          border-radius: 20px;
+          font-size: 11px;
+          background: #fff;
+          white-space: nowrap;
+          color: #000;
+        }
+        #subTabs .nav-link.active {
           background: #000;
           color: #fff;
+          border-color: #000;
         }
 
+        /* ARROWS (Mobile Only) */
+        .menu-arrow {
+          background: #000;
+          color: #fff;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          border: none;
+          font-size: 13px;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        @media (max-width: 576px) {
+          .menu-arrow {
+            display: flex;
+          }
+        }
+
+        /* GALLERY */
         .gallery-item {
           opacity: 0;
           transform: translateY(20px);
-          transition: all 0.4s ease-in-out;
+          transition: 0.35s;
         }
         .gallery-item.show {
           opacity: 1;
           transform: translateY(0);
         }
+        .gallery-card img {
+          border-radius: 12px;
+          transition: 0.3s;
+        }
+        .gallery-card:hover img {
+          transform: scale(1.06);
+        }
 
-        /* Modal arrows */
+        /* MODAL ARROWS */
         .custom-arrow {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background: rgba(0, 0, 0, 0.5);
-          border: none;
+          background: rgba(0, 0, 0, 0.55);
           width: 45px;
           height: 45px;
           border-radius: 50%;
           color: #fff;
+          border: 0;
           font-size: 22px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
         }
         #prevBtn {
           left: 10px;
@@ -2682,76 +2687,201 @@
       </style>
 
       <script>
+        /* SAMPLE DATA */
+        const galleryData = {
+          conference: {
+            "Delhi Event": ["https://picsum.photos/600/400?random=101", "https://picsum.photos/600/400?random=102", "https://picsum.photos/600/400?random=103"],
+            "Chennai Event": ["https://picsum.photos/600/400?random=104", "https://picsum.photos/600/400?random=105", "https://picsum.photos/600/400?random=106"],
+            "Chennai Event2": ["https://picsum.photos/600/400?random=104", "https://picsum.photos/600/400?random=105"],
+            "Chennai Event3": ["https://picsum.photos/600/400?random=107"],
+          },
+          company: { Office: ["https://picsum.photos/600/400?random=111", "https://picsum.photos/600/400?random=112"] },
+          awards: { "Awards Night": ["https://picsum.photos/600/400?random=121", "https://picsum.photos/600/400?random=122"] },
+          outing: { "Goa Trip": ["https://picsum.photos/600/400?random=131", "https://picsum.photos/600/400?random=132"] },
+        };
+
         document.addEventListener("DOMContentLoaded", () => {
-          const tabs = document.querySelectorAll(".nav-pills .nav-link");
-          const items = document.querySelectorAll(".gallery-item");
-          const modal = new bootstrap.Modal(document.getElementById("imageModal"));
-          const modalImage = document.getElementById("modalImage");
+          const mainMenuItems = document.querySelectorAll("#mainTabsMenu li");
+          const mainMenuNav = document.querySelector(".main-category-menu");
+          const mainMenu = document.getElementById("mainTabsMenu");
 
+          const subTabs = document.getElementById("subTabs");
+          const subTabsWrapper = document.getElementById("subTabsWrapper");
+
+          const galleryGrid = document.getElementById("galleryGrid");
+
+          const mainLeft = document.querySelector(".main-left-arrow");
+          const mainRight = document.querySelector(".main-right-arrow");
+
+          const subLeft = document.querySelector(".sub-left-arrow");
+          const subRight = document.querySelector(".sub-right-arrow");
+
+          let currentImages = [];
           let currentIndex = 0;
-          let visibleImages = [];
 
-          function updateVisibleImages() {
-            visibleImages = [...document.querySelectorAll(".gallery-item.show img")];
+          function safeEl(el) {
+            return !!(el && el.nodeType);
           }
 
-          // Tab Filter
-          tabs.forEach((tab) => {
-            tab.addEventListener("click", () => {
-              tabs.forEach((t) => t.classList.remove("active"));
-              tab.classList.add("active");
+          /* MAIN MENU CLICK */
+          mainMenuItems.forEach((item) => {
+            item.addEventListener("click", (e) => {
+              e.preventDefault?.();
+              mainMenuItems.forEach((i) => i.classList.remove("active"));
+              item.classList.add("active");
 
-              const category = tab.dataset.category;
+              // smooth scroll main menu so active is visible (avoid vertical)
+              if (safeEl(mainMenuNav)) {
+                const targetLeft = Math.max(0, item.offsetLeft - 16);
+                mainMenuNav.scrollTo({ left: targetLeft, behavior: "smooth" });
+              }
 
-              items.forEach((item) => {
-                if (category === "all" || item.dataset.category === category) {
-                  item.style.display = "block";
-                  setTimeout(() => item.classList.add("show"), 80);
-                } else {
-                  item.classList.remove("show");
-                  setTimeout(() => (item.style.display = "none"), 200);
+              loadSubTabs(item.dataset.main);
+              setTimeout(updateArrows, 250);
+            });
+          });
+
+          /* LOAD SUB TABS */
+          function loadSubTabs(mainKey) {
+            subTabs.innerHTML = "";
+            subTabsWrapper.classList.remove("d-none");
+
+            const folders = Object.keys(galleryData[mainKey] || {});
+
+            folders.forEach((folder, i) => {
+              const li = document.createElement("li");
+              li.className = "nav-item";
+              li.innerHTML = `<button class='nav-link ${i === 0 ? "active" : ""}' data-folder='${folder}'>${folder}</button>`;
+              subTabs.appendChild(li);
+            });
+
+            if (folders.length === 0) {
+              subTabsWrapper.classList.add("d-none");
+              galleryGrid.innerHTML = "<p class='text-center w-100'>No images</p>";
+              return;
+            }
+
+            bindSubtabClicks(mainKey);
+            loadImages(mainKey, folders[0]);
+            setTimeout(updateArrows, 200);
+          }
+
+          /* SUBTAB CLICK (prevent default and avoid vertical scroll) */
+          function bindSubtabClicks(mainKey) {
+            subTabs.querySelectorAll(".nav-link").forEach((btn) => {
+              btn.addEventListener("click", (e) => {
+                e.preventDefault?.();
+                subTabs.querySelectorAll(".nav-link").forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                loadImages(mainKey, btn.dataset.folder);
+
+                // ensure active subtab visible horizontally BUT do not force page vertical scroll
+                try {
+                  btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                } catch (err) {
+                  // fallback if browser doesn't support options
+                  btn.scrollIntoView();
                 }
+
+                setTimeout(updateArrows, 200);
               });
-
-              setTimeout(updateVisibleImages, 300);
             });
-          });
+          }
 
-          // Show all images initially
-          setTimeout(() => {
-            items.forEach((item) => item.classList.add("show"));
-            updateVisibleImages();
-          }, 200);
+          /* LOAD IMAGES */
+          function loadImages(mainKey, folder) {
+            galleryGrid.innerHTML = "";
+            currentImages = galleryData[mainKey] && galleryData[mainKey][folder] ? galleryData[mainKey][folder] : [];
 
-          // Click image → open modal
-          document.querySelectorAll(".gallery-img").forEach((img, index) => {
-            img.addEventListener("click", () => {
-              updateVisibleImages();
-              currentIndex = visibleImages.indexOf(img);
-              modalImage.src = img.src;
-              modal.show();
+            if (!currentImages.length) {
+              galleryGrid.innerHTML = "<p class='text-center w-100'>No images in this folder</p>";
+              return;
+            }
+
+            currentImages.forEach((src) => {
+              galleryGrid.innerHTML += `
+        <div class="col-md-4 gallery-item show">
+          <div class="card border-0 shadow-sm gallery-card">
+            <img src="${src}" class="gallery-img" />
+          </div>
+        </div>`;
             });
+
+            enableModal();
+          }
+
+          /* MODAL */
+          function enableModal() {
+            const modal = new bootstrap.Modal(document.getElementById("imageModal"));
+            const modalImage = document.getElementById("modalImage");
+
+            document.querySelectorAll(".gallery-img").forEach((img, i) => {
+              img.addEventListener("click", (e) => {
+                e.preventDefault?.();
+                currentIndex = i;
+                modalImage.src = currentImages[currentIndex];
+                modal.show();
+              });
+            });
+
+            const nextBtn = document.getElementById("nextBtn");
+            const prevBtn = document.getElementById("prevBtn");
+            if (nextBtn)
+              nextBtn.onclick = () => {
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                modalImage.src = currentImages[currentIndex];
+              };
+            if (prevBtn)
+              prevBtn.onclick = () => {
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                modalImage.src = currentImages[currentIndex];
+              };
+          }
+
+          /* ARROW SCROLL (mobile) - scroll nav containers, not UL */
+          if (mainLeft && mainRight && mainMenuNav) {
+            mainLeft.addEventListener("click", () => {
+              mainMenuNav.scrollBy({ left: -140, behavior: "smooth" });
+              setTimeout(updateArrows, 200);
+            });
+            mainRight.addEventListener("click", () => {
+              mainMenuNav.scrollBy({ left: 140, behavior: "smooth" });
+              setTimeout(updateArrows, 200);
+            });
+          }
+          if (subLeft && subRight && subTabs) {
+            subLeft.addEventListener("click", () => {
+              subTabs.scrollBy({ left: -140, behavior: "smooth" });
+              setTimeout(updateArrows, 200);
+            });
+            subRight.addEventListener("click", () => {
+              subTabs.scrollBy({ left: 140, behavior: "smooth" });
+              setTimeout(updateArrows, 200);
+            });
+          }
+
+          function updateArrows() {
+            const isMobile = window.matchMedia("(max-width:576px)").matches;
+            const mainScrollable = mainMenuNav && mainMenuNav.scrollWidth > mainMenuNav.clientWidth;
+            if (mainLeft && mainRight) {
+              mainLeft.style.display = mainScrollable && isMobile ? "flex" : "none";
+              mainRight.style.display = mainScrollable && isMobile ? "flex" : "none";
+            }
+            const subScrollable = subTabs && subTabs.scrollWidth > subTabs.clientWidth;
+            if (subLeft && subRight) {
+              subLeft.style.display = subScrollable && isMobile ? "flex" : "none";
+              subRight.style.display = subScrollable && isMobile ? "flex" : "none";
+            }
+          }
+
+          window.addEventListener("resize", () => {
+            setTimeout(updateArrows, 100);
           });
 
-          // Next image
-          document.getElementById("nextBtn").addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % visibleImages.length;
-            modalImage.src = visibleImages[currentIndex].src;
-          });
-
-          // Previous image
-          document.getElementById("prevBtn").addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + visibleImages.length) % visibleImages.length;
-            modalImage.src = visibleImages[currentIndex].src;
-          });
-
-          // Keyboard navigation
-          document.addEventListener("keydown", (e) => {
-            if (!document.getElementById("imageModal").classList.contains("show")) return;
-
-            if (e.key === "ArrowRight") document.getElementById("nextBtn").click();
-            if (e.key === "ArrowLeft") document.getElementById("prevBtn").click();
-          });
+          /* initial */
+          loadSubTabs("conference");
+          setTimeout(updateArrows, 300);
         });
       </script>
     </div>
