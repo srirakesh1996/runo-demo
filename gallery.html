@@ -2548,22 +2548,32 @@
       </div>
 
       <style>
-        /* MAIN CATEGORY MENU */
+        /* ============================================================
+   MAIN CATEGORY MENU (Header-style menu)
+============================================================ */
         .main-menu-wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 6px;
+          position: relative;
+          width: 100%;
+          margin-bottom: 15px;
         }
+
+        /* Scrollable main menu container */
         .main-category-menu {
           flex-grow: 1;
           overflow-x: auto;
           white-space: nowrap;
           scrollbar-width: none;
+          display: flex;
+          justify-content: center;
         }
         .main-category-menu::-webkit-scrollbar {
           display: none;
         }
+
+        /* Main tabs list */
         #mainTabsMenu {
           display: flex;
           gap: 30px;
@@ -2573,8 +2583,9 @@
           font-size: 17px;
           font-weight: 600;
           align-items: center;
-          justify-content: center;
         }
+
+        /* Main tabs style */
         #mainTabsMenu li {
           cursor: pointer;
           color: #444;
@@ -2589,103 +2600,44 @@
           padding-bottom: 4px;
         }
 
-        /* SUB TABS */
-        .subtabs-wrapper {
-          display: flex;
-          align-items: center;
-          width: 100%;
-        }
-        #subTabs {
-          overflow-x: auto;
-          flex-grow: 1;
-          white-space: nowrap;
-          gap: 10px;
-          display: flex;
-          scrollbar-width: none;
-          justify-content: center;
-          margin-bottom: 15px;
-        }
-        #subTabs::-webkit-scrollbar {
-          display: none;
-        }
-        #subTabs .nav-item {
-          flex: 0 0 auto;
-        }
-        #subTabs .nav-link {
-          border: 1px solid #aaa;
-          padding: 5px 12px;
-          border-radius: 20px;
-          font-size: 11px;
-          background: #fff;
-          white-space: nowrap;
-          color: #000;
-        }
-        #subTabs .nav-link.active {
-          background: #000;
-          color: #fff;
-          border-color: #000;
-        }
-
-        /* ARROWS (Mobile Only) */
+        /* ============================================================
+   MAIN MENU ARROWS
+============================================================ */
         .menu-arrow {
+          width: 30px;
+          height: 30px;
           background: #000;
           color: #fff;
-          width: 26px;
-          height: 26px;
           border-radius: 50%;
           border: none;
-          font-size: 13px;
+          font-size: 14px;
           display: none;
           align-items: center;
           justify-content: center;
-          cursor: pointer;
+          flex-shrink: 0;
         }
+
         @media (max-width: 576px) {
-          .menu-arrow {
-            display: flex;
+          /* Arrows stay fixed left & right */
+          .main-left-arrow {
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex !important;
+          }
+          .main-right-arrow {
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex !important;
           }
         }
 
-        /* GALLERY */
-        .gallery-item {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: 0.35s;
-        }
-        .gallery-item.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .gallery-card img {
-          border-radius: 12px;
-          transition: 0.3s;
-        }
-        .gallery-card:hover img {
-          transform: scale(1.06);
-        }
-
-        /* MODAL ARROWS */
-        .custom-arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(0, 0, 0, 0.55);
-          width: 45px;
-          height: 45px;
-          border-radius: 50%;
-          color: #fff;
-          border: 0;
-          font-size: 22px;
-        }
-        #prevBtn {
-          left: 10px;
-        }
-        #nextBtn {
-          right: 10px;
-        }
-        /* ================================
-   SUB-TABS — DESKTOP (scroll)
-================================ */
+        /* ============================================================
+   SUB-TABS (Desktop – horizontal scroll)
+============================================================ */
         .subtabs-wrapper {
           display: flex;
           align-items: center;
@@ -2697,10 +2649,11 @@
           gap: 10px;
           overflow-x: auto;
           white-space: nowrap;
-          flex-grow: 1;
           scrollbar-width: none;
+          flex-grow: 1;
+          justify-content: center;
+          margin-bottom: 15px;
         }
-
         #subTabs::-webkit-scrollbar {
           display: none;
         }
@@ -2713,7 +2666,7 @@
           border: 1px solid #aaa;
           padding: 6px 12px;
           border-radius: 20px;
-          font-size: 12px;
+          font-size: 11px;
           background: #fff;
           white-space: nowrap;
           color: #000;
@@ -2727,22 +2680,22 @@
           border-color: #000;
         }
 
-        /* ================================
-   SUB-TABS — MOBILE (2 per row, no scroll)
-================================ */
+        /* ============================================================
+   SUB-TABS (Mobile – grid layout, 2 per row)
+============================================================ */
         @media (max-width: 576px) {
           .subtabs-wrapper {
-            width: 100%;
-            display: block; /* FIX: no stretching */
+            display: block; /* Remove stretching */
           }
 
           #subTabs {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            overflow: hidden !important; /* FIX: no scroll */
+            overflow: hidden !important; /* Remove horizontal scroll */
             white-space: normal !important;
             padding: 0;
+            margin-bottom: 10px;
           }
 
           #subTabs .nav-item {
@@ -2752,46 +2705,59 @@
           #subTabs .nav-link {
             width: 100%;
             text-align: center;
+            padding: 10px;
             font-size: 13px;
-            padding: 10px 12px;
-            border-radius: 25px;
             min-height: 42px;
+            border-radius: 25px;
           }
 
-          /* Hide sub-arrows completely */
+          /* Hide sub arrows */
           .sub-left-arrow,
           .sub-right-arrow {
             display: none !important;
           }
         }
 
-        /* ================================
-   MAIN MENU ARROWS — Fix stretch
-================================ */
-        .main-menu-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        /* ============================================================
+   GALLERY
+============================================================ */
+        .gallery-item {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: 0.35s;
+        }
+        .gallery-item.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .gallery-card img {
+          border-radius: 12px;
+          transition: 0.3s ease;
+        }
+        .gallery-card:hover img {
+          transform: scale(1.06);
         }
 
-        .menu-arrow {
-          background: #000;
-          color: #fff;
-          width: 28px;
-          height: 28px;
+        /* ============================================================
+   MODAL ARROWS
+============================================================ */
+        .custom-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.55);
+          width: 45px;
+          height: 45px;
           border-radius: 50%;
           border: none;
-          font-size: 12px;
-          display: none;
-          flex-shrink: 0; /* FIX: prevent stretching */
+          font-size: 22px;
+          color: #fff;
         }
-
-        @media (max-width: 576px) {
-          .menu-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+        #prevBtn {
+          left: 10px;
+        }
+        #nextBtn {
+          right: 10px;
         }
       </style>
 
