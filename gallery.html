@@ -2686,14 +2686,21 @@
         /* ================================
    SUB-TABS — DESKTOP (scroll)
 ================================ */
-        #subTabs {
-          overflow-x: auto;
-          flex-grow: 1;
-          white-space: nowrap;
-          gap: 10px;
+        .subtabs-wrapper {
           display: flex;
+          align-items: center;
+          width: 100%;
+        }
+
+        #subTabs {
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+          white-space: nowrap;
+          flex-grow: 1;
           scrollbar-width: none;
         }
+
         #subTabs::-webkit-scrollbar {
           display: none;
         }
@@ -2721,32 +2728,29 @@
         }
 
         /* ================================
-   SUB-TABS — MOBILE (2 per row)
+   SUB-TABS — MOBILE (2 per row, no scroll)
 ================================ */
-        @media (max-width: 768px) {
-          #mainTabsMenu {
-            justify-content: normal;
-          }
+        @media (max-width: 576px) {
           .subtabs-wrapper {
             width: 100%;
+            display: block; /* FIX: no stretching */
           }
 
           #subTabs {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            overflow: visible !important;
+            overflow: hidden !important; /* FIX: no scroll */
             white-space: normal !important;
-            padding: 0 5px;
+            padding: 0;
           }
 
           #subTabs .nav-item {
-            flex: unset !important;
             width: 100% !important;
           }
 
           #subTabs .nav-link {
-            width: 100% !important;
+            width: 100%;
             text-align: center;
             font-size: 13px;
             padding: 10px 12px;
@@ -2754,10 +2758,39 @@
             min-height: 42px;
           }
 
-          /* Hide arrows on mobile since no scroll */
+          /* Hide sub-arrows completely */
           .sub-left-arrow,
           .sub-right-arrow {
             display: none !important;
+          }
+        }
+
+        /* ================================
+   MAIN MENU ARROWS — Fix stretch
+================================ */
+        .main-menu-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .menu-arrow {
+          background: #000;
+          color: #fff;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          border: none;
+          font-size: 12px;
+          display: none;
+          flex-shrink: 0; /* FIX: prevent stretching */
+        }
+
+        @media (max-width: 576px) {
+          .menu-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
       </style>
