@@ -209,6 +209,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 /* Send utm to web.runo.in ends */
 
+/* Append UTM parameters to App Store + Play Store links only */
+document.addEventListener("DOMContentLoaded", function () {
+  const iosBtn = document.querySelector(".app-ios");
+  const androidBtn = document.querySelector(".app-android");
+
+  if (!iosBtn && !androidBtn) return;
+
+  const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+  const utmSource = localStorage.getItem("utm_source");
+  const utmCampaign = localStorage.getItem("utm_campaign");
+
+  function appendUTM(originalUrl) {
+    const url = new URL(originalUrl);
+    url.searchParams.set("page_name", pageName);
+
+    if (utmSource) url.searchParams.set("utm_source", utmSource);
+    if (utmCampaign) url.searchParams.set("utm_campaign", utmCampaign);
+
+    return url.toString();
+  }
+
+  // iOS App
+  if (iosBtn) {
+    iosBtn.href = appendUTM(iosBtn.href);
+  }
+
+  // Android App
+  if (androidBtn) {
+    androidBtn.href = appendUTM(androidBtn.href);
+  }
+});
+
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
