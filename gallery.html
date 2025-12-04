@@ -2574,7 +2574,6 @@
           font-weight: 600;
           align-items: center;
           justify-content: center;
-          margin-bottom: 15px;
         }
         #mainTabsMenu li {
           cursor: pointer;
@@ -2683,6 +2682,83 @@
         }
         #nextBtn {
           right: 10px;
+        }
+        /* ================================
+   SUB-TABS — DESKTOP (scroll)
+================================ */
+        #subTabs {
+          overflow-x: auto;
+          flex-grow: 1;
+          white-space: nowrap;
+          gap: 10px;
+          display: flex;
+          scrollbar-width: none;
+        }
+        #subTabs::-webkit-scrollbar {
+          display: none;
+        }
+
+        #subTabs .nav-item {
+          flex: 0 0 auto;
+        }
+
+        #subTabs .nav-link {
+          border: 1px solid #aaa;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          background: #fff;
+          white-space: nowrap;
+          color: #000;
+          min-width: 120px;
+          text-align: center;
+        }
+
+        #subTabs .nav-link.active {
+          background: #000;
+          color: #fff;
+          border-color: #000;
+        }
+
+        /* ================================
+   SUB-TABS — MOBILE (2 per row)
+================================ */
+        @media (max-width: 768px) {
+          #mainTabsMenu {
+            justify-content: normal;
+          }
+          .subtabs-wrapper {
+            width: 100%;
+          }
+
+          #subTabs {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            overflow: visible !important;
+            white-space: normal !important;
+            padding: 0 5px;
+          }
+
+          #subTabs .nav-item {
+            flex: unset !important;
+            width: 100% !important;
+          }
+
+          #subTabs .nav-link {
+            width: 100% !important;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px 12px;
+            border-radius: 25px;
+            min-height: 42px;
+          }
+
+          /* Hide arrows on mobile since no scroll */
+          .sub-left-arrow,
+          .sub-right-arrow {
+            display: none !important;
+          }
         }
       </style>
 
