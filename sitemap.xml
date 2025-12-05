@@ -95,12 +95,15 @@
 <changefreq>daily</changefreq>
 <priority>0.9</priority>
 </url>
+
 <url>
 <loc>https://runo.ai/compare/exotel-alternative</loc>
 <lastmod>2025-10-10</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.9</priority>
 </url>
+
+
 <url>
 <loc>https://runo.ai/pricing</loc>
 <lastmod>2025-06-11</lastmod>
@@ -123,7 +126,7 @@
 <loc>https://runo.ai/faq</loc>
 <lastmod>2025-06-11</lastmod>
 <changefreq>daily</changefreq>
-<priority>0.8</priority>
+<priority>0.6</priority>
 </url>
 <url>
 <loc>https://runo.ai/newsroom</loc>
@@ -171,7 +174,7 @@
 <loc>https://runo.ai/tutorials</loc>
 <lastmod>2025-07-14</lastmod>
 <changefreq>daily</changefreq>
-<priority>0.8</priority>
+<priority>0.6</priority>
 </url>
 <url>
 <loc>https://runo.ai/compliance</loc>

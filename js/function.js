@@ -241,6 +241,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/* New app link icon ends */
+
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
