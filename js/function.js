@@ -263,34 +263,49 @@ function submitForm(formId, formData, formToken) {
 
   formData["custom_source"] = "Website Enquiry- IB";
   formData["custom_status"] = "Api Allocation";
+
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
 
-  //console.log("📦 FORM DATA:", formData);
+  /* --------------------------------------------------
+      WHATSAPP CONSENT BOOLEAN
+  -------------------------------------------------- */
+  const whatsappOptIn = $("#policyCheck").is(":checked"); // true or false
+
+  //.log("📌 WhatsApp Opt-In Checkbox Value:", whatsappOptIn);
 
   /* --------------------------------------------------
-      CLEVERTAP IDENTIFY — BEFORE API
+      ADD WhatsApp CONSENT TO RUNO API
+      NOTE: Can be any key you prefer in your backend
+  -------------------------------------------------- */
+  formData["MSG-whatsapp"] = whatsappOptIn;
+  // console.log("📌 Added to formData → MSG-whatsapp:", formData["MSG-whatsapp"]);
+
+  /* --------------------------------------------------
+      CLEVERTAP IDENTIFY
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
     const rawPhone = String(formData.your_phone || formData.phone || "");
     const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
 
     const profilePayload = {
-      Name: formData.your_name || formData.name || "",
-      Email: formData.your_email || formData.email || "",
-      Identity: formData.your_email || formData.email || fixedPhone || "anonymous_user",
+      Name: formData.your_name || "",
+      Email: formData.your_email || "",
+      Identity: formData.your_email || fixedPhone || "anonymous_user",
       Phone: fixedPhone,
-      "Company Name": formData.your_company || formData.company || "",
+      "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
+      "MSG-whatsapp": whatsappOptIn,
     };
 
+    // console.log("📤 CleverTap Identify Payload:", profilePayload);
+
     clevertap.onUserLogin.push({ Site: profilePayload });
-    //  console.log("📤 CT PROFILE SENT:", profilePayload);
   }
 
   /* --------------------------------------------------
-      CLEVERTAP EVENT — BEFORE API
+      CLEVERTAP EVENT
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
     const rawPhone = String(formData.your_phone || formData.phone || "");
@@ -305,15 +320,18 @@ function submitForm(formId, formData, formToken) {
       KnowSource: formData["custom_We entered source"] || "",
       Source: utmSource || "Website",
       Campaign: utmCampaign || "",
+      "MSG-whatsapp": whatsappOptIn,
+
       Timestamp: new Date().toISOString(),
     };
 
+    //  console.log("📤 CleverTap Event Payload:", eventPayload);
+
     clevertap.event.push("submitted-lead-form", eventPayload);
-    //  console.log("📤 CT EVENT SENT:", eventPayload);
   }
 
   /* --------------------------------------------------
-      RUNO CRM API — AFTER CT EVENT
+      RUNO CRM API
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
@@ -322,11 +340,12 @@ function submitForm(formId, formData, formToken) {
     contentType: "application/json",
   })
     .done(function (data) {
-      console.log("✅ Runo API success:", data);
+      // console.log("✅ Runo API success:", data);
 
       $form[0].reset();
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
+
       $("#thankYouModal").modal("show");
     })
     .fail(function () {
