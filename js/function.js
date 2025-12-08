@@ -273,9 +273,6 @@ function submitForm(formId, formData, formToken) {
 
   //console.log("📌 WhatsApp Opt-In Checkbox Value:", whatsappOptIn);
 
-  // ❌ REMOVE — do NOT send to RUNO CRM
-  // formData["MSG-whatsapp"] = whatsappOptIn;
-
   /* --------------------------------------------------
       CLEVERTAP IDENTIFY (User Profile)
   -------------------------------------------------- */
