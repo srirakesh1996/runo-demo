@@ -240,7 +240,6 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
-
 /* New app link icon ends */
 
 function submitForm(formId, formData, formToken) {
@@ -268,21 +267,17 @@ function submitForm(formId, formData, formToken) {
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
 
   /* --------------------------------------------------
-      WHATSAPP CONSENT BOOLEAN
+      WHATSAPP CONSENT BOOLEAN (CleverTap ONLY)
   -------------------------------------------------- */
   const whatsappOptIn = $("#policyCheck").is(":checked"); // true or false
 
-  //.log("📌 WhatsApp Opt-In Checkbox Value:", whatsappOptIn);
+  //console.log("📌 WhatsApp Opt-In Checkbox Value:", whatsappOptIn);
+
+  // ❌ REMOVE — do NOT send to RUNO CRM
+  // formData["MSG-whatsapp"] = whatsappOptIn;
 
   /* --------------------------------------------------
-      ADD WhatsApp CONSENT TO RUNO API
-      NOTE: Can be any key you prefer in your backend
-  -------------------------------------------------- */
-  formData["MSG-whatsapp"] = whatsappOptIn;
-  // console.log("📌 Added to formData → MSG-whatsapp:", formData["MSG-whatsapp"]);
-
-  /* --------------------------------------------------
-      CLEVERTAP IDENTIFY
+      CLEVERTAP IDENTIFY (User Profile)
   -------------------------------------------------- */
   if (typeof clevertap !== "undefined") {
     const rawPhone = String(formData.your_phone || formData.phone || "");
@@ -296,10 +291,12 @@ function submitForm(formId, formData, formToken) {
       "Company Name": formData.your_company || "",
       license_count: formData["custom_Sales/Calling Team Size"] || "",
       KnowSource: formData["custom_We entered source"] || "",
+
+      // ⭐ OFFICIAL CLEVERTAP SUBSCRIPTION FLAG
       "MSG-whatsapp": whatsappOptIn,
     };
 
-    // console.log("📤 CleverTap Identify Payload:", profilePayload);
+    //  console.log("📤 CleverTap Identify Payload:", profilePayload);
 
     clevertap.onUserLogin.push({ Site: profilePayload });
   }
@@ -320,6 +317,8 @@ function submitForm(formId, formData, formToken) {
       KnowSource: formData["custom_We entered source"] || "",
       Source: utmSource || "Website",
       Campaign: utmCampaign || "",
+
+      // ⭐ OFFICIAL WHATSAPP PROPERTY
       "MSG-whatsapp": whatsappOptIn,
 
       Timestamp: new Date().toISOString(),
@@ -332,6 +331,7 @@ function submitForm(formId, formData, formToken) {
 
   /* --------------------------------------------------
       RUNO CRM API
+      (NO WhatsApp parameter included)
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
@@ -340,7 +340,7 @@ function submitForm(formId, formData, formToken) {
     contentType: "application/json",
   })
     .done(function (data) {
-      // console.log("✅ Runo API success:", data);
+      //  console.log("✅ Runo API success:", data);
 
       $form[0].reset();
       const $modal = $form.closest(".modal");
