@@ -2965,7 +2965,7 @@
         </div>
         <!-- Right Image -->
         <div class="col-md-5 text-md-end text-center security-badges">
-          <img src="/img/security.avif" loading="lazy" alt="ISO Badge" class="img-fluid" />
+          <img src="/img/security.avif" loading="lazy" alt="ISO Badge" class="img-fluid" width="80%" />
         </div>
       </div>
     </section>
@@ -3266,6 +3266,39 @@
             });
           }
         }, 100);
+      });
+    </script>
+    <script>
+      /* Append UTM parameters to App Store + Play Store links only */
+      document.addEventListener("DOMContentLoaded", function () {
+        const iosBtn = document.querySelector(".app-ios");
+        const androidBtn = document.querySelector(".app-android");
+
+        if (!iosBtn && !androidBtn) return;
+
+        const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+        const utmSource = localStorage.getItem("utm_source") || "Website";
+        const utmCampaign = localStorage.getItem("utm_campaign") || "Organic";
+
+        function appendUTM(originalUrl) {
+          const url = new URL(originalUrl);
+          url.searchParams.set("page_name", pageName);
+
+          if (utmSource) url.searchParams.set("utm_source", utmSource);
+          if (utmCampaign) url.searchParams.set("utm_campaign", utmCampaign);
+
+          return url.toString();
+        }
+
+        // iOS App
+        if (iosBtn) {
+          iosBtn.href = appendUTM(iosBtn.href);
+        }
+
+        // Android App
+        if (androidBtn) {
+          androidBtn.href = appendUTM(androidBtn.href);
+        }
       });
     </script>
     <!-- UTM Tracker -->

@@ -217,8 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!iosBtn && !androidBtn) return;
 
   const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-  const utmSource = localStorage.getItem("utm_source");
-  const utmCampaign = localStorage.getItem("utm_campaign");
+  const utmSource = localStorage.getItem("utm_source") || "website";
+  const utmCampaign = localStorage.getItem("utm_campaign") || "organic";
 
   function appendUTM(originalUrl) {
     const url = new URL(originalUrl);
