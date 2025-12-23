@@ -4175,3 +4175,7 @@ footer .fw-bold {
 .tab-pane h2 {
   font-weight: 400 !important;
 }
+
+.security-badges img {
+  max-width: 80% !important;
+}
