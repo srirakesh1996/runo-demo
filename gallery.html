@@ -2506,9 +2506,9 @@
           <div class="main-menu-wrapper mb-3 align-items-center">
             <nav class="main-category-menu">
               <ul id="mainTabsMenu">
-                <li class="active" data-main="conference">Conference</li>
-                <li data-main="company">Company Events</li>
-                <li data-main="awards">Awards</li>
+                <!--<li data-main="conference">Conference</li>-->
+                <li class="active" data-main="company">Company Events</li>
+                <!--  <li data-main="awards">Awards</li> -->
                 <li data-main="outing">Team Outing</li>
               </ul>
             </nav>
@@ -2534,7 +2534,9 @@
           <div class="modal-content bg-transparent border-0">
             <button class="btn-close ms-auto me-2 mt-2" data-bs-dismiss="modal"></button>
             <div class="modal-body text-center position-relative">
-              <img id="modalImage" src="" class="img-fluid rounded shadow" />
+              <div class="modal-img-wrap">
+                <img id="modalImage" />
+              </div>
 
               <button class="carousel-control-prev custom-arrow" id="prevBtn"><span>&#10094;</span></button>
               <button class="carousel-control-next custom-arrow" id="nextBtn"><span>&#10095;</span></button>
@@ -2546,6 +2548,25 @@
         /* ============================================================
    MAIN CATEGORY MENU (Header-style with fade scroll hint)
 ============================================================ */
+
+        /* =========================
+   MODAL IMAGE FIX
+========================= */
+        .modal-img-wrap {
+          width: 100%;
+          height: 70vh; /* controls max modal height */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #modalImage {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain; /* 👈 NO CROPPING */
+          border-radius: 12px;
+        }
+
         .main-menu-wrapper {
           position: relative;
           width: 100%;
@@ -2623,6 +2644,29 @@
           color: #000;
           border-bottom: 2px solid #000;
           padding-bottom: 4px;
+        }
+
+        /* ==========================
+   FIXED GALLERY IMAGE SIZE
+========================== */
+
+        .gallery-img-wrap {
+          width: 100%;
+          aspect-ratio: 4 / 3; /* 👈 change to 1/1 if you want square */
+          overflow: hidden;
+          border-radius: 12px;
+        }
+
+        .gallery-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* crops portrait images cleanly */
+          display: block;
+          transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+          transform: scale(1.06);
         }
 
         /* ============================================================
@@ -2790,15 +2834,19 @@
       <script>
         /* SAMPLE DATA */
         const galleryData = {
-          conference: {
-            "Delhi Event": ["https://picsum.photos/600/400?random=101", "https://picsum.photos/600/400?random=102", "https://picsum.photos/600/400?random=103"],
-            "Chennai Event": ["https://picsum.photos/600/400?random=104", "https://picsum.photos/600/400?random=105", "https://picsum.photos/600/400?random=106"],
+          /*  conference: {
+            "NBFC Event": ["https://picsum.photos/600/400?random=101", "https://picsum.photos/600/400?random=102", "https://picsum.photos/600/400?random=103"],
+            "Startup Mahakumb": ["https://picsum.photos/600/400?random=104", "https://picsum.photos/600/400?random=105", "https://picsum.photos/600/400?random=106"],
             "Chennai Event2": ["https://picsum.photos/600/400?random=104", "https://picsum.photos/600/400?random=105"],
             "Chennai Event3": ["https://picsum.photos/600/400?random=107"],
+          },*/
+          company: {
+            "NBFC Event": ["img/events/nbfc/1.jpeg", "img/events/nbfc/2.jpg", "img/events/nbfc/3.jpg", "img/events/nbfc/4.jpg", "img/events/nbfc/5.jpg", "img/events/nbfc/6.jpg", "img/events/nbfc/7.jpeg", "img/events/nbfc/8.jpg", "img/events/nbfc/9.jpg"],
+            "Startup Mahakumb": ["img/events/mahakhumb/1.jpeg", "img/events/mahakhumb/2.jpeg", "img/events/mahakhumb/3.jpeg", "img/events/mahakhumb/4.jpeg", "img/events/mahakhumb/5.jpeg", "img/events/mahakhumb/6.jpeg"],
+            "Bharat Nirmaan Awards by HT": ["img/events/msme/1.jpeg", "img/events/msme/2.jpeg", "img/events/msme/3.jpeg", "img/events/msme/4.jpeg", "img/events/msme/5.jpeg", "img/events/msme/6.jpeg"],
           },
-          company: { Office: ["https://picsum.photos/600/400?random=111", "https://picsum.photos/600/400?random=112"] },
-          awards: { "Awards Night": ["https://picsum.photos/600/400?random=121", "https://picsum.photos/600/400?random=122"] },
-          outing: { "Goa Trip": ["https://picsum.photos/600/400?random=131", "https://picsum.photos/600/400?random=132"] },
+          /*  awards: { "Awards Night": ["https://picsum.photos/600/400?random=121", "https://picsum.photos/600/400?random=122"] },
+           */ outing: { "National Meet 2024": ["img/events/national-meet24/1.jpg", "img/events/national-meet24/2.jpg", "img/events/national-meet24/3.jpg", "img/events/national-meet24/4.jpg", "img/events/national-meet24/5.jpg", "img/events/national-meet24/6.jpg", "img/events/national-meet24/7.jpg", "img/events/national-meet24/8.jpg", "img/events/national-meet24/9.jpg"] },
         };
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -2902,11 +2950,13 @@
 
             currentImages.forEach((src) => {
               galleryGrid.innerHTML += `
-        <div class="col-md-4 gallery-item show">
-          <div class="card border-0 shadow-sm gallery-card">
-            <img src="${src}" class="gallery-img" />
-          </div>
-        </div>`;
+  <div class="col-md-4 gallery-item show">
+    <div class="card border-0 shadow-sm gallery-card">
+      <div class="gallery-img-wrap">
+        <img src="${src}" class="gallery-img" />
+      </div>
+    </div>
+  </div>`;
             });
 
             enableModal();
@@ -2981,7 +3031,7 @@
           });
 
           /* initial */
-          loadSubTabs("conference");
+          loadSubTabs("company");
           setTimeout(updateArrows, 300);
         });
       </script>
