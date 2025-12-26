@@ -2534,33 +2534,6 @@
         }
 
         /* =========================
-       FOLDER CARDS
-    ========================= */
-        .folder-card {
-          cursor: pointer;
-          background: #f6f6f6;
-          border-radius: 14px;
-          padding: 30px 20px;
-          text-align: center;
-          transition: 0.3s ease;
-
-          height: 100%;
-        }
-
-        .folder-card:hover {
-          background: #eee;
-          color: #fff !important;
-        }
-        .folder-card h6 {
-          margin-top: 15px;
-        }
-
-        .folder-icon {
-          font-size: 40px;
-          margin-bottom: 10px;
-        }
-
-        /* =========================
        GALLERY IMAGE FIX
     ========================= */
         .gallery-img-wrap {
@@ -2640,6 +2613,64 @@
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        /* =========================
+   FOLDER IMAGE CARD
+========================= */
+        /* =========================
+   FOLDER IMAGE CARD (DARK OVERLAY)
+========================= */
+
+        .folder-card {
+          position: relative;
+          border-radius: 14px;
+          overflow: hidden;
+          cursor: pointer;
+          height: 220px;
+          background: #000;
+        }
+
+        /* Image */
+        .folder-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+
+        /* Dark overlay */
+        .folder-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.35); /* 👈 dark overlay */
+          transition: background 0.3s ease;
+        }
+
+        /* Hover effect */
+        .folder-card:hover img {
+          transform: scale(1.08);
+        }
+
+        .folder-card:hover::after {
+          background: rgba(0, 0, 0, 0.6);
+        }
+
+        .folder-title {
+          position: absolute;
+          bottom: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 8px 18px;
+
+          background: rgba(0, 0, 0, 0.9);
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600;
+
+          border-radius: 30px;
+          white-space: nowrap;
+          z-index: 9999;
         }
       </style>
 
@@ -2731,13 +2762,16 @@
           galleryGrid.innerHTML = "";
 
           Object.keys(galleryData[mainKey]).forEach((folder) => {
+            const coverImage = galleryData[mainKey][folder][0]; // first image
+
             galleryGrid.innerHTML += `
       <div class="col-md-4 gallery-item">
         <div class="folder-card" data-folder="${folder}">
-          <div class="folder-icon">📁</div>
-          <h6>${folder}</h6>
+          <img src="${coverImage}" alt="${folder}">
+          <div class="folder-title">${folder}</div>
         </div>
-      </div>`;
+      </div>
+    `;
           });
 
           document.querySelectorAll(".folder-card").forEach((card) => {
