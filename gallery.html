@@ -2672,6 +2672,19 @@
           white-space: nowrap;
           z-index: 9999;
         }
+
+        .play-icon {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 50px;
+          color: white;
+          background: rgba(0, 0, 0, 0.4);
+          border-radius: 12px;
+          pointer-events: none;
+        }
       </style>
 
       <section class="py-5">
@@ -2728,7 +2741,26 @@
           },*/
           company: {
             "Elets NBFC100": ["img/events/nbfc/1.jpeg", "img/events/nbfc/2.jpg", "img/events/nbfc/3.jpg", "img/events/nbfc/4.jpg", "img/events/nbfc/5.jpg", "img/events/nbfc/6.jpg", "img/events/nbfc/7.jpeg", "img/events/nbfc/8.jpg", "img/events/nbfc/9.jpg"],
-            "Startup Mahakumb": ["img/events/mahakhumb/1.jpeg", "img/events/mahakhumb/2.jpeg", "img/events/mahakhumb/3.jpeg", "img/events/mahakhumb/4.jpeg", "img/events/mahakhumb/5.jpeg", "img/events/mahakhumb/6.jpeg"],
+            "Startup Mahakumb": [
+              { type: "image", src: "img/events/mahakhumb/1.jpeg" },
+              { type: "image", src: "img/events/mahakhumb/2.jpeg" },
+              { type: "image", src: "img/events/mahakhumb/3.jpeg" },
+              { type: "image", src: "img/events/mahakhumb/4.jpeg" },
+              { type: "image", src: "img/events/mahakhumb/5.jpeg" },
+              { type: "image", src: "img/events/mahakhumb/6.jpeg" },
+
+              // 🎥 Videos with thumbnails
+              {
+                type: "video",
+                src: "img/events/mahakhumb/video1.mp4",
+                thumb: "img/events/mahakhumb/video-thumb.png",
+              },
+              {
+                type: "video",
+                src: "img/events/mahakhumb/video2.mp4",
+                thumb: "img/events/mahakhumb/video-thumb.png",
+              },
+            ],
             "Bharat Nirmaan Awards by HT": ["img/events/msme/1.jpeg", "img/events/msme/2.jpeg", "img/events/msme/3.jpeg", "img/events/msme/4.jpeg", "img/events/msme/5.jpeg", "img/events/msme/6.jpeg"],
           },
           /*  awards: { "Awards Night": ["https://picsum.photos/600/400?random=121", "https://picsum.photos/600/400?random=122"] },
@@ -2787,14 +2819,44 @@
           backBtnWrap.classList.add("d-none");
           galleryGrid.innerHTML = "";
 
-          Object.keys(galleryData[mainKey]).forEach((folder) => {
-            const coverImage = galleryData[mainKey][folder][0]; // first image
+          const folders = galleryData[mainKey];
+          if (!folders) return;
+
+          Object.keys(folders).forEach((folderName) => {
+            const items = folders[folderName];
+            if (!Array.isArray(items) || items.length === 0) return;
+
+            let coverImage = "";
+
+            // 🔍 Find first valid image or video thumbnail
+            for (let item of items) {
+              if (typeof item === "string" && item.trim() !== "") {
+                coverImage = item;
+                break;
+              }
+
+              if (typeof item === "object") {
+                if (item.thumb) {
+                  coverImage = item.thumb;
+                  break;
+                }
+                if (item.src) {
+                  coverImage = item.src;
+                  break;
+                }
+              }
+            }
+
+            // 🛟 fallback image
+            if (!coverImage) {
+              coverImage = "https://via.placeholder.com/600x400?text=Gallery";
+            }
 
             galleryGrid.innerHTML += `
       <div class="col-md-4 gallery-item">
-        <div class="folder-card" data-folder="${folder}">
-          <img src="${coverImage}" alt="${folder}">
-          <div class="folder-title">${folder} &#8594;</div>
+        <div class="folder-card" data-folder="${folderName}">
+          <img src="${coverImage}" alt="${folderName}">
+          <div class="folder-title">${folderName} →</div>
         </div>
       </div>
     `;
@@ -2811,17 +2873,33 @@
         function showImages(mainKey, folder) {
           backBtnWrap.classList.remove("d-none");
           galleryGrid.innerHTML = "";
-          currentImages = galleryData[mainKey][folder];
 
-          currentImages.forEach((src) => {
+          const items = galleryData[mainKey][folder];
+          if (!items) return;
+
+          currentImages = items;
+
+          items.forEach((item, index) => {
+            let imgSrc = "";
+            let isVideo = false;
+
+            if (typeof item === "string") {
+              imgSrc = item;
+            } else {
+              imgSrc = item.thumb || item.src;
+              isVideo = item.type === "video";
+            }
+
             galleryGrid.innerHTML += `
       <div class="col-md-4 gallery-item">
-        <div class="card border-0 shadow-sm gallery-card">
+        <div class="card border-0 shadow-sm gallery-card" data-index="${index}">
           <div class="gallery-img-wrap">
-            <img src="${src}" class="gallery-img" />
+            <img src="${imgSrc}" class="gallery-img" />
+            ${isVideo ? `<div class="play-icon">▶</div>` : ""}
           </div>
         </div>
-      </div>`;
+      </div>
+    `;
           });
 
           enableModal();
@@ -2832,24 +2910,41 @@
 ========================= */
         function enableModal() {
           const modal = new bootstrap.Modal(document.getElementById("imageModal"));
-          const modalImage = document.getElementById("modalImage");
+          const modalBody = document.querySelector(".modal-img-wrap");
 
-          document.querySelectorAll(".gallery-img").forEach((img, i) => {
-            img.onclick = () => {
+          document.querySelectorAll(".gallery-card").forEach((card, i) => {
+            card.onclick = () => {
               currentIndex = i;
-              modalImage.src = currentImages[currentIndex];
+              openMedia();
               modal.show();
             };
           });
 
+          function openMedia() {
+            const item = currentImages[currentIndex];
+            modalBody.innerHTML = "";
+
+            if (item.type === "video") {
+              modalBody.innerHTML = `
+        <video controls autoplay style="max-width:100%; max-height:70vh; border-radius:12px;">
+          <source src="${item.src}" type="video/mp4">
+        </video>
+      `;
+            } else {
+              modalBody.innerHTML = `
+        <img src="${item}" style="max-width:100%; max-height:70vh; border-radius:12px;" />
+      `;
+            }
+          }
+
           document.getElementById("nextBtn").onclick = () => {
             currentIndex = (currentIndex + 1) % currentImages.length;
-            modalImage.src = currentImages[currentIndex];
+            openMedia();
           };
 
           document.getElementById("prevBtn").onclick = () => {
             currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            modalImage.src = currentImages[currentIndex];
+            openMedia();
           };
         }
 
