@@ -26,9 +26,9 @@
 <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png" />
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
+<link rel="icon" href="/img/favicon.ico" sizes="16x16" />
 
-<!-- ================== PERFORMANCE OPTIMIZATIONS ================== -->
+<!-- ================= PERFORMANCE OPTIMIZATIONS ================= -->
 
 <!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,31 +39,28 @@
 <!-- LCP Image -->
 <link rel="preload" as="image" href="/img/call-management/call-management.avif" fetchpriority="high" />
 
-<!-- Critical CSS (INLINE THIS FILE CONTENT if possible) -->
+<!-- Minimal Critical CSS -->
 <style>
-/* Critical Above-the-Fold CSS */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-}
-.hero {
-  min-height: 70vh;
-}
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  }
+  .hero {
+    min-height: 70vh;
+  }
 </style>
 
-<!-- Google Fonts (non-blocking) -->
-<link rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-      as="style" />
+<!-- Google Fonts (optimized – reduced weights) -->
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-      media="print"
-      onload="this.media='all'" />
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+  media="print"
+  onload="this.media='all'" />
 <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
 </noscript>
 
-<!-- CSS -->
+<!-- Core CSS -->
 <link rel="preload" href="/css/bootstrap.min.css" as="style" />
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
@@ -73,27 +70,49 @@ body {
 <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-<!-- Icons -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <!-- Font Awesome (async) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
-<!-- Swiper -->
+<!-- Swiper CSS (lazy) -->
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+      media="print"
+      onload="this.media='all'" />
 
 <!-- intl-tel-input -->
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"
+      media="print"
+      onload="this.media='all'" />
 
 <noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
 </noscript>
 
-<!-- JS (deferred) -->
+<!-- ================= JS (DEFERRED & CONTROLLED) ================= -->
+
 <script src="/js/jquery-3.7.1.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
+<script>
+  // Delay heavy scripts
+  window.addEventListener("load", () => {
+
+    // Swiper
+    setTimeout(() => {
+      const swiper = document.createElement("script");
+      swiper.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+      document.body.appendChild(swiper);
+    }, 1200);
+
+
+  });
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
 
     <!-- Google Tag Manager -->
     <script>
