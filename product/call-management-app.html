@@ -3460,23 +3460,11 @@
       swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
       document.body.appendChild(swiperScript);
     }
-
-    /* SlickNav (mobile menu) */
-    setTimeout(() => {
-      const slickNav = document.createElement("script");
-      slickNav.src = "/js/jquery.slicknav.js";
-      document.body.appendChild(slickNav);
-    }, 800);
-
-    /* Custom functions */
-    setTimeout(() => {
-      const fn = document.createElement("script");
-      fn.src = "/js/function.js";
-      document.body.appendChild(fn);
-    }, 1200);
-
   });
 </script>
+ <!-- Plugins (Deferred) -->
+    <script src="/js/jquery.slicknav.js" defer></script>
+    <script src="/js/function.js" defer></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
