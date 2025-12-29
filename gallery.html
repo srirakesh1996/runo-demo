@@ -2982,6 +2982,20 @@
 
         /* INIT */
         showFolders("company");
+
+        // Stop video when modal is closed
+        document.getElementById("imageModal").addEventListener("hidden.bs.modal", function () {
+          const modalBody = document.querySelector(".modal-img-wrap");
+          const video = modalBody.querySelector("video");
+
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+
+          // Clear modal content (important)
+          modalBody.innerHTML = "";
+        });
       </script>
     </div>
     <footer class="bg-dark text-light pt-5 pb-4">
