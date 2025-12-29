@@ -1,118 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIM-Based Call Management App for Teams | Runo CRM</title>
+    <meta name="description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
+    <link rel="canonical" href="https://runo.ai/product/call-management-app" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
+    <meta property="og:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
+    <meta property="og:image" content="https://runo.ai/img/og/call-management.png" />
+    <meta property="og:url" content="https://runo.ai/product/call-management-app" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
+    <meta name="twitter:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
+    <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png" />
+    <meta name="twitter:url" content="https://runo.ai/product/call-management-app" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
 
-<title>SIM-Based Call Management App for Teams | Runo CRM</title>
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/img/call-management/call-management.avif" type="image/avif" fetchpriority="high" />
 
-<meta name="description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
 
-<link rel="canonical" href="https://runo.ai/product/call-management-app" />
-<meta name="robots" content="index, follow" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
-<meta property="og:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app." />
-<meta property="og:image" content="https://runo.ai/img/og/call-management.png" />
-<meta property="og:url" content="https://runo.ai/product/call-management-app" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
-<meta name="twitter:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app." />
-<meta name="twitter:image" content="https://runo.ai/img/og/call-management.png" />
-
-<!-- Favicon -->
-<link rel="icon" href="/img/favicon.ico" sizes="16x16" />
-
-<!-- ================= PERFORMANCE OPTIMIZATIONS ================= -->
-
-<!-- Preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-
-<!-- LCP Image -->
-<link rel="preload" as="image" href="/img/call-management/call-management.avif" fetchpriority="high" />
-
-<!-- Minimal Critical CSS -->
-<style>
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  }
-  .hero {
-    min-height: 70vh;
-  }
-</style>
-
-<!-- Google Fonts (optimized – reduced weights) -->
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-  media="print"
-  onload="this.media='all'" />
-<noscript>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
-</noscript>
-
-<!-- Core CSS -->
-<link rel="preload" href="/css/bootstrap.min.css" as="style" />
-<link rel="stylesheet" href="/css/bootstrap.min.css" />
-
-<link rel="preload" href="/css/custom.css" as="style" />
-<link rel="stylesheet" href="/css/custom.css" />
-
-<link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
     <!-- Font Awesome (async) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
-<!-- Swiper CSS (lazy) -->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-      media="print"
-      onload="this.media='all'" />
+    <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
-<!-- intl-tel-input -->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css"
-      media="print"
-      onload="this.media='all'" />
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
-<noscript>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-</noscript>
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+    </noscript>
 
-<!-- ================= JS (DEFERRED & CONTROLLED) ================= -->
-
-<script src="/js/jquery-3.7.1.min.js" defer></script>
-
-<script>
-  // Delay heavy scripts
-  window.addEventListener("load", () => {
-
-    // Swiper
-    setTimeout(() => {
-      const swiper = document.createElement("script");
-      swiper.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-      document.body.appendChild(swiper);
-    }, 1200);
-
-
-  });
-</script>
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-
 
     <!-- Google Tag Manager -->
     <script>
@@ -2108,7 +2060,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="/img/call-management/call-management.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="Runo Call Management CRM" />
+            <img src="/img/call-management/call-management.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="Runo Call Management App" />
           </div>
         </div>
       </div>
@@ -3037,7 +2989,7 @@
               </div>
               <!-- Right Image -->
               <div class="col-md-5 text-md-end text-center security-badges">
-                <img loading="lazy" src="/img/security.avif" alt="ISO Badge" class="img-fluid" />
+                <img loading="lazy" src="/img/security.avif" style="max-width: 100% !important" alt="ISO Badge" class="img-fluid" />
               </div>
             </div>
           </div>
@@ -3490,11 +3442,42 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    <!-- Plugins (Deferred) -->
-    <script src="/js/jquery.slicknav.js" defer></script>
-    <script src="/js/function.js" defer></script>
+<!-- ================= OPTIMIZED FOOTER SCRIPTS ================= -->
+
+<!-- jQuery (needed by plugins) -->
+<script src="/js/jquery-3.7.1.min.js" defer></script>
+
+<!-- Bootstrap JS (deferred) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<!-- Load heavy scripts AFTER page is interactive -->
+<script>
+  window.addEventListener("load", () => {
+
+    /* Load Swiper only if used */
+    if (document.querySelector(".swiper")) {
+      const swiperScript = document.createElement("script");
+      swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+      document.body.appendChild(swiperScript);
+    }
+
+    /* SlickNav (mobile menu) */
+    setTimeout(() => {
+      const slickNav = document.createElement("script");
+      slickNav.src = "/js/jquery.slicknav.js";
+      document.body.appendChild(slickNav);
+    }, 800);
+
+    /* Custom functions */
+    setTimeout(() => {
+      const fn = document.createElement("script");
+      fn.src = "/js/function.js";
+      document.body.appendChild(fn);
+    }, 1200);
+
+  });
+</script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const helloBar = document.getElementById("helloBar");
@@ -3834,14 +3817,14 @@
       {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": "Call Management CRM App",
+        "name": "Call Management App",
         "image": ["https://runo.ai/img/call-management/call-management.webp"],
-        "description": "AI-powered SIM-based Call Management CRM app to track, call, and manage leads. It streamlines sales calls, lead follow-ups, and CRM updates all from your mobile phone.",
+        "description": "AI-powered SIM-based Call Management app to track, call, and manage leads. It streamlines sales calls, lead follow-ups, and CRM updates all from your mobile phone.",
         "brand": {
           "@type": "Brand",
           "name": "Runo"
         },
-        "url": "https://runo.ai/product/call-management-crm",
+        "url": "https://runo.ai/product/call-management-app",
         "offers": {
           "@type": "Offer",
           "url": "https://runo.ai/pricing",
@@ -3877,8 +3860,8 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Call Management CRM",
-            "item": "https://runo.ai/product/call-management-crm"
+            "name": "Call Management App",
+            "item": "https://runo.ai/product/call-management-app"
           }
         ]
       }
