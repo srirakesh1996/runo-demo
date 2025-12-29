@@ -3450,18 +3450,43 @@
 <!-- Bootstrap JS (deferred) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-<!-- Load heavy scripts AFTER page is interactive -->
 <script>
-  window.addEventListener("load", () => {
+(function () {
+  let loaded = false;
 
-    /* Load Swiper only if used */
-    if (document.querySelector(".swiper")) {
-      const swiperScript = document.createElement("script");
-      swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-      document.body.appendChild(swiperScript);
-    }
-  });
+  function loadSwiper() {
+    if (loaded) return;
+    loaded = true;
+
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Remove listeners
+    window.removeEventListener("scroll", trigger);
+    window.removeEventListener("touchstart", trigger);
+    window.removeEventListener("mousemove", trigger);
+  }
+
+  function trigger() {
+    requestAnimationFrame(loadSwiper);
+  }
+
+  // Load on interaction
+  window.addEventListener("scroll", trigger, { passive: true });
+  window.addEventListener("touchstart", trigger, { passive: true });
+  window.addEventListener("mousemove", trigger, { passive: true });
+
+  // 🔥 Fallback: load after 3s even if user does nothing
+  setTimeout(() => {
+    loadSwiper();
+  }, 3000);
+
+})();
 </script>
+
+
  <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
     <script src="/js/function.js" defer></script>
