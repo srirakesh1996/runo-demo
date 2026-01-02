@@ -63,7 +63,7 @@
         w[l] = w[l] || [];
         w[l].push({
           "gtm.start": new Date().getTime(),
-          event: "gtm.js"
+          event: "gtm.js",
         });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
@@ -323,7 +323,7 @@
         account: [],
         onUserLogin: [],
         notifications: [],
-        privacy: []
+        privacy: [],
       };
 
       // ✅ Your account ID and region
@@ -445,11 +445,7 @@
                 </div>
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
-                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
-                    I agree to the
-                    <a href="/privacy-policy" target="_blank">Privacy Policy</a>
-                    and consent to receive communication via WhatsApp.
-                  </label>
+                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8"> I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a> and consent to receive communication via WhatsApp. </label>
                 </div>
                 <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
                   <span class="btn-text">Submit</span>
@@ -482,7 +478,7 @@
               });
           },
           separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
         });
 
         const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
@@ -523,7 +519,7 @@
           tr: [10],
           eg: [10, 11],
           iq: [10],
-          gt: [8]
+          gt: [8],
         };
 
         function getMaxLengthForCountry() {
@@ -1065,7 +1061,20 @@
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                               <g>
                                 <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
-                                <path d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
+                                <path
+                                  d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#000000"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#000000"
+                                  class=""
+                                ></path>
                                 <path d="M86 395.999V56.001h238m57 0h45v339.998" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                 <path d="M35 400.999h442" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
                                 <path d="M327.5 11h47v224.51L351 283.5l-23.5-47.99zM332.5 218.94h37" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#33cccc" class="" opacity="1"></path>
@@ -1095,7 +1104,21 @@
                                   data-original="#000000"
                                   class=""
                                 ></path>
-                                <path d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#33cccc" class="" opacity="1"></path>
+                                <path
+                                  d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#ff5730"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#33cccc"
+                                  class=""
+                                  opacity="1"
+                                ></path>
                               </g>
                             </svg>
                             API Documentation
@@ -1219,12 +1242,12 @@
         <!-- TOC Column - Hidden on small devices -->
         <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
                <div class="sticky-top" style="top: 100px">
-
+               
                  <div class="mb-3">
                    <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
                  </div>
-
-
+               
+               
                  <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
                    <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
                    <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
@@ -1317,47 +1340,31 @@
 
               <ul class="wp-block-list">
                 <li>
-                  <strong>Faster Lead Processing</strong>
-                  <strong><br /></strong>
-                  Auto-dialers, click-to-call, and bulk calling help agents reach more prospects in less time.
+                  <strong>Faster Lead Processing</strong><strong><br /></strong>Auto-dialers, click-to-call, and bulk calling help agents reach more prospects in less time.
                 </li>
 
                 <li>
-                  <strong>Better Follow-Up Management</strong>
-                  <strong><br /></strong>
-                  Automated reminders and call logs ensure no hot leads slip through the cracks.
+                  <strong>Better Follow-Up Management</strong><strong><br /></strong>Automated reminders and call logs ensure no hot leads slip through the cracks.
                 </li>
 
                 <li>
-                  <strong>Call Tracking and Recording</strong>
-                  <strong><br /></strong>
-                  You can monitor call quality, compliance, and agent performance using recordings and live dashboards.
+                  <strong>Call Tracking and Recording</strong><strong><br /></strong>You can monitor call quality, compliance, and agent performance using recordings and live dashboards.
                 </li>
 
                 <li>
-                  <strong>End-to-End Lead Monitoring</strong>
-                  <strong><br /></strong>
-                  Track each lead’s lifecycle, from the first call to conversion, along with notes, recordings, and timelines.
+                  <strong>End-to-End Lead Monitoring</strong><strong><br /></strong>Track each lead’s lifecycle, from the first call to conversion, along with notes, recordings, and timelines.
                 </li>
 
                 <li>
-                  <strong>Improved Sales Analytics</strong>
-                  <strong><br /></strong>
-                  CRMs offer insights into call volume, conversion rates, talk time, and agent productivity.
+                  <strong>Improved Sales Analytics</strong><strong><br /></strong>CRMs offer insights into call volume, conversion rates, talk time, and agent productivity.
                 </li>
 
                 <li>
-                  <strong>Increased Accountability</strong>
-                  <strong><br /></strong>
-                  Live agent tracking, dashboards, and scorecards help identify top performers and optimize workflows.
+                  <strong>Increased Accountability</strong><strong><br /></strong>Live agent tracking, dashboards, and scorecards help identify top performers and optimize workflows.
                 </li>
               </ul>
 
-              <p>
-                For a deeper look at how call and lead management impact business efficiency and customer relations, check out
-                <a href="https://runo.ai/blog/importance-of-call-management-for-business" target="_blank" rel="noopener">Why Call Management Matters for Every Business</a>
-                .
-              </p>
+              <p>For a deeper look at how call and lead management impact business efficiency and customer relations, check out <a href="https://runo.ai/blog/importance-of-call-management-for-business" target="_blank" rel="noopener">Why Call Management Matters for Every Business</a>.</p>
 
               <h2 class="wp-block-heading">Key Features to Look for in a CRM for Telemarketing</h2>
 
@@ -1400,26 +1407,16 @@
                 </table>
               </figure>
 
-              <p>
-                Using a CRM designed for telecalling becomes even more powerful when combined with proven outreach tactics as outlined in Guide 10
-                <a href="https://runo.ai/blog/telesales-tips-and-strategies" target="_blank" rel="noopener">Telesales Tips and Strategies</a>
-                That Actually Work in 2025.
-              </p>
+              <p>Using a CRM designed for telecalling becomes even more powerful when combined with proven outreach tactics as outlined in Guide 10 <a href="https://runo.ai/blog/telesales-tips-and-strategies" target="_blank" rel="noopener">Telesales Tips and Strategies</a> That Actually Work in 2025.</p>
 
               <h2 class="wp-block-heading">The 6 Best CRM for Telemarketing Software</h2>
 
               <h3 class="wp-block-heading"><strong>1. Runo – Best SIM-Based Telemarketing CRM Software</strong></h3>
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c1.png" alt="Runo" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                SIM-based outbound calling, auto-dialing, and real-time agent tracking
-              </p>
+              <p><strong>Best for:</strong> SIM-based outbound calling, auto-dialing, and real-time agent tracking</p>
 
-              <p>
-                <a href="https://runo.ai/features/telemarketing-crm-software" target="_blank" rel="noopener">Runo</a>
-                stands out as a purpose-built calling CRM that turns smartphones into powerful telecalling devices. Agents can make and receive calls using personal or company SIM cards, while every call gets auto-logged with duration, notes, and recording. It offers auto-dialing, WhatsApp follow-ups, live agent monitoring, AI call summaries, and performance scorecards.
-              </p>
+              <p><a href="https://runo.ai/features/telemarketing-crm-software" target="_blank" rel="noopener">Runo</a> stands out as a purpose-built calling CRM that turns smartphones into powerful telecalling devices. Agents can make and receive calls using personal or company SIM cards, while every call gets auto-logged with duration, notes, and recording. It offers auto-dialing, WhatsApp follow-ups, live agent monitoring, AI call summaries, and performance scorecards.</p>
 
               <p><strong>Key Features:</strong></p>
 
@@ -1435,24 +1432,14 @@
                 <li>WhatsApp messaging and call disposition logging</li>
               </ul>
 
-              <p>
-                <strong>Pricing:</strong>
-                <br />
-                Starts at ₹599/user/month billed annually.
-              </p>
+              <p><strong>Pricing:</strong><br />Starts at ₹599/user/month billed annually.</p>
 
               <h3 class="wp-block-heading"><strong>2. HubSpot CRM – Best Telecalling Software for Lead Nurturing</strong></h3>
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c2.png" alt="Hubspot" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                Contact management, email+call engagement, and workflow automation
-              </p>
+              <p><strong>Best for:</strong> Contact management, email+call engagement, and workflow automation</p>
 
-              <p>
-                <a href="https://www.hubspot.com/products/crm/contact-management" target="_blank" rel="noopener">HubSpot</a>
-                doesn&#8217;t have built-in calling, but it integrates seamlessly with VoIP tools. It is excellent for tracking every interaction: calls, emails, meeting notes, WhatsApp chats, all in one place. Its workflow automation and pipeline management tools help teams follow up consistently and close deals faster.
-              </p>
+              <p><a href="https://www.hubspot.com/products/crm/contact-management" target="_blank" rel="noopener">HubSpot</a> doesn&#8217;t have built-in calling, but it integrates seamlessly with VoIP tools. It is excellent for tracking every interaction: calls, emails, meeting notes, WhatsApp chats, all in one place. Its workflow automation and pipeline management tools help teams follow up consistently and close deals faster.</p>
 
               <p>Key Features:</p>
 
@@ -1468,24 +1455,15 @@
                 <li>Integrates with Google, Outlook, WhatsApp, and VoIP</li>
               </ul>
 
-              <p>
-                <strong>Pricing:</strong>
-                Starts at ₹3,753/month.
-              </p>
+              <p><strong>Pricing:</strong> Starts at ₹3,753/month.</p>
 
               <h3 class="wp-block-heading"><strong>3. Salesforce – Best CRM for Call Centers with AI &amp; Automation</strong></h3>
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c3.png" alt="Salesforce" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                Enterprises, AI-powered telemarketing, omnichannel call centers
-              </p>
+              <p><strong>Best for:</strong> Enterprises, AI-powered telemarketing, omnichannel call centers</p>
 
-              <p>
-                <a href="https://www.salesforce.com/service/contact-center/" target="_blank" rel="noopener">Salesforce</a>
-                offers a robust contact center solution with AI-powered chatbots, CRM calling software, call routing, and powerful integration with telephony systems like Amazon Connect. It&#8217;s ideal for large-scale teams managing multi-channel interactions like SMS, WhatsApp, email, voice, and chat.
-              </p>
+              <p><a href="https://www.salesforce.com/service/contact-center/" target="_blank" rel="noopener">Salesforce</a> offers a robust contact center solution with AI-powered chatbots, CRM calling software, call routing, and powerful integration with telephony systems like Amazon Connect. It&#8217;s ideal for large-scale teams managing multi-channel interactions like SMS, WhatsApp, email, voice, and chat.</p>
 
               <p>Key Features:</p>
 
@@ -1499,23 +1477,14 @@
                 <li>Built-in customer feedback and CSAT tracking</li>
               </ul>
 
-              <p>
-                <strong>Pricing:</strong>
-                Starts at $25/user/month.&nbsp;
-              </p>
+              <p><strong>Pricing: </strong>Starts at $25/user/month.&nbsp;</p>
 
               <h3 class="wp-block-heading"><strong>4. Zoho CRM – Best for Cloud Contact Center and Live Call Monitoring</strong></h3>
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c4.png" alt="Zoho" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                Hybrid calling teams, SMBs, and live call coaching
-              </p>
+              <p><strong>Best for:</strong> Hybrid calling teams, SMBs, and live call coaching</p>
 
-              <p>
-                <a href="https://www.zoho.com/voice/contact-center.html" target="_blank" rel="noopener">Zoho Voice</a>
-                integrates call center features directly into Zoho CRM. It supports virtual numbers, live call monitoring, whisper-coaching, IVR, agent tracking, and Power Dialer.
-              </p>
+              <p><a href="https://www.zoho.com/voice/contact-center.html" target="_blank" rel="noopener">Zoho Voice</a> integrates call center features directly into Zoho CRM. It supports virtual numbers, live call monitoring, whisper-coaching, IVR, agent tracking, and Power Dialer.</p>
 
               <p>Key Features:</p>
 
@@ -1531,23 +1500,14 @@
                 <li>Power Dialer for outbound campaigns</li>
               </ul>
 
-              <p>
-                <strong>Pricing:</strong>
-                Starts at $34/user/month, billed annually.
-              </p>
+              <p><strong>Pricing: </strong>Starts at $34/user/month, billed annually.</p>
 
               <h3 class="wp-block-heading"><strong>5. Pipedrive – Best CRM for Pipeline Visibility and Call Management</strong></h3>
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c5.png" alt="Pipedrive" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                Visual pipeline tracking and coordinated calling
-              </p>
+              <p><strong>Best for:</strong> Visual pipeline tracking and coordinated calling</p>
 
-              <p>
-                <a href="https://www.pipedrive.com/en/industries/call-center-crm" target="_blank" rel="noopener">Pipedrive</a>
-                integrates with VoIP providers to enable call logging, recording, and automated follow-ups. It helps teams maintain a clear visual sales pipeline, manage deals, and monitor conversion stages.
-              </p>
+              <p><a href="https://www.pipedrive.com/en/industries/call-center-crm" target="_blank" rel="noopener">Pipedrive</a> integrates with VoIP providers to enable call logging, recording, and automated follow-ups. It helps teams maintain a clear visual sales pipeline, manage deals, and monitor conversion stages.</p>
 
               <p>Key Features:</p>
 
@@ -1569,15 +1529,9 @@
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/28/c6.png" alt="Engagebay" /></figure>
 
-              <p>
-                <strong>Best for:</strong>
-                Startups and small telesales teams needing call automation
-              </p>
+              <p><strong>Best for:</strong> Startups and small telesales teams needing call automation</p>
 
-              <p>
-                <a href="https://www.engagebay.com/" target="_blank" rel="noopener">EngageBay</a>
-                offers handy telephony tools, including call broadcasting, call scripts, automatic call recordings, note logging, and integrations with Twilio, Exotel, and SIP. Ideal for small telecalling teams looking for an affordable all-in-one CRM.
-              </p>
+              <p><a href="https://www.engagebay.com/" target="_blank" rel="noopener">EngageBay</a> offers handy telephony tools, including call broadcasting, call scripts, automatic call recordings, note logging, and integrations with Twilio, Exotel, and SIP. Ideal for small telecalling teams looking for an affordable all-in-one CRM.</p>
 
               <p>Key Features:</p>
 
@@ -1593,10 +1547,7 @@
                 <li>WhatsApp, email, SMS integration</li>
               </ul>
 
-              <p>
-                <strong>Pricing:</strong>
-                Free plan available, Paid plans start at $14.99/user/month.&nbsp;
-              </p>
+              <p><strong>Pricing:</strong> Free plan available, Paid plans start at $14.99/user/month.&nbsp;</p>
 
               <h2 class="wp-block-heading">Pricing Comparison of Top Telemarketing CRMs</h2>
 
@@ -1714,11 +1665,7 @@
                 </table>
               </figure>
 
-              <p>
-                Remember to pick a CRM that supports meaningful analytics. The article &#8220;
-                <a href="https://runo.ai/blog/top-call-center-metrics-kpi-to-track" target="_blank" rel="noopener">Top 10 Call Center Metrics &amp; KPIs</a>
-                You Should Be Tracking&#8221; outlines the metrics every call-driven sales team should monitor.
-              </p>
+              <p>Remember to pick a CRM that supports meaningful analytics. The article &#8220;<a href="https://runo.ai/blog/top-call-center-metrics-kpi-to-track" target="_blank" rel="noopener">Top 10 Call Center Metrics &amp; KPIs</a> You Should Be Tracking&#8221; outlines the metrics every call-driven sales team should monitor.</p>
 
               <h2 class="wp-block-heading">Final Thoughts</h2>
 
@@ -1878,15 +1825,7 @@
           <div class="row align-items-center">
             <div class="col-md-4">
               <div class="footer-copyright-text">
-                <p>
-                  &copy;
-                  <span id="currentYear"></span>
-                  Runo. All Rights Reserved.
-                </p>
-
-                <script>
-                  document.getElementById("currentYear").textContent = new Date().getFullYear();
-                </script>
+                <p>&copy; 2025 Runo. All Rights Reserved.</p>
               </div>
             </div>
             <div class="col-md-8">

@@ -63,7 +63,7 @@
         w[l] = w[l] || [];
         w[l].push({
           "gtm.start": new Date().getTime(),
-          event: "gtm.js"
+          event: "gtm.js",
         });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
@@ -324,7 +324,7 @@
         account: [],
         onUserLogin: [],
         notifications: [],
-        privacy: []
+        privacy: [],
       };
 
       // ✅ Your account ID and region
@@ -446,11 +446,7 @@
                 </div>
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
-                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
-                    I agree to the
-                    <a href="/privacy-policy" target="_blank">Privacy Policy</a>
-                    and consent to receive communication via WhatsApp.
-                  </label>
+                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8"> I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a> and consent to receive communication via WhatsApp. </label>
                 </div>
                 <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
                   <span class="btn-text">Submit</span>
@@ -483,7 +479,7 @@
               });
           },
           separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
         });
 
         const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
@@ -524,7 +520,7 @@
           tr: [10],
           eg: [10, 11],
           iq: [10],
-          gt: [8]
+          gt: [8],
         };
 
         function getMaxLengthForCountry() {
@@ -1066,7 +1062,20 @@
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                               <g>
                                 <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
-                                <path d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
+                                <path
+                                  d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#000000"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#000000"
+                                  class=""
+                                ></path>
                                 <path d="M86 395.999V56.001h238m57 0h45v339.998" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                 <path d="M35 400.999h442" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
                                 <path d="M327.5 11h47v224.51L351 283.5l-23.5-47.99zM332.5 218.94h37" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#33cccc" class="" opacity="1"></path>
@@ -1096,7 +1105,21 @@
                                   data-original="#000000"
                                   class=""
                                 ></path>
-                                <path d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#33cccc" class="" opacity="1"></path>
+                                <path
+                                  d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#ff5730"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#33cccc"
+                                  class=""
+                                  opacity="1"
+                                ></path>
                               </g>
                             </svg>
                             API Documentation
@@ -1244,11 +1267,7 @@
             <div class="blog-content">
               <p>Reaching out to potential customers is a critical aspect that can either make or break a business. Today, businesses can connect with prospects with ease with the help of Telecaller software apps. Telemarketing is an old tactic used by businesses to market their products and services to customers.</p>
 
-              <p>
-                Despite being old, it is still relevant today, according to a report by Hubspot X RAIN Group, ‘Cold calling is the preferred method of contact of buyers by
-                <a href="https://cdn2.hubspot.net/hubfs/123161/PDFs/5%20Sales%20Prospecting%20Myths%20Debunked.pdf" target="_blank" rel="noopener">49%</a>
-                .
-              </p>
+              <p>Despite being old, it is still relevant today, according to a report by Hubspot X RAIN Group, ‘Cold calling is the preferred method of contact of buyers by <a href="https://cdn2.hubspot.net/hubfs/123161/PDFs/5%20Sales%20Prospecting%20Myths%20Debunked.pdf" target="_blank" rel="noopener">49%</a>.</p>
 
               <p>To execute telecalling, having the right tools at your disposal can make all the difference. Telecaller software apps have revolutionized the way businesses connect with customers, enabling seamless communication and boosting sales efforts.</p>
 
@@ -1259,11 +1278,8 @@
               <h2 class="wp-block-heading">What is a Telecaller Software App?</h2>
 
               <p>
-                A telecaller software app is a user-friendly mobile application tool that helps businesses communicate effectively with prospects and customers, ideally using their existing SIM number. It simplifies
-                <a href="https://runo.ai/blog/how-sim-based-outbound-calls-can-boost-sales-performance" target="_blank" rel="noopener">outbound calls</a>
-                , manages inbound calls,
-                <a href="https://runo.ai/features/sales-management-software" target="_blank" rel="noopener">manages sales</a>
-                , and even facilitates text messaging from a single platform.
+                A telecaller software app is a user-friendly mobile application tool that helps businesses communicate effectively with prospects and customers, ideally using their existing SIM number. It simplifies <a href="https://runo.ai/blog/how-sim-based-outbound-calls-can-boost-sales-performance" target="_blank" rel="noopener">outbound calls</a>, manages inbound calls, <a href="https://runo.ai/features/sales-management-software" target="_blank" rel="noopener">manages sales</a>, and even
+                facilitates text messaging from a single platform.
               </p>
 
               <p>These apps offer essential features like call recording, call tracking, and call reporting, making communication management effortless.</p>
@@ -1282,11 +1298,7 @@
 
               <p>Real-time market insights help businesses stay ahead of trends, while flexible scalability enables growth and expansion. By fostering brand loyalty through regular follow-up calls and personalized interactions, businesses can turn customers into advocates.&nbsp;</p>
 
-              <p>
-                Plus, telecalling provides cost-effective marketing compared to traditional methods. Embrace the
-                <a href="https://runo.ai/blog/complete-guide-to-telecalling" target="_blank" rel="noopener">power of telecalling</a>
-                to enhance customer connections, drive sales growth, and maximize your marketing efforts.
-              </p>
+              <p>Plus, telecalling provides cost-effective marketing compared to traditional methods. Embrace the <a href="https://runo.ai/blog/complete-guide-to-telecalling" target="_blank" rel="noopener">power of telecalling</a> to enhance customer connections, drive sales growth, and maximize your marketing efforts.</p>
 
               <h2 class="wp-block-heading">Best Telecaller Software App Features</h2>
 
@@ -1296,11 +1308,7 @@
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/2/1.png" alt="Call Management" /></figure>
 
-              <p>
-                Although
-                <a href="https://runo.ai/product/call-management-app" target="_blank" rel="noopener">call management</a>
-                is a prominent feature of any telecaller app, it still needs to be mentioned in this list of features.
-              </p>
+              <p>Although <a href="https://runo.ai/product/call-management-app" target="_blank" rel="noopener">call management</a> is a prominent feature of any telecaller app, it still needs to be mentioned in this list of features.</p>
 
               <p>The reason is that it is the most crucial part of any telecalling app. While scouting, look for an app that allows you to handle incoming and outgoing calls seamlessly, ideally at a SIM level.</p>
 
@@ -1310,11 +1318,7 @@
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/2/2.png" alt="CRM Integration" /></figure>
 
-              <p>
-                Integration with a Customer Relationship Management (CRM) system is an essential feature for telecalling apps. The telecalling app must have CRM
-                <a href="https://runo.ai/integrations" target="_blank" rel="noopener">integration</a>
-                with CRMs like Zoho, HubSpot, and more.
-              </p>
+              <p>Integration with a Customer Relationship Management (CRM) system is an essential feature for telecalling apps. The telecalling app must have CRM <a href="https://runo.ai/integrations" target="_blank" rel="noopener">integration</a> with CRMs like Zoho, HubSpot, and more.</p>
 
               <p>CRM integration enables telecallers to access customer data, call history, and other relevant information during the call.&nbsp;</p>
 
@@ -1326,11 +1330,7 @@
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/2/3.png" alt="Auto Dialer" /></figure>
 
-              <p>
-                An auto dialer feature automates the process of dialing phone numbers, saving time and increasing productivity for telecallers. With an
-                <a href="https://runo.ai/features/auto-dialer-software" target="_blank" rel="noopener">auto dialer</a>
-                , telecallers don’t need to manually dial numbers, eliminating the idle time between calls.&nbsp;
-              </p>
+              <p>An auto dialer feature automates the process of dialing phone numbers, saving time and increasing productivity for telecallers. With an <a href="https://runo.ai/features/auto-dialer-software" target="_blank" rel="noopener">auto dialer</a>, telecallers don’t need to manually dial numbers, eliminating the idle time between calls.&nbsp;</p>
 
               <p>It helps a lot when the sales executive is going to call 100s of customers in one day.</p>
 
@@ -1342,11 +1342,7 @@
 
               <p>These features allow supervisors or managers to track the performance of their sales team.</p>
 
-              <p>
-                With this feature, it becomes easier for managers to improve the quality of their outbound calls and help telecallers with feedback &amp; coaching.
-                <a href="https://runo.ai/features/sales-call-tracking-software" target="_blank" rel="noopener">Call tracking</a>
-                can give you real-time insights such as Total calls attempted, Contact Percentage, average talk time, Wrap-up time, missed calls, etc.
-              </p>
+              <p>With this feature, it becomes easier for managers to improve the quality of their outbound calls and help telecallers with feedback &amp; coaching. <a href="https://runo.ai/features/sales-call-tracking-software" target="_blank" rel="noopener">Call tracking</a> can give you real-time insights such as Total calls attempted, Contact Percentage, average talk time, Wrap-up time, missed calls, etc.</p>
 
               <p>This feature is essential in case the team is monitored virtually or for monitoring a fairly large calling team.</p>
 
@@ -1385,22 +1381,11 @@
 
               <figure class="wp-block-image"><img decoding="async" src="blogs/2/9.png" alt="Call Recording" /></figure>
 
-              <p>
-                Telecalling apps with
-                <a href="https://runo.ai/features/sales-call-recording-software" target="_blank" rel="noopener">call recording features</a>
-                provide valuable insights into the effectiveness of your telecalling campaigns.
-                <br />
-                <br />
-                Call recording allows you to review conversations for training purposes, quality assurance, or dispute resolution.
-              </p>
+              <p>Telecalling apps with <a href="https://runo.ai/features/sales-call-recording-software" target="_blank" rel="noopener">call recording features</a> provide valuable insights into the effectiveness of your telecalling campaigns.<br /><br />Call recording allows you to review conversations for training purposes, quality assurance, or dispute resolution.</p>
 
               <h2 class="wp-block-heading">Comparison Table: Telecalling Software Features</h2>
 
-              <p>
-                When choosing between basic calling tools and advanced
-                <strong>telecalling software</strong>
-                , the difference becomes clear in daily operations, call quality, and team control.
-              </p>
+              <p>When choosing between basic calling tools and advanced <strong>telecalling software</strong>, the difference becomes clear in daily operations, call quality, and team control.</p>
 
               <figure class="wp-block-table">
                 <table class="has-fixed-layout">
@@ -1465,18 +1450,12 @@
               </figure>
 
               <p>
-                This comparison highlights why businesses that rely heavily on outbound or inbound calling prefer
-                <a href="https://runo.ai/" target="_blank" rel="noopener"><strong>SIM-based telecalling software</strong></a>
-                over basic or internet-only calling solutions.
+                This comparison highlights why businesses that rely heavily on outbound or inbound calling prefer <a href="https://runo.ai/" target="_blank" rel="noopener"><strong>SIM-based telecalling software</strong></a> over basic or internet-only calling solutions.
               </p>
 
               <h2 class="wp-block-heading">How to Choose the Best Telecaller App</h2>
 
-              <p>
-                Choosing the
-                <strong>best telecalling software</strong>
-                goes beyond basic calling features. The right tool should support your team’s daily workflow, improve call productivity, and offer better control over calling operations. Here are the key factors to consider.
-              </p>
+              <p>Choosing the <strong>best telecalling software</strong> goes beyond basic calling features. The right tool should support your team’s daily workflow, improve call productivity, and offer better control over calling operations. Here are the key factors to consider.</p>
 
               <h3 class="wp-block-heading">Simple Setup and Easy Adoption</h3>
 
@@ -1488,11 +1467,7 @@
 
               <h3 class="wp-block-heading">Cloud-Based and Remote-Ready</h3>
 
-              <p>
-                Modern
-                <strong>calling software for call center</strong>
-                teams should be cloud-based. It allows agents to work from anywhere without special hardware. It also makes onboarding new agents faster and supports flexible work setups.
-              </p>
+              <p>Modern <strong>calling software for call center</strong> teams should be cloud-based. It allows agents to work from anywhere without special hardware. It also makes onboarding new agents faster and supports flexible work setups.</p>
 
               <h3 class="wp-block-heading">Smart Dialing Features</h3>
 
@@ -1508,19 +1483,11 @@
 
               <h3 class="wp-block-heading">Smooth CRM Integration</h3>
 
-              <p>
-                The telecaller app should integrate easily with your CRM and
-                <a href="https://runo.ai/features/lead-management-system" target="_blank" rel="noopener">lead management</a>
-                tools. It keeps customer data updated and removes the need for manual data entry after every call.
-              </p>
+              <p>The telecaller app should integrate easily with your CRM and <a href="https://runo.ai/features/lead-management-system" target="_blank" rel="noopener">lead management</a> tools. It keeps customer data updated and removes the need for manual data entry after every call.</p>
 
               <h3 class="wp-block-heading">Strong Data Security and Compliance</h3>
 
-              <p>
-                Customer conversations contain sensitive information. The
-                <strong>best telecalling software</strong>
-                should offer secure data storage, role-based access, and compliance with data protection standards.
-              </p>
+              <p>Customer conversations contain sensitive information. The <strong>best telecalling software</strong> should offer secure data storage, role-based access, and compliance with data protection standards.</p>
 
               <h3 class="wp-block-heading">Scales as Your Team Grows</h3>
 
@@ -1528,18 +1495,11 @@
 
               <h2 class="wp-block-heading">Use Cases of Telecalling Software</h2>
 
-              <p>
-                <strong>Telecalling software</strong>
-                is used across industries where consistent and high-volume calling is part of daily operations. Below are the most common and practical use cases.
-              </p>
+              <p><strong>Telecalling software</strong> is used across industries where consistent and high-volume calling is part of daily operations. Below are the most common and practical use cases.</p>
 
               <h3 class="wp-block-heading">Sales and Inside Sales Teams</h3>
 
-              <p>
-                Sales teams use
-                <a href="https://runo.ai/blog/best-crm-for-telemarketing" target="_blank" rel="noopener">telecalling software</a>
-                to reach more leads, follow up on enquiries, and close deals faster. Features like auto-dialing, call tracking, and follow-up reminders help agents stay organised and avoid missed opportunities. SIM-based calling also ensures better call connectivity and higher pickup rates.
-              </p>
+              <p>Sales teams use <a href="https://runo.ai/blog/best-crm-for-telemarketing" target="_blank" rel="noopener">telecalling software</a> to reach more leads, follow up on enquiries, and close deals faster. Features like auto-dialing, call tracking, and follow-up reminders help agents stay organised and avoid missed opportunities. SIM-based calling also ensures better call connectivity and higher pickup rates.</p>
 
               <h3 class="wp-block-heading">Customer Support and Service Teams</h3>
 
@@ -1547,11 +1507,7 @@
 
               <h3 class="wp-block-heading">Call Centers and BPOs</h3>
 
-              <p>
-                Call centers and BPOs manage large call volumes every day.
-                <strong>Calling software for call center</strong>
-                operations helps monitor agent performance, track call outcomes, and maintain quality standards. Cloud-based access also supports remote and hybrid teams.
-              </p>
+              <p>Call centers and BPOs manage large call volumes every day. <strong>Calling software for call center</strong> operations helps monitor agent performance, track call outcomes, and maintain quality standards. Cloud-based access also supports remote and hybrid teams.</p>
 
               <h3 class="wp-block-heading">Recruitment and Staffing Agencies</h3>
 
@@ -1575,11 +1531,7 @@
 
               <h2 class="wp-block-heading">Who Should Use a Telecaller App?</h2>
 
-              <p>
-                A
-                <a href="https://runo.ai/features/telecaller-app" target="_blank" rel="noopener">telecaller app</a>
-                is suitable for any business that depends on regular phone communication to engage with customers, leads, or partners. It is beneficial for teams that handle multiple calls every day and need better control over their calling process.
-              </p>
+              <p>A <a href="https://runo.ai/features/telecaller-app" target="_blank" rel="noopener">telecaller app</a> is suitable for any business that depends on regular phone communication to engage with customers, leads, or partners. It is beneficial for teams that handle multiple calls every day and need better control over their calling process.</p>
 
               <h3 class="wp-block-heading">Small and Medium Businesses</h3>
 
@@ -1591,11 +1543,7 @@
 
               <h3 class="wp-block-heading">Call Centers and BPOs</h3>
 
-              <p>
-                Call centers handling high call volumes need reliable
-                <strong>calling software for call center</strong>
-                operations. A telecaller app helps monitor agent performance, maintain call quality, and manage distributed teams efficiently.
-              </p>
+              <p>Call centers handling high call volumes need reliable <strong>calling software for call center</strong> operations. A telecaller app helps monitor agent performance, maintain call quality, and manage distributed teams efficiently.</p>
 
               <h3 class="wp-block-heading">Customer Support and Service Teams</h3>
 
@@ -1617,61 +1565,30 @@
 
               <h3 class="wp-block-heading">Runo&nbsp;</h3>
 
-              <p>
-                Runo is an AI-powered, SIM-based Call Management CRM explicitly designed for telecallers. It combines your dialer, CRM, and live call tracker into one powerful app, allowing you to make calls, track performance,
-                <a href="https://runo.ai/features/call-center-monitoring-software" target="_blank" rel="noopener">monitor team activity</a>
-                , manage follow-ups, and view call status all in one place.
-              </p>
+              <p>Runo is an AI-powered, SIM-based Call Management CRM explicitly designed for telecallers. It combines your dialer, CRM, and live call tracker into one powerful app, allowing you to make calls, track performance, <a href="https://runo.ai/features/call-center-monitoring-software" target="_blank" rel="noopener">monitor team activity</a>, manage follow-ups, and view call status all in one place.</p>
 
               <p>You can start calling within 30 minutes using your own SIM. Runo’s SIM-based calling model ensures a significantly higher call connection rate of up to 78%, without relying on cloud telephony or PBX setups.</p>
 
               <h3 class="wp-block-heading">Top Features in Runo</h3>
 
               <ul class="wp-block-list">
-                <li>
-                  Auto Dialer
-                  <br />
-                </li>
+                <li>Auto Dialer<br /></li>
 
-                <li>
-                  Advanced Caller ID
-                  <br />
-                </li>
+                <li>Advanced Caller ID<br /></li>
 
-                <li>
-                  Call Recording
-                  <br />
-                </li>
+                <li>Call Recording<br /></li>
 
-                <li>
-                  Live Performance Dashboard
-                  <br />
-                </li>
+                <li>Live Performance Dashboard<br /></li>
 
-                <li>
-                  Follow-Up Alerts
-                  <br />
-                </li>
+                <li>Follow-Up Alerts<br /></li>
 
-                <li>
-                  Lead Management
-                  <br />
-                </li>
+                <li>Lead Management<br /></li>
 
-                <li>
-                  Auto Lead Allocation
-                  <br />
-                </li>
+                <li>Auto Lead Allocation<br /></li>
 
-                <li>
-                  Real-Time Team Tracking
-                  <br />
-                </li>
+                <li>Real-Time Team Tracking<br /></li>
 
-                <li>
-                  CRM Integration
-                  <br />
-                </li>
+                <li>CRM Integration<br /></li>
 
                 <li>WhatsApp Business Support</li>
               </ul>
@@ -1684,11 +1601,7 @@
 
               <h2 class="wp-block-heading">Conclusion</h2>
 
-              <p>
-                In conclusion, telecaller apps have become indispensable tools for businesses in the realm of
-                <a href="https://en.wikipedia.org/wiki/Telemarketing" target="_blank" rel="noopener">telemarketing</a>
-                . The benefits of telecaller apps, such as live call tracking, call recording, business call analytics, and in-built CRM features, cannot be overstated.&nbsp;
-              </p>
+              <p>In conclusion, telecaller apps have become indispensable tools for businesses in the realm of <a href="https://en.wikipedia.org/wiki/Telemarketing" target="_blank" rel="noopener">telemarketing</a>. The benefits of telecaller apps, such as live call tracking, call recording, business call analytics, and in-built CRM features, cannot be overstated.&nbsp;</p>
 
               <p>These apps empower businesses to streamline their calling operations, enhance productivity, and multiply the lead conversion rate.</p>
 
@@ -1897,15 +1810,7 @@
           <div class="row align-items-center">
             <div class="col-md-4">
               <div class="footer-copyright-text">
-                <p>
-                  &copy;
-                  <span id="currentYear"></span>
-                  Runo. All Rights Reserved.
-                </p>
-
-                <script>
-                  document.getElementById("currentYear").textContent = new Date().getFullYear();
-                </script>
+                <p>&copy; 2025 Runo. All Rights Reserved.</p>
               </div>
             </div>
             <div class="col-md-8">

@@ -63,7 +63,7 @@
         w[l] = w[l] || [];
         w[l].push({
           "gtm.start": new Date().getTime(),
-          event: "gtm.js"
+          event: "gtm.js",
         });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
@@ -323,7 +323,7 @@
         account: [],
         onUserLogin: [],
         notifications: [],
-        privacy: []
+        privacy: [],
       };
 
       // ✅ Your account ID and region
@@ -445,11 +445,7 @@
                 </div>
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
-                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
-                    I agree to the
-                    <a href="/privacy-policy" target="_blank">Privacy Policy</a>
-                    and consent to receive communication via WhatsApp.
-                  </label>
+                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8"> I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a> and consent to receive communication via WhatsApp. </label>
                 </div>
                 <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
                   <span class="btn-text">Submit</span>
@@ -482,7 +478,7 @@
               });
           },
           separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js",
         });
 
         const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
@@ -523,7 +519,7 @@
           tr: [10],
           eg: [10, 11],
           iq: [10],
-          gt: [8]
+          gt: [8],
         };
 
         function getMaxLengthForCountry() {
@@ -1065,7 +1061,20 @@
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                               <g>
                                 <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
-                                <path d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
+                                <path
+                                  d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#000000"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#000000"
+                                  class=""
+                                ></path>
                                 <path d="M86 395.999V56.001h238m57 0h45v339.998" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                 <path d="M35 400.999h442" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
                                 <path d="M327.5 11h47v224.51L351 283.5l-23.5-47.99zM332.5 218.94h37" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#33cccc" class="" opacity="1"></path>
@@ -1095,7 +1104,21 @@
                                   data-original="#000000"
                                   class=""
                                 ></path>
-                                <path d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#33cccc" class="" opacity="1"></path>
+                                <path
+                                  d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#ff5730"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#33cccc"
+                                  class=""
+                                  opacity="1"
+                                ></path>
                               </g>
                             </svg>
                             API Documentation
@@ -1219,12 +1242,12 @@
         <!-- TOC Column - Hidden on small devices -->
         <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
                <div class="sticky-top" style="top: 100px">
-
+               
                  <div class="mb-3">
                    <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
                  </div>
-
-
+               
+               
                  <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
                    <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
                    <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
@@ -1273,41 +1296,22 @@
 
               <p>No time wasted. No effort duplicated.</p>
 
-              <p>
-                That’s
-                <a href="https://runo.ai/features/auto-dialer-software" target="_blank" rel="noopener">Auto Dialer Software</a>
-                .
-              </p>
+              <p>That’s <a href="https://runo.ai/features/auto-dialer-software" target="_blank" rel="noopener">Auto Dialer Software</a>.</p>
 
               <p>It automatically dials numbers, routes live calls, records interactions, updates CRM in the background, and even reminds agents about follow-ups. It increases call volume, improves response time, and boosts conversions.</p>
 
               <p>Indian businesses are increasingly adopting it for five reasons:</p>
 
               <ol class="wp-block-list">
-                <li>
-                  <strong>Higher Agent Productivity:</strong>
-                  Agents don’t dial numbers; they just talk.
-                </li>
+                <li><strong>Higher Agent Productivity:</strong> Agents don’t dial numbers; they just talk.</li>
 
-                <li>
-                  <strong>Better Connect Rates:</strong>
-                  Runo offers SIM-based &amp; virtual number calling for a more “local” and trusted caller ID.
-                </li>
+                <li><strong>Better Connect Rates:</strong> Runo offers SIM-based &amp; virtual number calling for a more “local” and trusted caller ID.</li>
 
-                <li>
-                  <strong>Smart Lead Allocation:</strong>
-                  Auto-distributes leads to the right agents in real time.
-                </li>
+                <li><strong>Smart Lead Allocation:</strong> Auto-distributes leads to the right agents in real time.</li>
 
-                <li>
-                  <strong>Zero Missed Follow-ups:</strong>
-                  Auto reminders via calls and WhatsApp.
-                </li>
+                <li><strong>Zero Missed Follow-ups:</strong> Auto reminders via calls and WhatsApp.</li>
 
-                <li>
-                  <strong>AI &amp; Analytics:</strong>
-                  Sentiment analysis, quality scores, and real-time dashboards.
-                </li>
+                <li><strong>AI &amp; Analytics:</strong> Sentiment analysis, quality scores, and real-time dashboards.</li>
               </ol>
 
               <h2 class="wp-block-heading">Key Features Businesses Should Look for in Auto Dialer Software</h2>
@@ -1362,72 +1366,49 @@
 
               <ul class="wp-block-list">
                 <li>
-                  <strong>Advanced Caller ID</strong>
-                  <strong><br /></strong>
-                  Runo shows the caller name, context, and history before dialing, so every call starts with full lead awareness.
+                  <strong>Advanced Caller ID</strong><strong><br /></strong>Runo shows the caller name, context, and history before dialing, so every call starts with full lead awareness.
                 </li>
 
                 <li>
-                  <strong>Call Recording</strong>
-                  <strong><br /></strong>
-                  Every auto-dialed call is recorded for monitoring, training, and compliance.
+                  <strong>Call Recording</strong><strong><br /></strong> Every auto-dialed call is recorded for monitoring, training, and compliance.
                 </li>
 
                 <li>
-                  <strong>AI Call Summaries</strong>
-                  <strong><br /></strong>
-                  Instant call summaries eliminate the need to replay recordings or write notes manually.
+                  <strong>AI Call Summaries</strong><strong><br /></strong>Instant call summaries eliminate the need to replay recordings or write notes manually.
                 </li>
 
                 <li>
-                  <strong>AI Sentiment Analysis</strong>
-                  <strong><br /></strong>
-                  Auto analysis of tone and emotion helps gauge call effectiveness and customer response.
+                  <strong>AI Sentiment Analysis</strong><strong><br /></strong>Auto analysis of tone and emotion helps gauge call effectiveness and customer response.
                 </li>
 
                 <li>
-                  <strong>Auto Lead Allocation</strong>
-                  <strong><br /></strong>
-                  Leads are automatically assigned to agents to ensure faster response time and zero lead loss.
+                  <strong>Auto Lead Allocation</strong><strong><br /></strong>Leads are automatically assigned to agents to ensure faster response time and zero lead loss.
                 </li>
 
                 <li>
-                  <strong>Interaction Timeline</strong>
-                  <strong><br /></strong>
-                  All calls, WhatsApp chats, emails, and notes appear in one timeline for complete lead tracking.
+                  <strong>Interaction Timeline</strong><strong><br /></strong>All calls, WhatsApp chats, emails, and notes appear in one timeline for complete lead tracking.
                 </li>
 
                 <li>
-                  <strong>CRM Field Customisation</strong>
-                  <strong><br /></strong>
-                  Businesses can customize fields, workflows, and lead stages without technical support.
+                  <strong>CRM Field Customisation</strong><strong><br /></strong>Businesses can customize fields, workflows, and lead stages without technical support.
                 </li>
 
                 <li>
-                  <strong>Live Team Status</strong>
-                  <strong><br /></strong>
-                  Managers can monitor real-time agent status, including availability, on-call status, and offline status.
+                  <strong>Live Team Status</strong><strong><br /></strong>Managers can monitor real-time agent status, including availability, on-call status, and offline status.
                 </li>
 
                 <li>
-                  <strong>Real-Time Dashboards</strong>
-                  <strong><br /></strong>
-                  Dashboards show call volume, connect rate, agent performance, lead status, and progress in real time.
+                  <strong>Real-Time Dashboards</strong><strong><br /></strong>Dashboards show call volume, connect rate, agent performance, lead status, and progress in real time.
                 </li>
 
                 <li>
-                  <strong>Follow-Up Notifications</strong>
-                  <strong><br /></strong>
-                  Automatic alerts help agents take timely follow-ups with the right leads at the right time.
+                  <strong>Follow-Up Notifications</strong><strong><br /></strong> Automatic alerts help agents take timely follow-ups with the right leads at the right time.
                 </li>
               </ul>
 
               <h3 class="wp-block-heading"><strong>2. Acefone: Best for Call Centers &amp; Enterprise Telecalling</strong></h3>
 
-              <p>
-                <a href="https://www.acefone.com/" target="_blank" rel="noopener">Acefone</a>
-                caters to high-volume, professional call centers needing blended inbound-outbound dialing, intelligent routing, real-time monitoring, and advanced scripting. It offers enterprise-grade reliability, scalability, and 24/7 support for mission-critical communication.
-              </p>
+              <p><a href="https://www.acefone.com/" target="_blank" rel="noopener">Acefone</a> caters to high-volume, professional call centers needing blended inbound-outbound dialing, intelligent routing, real-time monitoring, and advanced scripting. It offers enterprise-grade reliability, scalability, and 24/7 support for mission-critical communication.</p>
 
               <ul class="wp-block-list">
                 <li>Predictive, preview, progressive, power dialers</li>
@@ -1441,10 +1422,7 @@
 
               <h3 class="wp-block-heading"><strong>3. Exotel: Best for Enterprise Communication Workflows</strong></h3>
 
-              <p>
-                <a href="https://exotel.com/products/auto-dialer/" target="_blank" rel="noopener">Exotel</a>
-                is an end-to-end enterprise contact center platform built for omnichannel engagement, combining voice, WhatsApp, SMS, chatbots, and call routing. It streamlines customer support, sales, and automation workflows at scale.
-              </p>
+              <p><a href="https://exotel.com/products/auto-dialer/" target="_blank" rel="noopener">Exotel</a> is an end-to-end enterprise contact center platform built for omnichannel engagement, combining voice, WhatsApp, SMS, chatbots, and call routing. It streamlines customer support, sales, and automation workflows at scale.</p>
 
               <ul class="wp-block-list">
                 <li>Contact center suite</li>
@@ -1456,15 +1434,9 @@
                 <li>Mobile app access</li>
               </ul>
 
-              <h3 class="wp-block-heading">
-                <strong>4.</strong>
-                <strong>CallHippo: Best for Global Outbound Sales Teams</strong>
-              </h3>
+              <h3 class="wp-block-heading"><strong>4. </strong><strong>CallHippo: Best for Global Outbound Sales Teams</strong></h3>
 
-              <p>
-                <a href="https://callhippo.com/" target="_blank" rel="noopener">CallHippo</a>
-                is ideal for startups, BPOs, and international sales teams that need global calling capabilities, local caller IDs, smart routing, CRM integrations, and real-time coaching.
-              </p>
+              <p><a href="https://callhippo.com/" target="_blank" rel="noopener">CallHippo</a> is ideal for startups, BPOs, and international sales teams that need global calling capabilities, local caller IDs, smart routing, CRM integrations, and real-time coaching.</p>
 
               <ul class="wp-block-list">
                 <li>Global outbound routing</li>
@@ -1476,10 +1448,7 @@
 
               <h3 class="wp-block-heading"><strong>5. ClearTouch: Best for Startups with Per-Minute Calling</strong></h3>
 
-              <p>
-                <a href="https://www.cleartouch.in/" target="_blank" rel="noopener">ClearTouch</a>
-                offers a lightweight, affordable auto dialer solution that scales with your team. It is good for startups needing quick deployment, per-minute pricing, CRM compatibility, and essential analytics without enterprise complexity.
-              </p>
+              <p><a href="https://www.cleartouch.in/" target="_blank" rel="noopener">ClearTouch</a> offers a lightweight, affordable auto dialer solution that scales with your team. It is good for startups needing quick deployment, per-minute pricing, CRM compatibility, and essential analytics without enterprise complexity.</p>
 
               <ul class="wp-block-list">
                 <li>Auto dialing and call management</li>
@@ -1771,15 +1740,7 @@
           <div class="row align-items-center">
             <div class="col-md-4">
               <div class="footer-copyright-text">
-                <p>
-                  &copy;
-                  <span id="currentYear"></span>
-                  Runo. All Rights Reserved.
-                </p>
-
-                <script>
-                  document.getElementById("currentYear").textContent = new Date().getFullYear();
-                </script>
+                <p>&copy; 2025 Runo. All Rights Reserved.</p>
               </div>
             </div>
             <div class="col-md-8">
