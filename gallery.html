@@ -2964,9 +2964,13 @@
       style="border-radius:12px;">
     </iframe>
   `;
-            } else {
+            } else if (item.type === "image") {
               modalBody.innerHTML = `
         <img src="${item.src}" style="max-width:100%; max-height:70vh; border-radius:12px;" />
+      `;
+            } else {
+              modalBody.innerHTML = `
+        <img src="${item}" style="max-width:100%; max-height:70vh; border-radius:12px;" />
       `;
             }
           }
