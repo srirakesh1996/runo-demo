@@ -61,30 +61,48 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
-
     <script>
       setTimeout(function () {
-        // 1️⃣ Load jQuery
+        /* ===============================
+       1️⃣ Load jQuery
+    =============================== */
         const jq = document.createElement("script");
         jq.src = "/js/jquery-3.7.1.min.js";
 
         jq.onload = function () {
           console.log("✅ jQuery loaded");
 
-          // 2️⃣ Load intl-tel-input AFTER jQuery
+          /* ===============================
+         2️⃣ Load intl-tel-input
+      =============================== */
           const iti = document.createElement("script");
           iti.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js";
 
           iti.onload = function () {
             console.log("✅ intl-tel-input loaded");
 
-            // 3️⃣ Run your existing code
             if (typeof initFormScripts === "function") {
-              initFormScripts(); // 🔥 this makes it work
+              initFormScripts(); // ✅ form logic
             }
           };
 
           document.body.appendChild(iti);
+
+          /* ===============================
+         3️⃣ Load Swiper
+      =============================== */
+          const swiper = document.createElement("script");
+          swiper.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+
+          swiper.onload = function () {
+            console.log("✅ Swiper loaded");
+
+            if (typeof initAllSwipers === "function") {
+              initAllSwipers(); // 🔥 all sliders
+            }
+          };
+
+          document.body.appendChild(swiper);
         };
 
         document.body.appendChild(jq);
@@ -3115,6 +3133,45 @@
               </div>
               <!-- End swiper -->
             </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                if (!document.querySelector(".testimonial-slider")) return;
+
+                var swiper = new Swiper(".testimonial-slider .swiper", {
+                  slidesPerView: 2.5,
+                  speed: 1000,
+                  spaceBetween: 30,
+                  loop: true,
+                  autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                  },
+                  navigation: {
+                    nextEl: ".testimonial-next-btn",
+                    prevEl: ".testimonial-prev-btn"
+                  },
+                  breakpoints: {
+                    0: {
+                      slidesPerView: 1,
+                      spaceBetween: 12
+                    },
+                    800: {
+                      slidesPerView: 2,
+                      spaceBetween: 30
+                    },
+                    990: {
+                      slidesPerView: 2,
+                      spaceBetween: 30
+                    },
+                    1200: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 30
+                    }
+                  }
+                });
+              });
+            </script>
+
             <div class="testimonial-arrows">
               <div class="testimonial-nav-buttons gap-2">
                 <button class="testimonial-prev-btn">
@@ -3457,7 +3514,6 @@
     <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
     <script src="/js/function.js" defer></script>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const helloBar = document.getElementById("helloBar");
