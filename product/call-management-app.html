@@ -61,10 +61,53 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
+    <script>
+      setTimeout(function () {
+        /* ===============================
+       1️⃣ Load jQuery
+    =============================== */
+        const jq = document.createElement("script");
+        jq.src = "/js/jquery-3.7.1.min.js";
 
-    <!-- JS (defer) -->
-    <script src="/js/jquery-3.7.1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+        jq.onload = function () {
+          console.log("✅ jQuery loaded");
+
+          /* ===============================
+         2️⃣ Load intl-tel-input
+      =============================== */
+          const iti = document.createElement("script");
+          iti.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js";
+
+          iti.onload = function () {
+            console.log("✅ intl-tel-input loaded");
+
+            if (typeof initFormScripts === "function") {
+              initFormScripts(); // ✅ form logic
+            }
+          };
+
+          document.body.appendChild(iti);
+
+          /* ===============================
+         3️⃣ Load Swiper
+      =============================== */
+          const swiper = document.createElement("script");
+          swiper.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+
+          swiper.onload = function () {
+            console.log("✅ Swiper loaded");
+
+            if (typeof initAllSwipers === "function") {
+              initAllSwipers(); // 🔥 all sliders
+            }
+          };
+
+          document.body.appendChild(swiper);
+        };
+
+        document.body.appendChild(jq);
+      }, 4000);
+    </script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -2877,18 +2920,46 @@
       </div>
     </section>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper(".swiper-container", {
-          loop: true,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-          },
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-custom-next",
-            prevEl: ".swiper-custom-prev"
+      function initAllSwipers() {
+        if (typeof Swiper === "undefined") return;
+
+        document.querySelectorAll(".swiper-container").forEach(function (el) {
+          // Prevent double init
+          if (el.classList.contains("swiper-initialized")) return;
+
+          // ❗ Skip if hidden (desktop)
+          if (el.offsetWidth === 0 || el.offsetHeight === 0) return;
+
+          const nextBtn = el.querySelector(".swiper-custom-next");
+          const prevBtn = el.querySelector(".swiper-custom-prev");
+
+          const swiper = new Swiper(el, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false
+            },
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn
+            },
+            observer: true,
+            observeParents: true,
+            watchOverflow: true
+          });
+
+          // Force recalculation (important for delayed load)
+          setTimeout(() => swiper.update(), 50);
+        });
+      }
+
+      // 🔁 Re-init when switching to mobile
+      window.addEventListener("resize", function () {
+        document.querySelectorAll(".swiper-container").forEach((el) => {
+          if (el.offsetWidth > 0 && !el.classList.contains("swiper-initialized")) {
+            initAllSwipers();
           }
         });
       });
@@ -3090,6 +3161,7 @@
               </div>
               <!-- End swiper -->
             </div>
+
             <div class="testimonial-arrows">
               <div class="testimonial-nav-buttons gap-2">
                 <button class="testimonial-prev-btn">
@@ -3101,6 +3173,58 @@
               </div>
             </div>
             <!-- End testimonial-slider -->
+
+            <script>
+              (function waitForSwiper() {
+                if (typeof Swiper === "undefined") {
+                  // Swiper not loaded yet, retry
+                  setTimeout(waitForSwiper, 100);
+                  return;
+                }
+
+                const swiperEl = document.querySelector(".testimonial-slider .swiper");
+                if (!swiperEl || swiperEl.classList.contains("swiper-initialized")) return;
+
+                const section = document.querySelector(".our-tesimonial-page");
+                const prevBtn = section.querySelector(".testimonial-prev-btn");
+                const nextBtn = section.querySelector(".testimonial-next-btn");
+
+                const swiper = new Swiper(swiperEl, {
+                  slidesPerView: 2.5,
+                  speed: 1000,
+                  spaceBetween: 30,
+                  loop: true,
+                  autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                  },
+                  navigation: {
+                    prevEl: prevBtn,
+                    nextEl: nextBtn
+                  },
+                  breakpoints: {
+                    0: {
+                      slidesPerView: 1,
+                      spaceBetween: 12
+                    },
+                    800: {
+                      slidesPerView: 2,
+                      spaceBetween: 30
+                    },
+                    1200: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 30
+                    }
+                  },
+                  observer: true,
+                  observeParents: true,
+                  watchOverflow: true
+                });
+
+                // Fix late-load sizing issues
+                setTimeout(() => swiper.update(), 50);
+              })();
+            </script>
           </div>
         </div>
       </div>
@@ -3427,7 +3551,7 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="/js/jquery.slicknav.js" defer></script>
@@ -3560,7 +3684,8 @@
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      function initFormScripts() {
+        if (typeof jQuery === "undefined" || typeof window.intlTelInput === "undefined") return;
         jQuery(function ($) {
           const phoneInput = document.querySelector("#phone");
           const iti = window.intlTelInput(phoneInput, {
@@ -3765,7 +3890,7 @@
             submitForm("demo-form", formData, uuid);
           });
         });
-      });
+      }
     </script>
     <script type="application/ld+json">
       {
