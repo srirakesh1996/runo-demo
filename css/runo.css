@@ -2481,7 +2481,7 @@ h2 button {
 }
 
 .center-image {
-  width: 60%;
+  width: 90%;
   max-width: 500px;
   z-index: 1;
   border-radius: 12px;
@@ -2535,7 +2535,7 @@ h2 button {
   }
 
   .center-image {
-    width: 80%;
+    width: 90%;
   }
 }
 

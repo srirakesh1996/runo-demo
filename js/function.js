@@ -71,6 +71,42 @@
     }
   });
 
+  /* testimonial Slider JS */
+  if ($(".testimonial-slider").length) {
+    const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
+      slidesPerView: 2.5, // Default: 1 slide on mobile and tablet
+      speed: 1000,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000
+      },
+      navigation: {
+        nextEl: ".testimonial-next-btn",
+        prevEl: ".testimonial-prev-btn"
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 12
+        },
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+        990: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+
+        1200: {
+          slidesPerView: 2.5,
+          spaceBetween: 30
+        }
+      }
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".track-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
