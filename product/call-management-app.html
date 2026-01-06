@@ -4,56 +4,67 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>SIM-Based Call Management App for Teams | Runo CRM</title>
-    <meta name="description" content="Transform sales calling with Runo, the world’s first SIM-based call management app." />
+    <meta name="description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
     <link rel="canonical" href="https://runo.ai/product/call-management-app" />
     <meta name="robots" content="index, follow" />
-
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
-    <meta property="og:description" content="Transform sales calling with Runo." />
+    <meta property="og:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
     <meta property="og:image" content="https://runo.ai/img/og/call-management.png" />
     <meta property="og:url" content="https://runo.ai/product/call-management-app" />
-
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
-    <meta name="twitter:description" content="Transform sales calling with Runo." />
+    <meta name="twitter:description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
     <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png" />
+    <meta name="twitter:url" content="https://runo.ai/product/call-management-app" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
 
-    <link rel="icon" href="/img/favicon.ico" sizes="16x16" />
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/img/call-management/call-management.avif" type="image/avif" fetchpriority="high" />
 
-    <!-- LCP Image -->
-    <link rel="preload" as="image" href="/img/call-management/call-management.avif" fetchpriority="high" />
-
-    <!-- Fonts -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" /></noscript>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
 
-    <!-- CSS -->
+    <!-- CSS Preload + Load -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="/css/custom.css" />
-    <link rel="preload" href="/css/runo.css" as="style" onload="this.rel='stylesheet'" />
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome (async) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
-    <!-- Swiper CSS (mobile only) -->
+    <!-- Swiper CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
     <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
+    <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
+
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -82,27 +93,6 @@
       });
     </script>
     <!-- End Google Tag Manager -->
-    <script>
-      setTimeout(() => {
-        // Facebook Pixel
-        !(function (f, b, e, v, n, t, s) {
-          if (f.fbq) return;
-          n = f.fbq = function () {
-            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-          };
-          if (!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = "2.0";
-          n.queue = [];
-          t = b.createElement(e);
-          t.async = !0;
-          t.src = v;
-          s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s);
-        })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      }, 4000);
-    </script>
     <script type="text/javascript">
       // ✅ Initialize CleverTap object
       var clevertap = {
@@ -132,6 +122,7 @@
         s.parentNode.insertBefore(wzrk, s);
       })();
     </script>
+
     <!-- Inline Critical Font-Face (latin only for Inter) -->
     <style>
       @font-face {
@@ -186,6 +177,9 @@
         .submenu-list .menu-head {
           padding: 0px 10px !important;
         }
+      }
+      .swiper-wrapper {
+        flex-wrap: nowrap !important;
       }
     </style>
     <style>
@@ -2825,7 +2819,7 @@
           </div>
         </div>
         <!-- Mobile Swiper Layout -->
-        <div class="swiper-container d-block d-md-none mt-4" id="featuresSwiper">
+        <div class="swiper-container d-block d-md-none mt-4">
           <div class="swiper-wrapper text-center">
             <div class="swiper-slide">
               <img src="/img/feature/caller_id.avif" class="img-fluid mb-2" alt="Advanced Caller ID" />
@@ -2885,6 +2879,55 @@
         </div>
       </div>
     </section>
+    <script>
+      (function () {
+        let swiperInitialized = false;
+
+        function initSwiper() {
+          if (swiperInitialized || !window.Swiper) return;
+
+          const el = document.querySelector(".swiper-container");
+          if (!el) return;
+
+          swiperInitialized = true;
+
+          new Swiper(el, {
+            slidesPerView: 1,
+            spaceBetween: 10,
+
+            /* 🔥 CPU killers OFF */
+            loop: false,
+            autoplay: false,
+
+            /* 🔥 Reduce layout work */
+            observer: false,
+            observeParents: false,
+            watchOverflow: true,
+
+            navigation: {
+              nextEl: ".swiper-custom-next",
+              prevEl: ".swiper-custom-prev"
+            }
+          });
+        }
+
+        /* Init only when user scrolls near section */
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              initSwiper();
+              observer.disconnect();
+            }
+          },
+          { rootMargin: "200px" }
+        );
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const target = document.querySelector("#features");
+          if (target) observer.observe(target);
+        });
+      })();
+    </script>
 
     <section class="security-features-section pt-3">
       <div class="container py-5">
@@ -3093,95 +3136,62 @@
               </div>
             </div>
             <!-- End testimonial-slider -->
-            <script>
-              (function () {
-                let swiperLoaded = false;
-
-                function loadSwiper(cb) {
-                  if (swiperLoaded) return cb();
-
-                  const s = document.createElement("script");
-                  s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-                  s.async = true;
-
-                  s.onload = () => {
-                    swiperLoaded = true;
-                    cb();
-                  };
-
-                  document.body.appendChild(s);
-                }
-
-                function initFeaturesSwiper() {
-                  const el = document.querySelector("#featuresSwiper");
-                  if (!el || el.dataset.init) return;
-
-                  if (window.innerWidth >= 768) return;
-                  if (el.querySelectorAll(".swiper-slide").length <= 1) return;
-
-                  el.dataset.init = "true";
-
-                  new Swiper(el, {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                    loop: true,
-                    autoplay: { delay: 3500, disableOnInteraction: false },
-                    navigation: {
-                      nextEl: ".swiper-custom-next",
-                      prevEl: ".swiper-custom-prev"
-                    }
-                  });
-                }
-
-                function initTestimonialSwiper() {
-                  const el = document.querySelector(".testimonial-slider .swiper");
-                  if (!el || el.dataset.init) return;
-
-                  el.dataset.init = "true";
-
-                  new Swiper(el, {
-                    loop: true,
-                    speed: 1000,
-                    autoplay: { delay: 5000 },
-                    navigation: {
-                      nextEl: ".testimonial-next-btn",
-                      prevEl: ".testimonial-prev-btn"
-                    },
-                    breakpoints: {
-                      0: { slidesPerView: 1, spaceBetween: 12 },
-                      800: { slidesPerView: 2, spaceBetween: 30 },
-                      1200: { slidesPerView: 2.5, spaceBetween: 30 }
-                    }
-                  });
-                }
-
-                function observe(selector, initFn) {
-                  const target = document.querySelector(selector);
-                  if (!target) return;
-
-                  const io = new IntersectionObserver(
-                    (entries, obs) => {
-                      if (entries[0].isIntersecting) {
-                        obs.disconnect();
-                        loadSwiper(initFn);
-                      }
-                    },
-                    { rootMargin: "200px" }
-                  );
-
-                  io.observe(target);
-                }
-
-                document.addEventListener("DOMContentLoaded", () => {
-                  observe("#features", initFeaturesSwiper);
-                  observe(".our-tesimonial-page", initTestimonialSwiper);
-                });
-              })();
-            </script>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      (function () {
+        let initialized = false;
+
+        function initTestimonialSwiper() {
+          if (initialized || !window.Swiper) return;
+
+          const el = document.querySelector(".testimonial-slider .swiper");
+          if (!el) return;
+
+          initialized = true;
+          new Swiper(el, {
+            speed: 800,
+            loop: false,
+            autoplay: false,
+
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
+
+            navigation: {
+              nextEl: ".testimonial-next-btn",
+              prevEl: ".testimonial-prev-btn"
+            },
+
+            breakpoints: {
+              0: { slidesPerView: 1, spaceBetween: 12 },
+              768: { slidesPerView: 2, spaceBetween: 24 },
+              1200: { slidesPerView: 2.5, spaceBetween: 30 }
+            }
+          });
+        }
+
+        /* Lazy init only when visible */
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              initTestimonialSwiper();
+              observer.disconnect();
+            }
+          },
+          { rootMargin: "200px" }
+        );
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const section = document.querySelector(".our-tesimonial-page");
+          if (section) observer.observe(section);
+        });
+      })();
+    </script>
+
     <!-- Page Faqs Start -->
     <div class="page-faqs">
       <div class="container">
@@ -3504,9 +3514,16 @@
         </div>
       </div>
     </div>
-    <!-- JS (defer) -->
-    <script src="/js/jquery-3.7.1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+    <script>
+      (function () {
+        if (!document.querySelector(".swiper")) return;
+
+        const s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+        s.defer = true;
+        document.body.appendChild(s);
+      })();
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
@@ -3661,7 +3678,7 @@
                 });
             },
             separateDialCode: true,
-            utilsScript: "../js/utils.js"
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
           });
 
           const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
