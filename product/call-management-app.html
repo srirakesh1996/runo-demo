@@ -66,43 +66,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     </noscript>
-    <script>
-      let formScriptsLoaded = false;
-
-      setTimeout(function () {
-        if (formScriptsLoaded) return;
-        formScriptsLoaded = true;
-
-        /* 1️⃣ Load jQuery */
-        const jq = document.createElement("script");
-        jq.src = "/js/jquery-3.7.1.min.js";
-        jq.async = true;
-
-        jq.onload = function () {
-          console.log("✅ jQuery loaded");
-
-          /* 2️⃣ Load intl-tel-input */
-          const iti = document.createElement("script");
-          iti.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js";
-          iti.async = true;
-
-          iti.onload = function () {
-            console.log("✅ intl-tel-input loaded");
-
-            // ✅ Ensure DOM is ready before init
-            if (document.readyState === "loading") {
-              document.addEventListener("DOMContentLoaded", initFormScripts);
-            } else {
-              initFormScripts();
-            }
-          };
-
-          document.body.appendChild(iti);
-        };
-
-        document.body.appendChild(jq);
-      }, 3000);
-    </script>
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -3666,15 +3632,7 @@
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
     <script>
-      function initFormScripts() {
-        if (typeof jQuery === "undefined" || typeof window.intlTelInput === "undefined") {
-          return;
-        }
-
-        // 🔒 Prevent double init
-        if (window.__formInitDone) return;
-        window.__formInitDone = true;
-
+      document.addEventListener("DOMContentLoaded", function () {
         jQuery(function ($) {
           const phoneInput = document.querySelector("#phone");
           const iti = window.intlTelInput(phoneInput, {
@@ -3879,7 +3837,7 @@
             submitForm("demo-form", formData, uuid);
           });
         });
-      }
+      });
     </script>
     <script type="application/ld+json">
       {
