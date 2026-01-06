@@ -72,7 +72,7 @@
   });
 
   /* testimonial Slider JS */
-  if ($(".testimonial-slider").length) {
+  /*if ($(".testimonial-slider").length) {
     const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
       slidesPerView: 2.5, // Default: 1 slide on mobile and tablet
       speed: 1000,
@@ -106,7 +106,7 @@
       }
     });
   }
-
+*/
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".track-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
