@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Runo Blogs</title>
-    <meta name="description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <!-- Updated Open Graph tags -->
-    <meta property="og:title" content="Runo Blogs" />
-    <meta property="og:description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <!-- Updated Twitter tags -->
-    <meta name="twitter:title" content="Runo Blogs" />
-    <meta name="twitter:description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <link rel="canonical" href="https://runo.ai/blog/" />
+    <!-- SEO Meta Tags -->
+    <title>What is Call Analytics? Benefits, Features & Key Metrics</title>
+    <meta name="description" content="What is Call Analytics? Read this beginner-friendly guide to understand how AI turns phone calls into insights that improve decisions and performance." />
+    <!-- Updated Open Graph Tags -->
+    <meta property="og:title" content="What is Call Analytics? Benefits, Features & Key Metrics" />
+    <meta property="og:description" content="What is Call Analytics? Read this beginner-friendly guide to understand how AI turns phone calls into insights that improve decisions and performance." />
+    <!-- Updated Twitter Tags -->
+    <meta name="twitter:title" content="What is Call Analytics? Benefits, Features & Key Metrics" />
+    <meta name="twitter:description" content="What is Call Analytics? Read this beginner-friendly guide to understand how AI turns phone calls into insights that improve decisions and performance." />
+    <link rel="canonical" href="https://runo.ai/blog/what-is-call-analytics" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
@@ -20,11 +21,11 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://runo.ai/img/share-image.png" />
-    <meta property="og:url" content="https://runo.ai/img/share-image.png" />
+    <meta property="og:url" content="https://runo.ai/blog/what-is-call-analytics" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://runo.ai/img/share-image.png" />
-    <meta name="twitter:url" content="https://runo.ai/img/share-image.png" />
+    <meta name="twitter:url" content="https://runo.ai/blog/what-is-call-analytics" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16" />
     <link rel="preload" as="style" href="css/bootstrap.min.css" />
@@ -73,6 +74,100 @@
       })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <style>
+      .related-articles {
+        margin-top: 20px;
+        text-align: left;
+      }
+      .related-articles h3 {
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .related-articles ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        color: #000;
+      }
+      .related-articles ul li {
+        margin: 7px 0px;
+      }
+      .related-articles a {
+        text-decoration: none;
+        color: #f44336;
+        font-size: 18px;
+        margin: 5px 0px;
+      }
+      .related-articles a:hover {
+        text-decoration: underline;
+        color: #f44336;
+      }
+      .wp-block-table {
+        overflow-x: auto;
+      }
+      .wp-block-table .has-fixed-layout td,
+      .wp-block-table .has-fixed-layout th {
+        word-break: break-word;
+      }
+    </style>
+    <style>
+      .blog-content p {
+        margin-bottom: 7px;
+      }
+      .wp-block-image {
+        width: 80%;
+        margin: 15px auto !important;
+      }
+      .blog-content h2 {
+        margin-bottom: 20px !important;
+        font-size: 30px !important;
+        font-weight: 400 !important;
+      }
+      .blog-content h3 {
+        margin-bottom: 10px !important;
+        font-weight: 600 !important;
+        font-size: 20px !important;
+      }
+      .blog-content h4 {
+        margin-bottom: 10px !important;
+        font-weight: 600 !important;
+        font-size: 17px !important;
+      }
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+      }
+      .has-fixed-layout {
+        width: 100%; /* wider than viewport to enable scrolling */
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-bottom: 25px !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .wp-block-image {
+          width: 100%;
+          margin: 0 auto !important;
+        }
+        .blog-content h2 {
+          font-size: 22px !important;
+        }
+        .blog-content h3 {
+          font-size: 18px !important;
+        }
+        .blog-content h4 {
+          font-size: 15px !important;
+        }
+      }
+      .has-fixed-layout td,
+      .has-fixed-layout th {
+        border: 1px solid #ccc;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+      .has-fixed-layout tr:nth-child(1) td {
+        font-weight: bold;
+        background-color: #f5f5f5;
+      }
       .product .card-text {
         font-size: 15px !important;
         display: -webkit-box;
@@ -83,6 +178,140 @@
         text-overflow: ellipsis;
         min-height: 44px;
         /* optional: keeps card heights consistent */
+      }
+      .progress-container {
+        width: 100%;
+        height: 8px;
+        background: #f3f3f3;
+        position: fixed;
+        top: 85px;
+        left: 0;
+        z-index: 99;
+        transition: top 0.3s ease;
+      }
+      .progress-bar {
+        height: 100%;
+        background-color: #f44336;
+        width: 0%;
+        transition: width 0.2s ease;
+      }
+      @media (max-width: 768px) {
+        .progress-container {
+          top: 68px !important;
+        }
+        .progress-container.scrolled {
+          top: 75px !important;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1038px) {
+        .progress-container {
+          top: 90px !important;
+        }
+        .progress-container.scrolled {
+          top: 90px !important;
+        }
+      }
+      @media (min-width: 1040px) and (max-width: 1366px) {
+        .progress-container {
+          top: 83px !important;
+        }
+        .progress-container.scrolled {
+          top: 83px !important;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 991px) {
+        .progress-container {
+          top: 69px !important;
+        }
+        .progress-container.scrolled {
+          top: 69px !important;
+        }
+      }
+      @media (min-width: 1367px) {
+        .progress-container {
+          top: 86px !important;
+        }
+        .progress-container.scrolled {
+          top: 86px !important;
+        }
+      }
+      @media (min-width: 1600px) {
+        .progress-container {
+          top: 89px !important;
+        }
+        .progress-container.scrolled {
+          top: 89px !important;
+        }
+      }
+      .active > .page-link,
+      .page-link.active {
+        z-index: 3;
+        color: var(--bs-pagination-active-color);
+        background-color: #f44336 !important;
+        border-color: #f44336 !important;
+      }
+      .page-link {
+        color: #f44336 !important;
+      }
+      .active > .page-link,
+      .page-link.active {
+        color: #fff !important;
+      }
+      .page-link:focus {
+        z-index: 3;
+        color: var(--bs-pagination-focus-color);
+        background-color: var(--bs-pagination-focus-bg);
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 29%) !important;
+      }
+      .blogs .card-title {
+        line-height: 1.5;
+      }
+      .blog-desc {
+        font-size: 15px !important;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Truncate after 2 lines */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .blog-content {
+        color: #222222;
+      }
+      .blog-feat {
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+      .wp-block-image img {
+        width: 70% !important;
+        margin: 15px auto !important;
+        display: block !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .wp-block-image img {
+          width: 100% !important;
+        }
+        .blog-feat {
+          width: 100%;
+        }
+      }
+      .post-content .blog-content {
+        text-align: left !important;
+      }
+      .banner-blog {
+        padding: 20px;
+        margin: 20px auto;
+        width: 60%;
+        background: #f44336;
+        border-radius: 20px;
+      }
+      @media only screen and (max-width: 600px) {
+        .banner-blog {
+          width: 100%;
+        }
       }
     </style>
 
@@ -130,6 +359,42 @@
       </div>
     </div>
     <!-- Preloader End -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <script>
+      jQuery(document).ready(function ($) {
+        var progressBar = $("#progressBar");
+        var progressContainer = $(".progress-container");
+
+        $(window).on("scroll", function () {
+          var scrollTop = $(document).scrollTop();
+          var scrollHeight = $(document).height() - $(window).height();
+          var scrolled = (scrollTop / scrollHeight) * 100;
+
+          progressBar.css("width", scrolled + "%");
+
+          // Show progress bar only after 10% scroll
+          if (scrolled >= 5) {
+            progressContainer.fadeIn(200);
+          } else {
+            progressContainer.fadeOut(200);
+          }
+
+          // Apply scroll class only on desktop
+          if (window.innerWidth >= 768) {
+            if (scrollTop > 0) {
+              progressContainer.addClass("scrolled");
+            } else {
+              progressContainer.removeClass("scrolled");
+            }
+          }
+        });
+
+        // Hide initially
+        progressContainer.hide();
+      });
+    </script>
     <!-- Modal -->
     <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
       <div class="modal-dialog modal-dialog-centered">
@@ -394,7 +659,7 @@
             }, {});
 
           formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog";
+          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog Pages";
 
           const uuid = $(this).data("uuid");
 
@@ -949,753 +1214,569 @@
       </div>
     </header>
     <!-- Header End -->
-    <style>
-      .blogs .card-body {
-        margin-top: 5px !important;
-      }
-      .blog-card {
-        height: 100%;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-      .blog-card .card-head {
-        max-width: 100%;
-      }
-      .blog-card .card-head img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .blog-card .card-body {
-        flex: 1 1 60%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .blog-card .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      .card-text.blog-desc {
-        /* Limit to two lines and truncate if needed */
-        margin-top: 7px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* Truncate after 2 lines */
-        line-clamp: 3;
-        -webkit-box-orient: vertical; /* Stack the lines vertically */
-        overflow: hidden; /* Hide excess text */
-        text-overflow: ellipsis; /* Show "..." when truncated */
-      }
-      .card-body .blog-link {
-        color: #000 !important;
-      }
-      .blog-date {
-        color: #646465;
-        font-size: 12px;
-        margin-bottom: 0.5rem;
-      }
-    </style>
-    <div class="blogs">
-      <div class="container py-5">
-        <h1 class="mb-20 text-center">Latest Blog Posts</h1>
-        <div id="blogList" class="row row-cols-1 row-cols-md-3 g-4">
-          <!--<div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <img src="blogs/29/types-callcenter.png" alt="What Is Cloud Telephony? Meaning, Features & Benefits" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 22, 2025</div>
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <h5 class="card-title">What Is Cloud Telephony? Meaning, Features & Benefits</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what cloud telephony is, how it works, key features, benefits, and real examples. A beginner-friendly guide with a smarter alternative like Runo.</p>
-                <a href="what-is-cloud-telephony" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+    <div class="container-fluid py-5">
+      <div class="row">
+        <!-- TOC Column - Hidden on small devices -->
+        <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
+               <div class="sticky-top" style="top: 100px">
 
-          <!--
-                    <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <img src="blogs/29/types-callcenter.png" alt="Top 10 Cloud Telephony Providers in India (2026 Guide)" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 22, 2025</div>
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <h5 class="card-title">Top 10 Cloud Telephony Providers in India (2026 Guide)</h5>
-                </a>
-                <p class="card-text blog-desc">Explore the top cloud telephony providers in India, compare features, pricing, reviews, and use cases to choose the best solution for your business.</p>
-                <a href="top-cloud-telephony-providers-in-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
-          -->
+                 <div class="mb-3">
+                   <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
+                 </div>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-call-analytics">
-                  <img src="blogs/31/call-analytics.png" alt="What is Call Analytics? Benefits, Features & Key Metrics" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 08, 2026</div>
-                <a class="blog-link" href="what-is-call-analytics">
-                  <h5 class="card-title">What is Call Analytics? Benefits, Features & Key Metrics</h5>
-                </a>
-                <p class="card-text blog-desc">What is Call Analytics? Read this beginner-friendly guide to understand how AI turns phone calls into insights that improve decisions and performance.</p>
-                <a href="what-is-call-analytics" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-telecalling-scripts-for-higher-conversions">
-                  <img src="blogs/30/telecalling-scripts.png" alt="Best Telecaller Calling Scripts for Higher Conversion Rates" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 07, 2026</div>
-                <a class="blog-link" href="best-telecalling-scripts-for-higher-conversions">
-                  <h5 class="card-title">Best Telecaller Calling Scripts for Higher Conversion Rates</h5>
-                </a>
-                <p class="card-text blog-desc">Get the best telecalling scripts for higher conversion rates. Simple language, real call examples, and proven tips to turn more leads into customers.</p>
-                <a href="best-telecalling-scripts-for-higher-conversions" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                 <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
+                   <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
+                   <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
+                   <a href="#" class="header-btn track-btn" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Blogs">Request a Demo</a>
+                 </div>
+               </div>
+               </div>
+               -->
+        <!-- Blog Content Column -->
+        <div class="col-md-10 text-center mb-3" style="display: block; margin: 0 auto">
+          <h1 class="blog-title mb-4">What is Call Analytics? Benefits, Features & Key Metrics</h1>
+          <div class="blog-date-big text-center small">Published Date : January 08, 2026</div>
+          <img src="blogs/31/call-analytics.png" alt="What is Call Analytics? Benefits, Features & Key Metrics" class="img-fluid mb-4 blog-feat" />
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="types-of-call-centres-explained">
-                  <img src="blogs/29/types-callcenter.png" alt="Types of Call Centres Explained: Inbound, Outbound & More" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 17, 2025</div>
-                <a class="blog-link" href="types-of-call-centres-explained">
-                  <h5 class="card-title">Types of Call Centres Explained: Inbound, Outbound & More</h5>
-                </a>
-                <p class="card-text blog-desc">Learn the different types of call centres, including inbound, outbound, blended, virtual, multichannel, and omnichannel, with use cases and benefits.</p>
-                <a href="types-of-call-centres-explained" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+          <div class="post-content text-left">
+            <div class="blog-content">
+              <p>Call analytics is the process of collecting and analysing phone call data to improve business decisions. It goes beyond basic call logs by using AI to understand call sentiment, keywords, and conversation trends.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-crm-for-telemarketing">
-                  <img src="blogs/28/call-center.png" alt=" Best CRM for Telemarketing to Boost Sales Performance" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 17, 2025</div>
-                <a class="blog-link" href="best-crm-for-telemarketing">
-                  <h5 class="card-title">Best CRM for Telemarketing to Boost Sales Performance</h5>
-                </a>
-                <p class="card-text blog-desc">Find the best CRM for telemarketing to improve calling speed, track leads, automate follow-ups, and boost sales. Compare top tools like Runo, Zoho & HubSpot.</p>
-                <a href="best-crm-for-telemarketing" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>This analysis turns raw call data into actionable insights. Businesses use these insights to improve marketing performance, increase sales efficiency, enhance customer experience, and control operational costs.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="auto-dialer-software-india">
-                  <img src="blogs/27/auto-dialer-software.png" alt="Auto Dialer Software India: Top Solutions for Businesses" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 12, 2025</div>
-                <a class="blog-link" href="auto-dialer-software-india">
-                  <h5 class="card-title">Auto Dialer Software India: Top Solutions for Businesses</h5>
-                </a>
-                <p class="card-text blog-desc">Explore the best auto dialer software in India – features, pricing, AI tools, and top solutions for SMBs, call centers, remote teams & fast-scale sales operations.</p>
-                <a href="auto-dialer-software-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading">Key benefits and uses of call analytics include:</h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="auto-dialer-software-for-call-centre">
-                  <img src="blogs/26/auto-dialer.png" alt="Auto Dialer Software for Call Centre: Features & Benefits" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 11, 2025</div>
-                <a class="blog-link" href="auto-dialer-software-for-call-centre">
-                  <h5 class="card-title">Auto Dialer Software for Call Centre: Features & Benefits</h5>
-                </a>
-                <p class="card-text blog-desc">Explore auto dialer software for call centres – types, features, benefits, and how it boosts productivity, conversions and customer experience with automation.</p>
-                <a href="auto-dialer-software-for-call-centre" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p><strong>Marketing</strong></p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="crm-vs-lead-management">
-                  <img src="blogs/25/crmvslead.png" alt="CRM vs Lead Management: Which One is Right for Your Business?" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 9, 2025</div>
-                <a class="blog-link" href="crm-vs-lead-management">
-                  <h5 class="card-title">CRM vs Lead Management: Which One is Right for Your Business?</h5>
-                </a>
-                <p class="card-text blog-desc">Understand CRM vs lead management, key differences, benefits, and how to choose the right system for sales growth, customer retention, and business success.</p>
-                <a href="crm-vs-lead-management" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Identify high-performing campaigns</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="neodove-alternative">
-                  <img src="blogs/24/neo-dove.png" alt="Best NeoDove Alternative for Smart Calling & AI Automation" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 3, 2025</div>
-                <a class="blog-link" href="neodove-alternative">
-                  <h5 class="card-title">Best NeoDove Alternative for Smart Calling & AI Automation</h5>
-                </a>
-                <p class="card-text blog-desc">Looking for the best NeoDove alternative? Compare features, pricing & AI tools. Boost call connect rate, automate follow-ups & improve telecalling performance.</p>
-                <a href="neodove-alternative" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Track return on investment from calls</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-crm-for-lead-management">
-                  <img src="blogs/23/lead-management.png" alt="Best CRM for Lead Management to Increase Conversions" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 2, 2025</div>
-                <a class="blog-link" href="best-crm-for-lead-management">
-                  <h5 class="card-title">Best CRM for Lead Management to Increase Conversions</h5>
-                </a>
-                <p class="card-text blog-desc">Discover the best CRM for lead management to improve follow-ups, boost calling productivity, and increase conversions. Runo.ai leads with SIM-based smart CRM features.</p>
-                <a href="best-crm-for-lead-management" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Understand customer pain points</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="choosing-best-whatsapp-crm-tool">
-                  <img src="blogs/22/whatsappcrm.png" alt="Choosing the Right WhatsApp CRM Tool for Your Team - Top 10" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 1, 2025</div>
-                <a class="blog-link" href="choosing-best-whatsapp-crm-tool">
-                  <h5 class="card-title">Choosing the Right WhatsApp CRM Tool for Your Team - Top 10</h5>
-                </a>
-                <p class="card-text blog-desc">Discover how to choose the right WhatsApp CRM tool, key features to compare, and the top 10 platforms for team collaboration, automation, and customer engagement.</p>
-                <a href="choosing-best-whatsapp-crm-tool" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Optimise marketing spend</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="whatsapp-crm-integration-benefits-for-small-businesses">
-                  <img src="blogs/21/whatappai.png" alt="Top Benefits of WhatsApp CRM Integration for Small Businesses" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : November 11, 2025</div>
-                <a class="blog-link" href="whatsapp-crm-integration-benefits-for-small-businesses">
-                  <h5 class="card-title">Top Benefits of WhatsApp CRM Integration for Small Businesses</h5>
-                </a>
-                <p class="card-text blog-desc">Discover how WhatsApp CRM integration helps small businesses centralize chats, automate follow-ups, track leads, and improve customer engagement for faster growth.</p>
-                <a href="whatsapp-crm-integration-benefits-for-small-businesses" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p><strong>Sales</strong></p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="trai-regulations-india">
-                  <img src="blogs/20/trai.png" alt="Is SIM-Based Calling Legal? TRAI Rules & Compliance 2025–2026" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : November 11, 2025</div>
-                <a class="blog-link" href="trai-regulations-india">
-                  <h5 class="card-title">Is SIM-Based Calling Legal? TRAI Rules & Compliance 2025–2026</h5>
-                </a>
-                <p class="card-text blog-desc">Is SIM-based call management TRAI compliant in 2025? Learn legal rules, DLT registration, DND filtering, and upcoming 2026 regulation updates.</p>
-                <a href="trai-regulations-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Detect sales opportunities</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="runo-wins-global-indian-msme-award-in-sales-tech">
-                  <img src="blogs/19/award.png" alt="Runo wins Global Indian MSME of the year in Sales Tech category" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 25, 2025</div>
-                <a class="blog-link" href="runo-wins-global-indian-msme-award-in-sales-tech">
-                  <h5 class="card-title">Runo wins Global Indian MSME of the year in Sales Tech category</h5>
-                </a>
-                <p class="card-text blog-desc">Runo wins the Global Indian MSME of the Year Award in the Sales Tech category, recognizing its innovation in call management CRM and AI-powered sales solutions.</p>
-                <a href="runo-wins-global-indian-msme-award-in-sales-tech" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Personalize follow-ups</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-call-center-metrics-kpi-to-track">
-                  <img src="blogs/18/call-center.png" alt="Top 10 Call Center Metrics & KPIs You Should Be Tracking" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 24, 2025</div>
-                <a class="blog-link" href="top-call-center-metrics-kpi-to-track">
-                  <h5 class="card-title">Top 10 Call Center Metrics & KPIs You Should Be Tracking</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which call center metrics really matter? Discover the top 10 KPIs every team should track to boost performance, improve customer experience, and hit business goals with confidence.</p>
-                <a href="top-call-center-metrics-kpi-to-track" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Improve conversion strategies</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="complete-guide-to-telecalling">
-                  <img src="blogs/17/telecalling.png" alt="Telecalling in 2026: A Complete Beginner’s Guide" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 18, 2025</div>
-                <a class="blog-link" href="complete-guide-to-telecalling">
-                  <h5 class="card-title">Telecalling in 2026: A Complete Beginner’s Guide</h5>
-                </a>
-                <p class="card-text blog-desc">Discover what telecalling is, its types, importance, benefits, and real-life use cases in 2026. Learn how telecalling works, the skills required, and the best tools for beginners.</p>
-                <a href="complete-guide-to-telecalling" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Understand prospect needs</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-lead-generation-tools-for-business">
-                  <img src="blogs/16/lead-gen.png" alt="10 Best Lead Generation Tools for Business Growth" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 8, 2025</div>
-                <a class="blog-link" href="best-lead-generation-tools-for-business">
-                  <h5 class="card-title">10 Best Lead Generation Tools for Business Growth</h5>
-                </a>
-                <p class="card-text blog-desc">Struggling with lead generation? Check out these 10 tools and easy strategies to turn prospects into customers and grow your business fast.</p>
-                <a href="best-lead-generation-tools-for-business" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p><strong>Customer Service</strong></p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="from-excel-to-crm-when-and-why-businesses-should-upgrade">
-                  <img src="blogs/15/excel.png" alt="SFrom Excel to CRM: When and Why Businesses Should Upgrade" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 4, 2025</div>
-                <a class="blog-link" href="from-excel-to-crm-when-and-why-businesses-should-upgrade">
-                  <h5 class="card-title">From Excel to CRM: When and Why Businesses Should Upgrade</h5>
-                </a>
-                <p class="card-text blog-desc">Still managing customer data in Excel? Learn when and why businesses should switch to a CRM for better collaboration, automation, and growth.</p>
-                <a href="from-excel-to-crm-when-and-why-businesses-should-upgrade" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Improve agent performance through coaching</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="sales-forecasting">
-                  <img src="blogs/14/sales-forecasting.png" alt="Sales Forecasting 101: Methods to Grow Your Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 1, 2025</div>
-                <a class="blog-link" href="sales-forecasting">
-                  <h5 class="card-title">Sales Forecasting 101: Methods to Grow Your Business</h5>
-                </a>
-                <p class="card-text blog-desc">Curious about sales forecasting? Learn simple methods, why they matter, and how to use them to grow your business with confidence.</p>
-                <a href="sales-forecasting" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="real-estate-cold-calling-scripts">
-                  <img src="blogs/13/cold-calling.png" alt="12 Proven Real Estate Cold Calling Scripts for 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 29, 2025</div>
-                <a class="blog-link" href="real-estate-cold-calling-scripts">
-                  <h5 class="card-title">12 Proven Real Estate Cold Calling Scripts for 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Looking for the right words on calls? These 12 real estate cold calling scripts for 2025 will help you connect better and win more clients.</p>
-                <a href="real-estate-cold-calling-scripts" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Identify training gaps</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-sales-methodologies">
-                  <img src="blogs/12/sales.png" alt="15 Best Sales Methodologies You Should Know" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 26, 2025</div>
-                <a class="blog-link" href="best-sales-methodologies">
-                  <h5 class="card-title">15 Best Sales Methodologies You Should Know</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which sales approach works best? Discover 15 proven sales methodologies that can help you close deals smarter and grow your business.</p>
-                <a href="best-sales-methodologies" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Resolve issues proactively</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="importance-of-call-management-for-business">
-                  <img src="blogs/11/crm.png" alt="Why Call Management Matters for Every Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 25, 2025</div>
-                <a class="blog-link" href="importance-of-call-management-for-business">
-                  <h5 class="card-title">Why Call Management Matters for Every Business</h5>
-                </a>
-                <p class="card-text blog-desc">Ever wondered why call management is such a big deal for businesses? It helps you serve customers better, close more deals, and keep things running smoothly.</p>
-                <a href="importance-of-call-management-for-business" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Increase customer satisfaction</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-mobile-crm-apps">
-                  <img src="blogs/10/mobile-crm.png" alt="9 Best Mobile CRM Apps for Sales Teams in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 22, 2025</div>
-                <a class="blog-link" href="best-mobile-crm-apps">
-                  <h5 class="card-title">9 Best Mobile CRM Apps for Sales Teams in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which mobile CRM to choose in 2025? We’ve rounded up 9 of the best CRM apps that keep your sales team productive and customers happy.</p>
-                <a href="best-mobile-crm-apps" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p><strong>Operations</strong></p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="how-sim-based-outbound-calls-can-boost-sales-performance">
-                  <img src="blogs/9/outbound.png" alt=" How SIM-Based Outbound Calls Can Boost Your Sales" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 21, 2025</div>
-                <a class="blog-link" href="how-sim-based-outbound-calls-can-boost-sales-performance">
-                  <h5 class="card-title">How SIM-Based Outbound Calls Can Boost Your Sales</h5>
-                </a>
-                <p class="card-text blog-desc">Want more sales from your outbound calls? SIM-based calling makes it easier for teams to reach prospects, stay compliant, and increase conversions.</p>
-                <a href="how-sim-based-outbound-calls-can-boost-sales-performance" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Automate call summaries</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telesales-tips-and-strategies">
-                  <img src="blogs/8/telesales-tips.png" alt="10 Telesales Tips and Strategies That Actually Work in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 20, 2025</div>
-                <a class="blog-link" href="telesales-tips-and-strategies">
-                  <h5 class="card-title">10 Telesales Tips and Strategies That Actually Work in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Learn 10 telesales tips and strategies that actually work in 2025. Improve call success, close more deals, and boost your sales performance.</p>
-                <a href="telesales-tips-and-strategies" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Flag high-impact calls</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="cold-calling-guide">
-                  <img src="blogs/7/cold-calling.png" alt="Cold Calling in 2025 – Best Time & Day to Maximize Response" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 18, 2025</div>
-                <a class="blog-link" href="cold-calling-guide">
-                  <h5 class="card-title">Cold Calling in 2025 – Best Time & Day to Maximize Response</h5>
-                </a>
-                <p class="card-text blog-desc">Discover the best time and day for cold calling in 2025. Learn proven timing hacks to boost response rates and maximize sales conversions.</p>
-                <a href="cold-calling-guide" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Support compliance monitoring</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="call-tracking-for-outbound-sales">
-                  <img src="blogs/6/call-tracking.png" alt="Call Tracking for Outbound Sales – Strategy & Best Practices" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 14, 2025</div>
-                <a class="blog-link" href="call-tracking-for-outbound-sales">
-                  <h5 class="card-title">Call Tracking for Outbound Sales – Strategy & Best Practices</h5>
-                </a>
-                <p class="card-text blog-desc">Learn how call tracking can transform outbound sales. Discover key strategies, metrics, and best practices to boost conversions, improve ROI, and optimize campaigns.</p>
-                <a href="call-tracking-for-outbound-sales" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Build feedback loops for continuous improvement</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telesales-executive-guide">
-                  <img src="blogs/5/telesales.png" alt="Telesales Executive 101 – Roles, Skills & Career Path" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 12, 2025</div>
-                <a class="blog-link" href="telesales-executive-guide">
-                  <h5 class="card-title">Telesales Executive 101 – Roles, Skills & Career Path</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what a telesales executive does, the types of roles, key skills needed, and how to build a successful career in telesales. A complete beginner’s guide.</p>
-                <a href="telesales-executive-guide" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h2 class="wp-block-heading">How Call Analytics Works</h2>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="benefits-of-telecalling-software">
-                  <img src="blogs/4/telecalling-software.png" alt="6 Benefits of Telecalling Software for Your Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 11, 2025</div>
-                <a class="blog-link" href="benefits-of-telecalling-software">
-                  <h5 class="card-title">6 Ways Telecalling Software Can Boost Sales & Engagement</h5>
-                </a>
-                <p class="card-text blog-desc">Learn 6 benefits of telecalling software for your business, improving call efficiency, increasing sales and enhancing customer satisfaction.</p>
-                <a href="benefits-of-telecalling-software" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Call analytics collects call data and analyses it with AI to generate insights to improve sales, marketing, and customer service. A call analytics tool converts raw calls into measurable, actionable data.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telecaller-skills">
-                  <img src="blogs/3/telecaller.png" alt="10 Must-Have Skills for Telecallers to Win At Sales" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 8, 2025</div>
-                <a class="blog-link" href="telecaller-skills">
-                  <h5 class="card-title">10 Must-Have Skills for Telecallers to Win At Sales</h5>
-                </a>
-                <p class="card-text blog-desc">Want to ace your telecalling or telemarketing job? Learn 10 must-have telecaller skills with pro tips that actually work in real-world calls.</p>
-                <a href="telecaller-skills" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>Step-by-Step Process</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-telecaller-app-features-and-tool">
-                  <img src="blogs/2/telecaller-app.png" alt="Top Telecaller App Features & Tool You Need in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 7, 2025</div>
-                <a class="blog-link" href="top-telecaller-app-features-and-tool">
-                  <h5 class="card-title">Top Telecaller App Features & Tool You Need in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Learn the top telecaller app tool of 2025, packed with essential features to boost productivity, manage calls, and convert more leads efficiently.</p>
-                <a href="top-telecaller-app-features-and-tool" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p><strong>Step 1: Data Collection</strong></p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-call-center-crm-software">
-                  <img src="blogs/1/main.png" alt="5 Best Call Center CRM Software to Boost Sales in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 6, 2025</div>
-                <a class="blog-link" href="best-call-center-crm-software">
-                  <h5 class="card-title">5 Best Call Center CRM Software to Boost Sales in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">This blog explains the 5 best call center CRM software options in 2025 to streamline workflows, manage leads, track calls, and drive more conversions. It covers key features and comparisons.</p>
-                <a href="best-call-center-crm-software" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
+              <ul class="wp-block-list">
+                <li>Captures call logs, recordings, caller ID, call duration, hold times, and routing paths</li>
+
+                <li>Data is collected from the call centre or cloud telephony systems</li>
+              </ul>
+
+              <p><strong>Step 2: Data Processing and Transcription</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Converts voice calls into text using speech-to-text technology</li>
+
+                <li>Applies AI and NLP to analyse intent, context, and caller sentiment</li>
+              </ul>
+
+              <p><strong>Step 3: Keyword and Topic Detection</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Identifies important keywords, objections, and product mentions</li>
+
+                <li>Groups are called by topics and customer concerns</li>
+              </ul>
+
+              <p><strong>Step 4: Analysis and Insights</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Extracts metrics such as talk-to-listen ratio, resolution rate, and call abandonment</li>
+
+                <li>Evaluates agent behaviour, including transfers and handling patterns</li>
+
+                <li>Detects trends in call volume and recurring customer issues</li>
+              </ul>
+
+              <p><strong>Step 5: Reporting and Action</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Displays insights through dashboards and performance reports</li>
+
+                <li>Provides real-time guidance to agents during live calls</li>
+
+                <li>Supports optimisation of marketing spend, agent training, and customer experience</li>
+              </ul>
+
+              <h2 class="wp-block-heading">Types of Call Analytics Data You Can Track</h2>
+
+              <p>Call analytics tracks customer interactions, agent performance, and operational KPIs to improve efficiency and experience. A call analytics tool uses speech and text analysis, real-time monitoring, and cross-channel data to guide decisions.</p>
+
+              <p><strong>Core analytics categories include:</strong></p>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Descriptive analytics:</strong>
+                  Shows what happened during calls
+                </li>
+
+                <li>
+                  <strong>Diagnostic analytics:</strong>
+                  Explains why outcomes occurred
+                </li>
+
+                <li>
+                  <strong>Predictive analytics:</strong>
+                  Estimates future call behaviour and demand
+                </li>
+
+                <li>
+                  <strong>Prescriptive analytics:</strong>
+                  Recommends actions to improve results
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Key Metrics Tracked (KPIs)</strong></h3>
+
+              <p><strong>Customer experience metrics:</strong></p>
+
+              <ul class="wp-block-list">
+                <li>First Call Resolution (FCR)</li>
+
+                <li>Customer Satisfaction (CSAT)</li>
+
+                <li>Net Promoter Score (NPS)</li>
+              </ul>
+
+              <p><strong>Operational efficiency metrics:</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Average Handle Time (AHT)</li>
+
+                <li>Call duration</li>
+
+                <li>Call abandonment rate</li>
+
+                <li>Service level and hold times</li>
+              </ul>
+
+              <p><strong>Agent performance metrics:</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Schedule adherence</li>
+
+                <li>Agent productivity</li>
+
+                <li>Quality scores</li>
+              </ul>
+
+              <p><strong>Marketing effectiveness metrics:</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Calls by source, such as PPC, SEO, and social</li>
+
+                <li>Cost per call</li>
+              </ul>
+
+              <h2 class="wp-block-heading">Types of Analytics and Data</h2>
+
+              <p><strong>Speech analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Analyses recordings for keywords, topics, tone, and compliance</li>
+
+                <li>Detects competitor mentions and pricing discussions</li>
+              </ul>
+
+              <p><strong>Sentiment analysis</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Uses AI to identify customer emotions such as frustration or satisfaction</li>
+
+                <li>Tracks sentiment changes during calls</li>
+              </ul>
+
+              <p><strong>Text analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Analyses chat and email interactions for patterns and trends</li>
+              </ul>
+
+              <p><strong>Predictive analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Forecasts call volume, customer behaviour, and churn risk using past data</li>
+              </ul>
+
+              <p><strong>Interaction analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Combines voice, text, and metadata to map the customer journey</li>
+              </ul>
+
+              <p><strong>Cross-channel analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Unifies data from phone, web, and social channels</li>
+              </ul>
+
+              <p><strong>Real-time analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Enables live monitoring for agent coaching and escalation</li>
+              </ul>
+
+              <p><strong>Self-service analytics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Tracks IVR, FAQ, and help centre usage to identify gaps</li>
+              </ul>
+
+              <h2 class="wp-block-heading">Key Features of a Call Analytics Tool</h2>
+
+              <p>A call analytics tool combines AI, automation, and reporting to analyse phone conversations and improve customer experience, agent performance, and marketing ROI.</p>
+
+              <p>AI-powered sentiment and intent analysis helps identify caller emotions such as positive, negative, or neutral and determines the purpose of the call. This allows teams to prioritise issues and respond more effectively.</p>
+
+              <p>Automated transcription and speech analysis convert calls into text. This makes it easier to detect keywords, objections, pain points, silence, and agent behaviour patterns.</p>
+
+              <p>Real-time monitoring provides live dashboards and alerts. Supervisors can intervene quickly during long wait times or critical conversations.</p>
+
+              <p>Agent performance insights track metrics such as Average Handle Time, First Call Resolution, and customer satisfaction. These insights help identify top performers and training needs.</p>
+
+              <p>Call recordings and transcripts support quality checks, compliance requirements, and structured training programs. Customer feedback analysis combines survey data and call insights to support continuous improvement.</p>
+
+              <p>
+                <a href="https://runo.ai/blog/top-call-center-metrics-kpi-to-track" target="_blank" rel="noopener">Call tracking</a>
+                and attribution connect calls to specific campaigns, ads, or channels. This shows which marketing efforts generate results through analytic call tracking.
+              </p>
+
+              <p>
+                <a href="https://runo.ai/integrations" target="_blank" rel="noopener">Omnichannel integration</a>
+                links call data with CRM, chat, and other platforms. Automated workflows sync call data and log interactions without manual effort.
+              </p>
+
+              <p>Customizable dashboards and comprehensive reports present key metrics clearly. A user-friendly interface ensures the system is easy for agents, managers, and leadership to use.</p>
+
+              <h2 class="wp-block-heading">Benefits of Using a Call Analytics App</h2>
+
+              <p>A call analytics app helps businesses improve sales, customer experience, and operational efficiency by turning call data into actionable insights. It supports better decisions, smarter resource use, and consistent growth.</p>
+
+              <ol class="wp-block-list">
+                <li>For sales and marketing, call analytics helps identify high-value leads and reveal bottlenecks in the sales funnel. Teams can refine scripts and follow-ups to improve conversion rates.</li>
+
+                <li>Marketing teams use call analytics to track which channels generate valuable calls. This allows better budget allocation and improved return on ad spend, including paid campaigns.</li>
+
+                <li>Customer segmentation becomes easier when demographics and behaviour group callers. This supports more personalised and targeted marketing messages.</li>
+
+                <li>For customer service and operations, sentiment analysis highlights customer pain points. Faster issue identification helps reduce resolution time and increase satisfaction and loyalty.</li>
+
+                <li>Agent performance improves through targeted coaching. Call insights reveal training needs and help increase First Call Resolution.</li>
+
+                <li>Operational workflows can be made more efficient by identifying call patterns. Staffing and processes can be optimised during peak demand.</li>
+
+                <li>From a business strategy perspective, call analytics enables data-driven planning. Historical call data and AI help predict issues before they escalate.</li>
+
+                <li>Call recording and analysis support compliance requirements. This ensures regulatory adherence while maintaining data security.</li>
+              </ol>
+
+              <h2 class="wp-block-heading">Call Analytics vs Traditional Call Reporting</h2>
+
+              <p>Call analytics goes beyond basic reporting by explaining why calls occur, not just how many. Traditional reporting tracks past performance, while call analytics uses AI to uncover intent, sentiment, and patterns for strategic action.</p>
+
+              <figure class="wp-block-table">
+                <table class="has-fixed-layout">
+                  <tbody>
+                    <tr>
+                      <td><strong>Aspect</strong></td>
+                      <td><strong>Traditional Call Reporting</strong></td>
+                      <td><strong>Call Analytics</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Primary focus</td>
+                      <td>Monitoring operational efficiency and KPIs</td>
+                      <td>Identifying trends, patterns, and actionable insights</td>
+                    </tr>
+                    <tr>
+                      <td>Type of data used</td>
+                      <td>Structured, historical data such as call volume, duration, hold time, and FCR</td>
+                      <td>Structured and unstructured data, including transcripts, sentiment, keywords, tone, and silence</td>
+                    </tr>
+                    <tr>
+                      <td>Methodology</td>
+                      <td>Predefined reports, dashboards, tables, and graphs</td>
+                      <td>AI, speech analytics, NLP, predictive models, and interactive dashboards</td>
+                    </tr>
+                    <tr>
+                      <td>Key questions answered</td>
+                      <td>“What happened?”</td>
+                      <td>“Why did it happen?” and “What should be done next?”</td>
+                    </tr>
+                    <tr>
+                      <td>Depth of insight</td>
+                      <td>Surface-level performance tracking</td>
+                      <td>Deep understanding of customer intent and behaviour</td>
+                    </tr>
+                    <tr>
+                      <td>Business goal</td>
+                      <td>Measure past efficiency</td>
+                      <td>Predict outcomes, automate actions, improve CX, and drive revenue</td>
+                    </tr>
+                    <tr>
+                      <td>Decision support</td>
+                      <td>Reactive and historical</td>
+                      <td>Proactive and data-driven</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+
+              <h2 class="wp-block-heading">Common Call Analytics Use Cases Across Industries</h2>
+
+              <h3 class="wp-block-heading">Customer Experience and Satisfaction</h3>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Sentiment analysis:</strong>
+                  Detects customer emotions to flag frustrated callers and identify pain points.
+                </li>
+
+                <li>
+                  <strong>Root cause analysis:</strong>
+                  Reveals why customers call, such as product issues or billing confusion.
+                </li>
+
+                <li>
+                  <strong>Journey mapping:</strong>
+                  Connects calls with other touchpoints to understand the full customer journey.
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Sales and Marketing Optimisation</strong></h3>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Lead qualification:</strong>
+                  Identifies high-potential leads using call behaviour and intent.
+                </li>
+
+                <li>
+                  <strong>Campaign effectiveness:</strong>
+                  Measures which ads and channels drive converting calls.
+                </li>
+
+                <li>
+                  <strong>Upsell and cross-sell:</strong>
+                  Detect opportunities in real-time conversations.
+                </li>
+
+                <li>
+                  <strong>Competitor intelligence:</strong>
+                  Captures competitor mentions and comparisons.
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Agent Performance and Training</strong></h3>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Personalised coaching:</strong>
+                  Highlights skill gaps, such as empathy or product knowledge.
+                </li>
+
+                <li>
+                  <strong>Real-time assistance:</strong>
+                  Provides prompts and best practices during live calls.
+                </li>
+
+                <li>
+                  <strong>Performance benchmarking:</strong>
+                  Tracks metrics such as AHT and FCR.
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Operational Efficiency</strong></h3>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Workforce management:</strong>
+                  Predicts call volumes to improve staffing.
+                </li>
+
+                <li>
+                  <strong>Call routing:</strong>
+                  Directs calls to the most suitable agents.
+                </li>
+
+                <li>
+                  <strong>Bottleneck identification:</strong>
+                  Finds workflow inefficiencies.
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Compliance and Risk Mitigation</strong></h3>
+
+              <ul class="wp-block-list">
+                <li>
+                  <strong>Automated monitoring:</strong>
+                  Flags non-compliant language in regulated industries.
+                </li>
+
+                <li>
+                  <strong>Fraud detection:</strong>
+                  Identifies suspicious patterns and keywords.
+                </li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>Industry-Specific Examples</strong></h3>
+
+              <p><strong>Healthcare</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Ensures privacy compliance, tracks patient sentiment, and improves appointment scheduling.</li>
+
+                <li>Supports regulatory compliance, detects financial risk, and improves advisory quality.</li>
+              </ul>
+
+              <p><strong>Retail and eCommerce</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Personalises product recommendations, tracks demand trends, and informs inventory planning.</li>
+              </ul>
+
+              <p><strong>Manufacturing and Logistics</strong></p>
+
+              <ul class="wp-block-list">
+                <li>Improves supply chain visibility, adjusts inventory levels, and resolves delivery issues faster.</li>
+              </ul>
+
+              <h2 class="wp-block-heading">Why Runo Is an Effective Call Analytics Solution</h2>
+
+              <p>
+                Runo is a unified call analytics and
+                <a href="https://runo.ai/features/call-center-monitoring-software" target="_blank" rel="noopener">call management platform</a>
+                that provides businesses with complete visibility into every customer conversation, whether calls are made via SIM-based calling or cloud telepho
+                <strong>ny</strong>
+                .
+              </p>
+
+              <p>Runo tracks, records, and analyses all inbound and outbound calls in real time. This ensures accurate performance monitoring, quality control, and compliance without relying on manual reporting.</p>
+
+              <p>AI-powered analytics automatically evaluate call quality, sentiment, and outcomes. Managers receive instant QA scores, summaries, and performance insights, helping them identify what’s working and where agents need support.</p>
+
+              <p>Call recordings and detailed analytics make coaching more effective. Skill gaps, process issues, and missed opportunities are easy to spot, leading to better conversions and consistent agent performance.</p>
+
+              <p>Live dashboards provide real-time visibility into agent status, call duration, and activity levels. Managers can monitor operations in real time and intervene early when needed.</p>
+
+              <p>AI-driven quality analysis eliminates hours of manual QA work. Automated reports highlight trends, risks, and areas for improvement across teams and campaigns.</p>
+
+              <p>Sentiment analysis flags frustrated or dissatisfied callers early, enabling proactive intervention before customer experience declines.</p>
+
+              <p>Runo brings calls, notes, follow-ups, and CRM data into a single interaction timeline. Agents and managers see the complete customer journey in one place, without switching between tools.</p>
+
+              <h3 class="wp-block-heading"><strong>Key Call Analytics Capabilities</strong></h3>
+
+              <ul class="wp-block-list">
+                <li>Call recording across SIM-based and cloud calls</li>
+
+                <li>Real-time agent tracking and live dashboards</li>
+
+                <li>AI-generated call summaries and QA scoring</li>
+
+                <li>Sentiment and intent analysis</li>
+
+                <li>Performance reports and trend insights</li>
+
+                <li>Built-in CRM with interaction timelines</li>
+
+                <li>Faster coaching through playback and analytics</li>
+              </ul>
+
+              <h3 class="wp-block-heading"><strong>How Runo Turns Call Monitoring into Actionable Insights</strong></h3>
+
+              <p>Runo goes beyond basic monitoring by connecting call analytics with CRM, lead sources, and messaging platforms. This creates a unified system for tracking conversations, leads, and outcomes.</p>
+
+              <p>
+                Runo
+                <a href="https://runo.ai/blog/whatsapp-crm-integration-benefits-for-small-businesses" target="_blank" rel="noopener">integrates with WhatsApp</a>
+                to support instant messaging, automated notifications, and media sharing. Teams communicate faster and maintain consistent follow-ups.
+              </p>
+
+              <p>Leads from websites, social media, and landing pages are captured automatically. Real-time lead allocation ensures faster response and better conversion handling.</p>
+
+              <p>Lead enrichment adds context by combining data from multiple sources. Sales teams gain a clearer understanding of prospects before engaging.</p>
+
+              <p>Analytics and reporting show which lead sources perform best. Marketing teams can optimise spend using analytics from call tracking.</p>
+
+              <p>Runo syncs seamlessly with external CRMs, including Salesforce, HubSpot, and Zoho. Bidirectional sync keeps data accurate and up to date.</p>
+
+              <p>A unified customer view combines CRM and call data in one place. Automated workflows reduce manual effort and speed up processes.</p>
+
+              <p>Data can be exported to Google Sheets for advanced reporting. Integration with Google Analytics links call outcomes with website and campaign data.</p>
+
+              <p>Runo addresses common call centre challenges directly. AI summaries reduce manual QA time, sentiment analysis protects customer experience, and real-time monitoring makes remote agents visible.</p>
+
+              <p>By combining call analytics, automation, and integrations, Runo helps teams improve performance, ensure compliance, and scale conversations with confidence.</p>
+
+              <h2 class="wp-block-heading">FAQs</h2>
+
+              <h3 class="wp-block-heading"><strong>Is Runo suitable for small teams and growing businesses?</strong></h3>
+
+              <p>Yes. Runo scales easily and works for startups, sales teams, and large call centres managing high call volumes.</p>
+
+              <h3 class="wp-block-heading"><strong>What are Runo’s pricing plans?</strong></h3>
+
+              <p>Runo offers flexible plans starting at ₹899 per user per month (quarterly), ₹699 per user per month on a 6-month plan, and ₹599 per user per month on an annual plan, with a 10-day free trial.</p>
+
+              <h3 class="wp-block-heading"><strong>What is the difference between call analytics and basic call tracking?</strong></h3>
+
+              <p>Call analytics goes beyond tracking call volume by analysing conversations for intent, sentiment, and patterns that explain why customers call.</p>
+
+              <h3 class="wp-block-heading"><strong>How does call analytics help improve customer experience?</strong></h3>
+
+              <p>Call analytics identifies customer emotions, recurring issues, and resolution gaps, helping teams respond faster and improve satisfaction.</p>
             </div>
           </div>
         </div>
-        <div class="mt-5"></div>
-        <nav>
-          <ul class="pagination justify-content-center mt-4" id="pagination"></ul>
-        </nav>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const blogsPerPage = 15;
-        const blogList = document.querySelectorAll("#blogList .col");
-        const totalBlogs = blogList.length;
-        const totalPages = Math.ceil(totalBlogs / blogsPerPage);
-
-        // Get page number from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        let currentPage = parseInt(urlParams.get("page")) || 1;
-
-        if (currentPage < 1) currentPage = 1;
-        if (currentPage > totalPages) currentPage = totalPages;
-
-        function showPage(page) {
-          blogList.forEach((blog, index) => {
-            blog.style.display = index >= (page - 1) * blogsPerPage && index < page * blogsPerPage ? "block" : "none";
-          });
-        }
-
-        function renderPagination() {
-          const pagination = document.getElementById("pagination");
-          pagination.innerHTML = "";
-
-          // Previous Button
-          pagination.innerHTML += `
-            <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
-                <a class="page-link" href="?page=${currentPage - 1}" aria-label="Previous">Previous</a>
-            </li>
-        `;
-
-          // Page Numbers
-          for (let i = 1; i <= totalPages; i++) {
-            pagination.innerHTML += `
-                <li class="page-item ${i === currentPage ? "active" : ""}">
-                    <a class="page-link" href="?page=${i}">${i}</a>
-                </li>
-            `;
-          }
-
-          // Next Button
-          pagination.innerHTML += `
-            <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
-                <a class="page-link" href="?page=${currentPage + 1}" aria-label="Next">Next</a>
-            </li>
-        `;
-        }
-
-        showPage(currentPage);
-        renderPagination();
-      });
-    </script>
-    <style>
-      /* Default (NOT active) */
-      .pagination .page-link {
-        background-color: #fff !important;
-        color: #000 !important;
-        border: 1px solid #000 !important;
-        transition: 0.2s ease;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Active page */
-      .pagination .active .page-link {
-        background-color: #000 !important;
-        color: #fff !important;
-        border: 1px solid #000 !important;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Hover (non-active buttons including Prev/Next) */
-      .pagination .page-item:not(.active):not(.disabled) .page-link:hover {
-        background-color: #e5e5e5 !important;
-        color: #000 !important;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Remove click shadow + active shadow */
-      .pagination .page-link:focus,
-      .pagination .page-link:active {
-        box-shadow: none !important;
-        outline: none !important;
-      }
-
-      /* Disabled state */
-      .pagination .disabled .page-link {
-        background-color: #f2f2f2 !important;
-        color: #888 !important;
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-      }
-    </style>
 
     <footer class="bg-dark text-light pt-5 pb-4">
       <div class="container">
