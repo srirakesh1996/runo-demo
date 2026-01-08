@@ -60,7 +60,7 @@ h4 {
   align-items: center;
   justify-content: center;
   margin: 0 auto 15px;
-  background: #f44336;
+  background: #111;
   color: #fff;
   font-size: 28px;
 }
@@ -151,7 +151,7 @@ h4 {
 }
 
 .partners-features .bg-primary {
-  background: #f44336 !important;
+  background: #111 !important;
 }
 
 .partners-features .bi {
@@ -199,7 +199,7 @@ h4 {
   margin: 20px auto 30px auto !important;
 }
 .runo-box-svg {
-  background: linear-gradient(90deg, #cc2e00 0%, #f09874 100%);
+  background: #111111;
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -222,11 +222,15 @@ h4 {
 }
 
 .bg-teal {
-  background: hsl(185, 85%, 45%) !important;
+  /* background: hsl(185, 85%, 45%) !important;*/
+
+  background: #111 !important;
 }
 
 .bg-green {
-  background: hsl(140, 75%, 45%) !important;
+  /*background: hsl(140, 75%, 45%) !important;*/
+
+  background: #111 !important;
 }
 
 .highlight {
