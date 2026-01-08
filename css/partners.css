@@ -113,7 +113,7 @@ h4 {
   background-color: #d32f2f;
 }
 .badge-popular {
-  background: #f44336;
+  background: #111111;
   font-size: 10px;
   font-weight: 600;
   padding: 3px 10px;
@@ -230,7 +230,7 @@ h4 {
 }
 
 .highlight {
-  border: 1px solid #ff5430 !important;
+  border: 1px solid #000000 !important;
 }
 
 .referral-partner {
@@ -353,7 +353,7 @@ h4 {
 }
 .head-tag {
   font-size: 12px !important;
-  background: #ff5730;
+  background: #111111;
   padding: 4px 10px;
   border-radius: 30px;
   display: inline-block;
