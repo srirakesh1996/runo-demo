@@ -1451,7 +1451,7 @@
   height: 40px;
   border-radius: 50%;
   font-size: 20px;
-  /*margin: 0 10px;*/
+  margin: 0 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease;
 }

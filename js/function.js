@@ -30,7 +30,7 @@
   /* Slick Menu JS */
   $("#menu").slicknav({
     label: "",
-    prependTo: ".responsive-menu"
+    prependTo: ".responsive-menu",
   });
 
   if ($("a[href='#top']").length) {
@@ -79,33 +79,34 @@
       spaceBetween: 30,
       loop: true,
       autoplay: {
-        delay: 5000
+        delay: 5000,
       },
       navigation: {
         nextEl: ".testimonial-next-btn",
-        prevEl: ".testimonial-prev-btn"
+        prevEl: ".testimonial-prev-btn",
       },
       breakpoints: {
         0: {
           slidesPerView: 1,
-          spaceBetween: 12
+          spaceBetween: 12,
         },
         800: {
           slidesPerView: 2,
-          spaceBetween: 30
+          spaceBetween: 30,
         },
         990: {
           slidesPerView: 2,
-          spaceBetween: 30
+          spaceBetween: 30,
         },
 
         1200: {
           slidesPerView: 2.5,
-          spaceBetween: 30
-        }
-      }
+          spaceBetween: 30,
+        },
+      },
     });
   }
+
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".track-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -117,7 +118,7 @@
           event: "button_click",
           event_category: "CTA",
           event_label: label,
-          page_path: pagePath
+          page_path: pagePath,
         });
 
         // For debugging:
@@ -141,7 +142,7 @@
       mainClass: "mfp-fade",
       removalDelay: 160,
       preloader: false,
-      fixedContentPos: true
+      fixedContentPos: true,
     });
   }
 })(jQuery);
@@ -289,7 +290,7 @@ function submitForm(formId, formData, formToken) {
       KnowSource: formData["custom_We entered source"] || "",
 
       // ⭐ OFFICIAL CLEVERTAP SUBSCRIPTION FLAG
-      "MSG-whatsapp": whatsappOptIn
+      "MSG-whatsapp": whatsappOptIn,
     };
 
     //  console.log("📤 CleverTap Identify Payload:", profilePayload);
@@ -317,7 +318,7 @@ function submitForm(formId, formData, formToken) {
       // ⭐ OFFICIAL WHATSAPP PROPERTY
       "MSG-whatsapp": whatsappOptIn,
 
-      Timestamp: new Date().toISOString()
+      Timestamp: new Date().toISOString(),
     };
 
     //  console.log("📤 CleverTap Event Payload:", eventPayload);
@@ -333,7 +334,7 @@ function submitForm(formId, formData, formToken) {
     type: "POST",
     url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
     data: JSON.stringify(formData),
-    contentType: "application/json"
+    contentType: "application/json",
   })
     .done(function (data) {
       //  console.log("✅ Runo API success:", data);
