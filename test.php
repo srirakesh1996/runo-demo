@@ -1,25 +1,24 @@
 <?php
 
-// Sample test values (replace with form values)
-$name    = "John Doe";
-$email   = "john@example.com";
-$phone   = "+919876543210";
-$company = "ABC Pvt Ltd";
-
 $apiUrl = "https://api-call-crm.runo.in/integration/webhook/wb/6903012a942b3585e6cbcbb6/12c74065-93fa-4c6b-b252-d3187e12a9b3";
 
+/* =========================
+   TEST PAYLOAD
+========================= */
 $payload = [
-    "your_name"      => $name,
-    "your_email"     => $email,
-    "your_phone"     => $phone,
-    "your_company"   => $company,
-    "your_message"   => "test",
-    "your_subject"   => "Website Lead",
-
-    "custom_source"  => "Website"
+    "your_name"       => "dummy2",
+    "your_email"      => "dummy2@gmail.com",
+    "your_phone"      => "9198989898",
+    "your_company"    => "dummy2",
+    "your_message"    => "dummy2",
+    "your_subject"    => "dummy2",
+    "your_street"     => "dummy2",
+    "your_city"       => "dummy2",
+    "your_state"      => "dummy2",
+    "custom_status"   => "Appointment Fixed",
+    "custom_source"   => "Website"
 ];
 
-// Init cURL
 $ch = curl_init($apiUrl);
 
 curl_setopt_array($ch, [
@@ -38,16 +37,16 @@ $curlError = curl_error($ch);
 
 curl_close($ch);
 
-// Force JSON output
+/* =========================
+   DISPLAY RESPONSE
+========================= */
 header("Content-Type: application/json");
 
-// Show response
 echo json_encode([
-    "http_code"        => $httpCode,
-    "curl_error"       => $curlError ?: null,
-    "request_payload"  => $payload,
-    "api_raw_response" => $response,
-    "api_json_response"=> json_decode($response, true)
+    "http_code" => $httpCode,
+    "curl_error" => $curlError ?: null,
+    "request_payload" => $payload,
+    "api_response" => json_decode($response, true) ?: $response
 ], JSON_PRETTY_PRINT);
 
 exit;
