@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Runo Blogs</title>
-    <meta name="description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <!-- Updated Open Graph tags -->
-    <meta property="og:title" content="Runo Blogs" />
-    <meta property="og:description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <!-- Updated Twitter tags -->
-    <meta name="twitter:title" content="Runo Blogs" />
-    <meta name="twitter:description" content="If you're in sales, the Runo Blog is your go-to resource for proven sales tips, CRM strategies, telecalling hacks, and growth insights to close more deals faster." />
-    <link rel="canonical" href="https://runo.ai/blog/" />
+    <!-- SEO Meta Tags -->
+    <title>Customer Sentiment Analysis: Meaning, Benefits & Use</title>
+    <meta name="description" content="Know what customer sentiment analysis is, how it works, key benefits, and real examples to improve customer experience and retention." />
+    <!-- Updated Open Graph Tags -->
+    <meta property="og:title" content="Customer Sentiment Analysis: Meaning, Benefits & Use" />
+    <meta property="og:description" content="Know what customer sentiment analysis is, how it works, key benefits, and real examples to improve customer experience and retention." />
+    <!-- Updated Twitter Tags -->
+    <meta name="twitter:title" content="Customer Sentiment Analysis: Meaning, Benefits & Use" />
+    <meta name="twitter:description" content="Know what customer sentiment analysis is, how it works, key benefits, and real examples to improve customer experience and retention." />
+    <link rel="canonical" href="https://runo.ai/blog/customer-sentiment-analysis-meaning-benefits" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
@@ -20,11 +21,11 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://runo.ai/img/share-image.png" />
-    <meta property="og:url" content="https://runo.ai/img/share-image.png" />
+    <meta property="og:url" content="https://runo.ai/blog/customer-sentiment-analysis-meaning-benefits" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://runo.ai/img/share-image.png" />
-    <meta name="twitter:url" content="https://runo.ai/img/share-image.png" />
+    <meta name="twitter:url" content="https://runo.ai/blog/customer-sentiment-analysis-meaning-benefits" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16" />
     <link rel="preload" as="style" href="css/bootstrap.min.css" />
@@ -73,6 +74,100 @@
       })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <style>
+      .related-articles {
+        margin-top: 20px;
+        text-align: left;
+      }
+      .related-articles h3 {
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .related-articles ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        color: #000;
+      }
+      .related-articles ul li {
+        margin: 7px 0px;
+      }
+      .related-articles a {
+        text-decoration: none;
+        color: #f44336;
+        font-size: 18px;
+        margin: 5px 0px;
+      }
+      .related-articles a:hover {
+        text-decoration: underline;
+        color: #f44336;
+      }
+      .wp-block-table {
+        overflow-x: auto;
+      }
+      .wp-block-table .has-fixed-layout td,
+      .wp-block-table .has-fixed-layout th {
+        word-break: break-word;
+      }
+    </style>
+    <style>
+      .blog-content p {
+        margin-bottom: 10px;
+      }
+      .wp-block-image {
+        width: 80%;
+        margin: 15px auto !important;
+      }
+      .blog-content h2 {
+        margin: 20px 0px !important;
+        font-size: 33px !important;
+        font-weight: 450 !important;
+      }
+      .blog-content h3 {
+        margin: 18px 0px !important;
+        font-weight: 600 !important;
+        font-size: 18px !important;
+      }
+      .blog-content h4 {
+        margin: 18px 0px !important;
+        font-weight: 600 !important;
+        font-size: 15px !important;
+      }
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+      }
+      .has-fixed-layout {
+        width: 100%; /* wider than viewport to enable scrolling */
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-bottom: 25px !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .wp-block-image {
+          width: 100%;
+          margin: 0 auto !important;
+        }
+        .blog-content h2 {
+          font-size: 22px !important;
+        }
+        .blog-content h3 {
+          font-size: 18px !important;
+        }
+        .blog-content h4 {
+          font-size: 15px !important;
+        }
+      }
+      .has-fixed-layout td,
+      .has-fixed-layout th {
+        border: 1px solid #ccc;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+      .has-fixed-layout tr:nth-child(1) td {
+        font-weight: bold;
+        background-color: #f5f5f5;
+      }
       .product .card-text {
         font-size: 15px !important;
         display: -webkit-box;
@@ -83,6 +178,140 @@
         text-overflow: ellipsis;
         min-height: 44px;
         /* optional: keeps card heights consistent */
+      }
+      .progress-container {
+        width: 100%;
+        height: 8px;
+        background: #f3f3f3;
+        position: fixed;
+        top: 85px;
+        left: 0;
+        z-index: 99;
+        transition: top 0.3s ease;
+      }
+      .progress-bar {
+        height: 100%;
+        background-color: #f44336;
+        width: 0%;
+        transition: width 0.2s ease;
+      }
+      @media (max-width: 768px) {
+        .progress-container {
+          top: 68px !important;
+        }
+        .progress-container.scrolled {
+          top: 75px !important;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1038px) {
+        .progress-container {
+          top: 90px !important;
+        }
+        .progress-container.scrolled {
+          top: 90px !important;
+        }
+      }
+      @media (min-width: 1040px) and (max-width: 1366px) {
+        .progress-container {
+          top: 83px !important;
+        }
+        .progress-container.scrolled {
+          top: 83px !important;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 991px) {
+        .progress-container {
+          top: 69px !important;
+        }
+        .progress-container.scrolled {
+          top: 69px !important;
+        }
+      }
+      @media (min-width: 1367px) {
+        .progress-container {
+          top: 86px !important;
+        }
+        .progress-container.scrolled {
+          top: 86px !important;
+        }
+      }
+      @media (min-width: 1600px) {
+        .progress-container {
+          top: 89px !important;
+        }
+        .progress-container.scrolled {
+          top: 89px !important;
+        }
+      }
+      .active > .page-link,
+      .page-link.active {
+        z-index: 3;
+        color: var(--bs-pagination-active-color);
+        background-color: #f44336 !important;
+        border-color: #f44336 !important;
+      }
+      .page-link {
+        color: #f44336 !important;
+      }
+      .active > .page-link,
+      .page-link.active {
+        color: #fff !important;
+      }
+      .page-link:focus {
+        z-index: 3;
+        color: var(--bs-pagination-focus-color);
+        background-color: var(--bs-pagination-focus-bg);
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 29%) !important;
+      }
+      .blogs .card-title {
+        line-height: 1.5;
+      }
+      .blog-desc {
+        font-size: 15px !important;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Truncate after 2 lines */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .blog-content {
+        color: #222222;
+      }
+      .blog-feat {
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+      .wp-block-image img {
+        width: 70% !important;
+        margin: 15px auto !important;
+        display: block !important;
+      }
+      @media only screen and (max-width: 600px) {
+        .wp-block-image img {
+          width: 100% !important;
+        }
+        .blog-feat {
+          width: 100%;
+        }
+      }
+      .post-content .blog-content {
+        text-align: left !important;
+      }
+      .banner-blog {
+        padding: 20px;
+        margin: 20px auto;
+        width: 60%;
+        background: #f44336;
+        border-radius: 20px;
+      }
+      @media only screen and (max-width: 600px) {
+        .banner-blog {
+          width: 100%;
+        }
       }
     </style>
 
@@ -130,6 +359,42 @@
       </div>
     </div>
     <!-- Preloader End -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <script>
+      jQuery(document).ready(function ($) {
+        var progressBar = $("#progressBar");
+        var progressContainer = $(".progress-container");
+
+        $(window).on("scroll", function () {
+          var scrollTop = $(document).scrollTop();
+          var scrollHeight = $(document).height() - $(window).height();
+          var scrolled = (scrollTop / scrollHeight) * 100;
+
+          progressBar.css("width", scrolled + "%");
+
+          // Show progress bar only after 10% scroll
+          if (scrolled >= 5) {
+            progressContainer.fadeIn(200);
+          } else {
+            progressContainer.fadeOut(200);
+          }
+
+          // Apply scroll class only on desktop
+          if (window.innerWidth >= 768) {
+            if (scrollTop > 0) {
+              progressContainer.addClass("scrolled");
+            } else {
+              progressContainer.removeClass("scrolled");
+            }
+          }
+        });
+
+        // Hide initially
+        progressContainer.hide();
+      });
+    </script>
     <!-- Modal -->
     <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
       <div class="modal-dialog modal-dialog-centered">
@@ -394,7 +659,7 @@
             }, {});
 
           formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog";
+          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog Pages";
 
           const uuid = $(this).data("uuid");
 
@@ -414,6 +679,17 @@
       </div>
     </div>
 
+    <!-- Hello Bar Start -->
+    <section id="helloBar" class="hello-bar text-white py-2">
+      <div class="container position-relative">
+        <button type="button" class="close-hello" aria-label="Close">&times;</button>
+        <p class="mb-0">
+          🚀 Runo named
+          <strong>Global Indian MSME of the Year in Sales Tech!</strong>
+          Thanks to 3500+ businesses using Runo. 🙏
+        </p>
+      </div>
+    </section>
     <!-- Header Start -->
     <header class="main-header">
       <div class="header-sticky">
@@ -938,1096 +1214,294 @@
       </div>
     </header>
     <!-- Header End -->
-    <style>
-      .blogs .card-body {
-        margin-top: 5px !important;
-      }
-      .blog-card {
-        height: 100%;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-      .blog-card .card-head {
-        max-width: 100%;
-      }
-      .blog-card .card-head img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .blog-card .card-body {
-        flex: 1 1 60%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .blog-card .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      .card-text.blog-desc {
-        /* Limit to two lines and truncate if needed */
-        margin-top: 7px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* Truncate after 2 lines */
-        line-clamp: 3;
-        -webkit-box-orient: vertical; /* Stack the lines vertically */
-        overflow: hidden; /* Hide excess text */
-        text-overflow: ellipsis; /* Show "..." when truncated */
-      }
-      .card-body .blog-link {
-        color: #000 !important;
-      }
-      .blog-date {
-        color: #646465;
-        font-size: 12px;
-        margin-bottom: 0.5rem;
-      }
-    </style>
-    <div class="blogs">
-      <div class="container py-5">
-        <h1 class="mb-20 text-center" style="font-weight: 300">Latest Blog Posts</h1>
-        <div id="blogList" class="row row-cols-1 row-cols-md-3 g-4">
-          <!--<div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <img src="blogs/29/types-callcenter.png" alt="What Is Cloud Telephony? Meaning, Features & Benefits" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 22, 2025</div>
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <h5 class="card-title">What Is Cloud Telephony? Meaning, Features & Benefits</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what cloud telephony is, how it works, key features, benefits, and real examples. A beginner-friendly guide with a smarter alternative like Runo.</p>
-                <a href="what-is-cloud-telephony" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+    <div class="container-fluid py-5">
+      <div class="row">
+        <!-- TOC Column - Hidden on small devices -->
+        <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
+               <div class="sticky-top" style="top: 100px">
+
+                 <div class="mb-3">
+                   <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
+                 </div>
 
 
-                    <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <img src="blogs/29/types-callcenter.png" alt="Top 10 Cloud Telephony Providers in India (2026 Guide)" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 22, 2025</div>
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <h5 class="card-title">Top 10 Cloud Telephony Providers in India (2026 Guide)</h5>
-                </a>
-                <p class="card-text blog-desc">Explore the top cloud telephony providers in India, compare features, pricing, reviews, and use cases to choose the best solution for your business.</p>
-                <a href="top-cloud-telephony-providers-in-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
-          -->
+                 <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
+                   <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
+                   <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
+                   <a href="#" class="header-btn track-btn" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Blogs">Request a Demo</a>
+                 </div>
+               </div>
+               </div>
+               -->
+        <!-- Blog Content Column -->
+        <div class="col-md-10 text-center mb-3" style="display: block; margin: 0 auto">
+          <h1 class="blog-title mb-4">What Is Customer Sentiment Analysis? Definition, Benefits & Examples</h1>
+          <div class="blog-date-big text-center small">Published Date : January 28, 2026</div>
+          <img src="blogs/51/customer-analysis.png" alt="What Is Customer Sentiment Analysis? Definition, Benefits & Examples" class="img-fluid mb-4 blog-feat" />
 
-             <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="customer-sentiment-analysis-meaning-benefits">
-                  <img src="blogs/51/customer-analysis.png" alt="Customer Lifecycle Stages Explained" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 28, 2026</div>
-                <a class="blog-link" href="customer-sentiment-analysis-meaning-benefits">
-                  <h5 class="card-title">Customer Lifecycle Stages Explained With Real Examples</h5>
-                </a>
-                <p class="card-text blog-desc">Customer lifecycle stages show how buyers move from awareness to loyalty. Learn each stage with simple examples and practical business use cases.</p>
-                <a href="customer-sentiment-analysis-meaning-benefits" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+          <div class="post-content text-left">
+            <div class="blog-content">
+              <p>Customer sentiment analysis is the process of understanding how customers feel about your brand. It analyses the words customers use and determines whether their experience is positive, negative, or neutral.</p>
 
+              <p>
+                In simple terms, it answers one question:
 
+                <em>What are customers really feeling right now?</em>
+              </p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="customer-lifecycle-stages-explained">
-                  <img src="blogs/50/customer-lifecycle.png" alt="Customer Lifecycle Stages Explained" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 28, 2026</div>
-                <a class="blog-link" href="customer-lifecycle-stages-explained">
-                  <h5 class="card-title">Customer Lifecycle Stages Explained With Real Examples</h5>
-                </a>
-                <p class="card-text blog-desc">Customer lifecycle stages show how buyers move from awareness to loyalty. Learn each stage with simple examples and practical business use cases.</p>
-                <a href="customer-lifecycle-stages-explained" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Businesses use automation and AI to scan large volumes of customer feedback. This includes survey responses, social media comments, emails, chat messages, and even phone conversations. The system reads the language customers use and tags it as positive, negative, or neutral.&nbsp;</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-lead-scoring">
-                  <img src="blogs/49/lead-scoring.png" alt="Lead Scoring" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 28, 2026</div>
-                <a class="blog-link" href="what-is-lead-scoring">
-                  <h5 class="card-title">What Is Lead Scoring? Meaning, Benefits, and Examples</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what lead scoring is, how it works, key benefits, scoring models, and real examples that help sales teams prioritise leads and close faster.</p>
-                <a href="what-is-lead-scoring" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>What is customer sentiment analysis used for?</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="inside-sales-techniques-for-faster-conversions">
-                  <img src="blogs/48/inside-sales.png" alt="Inside Sales Techniques for Faster Conversions" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 27, 2026</div>
-                <a class="blog-link" href="inside-sales-techniques-for-faster-conversions">
-                  <h5 class="card-title">Inside Sales Techniques for Faster Conversions</h5>
-                </a>
-                <p class="card-text blog-desc">Know the inside sales techniques top teams use to qualify faster, follow up smarter, shorten sales cycles, and close more high-quality deals consistently.</p>
-                <a href="inside-sales-techniques-for-faster-conversions" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>In customer support, sentiment analysis helps route tickets to the right agents. An angry or frustrated customer can be flagged immediately, enabling faster issue resolution. Over time, teams can also identify patterns, what problems recur most often and which interactions lead to dissatisfaction.&nbsp;</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="whatsapp-marketing-strategies-for-small-businesses">
-                  <img src="blogs/47/whatsapp.png" alt="WhatsApp Marketing Strategies for Small Businesses" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 27, 2026</div>
-                <a class="blog-link" href="whatsapp-marketing-strategies-for-small-businesses">
-                  <h5 class="card-title">WhatsApp Marketing Strategies for Small Businesses</h5>
-                </a>
-                <p class="card-text blog-desc">Struggling with low replies? These WhatsApp marketing tips help small businesses craft messages customers read, reply to, and trust.</p>
-                <a href="whatsapp-marketing-strategies-for-small-businesses" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="sales-pipeline-management-explained">
-                  <img src="blogs/46/sales-pipeline.png" alt="What Is Sales Pipeline Management? Step-by-Step Guide" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 27, 2026</div>
-                <a class="blog-link" href="sales-pipeline-management-explained">
-                  <h5 class="card-title">What Is Sales Pipeline Management? Step-by-Step Guide</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what sales pipeline management is and how to manage every stage effectively to close more deals, reduce follow-ups, and improve revenue visibility.</p>
-                <a href="sales-pipeline-management-explained" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>At its core, customer sentiment is a key metric. It shows how customers think and feel about your brand. Even though it seems simple, it directly impacts retention and revenue.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="customer-touchpoints-buyer-journey-explained">
-                  <img src="blogs/45/customer-journey.png" alt="Customer Touchpoints Across the Buyer Journey Explained" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 23, 2026</div>
-                <a class="blog-link" href="customer-touchpoints-buyer-journey-explained">
-                  <h5 class="card-title">Customer Touchpoints Across the Buyer Journey Explained</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what customer touchpoints are, why they matter, and how they influence every stage of the buyer journey from awareness to conversion.</p>
-                <a href="customer-touchpoints-buyer-journey-explained" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>There’s also a human side to this. Poor experiences don’t just hurt business metrics. According to studies, many customers say a bad interaction can ruin their entire day. That’s why customer feedback analysis and real-time sentiment analysis are not just tools for growth, but tools for better, more responsible customer experiences.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-telecalling">
-                  <img src="blogs/44/telecalling.png" alt="What Is Telecalling? Benefits, Use Cases & Examples" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 22, 2026</div>
-                <a class="blog-link" href="what-is-telecalling">
-                  <h5 class="card-title">What Is Telecalling? Benefits, Use Cases & Examples</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what telecalling is, how it works, its benefits, use cases, skills required, and real examples. Discover why telecalling still drives sales and trust.</p>
-                <a href="what-is-telecalling" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h2 class="wp-block-heading">What Is the Fundamental Purpose of Sentiment Analysis?</h2>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="essential-call-centre-metrics">
-                  <img src="blogs/43/essential-call-center.png" alt="Essential Call Centre Metrics Every Business Should Track" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 22, 2026</div>
-                <a class="blog-link" href="essential-call-centre-metrics">
-                  <h5 class="card-title">Essential Call Centre Metrics Every Business Should Track</h5>
-                </a>
-                <p class="card-text blog-desc">Learn the most critical call centre metrics, KPIs, and quality benchmarks to improve agent performance, customer satisfaction, and service efficiency.</p>
-                <a href="essential-call-centre-metrics" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>The main purpose of sentiment analysis is simple. It helps businesses understand how customers feel.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <img src="blogs/42/cloud-telephony.png" alt="What Is Cloud Telephony? A Beginner-Friendly Guide" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 21, 2026</div>
-                <a class="blog-link" href="what-is-cloud-telephony">
-                  <h5 class="card-title">What Is Cloud Telephony? A Beginner-Friendly Guide</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what cloud telephony is, how it works, key features, benefits, and real examples. A beginner-friendly guide with a smarter alternative like Runo.</p>
-                <a href="what-is-cloud-telephony" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>When you understand what customers think and feel, you gain a clearer view of customer satisfaction. You can see what’s working well and where things need to improve.&nbsp;</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <img src="blogs/41/cloud-telephony.png" alt="Top 10 Cloud Telephony Providers in India (2026 Guide)" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 21, 2026</div>
-                <a class="blog-link" href="top-cloud-telephony-providers-in-india">
-                  <h5 class="card-title">Top 10 Cloud Telephony Providers in India (2026 Guide)</h5>
-                </a>
-                <p class="card-text blog-desc">Explore the top cloud telephony providers in India, compare features, pricing, reviews, and use cases to choose the best solution for your business.</p>
-                <a href="top-cloud-telephony-providers-in-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Sentiment analysis also helps teams act in the moment. For example, if a chatbot conversation starts to turn negative, sentiment analysis can flag it immediately. The conversation can then be transferred to a trained support agent who can de-escalate the situation.&nbsp;</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-call-centre-analytics-use-cases">
-                  <img src="blogs/40/call-center.png" alt="Top Call Centre Analytics Use Cases Every Business Should Know" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 21, 2026</div>
-                <a class="blog-link" href="top-call-centre-analytics-use-cases">
-                  <h5 class="card-title">Top Call Centre Analytics Use Cases Every Business Should Know</h5>
-                </a>
-                <p class="card-text blog-desc">Top call centre analytics use cases that help businesses track calls better, improve service quality, coach agents, and increase conversions.</p>
-                <a href="top-call-centre-analytics-use-cases" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Beyond quick fixes, customer sentiment analysis supports long-term improvements. It helps businesses:</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="essential-customer-communication-best-practices">
-                  <img src="blogs/39/customer-communication.png" alt="Customer Communication Best Practices Every Business Should Follow" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 20, 2026</div>
-                <a class="blog-link" href="essential-customer-communication-best-practices">
-                  <h5 class="card-title">Customer Communication Best Practices Every Business Should Follow</h5>
-                </a>
-                <p class="card-text blog-desc">Struggling with customer conversations? Learn customer communication best practices to respond faster, build trust, and improve customer satisfaction.</p>
-                <a href="essential-customer-communication-best-practices" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Reduce customer churn by identifying dissatisfaction early</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-lead-nurturing-process-benefits-examples">
-                  <img src="blogs/38/lead-nurturing.png" alt="What Is Lead Nurturing? Process, Benefits & Examples" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 20, 2026</div>
-                <a class="blog-link" href="what-is-lead-nurturing-process-benefits-examples">
-                  <h5 class="card-title">What Is Lead Nurturing? Process, Benefits & Examples</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what lead nurturing is, how the process works, and real examples that help businesses convert more leads through trust and consistent follow-ups.</p>
-                <a href="what-is-lead-nurturing-process-benefits-examples" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Spot drops in satisfaction after support calls or chats</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-lead-generation-strategies-for-startups-on-a-budget">
-                  <img src="blogs/37/lead-generation.png" alt="Best Lead Generation Strategies for Startups on a Budget" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 19, 2026</div>
-                <a class="blog-link" href="best-lead-generation-strategies-for-startups-on-a-budget">
-                  <h5 class="card-title">Best Lead Generation Strategies for Startups on a Budget</h5>
-                </a>
-                <p class="card-text blog-desc">Effective lead generation strategies for startups that value smart planning over high spend. Learn how to attract, manage, and convert leads easily.</p>
-                <a href="best-lead-generation-strategies-for-startups-on-a-budget" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Retrain teams when interactions aren’t meeting expectations</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="cold-calling-techniques-that-actually-work">
-                  <img src="blogs/36/cold-calling.png" alt="Cold Calling Techniques That Actually Work in 2026" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 19, 2026</div>
-                <a class="blog-link" href="cold-calling-techniques-that-actually-work">
-                  <h5 class="card-title">Cold Calling Techniques That Actually Work in 2026</h5>
-                </a>
-                <p class="card-text blog-desc">Cold calls still work when done right. Learn modern cold calling techniques that build trust, start real conversations, and improve sales results in 2026.</p>
-                <a href="cold-calling-techniques-that-actually-work" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Improve products and services using real customer feedback</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-call-centre-analytics-use-cases-every-business-needs">
-                  <img src="blogs/35/call-center.png" alt="Top Call Centre Analytics Use Cases Every Business Should Know" />
+              <p>
+                Understanding the different roles of tools can enhance your sentiment strategy. Check out
+                <a href="https://runo.ai/blog/crm-vs-lead-management" target="_blank" rel="noopener">
+                  CRM vs.
+                  <em>Lead Management</em>
                 </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 19, 2026</div>
-                <a class="blog-link" href="top-call-centre-analytics-use-cases-every-business-needs">
-                  <h5 class="card-title">Top Call Centre Analytics Use Cases Every Business Should Know</h5>
-                </a>
-                <p class="card-text blog-desc">From healthcare to e-commerce, see how call centre analytics improves efficiency, compliance, and customer experience across real business use cases.</p>
-                <a href="top-call-centre-analytics-use-cases-every-business-needs" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <em>: Which One Is Right for Your Business?</em>
+                to choose the right stack.
+              </p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="types-of-call-centre-analytics-every-manager-should-know">
-                  <img src="blogs/34/call-center.png" alt="Types of Call Centre Analytics Used in Modern Contact Centres" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 12, 2026</div>
-                <a class="blog-link" href="types-of-call-centre-analytics-every-manager-should-know">
-                  <h5 class="card-title">Types of Call Centre Analytics Used in Modern Contact Centres</h5>
-                </a>
-                <p class="card-text blog-desc">Not all call centre analytics are the same. Learn which types matter most and how they support smarter planning, coaching, and performance tracking.</p>
-                <a href="types-of-call-centre-analytics-every-manager-should-know" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h2 class="wp-block-heading">How Customer Sentiment Analysis Works</h2>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-call-centre-analytics-software">
-                  <img src="blogs/32/call-center-analytics.png" alt="6 Best Call Centre Analytics Software in 2026 (With Pros & Cons)" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 08, 2026</div>
-                <a class="blog-link" href="best-call-centre-analytics-software">
-                  <h5 class="card-title">6 Best Call Centre Analytics Software in 2026</h5>
-                </a>
-                <p class="card-text blog-desc">Searching for the best call centre analytics software in 2026? Read on to explore 6 powerful tools with pros, cons, use, cases, pricing, and features.</p>
-                <a href="best-call-centre-analytics-software" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <figure class="wp-block-image"><img decoding="async" src="blogs/51/1.png" alt="Sentiment Analysis" /></figure>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="what-is-call-analytics">
-                  <img src="blogs/31/call-analytics.png" alt="What is Call Analytics? Benefits, Features & Key Metrics" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 07, 2026</div>
-                <a class="blog-link" href="what-is-call-analytics">
-                  <h5 class="card-title">What is Call Analytics? Benefits, Features & Key Metrics</h5>
-                </a>
-                <p class="card-text blog-desc">What is Call Analytics? Read this beginner-friendly guide to understand how AI turns phone calls into insights that improve decisions and performance.</p>
-                <a href="what-is-call-analytics" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Now that we understand why customer sentiment matters, let’s look at how customer sentiment analysis actually works. The process is simple and typically follows three clear steps.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-telecalling-scripts-for-higher-conversions">
-                  <img src="blogs/30/telecalling-scripts.png" alt="Best Telecaller Calling Scripts for Higher Conversion Rates" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : January 07, 2026</div>
-                <a class="blog-link" href="best-telecalling-scripts-for-higher-conversions">
-                  <h5 class="card-title">Best Telecaller Calling Scripts for Higher Conversion Rates</h5>
-                </a>
-                <p class="card-text blog-desc">Get the best telecalling scripts for higher conversion rates. Simple language, real call examples, and proven tips to turn more leads into customers.</p>
-                <a href="best-telecalling-scripts-for-higher-conversions" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>Data Gathering</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="types-of-call-centres-explained">
-                  <img src="blogs/29/types-callcenter.png" alt="Types of Call Centres Explained: Inbound, Outbound & More" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 17, 2025</div>
-                <a class="blog-link" href="types-of-call-centres-explained">
-                  <h5 class="card-title">Types of Call Centres Explained: Inbound, Outbound & More</h5>
-                </a>
-                <p class="card-text blog-desc">Learn the different types of call centres, including inbound, outbound, blended, virtual, multichannel, and omnichannel, with use cases and benefits.</p>
-                <a href="types-of-call-centres-explained" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Everything starts with customer feedback.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-crm-for-telemarketing">
-                  <img src="blogs/28/call-center.png" alt=" Best CRM for Telemarketing to Boost Sales Performance" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 17, 2025</div>
-                <a class="blog-link" href="best-crm-for-telemarketing">
-                  <h5 class="card-title">Best CRM for Telemarketing to Boost Sales Performance</h5>
-                </a>
-                <p class="card-text blog-desc">Find the best CRM for telemarketing to improve calling speed, track leads, automate follow-ups, and boost sales. Compare top tools like Runo, Zoho & HubSpot.</p>
-                <a href="best-crm-for-telemarketing" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Businesses collect feedback from multiple places, such as:</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="auto-dialer-software-india">
-                  <img src="blogs/27/auto-dialer-software.png" alt="Auto Dialer Software India: Top Solutions for Businesses" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 12, 2025</div>
-                <a class="blog-link" href="auto-dialer-software-india">
-                  <h5 class="card-title">Auto Dialer Software India: Top Solutions for Businesses</h5>
-                </a>
-                <p class="card-text blog-desc">Explore the best auto dialer software in India – features, pricing, AI tools, and top solutions for SMBs, call centers, remote teams & fast-scale sales operations.</p>
-                <a href="auto-dialer-software-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Social media comments</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="auto-dialer-software-for-call-centre">
-                  <img src="blogs/26/auto-dialer.png" alt="Auto Dialer Software for Call Centre: Features & Benefits" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 11, 2025</div>
-                <a class="blog-link" href="auto-dialer-software-for-call-centre">
-                  <h5 class="card-title">Auto Dialer Software for Call Centre: Features & Benefits</h5>
-                </a>
-                <p class="card-text blog-desc">Explore auto dialer software for call centres – types, features, benefits, and how it boosts productivity, conversions and customer experience with automation.</p>
-                <a href="auto-dialer-software-for-call-centre" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Online reviews</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="crm-vs-lead-management">
-                  <img src="blogs/25/crmvslead.png" alt="CRM vs Lead Management: Which One is Right for Your Business?" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 9, 2025</div>
-                <a class="blog-link" href="crm-vs-lead-management">
-                  <h5 class="card-title">CRM vs Lead Management: Which One is Right for Your Business?</h5>
-                </a>
-                <p class="card-text blog-desc">Understand CRM vs lead management, key differences, benefits, and how to choose the right system for sales growth, customer retention, and business success.</p>
-                <a href="crm-vs-lead-management" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Emails and chat conversations</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="neodove-alternative">
-                  <img src="blogs/24/neo-dove.png" alt="Best NeoDove Alternative for Smart Calling & AI Automation" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 3, 2025</div>
-                <a class="blog-link" href="neodove-alternative">
-                  <h5 class="card-title">Best NeoDove Alternative for Smart Calling & AI Automation</h5>
-                </a>
-                <p class="card-text blog-desc">Looking for the best NeoDove alternative? Compare features, pricing & AI tools. Boost call connect rate, automate follow-ups & improve telecalling performance.</p>
-                <a href="neodove-alternative" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Support tickets and call notes</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-crm-for-lead-management">
-                  <img src="blogs/23/lead-management.png" alt="Best CRM for Lead Management to Increase Conversions" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 2, 2025</div>
-                <a class="blog-link" href="best-crm-for-lead-management">
-                  <h5 class="card-title">Best CRM for Lead Management to Increase Conversions</h5>
-                </a>
-                <p class="card-text blog-desc">Discover the best CRM for lead management to improve follow-ups, boost calling productivity, and increase conversions. Runo.ai leads with SIM-based smart CRM features.</p>
-                <a href="best-crm-for-lead-management" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>The goal is to gather feedback across multiple channels to get a complete picture. The more varied the sources, the better your customer feedback analysis will be.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="choosing-best-whatsapp-crm-tool">
-                  <img src="blogs/22/whatsappcrm.png" alt="Choosing the Right WhatsApp CRM Tool for Your Team - Top 10" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : December 1, 2025</div>
-                <a class="blog-link" href="choosing-best-whatsapp-crm-tool">
-                  <h5 class="card-title">Choosing the Right WhatsApp CRM Tool for Your Team - Top 10</h5>
-                </a>
-                <p class="card-text blog-desc">Discover how to choose the right WhatsApp CRM tool, key features to compare, and the top 10 platforms for team collaboration, automation, and customer engagement.</p>
-                <a href="choosing-best-whatsapp-crm-tool" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>AI-Powered Sentiment Analysis</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="whatsapp-crm-integration-benefits-for-small-businesses">
-                  <img src="blogs/21/whatappai.png" alt="Top Benefits of WhatsApp CRM Integration for Small Businesses" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : November 11, 2025</div>
-                <a class="blog-link" href="whatsapp-crm-integration-benefits-for-small-businesses">
-                  <h5 class="card-title">Top Benefits of WhatsApp CRM Integration for Small Businesses</h5>
-                </a>
-                <p class="card-text blog-desc">Discover how WhatsApp CRM integration helps small businesses centralize chats, automate follow-ups, track leads, and improve customer engagement for faster growth.</p>
-                <a href="whatsapp-crm-integration-benefits-for-small-businesses" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Once the data is collected, AI tools step in.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="trai-regulations-india">
-                  <img src="blogs/20/trai.png" alt="Is SIM-Based Calling Legal? TRAI Rules & Compliance 2025–2026" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : November 11, 2025</div>
-                <a class="blog-link" href="trai-regulations-india">
-                  <h5 class="card-title">Is SIM-Based Calling Legal? TRAI Rules & Compliance 2025–2026</h5>
-                </a>
-                <p class="card-text blog-desc">Is SIM-based call management TRAI compliant in 2025? Learn legal rules, DLT registration, DND filtering, and upcoming 2026 regulation updates.</p>
-                <a href="trai-regulations-india" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>These tools use machine learning and language models to read large volumes of text. They scan words, phrases, and tone to identify whether the sentiment is positive, negative, or neutral. This is the core of customer sentiment analysis.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="runo-wins-global-indian-msme-award-in-sales-tech">
-                  <img src="blogs/19/award.png" alt="Runo wins Global Indian MSME of the year in Sales Tech category" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 25, 2025</div>
-                <a class="blog-link" href="runo-wins-global-indian-msme-award-in-sales-tech">
-                  <h5 class="card-title">Runo wins Global Indian MSME of the year in Sales Tech category</h5>
-                </a>
-                <p class="card-text blog-desc">Runo wins the Global Indian MSME of the Year Award in the Sales Tech category, recognizing its innovation in call management CRM and AI-powered sales solutions.</p>
-                <a href="runo-wins-global-indian-msme-award-in-sales-tech" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>The system also groups feedback into themes. For example, delivery issues, pricing concerns, or support experience. Sentiment is then measured for each theme, so teams know exactly what customers feel about specific areas.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-call-center-metrics-kpi-to-track">
-                  <img src="blogs/18/call-center.png" alt="Top 10 Call Center Metrics & KPIs You Should Be Tracking" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 24, 2025</div>
-                <a class="blog-link" href="top-call-center-metrics-kpi-to-track">
-                  <h5 class="card-title">Top 10 Call Center Metrics & KPIs You Should Be Tracking</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which call center metrics really matter? Discover the top 10 KPIs every team should track to boost performance, improve customer experience, and hit business goals with confidence.</p>
-                <a href="top-call-center-metrics-kpi-to-track" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>Turn Insights Into Action</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="complete-guide-to-telecalling">
-                  <img src="blogs/17/telecalling.png" alt="Telecalling in 2026: A Complete Beginner’s Guide" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 18, 2025</div>
-                <a class="blog-link" href="complete-guide-to-telecalling">
-                  <h5 class="card-title">Telecalling in 2026: A Complete Beginner’s Guide</h5>
-                </a>
-                <p class="card-text blog-desc">Discover what telecalling is, its types, importance, benefits, and real-life use cases in 2026. Learn how telecalling works, the skills required, and the best tools for beginners.</p>
-                <a href="complete-guide-to-telecalling" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Insights matter only when you act on them.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-lead-generation-tools-for-business">
-                  <img src="blogs/16/lead-gen.png" alt="10 Best Lead Generation Tools for Business Growth" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 8, 2025</div>
-                <a class="blog-link" href="best-lead-generation-tools-for-business">
-                  <h5 class="card-title">10 Best Lead Generation Tools for Business Growth</h5>
-                </a>
-                <p class="card-text blog-desc">Struggling with lead generation? Check out these 10 tools and easy strategies to turn prospects into customers and grow your business fast.</p>
-                <a href="best-lead-generation-tools-for-business" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>After analysing sentiment, businesses use the findings to:</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="from-excel-to-crm-when-and-why-businesses-should-upgrade">
-                  <img src="blogs/15/excel.png" alt="SFrom Excel to CRM: When and Why Businesses Should Upgrade" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 4, 2025</div>
-                <a class="blog-link" href="from-excel-to-crm-when-and-why-businesses-should-upgrade">
-                  <h5 class="card-title">From Excel to CRM: When and Why Businesses Should Upgrade</h5>
-                </a>
-                <p class="card-text blog-desc">Still managing customer data in Excel? Learn when and why businesses should switch to a CRM for better collaboration, automation, and growth.</p>
-                <a href="from-excel-to-crm-when-and-why-businesses-should-upgrade" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <ul class="wp-block-list">
+                <li>Improve products or features</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="sales-forecasting">
-                  <img src="blogs/14/sales-forecasting.png" alt="Sales Forecasting 101: Methods to Grow Your Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : September 1, 2025</div>
-                <a class="blog-link" href="sales-forecasting">
-                  <h5 class="card-title">Sales Forecasting 101: Methods to Grow Your Business</h5>
-                </a>
-                <p class="card-text blog-desc">Curious about sales forecasting? Learn simple methods, why they matter, and how to use them to grow your business with confidence.</p>
-                <a href="sales-forecasting" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="real-estate-cold-calling-scripts">
-                  <img src="blogs/13/cold-calling.png" alt="12 Proven Real Estate Cold Calling Scripts for 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 29, 2025</div>
-                <a class="blog-link" href="real-estate-cold-calling-scripts">
-                  <h5 class="card-title">12 Proven Real Estate Cold Calling Scripts for 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Looking for the right words on calls? These 12 real estate cold calling scripts for 2025 will help you connect better and win more clients.</p>
-                <a href="real-estate-cold-calling-scripts" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Fix recurring support issues</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-sales-methodologies">
-                  <img src="blogs/12/sales.png" alt="15 Best Sales Methodologies You Should Know" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 26, 2025</div>
-                <a class="blog-link" href="best-sales-methodologies">
-                  <h5 class="card-title">15 Best Sales Methodologies You Should Know</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which sales approach works best? Discover 15 proven sales methodologies that can help you close deals smarter and grow your business.</p>
-                <a href="best-sales-methodologies" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Train teams based on customer reactions</li>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="importance-of-call-management-for-business">
-                  <img src="blogs/11/crm.png" alt="Why Call Management Matters for Every Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 25, 2025</div>
-                <a class="blog-link" href="importance-of-call-management-for-business">
-                  <h5 class="card-title">Why Call Management Matters for Every Business</h5>
-                </a>
-                <p class="card-text blog-desc">Ever wondered why call management is such a big deal for businesses? It helps you serve customers better, close more deals, and keep things running smoothly.</p>
-                <a href="importance-of-call-management-for-business" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+                <li>Adjust messaging or processes</li>
+              </ul>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-mobile-crm-apps">
-                  <img src="blogs/10/mobile-crm.png" alt="9 Best Mobile CRM Apps for Sales Teams in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 22, 2025</div>
-                <a class="blog-link" href="best-mobile-crm-apps">
-                  <h5 class="card-title">9 Best Mobile CRM Apps for Sales Teams in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Not sure which mobile CRM to choose in 2025? We’ve rounded up 9 of the best CRM apps that keep your sales team productive and customers happy.</p>
-                <a href="best-mobile-crm-apps" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h2 class="wp-block-heading">Types of Customer Sentiment Analysis</h2>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="how-sim-based-outbound-calls-can-boost-sales-performance">
-                  <img src="blogs/9/outbound.png" alt=" How SIM-Based Outbound Calls Can Boost Your Sales" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 21, 2025</div>
-                <a class="blog-link" href="how-sim-based-outbound-calls-can-boost-sales-performance">
-                  <h5 class="card-title">How SIM-Based Outbound Calls Can Boost Your Sales</h5>
-                </a>
-                <p class="card-text blog-desc">Want more sales from your outbound calls? SIM-based calling makes it easier for teams to reach prospects, stay compliant, and increase conversions.</p>
-                <a href="how-sim-based-outbound-calls-can-boost-sales-performance" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <figure class="wp-block-image"><img decoding="async" src="blogs/51/2.png" alt="Sentiment Analysis" /></figure>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telesales-tips-and-strategies">
-                  <img src="blogs/8/telesales-tips.png" alt="10 Telesales Tips and Strategies That Actually Work in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 20, 2025</div>
-                <a class="blog-link" href="telesales-tips-and-strategies">
-                  <h5 class="card-title">10 Telesales Tips and Strategies That Actually Work in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Learn 10 telesales tips and strategies that actually work in 2025. Improve call success, close more deals, and boost your sales performance.</p>
-                <a href="telesales-tips-and-strategies" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>Fine-Grained Sentiment Analysis</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="cold-calling-guide">
-                  <img src="blogs/7/cold-calling.png" alt="Cold Calling in 2025 – Best Time & Day to Maximize Response" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 18, 2025</div>
-                <a class="blog-link" href="cold-calling-guide">
-                  <h5 class="card-title">Cold Calling in 2025 – Best Time & Day to Maximize Response</h5>
-                </a>
-                <p class="card-text blog-desc">Discover the best time and day for cold calling in 2025. Learn proven timing hacks to boost response rates and maximize sales conversions.</p>
-                <a href="cold-calling-guide" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>This is the most common approach.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="call-tracking-for-outbound-sales">
-                  <img src="blogs/6/call-tracking.png" alt="Call Tracking for Outbound Sales – Strategy & Best Practices" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 14, 2025</div>
-                <a class="blog-link" href="call-tracking-for-outbound-sales">
-                  <h5 class="card-title">Call Tracking for Outbound Sales – Strategy & Best Practices</h5>
-                </a>
-                <p class="card-text blog-desc">Learn how call tracking can transform outbound sales. Discover key strategies, metrics, and best practices to boost conversions, improve ROI, and optimize campaigns.</p>
-                <a href="call-tracking-for-outbound-sales" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Fine-grained analysis checks the polarity of customer feedback. It tells you whether a comment, message, or review is positive, negative, or neutral. It’s useful when you want a quick, high-level view of how customers feel.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telesales-executive-guide">
-                  <img src="blogs/5/telesales.png" alt="Telesales Executive 101 – Roles, Skills & Career Path" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 12, 2025</div>
-                <a class="blog-link" href="telesales-executive-guide">
-                  <h5 class="card-title">Telesales Executive 101 – Roles, Skills & Career Path</h5>
-                </a>
-                <p class="card-text blog-desc">Learn what a telesales executive does, the types of roles, key skills needed, and how to build a successful career in telesales. A complete beginner’s guide.</p>
-                <a href="telesales-executive-guide" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <h3 class="wp-block-heading"><strong>Emotion Detection</strong></h3>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="benefits-of-telecalling-software">
-                  <img src="blogs/4/telecalling-software.png" alt="6 Benefits of Telecalling Software for Your Business" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 11, 2025</div>
-                <a class="blog-link" href="benefits-of-telecalling-software">
-                  <h5 class="card-title">6 Ways Telecalling Software Can Boost Sales & Engagement</h5>
-                </a>
-                <p class="card-text blog-desc">Learn 6 benefits of telecalling software for your business, improving call efficiency, increasing sales and enhancing customer satisfaction.</p>
-                <a href="benefits-of-telecalling-software" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Emotion detection goes a step further.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="telecaller-skills">
-                  <img src="blogs/3/telecaller.png" alt="10 Must-Have Skills for Telecallers to Win At Sales" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 8, 2025</div>
-                <a class="blog-link" href="telecaller-skills">
-                  <h5 class="card-title">10 Must-Have Skills for Telecallers to Win At Sales</h5>
-                </a>
-                <p class="card-text blog-desc">Want to ace your telecalling or telemarketing job? Learn 10 must-have telecaller skills with pro tips that actually work in real-world calls.</p>
-                <a href="telecaller-skills" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>Instead of simply tagging feedback as positive or negative, it identifies the underlying emotion. This could be frustration, happiness, anger, or satisfaction. Machine learning models analyse tone and language to understand how intense the feeling is.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="top-telecaller-app-features-and-tool">
-                  <img src="blogs/2/telecaller-app.png" alt="Top Telecaller App Features & Tool You Need in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 7, 2025</div>
-                <a class="blog-link" href="top-telecaller-app-features-and-tool">
-                  <h5 class="card-title">Top Telecaller App Features & Tool You Need in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">Learn the top telecaller app tool of 2025, packed with essential features to boost productivity, manage calls, and convert more leads efficiently.</p>
-                <a href="top-telecaller-app-features-and-tool" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
-            </div>
-          </div>
+              <p>This is especially helpful in customer support conversations where emotions can change quickly.</p>
 
-          <div class="col">
-            <div class="card blog-card h-100">
-              <div class="card-head">
-                <a class="blog-link" href="best-call-center-crm-software">
-                  <img src="blogs/1/main.png" alt="5 Best Call Center CRM Software to Boost Sales in 2025" />
-                </a>
-              </div>
-              <div class="card-body">
-                <div class="blog-date text-end small">Published Date : August 6, 2025</div>
-                <a class="blog-link" href="best-call-center-crm-software">
-                  <h5 class="card-title">5 Best Call Center CRM Software to Boost Sales in 2025</h5>
-                </a>
-                <p class="card-text blog-desc">This blog explains the 5 best call center CRM software options in 2025 to streamline workflows, manage leads, track calls, and drive more conversions. It covers key features and comparisons.</p>
-                <a href="best-call-center-crm-software" class="btn-runo-dark mt-auto text-center">Read More</a>
-              </div>
+              <h3 class="wp-block-heading"><strong>Aspect-Based Sentiment Analysis</strong></h3>
+
+              <p>Aspect sentiment analysis analyses specific aspects of customer feedback.</p>
+
+              <p>It breaks text into topics or aspects, such as pricing, delivery, product quality, or support. Sentiment is then measured for each aspect separately.</p>
+
+              <p>
+                <em>For a deeper look at other insights you can unlock beyond sentiment, read</em>
+                <a href="https://runo.ai/blog/types-of-call-centre-analytics-every-manager-should-know" target="_blank" rel="noopener"><em>Types of Call Centre Analytics</em></a>
+                <em>Used in Modern Contact Centres to expand your analytics strategy.</em>
+              </p>
+
+              <h2 class="wp-block-heading">Benefits of Customer Sentiment Analysis</h2>
+
+              <h3 class="wp-block-heading"><strong>Simplifies Customer Needs and Expectations</strong></h3>
+
+              <p>Understanding customer needs can feel confusing. Sentiment analysis makes it clearer.</p>
+
+              <p>By analysing feedback, reviews, and support conversations, sentiment tools identify patterns in customer sentiment. These patterns reveal what customers care about most. Instead of guessing, businesses get clear signals about expectations and priorities.</p>
+
+              <p>This helps teams align products and services with real customer needs—and even go beyond them.</p>
+
+              <h3 class="wp-block-heading"><strong>Helps Support Teams Perform Better</strong></h3>
+
+              <p>Every customer interaction carries emotion.</p>
+
+              <p>Customer sentiment analysis gives support teams context. They can see whether a customer is frustrated, satisfied, or neutral before responding. This helps agents choose the right tone and approach.</p>
+
+              <p>With real-time sentiment analysis, managers can also spot recurring issues or skill gaps early.&nbsp;</p>
+
+              <p>
+                <em>Pairing sentiment insights with the right toolstack can yield even better conversions. Explore our</em>
+                <a href="https://runo.ai/blog/best-crm-for-lead-management" target="_blank" rel="noopener"><em>Best CRM for Lead Management</em></a>
+                <em>to increase conversions.</em>
+              </p>
+
+              <h3 class="wp-block-heading"><strong>Guides Improvements for Products and Services</strong></h3>
+
+              <p>Customers constantly share what works and what doesn’t—often without saying it directly.</p>
+
+              <p>Sentiment analysis highlights these signals. If customers show frustration around a feature or process, teams can act on it. For example, repeated negative sentiment about a checkout flow indicates where to focus improvements.&nbsp;</p>
+
+              <h2 class="wp-block-heading">Customer Sentiment Analysis Examples (Sales &amp; Support)</h2>
+
+              <hr />
+
+              <h2 class="wp-block-heading">Sales Examples</h2>
+
+              <h3 class="wp-block-heading"><strong>Identifying win or loss Reasons</strong></h3>
+
+              <p>
+                Sales teams analyse call recordings and transcripts to spot patterns. Positive phrases like
+                <em>“loved the demo”</em>
+                or
+                <em>“great value”</em>
+                often appear in closed deals. Negative phrases such as
+                <em>“too expensive”</em>
+                or
+                <em>“competitor seems better”</em>
+                often appear in lost opportunities. This helps teams understand why deals move forward—or don’t.
+              </p>
+
+              <h3 class="wp-block-heading"><strong>Improving Product-Market fit</strong></h3>
+
+              <p>By reviewing sentiment from sales calls, teams can identify which features prospects respond to positively and where frustration arises. Repeated comments about pricing or missing features help refine sales messaging and guide product decisions.</p>
+
+              <h3 class="wp-block-heading"><strong>Sales Enablement and Training</strong></h3>
+
+              <p>Positive call snippets are used to train new reps on what works. Calls with negative sentiment highlight gaps in objection handling or pitching. This makes coaching more practical and focused.</p>
+
+              <h2 class="wp-block-heading">Support Examples</h2>
+
+              <h3 class="wp-block-heading"><strong>Real-Time Escalation</strong></h3>
+
+              <p>When real-time sentiment analysis detects strong frustration in a chat or call, the system alerts a supervisor. This allows quick intervention before the situation escalates or leads to churn.</p>
+
+              <h3 class="wp-block-heading"><strong>Issue Prioritization</strong></h3>
+
+              <p>If a large percentage of negative sentiment points to one recurring issue, support teams can prioritise fixing it. They can also inform affected customers early, reducing complaints.</p>
+
+              <h3 class="wp-block-heading"><strong>Smarter Chatbot Responses</strong></h3>
+
+              <p>When a chatbot detects frustration, it can switch from automated replies to offering a live agent or responding with empathy. This improves the support experience.</p>
+
+              <h3 class="wp-block-heading"><strong>Churn Prediction</strong></h3>
+
+              <p>Ongoing negative sentiment around billing or unresolved issues can flag customers at risk of leaving. Customer success teams can step in early to retain them.</p>
+
+              <h2 class="wp-block-heading">How Runo Enables Real-Time Customer Sentiment Analysis</h2>
+
+              <figure class="wp-block-image"><img decoding="async" src="blogs/51/3.png" alt="Sentiment Analysis" /></figure>
+
+              <p>
+                <a href="https://runo.ai/features/call-center-monitoring-software" target="_blank" rel="noopener">Runo</a>
+                makes real-time customer sentiment analysis practical and actionable. It helps teams understand customer emotions in real time, not days later.
+              </p>
+
+              <h3 class="wp-block-heading"><strong>Track Every Conversation</strong></h3>
+
+              <p>Runo monitors live calls and automatically records all inbound and outbound conversations. Every interaction is stored securely, making it easy to review calls and stay compliant.</p>
+
+              <h3 class="wp-block-heading"><strong>Analyse Sentiment With AI</strong></h3>
+
+              <p>Runo uses AI to analyse calls in real time. It identifies tone, intent, and emotional cues to detect whether a customer is calm, satisfied, or frustrated. This turns raw conversations into clear sentiment insights—without manual effort.</p>
+
+              <h3 class="wp-block-heading"><strong>Spot Issues Instantly</strong></h3>
+
+              <p>With built-in AI sentiment analysis, supervisors can quickly spot unhappy customers. If frustration rises during a call, teams can step in early and prevent escalation or churn.</p>
+
+              <h3 class="wp-block-heading"><strong>Coach Agents With Real Data</strong></h3>
+
+              <p>Managers can replay calls, view AI-generated summaries, and use sentiment scores to coach agents. This helps fix gaps, improve communication skills, and boost conversions.</p>
+
+              <h3 class="wp-block-heading"><strong>Stay on Top of Follow-Ups</strong></h3>
+
+              <p>Smart follow-up reminders ensure no callback or SLA is missed. Customers feel heard, and conversations continue smoothly.</p>
+
+              <h3 class="wp-block-heading"><strong>One Complete Customer View</strong></h3>
+
+              <p>Runo’s interaction timeline brings together calls, notes, and CRM data in one place. Real-time dashboards show agent activity, performance, and sentiment trends</p>
+
+              <h2 class="wp-block-heading">FAQs</h2>
+
+              <h3 class="wp-block-heading"><strong>Can small businesses use customer sentiment analysis effectively?</strong></h3>
+
+              <p>Yes. Even small teams can use sentiment insights to improve conversations, prioritise issues, and deliver better customer experiences without large resources.</p>
+
+              <h3 class="wp-block-heading"><strong>Is customer sentiment analysis only useful for support teams?</strong></h3>
+
+              <p>No. Sales, marketing, and customer success teams also use sentiment analysis to improve pitches, messaging, and retention efforts.</p>
+
+              <h3 class="wp-block-heading"><strong>How often should sentiment data be reviewed?</strong></h3>
+
+              <p>Sentiment should be reviewed regularly, especially during high-volume interactions, to catch issues early and track changes over time.</p>
+
+              <h3 class="wp-block-heading"><strong>Does sentiment analysis work for multiple languages?</strong></h3>
+
+              <p>Many modern sentiment tools support multiple languages, though accuracy may vary depending on data quality and training.</p>
+
+              <h3 class="wp-block-heading"><strong>Can customer sentiment analysis be automated completely?</strong></h3>
+
+              <p>Automation handles most of the work, but human review is still important for context, judgment, and complex situations.</p>
             </div>
           </div>
         </div>
-        <div class="mt-5"></div>
-        <nav>
-          <ul class="pagination justify-content-center mt-4" id="pagination"></ul>
-        </nav>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const blogsPerPage = 15;
-        const blogList = document.querySelectorAll("#blogList .col");
-        const totalBlogs = blogList.length;
-        const totalPages = Math.ceil(totalBlogs / blogsPerPage);
-
-        // Get page number from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        let currentPage = parseInt(urlParams.get("page")) || 1;
-
-        if (currentPage < 1) currentPage = 1;
-        if (currentPage > totalPages) currentPage = totalPages;
-
-        function showPage(page) {
-          blogList.forEach((blog, index) => {
-            blog.style.display = index >= (page - 1) * blogsPerPage && index < page * blogsPerPage ? "block" : "none";
-          });
-        }
-
-        function renderPagination() {
-          const pagination = document.getElementById("pagination");
-          pagination.innerHTML = "";
-
-          // Previous Button
-          pagination.innerHTML += `
-            <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
-                <a class="page-link" href="?page=${currentPage - 1}" aria-label="Previous">Previous</a>
-            </li>
-        `;
-
-          // Page Numbers
-          for (let i = 1; i <= totalPages; i++) {
-            pagination.innerHTML += `
-                <li class="page-item ${i === currentPage ? "active" : ""}">
-                    <a class="page-link" href="?page=${i}">${i}</a>
-                </li>
-            `;
-          }
-
-          // Next Button
-          pagination.innerHTML += `
-            <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
-                <a class="page-link" href="?page=${currentPage + 1}" aria-label="Next">Next</a>
-            </li>
-        `;
-        }
-
-        showPage(currentPage);
-        renderPagination();
-      });
-    </script>
-    <style>
-      /* Default (NOT active) */
-      .pagination .page-link {
-        background-color: #fff !important;
-        color: #000 !important;
-        border: 1px solid #000 !important;
-        transition: 0.2s ease;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Active page */
-      .pagination .active .page-link {
-        background-color: #000 !important;
-        color: #fff !important;
-        border: 1px solid #000 !important;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Hover (non-active buttons including Prev/Next) */
-      .pagination .page-item:not(.active):not(.disabled) .page-link:hover {
-        background-color: #e5e5e5 !important;
-        color: #000 !important;
-        box-shadow: none !important; /* remove shadow */
-      }
-
-      /* Remove click shadow + active shadow */
-      .pagination .page-link:focus,
-      .pagination .page-link:active {
-        box-shadow: none !important;
-        outline: none !important;
-      }
-
-      /* Disabled state */
-      .pagination .disabled .page-link {
-        background-color: #f2f2f2 !important;
-        color: #888 !important;
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-      }
-    </style>
 
     <footer class="bg-dark text-light pt-5 pb-4">
       <div class="container">
