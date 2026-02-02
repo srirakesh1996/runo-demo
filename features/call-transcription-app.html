@@ -1,320 +1,1432 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- SEO Meta Tags -->
-    <title>Sales Pipeline Management Explained Step by Step</title>
-    <meta name="description" content="Learn what sales pipeline management is and how to manage every stage effectively to close more deals, reduce follow-ups, and improve revenue visibility." />
-    <!-- Updated Open Graph Tags -->
-    <meta property="og:title" content="Sales Pipeline Management Explained Step by Step" />
-    <meta property="og:description" content="Learn what sales pipeline management is and how to manage every stage effectively to close more deals, reduce follow-ups, and improve revenue visibility." />
-    <!-- Updated Twitter Tags -->
-    <meta name="twitter:title" content="Sales Pipeline Management Explained Step by Step" />
-    <meta name="twitter:description" content="Learn what sales pipeline management is and how to manage every stage effectively to close more deals, reduce follow-ups, and improve revenue visibility." />
-    <link rel="canonical" href="https://runo.ai/blog/sales-pipeline-management-explained" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <!-- SEO Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call Tracking App & Software for Teams | Runo</title>
+    <meta name="description" content="Call Transcription App that converts every call into accurate, searchable text. Automate notes, improve follow-ups, and boost team productivity with fast AI transcripts." />
+    <link rel="canonical" href="https://runo.ai/features/call-transcription-app" />
     <meta name="robots" content="index, follow" />
-    <!-- changed from no-index -->
-    <meta name="language" content="en" />
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://runo.ai/img/share-image.png" />
-    <meta property="og:url" content="https://runo.ai/blog/sales-pipeline-management-explained" />
-    <!-- Twitter Card -->
+    <meta property="og:title" content="Call Tracking App & Software for Teams | Runo" />
+    <meta property="og:description" content="Call Transcription App that converts every call into accurate, searchable text. Automate notes, improve follow-ups, and boost team productivity with fast AI transcripts." />
+    <meta property="og:image" content="https://runo.ai/img/og/call-management.png" />
+    <meta property="og:url" content="https://runo.ai/features/call-transcription-app" />
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://runo.ai/img/share-image.png" />
-    <meta name="twitter:url" content="https://runo.ai/blog/sales-pipeline-management-explained" />
+    <meta name="twitter:title" content="Call Tracking App & Software for Teams | Runo" />
+    <meta name="twitter:description" content="Call Transcription App that converts every call into accurate, searchable text. Automate notes, improve follow-ups, and boost team productivity with fast AI transcripts." />
+    <meta name="twitter:image" content="https://runo.ai/img/og/call-management.png" />
+    <meta name="twitter:url" content="https://runo.ai/features/call-transcription-app" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16" />
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
+
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/img/call-management/call-management.avif" type="image/avif" fetchpriority="high" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" href="../css/slicknav.min.css" />
-    <link rel="stylesheet" href="../css/all.min.css" />
-    <link rel="stylesheet" href="../css/custom.css" />
-    <link rel="stylesheet" href="../css/runo.css" />
-    <!-- Animate.css and WOW.js -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>-->
-    <!-- Font Awesome (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Swiper CSS (from CDN) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <!-- Swiper JS (CDN, defer to reduce INP impact) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
+
+    <!-- Font Awesome (async) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+    </noscript>
+
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js"
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+      window.addEventListener("load", function () {
+        if (window.gtmDidInit) return;
+        window.gtmDidInit = true;
+
+        function loadGTM() {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+        }
+
+        if (window.requestIdleCallback) {
+          requestIdleCallback(loadGTM, { timeout: 4000 });
+        } else {
+          setTimeout(loadGTM, 4000);
+        }
+      });
     </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
     <style>
-      .related-articles {
-        margin-top: 20px;
-        text-align: left;
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        unicode-range: U+0000-00FF;
       }
-      .related-articles h3 {
-        font-weight: bold;
-        margin-bottom: 15px;
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
       }
-      .related-articles ul {
-        list-style-type: disc;
-        padding-left: 20px;
-        color: #000;
-      }
-      .related-articles ul li {
-        margin: 7px 0px;
-      }
-      .related-articles a {
-        text-decoration: none;
-        color: #f44336;
-        font-size: 18px;
-        margin: 5px 0px;
-      }
-      .related-articles a:hover {
-        text-decoration: underline;
-        color: #f44336;
-      }
-      .wp-block-table {
-        overflow-x: auto;
-      }
-      .wp-block-table .has-fixed-layout td,
-      .wp-block-table .has-fixed-layout th {
-        word-break: break-word;
-      }
-    </style>
-    <style>
-      .blog-content p {
-        margin-bottom: 10px;
-      }
-      .wp-block-image {
-        width: 80%;
-        margin: 15px auto !important;
-      }
-      .blog-content h2 {
-        margin: 20px 0px !important;
-        font-size: 33px !important;
-        font-weight: 450 !important;
-      }
-      .blog-content h3 {
-        margin: 18px 0px !important;
-        font-weight: 600 !important;
-        font-size: 18px !important;
-      }
-      .blog-content h4 {
-        margin: 18px 0px !important;
-        font-weight: 600 !important;
-        font-size: 15px !important;
-      }
-      .table-responsive-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-      }
-      .has-fixed-layout {
-        width: 100%; /* wider than viewport to enable scrolling */
-        border-collapse: collapse;
-        table-layout: fixed;
-        margin-bottom: 25px !important;
-      }
-      @media only screen and (max-width: 600px) {
-        .wp-block-image {
-          width: 100%;
-          margin: 0 auto !important;
-        }
-        .blog-content h2 {
-          font-size: 22px !important;
-        }
-        .blog-content h3 {
-          font-size: 18px !important;
-        }
-        .blog-content h4 {
-          font-size: 15px !important;
-        }
-      }
-      .has-fixed-layout td,
-      .has-fixed-layout th {
-        border: 1px solid #ccc;
-        padding: 12px;
-        vertical-align: top;
-        text-align: left;
-      }
-      .has-fixed-layout tr:nth-child(1) td {
-        font-weight: bold;
-        background-color: #f5f5f5;
-      }
-      .product .card-text {
-        font-size: 15px !important;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        min-height: 44px;
-        /* optional: keeps card heights consistent */
-      }
-      .progress-container {
-        width: 100%;
-        height: 8px;
-        background: #f3f3f3;
-        position: fixed;
-        top: 85px;
-        left: 0;
-        z-index: 99;
-        transition: top 0.3s ease;
-      }
-      .progress-bar {
-        height: 100%;
-        background-color: #f44336;
-        width: 0%;
-        transition: width 0.2s ease;
-      }
-      @media (max-width: 768px) {
-        .progress-container {
-          top: 68px !important;
-        }
-        .progress-container.scrolled {
-          top: 75px !important;
-        }
-      }
-      @media (min-width: 992px) and (max-width: 1038px) {
-        .progress-container {
-          top: 90px !important;
-        }
-        .progress-container.scrolled {
-          top: 90px !important;
-        }
-      }
-      @media (min-width: 1040px) and (max-width: 1366px) {
-        .progress-container {
-          top: 83px !important;
-        }
-        .progress-container.scrolled {
-          top: 83px !important;
-        }
-      }
-      @media (min-width: 769px) and (max-width: 991px) {
-        .progress-container {
-          top: 69px !important;
-        }
-        .progress-container.scrolled {
-          top: 69px !important;
-        }
-      }
-      @media (min-width: 1367px) {
-        .progress-container {
-          top: 86px !important;
-        }
-        .progress-container.scrolled {
-          top: 86px !important;
-        }
-      }
-      @media (min-width: 1600px) {
-        .progress-container {
-          top: 89px !important;
-        }
-        .progress-container.scrolled {
-          top: 89px !important;
-        }
-      }
-      .active > .page-link,
-      .page-link.active {
-        z-index: 3;
-        color: var(--bs-pagination-active-color);
-        background-color: #f44336 !important;
-        border-color: #f44336 !important;
-      }
-      .page-link {
-        color: #f44336 !important;
-      }
-      .active > .page-link,
-      .page-link.active {
-        color: #fff !important;
-      }
-      .page-link:focus {
-        z-index: 3;
-        color: var(--bs-pagination-focus-color);
-        background-color: var(--bs-pagination-focus-bg);
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 29%) !important;
-      }
-      .blogs .card-title {
-        line-height: 1.5;
-      }
-      .blog-desc {
-        font-size: 15px !important;
-        white-space: normal;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* Truncate after 2 lines */
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
-      .blog-content {
-        color: #222222;
-      }
-      .blog-feat {
-        width: 70%;
-        margin: 0 auto;
-        border-radius: 20px;
-      }
-      .wp-block-image img {
-        width: 70% !important;
-        margin: 15px auto !important;
-        display: block !important;
-      }
-      @media only screen and (max-width: 600px) {
-        .wp-block-image img {
-          width: 100% !important;
-        }
-        .blog-feat {
-          width: 100%;
-        }
-      }
-      .post-content .blog-content {
-        text-align: left !important;
-      }
-      .banner-blog {
-        padding: 20px;
-        margin: 20px auto;
-        width: 60%;
-        background: #f44336;
-        border-radius: 20px;
-      }
-      @media only screen and (max-width: 600px) {
-        .banner-blog {
-          width: 100%;
-        }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
       }
     </style>
 
+    <style>
+      /* FOr Product pAges*/
+
+      .main-menu .mega-menu .menu-head {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .submenu-list .menu-head {
+        font-size: 17px;
+        color: #111111 !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+
+        .submenu-list .menu-head {
+          padding: 0px 10px !important;
+        }
+      }
+    </style>
+    <style>
+      /* Hello Bar */
+      .hello-bar {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        line-height: 1.5;
+        padding: 12px 15px;
+      }
+
+      .hello-bar p {
+        margin: 0;
+        text-align: center;
+        color: #fff !important;
+        padding-right: 45px; /* space so text doesn't touch close button */
+      }
+
+      /* Close Button */
+      .close-hello {
+        position: absolute;
+
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-hello:hover {
+        background: rgba(255, 255, 255, 0.35);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 767.98px) {
+        .hello-bar p {
+          text-align: left;
+        }
+
+        .hello-bar {
+          font-size: 14px;
+          padding: 10px 12px;
+        }
+
+        .close-hello {
+          top: 6px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
+          font-size: 18px;
+        }
+
+        .hello-bar p {
+          padding-right: 40px;
+        }
+      }
+    </style>
+    <style>
+      @media only screen and (max-width: 768px) {
+        .telecaller-hero {
+          background: #ffffff !important;
+        }
+      }
+
+      .section-title h1 {
+        font-size: 45px;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #111111;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .section-title h1 {
+          font-size: 32px;
+        }
+      }
+
+      /*!
+ * SlickNav Responsive Mobile Menu v1.0.10
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+      .slicknav_btn,
+      .slicknav_nav .slicknav_item {
+        cursor: pointer;
+      }
+
+      .slicknav_menu,
+      .slicknav_menu * {
+        box-sizing: border-box;
+      }
+
+      .slicknav_btn {
+        position: relative;
+        display: block;
+
+        float: right;
+        padding: 0.438em 0.625em;
+        line-height: 1.125em;
+      }
+
+      .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+        margin-top: 0.188em;
+      }
+
+      .slicknav_menu .slicknav_menutxt {
+        display: block;
+        line-height: 1.188em;
+        float: left;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      .slicknav_menu .slicknav_icon {
+        float: left;
+        width: 1.125em;
+        height: 0.875em;
+        margin: 0.188em 0 0 0.438em;
+      }
+
+      .slicknav_menu .slicknav_icon:before {
+        background: 0 0;
+        width: 1.125em;
+        height: 0.875em;
+        display: block;
+        content: "";
+        position: absolute;
+      }
+
+      .slicknav_menu .slicknav_no-text {
+        margin: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: 0.125em;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .slicknav_menu:after,
+      .slicknav_menu:before {
+        content: " ";
+        display: table;
+      }
+
+      .slicknav_menu:after {
+        clear: both;
+      }
+
+      .slicknav_nav li,
+      .slicknav_nav ul {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_arrow {
+        font-size: 0.8em;
+        margin: 0 0 0 0.4em;
+      }
+
+      .slicknav_nav .slicknav_item a {
+        display: inline;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_parent-link a {
+        display: inline;
+      }
+
+      .slicknav_menu {
+        zoom: 1;
+        font-size: 16px;
+        background: #4c4c4c;
+        padding: 5px;
+      }
+
+      .slicknav_nav,
+      .slicknav_nav ul {
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        background-color: #fff;
+      }
+
+      .slicknav_btn {
+        margin: 5px 5px 6px;
+        text-decoration: none;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+
+      .slicknav_nav {
+        clear: both;
+        color: #fff;
+        margin: 0;
+        font-size: 0.875em;
+      }
+
+      .slicknav_nav ul {
+        margin: 0 0 0 20px;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        padding: 5px 10px;
+        margin: 2px 5px;
+      }
+
+      .slicknav_nav .slicknav_row:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #fff;
+      }
+
+      .slicknav_nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .slicknav_nav a:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #222;
+      }
+
+      .slicknav_nav .slicknav_txtnode {
+        margin-left: 15px;
+      }
+
+      .slicknav_nav .slicknav_item a,
+      .slicknav_nav .slicknav_parent-link a {
+        padding: 0;
+        margin: 0;
+      }
+
+      .slicknav_brand {
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 7px 12px;
+        height: 44px;
+      }
+
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #fff;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 12px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 15px !important;
+        }
+      }
+      @media screen and (min-width: 992px) and (max-width: 1029px) {
+        .main-menu ul li a {
+          padding: 10px 8px !important;
+        }
+      }
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 12px;
+        margin-left: 8px;
+        color: var(--primary-color);
+        position: absolute;
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
+    </style>
+    <style>
+      .runo-step-title {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .runo-step-para {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Dropdown Menu CSS */
+
+      .submenu-list h6 {
+        font-size: 17px;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+      }
+
+      .submenu-list .row {
+        flex-wrap: wrap; /* allow multiple lines */
+      }
+
+      /* Hide dropdowns by default */
+      .main-menu .submenu .submenu-list {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+
+        pointer-events: none;
+      }
+
+      /* Show on hover */
+      .main-menu .submenu:hover .submenu-list {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ✅ Normal dropdown */
+
+      /* ✅ Mega menu */
+      .main-menu .mega-menu .submenu-list {
+        left: 50%;
+        transform: translateX(-30%);
+        min-width: 900px; /* wide enough for 5 cols */
+        max-width: 90vw;
+        background: var(--accent-secondary-color);
+        border-radius: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .main-menu .mega-menu h6 {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .compliance {
+        padding: 0px 0px 0px 10px;
+      }
+      .bghd {
+        background: #f443360b;
+        border-radius: 20px 0px 0px 0px;
+      }
+      .header-left {
+        text-align: left;
+        padding: 20px 10px;
+      }
+
+      .header-right {
+        text-align: left;
+        padding: 20px 20px;
+      }
+
+      .header-left a {
+        text-align: left !important;
+      }
+      .header-right a {
+        text-align: left !important;
+        padding: 0px 25px !important;
+      }
+
+      .compliance p {
+        margin-bottom: 12px !important;
+        font-size: 14px !important;
+      }
+      #web-menu {
+        display: block !important;
+      }
+      #mob-menu {
+        display: none !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .submenu-list {
+          box-shadow: none !important;
+          background: hwb(0deg 100% 0%) !important;
+          border-radius: 10px;
+        }
+
+        .slicknav_nav li .mega-menu {
+          display: none !important;
+        }
+
+        .mega-menu {
+          display: none !important;
+        }
+        #mob-menu {
+          display: block !important;
+        }
+
+        #web-menu {
+          display: none !important;
+        }
+      }
+
+      .menu-icon {
+        display: flex;
+        margin-left: -15px;
+        align-items: center;
+      }
+
+      .main-menu .header-right a {
+        padding: 10px 25px !important;
+        font-size: 15px !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .menu-icon {
+          display: flex;
+          margin-left: 5px;
+        }
+        .slicknav_nav .mega .submenu-list li a {
+          padding: 10px 45px !important;
+        }
+        .slicknav_menu {
+          zoom: 1;
+
+          /* NEW */
+          max-height: 90vh; /* limit height to 90% of viewport */
+          overflow-y: auto; /* enable vertical scroll inside menu */
+        }
+      }
+
+      .text-destructive {
+        color: red !important;
+      }
+      .text-green-500 {
+        color: #22c55e !important;
+      }
+
+      .menu-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+      .btns {
+        background: #f44336;
+        color: #fff;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .btns a {
+        position: relative;
+        color: #fff !important;
+        text-decoration: none;
+        padding-right: 28px; /* enough space for arrow */
+        font-weight: 600;
+        font-size: 14px !important;
+        transition: all 0.3s ease;
+      }
+      .btns a:hover {
+        text-decoration: underline;
+      }
+
+      .btns a::after {
+        content: "→";
+        position: absolute;
+        right: -5px; /* fixed gap from text */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px !important;
+        transition: transform 0.3s ease;
+      }
+
+      .btns a:hover::after {
+        transform: translate(3px, -50%); /* slide to right */
+      }
+
+      .main-menu ul ul .menu-icon {
+        margin-left: 0px;
+      }
+      .main-menu ul ul .menu-icon svg {
+        margin-right: 7px;
+        width: 25px;
+        height: 25px;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .slicknav_nav .submenu-list li a {
+          padding: 10px 15px !important;
+        }
+        .slicknav_nav .menu-icon a svg {
+          margin-right: 7px;
+        }
+      }
+
+      .security-sec {
+        position: absolute; /* display: flex; */ /* flex-direction: column; */ /* justify-content: flex-end; */
+        bottom: 60px;
+      }
+
+      .inte-sec .icon-box {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+      .inte-sec h5 {
+        line-height: 1.5;
+      }
+
+      .mt-1 {
+        margin-top: 5px;
+      }
+      .mt-4 {
+        margin-top: 20px;
+      }
+      .text-left p {
+        margin-top: 5px;
+      }
+      .crm-features-section .crm-feature-card {
+        text-align: left;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+      }
+      .crm-features-section .feature-icon {
+        width: 45px;
+        height: 45px;
+        background: #ffb3713b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 22px;
+        color: #f44336;
+        flex-shrink: 0;
+      }
+
+      /* Text alignment */
+      .step-card p {
+        text-align: left !important;
+      }
+
+      .step-card h6 {
+        text-align: left !important;
+        line-height: 1.5;
+      }
+      .step-card h6 {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-card p {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Card styling */
+      .step-card {
+        padding: 25px 15px 10px 15px;
+      }
+
+      .how-it-works .step-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .how-it-works .step-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Number badge */
+      .how-it-works .step-number {
+        position: absolute;
+        top: -15px;
+        left: 15%;
+        transform: translateX(-50%);
+        background: #000;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        z-index: 3;
+      }
+
+      /* Icon */
+      .how-it-works .icon {
+        background: #ffb3713b;
+        color: #f44336;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        font-size: 28px;
+      }
+
+      /* Connecting line */
+      .timeline-line {
+        position: absolute;
+        top: 150px; /* aligns with icons */
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #f44336;
+        opacity: 0.2;
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      @media (max-width: 991px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 45%;
+          max-width: 45%;
+          margin-bottom: 20px;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .how-it-works .col-lg-2 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .timeline-line {
+          display: none;
+        }
+      }
+
+      .security-features-section .feature-icon svg {
+        color: #f44336 !important;
+        width: 50px;
+        height: 50px;
+      }
+
+      .industry-usecases .accordion-button {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px;
+        text-align: left;
+      }
+
+      .industry-usecases .icon-box {
+        flex: 0 0 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffb3713b;
+        color: #f44336;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 0; /* remove extra margin */
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 576px) {
+        .industry-usecases .accordion-button {
+          font-size: 15px;
+          gap: 15px;
+        }
+
+        .industry-usecases .icon-box {
+          flex: 0 0 50px;
+          height: 50px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 768px) {
+        .store-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .store-buttons .btn-schedule {
+          margin: 5px 0;
+        }
+      }
+
+      .features-crm-section {
+        background-color: #fafafa;
+      }
+
+      .feature-crm-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .feature-crm-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-box {
+        background: #ffb3713b;
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      /*   .icon-box i {
+        color: #000;
+      }*/
+
+      .icon-box svg {
+        color: #f44336 !important;
+      }
+
+      /* Gradient borders */
+      .icon-box.blue {
+        border-image: linear-gradient(45deg, #007bff, #00b4ff) 1;
+      }
+
+      .icon-box.purple {
+        border-image: linear-gradient(45deg, #a855f7, #ec4899) 1;
+      }
+
+      .icon-box.orange {
+        border-image: linear-gradient(45deg, #f97316, #ef4444) 1;
+      }
+
+      .icon-box.green {
+        border-image: linear-gradient(45deg, #22c55e, #16a34a) 1;
+      }
+
+      .icon-box.violet {
+        border-image: linear-gradient(45deg, #6366f1, #9333ea) 1;
+      }
+
+      .icon-box.pink {
+        border-image: linear-gradient(45deg, #ec4899, #f43f5e) 1;
+      }
+
+      .feature-crm-card h5 {
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .feature-crm-card p {
+        color: #555;
+        font-size: 15px;
+        margin-bottom: 0;
+      }
+
+      .icon svg {
+        color: #f44336 !important;
+      }
+
+      .comparison-section .table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+        background: transparent;
+      }
+      .comparison-section tbody tr {
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.1);
+        transition: all 0.3s ease;
+      }
+      .comparison-section tbody tr:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 14px rgba(244, 67, 54, 0.2);
+      }
+      .comparison-section td {
+        padding: 1.2rem;
+        vertical-align: middle;
+        font-size: 0.95rem;
+        color: #555;
+      }
+      .comparison-section td strong {
+        color: #111;
+        font-weight: 600;
+      }
+      .text-success {
+        color: #2ecc71 !important;
+      }
+      .text-danger {
+        color: #f44336 !important;
+      }
+      .table > :not(caption) > * > * {
+        border-bottom-width: 0 !important;
+      }
+
+      /* Mobile Layout */
+      @media (max-width: 768px) {
+        .table thead {
+          display: none;
+        }
+        .table,
+        .table tbody,
+        .table tr,
+        .table td {
+          display: block;
+          width: 100%;
+        }
+        .table tr {
+          margin-bottom: 1rem;
+          border-radius: 12px;
+          padding: 1rem;
+          background: #fff;
+        }
+        .table td {
+          text-align: left;
+          border: none;
+          padding: 0.6rem 0;
+        }
+        .table td:first-child {
+          font-weight: 700;
+          color: #f44336;
+
+          margin-bottom: 0.6rem;
+        }
+
+        /* Show column headings for clarity */
+        .table td[data-label]::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: #f44336;
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        /* Vertically center icon with text on mobile */
+        .d-flex.align-items-center {
+          display: flex !important;
+          align-items: center !important;
+        }
+      }
+
+      .security-features-section .feature-card {
+        border-radius: 16px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+        padding: 32px 24px;
+        background: #fff;
+        height: 100%;
+        transition: box-shadow 0.3s;
+        cursor: auto;
+      }
+      .security-features-section .feature-card:hover {
+        box-shadow: 0 4px 12px rgba(60, 72, 90, 0.11);
+      }
+      .security-features-section .feature-icon {
+        font-size: 36px;
+        color: #3366cc;
+        margin-bottom: 18px;
+      }
+    </style>
     <script type="text/javascript">
       // ✅ Initialize CleverTap object
       var clevertap = {
@@ -350,335 +1462,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader Start -->
-    <div class="runo-preloader">
-      <div class="runo-preloader-inner">
-        <div class="runo-spinner"></div>
-        <div class="runo-logo">
-          <img src="../img/logo.png" alt="Runo Loading" />
-        </div>
-      </div>
-    </div>
     <!-- Preloader End -->
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-    <script>
-      jQuery(document).ready(function ($) {
-        var progressBar = $("#progressBar");
-        var progressContainer = $(".progress-container");
-
-        $(window).on("scroll", function () {
-          var scrollTop = $(document).scrollTop();
-          var scrollHeight = $(document).height() - $(window).height();
-          var scrolled = (scrollTop / scrollHeight) * 100;
-
-          progressBar.css("width", scrolled + "%");
-
-          // Show progress bar only after 10% scroll
-          if (scrolled >= 5) {
-            progressContainer.fadeIn(200);
-          } else {
-            progressContainer.fadeOut(200);
-          }
-
-          // Apply scroll class only on desktop
-          if (window.innerWidth >= 768) {
-            if (scrollTop > 0) {
-              progressContainer.addClass("scrolled");
-            } else {
-              progressContainer.removeClass("scrolled");
-            }
-          }
-        });
-
-        // Hide initially
-        progressContainer.hide();
-      });
-    </script>
-    <!-- Modal -->
-    <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="custom-modal-box">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <h5>Get in touch now!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form id="demo-form" method="POST" data-page-name="Product" data-uuid="68f3d8b4-758c-4e8f-96ec-564d1b2c1051">
-                <div class="mb-1">
-                  <input type="text" name="your_name" class="form-control" id="name" placeholder="Name" />
-                  <small class="text-danger d-none" id="nameError">Name is required.</small>
-                </div>
-                <div class="mb-1">
-                  <input type="email" name="your_email" class="form-control" id="email" placeholder="Email Address" />
-                  <small class="text-danger d-none" id="emailError">Valid email is required.</small>
-                </div>
-                <div class="mb-1">
-                  <input type="tel" name="your_phone" class="form-control" id="phone" placeholder="Phone Number" autocomplete="tel" />
-                  <small class="text-danger d-none" id="phoneError">Enter a valid phone number.</small>
-                </div>
-                <div class="mb-1">
-                  <input type="text" name="your_company" class="form-control" id="comp_name" placeholder="Company Name" />
-                  <small class="text-danger d-none" id="comp_nameError">Company Name is required.</small>
-                </div>
-                <div class="mb-1">
-                  <select name="custom_Sales/Calling Team Size" class="form-select" id="agents">
-                    <option value="" disabled selected style="color: #858585">Number of Calling Agents</option>
-                    <option value=">50">>50</option>
-                    <option value="21-50">21-50</option>
-                    <option value="11-20">11-20</option>
-                    <option value="4-10">4-10</option>
-                    <option value="1-3">1-3</option>
-                  </select>
-                  <small class="text-danger d-none" id="agentsError">Please select an option.</small>
-                </div>
-                <div class="mb-1">
-                  <select name="custom_We entered source" class="form-select" id="know_runo">
-                    <option value="" disabled selected style="color: #858585">How did you get to know Runo?</option>
-                    <option value="WE - Google Search">Google Search</option>
-                    <option value="WE - I Was Referred About Runo">I was referred about Runo</option>
-                    <option value="WE - Linkedin">Linkedin</option>
-                    <option value="WE - Meta">Facebook/Instagram</option>
-                  </select>
-                  <small class="text-danger d-none" id="knowError">Please select an option.</small>
-                </div>
-                <div class="form-check mb-2" style="font-size: 12px">
-                  <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
-                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
-                    I agree to the
-                    <a href="/privacy-policy" target="_blank">Privacy Policy</a>
-                    and consent to receive communication via WhatsApp.
-                  </label>
-                </div>
-                <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
-                  <span class="btn-text">Submit</span>
-                  <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      jQuery(function ($) {
-        const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, {
-          initialCountry: "auto", // <-- add this line
-          geoIpLookup: function (callback) {
-            fetch("https://ipapi.co/json/")
-              .then((res) => {
-                return res.json();
-              })
-              .then((data) => {
-                const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
-
-                callback(countryCode);
-              })
-              .catch((err) => {
-                console.error("geoIpLookup error:", err);
-                callback("in");
-              });
-          },
-          separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
-        });
-
-        const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-        const countryLengthMap = {
-          in: [10],
-          ae: [9],
-          us: [10],
-          ca: [10],
-          gb: [10, 11],
-          sa: [9],
-          ph: [10],
-          id: [10, 11],
-          sg: [8],
-          au: [9],
-          nz: [8, 9],
-          pk: [10],
-          bd: [10],
-          lk: [9],
-          ng: [10, 11],
-          ke: [9],
-          za: [9, 10],
-          my: [9, 10],
-          th: [9, 10],
-          vn: [9, 10],
-          kr: [9, 10, 11],
-          jp: [10, 11],
-          cn: [11],
-          hk: [8],
-          tw: [9, 10],
-          de: [10, 11],
-          fr: [9, 10],
-          it: [10],
-          es: [9],
-          br: [10, 11],
-          mx: [10],
-          ar: [10, 11],
-          ru: [10],
-          tr: [10],
-          eg: [10, 11],
-          iq: [10],
-          gt: [8]
-        };
-
-        function getMaxLengthForCountry() {
-          const countryCode = iti.getSelectedCountryData().iso2;
-          const allowedLengths = countryLengthMap[countryCode];
-          return allowedLengths ? Math.max(...allowedLengths) : 15;
-        }
-        let phoneTouched = false;
-
-        $("#phone").on("focus input", function () {
-          phoneTouched = true;
-          validatePhone();
-        });
-
-        phoneInput.addEventListener("input", () => {
-          phoneInput.value = phoneInput.value.replace(/\D/g, "");
-          const maxLength = getMaxLengthForCountry();
-          if (phoneInput.value.length > maxLength) {
-            phoneInput.value = phoneInput.value.slice(0, maxLength);
-          }
-          validatePhone();
-        });
-
-        phoneInput.addEventListener("countrychange", () => {
-          const maxLength = getMaxLengthForCountry();
-          phoneInput.value = phoneInput.value.slice(0, maxLength);
-          validatePhone();
-        });
-
-        function validateName() {
-          const val = $("#name").val().trim();
-          if (!val || val.length > 30) {
-            $("#nameError").removeClass("d-none");
-            return false;
-          }
-          $("#nameError").addClass("d-none");
-          return true;
-        }
-        function validateCompName() {
-          const val = $("#comp_name").val().trim();
-          if (!val || val.length > 30) {
-            $("#comp_nameError").removeClass("d-none");
-            return false;
-          }
-          $("#comp_nameError").addClass("d-none");
-          return true;
-        }
-
-        function validateEmail() {
-          const val = $("#email").val().trim();
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!val || !emailPattern.test(val)) {
-            $("#emailError").removeClass("d-none");
-            return false;
-          }
-          $("#emailError").addClass("d-none");
-          return true;
-        }
-
-        function validatePhone() {
-          const phoneNational = phoneInput.value;
-          const selectedCountry = iti.getSelectedCountryData().iso2;
-          const validLengths = countryLengthMap[selectedCountry];
-          if (!phoneTouched) {
-            $("#phoneError").addClass("d-none");
-            return false;
-          }
-          if (!iti.isValidNumber()) {
-            $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-            return false;
-          }
-
-          if (fakeNumbers.includes(phoneNational)) {
-            $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-            return false;
-          }
-
-          if (validLengths && !validLengths.includes(phoneNational.length)) {
-            $("#phoneError")
-              .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
-              .removeClass("d-none");
-            return false;
-          }
-
-          $("#phoneError").addClass("d-none");
-          return true;
-        }
-
-        function validateAgents() {
-          if (!$("#agents").val()) {
-            $("#agentsError").removeClass("d-none");
-            return false;
-          }
-          $("#agentsError").addClass("d-none");
-          return true;
-        }
-
-        function validateKnowruno() {
-          if (!$("#know_runo").val()) {
-            $("#knowError").removeClass("d-none");
-            return false;
-          }
-          $("#knowError").addClass("d-none");
-          return true;
-        }
-
-        $("#name").on("input", validateName);
-        $("#email").on("input", validateEmail);
-        $("#phone").on("input", validatePhone);
-        $("#comp_name").on("input", validateCompName);
-        $("#agents").on("change", validateAgents);
-        $("#know_runo").on("change", validateKnowruno);
-
-        $("#demo-form").on("submit", function (event) {
-          event.preventDefault();
-
-          const validName = validateName();
-          const validEmail = validateEmail();
-          const validPhone = validatePhone();
-          const validCompName = validateCompName();
-          const validAgents = validateAgents();
-          const validKnowruno = validateKnowruno();
-
-          if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
-            return;
-          }
-
-          const formData = $(this)
-            .serializeArray()
-            .reduce(function (obj, item) {
-              obj[item.name] = item.value;
-              return obj;
-            }, {});
-
-          formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog Pages";
-
-          const uuid = $(this).data("uuid");
-
-          submitForm("demo-form", formData, uuid);
-        });
-      });
-    </script>
-    <!-- Thank You Modal -->
-    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center p-4">
-          <img src="../img/success.webp" alt="success" style="margin: 10px auto; display: block; width: 50px" />
-          <h5 class="mb-3">Thank you!</h5>
-          <p style="margin-bottom: 5px">Your submission has been received. Our team will get back to you shortly.</p>
-          <button type="button" class="btn-default-dark btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-
 
     <!-- Header Start -->
     <header class="main-header">
@@ -701,7 +1485,7 @@
                     <ul class="submenu-list">
                       <li class="nav-item">
                         <div class="menu-icon">
-                          <a class="nav-link" href="/product/call-management-app">
+                          <a class="nav-link" href="call-management-app">
                             <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path
                                 d="M1.58838 21.9863V27.5875C1.58838 28.9178 2.67068 30.0001 4.00099 30.0001H10.2498C10.5733 30.0001 10.8357 29.7377 10.8357 29.4141C10.8357 29.0905 10.5733 28.8282 10.2498 28.8282H4.00099C3.31682 28.8282 2.76021 28.2716 2.76021 27.5875V21.9863C2.76021 21.3022 3.31682 20.7456 4.00099 20.7456H21.3979C22.0821 20.7456 22.6387 21.3022 22.6387 21.9863V27.5875C22.6387 28.2717 22.0821 28.8282 21.3979 28.8282H15.4051C15.0816 28.8282 14.8192 29.0905 14.8192 29.4141C14.8192 29.7377 15.0816 30.0001 15.4051 30.0001H21.3979C22.7282 30.0001 23.8105 28.9178 23.8105 27.5875V21.9863C23.8105 20.656 22.7282 19.5738 21.3979 19.5738H15.5526C15.568 19.5332 15.5826 19.4922 15.5951 19.4502L15.8855 18.4676C15.9815 18.1422 16.3461 17.9464 16.697 18.0311L17.728 18.2804C18.5154 18.471 19.3509 18.128 19.76 17.4464L20.8867 15.5692C21.3054 14.8736 21.1924 13.9855 20.6119 13.4095L19.8723 12.6754C19.6374 12.4405 19.6354 12.0636 19.872 11.8288L20.6118 11.0954C21.1924 10.5193 21.3055 9.63118 20.8871 8.93635L19.76 7.0585C19.3509 6.37679 18.5152 6.03391 17.7283 6.22433L16.6973 6.47323C16.3455 6.5583 15.9815 6.36255 15.8855 6.03719L15.5949 5.05374C15.3682 4.29158 14.6415 3.75928 13.8276 3.75928H11.5719C10.7569 3.75928 10.0299 4.29176 9.80359 5.05502L9.51409 6.03684C9.41765 6.36231 9.05333 6.55807 8.7016 6.47323L7.67104 6.22445C6.88381 6.03379 6.04788 6.37673 5.63938 7.0585L4.51297 8.93524C4.09345 9.63066 4.20612 10.519 4.78741 11.0958L5.52683 11.8282C5.64319 11.9439 5.70729 12.0946 5.70717 12.2526C5.70706 12.4101 5.64319 12.5602 5.52724 12.6752L4.787 13.4094C4.20618 13.9858 4.09345 14.8741 4.51232 15.5685L5.63909 17.4459C6.04777 18.1281 6.88304 18.4712 7.67081 18.2804L8.70108 18.0312C9.0528 17.9463 9.41759 18.1425 9.5138 18.4673L9.80376 19.4506C9.81619 19.4925 9.83072 19.5334 9.84607 19.5738H4.00099C2.67068 19.5737 1.58838 20.656 1.58838 21.9863ZM8.87363 16.8387C8.72609 16.8387 8.5761 16.856 8.42622 16.8921L7.39502 17.1415C7.10054 17.213 6.79205 17.0903 6.64405 16.8434L5.51634 14.9644C5.37467 14.7295 5.41328 14.4389 5.61232 14.2413L6.35238 13.5073C6.69169 13.1708 6.87871 12.7255 6.879 12.2533C6.87929 11.7806 6.69239 11.3345 6.35215 10.9964L5.61243 10.2636C5.41334 10.066 5.37467 9.77538 5.51705 9.53937L6.64428 7.66111C6.79199 7.4145 7.10054 7.29192 7.39548 7.36341L8.42652 7.6123C9.39122 7.84532 10.3621 7.29931 10.6378 6.36894L10.9273 5.38724C11.0068 5.11865 11.2719 4.9311 11.5718 4.9311H13.8275C14.1267 4.9311 14.3916 5.11889 14.4713 5.38677L14.7615 6.36917C15.0362 7.29937 16.0075 7.84532 16.9722 7.6123L18.0035 7.36329C18.2978 7.2921 18.607 7.41462 18.7551 7.66146L19.8826 9.54002C20.0242 9.77514 19.9855 10.0659 19.7864 10.2633L19.0465 10.9967C18.3549 11.6832 18.3544 12.8214 19.047 13.5074L19.7863 14.2412C19.9854 14.4388 20.0241 14.7296 19.8822 14.9654L18.7551 16.8433C18.607 17.0901 18.2978 17.2127 18.0034 17.1414L16.9719 16.8918C16.0068 16.6597 15.0361 17.2059 14.7616 18.1355L14.4716 19.117C14.3916 19.3859 14.1267 19.5737 13.8275 19.5737H11.5718C11.2719 19.5737 11.0068 19.3861 10.9275 19.1183L10.6375 18.1351C10.4051 17.3503 9.67609 16.8387 8.87363 16.8387Z"
@@ -733,7 +1517,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="menu-icon">
-                          <a class="nav-link" href="/product/whatsapp-crm">
+                          <a class="nav-link" href="whatsapp-crm">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <g clip-path="url(#clip0_3194_6732)">
                                 <path
@@ -921,13 +1705,12 @@
 
                               <a class="nav-link" href="/features/sales-call-tracking-software">Sales Call Tracking Software</a>
                               <a class="nav-link" href="/features/sales-call-recording-software">Sales Call Recording Software</a>
-                              <a class="nav-link" href="/features/call-tracking-app">Call Tracking App</a>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="btns">
-                        <a href="/contact" style="color: #fff !important; margin-right: 18px">Contact Us</a>
+                        <a href="contact" style="color: #fff !important; margin-right: 18px">Contact Us</a>
                         |
                         <a class="track-btn runo-web-crm" href="https://web.runo.in" data-label="Start 10-day free trial - Header" style="color: #fff !important">Start Free Trial</a>
                       </div>
@@ -1042,7 +1825,6 @@
                       </div>
                       <li class="nav-item"><a class="nav-link" href="/features/sales-call-tracking-software">Sales Call Tracking Software</a></li>
                       <li class="nav-item"><a class="nav-link" href="/features/sales-call-recording-software">Sales Call Recording Software</a></li>
-                      <li class="nav-item"><a class="nav-link" href="/features/call-tracking-app">Call Tracking App</a></li>
                     </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
@@ -1205,462 +1987,646 @@
         <div class="responsive-menu"></div>
       </div>
     </header>
+
     <!-- Header End -->
-    <div class="container-fluid py-5">
-      <div class="row">
-        <!-- TOC Column - Hidden on small devices -->
-        <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
-               <div class="sticky-top" style="top: 100px">
-
-                 <div class="mb-3">
-                   <a href="http://localhost/runo-ai/blog" class="text-decoration-none" style="font-weight: 700; font-size: 16px; color: #321b3a">&larr; &nbsp; Back to Blogs</a>
-                 </div>
-
-
-                 <div class="mt-4 p-3 rounded text-center" style="background: #fff0f0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
-                   <h6 class="fw-bold mb-1" style="color: #321b3a; font-size: 20px; padding: 10px 0px">Boost Your Business Calls</h6>
-                   <p class="text-muted mb-3 small">Start your free trial of RUNO’s SIM-based call management today!</p>
-                   <a href="#" class="header-btn track-btn" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Blogs">Request a Demo</a>
-                 </div>
-               </div>
-               </div>
-               -->
-        <!-- Blog Content Column -->
-        <div class="col-md-10 text-center mb-3" style="display: block; margin: 0 auto">
-          <h1 class="blog-title mb-4">What Is Sales Pipeline Management? Step-by-Step Guide</h1>
-          <div class="blog-date-big text-center small">Published Date : January 27, 2026</div>
-          <img src="blogs/46/sales-pipeline.png" alt="What Is Sales Pipeline Management? Step-by-Step Guide" class="img-fluid mb-4 blog-feat" />
-
-          <div class="post-content text-left">
-            <div class="blog-content">
-              <p>
-                <strong>Sales pipeline management</strong>
-                is the process of tracking, organising, and improving every step a lead takes before becoming a paying customer. When done right, it helps sales teams close more deals, waste less time, and stay in control of their revenue.
-              </p>
-
-              <p>
-                Many businesses struggle with missed follow-ups, lost leads, or unclear deal status. This informative blog explains
-                <strong>what sales pipeline management is</strong>
-                , why it matters, and exactly
-                <strong>how to manage a sales pipeline</strong>
-                step by step in a simple, straightforward way.
-              </p>
-
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/1.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">What Is Sales Pipeline Management?</h2>
-
-              <p>Sales Pipeline Management is the method of managing all your sales opportunities from the first contact to the final sale. It shows where each deal stands and what action is needed next.</p>
-
-              <p>
-                A sales pipeline is usually divided into stages such as lead capture, contact, meeting, proposal, and closing.
-                <strong>Sales and pipeline management</strong>
-                help sales teams move deals smoothly from one stage to the next.
-              </p>
-
-              <p>
-                Without proper
-                <strong>sales pipeline management</strong>
-                , teams often work blindly. With it, every lead has a clear status and priority.
-              </p>
-
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/2.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">Why Sales Pipeline Management Matters for Every Business</h2>
-
-              <p>
-                Strong
-                <strong>sales pipeline management</strong>
-                is not only for big companies. Small and growing businesses benefit just as much.
-              </p>
-
-              <p>Here is why it matters:</p>
-
-              <ul class="wp-block-list">
-                <li>Gives clear visibility into all active deals.</li>
-
-                <li>Helps predict future revenue more accurately.</li>
-
-                <li>Reduces missed follow-ups and delays.</li>
-
-                <li>Improves team focus and productivity.</li>
-
-                <li>Makes sales performance easy to measure.</li>
-              </ul>
-
-              <p>
-                When sales teams know exactly what to do next, deals move faster, and results improve, as studies show that companies with effective
-                <strong>sales pipeline management</strong>
-                see a
-                <a href="https://forecastio.ai/blog/sales-pipeline-management" target="_blank" rel="noopener">28%</a>
-                higher revenue growth rate compared with those without a formal sales process.
-              </p>
-
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/3.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">Key Stages of a Sales Pipeline Explained</h2>
-
-              <p>
-                To understand
-                <strong>sales pipeline management</strong>
-                , you must know the standard pipeline stages. These may change by business, but the idea stays the same.
-              </p>
-
-              <h3 class="wp-block-heading">Lead Generation Stage</h3>
-
-              <p>It is where new leads enter the system. They may come from ads, calls, referrals, or forms.</p>
-
-              <p>
-                Good
-                <strong>sales and pipeline management</strong>
-                ensure every lead is captured and stored correctly.
-              </p>
-
-              <h3 class="wp-block-heading">Lead Qualification Stage</h3>
-
-              <p>Not all leads are ready to buy. This stage checks interest, budget, and need.</p>
-
-              <p>Filtering early saves time and improves close rates.</p>
-
-              <h3 class="wp-block-heading">Contact and Follow-Up Stage</h3>
-
-              <p>Sales teams connect with qualified leads through calls, messages, or emails.</p>
-
-              <p>Timely follow-ups are critical here.</p>
-
-              <h3 class="wp-block-heading">Proposal or Demo Stage</h3>
-
-              <p>The product or service is explained in detail. Pricing and value are shared.</p>
-
-              <p>It is where trust is built.</p>
-
-              <h3 class="wp-block-heading">Negotiation Stage</h3>
-
-              <p>Questions are cleared. Terms are discussed. Objections are handled.</p>
-
-              <p>Strong pipeline tracking prevents deals from going cold here.</p>
-
-              <h3 class="wp-block-heading">Closing Stage</h3>
-
-              <p>The deal is finalised, and payment is confirmed.</p>
-
-              <p>Clear records help avoid confusion and delays.</p>
-
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/4.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">How to Manage Sales Pipeline Step by Step</h2>
-
-              <p>
-                If you are wondering
-                <strong>how to manage a sales pipeline</strong>
-                effectively, follow these simple steps.
-              </p>
-
-              <h3 class="wp-block-heading">Step 1: Define Clear Sales Stages</h3>
-
-              <p>Every team must use the same pipeline stages. Avoid vague steps.</p>
-
-              <p>
-                Clear stages make
-                <strong>sales pipeline management</strong>
-                easier and more accurate.
-              </p>
-
-              <h3 class="wp-block-heading">Step 2: Capture Every Lead Automatically</h3>
-
-              <p>Leads should never be written on paper or lost in chats.</p>
-
-              <p>Using digital tools ensures all leads enter the pipeline.</p>
-
-              <h3 class="wp-block-heading">Step 3: Assign Ownership to Each Lead</h3>
-
-              <p>Each lead should have one clear owner.</p>
-
-              <p>It avoids missed follow-ups and confusion.</p>
-
-              <h3 class="wp-block-heading">Step 4: Set Follow-Up Rules</h3>
-
-              <p>Decide how often to call or message leads at each stage.</p>
-
-              <p>
-                Consistent follow-ups are key to strong
-                <strong>sales and pipeline management</strong>
-                .
-              </p>
-
-              <h3 class="wp-block-heading">Step 5: Track Movement Between Stages</h3>
-
-              <p>Deals should move forward or be closed as lost.</p>
-
-              <p>Stuck deals often need attention or removal.</p>
-
-              <h3 class="wp-block-heading">Step 6: Review Pipeline Weekly</h3>
-
-              <p>Regular reviews show what is working and what is not.</p>
-
-              <p>This step improves planning and forecasting.</p>
-
-              <h2 class="wp-block-heading">Common Sales Pipeline Management Challenges</h2>
-
-              <p>
-                Even good teams face issues with
-                <strong>sales pipeline management</strong>
-                .
-              </p>
-
-              <h3 class="wp-block-heading">Poor Lead Quality</h3>
-
-              <p>Too many unqualified leads slow down the pipeline.</p>
-
-              <p>Better filters solve this.</p>
-
-              <h3 class="wp-block-heading">Missed Follow Ups</h3>
-
-              <p>Manual tracking leads to forgotten calls.</p>
-
-              <p>Automation helps here.</p>
-
-              <h3 class="wp-block-heading">No Visibility for Managers</h3>
-
-              <p>Without reports, managers cannot guide teams.</p>
-
-              <p>A proper system fixes this.</p>
-
-              <h3 class="wp-block-heading">Inaccurate Sales Forecasts</h3>
-
-              <p>Unclear stages lead to wrong revenue predictions.</p>
-
-              <p>Clear definitions improve accuracy.</p>
-
-              <h2 class="wp-block-heading">Sales Pipeline Management Best Practices to Follow</h2>
-
-              <p>
-                Using proven
-                <strong>sales pipeline management best practices</strong>
-                makes a big difference.
-              </p>
-
-              <h3 class="wp-block-heading">Keep the Pipeline Simple</h3>
-
-              <p>Too many stages confuse teams.</p>
-
-              <p>Stick to clear and necessary steps.</p>
-
-              <h3 class="wp-block-heading">Focus on Deal Quality, Not Just Quantity</h3>
-
-              <p>More deals do not always mean more revenue.</p>
-
-              <p>Prioritise deals with a higher chance of closing.</p>
-
-              <h3 class="wp-block-heading">Clean the Pipeline Regularly</h3>
-
-              <p>Remove dead or inactive leads.</p>
-
-              <p>A clean pipeline gives better insights.</p>
-
-              <h3 class="wp-block-heading">Use Data to Improve Decisions</h3>
-
-              <p>Track conversion rates at each stage.</p>
-
-              <p>Data-driven actions lead to better results.</p>
-
-              <h3 class="wp-block-heading">Train the Sales Team Often</h3>
-
-              <p>Sales processes change over time.</p>
-
-              <p>Regular training keeps teams sharp.</p>
-
-              <h2 class="wp-block-heading">Role of CRM in Sales Pipeline Management</h2>
-
-              <p>
-                A CRM plays a significant role in
-                <strong>sales pipeline management</strong>
-                .
-              </p>
-
-              <h3 class="wp-block-heading">What Is Sales Pipeline Management CRM?</h3>
-
-              <p>
-                A
-                <strong>sales pipeline management crm</strong>
-                is a tool that stores leads, tracks deals, and shows pipeline stages in one place.
-              </p>
-
-              <p>It removes manual work and improves accuracy.</p>
-
-              <h3 class="wp-block-heading">Benefits of Using a Sales Pipeline Management CRM</h3>
-
-              <ul class="wp-block-list">
-                <li>Central place for all lead data.</li>
-
-                <li>Automatic reminders for follow-ups.</li>
-
-                <li>Real-time pipeline visibility.</li>
-
-                <li>Easy performance tracking.</li>
-
-                <li>Better team coordination.</li>
-              </ul>
-
-              <p>
-                Using the right CRM makes
-                <strong>managing the sales pipeline</strong>
-                much simpler.
-              </p>
-
-              <h2 class="wp-block-heading">How Runo Supports Sales Pipeline Management</h2>
-
-              <p>Runo is an AI-powered SIM-based call management CRM built for sales teams that rely on calling.</p>
-
-              <p>
-                It helps businesses improve
-                <a href="https://runo.ai/features/sales-management-software" target="_blank" rel="noopener"><strong>sales pipeline management</strong></a>
-                by connecting calls directly with lead data.
-              </p>
-
-              <h3 class="wp-block-heading">Key Benefits of Runo</h3>
-
-              <ul class="wp-block-list">
-                <li>Tracks every sales call automatically.</li>
-
-                <li>Links calls to leads and pipeline stages.</li>
-
-                <li>Works with multiple lead sources.</li>
-
-                <li>Integrates with existing CRMs.</li>
-
-                <li>Improves calling productivity quickly.</li>
-              </ul>
-
-              <p>Runo helps sales teams earn trust on every call while keeping the pipeline organised.</p>
-
-              <p>
-                With over 3500 businesses using it, Runo has proven its value in
-                <strong>sales pipeline management crm</strong>
-                solutions.
-              </p>
-
-              <p>You can start with a 10-day free trial without a credit card.</p>
-
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/5.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">Sales and Pipeline Management Metrics You Should Track</h2>
-
-              <p>
-                Tracking the correct numbers improves
-                <strong>sales and pipeline management</strong>
-                .
-              </p>
-
-              <h3 class="wp-block-heading">Lead Conversion Rate</h3>
-
-              <p>Shows how many leads move to the next stage.</p>
-
-              <h3 class="wp-block-heading">Average Deal Size</h3>
-
-              <p>Helps estimate future revenue.</p>
-
-              <h3 class="wp-block-heading">Sales Cycle Length</h3>
-
-              <p>Measures how long deals take to close.</p>
-
-              <h3 class="wp-block-heading">Win Rate</h3>
-
-              <p>Shows how many deals are successfully closed.</p>
-
-              <h3 class="wp-block-heading">Follow-Up Frequency</h3>
-
-              <p>Reveals if leads are contacted on time.</p>
-              <figure class="wp-block-image"><img decoding="async" src="blogs/46/6.png" alt="Sales pipeline management" /></figure>
-
-              <h2 class="wp-block-heading">Mistakes to Avoid in Sales Pipeline Management</h2>
-
-              <p>
-                Avoiding these mistakes strengthens
-                <strong>sales pipeline management</strong>
-                .
-              </p>
-
-              <ul class="wp-block-list">
-                <li>Relying only on memory or notes.</li>
-
-                <li>Not updating deal status regularly.</li>
-
-                <li>Ignoring stalled deals.</li>
-
-                <li>Using too many pipeline stages.</li>
-
-                <li>Failing to review pipeline data.</li>
-              </ul>
-
-              <p>Fixing these issues leads to a smoother sales flow.</p>
-
-              <h2 class="wp-block-heading">How Sales Pipeline Management Improves Business Growth</h2>
-
-              <p>
-                Strong
-                <strong>sales pipeline management</strong>
-                helps businesses grow steadily.
-              </p>
-
-              <p>It improves planning, reduces stress, and builds confidence in revenue goals.</p>
-
-              <p>Teams work smarter, not harder.</p>
-
-              <p>Managers make better decisions.</p>
-
-              <p>Customers receive timely and clear communication.</p>
-
-              <h2 class="wp-block-heading">Final Thoughts on Sales Pipeline Management</h2>
-
-              <p>
-                Understanding
-                <strong>sales pipeline management</strong>
-                is the first step toward better sales results. By following clear stages, using the right tools, and applying proven
-                <strong>sales pipeline management best practices</strong>
-                , any business can improve deal flow and revenue.
-              </p>
-
-              <p>
-                Learning
-                <strong>how to manage a sales pipeline</strong>
-                is not about working more. It is about working in a clear, organised way.
-              </p>
-
-              <p>With tools like Run supporting calling and lead tracking, sales teams can stay focused, productive, and in control at every stage of the pipeline.</p>
-
-              <p>
-                To know more, explore the Runo expert
-                <a href="https://runo.ai/blog/" target="_blank" rel="noopener">blog</a>
-                section!
-              </p>
-
-              <h2 class="wp-block-heading">FAQs on Sales Pipeline Management</h2>
-
-              <h3>1. What is sales pipeline management in simple terms?</h3>
-
-              <p>Sales pipeline management means tracking every lead from first contact to final sale. It helps sales teams know where each deal stands and what action to take next.</p>
-
-              <h3>2. Why is sales pipeline management important for small businesses?</h3>
-
-              <p>Sales pipeline management helps small businesses avoid missed follow-ups, manage leads better, and predict sales more clearly. It saves time and improves closing chances.</p>
-
-              <h3>3. How to manage the sales pipeline effectively?</h3>
-
-              <p>To manage the sales pipeline well, define clear sales stages, track every lead, follow up on time, review the pipeline often, and use a CRM to stay organised.</p>
-
-              <h3>4. What are sales pipeline management best practices?</h3>
-
-              <p>Key sales pipeline management best practices include keeping stages simple, cleaning the pipeline regularly, focusing on quality leads, tracking data, and training the sales team.</p>
-
-              <h3>5. What is a sales pipeline management CRM, and why is it useful?</h3>
-
-              <p>A sales pipeline management crm is a tool that stores leads, tracks deal stages, and reminds sales teams to follow up. It improves visibility, accuracy, and overall sales performance.</p>
+    <div class="telecaller-hero mb-20">
+      <div class="container">
+        <!-- Header Start -->
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <!-- Hero Content Start -->
+            <div class="hero-content">
+              <div class="banner-cont">
+                <div class="section-title dark-section" style="width: 100%">
+                  <ul class="breadcrumb" style="padding: 0px !important">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../features/">features</a></li>
+                    <li>Call Transcription App</li>
+                  </ul>
+                  <h1>Call Transcription App That Converts Every Customer Conversation Into Accurate, Searchable Text</h1>
+
+                  <p>Struggling to remember what was discussed on calls? Missing important details? Our call transcription feature automatically converts phone conversations into clear, searchable transcripts - so your team stays informed, aligned, and fast.</p>
+                  <p>Whether you manage sales, support, or telecalling teams, this is the call transcription app you can rely on for accuracy and efficiency.</p>
+
+                  <!-- Hero Buttons -->
+                  <div class="hero-body Custom mt-40" data--delay="0.3s" data--duration="0.7s" style="margin-top: 30px">
+                    <div class="hero-btn">
+                      <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Call CRM Banner">Book a Demo</a>
+                      <p class="banner-btn1">&nbsp;</p>
+                    </div>
+                    <div class="hero-btn">
+                      <a href="https://web.runo.in" class="btn-default-dark btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Call CRM Banner">Start 10-day free trial</a>
+                      <p style="font-size: 13px; margin: 0px; text-align: center; color: #525252 !important">No Credit Card Required</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="/img/call-management/call-management.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="Runo Call Management App" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero Section End -->
+    <!-- Clients Section Start -->
+    <section class="clients-section py-80">
+      <div class="container">
+        <div class="row">
+          <div class="clients-title text-center" data--delay="0.2s">
+            <h2 style="margin-bottom: 20px">Trusted by Fast-Growing Sales & Support Teams</h2>
+            <p>Businesses across industries use our call transcription software to improve follow-ups, coaching, and compliance.</p>
+          </div>
+        </div>
+        <div class="row mt-50">
+          <div class="clients-logos-wrapper" style="overflow: hidden; position: relative">
+            <div class="clients-logos">
+              <img loading="lazy" src="/img/clients/petpooja.avif" alt="Petpooja" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/shiprocket.avif" alt="Shiprocket" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/wwf.avif" alt="WWF" width="150" height="75" />
+
+              <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/futurense-technologies.webp" alt="Futurense Technologies" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/ibis.webp" alt="Ibis" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75" />
+
+              <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/lokal.avif" alt="Lokal" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/reliance-nippon.webp" alt="Reliance Nippon" width="150" height="75" />
+              <!-- Logos (set 2 - duplicate for infinite loop) -->
+              <img loading="lazy" src="/img/clients/petpooja.avif" alt="Petpooja" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/shiprocket.avif" alt="Shiprocket" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/wwf.avif" alt="WWF" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/futurense-technologies.webp" alt="Futurense Technologies" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/ibis.webp" alt="Ibis" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/lokal.avif" alt="Lokal" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75" />
+              <img loading="lazy" src="/img/clients/reliance-nippon.webp" alt="Reliance Nippon" width="150" height="75" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Clients Section End -->
+
+    <style>
+      @media screen and (max-width: 768px) {
+        .faq-item .icon-box {
+          display: none;
+        }
+      }
+    </style>
+
+    <section class="call-tracking py-5">
+      <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center mb-5">
+          <h2>How Does Call Transcription Work?</h2>
+          <p>Our system listens to calls, processes them securely, and delivers clean, structured transcripts - ready to review, share, or integrate with your CRM.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="row align-items-center mb-5">
+          <!-- Left Content -->
+          <div class="col-lg-6">
+            <div class="d-flex align-items-center mb-3">
+              <span class="step-badge me-3">1</span>
+              <h3 class="mb-0">Automatic Transcription of Every Call</h3>
+            </div>
+
+            <p>No more manual note-taking.</p>
+
+            <ul class="list-unstyled">
+              <li>✔ Each call is transcribed instantly using advanced speech recognition</li>
+              <li>✔ Works for sales, support, and telecalling calls</li>
+              <li>✔ Pairs perfectly with auto-logged call recordings</li>
+              <li>✔ Ideal for teams that need reliable call transcription service</li>
+            </ul>
+          </div>
+
+          <!-- Right Image -->
+          <div class="col-lg-6 text-center">
+            <div class="image-wrapper">
+              <img src="step1.png" alt="Automatic Call Transcription" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="row align-items-center mb-5">
+          <!-- Left Image -->
+          <div class="col-lg-6 text-center order-lg-1 order-2">
+            <div class="image-wrapper">
+              <img src="step2.png" alt="Review and Search Transcripts" class="img-fluid" />
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="d-flex align-items-center mb-3">
+              <span class="step-badge me-3">2</span>
+              <h3 class="mb-0">Review, Search & Share Transcripts Easily</h3>
+            </div>
+
+            <p>Find information in seconds.</p>
+
+            <ul class="list-unstyled">
+              <li>✔ Search transcripts by keywords, phrases, or customer names</li>
+              <li>✔ Tag transcripts for deals, support tickets, or follow-ups</li>
+              <li>✔ Share with team members for quick collaboration</li>
+              <li>✔ Perfect for teams that want a call transcription app that keeps everything organized.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="row align-items-center">
+          <!-- Left Content -->
+          <div class="col-lg-6">
+            <div class="d-flex align-items-center mb-3">
+              <span class="step-badge me-3">3</span>
+              <h3 class="mb-0">Improve Training, Quality & Compliance</h3>
+            </div>
+
+            <p>Turn real conversations into learning.</p>
+
+            <ul class="list-unstyled">
+              <li>✔ Identify customer objections and best-performing scripts</li>
+              <li>✔ Use transcripts to train new agents</li>
+              <li>✔ Maintain compliance with accurate communication records</li>
+              <li>✔ Use transcription credits flexibly – manually select calls or auto-transcribe all calls</li>
+            </ul>
+
+            <p>Backed by powerful call transcription software designed for growing businesses.</p>
+          </div>
+
+          <!-- Right Image -->
+          <div class="col-lg-6 text-center">
+            <div class="image-wrapper">
+              <img src="step3.png" alt="Training and Compliance with Transcription" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .call-tracking ul li {
+        color: #111 !important;
+        line-height: 2;
+      }
+
+      .call-tracking h3 {
+        font-weight: 300 !important;
+      }
+      .step-badge {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: #ff5430;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .image-wrapper {
+        background: linear-gradient(135deg, #eef1ff, #fff2f5);
+        border-radius: 24px;
+        padding: 40px;
+      }
+
+      .image-wrapper img {
+        max-height: 280px;
+      }
+
+      @media (max-width: 767px) {
+        .image-wrapper {
+          padding: 20px;
+        }
+      }
+    </style>
+
+    <section class="metrics-section mt-70 mb-40">
+      <div class="container">
+        <div class="section-title text-center" data-wow-delay="0.3s">
+          <h2>Built for Productivity. Designed for Clarity.</h2>
+        </div>
+
+        <div class="row justify-content-center" style="margin-top: 35px">
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <div class="metric-value">100% Automated Transcriptions</div>
+            <div class="metric-label">No manual notes - everything is captured automatically.</div>
+          </div>
+
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <div class="metric-value">1 Dashboard for Calls & Transcripts</div>
+            <div class="metric-label">View calls, summaries, and transcripts effortlessly.</div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="metric-value">0 Missed Details</div>
+            <div class="metric-label">Every commitment, objection, or follow-up is documented perfectly.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-crm-section py-5" style="background: none !important">
+      <div class="container">
+        <div class="row g-4">
+          <div class="section-title text-center">
+            <h2>Smart Features to Enhance Your Workflow</h2>
+            <p>Real conversations converted into accurate, searchable transcripts for faster decisions and better follow-ups</p>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-6 h-6 text-accent"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+              </div>
+              <h5>Real-Time Call Transcription</h5>
+              <p>Accurate transcriptions delivered seconds after each call.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download w-6 h-6 text-accent">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" x2="12" y1="15" y2="3"></line>
+                </svg>
+              </div>
+              <h5>Downloadable Transcripts</h5>
+              <p>Export transcripts for documentation or reporting.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box orange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-6 h-6 text-accent">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg>
+              </div>
+              <h5>Smart Search & Filters</h5>
+              <p>Find details instantly through keyword-based search.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-6 h-6 text-accent">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h5>AI-Based Speaker Identification</h5>
+              <p>Know who said what during conversations.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box violet">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link w-6 h-6 text-accent">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <h5>CRM Integration</h5>
+              <p>Automatically attach transcripts to customer profiles.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box pink">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-audio w-6 h-6 text-accent">
+                  <path d="M17.5 22h.5a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path>
+                  <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                  <path d="M2 19a2 2 0 1 1 4 0v1a2 2 0 1 1-4 0v-4a6 6 0 0 1 12 0v4a2 2 0 1 1-4 0v-1a2 2 0 1 1 4 0"></path>
+                </svg>
+              </div>
+              <h5>Works With Call Recordings</h5>
+              <p>Seamlessly sync with your recorded calls for auditing and quality checks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-app-cta-sm py-5 mt-20 mb-20 animate__animated animate__fadeInUp" data--delay="0.2s">
+      <div class="container">
+        <h2 class="fw-bold mb-4 color-dark" data--delay="0.4s">See Call Transcription in Action</h2>
+        <p>Start your 10-day free trial and transform the way your team captures information.</p>
+        <a href="https://web.runo.in" class="btn-dark track-btn runo-web-crm animate__animated animate__zoomIn mt-30" data--delay="0.6s">Start 10-day free trial</a>
+      </div>
+    </section>
+
+    <section class="features-crm-section py-5" style="background: none !important">
+      <div class="container">
+        <div class="row g-4">
+          <div class="section-title text-center">
+            <h2>Who Can Benefit from Call Transcription?</h2>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6 text-accent">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+              </div>
+              <h5>Sales Teams</h5>
+              <p>Review customer needs, objections, and deal-related discussions.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones w-6 h-6 text-accent"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>
+              </div>
+              <h5>Support Teams</h5>
+              <p>Log issues accurately and reduce communication gaps.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box orange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-6 h-6 text-accent"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <h5>Telecalling Agencies</h5>
+              <p>Ensure script accuracy and train callers instantly.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-6 h-6 text-accent">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <h5>Field Agents</h5>
+              <p>Get automated notes even while traveling - no manual typing required.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box violet">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column w-6 h-6 text-accent">
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                  <path d="M18 17V9"></path>
+                  <path d="M13 17V5"></path>
+                  <path d="M8 17v-3"></path>
+                </svg>
+              </div>
+              <h5>Managers & Business Owners</h5>
+              <p>Audit conversations, improve quality, and ensure compliance at scale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section">
+      <div class="container">
+        <div class="row">
+          <!-- Section Title -->
+          <div class="section-title text-center" data--delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp">
+            <h2>Integrates Easily With Your System</h2>
+            <p>Connect transcripts with leads, tickets, and deals in seconds.</p>
+          </div>
+          <!-- Video Wrapper -->
+          <div>
+            <img loading="lazy" src="/img/home-integration.avif" alt="Lead Source" class="video-thumbnail" style="width: 100%; height: auto; border-radius: 12px" />
+          </div>
+          <!-- Hero Button -->
+          <div class="hero-btn demo-btn text-center" data--delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp">
+            <a href="/integrations" class="btn-dark track-btn">See all Integrations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonial Section -->
+    <div class="our-tesimonial-page">
+      <div class="container">
+        <!-- Section Title Row with Navigation -->
+        <div class="row section-row align-items-center justify-content-between mb-4" data--delay="0.2s">
+          <div class="col-md-8">
+            <div class="section-title" style="text-align: left; width: 100%">
+              <h2>
+                See What Real Users
+                <br />
+                Have to Say
+              </h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0" id="arrow-ico"></div>
+        </div>
+        <!-- Testimonial Slider -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="testimonial-slider">
+              <div class="swiper">
+                <div class="swiper-wrapper" data-cursor-text="Drag" style="margin: 0">
+                  <!-- Slide 1 -->
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-header">
+                        <p>RUNO is one unique mobile-based calling solution we came across 3 months back. It quickly helped us to streamline our sales process and added quality to sales pitch.</p>
+                      </div>
+                      <div class="testimonial-body">
+                        <div class="testimonial-line"></div>
+                        <div class="people">
+                          <div class="author-image">
+                            <figure class="image-anime">
+                              <img src="/img/testimonials/surendranath.webp" loading="lazy" alt="" />
+                            </figure>
+                          </div>
+                          <div class="author-content">
+                            <h3>Dr. Surendranath Reddy Kaswa</h3>
+                            <p class="author-desg">Founder - Plato Digi Education</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-header">
+                        <p>Our calling process was fairly straightforward, but we felt there was room to improve how we tracked calls and follow-ups. Runo helped us bring in that extra layer of structure without complicating anything.</p>
+                      </div>
+                      <div class="testimonial-body">
+                        <div class="testimonial-line"></div>
+                        <div class="people">
+                          <div class="author-image">
+                            <figure class="image-anime">
+                              <img src="/img/testimonials/anas-rahman.webp" loading="lazy" alt="" />
+                            </figure>
+                          </div>
+                          <div class="author-content">
+                            <h3>Anas Rahman Junaid</h3>
+                            <p class="author-desg">Founder & Chief Researcher, Hurun India</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="testimonial-header">
+                        <p>Runo has transformed the way we manage our sales operations. The live dashboard and real-time tracking have made our processes more efficient and customer-focused.</p>
+                      </div>
+                      <div class="testimonial-body">
+                        <div class="testimonial-line"></div>
+                        <div class="people">
+                          <div class="author-image">
+                            <figure class="image-anime">
+                              <img src="/img/testimonials/monish-patel.webp" loading="lazy" alt="" />
+                            </figure>
+                          </div>
+                          <div class="author-content">
+                            <h3>Manish Patel</h3>
+                            <p class="author-desg">Founder and MD, MSwipe</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End swiper-wrapper -->
+              </div>
+              <!-- End swiper -->
+            </div>
+            <div class="testimonial-arrows">
+              <div class="testimonial-nav-buttons gap-2">
+                <button class="testimonial-prev-btn">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-next-btn">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <!-- End testimonial-slider -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Faqs Start -->
+    <div class="page-faqs">
+      <div class="container">
+        <div class="row">
+          <div class="section-title text-center" data-wow-delay="0.2s">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about call transcription</p>
+          </div>
+
+          <div class="col-lg-10" style="margin: 0 auto">
+            <div class="page-faqs-catagery">
+              <div class="faq-accordion page-faq-accordion" id="runo_faqs">
+                <div class="faq-accordion" id="accordionRuno">
+                  <!-- FAQ 1 -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">What is call transcription?</button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionRuno">
+                      <div class="accordion-body">It converts spoken conversations into written text, helping teams remember, analyze, and follow up on calls more effectively.</div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 2 -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">How does the call transcription app work?</button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionRuno">
+                      <div class="accordion-body">It uses AI speech recognition to transcribe calls automatically and store them inside your dashboard.</div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 3 -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading3">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Is my call data secure?</button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionRuno">
+                      <div class="accordion-body">Yes, transcripts and recordings are encrypted end to end.</div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 4 -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading4">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Can I export transcripts?</button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionRuno">
+                      <div class="accordion-body">Yes, you can download or share them with your team anytime.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Page Faq End -->
 
     <footer class="bg-dark text-light pt-5 pb-4">
       <div class="container">
@@ -1687,20 +2653,20 @@
               </p>
             </a>
           </div>
+          <!-- Products -->
           <div class="col-6 col-md-4 col-lg-3">
             <h6 class="text-white fw-bold mb-3">FEATURES</h6>
             <ul class="list-unstyled">
-              <li><a href="/features/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
-              <li><a href="/features/telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
-              <li><a href="/features/call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a></li>
-              <li><a href="/features/auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a></li>
+              <li><a href="/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
+              <li><a href="/telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
+              <li><a href="/call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a></li>
+              <li><a href="/auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a></li>
 
               <li>
                 <a href="/features/" class="text-light text-decoration-none d-block mb-1">More Features →</a>
               </li>
             </ul>
           </div>
-
           <!-- Support -->
           <div class="col-6 col-md-4 col-lg-2">
             <h6 class="text-white fw-bold mb-3">SUPPORT</h6>
@@ -1725,28 +2691,22 @@
           <!-- Review Images -->
           <div class="col-12 col-md-6 col-lg-2 review">
             <h6 class="text-white fw-bold mb-3 text-center">Review Us</h6>
-            <a href="https://www.g2.com/products/runo-call-management-crm/reviews" target="_blank">
-              <img loading="lazy" src="../img/reviews/1.webp" alt="G2 Review" class="img-fluid rounded mt-20" />
-            </a>
-            <a href="https://www.capterra.com/p/214472/Call-Management-CRM/" target="_blank"><img loading="lazy" src="../img/reviews/2.webp" alt="Capterra" class="img-fluid rounded mt-20" /></a>
-            <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank">
-              <img loading="lazy" src="../img/reviews/3.webp" alt="Crozdesk Rating" class="img-fluid rounded mt-20" />
-            </a>
+            <a href="https://www.g2.com/products/runo-call-management-crm/reviews" target="_blank"><img loading="lazy" src="/img/reviews/1.webp" alt="G2 Review" class="img-fluid rounded mt-20" /></a>
+            <a href="https://www.capterra.com/p/214472/Call-Management-CRM/" target="_blank"><img loading="lazy" src="/img/reviews/2.webp" alt="Capterra" class="img-fluid rounded mt-20" /></a>
+            <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank"><img loading="lazy" src="/img/reviews/3.webp" alt="Crozdesk Rating" class="img-fluid rounded mt-20" /></a>
             <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank"><img loading="lazy" src="/img/reviews/4.webp" alt="Crozdesk Badge" class="img-fluid rounded-circle mt-20 badge-ico" style="width: 90px" /></a>
           </div>
         </div>
         <div class="row gy-4">
           <!-- Products -->
-          <!-- Products -->
           <div class="col-6 col-md-4 col-lg-3">
             <h6 class="text-white fw-bold mb-3">PRODUCTS</h6>
             <ul class="list-unstyled">
-              <li><a href="/product/call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a></li>
-              <li><a href="/product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
+              <li><a href="call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a></li>
+              <li><a href="whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
             </ul>
           </div>
         </div>
-
         <!-- Bottom Row -->
         <div class="row align-items-center text-center text-md-start mb-20 mt-10">
           <div class="col-md-5 mb-3 mb-md-0">
@@ -1756,12 +2716,8 @@
           <div class="col-md-4 mb-3 mb-md-0">
             <h6 class="text-white fw-semibold mb-20">Get the app</h6>
             <div class="footer-app-icons">
-              <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" class="zoom-hover" target="_blank">
-                <img loading="lazy" src="../img/ios.webp" alt="App Store" style="width: 130px" />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" class="zoom-hover" target="_blank">
-                <img loading="lazy" src="../img/google-play.webp" alt="Google Play" style="width: 130px" />
-              </a>
+              <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" class="zoom-hover" target="_blank"><img loading="lazy" src="/img/ios.webp" alt="App Store" style="width: 130px" /></a>
+              <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" class="zoom-hover" target="_blank"><img loading="lazy" src="/img/google-play.webp" alt="Google Play" style="width: 130px" /></a>
             </div>
           </div>
           <div class="col-md-3">
@@ -1816,17 +2772,185 @@
         </div>
       </div>
     </footer>
-    <!-- Core Libraries (Deferred) -->
+    <!-- Modal -->
+    <div class="modal fade" id="requestDemoModal" tabindex="-1" aria-hidden="true" style="overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="custom-modal-box">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <h5>Get in touch now!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form id="demo-form" method="POST" data-page-name="Call CRM" data-uuid="3e469f43-9fb2-4463-8b26-584fb0f78996">
+                <div class="mb-1">
+                  <input type="text" name="your_name" class="form-control" id="name" placeholder="Name" />
+                  <small class="text-danger d-none" id="nameError">Name is required.</small>
+                </div>
+                <div class="mb-1">
+                  <input type="email" name="your_email" class="form-control" id="email" placeholder="Email Address" />
+                  <small class="text-danger d-none" id="emailError">Valid email is required.</small>
+                </div>
+                <div class="mb-1">
+                  <input type="tel" name="your_phone" class="form-control" id="phone" placeholder="Phone Number" autocomplete="tel" />
+                  <small class="text-danger d-none" id="phoneError">Enter a valid phone number.</small>
+                </div>
+                <div class="mb-1">
+                  <input type="text" name="your_company" class="form-control" id="comp_name" placeholder="Company Name" />
+                  <small class="text-danger d-none" id="comp_nameError">Company Name is required.</small>
+                </div>
+                <div class="mb-1">
+                  <select name="custom_Sales/Calling Team Size" class="form-select" id="agents">
+                    <option value="" disabled selected style="color: #858585">Number of Calling Agents</option>
+                    <option value=">50">>50</option>
+                    <option value="21-50">21-50</option>
+                    <option value="11-20">11-20</option>
+                    <option value="4-10">4-10</option>
+                    <option value="1-3">1-3</option>
+                  </select>
+                  <small class="text-danger d-none" id="agentsError">Please select an option.</small>
+                </div>
+                <div class="mb-1">
+                  <select name="custom_We entered source" class="form-select" id="know_runo">
+                    <option value="" disabled selected style="color: #858585">How did you get to know Runo?</option>
+                    <option value="WE - Google Search">Google Search</option>
+                    <option value="WE - I Was Referred About Runo">I was referred about Runo</option>
+                    <option value="WE - Linkedin">Linkedin</option>
+                    <option value="WE - Meta">Facebook/Instagram</option>
+                  </select>
+                  <small class="text-danger d-none" id="knowError">Please select an option.</small>
+                </div>
+                <div class="form-check mb-2" style="font-size: 12px">
+                  <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
+                  <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
+                    I agree to the
+                    <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+                    and consent to receive communication via WhatsApp.
+                  </label>
+                </div>
+                <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
+                  <span class="btn-text">Submit</span>
+                  <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Thank You Modal -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <img src="/img/success.webp" alt="success" style="margin: 10px auto; display: block; width: 50px" />
+          <h5 class="mb-3">Thank you!</h5>
+          <p style="margin-bottom: 5px">Your submission has been received. Our team will get back to you shortly.</p>
+          <button type="button" class="btn-default-dark btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
-    <script src="../js/jquery.slicknav.js" defer></script>
-    <script src="../js/jquery.magnific-popup.min.js" defer></script>
-    <script src="../js/SmoothScroll.js" defer></script>
-    <script src="../js/parallaxie.js" defer></script>
-    <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-    <!-- Custom JS (Deferred) -->
-    <script src="../js/function.js" defer></script>
+    <script src="/js/jquery.slicknav.js" defer></script>
+    <script src="/js/function.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const helloBar = document.getElementById("helloBar");
+        const closeBtn = document.querySelector(".close-hello");
+        const storageKey = "helloBarClosed";
+        const oneDay = 24 * 60 * 60 * 1000; // 1 day in milliseconds
+
+        if (!helloBar) return; // stop if bar not on apage
+
+        // Get stored timestamp
+        const closedTime = localStorage.getItem(storageKey);
+
+        if (closedTime) {
+          const now = Date.now();
+          if (now - parseInt(closedTime, 10) < oneDay) {
+            // less than 1 day → hide the bar
+            helloBar.style.display = "none";
+          } else {
+            // expired → remove storage so bar shows again
+            localStorage.removeItem(storageKey);
+          }
+        }
+
+        // Close button click
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function () {
+            helloBar.style.display = "none";
+            localStorage.setItem(storageKey, Date.now()); // store current timestamp
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const interval = setInterval(() => {
+          const buttons = document.querySelectorAll(".runo-web-crm");
+          if (buttons.length > 0) {
+            clearInterval(interval);
+
+            const utmSource = localStorage.getItem("utm_source");
+            const utmCampaign = localStorage.getItem("utm_campaign");
+
+            // console.log("UTM Source:", utmSource, "UTM Campaign:", utmCampaign); // debug
+
+            const baseUrl = "https://web.runo.in";
+            const params = new URLSearchParams();
+
+            if (utmSource) params.append("utm_source", utmSource);
+            if (utmCampaign) params.append("utm_campaign", utmCampaign);
+
+            const finalUrl = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+            // console.log("Final URL:", finalUrl); // debug
+
+            buttons.forEach((btn) => {
+              btn.href = finalUrl;
+              btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = finalUrl;
+              });
+            });
+          }
+        }, 100);
+      });
+    </script>
+    <script>
+      /* Append UTM parameters to App Store + Play Store links only */
+      document.addEventListener("DOMContentLoaded", function () {
+        const iosBtn = document.querySelector(".app-ios");
+        const androidBtn = document.querySelector(".app-android");
+
+        if (!iosBtn && !androidBtn) return;
+
+        const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+        const utmSource = localStorage.getItem("utm_source") || "Website";
+        const utmCampaign = localStorage.getItem("utm_campaign") || "Organic";
+
+        function appendUTM(originalUrl) {
+          const url = new URL(originalUrl);
+          url.searchParams.set("page_name", pageName);
+
+          if (utmSource) url.searchParams.set("utm_source", utmSource);
+          if (utmCampaign) url.searchParams.set("utm_campaign", utmCampaign);
+
+          return url.toString();
+        }
+
+        // iOS App
+        if (iosBtn) {
+          iosBtn.href = appendUTM(iosBtn.href);
+        }
+
+        // Android App
+        if (androidBtn) {
+          androidBtn.href = appendUTM(androidBtn.href);
+        }
+      });
+    </script>
     <!-- UTM Tracker -->
     <script>
       const params = new URLSearchParams(window.location.search);
@@ -1846,17 +2970,226 @@
         }
       });
 
-      window.addEventListener("load", function () {
-        const preloader = document.querySelector(".runo-preloader");
-        if (preloader) {
-          preloader.style.opacity = "0";
-          preloader.style.transition = "opacity 0.5s ease";
-          setTimeout(() => (preloader.style.display = "none"), 350);
-        }
-      });
+      /*  window.addEventListener('load', function () {
+             const preloader = document.querySelector('.runo-preloader');
+             if (preloader) {
+                 preloader.style.opacity = '0';
+                 preloader.style.transition = 'opacity 0.5s ease';
+                 setTimeout(() => (preloader.style.display = 'none'), 350);
+             }
+         });*/
 
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        jQuery(function ($) {
+          const phoneInput = document.querySelector("#phone");
+          const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto", // <-- add this line
+            geoIpLookup: function (callback) {
+              fetch("https://ipapi.co/json/")
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data) => {
+                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
+
+                  callback(countryCode);
+                })
+                .catch((err) => {
+                  console.error("geoIpLookup error:", err);
+                  callback("in");
+                });
+            },
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          });
+
+          const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
+          const countryLengthMap = {
+            in: [10],
+            ae: [9],
+            us: [10],
+            ca: [10],
+            gb: [10, 11],
+            sa: [9],
+            ph: [10],
+            id: [10, 11],
+            sg: [8],
+            au: [9],
+            nz: [8, 9],
+            pk: [10],
+            bd: [10],
+            lk: [9],
+            ng: [10, 11],
+            ke: [9],
+            za: [9, 10],
+            my: [9, 10],
+            th: [9, 10],
+            vn: [9, 10],
+            kr: [9, 10, 11],
+            jp: [10, 11],
+            cn: [11],
+            hk: [8],
+            tw: [9, 10],
+            de: [10, 11],
+            fr: [9, 10],
+            it: [10],
+            es: [9],
+            br: [10, 11],
+            mx: [10],
+            ar: [10, 11],
+            ru: [10],
+            tr: [10],
+            eg: [10, 11],
+            iq: [10],
+            gt: [8]
+          };
+
+          function getMaxLengthForCountry() {
+            const countryCode = iti.getSelectedCountryData().iso2;
+            const allowedLengths = countryLengthMap[countryCode];
+            return allowedLengths ? Math.max(...allowedLengths) : 15;
+          }
+          let phoneTouched = false;
+
+          $("#phone").on("focus input", function () {
+            phoneTouched = true;
+            validatePhone();
+          });
+
+          phoneInput.addEventListener("input", () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, "");
+            const maxLength = getMaxLengthForCountry();
+            if (phoneInput.value.length > maxLength) {
+              phoneInput.value = phoneInput.value.slice(0, maxLength);
+            }
+            validatePhone();
+          });
+
+          phoneInput.addEventListener("countrychange", () => {
+            const maxLength = getMaxLengthForCountry();
+            phoneInput.value = phoneInput.value.slice(0, maxLength);
+            validatePhone();
+          });
+
+          function validateName() {
+            const val = $("#name").val().trim();
+            if (!val || val.length > 30) {
+              $("#nameError").removeClass("d-none");
+              return false;
+            }
+            $("#nameError").addClass("d-none");
+            return true;
+          }
+          function validateCompName() {
+            const val = $("#comp_name").val().trim();
+            if (!val || val.length > 30) {
+              $("#comp_nameError").removeClass("d-none");
+              return false;
+            }
+            $("#comp_nameError").addClass("d-none");
+            return true;
+          }
+
+          function validateEmail() {
+            const val = $("#email").val().trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !emailPattern.test(val)) {
+              $("#emailError").removeClass("d-none");
+              return false;
+            }
+            $("#emailError").addClass("d-none");
+            return true;
+          }
+
+          function validatePhone() {
+            const phoneNational = phoneInput.value;
+            const selectedCountry = iti.getSelectedCountryData().iso2;
+            const validLengths = countryLengthMap[selectedCountry];
+            if (!phoneTouched) {
+              $("#phoneError").addClass("d-none");
+              return false;
+            }
+            if (!iti.isValidNumber()) {
+              $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (fakeNumbers.includes(phoneNational)) {
+              $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (validLengths && !validLengths.includes(phoneNational.length)) {
+              $("#phoneError")
+                .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
+                .removeClass("d-none");
+              return false;
+            }
+
+            $("#phoneError").addClass("d-none");
+            return true;
+          }
+
+          function validateAgents() {
+            if (!$("#agents").val()) {
+              $("#agentsError").removeClass("d-none");
+              return false;
+            }
+            $("#agentsError").addClass("d-none");
+            return true;
+          }
+
+          function validateKnowruno() {
+            if (!$("#know_runo").val()) {
+              $("#knowError").removeClass("d-none");
+              return false;
+            }
+            $("#knowError").addClass("d-none");
+            return true;
+          }
+
+          $("#name").on("input", validateName);
+          $("#email").on("input", validateEmail);
+          $("#phone").on("input", validatePhone);
+          $("#comp_name").on("input", validateCompName);
+          $("#agents").on("change", validateAgents);
+          $("#know_runo").on("change", validateKnowruno);
+
+          $("#demo-form").on("submit", function (event) {
+            event.preventDefault();
+
+            const validName = validateName();
+            const validEmail = validateEmail();
+            const validPhone = validatePhone();
+            const validCompName = validateCompName();
+            const validAgents = validateAgents();
+            const validKnowruno = validateKnowruno();
+
+            if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+              return;
+            }
+
+            const formData = $(this)
+              .serializeArray()
+              .reduce(function (obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
+
+            formData["your_phone"] = iti.getNumber(); // international format
+            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
+
+            const uuid = $(this).data("uuid");
+
+            submitForm("demo-form", formData, uuid);
+          });
+        });
+      });
+    </script>
+
     <script>
       // Don't load the widget initially
       window.$zoho = window.$zoho || {};
