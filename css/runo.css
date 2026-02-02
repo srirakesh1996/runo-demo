@@ -3035,7 +3035,7 @@ input::placeholder {
 .telecaller-hero .hero-body {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 30px;
   margin-top: 5px;
 }
@@ -3101,6 +3101,9 @@ body.modal-open {
 @media only screen and (max-width: 768px) {
   .cta-p {
     width: 100%;
+  }
+  .telecaller-hero .hero-body {
+    justify-content: center;
   }
 }
 

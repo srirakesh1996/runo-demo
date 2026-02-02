@@ -920,6 +920,7 @@
 
                               <a class="nav-link" href="/features/sales-call-tracking-software">Sales Call Tracking Software</a>
                               <a class="nav-link" href="/features/sales-call-recording-software">Sales Call Recording Software</a>
+                              <a class="nav-link" href="/features/call-tracking-app">Call Tracking App</a>
                             </div>
                           </div>
                         </div>
@@ -1040,6 +1041,7 @@
                       </div>
                       <li class="nav-item"><a class="nav-link" href="/features/sales-call-tracking-software">Sales Call Tracking Software</a></li>
                       <li class="nav-item"><a class="nav-link" href="/features/sales-call-recording-software">Sales Call Recording Software</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/features/call-tracking-app">Call Tracking App</a></li>
                     </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
@@ -1787,7 +1789,15 @@
           <div class="row align-items-center">
             <div class="col-md-4">
               <div class="footer-copyright-text">
-                <p>&copy; 2025 Runo. All Rights Reserved.</p>
+                <p>
+                  &copy;
+                  <span id="currentYear"></span>
+                  Runo. All Rights Reserved.
+                </p>
+
+                <script>
+                  document.getElementById("currentYear").textContent = new Date().getFullYear();
+                </script>
               </div>
             </div>
             <div class="col-md-8">
