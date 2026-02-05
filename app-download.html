@@ -55,12 +55,13 @@
         // Android Redirect
         else if (/android/i.test(userAgent)) {
           window.location.href = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN";
-        } else {
+        }
+        /*else {
           // Default to a landing page if not iOS or Android after 8 seconds
           setTimeout(function () {
             window.location.href = "https://runo.ai";
           }, 8000);
-        }
+        }*/
       }
 
       window.onload = redirectToStore;
@@ -68,7 +69,7 @@
   </head>
 
   <body>
-    <!-- <div class="container">
+    <div class="container">
       <h2>Download Runo App</h2>
 
       <p>You are being redirected to the correct app store...</p>
@@ -84,6 +85,6 @@
       </div>
 
       <p class="note">If you are not redirected automatically, please select your device above.</p>
-    </div>-->
+    </div>
   </body>
 </html>
