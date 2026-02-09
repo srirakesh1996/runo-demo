@@ -44,24 +44,51 @@
     </style>
 
     <script>
+      function getUTMParams() {
+        var params = new URLSearchParams(window.location.search);
+
+        var utm_source = params.get("utm_source") || "";
+        var utm_campaign = params.get("utm_campaign") || "";
+
+        var utmString = "";
+
+        if (utm_source) utmString += "utm_source=" + encodeURIComponent(utm_source);
+        if (utm_campaign) utmString += (utmString ? "&" : "") + "utm_campaign=" + encodeURIComponent(utm_campaign);
+
+        return utmString;
+      }
+
       function redirectToStore() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+        var isIOS = /iPad|iPhone|iPod/.test(userAgent);
+        var isAndroid = /android/i.test(userAgent);
+
+        // Detect mobile even in desktop mode
+        var isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        var isSmallScreen = window.innerWidth <= 1024;
+
+        var utmParams = getUTMParams();
+
+        var iosUrl = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" + (utmParams ? "?" + utmParams : "");
+
+        var androidUrl = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" + (utmParams ? "&" + utmParams : "");
+
+        // Update button links with UTM
+        document.getElementById("iosLink").href = iosUrl;
+        document.getElementById("androidLink").href = androidUrl;
+
         // iOS Redirect
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          window.location.href = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506";
+        if (isIOS || (isTouchDevice && isSmallScreen && /Mac/.test(userAgent))) {
+          window.location.href = iosUrl;
+          return;
         }
 
         // Android Redirect
-        else if (/android/i.test(userAgent)) {
-          window.location.href = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN";
+        if (isAndroid || (isTouchDevice && isSmallScreen)) {
+          window.location.href = androidUrl;
+          return;
         }
-        /*else {
-          // Default to a landing page if not iOS or Android after 8 seconds
-          setTimeout(function () {
-            window.location.href = "https://runo.ai";
-          }, 8000);
-        }*/
       }
 
       window.onload = redirectToStore;
