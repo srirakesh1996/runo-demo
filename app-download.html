@@ -42,7 +42,6 @@
         color: #666;
       }
     </style>
-
     <script>
       function getUTMParams() {
         var params = new URLSearchParams(window.location.search);
@@ -50,12 +49,7 @@
         var utm_source = params.get("utm_source") || "";
         var utm_campaign = params.get("utm_campaign") || "";
 
-        var utmString = "";
-
-        if (utm_source) utmString += "utm_source=" + encodeURIComponent(utm_source);
-        if (utm_campaign) utmString += (utmString ? "&" : "") + "utm_campaign=" + encodeURIComponent(utm_campaign);
-
-        return utmString;
+        return "utm_source=" + encodeURIComponent(utm_source) + "&utm_campaign=" + encodeURIComponent(utm_campaign);
       }
 
       function redirectToStore() {
@@ -64,29 +58,28 @@
         var isIOS = /iPad|iPhone|iPod/.test(userAgent);
         var isAndroid = /android/i.test(userAgent);
 
-        // Detect mobile even in desktop mode
         var isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
         var isSmallScreen = window.innerWidth <= 1024;
 
         var utmParams = getUTMParams();
 
-        var iosUrl = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506" + (utmParams ? "?" + utmParams : "");
+        // Create FINAL URLs exactly once
+        var finalIosUrl = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506?" + utmParams;
 
-        var androidUrl = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN" + (utmParams ? "&" + utmParams : "");
+        var finalAndroidUrl = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN&" + utmParams;
 
-        // Update button links with UTM
-        document.getElementById("iosLink").href = iosUrl;
-        document.getElementById("androidLink").href = androidUrl;
+        // Apply SAME URLs to icons
+        document.getElementById("iosLink").setAttribute("href", finalIosUrl);
+        document.getElementById("androidLink").setAttribute("href", finalAndroidUrl);
 
-        // iOS Redirect
+        // Use EXACT SAME URLs for auto redirect
         if (isIOS || (isTouchDevice && isSmallScreen && /Mac/.test(userAgent))) {
-          window.location.href = iosUrl;
+          window.location.href = finalIosUrl;
           return;
         }
 
-        // Android Redirect
         if (isAndroid || (isTouchDevice && isSmallScreen)) {
-          window.location.href = androidUrl;
+          window.location.href = finalAndroidUrl;
           return;
         }
       }
@@ -102,11 +95,11 @@
       <p>You are being redirected to the correct app store...</p>
 
       <div class="icons">
-        <a href="https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506">
+        <a id="iosLink" href="#">
           <img src="img/app-ico.png" alt="Download on App Store" />
         </a>
 
-        <a href="https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN">
+        <a id="androidLink" href="#">
           <img src="img/play-ico.png" alt="Get it on Google Play" />
         </a>
       </div>
