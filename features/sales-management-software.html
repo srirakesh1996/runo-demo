@@ -2,84 +2,76 @@
 <html lang="en">
   <head>
     <title>#1 AI Sales Management App for Outbound Sales Teams</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <meta name="description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
-
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="en" />
-
-    <link rel="canonical" href="https://runo.ai/features/sales-management-software" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
     <meta property="og:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
     <meta property="og:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
-    <meta property="og:image" content="https://runo.ai/img/og/sales-management.png" />
-    <meta property="og:url" content="https://runo.ai/features/sales-management-software" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Updated Twitter tags -->
     <meta name="twitter:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
     <meta name="twitter:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
+    <link rel="canonical" href="https://runo.ai/features/sales-management-software" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <!-- SEO Meta -->
+    <meta name="robots" content="index, follow" />
+    <!-- changed from no-index -->
+    <meta name="language" content="en" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://runo.ai/img/og/sales-management.png" />
+    <meta property="og:url" content="https://runo.ai/features/sales-management-software" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://runo.ai/img/og/sales-management.png" />
     <meta name="twitter:url" content="https://runo.ai/features/sales-management-software" />
-
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
 
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" fetchpriority="high" />
+    <!-- Preload LCP and other important images -->
+    <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" type="image/avif" fetchpriority="high" />
 
-    <!-- Google Fonts Optimized -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
 
-    <!-- Core CSS (Critical) -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" href="/css/custom.css" />
-
-    <!-- Non-Critical CSS -->
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
+
+    <!-- Font Awesome (async) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
     <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
-    <!-- FONT AWESOME – MINIMAL (ICONS FIXED) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" media="print" onload="this.media='all'" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" media="print" onload="this.media='all'" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" media="print" onload="this.media='all'" />
-
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
     <!-- intl-tel-input CSS (REQUIRED FOR COUNTRY DROPDOWN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
-    <!-- Fallback for No-JS -->
+    <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
 
-    <!-- JavaScript -->
+    <!-- JS (defer) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-    <!-- intl-tel-input JS (Needed for phone dropdown) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-
-    <!-- Google Tag Manager (Deferred Load) -->
+    <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
         if (window.gtmDidInit) return;
@@ -99,22 +91,40 @@
         }
 
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM);
+          requestIdleCallback(loadGTM, { timeout: 4000 });
         } else {
-          setTimeout(loadGTM, 3000);
+          setTimeout(loadGTM, 4000);
         }
       });
     </script>
+    <!-- End Google Tag Manager -->
 
-    <!-- Critical Font Display -->
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
     <style>
       @font-face {
         font-family: "Inter";
         font-style: normal;
-        font-weight: 400 700;
+        font-weight: 100 900;
         font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        src: url("/fonts/inter.woff2") format("woff2");
         unicode-range: U+0000-00FF;
+      }
+
+      /* Override Font Awesome to use font-display: swap */
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("/fonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Brands";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
       }
     </style>
 
