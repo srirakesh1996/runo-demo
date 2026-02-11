@@ -30,12 +30,12 @@
 
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
 
-    <!-- ONLY ONE PRELOAD – THE REAL LCP -->
+    <!-- ONLY TRUE CRITICAL PRELOAD: LCP IMAGE -->
     <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" fetchpriority="high" />
 
-    <!-- Core CSS (NO PRELOADS HERE) -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    <!-- Render-Blocking CSS Converted to Async -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="/css/custom.css" media="print" onload="this.media='all'" />
 
     <!-- Non-Critical CSS -->
     <link rel="stylesheet" href="/css/runo.css" media="print" onload="this.media='all'" />
@@ -43,23 +43,27 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
-    <!-- Font Awesome (ONLY CSS, NO FONT PRELOADS) -->
+    <!-- Font Awesome (icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
 
-    <!-- intl-tel-input -->
+    <!-- intl-tel-input CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
+    <!-- Fallback for No-JS -->
     <noscript>
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="/css/custom.css" />
+      <link rel="stylesheet" href="/css/runo.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
 
-    <!-- JS -->
+    <!-- Core JS -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager – Lazy Loaded -->
     <script>
       window.addEventListener("load", function () {
         if (window.gtmDidInit) return;
@@ -86,12 +90,43 @@
       });
     </script>
 
-    <!-- Self-hosted Inter Font ONLY -->
+    <!-- Lazy Load All Other Analytics After Page Fully Ready -->
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          // Facebook Pixel
+          var fb = document.createElement("script");
+          fb.src = "https://connect.facebook.net/en_US/fbevents.js";
+          fb.async = true;
+          document.body.appendChild(fb);
+
+          // CleverTap
+          var ct = document.createElement("script");
+          ct.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
+          ct.async = true;
+          document.body.appendChild(ct);
+
+          // Microsoft Clarity
+          var cl = document.createElement("script");
+          cl.src = "https://scripts.clarity.ms/0.8.54-beta/clarity.js";
+          cl.async = true;
+          document.body.appendChild(cl);
+
+          // LinkedIn Insight
+          var li = document.createElement("script");
+          li.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+          li.async = true;
+          document.body.appendChild(li);
+        }, 4000);
+      });
+    </script>
+
+    <!-- Self-hosted Inter Font Only -->
     <style>
       @font-face {
         font-family: "Inter";
         font-style: normal;
-        font-weight: 100 900;
+        font-weight: 400 700;
         font-display: swap;
         src: url("/fonts/inter-latin.woff2") format("woff2");
       }
@@ -100,32 +135,6 @@
         font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
     </style>
-    <!-- Google Tag Manager (Delayed Load) -->
-    <script>
-      window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
-
-        function loadGTM() {
-          (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-            var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
-        }
-
-        if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, { timeout: 4000 });
-        } else {
-          setTimeout(loadGTM, 4000);
-        }
-      });
-    </script>
 
     <style>
       /* FOr Product pAges*/
