@@ -26,14 +26,15 @@
     <meta name="twitter:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
     <meta name="twitter:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
     <meta name="twitter:image" content="https://runo.ai/img/og/sales-management.png" />
+    <meta name="twitter:url" content="https://runo.ai/features/sales-management-software" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
 
-    <!-- LCP Image -->
+    <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" fetchpriority="high" />
 
-    <!-- Google Fonts (Optimized) -->
+    <!-- Google Fonts Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -43,25 +44,42 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     </noscript>
 
-    <!-- Critical CSS First -->
+    <!-- Core CSS (Critical) -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <!-- Defer Non-Critical CSS -->
+    <!-- Non-Critical CSS -->
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
-    <!-- Swiper CSS (only if used on this page) -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
-    <!-- REMOVE Font Awesome COMPLETELY -->
+    <!-- FONT AWESOME – MINIMAL (ICONS FIXED) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" media="print" onload="this.media='all'" />
 
-    <!-- JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" media="print" onload="this.media='all'" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" media="print" onload="this.media='all'" />
+
+    <!-- intl-tel-input CSS (REQUIRED FOR COUNTRY DROPDOWN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for No-JS -->
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+    </noscript>
+
+    <!-- JavaScript -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
 
-    <!-- ONLY LOAD THIS ON PAGES WITH FORMS -->
+    <!-- intl-tel-input JS (Needed for phone dropdown) -->
     <script defer src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
 
-    <!-- Google Tag Manager (Deferred) -->
+    <!-- Google Tag Manager (Deferred Load) -->
     <script>
       window.addEventListener("load", function () {
         if (window.gtmDidInit) return;
@@ -88,6 +106,7 @@
       });
     </script>
 
+    <!-- Critical Font Display -->
     <style>
       @font-face {
         font-family: "Inter";
