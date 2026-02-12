@@ -772,16 +772,11 @@ header.main-header .header-sticky.active {
   color: #f44336 !important;
 }
 .main-menu ul li.submenu > a:after {
-  content: "";
-  display: inline-block;
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-weight: 900;
+  font-size: 14px;
   margin-left: 8px;
-  width: 7px;
-  height: 7px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-  position: relative;
-  top: -2px;
 }
 
 .main-menu ul li a:hover,
