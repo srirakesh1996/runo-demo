@@ -72,14 +72,16 @@
         document.getElementById("iosLink").setAttribute("href", finalIosUrl);
         document.getElementById("androidLink").setAttribute("href", finalAndroidUrl);
 
-        // Use EXACT SAME URLs for auto redirect
+        // Use SAME URLs for auto redirect
         if (isIOS || (isTouchDevice && isSmallScreen && /Mac/.test(userAgent))) {
-          window.location.href = finalIosUrl;
+          window.open(finalIosUrl, "_blank");
+          window.location.href = "https://runo.ai";
           return;
         }
 
         if (isAndroid || (isTouchDevice && isSmallScreen)) {
-          window.location.href = finalAndroidUrl;
+          window.open(finalAndroidUrl, "_blank");
+          window.location.href = "https://runo.ai";
           return;
         }
       }

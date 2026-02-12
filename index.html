@@ -1465,8 +1465,243 @@
         </div>
       </section>
       <!-- Demo Section Start -->
+      <!-- Audio Demo Section Start -->
+      <section class="demo-section" id="audio-overview">
+        <div class="container">
+          <div class="row">
+            <!-- Section Title -->
+            <div class="section-title text-center wow fadeInUp">
+              <h2>Listen to How Runo Sounds in Action</h2>
+              <p>Experience real AI-powered call clarity</p>
+            </div>
+
+            <!-- Audio Card -->
+            <div class="audio-card text-center wow fadeInUp" data-wow-delay="0.2s">
+              <!-- Wave Animation -->
+              <div class="wave-container" id="waveAnimation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <!-- Play Button -->
+              <button class="audio-play-btn" id="audioPlayBtn">
+                <i class="fas fa-play"></i>
+              </button>
+
+              <!-- Audio Element -->
+              <audio id="audioPlayer" preload="none">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+              </audio>
+
+              <!-- CTA Button -->
+              <div class="hero-btn mt-5">
+                <button class="btn-default-dark btn-highlighted" id="openPopup">Analyze Audio</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script>
+        const audioBtn = document.getElementById("audioPlayBtn");
+        const audio = document.getElementById("audioPlayer");
+        const wave = document.getElementById("waveAnimation");
+
+        audioBtn.addEventListener("click", () => {
+          if (audio.paused) {
+            audio.play();
+            wave.classList.add("active");
+            audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          } else {
+            audio.pause();
+            wave.classList.remove("active");
+            audioBtn.innerHTML = '<i class="fas fa-play"></i>';
+          }
+        });
+
+        audio.addEventListener("ended", () => {
+          wave.classList.remove("active");
+          audioBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+
+        /* Popup */
+        const popup = document.getElementById("ctaPopup");
+        document.getElementById("openPopup").onclick = () => (popup.style.display = "flex");
+        document.getElementById("closePopup").onclick = () => (popup.style.display = "none");
+
+        window.onclick = function (e) {
+          if (e.target == popup) popup.style.display = "none";
+        };
+      </script>
+      <div class="popup-overlay" id="ctaPopup">
+        <div class="popup-content">
+          <span class="popup-close" id="closePopup">&times;</span>
+          <h3>Start Your Free Trial</h3>
+          <p>Experience the power of AI-driven communication.</p>
+
+          <form>
+            <input type="text" placeholder="Your Name" class="form-control mb-3" required />
+            <input type="email" placeholder="Email Address" class="form-control mb-3" required />
+            <button type="submit" class="btn-default-dark btn-highlighted w-100">Start Now</button>
+          </form>
+        </div>
+      </div>
+
+      <style>
+        .audio-demo-section {
+          background: #f8f9fc;
+        }
+
+        .audio-card {
+          max-width: 500px;
+          margin: 40px auto 0;
+          padding: 40px;
+          border-radius: 16px;
+          background: #ffffff;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .wave-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          height: 60px;
+          margin-bottom: 25px;
+        }
+
+        .wave-container span {
+          width: 5px;
+          height: 20px;
+          background: #ff5430;
+          border-radius: 4px;
+          animation: wave 1s infinite ease-in-out;
+          animation-play-state: paused;
+        }
+
+        .wave-container.active span {
+          animation-play-state: running;
+        }
+
+        /* Smooth stagger effect */
+        .wave-container span:nth-child(1) {
+          animation-delay: 0s;
+        }
+        .wave-container span:nth-child(2) {
+          animation-delay: 0.05s;
+        }
+        .wave-container span:nth-child(3) {
+          animation-delay: 0.1s;
+        }
+        .wave-container span:nth-child(4) {
+          animation-delay: 0.15s;
+        }
+        .wave-container span:nth-child(5) {
+          animation-delay: 0.2s;
+        }
+        .wave-container span:nth-child(6) {
+          animation-delay: 0.25s;
+        }
+        .wave-container span:nth-child(7) {
+          animation-delay: 0.3s;
+        }
+        .wave-container span:nth-child(8) {
+          animation-delay: 0.35s;
+        }
+        .wave-container span:nth-child(9) {
+          animation-delay: 0.4s;
+        }
+        .wave-container span:nth-child(10) {
+          animation-delay: 0.45s;
+        }
+        .wave-container span:nth-child(11) {
+          animation-delay: 0.5s;
+        }
+        .wave-container span:nth-child(12) {
+          animation-delay: 0.55s;
+        }
+        .wave-container span:nth-child(13) {
+          animation-delay: 0.6s;
+        }
+        .wave-container span:nth-child(14) {
+          animation-delay: 0.65s;
+        }
+        .wave-container span:nth-child(15) {
+          animation-delay: 0.7s;
+        }
+
+        @keyframes wave {
+          0%,
+          100% {
+            height: 18px;
+          }
+          50% {
+            height: 50px;
+          }
+        }
+
+        .audio-play-btn {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          border: none;
+          background: #ff5430;
+          color: #fff;
+          font-size: 22px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        .audio-play-btn:hover {
+          transform: scale(1.1);
+        }
+
+        /* Popup */
+        .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        }
+
+        .popup-content {
+          background: #fff;
+          padding: 40px;
+          width: 90%;
+          max-width: 500px;
+          border-radius: 12px;
+          position: relative;
+        }
+
+        .popup-close {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 22px;
+          cursor: pointer;
+        }
+      </style>
+
       <!-- Demo Section Start -->
-      <section class="demo-section" id="product-overview">
+      <section class="demo-section" id="product-overview" style="background: #fafafa">
         <div class="container">
           <div class="row">
             <!-- Section Title -->
