@@ -2,63 +2,61 @@
 <html lang="en">
   <head>
     <title>#1 AI Sales Management App for Outbound Sales Teams</title>
-
+    <meta name="description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
+    <meta property="og:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
+    <meta property="og:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
+    <!-- Updated Twitter tags -->
+    <meta name="twitter:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
+    <meta name="twitter:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
+    <link rel="canonical" href="https://runo.ai/features/sales-management-software" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-
     <!-- SEO Meta -->
-    <meta name="description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
     <meta name="robots" content="index, follow" />
+    <!-- changed from no-index -->
     <meta name="language" content="en" />
-
-    <link rel="canonical" href="https://runo.ai/features/sales-management-software" />
-
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
-    <meta property="og:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
     <meta property="og:image" content="https://runo.ai/img/og/sales-management.png" />
     <meta property="og:url" content="https://runo.ai/features/sales-management-software" />
-
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="#1 AI Sales Management App for Outbound Sales Teams" />
-    <meta name="twitter:description" content="Looking for a sales management app that works for your outbound team? Runo helps you manage leads, track calls, and monitor team performance in real time." />
     <meta name="twitter:image" content="https://runo.ai/img/og/sales-management.png" />
     <meta name="twitter:url" content="https://runo.ai/features/sales-management-software" />
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" sizes="16x16" />
 
-    <!-- CRITICAL PRELOADS ONLY -->
-    <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" fetchpriority="high" />
+    <!-- Preload LCP and other important images -->
+    <link rel="preload" as="image" href="/img/sales-management/sales-management.avif" type="image/avif" fetchpriority="high" />
 
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- CSS (Non Render Blocking) -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" href="/css/custom.css" />
-
-    <link rel="stylesheet" href="/css/runo.css" media="print" onload="this.media='all'" />
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Swiper CSS (Deferred) -->
+    <!-- Swiper CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
-    <!-- intl-tel-input CSS (Deferred) -->
-    <link rel="stylesheet" href="/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
+    <!-- Fallback for no-JS -->
     <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="/css/intlTelInput.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
     </noscript>
 
-    <!-- JS (Deferred Properly) -->
+    <!-- JS (defer) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-    <!-- Google Tag Manager (Lazy Load) -->
+    <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
         if (window.gtmDidInit) return;
@@ -84,8 +82,12 @@
         }
       });
     </script>
+    <!-- End Google Tag Manager -->
 
-    <!-- SELF HOSTED FONTS ONLY (NO CDN FONTS) -->
+    <!-- Preload Fonts -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Self-hosted Fonts -->
     <style>
       @font-face {
         font-family: "Inter";
@@ -116,7 +118,6 @@
         font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
     </style>
-
     <style>
       /* FOr Product pAges*/
 
@@ -603,6 +604,14 @@
 
       .header-sticky.active .main-menu ul li .header-btn:hover {
         color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
       }
 
       .main-menu ul li a:hover,
@@ -2656,7 +2665,7 @@
               <li><a href="/newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a></li>
               <li><a href="/partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
-            <h6 class="fw-bold mt-4 mb-2 text-white">CONTACT</h6>
+            <h6 class="text-white fw-bold mt-5 mb-3">CONTACT</h6>
             <a href="mailto:care@runo.ai">
               <p class="mb-1 text-white ptb-5">
                 <i class="fas fa-envelope me-2"></i>
@@ -2671,7 +2680,6 @@
             </a>
           </div>
           <!-- Products -->
-          <!-- Products -->
           <div class="col-6 col-md-4 col-lg-3">
             <h6 class="text-white fw-bold mb-3">FEATURES</h6>
             <ul class="list-unstyled">
@@ -2683,6 +2691,11 @@
               <li>
                 <a href="/features/" class="text-light text-decoration-none d-block mb-1">More Features →</a>
               </li>
+            </ul>
+            <h6 class="text-white fw-bold mt-5 mb-3">PRODUCTS</h6>
+            <ul class="list-unstyled">
+              <li><a href="/product/call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a></li>
+              <li><a href="/product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
             </ul>
           </div>
           <!-- Support -->
@@ -2715,15 +2728,7 @@
             <a href="https://crozdesk.com/software/runo-call-management-crm" target="_blank"><img loading="lazy" src="/img/reviews/4.webp" alt="Crozdesk Badge" class="img-fluid rounded-circle mt-20 badge-ico" style="width: 90px" /></a>
           </div>
         </div>
-        <div class="row gy-4">
-          <div class="col-6 col-md-4 col-lg-3">
-            <h6 class="text-white fw-bold mb-3">PRODUCTS</h6>
-            <ul class="list-unstyled">
-              <li><a href="/product/call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a></li>
-              <li><a href="/product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
-            </ul>
-          </div>
-        </div>
+
         <!-- Bottom Row -->
         <div class="row align-items-center text-center text-md-start mb-20 mt-10">
           <div class="col-md-5 mb-3 mb-md-0">

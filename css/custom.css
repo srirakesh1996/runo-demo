@@ -991,7 +991,7 @@ header.main-header .header-sticky.active {
   position: relative;
   padding: 0px;
   overflow: hidden;
-
+ 
 z-index: 1;
 background: url("../img/banner-img.webp") no-repeat;
 background-position: center center;
