@@ -1479,6 +1479,27 @@
             <div class="audio-card text-center wow fadeInUp" data-wow-delay="0.2s">
               <!-- Wave Animation -->
               <div class="wave-container" id="waveAnimation">
+                <!-- 35 Bars -->
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1581,85 +1602,257 @@
           height: 60px;
           margin-bottom: 25px;
         }
-
         .wave-container span {
-          width: 5px;
-          height: 20px;
+          width: 4px;
           background: #ff5430;
           border-radius: 4px;
           animation: wave 1s infinite ease-in-out;
           animation-play-state: paused;
         }
 
+        /* -------- STATIC WAVE SHAPE (35 Bars) -------- */
+
+        .wave-container span:nth-child(1) {
+          height: 8px;
+        }
+        .wave-container span:nth-child(2) {
+          height: 12px;
+        }
+        .wave-container span:nth-child(3) {
+          height: 16px;
+        }
+        .wave-container span:nth-child(4) {
+          height: 20px;
+        }
+        .wave-container span:nth-child(5) {
+          height: 24px;
+        }
+        .wave-container span:nth-child(6) {
+          height: 28px;
+        }
+        .wave-container span:nth-child(7) {
+          height: 32px;
+        }
+        .wave-container span:nth-child(8) {
+          height: 36px;
+        }
+        .wave-container span:nth-child(9) {
+          height: 40px;
+        }
+        .wave-container span:nth-child(10) {
+          height: 44px;
+        }
+        .wave-container span:nth-child(11) {
+          height: 48px;
+        }
+        .wave-container span:nth-child(12) {
+          height: 52px;
+        }
+        .wave-container span:nth-child(13) {
+          height: 56px;
+        }
+        .wave-container span:nth-child(14) {
+          height: 60px;
+        }
+        .wave-container span:nth-child(15) {
+          height: 64px;
+        }
+        .wave-container span:nth-child(16) {
+          height: 68px;
+        }
+        .wave-container span:nth-child(17) {
+          height: 72px;
+        }
+        .wave-container span:nth-child(18) {
+          height: 75px;
+        } /* Center Peak */
+        .wave-container span:nth-child(19) {
+          height: 72px;
+        }
+        .wave-container span:nth-child(20) {
+          height: 68px;
+        }
+        .wave-container span:nth-child(21) {
+          height: 64px;
+        }
+        .wave-container span:nth-child(22) {
+          height: 60px;
+        }
+        .wave-container span:nth-child(23) {
+          height: 56px;
+        }
+        .wave-container span:nth-child(24) {
+          height: 52px;
+        }
+        .wave-container span:nth-child(25) {
+          height: 48px;
+        }
+        .wave-container span:nth-child(26) {
+          height: 44px;
+        }
+        .wave-container span:nth-child(27) {
+          height: 40px;
+        }
+        .wave-container span:nth-child(28) {
+          height: 36px;
+        }
+        .wave-container span:nth-child(29) {
+          height: 32px;
+        }
+        .wave-container span:nth-child(30) {
+          height: 28px;
+        }
+        .wave-container span:nth-child(31) {
+          height: 24px;
+        }
+        .wave-container span:nth-child(32) {
+          height: 20px;
+        }
+        .wave-container span:nth-child(33) {
+          height: 16px;
+        }
+        .wave-container span:nth-child(34) {
+          height: 12px;
+        }
+        .wave-container span:nth-child(35) {
+          height: 8px;
+        }
+
+        /* Start animation when active */
         .wave-container.active span {
           animation-play-state: running;
         }
 
-        /* Smooth stagger effect */
+        /* Smooth stagger delay */
+        .wave-container span:nth-child(n) {
+          animation-delay: calc((var(--i, 1)) * 0.03s);
+        }
+
+        /* Manual delay (cleaner & reliable) */
         .wave-container span:nth-child(1) {
           animation-delay: 0s;
         }
         .wave-container span:nth-child(2) {
-          animation-delay: 0.05s;
+          animation-delay: 0.03s;
         }
         .wave-container span:nth-child(3) {
-          animation-delay: 0.1s;
+          animation-delay: 0.06s;
         }
         .wave-container span:nth-child(4) {
-          animation-delay: 0.15s;
+          animation-delay: 0.09s;
         }
         .wave-container span:nth-child(5) {
-          animation-delay: 0.2s;
+          animation-delay: 0.12s;
         }
         .wave-container span:nth-child(6) {
-          animation-delay: 0.25s;
+          animation-delay: 0.15s;
         }
         .wave-container span:nth-child(7) {
-          animation-delay: 0.3s;
+          animation-delay: 0.18s;
         }
         .wave-container span:nth-child(8) {
-          animation-delay: 0.35s;
+          animation-delay: 0.21s;
         }
         .wave-container span:nth-child(9) {
-          animation-delay: 0.4s;
+          animation-delay: 0.24s;
         }
         .wave-container span:nth-child(10) {
-          animation-delay: 0.45s;
+          animation-delay: 0.27s;
         }
         .wave-container span:nth-child(11) {
-          animation-delay: 0.5s;
+          animation-delay: 0.3s;
         }
         .wave-container span:nth-child(12) {
-          animation-delay: 0.55s;
+          animation-delay: 0.33s;
         }
         .wave-container span:nth-child(13) {
-          animation-delay: 0.6s;
+          animation-delay: 0.36s;
         }
         .wave-container span:nth-child(14) {
-          animation-delay: 0.65s;
+          animation-delay: 0.39s;
         }
         .wave-container span:nth-child(15) {
-          animation-delay: 0.7s;
+          animation-delay: 0.42s;
+        }
+        .wave-container span:nth-child(16) {
+          animation-delay: 0.45s;
+        }
+        .wave-container span:nth-child(17) {
+          animation-delay: 0.48s;
+        }
+        .wave-container span:nth-child(18) {
+          animation-delay: 0.51s;
+        }
+        .wave-container span:nth-child(19) {
+          animation-delay: 0.54s;
+        }
+        .wave-container span:nth-child(20) {
+          animation-delay: 0.57s;
+        }
+        .wave-container span:nth-child(21) {
+          animation-delay: 0.6s;
+        }
+        .wave-container span:nth-child(22) {
+          animation-delay: 0.63s;
+        }
+        .wave-container span:nth-child(23) {
+          animation-delay: 0.66s;
+        }
+        .wave-container span:nth-child(24) {
+          animation-delay: 0.69s;
+        }
+        .wave-container span:nth-child(25) {
+          animation-delay: 0.72s;
+        }
+        .wave-container span:nth-child(26) {
+          animation-delay: 0.75s;
+        }
+        .wave-container span:nth-child(27) {
+          animation-delay: 0.78s;
+        }
+        .wave-container span:nth-child(28) {
+          animation-delay: 0.81s;
+        }
+        .wave-container span:nth-child(29) {
+          animation-delay: 0.84s;
+        }
+        .wave-container span:nth-child(30) {
+          animation-delay: 0.87s;
+        }
+        .wave-container span:nth-child(31) {
+          animation-delay: 0.9s;
+        }
+        .wave-container span:nth-child(32) {
+          animation-delay: 0.93s;
+        }
+        .wave-container span:nth-child(33) {
+          animation-delay: 0.96s;
+        }
+        .wave-container span:nth-child(34) {
+          animation-delay: 0.99s;
+        }
+        .wave-container span:nth-child(35) {
+          animation-delay: 1.02s;
         }
 
         @keyframes wave {
           0%,
           100% {
-            height: 18px;
+            height: 20px;
           }
           50% {
-            height: 50px;
+            height: 75px;
           }
         }
 
         .audio-play-btn {
-          width: 70px;
-          height: 70px;
+          width: 60px;
+          height: 60px;
           border-radius: 50%;
           border: none;
           background: #ff5430;
           color: #fff;
-          font-size: 22px;
+          font-size: 20px;
           cursor: pointer;
           transition: 0.3s;
         }
