@@ -1529,7 +1529,7 @@
 
               <!-- CTA Button -->
               <div class="hero-btn mt-5">
-                <button class="btn-default-dark btn-highlighted" id="openPopup">Analyze Audio</button>
+                <button class="btn-default-dark btn-highlighted" data-bs-toggle="modal" data-bs-target="#analyzeModal">Analyze Audio</button>
               </div>
             </div>
           </div>
@@ -1566,21 +1566,89 @@
           if (e.target == popup) popup.style.display = "none";
         };
       </script>
-      <div class="popup-overlay" id="ctaPopup">
-        <div class="popup-content">
-          <span class="popup-close" id="closePopup">&times;</span>
-          <h3>Start Your Free Trial</h3>
-          <p>Experience the power of AI-driven communication.</p>
+      <!-- Bootstrap Modal -->
+      <div class="modal fade" id="analyzeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0">
+            <div class="modal-header border-0">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
 
-          <form>
-            <input type="text" placeholder="Your Name" class="form-control mb-3" required />
-            <input type="email" placeholder="Email Address" class="form-control mb-3" required />
-            <button type="submit" class="btn-default-dark btn-highlighted w-100">Start Now</button>
-          </form>
+            <div class="modal-body text-center">
+              <div class="zoom-wrapper" id="zoomWrapper">
+                <img src="ai-call.png" id="zoomImage" class="zoom-image" alt="Dashboard" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
+      <script>
+        const zoomWrapper = document.getElementById("zoomWrapper");
+        const zoomImage = document.getElementById("zoomImage");
+        function isMobile() {
+          return window.innerWidth <= 768;
+        }
+
+        zoomWrapper.addEventListener("mousemove", function (e) {
+          if (isMobile()) return;
+
+          const rect = zoomWrapper.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+          zoomImage.style.transformOrigin = x + "% " + y + "%";
+          zoomImage.style.transform = "scale(1.6)";
+        });
+
+        zoomWrapper.addEventListener("mouseleave", function () {
+          zoomImage.style.transform = "scale(1)";
+        });
+      </script>
+
       <style>
+        .modal-content {
+          background: none;
+          border-radius: 16px;
+          overflow: hidden;
+        }
+
+        .zoom-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .zoom-image {
+          max-width: 100%;
+          height: auto;
+          max-height: 70vh;
+          transition: transform 0.2s ease;
+          cursor: zoom-in;
+        }
+
+        /* Mobile fix */
+        @media (max-width: 768px) {
+          .zoom-image {
+            max-height: 60vh;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .modal-dialog {
+            margin: 1rem;
+          }
+
+          .zoom-wrapper {
+            min-height: 60vh;
+            padding: 10px;
+          }
+
+          .zoom-image {
+            max-height: 60vh;
+          }
+        }
+
         .audio-demo-section {
           background: #f8f9fc;
         }
