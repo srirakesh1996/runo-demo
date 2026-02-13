@@ -1719,25 +1719,21 @@
           color: #6c757d;
           font-weight: 500;
         }
+        /* Universal modal scroll fix (all screen sizes) */
+        #analyzeModal .modal-dialog {
+          margin: 0.75rem auto;
+          max-height: 95vh;
+        }
 
-        /* Fix modal scroll on mobile */
-        @media (max-width: 768px) {
-          #analyzeModal .modal-dialog {
-            margin: 0.75rem;
-            height: auto;
-            max-height: 95vh;
-          }
+        #analyzeModal .modal-content {
+          max-height: 95vh;
+          display: flex;
+          flex-direction: column;
+        }
 
-          #analyzeModal .modal-content {
-            max-height: 95vh;
-            display: flex;
-            flex-direction: column;
-          }
-
-          #analyzeModal .modal-body {
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-          }
+        #analyzeModal .modal-body {
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
         }
 
         #analyzeModal .modal-body {
