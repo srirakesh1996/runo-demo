@@ -1471,8 +1471,12 @@
           <div class="row">
             <!-- Section Title -->
             <div class="section-title text-center wow fadeInUp">
-              <h2>Listen to How Runo Sounds in Action</h2>
-              <p>Experience real AI-powered call clarity</p>
+              <h2>Turn Every Sales Call into Actionable Insights</h2>
+              <p>
+                Listen to a real sales call and see how Runo’s AI analyzes conversations to
+                <br />
+                improve conversions, coaching, and close rates.
+              </p>
             </div>
 
             <!-- Audio Card -->
@@ -1536,36 +1540,128 @@
         </div>
       </section>
       <script>
-        const audioBtn = document.getElementById("audioPlayBtn");
-        const audio = document.getElementById("audioPlayer");
-        const wave = document.getElementById("waveAnimation");
+        document.addEventListener("DOMContentLoaded", function () {
+          const modal = document.getElementById("analyzeModal");
+          const audioBtn = document.getElementById("audioPlayBtn");
+          const audio = document.getElementById("audioPlayer");
+          const wave = document.getElementById("waveAnimation");
+          const section = document.getElementById("audio-overview");
 
-        audioBtn.addEventListener("click", () => {
-          if (audio.paused) {
-            audio.play();
-            wave.classList.add("active");
-            audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
-          } else {
+          /* ---------------- STOP AUDIO FUNCTION ---------------- */
+
+          function stopAudio() {
             audio.pause();
+            audio.currentTime = 0;
             wave.classList.remove("active");
             audioBtn.innerHTML = '<i class="fas fa-play"></i>';
           }
+
+          /* ---------------- PLAY / PAUSE ---------------- */
+
+          audioBtn.addEventListener("click", () => {
+            if (audio.paused) {
+              audio.play();
+              wave.classList.add("active");
+              audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+              stopAudio();
+            }
+          });
+
+          audio.addEventListener("ended", stopAudio);
+
+          /* ---------------- STOP AUDIO ON MODAL OPEN ---------------- */
+
+          modal.addEventListener("show.bs.modal", function () {
+            stopAudio();
+          });
+
+          /* ---------------- STOP AUDIO WHEN SCROLL OUT OF VIEW ---------------- */
+
+          window.addEventListener("scroll", function () {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.bottom < 0 || rect.top > window.innerHeight) {
+              stopAudio();
+            }
+          });
+
+          /* ---------------- GAUGE + LOUDNESS ANIMATION ---------------- */
+
+          modal.addEventListener("shown.bs.modal", function () {
+            /* ----- GAUGE ----- */
+
+            const score = 92.6;
+            const gauge = document.getElementById("gaugeFill");
+            const number = document.getElementById("scoreNumber");
+
+            const circumference = 188;
+            const offset = circumference - (score / 100) * circumference;
+
+            gauge.style.transition = "stroke-dashoffset 1.5s ease";
+            gauge.style.strokeDashoffset = offset;
+
+            let current = 0;
+            const scoreInterval = setInterval(() => {
+              current += 1;
+              number.textContent = current.toFixed(1);
+
+              if (current >= score) {
+                number.textContent = score;
+                clearInterval(scoreInterval);
+              }
+            }, 15);
+
+            /* ----- LOUDNESS ----- */
+
+            const agentTarget = -10.45;
+            const customerTarget = -20.45;
+
+            const agentBar = document.getElementById("agentBar");
+            const customerBar = document.getElementById("customerBar");
+            const agentText = document.getElementById("agentDb");
+            const customerText = document.getElementById("customerDb");
+
+            // Reset first
+            agentBar.style.width = "0%";
+            customerBar.style.width = "0%";
+            agentText.textContent = "0";
+            customerText.textContent = "0";
+
+            // Animate bars
+            setTimeout(() => {
+              agentBar.style.transition = "width 1.5s ease";
+              customerBar.style.transition = "width 1.5s ease";
+
+              agentBar.style.width = "70%";
+              customerBar.style.width = "40%";
+            }, 100);
+
+            // Animate numbers
+            let agentCurrent = 0;
+            let customerCurrent = 0;
+
+            const loudnessInterval = setInterval(() => {
+              if (agentCurrent > agentTarget) {
+                agentCurrent -= 0.5;
+                agentText.textContent = agentCurrent.toFixed(2);
+              }
+
+              if (customerCurrent > customerTarget) {
+                customerCurrent -= 0.7;
+                customerText.textContent = customerCurrent.toFixed(2);
+              }
+
+              if (agentCurrent <= agentTarget && customerCurrent <= customerTarget) {
+                agentText.textContent = agentTarget;
+                customerText.textContent = customerTarget;
+                clearInterval(loudnessInterval);
+              }
+            }, 20);
+          });
         });
-
-        audio.addEventListener("ended", () => {
-          wave.classList.remove("active");
-          audioBtn.innerHTML = '<i class="fas fa-play"></i>';
-        });
-
-        /* Popup */
-        const popup = document.getElementById("ctaPopup");
-        document.getElementById("openPopup").onclick = () => (popup.style.display = "flex");
-        document.getElementById("closePopup").onclick = () => (popup.style.display = "none");
-
-        window.onclick = function (e) {
-          if (e.target == popup) popup.style.display = "none";
-        };
       </script>
+
       <!-- Bootstrap Modal -->
       <div class="modal fade" id="analyzeModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -1574,41 +1670,134 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
 
-            <div class="modal-body text-center">
-              <div class="zoom-wrapper" id="zoomWrapper">
-                <img src="ai-call.png" id="zoomImage" class="zoom-image" alt="Dashboard" />
+            <div class="modal-body p-4">
+              <div class="metrics-panel">
+                <!-- Call Quality -->
+                <div class="metric-block text-center">
+                  <h6>Call Quality Score</h6>
+
+                  <div class="gauge-wrapper">
+                    <svg width="140" height="80">
+                      <path d="M10 70 A60 60 0 0 1 130 70" stroke="#e9ecef" stroke-width="10" fill="none" />
+
+                      <path id="gaugeFill" d="M10 70 A60 60 0 0 1 130 70" stroke="#28a745" stroke-width="10" fill="none" stroke-dasharray="188" stroke-dashoffset="188" stroke-linecap="round" />
+                    </svg>
+
+                    <div class="score-text">
+                      <span id="scoreNumber">0</span>
+                      <small>Excellent</small>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <!-- Sentiment -->
+                <div class="metric-block">
+                  <h6>Sentiment Analysis</h6>
+                  <div class="sentiment-row">
+                    <div class="sentiment-item text-success">😊 Agent</div>
+                    <div class="sentiment-item text-warning">😐 Customer</div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <!-- Speaking Time -->
+                <div class="metric-block">
+                  <h6 style="margin-bottom: 5px">Speaking Time</h6>
+                  <div class="row">
+                    <div class="col-6 text-primary">
+                      <strong>74.3%</strong>
+                      <div class="small">
+                        4.58 min
+                        <br />
+                        Agent
+                      </div>
+                    </div>
+                    <div class="col-6 text-danger text-end">
+                      <strong>25.7%</strong>
+                      <div class="small">
+                        1.58 min
+                        <br />
+                        Customer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <!-- Loudness -->
+                <!-- Loudness -->
+                <div class="metric-block">
+                  <h6 style="margin-bottom: 5px">Avg. Speaker Loudness (dbs)</h6>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <strong style="color: #111111" id="agentDb">0</strong>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div class="progress-bar bg-success" id="agentBar" style="width: 0%"></div>
+                      </div>
+                      <small style="color: #111111">Agent</small>
+                    </div>
+
+                    <div class="col-6 text-end">
+                      <strong style="color: #111111" id="customerDb">0</strong>
+                      <div class="progress mt-2" style="height: 5px">
+                        <div class="progress-bar bg-warning" id="customerBar" style="width: 0%"></div>
+                      </div>
+                      <small style="color: #111111">Customer</small>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <script>
-        const zoomWrapper = document.getElementById("zoomWrapper");
-        const zoomImage = document.getElementById("zoomImage");
-        function isMobile() {
-          return window.innerWidth <= 768;
+      <style>
+        .metrics-panel {
+          max-width: 90%;
+          margin: auto;
         }
 
-        zoomWrapper.addEventListener("mousemove", function (e) {
-          if (isMobile()) return;
+        .metric-block {
+          margin-bottom: 20px;
+        }
 
-          const rect = zoomWrapper.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
+        .gauge-wrapper {
+          position: relative;
+          width: 140px;
+          margin: auto;
+        }
 
-          zoomImage.style.transformOrigin = x + "% " + y + "%";
-          zoomImage.style.transform = "scale(1.6)";
-        });
+        .score-text {
+          position: absolute;
+          top: 35px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          color: green;
+        }
 
-        zoomWrapper.addEventListener("mouseleave", function () {
-          zoomImage.style.transform = "scale(1)";
-        });
-      </script>
+        .score-text small {
+          display: block;
+          font-size: 14px;
+          color: #6c757d;
+        }
 
-      <style>
+        .sentiment-row {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 10px;
+        }
+
         .modal-content {
-          background: none;
+          background: #ffffff;
           border-radius: 16px;
           overflow: hidden;
         }
