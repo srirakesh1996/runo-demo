@@ -3299,7 +3299,7 @@ body.modal-open {
 }
 .blue-bg {
   position: relative;
-  height: 150px;
+  height: 110px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
@@ -3308,7 +3308,7 @@ body.modal-open {
 
 .gold-bg {
   position: relative;
-  height: 150px;
+  height: 110px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
@@ -3317,7 +3317,7 @@ body.modal-open {
 
 .green-bg {
   position: relative;
-  height: 150px;
+  height: 110px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
