@@ -3300,7 +3300,7 @@ body.modal-open {
 .blue-bg {
   position: relative;
   height: 150px;
-  background-image: url(../img/blue.webp);
+  background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3309,7 +3309,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  background-image: url(../img/gold.webp);
+  background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3318,7 +3318,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  background-image: url(../img/green.webp);
+  background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
