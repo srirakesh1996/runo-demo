@@ -56,83 +56,56 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
     <!-- Google Tag Manager -->
     <style>
-      .addon-card .form-select {
-        border: 1px solid #111 !important;
-      }
-      .price-tag {
+      /* ---------- Price Tag ---------- */
+      .addon-card .price-tag {
         color: #000;
         font-size: 13px;
+        margin: 10px 0 !important;
       }
-      .wa-plan-title {
-        color: #000;
-      }
-      .wa-plan-price {
-        color: #000;
-      }
-      /* Clean select with box-shadow instead of border */
+
+      /* ---------- Select Styling (Common for all add-on dropdowns) ---------- */
       .addon-card .form-select {
-        border: none !important; /* Remove border */
+        border: none !important;
         background-color: #fff !important;
         border-radius: 8px !important;
         padding: 6px 12px !important;
         font-size: 14px;
         color: #000 !important;
+        cursor: pointer !important;
 
-        /* Soft box-shadow style */
+        /* Soft border look */
         box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.15) !important;
       }
 
-      /* On focus: slightly darker shadow */
+      /* Focus style */
       .addon-card .form-select:focus {
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25) !important;
         outline: none !important;
-      }
-
-      /* Width control */
-      #wa-plan-selector {
-        width: 160px;
-        cursor: pointer;
-      }
-
-      @media only screen and (max-width: 600px) {
-        #wa-plan-selector {
-          width: 200px;
-        }
-      }
-
-      #wa-plan-selector {
-        width: 150px;
-        cursor: pointer !important;
-      }
-      @media only screen and (max-width: 600px) {
-        #wa-plan-selector {
-          width: 200px;
-        }
-      }
-      .form-select:focus {
         font-size: 13px !important;
       }
-      .addon-card .price-tag {
-        margin: 10px 0px !important;
-      } /*2 nd car*/
-      .price-tag {
-        color: #000;
+
+      /* ---------- Dropdown Width (WhatsApp + AI same) ---------- */
+      #wa-plan-selector,
+      #ai-credit-selector {
+        width: 150px;
       }
+
+      /* Mobile width */
+      @media (max-width: 600px) {
+        #wa-plan-selector,
+        #ai-credit-selector {
+          width: 200px;
+        }
+      }
+
+      /* Optional text color */
+      .wa-plan-title,
+      .wa-plan-price,
       .wa-plan-price1 {
         color: #000;
       }
-      #wa-plan-selector {
-        color: #000 !important;
-      }
-      #wa-plan-selector1 {
-        width: 160px;
-      }
-      @media only screen and (max-width: 600px) {
-        #wa-plan-selector1 {
-          width: 200px;
-        }
-      }
     </style>
+
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -1454,7 +1427,8 @@
                 <!-- Price Display with Dropdown -->
                 <div class="d-flex align-items-center justify-content-between flex-wrap">
                   <span class="price-tag">
-                    <span id="wa-plan-price">₹149</span>
+                    ₹
+                    <span id="wa-plan-price">149</span>
                     /user/month + GST
                   </span>
                   <select id="wa-plan-selector" class="form-select mt-2 mt-md-0">
@@ -1498,10 +1472,32 @@
 
                 <!-- Price Display -->
                 <div class="d-flex align-items-center justify-content-between flex-wrap">
-                  <span class="price-tag">₹1 /minute + GST</span>
+                  <span class="price-tag">
+                    ₹
+                    <span id="ai-price">1000</span>
+                    + GST
+                  </span>
+
+                  <select id="ai-credit-selector" class="form-select mt-2 mt-md-0">
+                    <option value="1000" selected>1000 Credits</option>
+                    <option value="2000">2000 Credits</option>
+                    <option value="5000">5000 Credits</option>
+                    <option value="10000">10000 Credits</option>
+                  </select>
                 </div>
               </div>
             </div>
+            <script>
+              const aiCreditSelector = document.getElementById("ai-credit-selector");
+              const aiPrice = document.getElementById("ai-price");
+
+              aiCreditSelector.addEventListener("change", function () {
+                const selectedCredits = this.value;
+
+                // ₹1 per minute → price = credits
+                aiPrice.textContent = selectedCredits;
+              });
+            </script>
 
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-blue">

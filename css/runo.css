@@ -3424,8 +3424,7 @@ body.modal-open {
 .addon-card .d-flex {
   margin-top: auto;
 }
-
-.addon-card h5 {
+.a .addon-card h5 {
   font-weight: 700;
   margin-bottom: 10px;
 }
