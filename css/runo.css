@@ -3250,43 +3250,18 @@ body.modal-open {
   background-size: cover;
 }
 
-.popular-card {
-  position: relative;
-  z-index: 1;
-  border-radius: 12px;
-  background: white;
-}
-
-/* Gradient border effect */
-.popular-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 2px;
-  /* This becomes the border thickness */
-  background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%);
-  border-radius: 12px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  z-index: 2;
-}
-
+/* Base card */
 .pricing-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.325);
-  transition: all 0.3s ease-in-out;
   position: relative;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
 }
 
+/* Hover effect */
 .pricing-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f44336;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
 }
 
 /* Top Image Background */
@@ -3297,9 +3272,11 @@ body.modal-open {
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
+
 .blue-bg {
   position: relative;
   height: 110px;
+  border-radius: 12px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
@@ -3309,6 +3286,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 110px;
+  border-radius: 12px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
@@ -3318,6 +3296,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 110px;
+  border-radius: 12px;
   background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
@@ -3411,7 +3390,7 @@ body.modal-open {
 }
 
 .text-muted {
-  margin: 20px 0px;
+  margin: 10px 0px 20px 0px;
 }
 
 .pricing-section h5 strong {
@@ -3426,6 +3405,7 @@ body.modal-open {
   background-size: cover;
 }
 
+/* Make all addon cards equal layout */
 .addon-card {
   border-radius: 20px;
   padding: 24px;
@@ -3434,6 +3414,15 @@ body.modal-open {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   color: #111;
   position: relative;
+
+  /* ADD THIS */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push price section to bottom */
+.addon-card .d-flex {
+  margin-top: auto;
 }
 
 .addon-card h5 {
