@@ -3280,7 +3280,7 @@ body.modal-open {
 .pricing-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.325);
   transition: all 0.3s ease-in-out;
   position: relative;
 }
@@ -3297,11 +3297,10 @@ body.modal-open {
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
-
 .blue-bg {
   position: relative;
   height: 150px;
-  /* background-image: url("/img/blue.webp"); */
+  background-image: url(../img/blue.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3310,7 +3309,7 @@ body.modal-open {
 .gold-bg {
   position: relative;
   height: 150px;
-  /* background-image: url("/img/gold.webp"); */
+  background-image: url(../img/gold.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3319,7 +3318,7 @@ body.modal-open {
 .green-bg {
   position: relative;
   height: 150px;
-  /* background-image: url("/img/green.webp"); */
+  background-image: url(../img/green.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -3327,13 +3326,13 @@ body.modal-open {
 
 .most-popular {
   position: absolute;
-  top: -20px;
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #009ef7;
   color: #fff;
-  font-size: 1rem;
-  padding: 12px 30px;
+  font-size: 0.8rem;
+  padding: 10px 5px;
   border-radius: 10px;
   font-weight: 600;
   z-index: 2;
@@ -3431,6 +3430,7 @@ body.modal-open {
   border-radius: 20px;
   padding: 24px;
   height: 100%;
+
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   color: #000;
   position: relative;
