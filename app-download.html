@@ -63,25 +63,30 @@
 
         var utmParams = getUTMParams();
 
-        // Create FINAL URLs exactly once
         var finalIosUrl = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506?" + utmParams;
 
         var finalAndroidUrl = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN&" + utmParams;
 
-        // Apply SAME URLs to icons
-        document.getElementById("iosLink").setAttribute("href", finalIosUrl);
-        document.getElementById("androidLink").setAttribute("href", finalAndroidUrl);
+        document.getElementById("iosLink").href = finalIosUrl;
+        document.getElementById("androidLink").href = finalAndroidUrl;
 
-        // Use EXACT SAME URLs for auto redirect
+        var redirectUrl = null;
+
         if (isIOS || (isTouchDevice && isSmallScreen && /Mac/.test(userAgent))) {
-          window.location.href = finalIosUrl;
-          return;
+          redirectUrl = finalIosUrl;
+        } else if (isAndroid || (isTouchDevice && isSmallScreen)) {
+          redirectUrl = finalAndroidUrl;
         }
 
-        if (isAndroid || (isTouchDevice && isSmallScreen)) {
-          window.location.href = finalAndroidUrl;
-          return;
+        // Try store redirect
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
         }
+
+        // ALWAYS fallback → runo.ai after 5 sec
+        setTimeout(function () {
+          window.location.href = "https://runo.ai";
+        }, 5000);
       }
 
       window.onload = redirectToStore;
