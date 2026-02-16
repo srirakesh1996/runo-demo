@@ -3454,6 +3454,15 @@ body.modal-open {
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+.price-tag del {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.price-tag strong {
+  font-size: 17px;
+  color: #111;
+}
 
 .gradient-purple {
   /* background: linear-gradient(181deg, rgba(234, 230, 255, 0.5) 60%, rgba(187, 173, 255, 0.5) 130%);*/
