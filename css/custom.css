@@ -771,12 +771,19 @@ header.main-header .header-sticky.active {
 .header-sticky.active .main-menu ul li a:hover {
   color: #f44336 !important;
 }
+.main-menu ul li.submenu > a {
+  display: inline-flex;
+  align-items: center;
+}
+
 .main-menu ul li.submenu > a:after {
-  content: "\f107";
-  font-family: "FontAwesome";
-  font-weight: 900;
-  font-size: 14px;
+  content: "";
   margin-left: 8px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
 }
 
 .main-menu ul li a:hover,
@@ -937,6 +944,9 @@ header.main-header .header-sticky.active {
 .slicknav_nav .slicknav_row,
 .slicknav_nav li a {
   position: relative;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
   font-size: 16px;
   font-weight: 400;
   text-transform: capitalize;
@@ -964,14 +974,23 @@ header.main-header .header-sticky.active {
   font-size: 0 !important;
 }
 
+.slicknav_arrow {
+  position: relative; /* needed for absolute arrow */
+  display: inline-flex;
+  align-items: center;
+}
+
 .slicknav_arrow:after {
-  content: "\f107";
-  font-family: "FontAwesome";
-  font-weight: 900;
-  font-size: 12px;
-  margin-left: 8px;
-  color: var(--primary-color);
+  content: "";
   position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--primary-color);
+
   /*right: 15px; arrow in mobile menu next to text */
   top: 50%;
   transform: translateY(-50%);
@@ -991,7 +1010,7 @@ header.main-header .header-sticky.active {
   position: relative;
   padding: 0px;
   overflow: hidden;
- 
+
 z-index: 1;
 background: url("../img/banner-img.webp") no-repeat;
 background-position: center center;
@@ -2380,10 +2399,11 @@ background-size: cover;
   color: var(--secondary-color);
   margin: 0;
 }
+/************************************/
+/***       14. Our FAQs css       ***/
+/************************************/
 
-/************************************/
-/***   	   14. Our FAQs css       ***/
-/************************************/
+/* ---------- SECTION ---------- */
 
 .our-faqs {
   padding: 20px 0 50px;
@@ -2394,6 +2414,8 @@ background-size: cover;
   top: 20px;
   margin-right: 120px;
 }
+
+/* ---------- ACCORDION ITEM ---------- */
 
 .faq-accordion .accordion-item {
   border-bottom: 1px solid var(--divider-color);
@@ -2407,51 +2429,55 @@ background-size: cover;
   border-bottom: none;
 }
 
-.faq-accordion .accordion-header .accordion-button {
+/* ---------- ACCORDION BUTTON ---------- */
+
+.faq-accordion .accordion-button {
   font-size: 20px;
   font-weight: 600;
   line-height: 1.4em;
   color: var(--primary-color);
-  padding-right: 35px;
-  transition: all 0.3s ease-in-out;
+
+  display: flex;
+  align-items: center;
+
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* remove bootstrap default arrow */
+.faq-accordion .accordion-button::after {
+  background-image: none !important;
+
+  /* custom arrow */
+  content: "";
+  margin-left: auto; /* pushes arrow to right */
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---------- WHEN OPEN ---------- */
+
+.faq-accordion .accordion-button:not(.collapsed)::after {
+  transform: rotate(-135deg);
+  border-color: var(--accent-secondary-color);
 }
 
 .faq-accordion .accordion-button:not(.collapsed) {
   margin-bottom: 15px;
 }
 
-.faq-accordion .accordion-item .accordion-button::after,
-.faq-accordion .accordion-item .accordion-button.collapsed::after {
-  content: "\f063";
-  font-family: "FontAwesome";
-  font-size: 14px;
-  font-weight: 900;
-  position: absolute;
-  right: 0;
-  top: 2px;
-  height: 24px;
-  width: 24px;
-  border: 2px solid var(--accent-color);
+/* ---------- BODY ---------- */
 
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-}
-
-.faq-accordion .accordion-button:not(.collapsed)::before {
-  color: var(--accent-secondary-color);
-  border-color: var(--accent-secondary-color);
-}
-
-.faq-accordion .accordion-button:not(.collapsed)::after {
-  border-color: var(--accent-secondary-color);
-  transform: rotate(180deg);
-}
-
-.faq-accordion .accordion-item .accordion-body {
-  color: #111111;
+.faq-accordion .accordion-body {
+  color: #111;
   padding-right: 35px;
 }
 
@@ -2461,6 +2487,18 @@ background-size: cover;
 
 .accordion-item .accordion-body p:last-child {
   margin-bottom: 0;
+}
+
+/* ---------- MOBILE OPTIMIZATION ---------- */
+
+@media (max-width: 768px) {
+  .faq-accordion .accordion-button {
+    font-size: 18px;
+  }
+
+  .our-faq-content {
+    margin-right: 0;
+  }
 }
 
 /************************************/
@@ -5891,7 +5929,7 @@ background-size: cover;
 
   .faq-accordion .accordion-header .accordion-button {
     font-size: 18px;
-    padding-right: 30px;
+    padding-right: 10px;
   }
 
   .faq-accordion .accordion-button:not(.collapsed) {
@@ -5900,8 +5938,8 @@ background-size: cover;
 
   .faq-accordion .accordion-item .accordion-button::after,
   .faq-accordion .accordion-item .accordion-button.collapsed::after {
-    width: 22px;
-    height: 22px;
+    width: 12px;
+    height: 12px;
   }
 
   .faq-accordion .accordion-item .accordion-body {

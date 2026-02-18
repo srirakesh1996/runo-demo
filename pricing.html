@@ -56,56 +56,83 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
     <!-- Google Tag Manager -->
     <style>
-      /* ---------- Price Tag ---------- */
-      .addon-card .price-tag {
+      .addon-card .form-select {
+        border: 1px solid #111 !important;
+      }
+      .price-tag {
         color: #000;
         font-size: 13px;
-        margin: 10px 0 !important;
       }
-
-      /* ---------- Select Styling (Common for all add-on dropdowns) ---------- */
+      .wa-plan-title {
+        color: #000;
+      }
+      .wa-plan-price {
+        color: #000;
+      }
+      /* Clean select with box-shadow instead of border */
       .addon-card .form-select {
-        border: none !important;
+        border: none !important; /* Remove border */
         background-color: #fff !important;
         border-radius: 8px !important;
         padding: 6px 12px !important;
         font-size: 14px;
         color: #000 !important;
-        cursor: pointer !important;
 
-        /* Soft border look */
+        /* Soft box-shadow style */
         box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.15) !important;
       }
 
-      /* Focus style */
+      /* On focus: slightly darker shadow */
       .addon-card .form-select:focus {
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25) !important;
         outline: none !important;
-        font-size: 13px !important;
       }
 
-      /* ---------- Dropdown Width (WhatsApp + AI same) ---------- */
-      #wa-plan-selector,
-      #ai-credit-selector {
-        width: 150px;
+      /* Width control */
+      #wa-plan-selector {
+        width: 160px;
+        cursor: pointer;
       }
 
-      /* Mobile width */
-      @media (max-width: 600px) {
-        #wa-plan-selector,
-        #ai-credit-selector {
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector {
           width: 200px;
         }
       }
 
-      /* Optional text color */
-      .wa-plan-title,
-      .wa-plan-price,
+      #wa-plan-selector {
+        width: 150px;
+        cursor: pointer !important;
+      }
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector {
+          width: 200px;
+        }
+      }
+      .form-select:focus {
+        font-size: 13px !important;
+      }
+      .addon-card .price-tag {
+        margin: 10px 0px !important;
+      } /*2 nd car*/
+      .price-tag {
+        color: #000;
+      }
       .wa-plan-price1 {
         color: #000;
       }
+      #wa-plan-selector {
+        color: #000 !important;
+      }
+      #wa-plan-selector1 {
+        width: 160px;
+      }
+      @media only screen and (max-width: 600px) {
+        #wa-plan-selector1 {
+          width: 200px;
+        }
+      }
     </style>
-
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -1097,7 +1124,7 @@
       </header>
       <!-- Header End -->
       <section class="pricing-section">
-        <div class="container py-3" style="padding-top: 12px !important">
+        <div class="container py-5" style="padding-top: 12px !important">
           <div class="row justify-content-center">
             <div class="section-title text-center mb-40">
               <h1>Runo Pricing & Plans</h1>
@@ -1106,7 +1133,15 @@
             </div>
             <!-- 3 Months Plan -->
             <div class="col-md-4 mb-4 price-card">
-              <div class="pricing-card text-center">
+              <div class="pricing-card h-100 text-center">
+                <div class="card-top-bg blue-bg">
+                  <div class="top-content">
+                    <h5>
+                      <strong>3</strong>
+                      Months
+                    </h5>
+                  </div>
+                </div>
                 <div class="card-body">
                   <div class="details">
                     <p class="tenure">Billed Quarterly</p>
@@ -1122,16 +1157,20 @@
             </div>
             <!-- 6 Months Plan -->
             <div class="col-md-4 mb-4 price-card">
-              <div class="pricing-card text-center popular popular-card">
+              <div class="pricing-card h-100 text-center popular popular-card">
                 <div class="card-top-bg gold-bg position-relative">
                   <div class="badge most-popular">Most Popular</div>
+                  <div class="top-content">
+                    <h5>
+                      <strong>6</strong>
+                      Months
+                      <span class="badge discount">22% off</span>
+                    </h5>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="details">
-                    <p class="tenure">
-                      Billed Half Yearly
-                      <span class="badge discount">22% off</span>
-                    </p>
+                    <p class="tenure">Billed Half Yearly</p>
                     <h3 class="price">
                       <span class="inr">
                         ₹ 699
@@ -1140,20 +1179,26 @@
                       <span class="dollar">$ 13</span>
                     </h3>
                     <p class="text-muted small">per user/month</p>
-                    <a class="btn-runo-dark track-btn runo-web-crm" style="position: relative !important; z-index: 99 !important" href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 6M">Start 10-Day Free Trial</a>
+                    <a class="btn-default-dark btn-highlighted track-btn runo-web-crm" style="margin-top: -5px; position: relative !important; z-index: 99 !important" href="https://web.runo.in" data-label="Start 10-day free trial - Pricing 6M">Start 10-Day Free Trial</a>
                   </div>
                 </div>
               </div>
             </div>
             <!-- 12 Months Plan -->
             <div class="col-md-4 mb-4 price-card">
-              <div class="pricing-card text-center">
+              <div class="pricing-card h-100 text-center">
+                <div class="card-top-bg green-bg">
+                  <div class="top-content">
+                    <h5>
+                      <strong>12</strong>
+                      Months
+                      <span class="badge discount">33% off</span>
+                    </h5>
+                  </div>
+                </div>
                 <div class="card-body">
                   <div class="details">
-                    <p class="tenure">
-                      Billed Yearly
-                      <span class="badge discount">33% off</span>
-                    </p>
+                    <p class="tenure">Billed Yearly</p>
                     <h3 class="price">
                       <span class="inr">
                         ₹ 599
@@ -1194,7 +1239,7 @@
           });
         });
       </script>
-      <section class="features-section mt-30" id="features">
+      <section class="features-section mt-70" id="features">
         <div class="container">
           <!-- Section Title -->
           <div class="section-title text-center" data--delay="0.3s">
@@ -1331,6 +1376,83 @@
           }
         });
       </script>
+      <section class="addon-section">
+        <div class="container">
+          <div class="row g-4">
+            <div class="section-title text-center" style="margin-bottom: 10px">
+              <h2>Add-Ons to Power Up Your Runo Plan</h2>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="addon-card gradient-purple">
+                <h5>WhatsApp Business</h5>
+                <p>Send bulk WhatsApp messages directly from Runo, track delivery and replies, and manage all conversations.</p>
+                <!-- Price Display with Dropdown -->
+                <div class="d-flex align-items-center justify-content-between flex-wrap">
+                  <span class="price-tag">
+                    <span id="wa-plan-price">₹149</span>
+                    /user/month + GST
+                  </span>
+                  <select id="wa-plan-selector" class="form-select mt-2 mt-md-0">
+                    <option value="yearly" selected>Billed Yearly</option>
+                    <option value="half-yearly">Billed Half-Yearly</option>
+                    <option value="quarterly">Billed Quarterly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <script>
+              const waPlanSelector = document.getElementById("wa-plan-selector");
+              const waPlanTitle = document.getElementById("wa-plan-title");
+              const waPlanPrice = document.getElementById("wa-plan-price");
+
+              const waPlans = {
+                yearly: {
+                  title: "Billed Yearly:",
+                  price: "₹149"
+                },
+                "half-yearly": {
+                  title: "Billed Half-Yearly:",
+                  price: "₹199"
+                },
+                quarterly: {
+                  title: "Billed Quarterly:",
+                  price: "₹249"
+                }
+              };
+
+              waPlanSelector.addEventListener("change", function () {
+                const selectedPlan = waPlanSelector.value;
+
+                waPlanPrice.textContent = waPlans[selectedPlan].price;
+              });
+            </script>
+            <div class="col-md-6 col-lg-6">
+              <div class="addon-card gradient-green">
+                <h5>AI Call Intelligence</h5>
+                <p>Get automatic call summaries, sentiment analysis, talk-time ratios, and call quality scores to coach reps and improve every conversation.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="addon-card gradient-blue">
+                <h5>AI Chat Assistant</h5>
+                <p>Get instant answers about your sales pipeline and ask the AI to perform tasks like booking calls or setting follow-ups</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="addon-card gradient-pink">
+                <h5>Guided Onboarding</h5>
+                <p>Get help with setup, CRM customisation, and training to get your team up and running smoothly</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="addon-card gradient-orange">
+                <h5>Storage Boost</h5>
+                <p>Increase your storage limit to keep more call recordings, reports, and lead data without interruptions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Clients Section Start -->
       <section class="clients-section py-80" style="overflow: hidden">
         <div class="container">
@@ -1395,114 +1517,6 @@
         </div>
       </section>
       <!-- Clients Section End -->
-
-      <section class="addon-section">
-        <div class="container">
-          <div class="row g-4">
-            <div class="section-title text-center" style="margin-bottom: 10px">
-              <h2>Add-Ons to Power Up Your Runo Plan</h2>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-purple">
-                <h5>WhatsApp Business</h5>
-                <p>Send bulk WhatsApp messages directly from Runo, track delivery and replies, and manage all conversations.</p>
-                <!-- Price Display with Dropdown -->
-                <div class="d-flex align-items-center justify-content-between flex-wrap">
-                  <span class="price-tag">
-                    ₹
-                    <span id="wa-plan-price">149</span>
-                    /user/month + GST
-                  </span>
-                  <select id="wa-plan-selector" class="form-select mt-2 mt-md-0">
-                    <option value="yearly" selected>Billed Yearly</option>
-                    <option value="half-yearly">Billed Half-Yearly</option>
-                    <option value="quarterly">Billed Quarterly</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <script>
-              const waPlanSelector = document.getElementById("wa-plan-selector");
-              const waPlanTitle = document.getElementById("wa-plan-title");
-              const waPlanPrice = document.getElementById("wa-plan-price");
-
-              const waPlans = {
-                yearly: {
-                  title: "Billed Yearly:",
-                  price: "₹149"
-                },
-                "half-yearly": {
-                  title: "Billed Half-Yearly:",
-                  price: "₹199"
-                },
-                quarterly: {
-                  title: "Billed Quarterly:",
-                  price: "₹249"
-                }
-              };
-
-              waPlanSelector.addEventListener("change", function () {
-                const selectedPlan = waPlanSelector.value;
-
-                waPlanPrice.textContent = waPlans[selectedPlan].price;
-              });
-            </script>
-            <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-green">
-                <h5>AI Call Intelligence</h5>
-                <p>Get automatic call summaries, sentiment analysis, talk-time ratios, and call quality scores to coach reps and improve every conversation.</p>
-
-                <!-- Price Display -->
-                <div class="d-flex align-items-center justify-content-between flex-wrap">
-                  <span class="price-tag">
-                    ₹
-                    <span id="ai-price">1000</span>
-                    + GST
-                  </span>
-
-                  <select id="ai-credit-selector" class="form-select mt-2 mt-md-0">
-                    <option value="1000" selected>1000 Credits</option>
-                    <option value="2000">2000 Credits</option>
-                    <option value="5000">5000 Credits</option>
-                    <option value="10000">10000 Credits</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <script>
-              const aiCreditSelector = document.getElementById("ai-credit-selector");
-              const aiPrice = document.getElementById("ai-price");
-
-              aiCreditSelector.addEventListener("change", function () {
-                const selectedCredits = this.value;
-
-                // ₹1 per minute → price = credits
-                aiPrice.textContent = selectedCredits;
-              });
-            </script>
-
-            <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-blue">
-                <h5>AI Chat Assistant</h5>
-                <p>Get instant answers about your sales pipeline and ask the AI to perform tasks like booking calls or setting follow-ups</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-pink">
-                <h5>Guided Onboarding</h5>
-                <p>Get help with setup, CRM customisation, and training to get your team up and running smoothly</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-orange">
-                <h5>Storage Boost</h5>
-                <p>Increase your storage limit to keep more call recordings, reports, and lead data without interruptions.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Testimonial Section -->
       <div class="our-tesimonial mt-space" style="background: #fafafa !important">
         <!-- Security Section with WOW animations -->
@@ -1815,24 +1829,64 @@
           </div>
           <div class="col-md-3">
             <h6 class="fw-semibold text-white mb-20">Follow Us</h6>
-            <!-- Footer Social Link Start -->
+
             <div class="footer-social-links">
               <ul>
+                <!-- Facebook -->
                 <li>
-                  <a href="https://www.facebook.com/runo.in/"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/runo.in/" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.7v7A10 10 0 0022 12z" />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- Instagram -->
                 <li>
-                  <a href="https://www.instagram.com/runocrm"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/runocrm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2
+            5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-.3a1.2
+            1.2 0 110 2.4 1.2 1.2 0 010-2.4zM12 9a3 3 0 100 6 3 3 0 000-6z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- YouTube -->
                 <li>
-                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5
+            12 2.5h0s-4.9 0-8.2.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.4-.9
+            2.4S0 8.1 0 10v2c0 1.9.5 3.8.5 3.8s.2 1.7.9
+            2.4c.9.9 2.1.9 2.6 1C7.1 19.5 12 19.5 12
+            19.5s4.9 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4S24
+            13.9 24 12v-2c0-1.9-.5-3.8-.5-3.8zM9.5 15V9l6 3-6 3z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- LinkedIn -->
                 <li>
-                  <a href="https://in.linkedin.com/company/runo-crm"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://in.linkedin.com/company/runo-crm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5
+            5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7
+            19H4V9h3v10zM5.5 7.7a1.7 1.7 0 110-3.4
+            1.7 1.7 0 010 3.4zM20 19h-3v-5.6c0-1.3
+            0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8
+            1.4-1.8 2.9-1.8 3.1 0 3.7 2 3.7 4.6V19z"
+                      />
+                    </svg>
+                  </a>
                 </li>
               </ul>
             </div>
-            <!-- Footer Social Link End -->
           </div>
         </div>
         <!-- Footer Copyright -->
