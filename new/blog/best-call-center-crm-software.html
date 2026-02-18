@@ -1754,7 +1754,15 @@
           <div class="row align-items-center">
             <div class="col-md-4">
               <div class="footer-copyright-text">
-                <p>&copy; 2025 Runo. All Rights Reserved.</p>
+                <p>
+                  &copy;
+                  <span id="currentYear"></span>
+                  Runo. All Rights Reserved.
+                </p>
+
+                <script>
+                  document.getElementById("currentYear").textContent = new Date().getFullYear();
+                </script>
               </div>
             </div>
             <div class="col-md-8">

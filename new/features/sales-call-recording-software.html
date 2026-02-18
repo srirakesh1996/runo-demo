@@ -48,10 +48,6 @@
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome (async) -->
-    <link rel="preload" href="/css/all.min.css" as="style" />
-    <link rel="stylesheet" href="/css/all.min.css" media="print" onload="this.media='all'" />
-
     <!-- Swiper CSS -->
     <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
@@ -62,7 +58,6 @@
 
     <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="/css/all.min.css" />
       <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
       <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
@@ -99,7 +94,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Inline Critical Font-Face (latin only for Inter) -->
     <!-- Inline Critical Font-Face (latin only for Inter) -->
     <style>
       @font-face {
@@ -2324,9 +2318,19 @@
             </div>
           </div>
           <!-- Navigation Buttons -->
+          <!-- Custom navigation buttons below -->
           <div class="swiper-nav-buttons text-center">
-            <button class="swiper-custom-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="swiper-custom-next"><i class="fas fa-chevron-right"></i></button>
+            <button class="swiper-custom-prev">
+              <!-- LEFT ARROW -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="swiper-custom-next">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </div>

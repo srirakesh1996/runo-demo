@@ -4182,3 +4182,7 @@ footer .fw-bold {
 .security-badges img {
   max-width: 80% !important;
 }
+
+.nav-item .header-btn-dark {
+  display: block;
+}

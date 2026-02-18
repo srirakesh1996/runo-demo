@@ -6292,3 +6292,18 @@ background-size: cover;
     height: 350px;
   }
 }
+
+.swiper-custom-prev {
+  color: #000 !important; /* controls SVG stroke color */
+}
+.swiper-custom-prev svg {
+  color: #000;
+}
+
+.swiper-custom-next {
+  color: #000 !important; /* controls SVG stroke color */
+}
+
+.swiper-custom-next svg {
+  stroke: #000;
+}

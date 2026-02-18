@@ -43,10 +43,6 @@
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome (async) -->
-    <link rel="preload" href="/css/all.min.css" as="style" />
-    <link rel="stylesheet" href="/css/all.min.css" media="print" onload="this.media='all'" />
-
     <!-- Swiper CSS -->
     <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
@@ -57,7 +53,6 @@
 
     <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="/css/all.min.css" />
       <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
       <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
@@ -101,25 +96,8 @@
         font-style: normal;
         font-weight: 100 900;
         font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        src: url("/fonts/inter-latin.woff2") format("woff2");
         unicode-range: U+0000-00FF;
-      }
-
-      /* Override Font Awesome to use font-display: swap */
-      @font-face {
-        font-family: "Font Awesome 6 Free";
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
-      }
-
-      @font-face {
-        font-family: "Font Awesome 6 Brands";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
       }
     </style>
 
