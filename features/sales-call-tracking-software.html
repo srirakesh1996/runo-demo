@@ -48,10 +48,6 @@
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome (async) -->
-    <link rel="preload" href="/css/all.min.css" as="style" />
-    <link rel="stylesheet" href="/css/all.min.css" media="print" onload="this.media='all'" />
-
     <!-- Swiper CSS -->
     <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
@@ -62,7 +58,6 @@
 
     <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="/css/all.min.css" />
       <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
       <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
@@ -108,23 +103,6 @@
         font-display: swap;
         src: url("/fonts/inter-latin.woff2") format("woff2");
         unicode-range: U+0000-00FF;
-      }
-
-      /* Override Font Awesome to use font-display: swap */
-      @font-face {
-        font-family: "Font Awesome 6 Free";
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("/fonts/fa-solid-900.woff2") format("woff2"), url("/fonts/fa-solid-900.ttf") format("truetype");
-      }
-
-      @font-face {
-        font-family: "Font Awesome 6 Brands";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/fonts/fa-brands-400.woff2") format("woff2"), url("/fonts/fa-brands-400.ttf") format("truetype");
       }
     </style>
 
@@ -615,7 +593,6 @@
       .header-sticky.active .main-menu ul li .header-btn:hover {
         color: #f44336 !important;
       }
-
       .main-menu ul li.submenu > a {
         display: inline-flex;
         align-items: center;
@@ -797,7 +774,6 @@
         border-radius: 0 !important;
         /* transition: all 0.3s ease-in-out;*/
       }
-
       .slicknav_nav a:hover,
       .slicknav_nav a:focus,
       .slicknav_nav .slicknav_row:hover {
@@ -814,6 +790,9 @@
         font-size: 0 !important;
       }
 
+      .slicknav_arrow {
+        position: relative; /* required for absolute positioning */
+      }
       .slicknav_arrow:after {
         content: "";
         position: absolute;
@@ -2507,6 +2486,7 @@
                 </button>
               </div>
             </div>
+
             <!-- End testimonial-slider -->
           </div>
         </div>

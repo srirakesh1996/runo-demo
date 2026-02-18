@@ -3250,100 +3250,78 @@ body.modal-open {
   background-size: cover;
 }
 
-.popular-card {
-  position: relative;
-  z-index: 1;
-  border-radius: 12px;
-  background: white;
-}
-
-/* Gradient border effect */
-.popular-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 2px;
-  /* This becomes the border thickness */
-  background: linear-gradient(93.43deg, #ff5730 -4.63%, #5e33ec 65.52%, #0065f2 106.84%);
-  border-radius: 12px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  z-index: 2;
-}
-
+/* Base card */
 .pricing-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
   position: relative;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
 }
 
+/* Hover effect */
 .pricing-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f44336;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
 }
 
 /* Top Image Background */
 
-.card-top-bg::after {
+/*.card-top-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
-}
+}*/
 
 .blue-bg {
   position: relative;
-  height: 150px;
-  /* background-image: url("/img/blue.webp"); */
+  /*  height: 110px;*/
+  border-radius: 12px;
+  /* background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: top center;*/
 }
 
 .gold-bg {
   position: relative;
-  height: 150px;
-  /* background-image: url("/img/gold.webp"); */
+  /*height: 110px;*/
+  border-radius: 12px;
+  /* background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: top center;*/
 }
 
 .green-bg {
   position: relative;
-  height: 150px;
-  /* background-image: url("/img/green.webp"); */
+  /*height: 110px;*/
+  border-radius: 12px;
+  /* background-image: url(../img/price-texture.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: top center;*/
 }
 
 .most-popular {
   position: absolute;
-  top: -20px;
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #009ef7;
   color: #fff;
-  font-size: 1rem;
-  padding: 12px 30px;
+  font-size: 12px;
+  padding: 7px 4px;
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: 500;
   z-index: 2;
 }
 
 .discount {
-  padding: 12px;
+  padding: 8px;
   background-color: #57bf73;
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.5rem;
   margin-left: 6px;
   vertical-align: middle;
   border-radius: 20px;
@@ -3363,8 +3341,9 @@ body.modal-open {
 
 .top-content {
   text-align: left;
-  padding: 70px 20px 40px 20px;
-  position: absolute;
+  padding: 15px 20px;
+  /* position: absolute;*/
+  position: relative;
   z-index: 5;
   font-weight: 400 !important;
 }
@@ -3398,7 +3377,8 @@ body.modal-open {
 .price {
   font-size: 36px;
   font-weight: 700;
-  margin: 10px 0;
+  margin: 15px 0px 0px 0px;
+  line-height: 1.2;
 }
 
 .price-card {
@@ -3412,7 +3392,7 @@ body.modal-open {
 }
 
 .text-muted {
-  margin: 20px 0px;
+  margin: 0px 0px 15px 0px;
 }
 
 .pricing-section h5 strong {
@@ -3427,16 +3407,26 @@ body.modal-open {
   background-size: cover;
 }
 
+/* Make all addon cards equal layout */
 .addon-card {
   border-radius: 20px;
   padding: 24px;
   height: 100%;
+  background-color: #fafafa !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  color: #000;
+  color: #111;
   position: relative;
+
+  /* ADD THIS */
+  display: flex;
+  flex-direction: column;
 }
 
-.addon-card h5 {
+/* Push price section to bottom */
+.addon-card .d-flex {
+  margin-top: auto;
+}
+.a .addon-card h5 {
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -3453,6 +3443,15 @@ body.modal-open {
   padding: 8px 16px;
   font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.price-tag del {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.price-tag strong {
+  font-size: 17px;
+  color: #111;
 }
 
 .gradient-purple {
