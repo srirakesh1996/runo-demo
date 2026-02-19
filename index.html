@@ -2078,8 +2078,6 @@
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           const modal = document.getElementById("analyzeModal");
-          if (!modal) return;
-
           const audioBtn = document.getElementById("audioPlayBtn");
           const audio = document.getElementById("audioPlayer");
           const wave = document.getElementById("waveAnimation");
@@ -2090,193 +2088,200 @@
           let loudnessInterval;
           let scoreInterval;
 
-          /* ---------------- STOP AUDIO ---------------- */
-
+          /* =====================================================
+     FULL STOP AUDIO (RESET TO START)
+  ===================================================== */
           function stopAudio() {
             if (!audio) return;
+
             audio.pause();
-            audio.currentTime = 0;
-            if (wave) wave.classList.remove("active");
+            audio.currentTime = 0; // reset only when full stop
+            wave?.classList.remove("active");
             if (audioBtn) audioBtn.innerHTML = '<i class="fas fa-play"></i>';
           }
 
-          /* ---------------- PLAY / PAUSE ---------------- */
-
+          /* =====================================================
+     PLAY / PAUSE / RESUME AUDIO
+  ===================================================== */
           if (audioBtn && audio) {
             audioBtn.addEventListener("click", () => {
               if (audio.paused) {
+                // PLAY / RESUME
                 audio.play();
                 wave?.classList.add("active");
                 audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
               } else {
-                stopAudio();
+                // PAUSE ONLY (NO RESET)
+                audio.pause();
+                wave?.classList.remove("active");
+                audioBtn.innerHTML = '<i class="fas fa-play"></i>';
               }
             });
 
+            // When audio finishes → reset
             audio.addEventListener("ended", stopAudio);
           }
 
-          /* ---------------- STOP AUDIO ON SCROLL ---------------- */
-
+          /* =====================================================
+     STOP AUDIO WHEN SECTION OUT OF VIEW
+  ===================================================== */
           if (section) {
             window.addEventListener("scroll", function () {
               const rect = section.getBoundingClientRect();
-              if (rect.bottom < 0 || rect.top > window.innerHeight) stopAudio();
+              if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                stopAudio();
+              }
             });
           }
 
           /* =====================================================
-     RESET EVERYTHING BEFORE MODAL SHOWS (IMPORTANT FIX)
+     RESET EVERYTHING BEFORE MODAL SHOWS
   ===================================================== */
+          if (modal) {
+            modal.addEventListener("show.bs.modal", function () {
+              stopAudio();
 
-          modal.addEventListener("show.bs.modal", function () {
-            stopAudio();
+              clearInterval(scoreInterval);
+              clearInterval(loudnessInterval);
+              clearTimeout(typingTimeout);
 
-            clearInterval(scoreInterval);
-            clearInterval(loudnessInterval);
-            clearTimeout(typingTimeout);
+              /* RESET BLOCKS */
+              blocks.forEach((b) => b.classList.remove("show-block"));
 
-            /* RESET BLOCKS */
-            blocks.forEach((b) => b.classList.remove("show-block"));
+              /* RESET GAUGE */
+              const gauge = document.getElementById("gaugeFill");
+              const number = document.getElementById("scoreNumber");
 
-            /* RESET GAUGE */
-            const gauge = document.getElementById("gaugeFill");
-            const number = document.getElementById("scoreNumber");
+              if (gauge) {
+                gauge.style.transition = "none";
+                gauge.style.strokeDashoffset = 188;
+              }
+              if (number) number.textContent = "0";
 
-            if (gauge) {
-              gauge.style.transition = "none";
-              gauge.style.strokeDashoffset = 188;
-            }
+              /* RESET LOUDNESS */
+              const agentBar = document.getElementById("agentBar");
+              const customerBar = document.getElementById("customerBar");
+              const agentText = document.getElementById("agentDb");
+              const customerText = document.getElementById("customerDb");
 
-            if (number) number.textContent = "0";
+              if (agentBar) agentBar.style.width = "0%";
+              if (customerBar) customerBar.style.width = "0%";
+              if (agentText) agentText.textContent = "0";
+              if (customerText) customerText.textContent = "0";
 
-            /* RESET LOUDNESS */
-            const agentBar = document.getElementById("agentBar");
-            const customerBar = document.getElementById("customerBar");
-            const agentText = document.getElementById("agentDb");
-            const customerText = document.getElementById("customerDb");
-
-            if (agentBar) agentBar.style.width = "0%";
-            if (customerBar) customerBar.style.width = "0%";
-            if (agentText) agentText.textContent = "0";
-            if (customerText) customerText.textContent = "0";
-
-            /* RESET CUSTOMER TEXT */
-            const insightElement = document.getElementById("insightText");
-            if (insightElement) insightElement.textContent = "";
-          });
-
-          /* =====================================================
-     ANIMATE AFTER MODAL IS SHOWN
-  ===================================================== */
-
-          modal.addEventListener("shown.bs.modal", function () {
-            /* -------- BLOCK ANIMATION -------- */
-            blocks.forEach((block, index) => {
-              setTimeout(() => block.classList.add("show-block"), 400 * index);
+              /* RESET CUSTOMER TEXT */
+              const insightElement = document.getElementById("insightText");
+              if (insightElement) insightElement.textContent = "";
             });
 
             /* =====================================================
-       GAUGE ANIMATION
+       AFTER MODAL SHOWS → START ANIMATIONS
     ===================================================== */
+            modal.addEventListener("shown.bs.modal", function () {
+              /* BLOCK ANIMATION */
+              blocks.forEach((block, index) => {
+                setTimeout(() => block.classList.add("show-block"), 400 * index);
+              });
 
-            const score = 75.92;
-            const gauge = document.getElementById("gaugeFill");
-            const number = document.getElementById("scoreNumber");
+              /* =====================================================
+         GAUGE ANIMATION
+      ===================================================== */
+              const score = 75.92;
+              const gauge = document.getElementById("gaugeFill");
+              const number = document.getElementById("scoreNumber");
 
-            if (gauge && number) {
-              setTimeout(() => {
-                const circumference = 188;
-                const offset = circumference - (score / 100) * circumference;
+              if (gauge && number) {
+                setTimeout(() => {
+                  const circumference = 188;
+                  const offset = circumference - (score / 100) * circumference;
 
-                gauge.style.transition = "stroke-dashoffset 1.5s ease";
-                gauge.style.strokeDashoffset = offset;
+                  gauge.style.transition = "stroke-dashoffset 1.5s ease";
+                  gauge.style.strokeDashoffset = offset;
 
-                let current = 0;
+                  let current = 0;
 
-                scoreInterval = setInterval(() => {
-                  current += 1.5;
-                  number.textContent = current.toFixed(2);
+                  scoreInterval = setInterval(() => {
+                    current += 1.5;
+                    number.textContent = current.toFixed(2);
 
-                  if (current >= score) {
-                    number.textContent = score.toFixed(2);
-                    clearInterval(scoreInterval);
-                  }
-                }, 20);
-              }, 100);
-            }
-
-            /* =====================================================
-       LOUDNESS ANIMATION
-    ===================================================== */
-
-            const agentTarget = -26.78;
-            const customerTarget = -27.95;
-
-            const agentBar = document.getElementById("agentBar");
-            const customerBar = document.getElementById("customerBar");
-            const agentText = document.getElementById("agentDb");
-            const customerText = document.getElementById("customerDb");
-
-            if (agentBar && customerBar && agentText && customerText) {
-              const convertDbToPercent = (db) => ((60 + db) / 60) * 100;
-
-              setTimeout(() => {
-                agentBar.style.transition = "width 1.5s ease";
-                customerBar.style.transition = "width 1.5s ease";
-
-                agentBar.style.width = convertDbToPercent(agentTarget) + "%";
-                customerBar.style.width = convertDbToPercent(customerTarget) + "%";
-              }, 800);
-
-              let agentCurrent = 0;
-              let customerCurrent = 0;
-
-              loudnessInterval = setInterval(() => {
-                if (agentCurrent > agentTarget) {
-                  agentCurrent -= 1;
-                  agentText.textContent = agentCurrent.toFixed(2) + " dB";
-                }
-
-                if (customerCurrent > customerTarget) {
-                  customerCurrent -= 1.2;
-                  customerText.textContent = customerCurrent.toFixed(2) + " dB";
-                }
-
-                if (agentCurrent <= agentTarget && customerCurrent <= customerTarget) {
-                  agentText.textContent = agentTarget.toFixed(2) + " dB";
-                  customerText.textContent = customerTarget.toFixed(2) + " dB";
-                  clearInterval(loudnessInterval);
-                }
-              }, 50);
-            }
-
-            /* =====================================================
-       CUSTOMER SUMMARY TYPING
-    ===================================================== */
-
-            const insightContent = "The agent from Runo AI contacted a potential customer to discuss their call management solution. The customer initially expressed no interest but then inquired about a demo. The agent explained the benefits of the solution, discussed integration with the customer's CRM, and scheduled a demo for the day after tomorrow. The agent also inquired about the customer's lead sources and confirmed the details.";
-
-            const insightElement = document.getElementById("insightText");
-
-            if (insightElement) {
-              insightElement.classList.add("typing-cursor");
-
-              let charIndex = 0;
-
-              function typeInsight() {
-                if (charIndex < insightContent.length) {
-                  insightElement.textContent += insightContent.charAt(charIndex);
-                  charIndex++;
-                  typingTimeout = setTimeout(typeInsight, 20);
-                } else {
-                  insightElement.classList.remove("typing-cursor");
-                }
+                    if (current >= score) {
+                      number.textContent = score.toFixed(2);
+                      clearInterval(scoreInterval);
+                    }
+                  }, 20);
+                }, 100);
               }
 
-              typingTimeout = setTimeout(typeInsight, 1000);
-            }
-          });
+              /* =====================================================
+         LOUDNESS ANIMATION
+      ===================================================== */
+              const agentTarget = -26.78;
+              const customerTarget = -27.95;
+
+              const agentBar = document.getElementById("agentBar");
+              const customerBar = document.getElementById("customerBar");
+              const agentText = document.getElementById("agentDb");
+              const customerText = document.getElementById("customerDb");
+
+              if (agentBar && customerBar && agentText && customerText) {
+                const convertDbToPercent = (db) => ((60 + db) / 60) * 100;
+
+                setTimeout(() => {
+                  agentBar.style.transition = "width 1.5s ease";
+                  customerBar.style.transition = "width 1.5s ease";
+
+                  agentBar.style.width = convertDbToPercent(agentTarget) + "%";
+                  customerBar.style.width = convertDbToPercent(customerTarget) + "%";
+                }, 800);
+
+                let agentCurrent = 0;
+                let customerCurrent = 0;
+
+                loudnessInterval = setInterval(() => {
+                  if (agentCurrent > agentTarget) {
+                    agentCurrent -= 1;
+                    agentText.textContent = agentCurrent.toFixed(2) + " dB";
+                  }
+
+                  if (customerCurrent > customerTarget) {
+                    customerCurrent -= 1.2;
+                    customerText.textContent = customerCurrent.toFixed(2) + " dB";
+                  }
+
+                  if (agentCurrent <= agentTarget && customerCurrent <= customerTarget) {
+                    agentText.textContent = agentTarget.toFixed(2) + " dB";
+                    customerText.textContent = customerTarget.toFixed(2) + " dB";
+                    clearInterval(loudnessInterval);
+                  }
+                }, 50);
+              }
+
+              /* =====================================================
+         CUSTOMER SUMMARY TYPING
+      ===================================================== */
+              const insightContent = "The agent from Runo AI contacted a potential customer to discuss their call management solution. The customer initially expressed no interest but then inquired about a demo. The agent explained the benefits of the solution, discussed integration with the customer's CRM, and scheduled a demo for the day after tomorrow. The agent also inquired about the customer's lead sources and confirmed the details.";
+
+              const insightElement = document.getElementById("insightText");
+
+              if (insightElement) {
+                insightElement.classList.add("typing-cursor");
+
+                let charIndex = 0;
+
+                function typeInsight() {
+                  if (charIndex < insightContent.length) {
+                    insightElement.textContent += insightContent.charAt(charIndex);
+                    charIndex++;
+                    typingTimeout = setTimeout(typeInsight, 20);
+                  } else {
+                    insightElement.classList.remove("typing-cursor");
+                  }
+                }
+
+                typingTimeout = setTimeout(typeInsight, 1000);
+              }
+            });
+          }
         });
       </script>
 
