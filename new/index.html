@@ -29,28 +29,42 @@
     <meta name="twitter:url" content="https://runo.ai/" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-    <!-- Performance: Preload Fonts & Styles -->
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <!-- Core Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" href="css/slicknav.min.css" />
 
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/runo.css" />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="css/intlTelInput.min.css" />
-    <!-- JS Libraries (Defer if possible to reduce INP) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
+    <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="/css/intlTelInput.min.css" />
+    </noscript>
+
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -87,9 +101,118 @@
         padding: 0;
         overflow: hidden;
         z-index: 1;
-        /*  background: url('img/banner-img.webp') no-repeat center center;*/
+        /*  background: url('img/banner-img.webp') no-repeat center center;
         background: #fff;
-        background-size: cover;
+        background-size: cover;*/
+      }
+    </style>
+
+    <!-- Inline Critical Font-Face (latin only for Inter) -->
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+    </style>
+
+    <style>
+      /* FOr Product pAges*/
+
+      .main-menu .mega-menu .menu-head {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .submenu-list .menu-head {
+        font-size: 17px;
+        color: #111111 !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+
+        .submenu-list .menu-head {
+          padding: 0px 10px !important;
+        }
+      }
+    </style>
+    <style>
+      /* Hello Bar */
+      .hello-bar {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        line-height: 1.5;
+        padding: 12px 15px;
+      }
+
+      .hello-bar p {
+        margin: 0;
+        text-align: center;
+        color: #fff !important;
+        padding-right: 45px; /* space so text doesn't touch close button */
+      }
+
+      /* Close Button */
+      .close-hello {
+        position: absolute;
+
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-hello:hover {
+        background: rgba(255, 255, 255, 0.35);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 767.98px) {
+        .hello-bar p {
+          text-align: left;
+        }
+
+        .hello-bar {
+          font-size: 14px;
+          padding: 10px 12px;
+        }
+
+        .close-hello {
+          top: 6px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
+          font-size: 18px;
+        }
+
+        .hello-bar p {
+          padding-right: 40px;
+        }
       }
     </style>
 
