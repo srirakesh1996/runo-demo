@@ -29,28 +29,29 @@
     <meta name="twitter:url" content="https://runo.ai/" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-    <!-- Performance: Preload Fonts & Styles -->
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <!-- Core Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" href="css/slicknav.min.css" />
 
+    <!-- Performance: Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Font (non-blocking) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700&display=swap" rel="stylesheet" />
+
+    <!-- Critical CSS first -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="css/slicknav.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="css/intlTelInput.min.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/runo.css" />
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="css/intlTelInput.min.css" />
-    <!-- JS Libraries (Defer if possible to reduce INP) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
+    <!-- JS (deferred so no render block) -->
+    <script src="js/jquery.min.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -2723,17 +2724,11 @@
       </div>
     </div>
 
-    <!-- Core Libraries (Deferred) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
-    <script src="js/jquery.slicknav.js" defer></script>
-    <script src="js/jquery.magnific-popup.min.js" defer></script>
-    <script src="js/SmoothScroll.js" defer></script>
-    <script src="js/parallaxie.js" defer></script>
-    <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-    <!-- Custom JS (Deferred) -->
-    <script src="js/function.js" defer></script>
+    <script src="/js/jquery.slicknav.js" defer></script>
+    <script src="/js/function.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         if (typeof WOW !== "undefined") {
