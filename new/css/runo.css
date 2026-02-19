@@ -2142,6 +2142,13 @@ th {
   z-index: 0;
 }
 
+.demo-section .play-button {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .line {
   border-top: 1px solid #111111;
   margin: 30px 0px 0px 0px;
