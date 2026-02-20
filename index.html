@@ -1135,6 +1135,7 @@
       </div>
       <!-- Hero Section End -->
       <!-- ================= AUDIO DEMO SECTION ================= -->
+      <!-- ================= AUDIO DEMO SECTION ================= -->
 
       <style>
         /* ===== SECTION ===== */
@@ -1143,20 +1144,6 @@
           position: relative;
           max-width: 900px;
           margin: auto;
-        }
-
-        /* ===== CENTER CTA ===== */
-
-        .reveal-btn {
-          position: absolute;
-          margin: 20px 0px !important;
-          z-index: 10;
-          opacity: 0;
-          transition: all 0.4s ease;
-        }
-
-        .analysis-container.active .reveal-btn {
-          opacity: 1;
         }
 
         /* ===== IMAGE ===== */
@@ -1168,10 +1155,10 @@
 
         .analysis-image {
           width: 100%;
-          transition: 0.4s ease;
+          transition: 0.5s ease;
         }
 
-        /* BLUR */
+        /* BLUR LOCKED STATE */
 
         .analysis-image.blurred {
           filter: blur(12px) brightness(0.9);
@@ -1179,10 +1166,22 @@
           cursor: not-allowed;
         }
 
-        /* REVEALED */
+        /* REVEAL ANIMATION */
 
         .analysis-image.revealed {
           cursor: zoom-in;
+          animation: revealSmooth 0.8s ease;
+        }
+
+        @keyframes revealSmooth {
+          from {
+            filter: blur(12px);
+            transform: scale(1.05);
+          }
+          to {
+            filter: blur(0);
+            transform: scale(1);
+          }
         }
 
         /* CURSOR ZOOM */
@@ -1205,7 +1204,7 @@
           border: 1px solid rgba(0, 0, 0, 0.08);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
           max-width: 420px;
-          margin: 0 auto 15px;
+          margin: 0 auto 10px;
         }
 
         /* PLAY BUTTON */
@@ -1251,28 +1250,24 @@
           min-width: 45px;
         }
 
-        /* helper text */
+        /* HELPER TEXT */
 
         .audio-hint {
           font-size: 14px;
           color: #777;
-
-          margin: 10px 0px;
+          margin-bottom: 25px;
           transition: 0.4s ease;
         }
-
-        /* hide after audio starts */
 
         .audio-hint.hide {
           opacity: 0;
           transform: translateY(-5px);
-          display: none;
         }
       </style>
 
       <section class="analysis-demo py-5 text-center" style="background: #fafafa">
         <div class="container">
-          <!-- SECTION TITLE -->
+          <!-- TITLE -->
           <div class="section-title text-center">
             <h2>Turn Every Sales Call into Actionable Insights</h2>
             <p>
@@ -1297,13 +1292,12 @@
 
             <span class="audio-time" id="audioTime">0:00</span>
           </div>
+
           <p id="audioHint" class="audio-hint">▶ Please play audio to unlock AI analysis</p>
 
           <!-- ================= ANALYTICS PREVIEW ================= -->
 
-          <div class="analysis-container" id="analysisContainer">
-            <button id="revealBtn" class="reveal-btn btn-default-dark btn-highlighted">View AI Analysis</button>
-
+          <div class="analysis-container">
             <div class="analysis-image-wrapper">
               <img src="call.png" id="analysisImage" class="analysis-image blurred" />
             </div>
@@ -1318,10 +1312,8 @@
           const progressBar = document.getElementById("progressBar");
           const progressContainer = document.getElementById("progressContainer");
           const timeDisplay = document.getElementById("audioTime");
-
-          const revealBtn = document.getElementById("revealBtn");
           const image = document.getElementById("analysisImage");
-          const container = document.getElementById("analysisContainer");
+          const audioHint = document.getElementById("audioHint");
 
           /* ================= PLAY / PAUSE ================= */
 
@@ -1329,9 +1321,15 @@
             if (audio.paused) {
               audio.play();
               playBtn.innerHTML = "⏸";
-              container.classList.add("active");
 
-              if (audioHint) audioHint.classList.add("hide");
+              /* hide helper text */
+              audioHint?.classList.add("hide");
+
+              /* auto reveal analytics after small delay */
+              setTimeout(() => {
+                image.classList.remove("blurred");
+                image.classList.add("revealed");
+              }, 2500);
             } else {
               audio.pause();
               playBtn.innerHTML = "▶";
@@ -1359,7 +1357,6 @@
           progressContainer.addEventListener("click", (e) => {
             const width = progressContainer.clientWidth;
             const clickX = e.offsetX;
-
             audio.currentTime = (clickX / width) * audio.duration;
           });
 
@@ -1367,14 +1364,6 @@
 
           audio.addEventListener("ended", () => {
             playBtn.innerHTML = "▶";
-          });
-
-          /* ================= REVEAL ANALYTICS ================= */
-
-          revealBtn.addEventListener("click", () => {
-            image.classList.remove("blurred");
-            image.classList.add("revealed");
-            revealBtn.style.display = "none";
           });
 
           /* ================= CURSOR POSITION ZOOM ================= */
