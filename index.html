@@ -1263,6 +1263,11 @@
           opacity: 0;
           transform: translateY(-5px);
         }
+        .analysis-image {
+          width: 100%;
+          transition: 0.4s ease;
+          touch-action: none; /* important for mobile */
+        }
       </style>
 
       <section class="analysis-demo py-5 text-center" style="background: #fafafa">
@@ -1384,6 +1389,50 @@
             image.classList.remove("zoomed");
             image.style.transformOrigin = "center";
           });
+        });
+        /* ================= MOBILE TOUCH ZOOM + PAN ================= */
+
+        let isTouchZoom = false;
+        let startX = 0;
+        let startY = 0;
+        let translateX = 0;
+        let translateY = 0;
+
+        /* TAP TO ZOOM */
+
+        image.addEventListener("touchstart", (e) => {
+          if (!image.classList.contains("revealed")) return;
+
+          if (!isTouchZoom) {
+            image.classList.add("zoomed");
+            isTouchZoom = true;
+          }
+
+          startX = e.touches[0].clientX - translateX;
+          startY = e.touches[0].clientY - translateY;
+        });
+
+        /* DRAG TO MOVE */
+
+        image.addEventListener("touchmove", (e) => {
+          if (!isTouchZoom) return;
+
+          e.preventDefault();
+
+          translateX = e.touches[0].clientX - startX;
+          translateY = e.touches[0].clientY - startY;
+
+          image.style.transform = `scale(2) translate(${translateX}px, ${translateY}px)`;
+        });
+
+        /* DOUBLE TAP TO RESET */
+
+        image.addEventListener("dblclick", () => {
+          image.classList.remove("zoomed");
+          image.style.transform = "scale(1)";
+          translateX = 0;
+          translateY = 0;
+          isTouchZoom = false;
         });
       </script>
       <!-- Clients Section -->
