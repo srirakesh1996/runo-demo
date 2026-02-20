@@ -1134,827 +1134,269 @@
         </div>
       </div>
       <!-- Hero Section End -->
+      <!-- ================= AUDIO DEMO SECTION ================= -->
 
-      <!-- Audio Demo Section Start -->
-      <section class="demo-section" id="audio-overview" style="background: #fafafa">
+      <style>
+        /* ===== SECTION ===== */
+
+        .analysis-container {
+          position: relative;
+          max-width: 900px;
+          margin: auto;
+        }
+
+        /* ===== CENTER CTA ===== */
+
+        .reveal-btn {
+          position: absolute;
+          margin: 20px 0px !important;
+          z-index: 10;
+          opacity: 0;
+          transition: all 0.4s ease;
+        }
+
+        .analysis-container.active .reveal-btn {
+          opacity: 1;
+        }
+
+        /* ===== IMAGE ===== */
+
+        .analysis-image-wrapper {
+          overflow: hidden;
+          border-radius: 16px;
+        }
+
+        .analysis-image {
+          width: 100%;
+          transition: 0.4s ease;
+        }
+
+        /* BLUR */
+
+        .analysis-image.blurred {
+          filter: blur(12px) brightness(0.9);
+          transform: scale(1.05);
+          cursor: not-allowed;
+        }
+
+        /* REVEALED */
+
+        .analysis-image.revealed {
+          cursor: zoom-in;
+        }
+
+        /* CURSOR ZOOM */
+
+        .analysis-image.zoomed {
+          transform: scale(2);
+          cursor: zoom-out;
+        }
+
+        /* ================= BEAUTIFUL AUDIO PLAYER ================= */
+
+        .runo-audio-player {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 16px 22px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          max-width: 420px;
+          margin: 0 auto 15px;
+        }
+
+        /* PLAY BUTTON */
+
+        .audio-play-btn {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          border: none;
+          background: #111;
+          color: white;
+          font-size: 18px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        .audio-play-btn:hover {
+          transform: scale(1.1);
+        }
+
+        /* PROGRESS BAR */
+
+        .audio-progress {
+          flex: 1;
+          height: 6px;
+          background: #eee;
+          border-radius: 10px;
+          overflow: hidden;
+          cursor: pointer;
+        }
+
+        .audio-progress-bar {
+          height: 100%;
+          width: 0%;
+          background: #000;
+        }
+
+        /* TIME */
+
+        .audio-time {
+          font-size: 14px;
+          color: #555;
+          min-width: 45px;
+        }
+
+        /* helper text */
+
+        .audio-hint {
+          font-size: 14px;
+          color: #777;
+
+          margin: 10px 0px;
+          transition: 0.4s ease;
+        }
+
+        /* hide after audio starts */
+
+        .audio-hint.hide {
+          opacity: 0;
+          transform: translateY(-5px);
+          display: none;
+        }
+      </style>
+
+      <section class="analysis-demo py-5 text-center" style="background: #fafafa">
         <div class="container">
-          <div class="row">
-            <!-- Section Title -->
-            <div class="section-title text-center wow fadeInUp">
-              <h2>Turn Every Sales Call into Actionable Insights</h2>
-              <p>
-                Listen to a real sales call and see how Runo’s AI analyzes conversations to
-                <br />
-                improve conversions, coaching, and close rates.
-              </p>
+          <!-- SECTION TITLE -->
+          <div class="section-title text-center">
+            <h2>Turn Every Sales Call into Actionable Insights</h2>
+            <p>
+              Listen to a real sales call and see how Runo’s AI analyzes conversations
+              <br />
+              to improve conversions, coaching, and close rates.
+            </p>
+          </div>
+
+          <!-- ================= AUDIO PLAYER ================= -->
+
+          <div class="runo-audio-player">
+            <audio id="demoAudio">
+              <source src="ai-call.mp3" type="audio/mpeg" />
+            </audio>
+
+            <button id="playPause" class="audio-play-btn">▶</button>
+
+            <div class="audio-progress" id="progressContainer">
+              <div class="audio-progress-bar" id="progressBar"></div>
             </div>
 
-            <!-- Audio Card -->
-            <div class="audio-card text-center wow fadeInUp" data-wow-delay="0.2s">
-              <!-- Wave + Play Wrapper -->
-              <div class="wave-player-wrapper">
-                <!-- Wave Animation -->
-                <div class="wave-container" id="waveAnimation">
-                  <!-- 35 Bars -->
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+            <span class="audio-time" id="audioTime">0:00</span>
+          </div>
+          <p id="audioHint" class="audio-hint">▶ Please play audio to unlock AI analysis</p>
 
-                <!-- Play Button -->
-                <button class="audio-play-btn" id="audioPlayBtn">
-                  <i class="fas fa-play"></i>
-                </button>
+          <!-- ================= ANALYTICS PREVIEW ================= -->
 
-                <!-- Audio Element -->
-                <audio id="audioPlayer" preload="none">
-                  <source src="ai-call.mp3" type="audio/mpeg" />
-                </audio>
-              </div>
-              <!-- CTA Button -->
-              <div class="hero-btn mt-4">
-                <button class="btn-default-dark btn-highlighted" data-bs-toggle="modal" data-bs-target="#analyzeModal">Analyse call with AI Call Analytics</button>
-              </div>
+          <div class="analysis-container" id="analysisContainer">
+            <button id="revealBtn" class="reveal-btn btn-default-dark btn-highlighted">View AI Analysis</button>
+
+            <div class="analysis-image-wrapper">
+              <img src="call.png" id="analysisImage" class="analysis-image blurred" />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Bootstrap Modal -->
-      <div class="modal fade" id="analyzeModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content border-0">
-            <div class="modal-body p-4 position-relative">
-              <!-- Close Button -->
-              <button type="button" class="btn-close btn-close-dark position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
-
-              <div class="container-fluid">
-                <div class="row">
-                  <!-- LEFT COLUMN -->
-                  <div class="col-md-6">
-                    <!-- Call Quality -->
-                    <div class="metric-block text-center">
-                      <h6 class="mb-3">Call Quality Score</h6>
-
-                      <div class="gauge-wrapper">
-                        <svg width="140" height="80">
-                          <path d="M10 70 A60 60 0 0 1 130 70" stroke="#e9ecef" stroke-width="10" fill="none" />
-
-                          <path id="gaugeFill" d="M10 70 A60 60 0 0 1 130 70" stroke="#28a745" stroke-width="10" fill="none" stroke-dasharray="188" stroke-dashoffset="45" stroke-linecap="round" />
-                        </svg>
-
-                        <div class="score-text">
-                          <span id="scoreNumber">75.92</span>
-                          <small>Good</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <!-- Sentiment -->
-                    <div class="metric-block">
-                      <h6>Sentiment Analysis</h6>
-                      <div class="d-flex justify-content-between mt-2">
-                        <div class="text-success fw-semibold">🙂 Agent</div>
-                        <div class="text-success fw-semibold">🙂 Customer</div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <!-- Speaking Time -->
-                    <div class="metric-block">
-                      <h6>Speaking Time</h6>
-                      <div class="row mt-2">
-                        <div class="col-6 text-primary">
-                          <strong>72.2%</strong>
-                          <div class="small">
-                            2m 10s
-                            <br />
-                            Agent
-                          </div>
-                        </div>
-
-                        <div class="col-6 text-danger text-end">
-                          <strong>27.8%</strong>
-                          <div class="small">
-                            0m 50s
-                            <br />
-                            Customer
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- RIGHT COLUMN -->
-                  <div class="col-md-6">
-                    <!-- Loudness -->
-                    <div class="metric-block">
-                      <h6>Avg. Speaker Loudness (dB)</h6>
-
-                      <div class="row mt-2">
-                        <div class="col-6">
-                          <strong id="agentDb">-26.78 dB</strong>
-                          <div class="progress mt-2" style="height: 5px">
-                            <div class="progress-bar bg-success" id="agentBar" style="width: 70%"></div>
-                          </div>
-                          <small>Agent</small>
-                        </div>
-
-                        <div class="col-6 text-end">
-                          <strong id="customerDb">-27.95 dB</strong>
-                          <div class="progress mt-2" style="height: 5px">
-                            <div class="progress-bar bg-warning" id="customerBar" style="width: 65%"></div>
-                          </div>
-                          <small>Customer</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <!-- Entity & Filler Count -->
-                    <div class="metric-block">
-                      <h6>Entity & Filler Count</h6>
-                      <div class="d-flex justify-content-between mt-2">
-                        <div>
-                          <strong>15</strong>
-                          <div class="small">Entities</div>
-                        </div>
-                        <div>
-                          <strong>17</strong>
-                          <div class="small">Filler Words</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <!-- Call Compliance (kept same since not visible in screenshot) -->
-                    <div class="metric-block">
-                      <h6>Call Compliance</h6>
-                      <div class="mt-2 small">
-                        <div class="d-flex justify-content-between">
-                          <span>Agent Introduction</span>
-                          <span class="badge bg-success">Yes</span>
-                        </div>
-                        <div class="d-flex justify-content-between mt-1">
-                          <span>Agent Closure</span>
-                          <span class="badge bg-danger">No</span>
-                        </div>
-                        <div class="d-flex justify-content-between mt-1">
-                          <span>Issue Resolution</span>
-                          <span class="badge bg-success">Yes</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom Insight -->
-                <div class="row mt-2">
-                  <div class="col-12">
-                    <div class="p-3 rounded" style="background: #fff4f4">
-                      <h5 class="mb-2">Customer Summary</h5>
-                      <strong>Primary Concern</strong>
-                      <span class="badge bg-success ms-2">Low</span>
-                      <p class="small mt-2 mb-0 typing-text" id="insightText">The agent from Runo AI contacted a potential customer to discuss their call management solution. The customer initially expressed no interest but then inquired about a demo. The agent explained the benefits of the solution, discussed integration with the customer's CRM, and scheduled a demo for the day after tomorrow. The agent also inquired about the customer's lead sources and confirmed the details.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style>
-        /* wrapper takes wave height */
-        .wave-player-wrapper {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center; /* ⭐ vertical center */
-        }
-
-        /* wave */
-        .wave-container {
-          height: 100px; /* match tallest bar */
-        }
-
-        /* button centered on wave */
-        .audio-play-btn {
-          position: absolute; /* overlay */
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          width: 45px;
-          height: 45px;
-          font-size: 14px;
-
-          border-radius: 50%;
-          border: none;
-          background: #ff5430;
-          color: #fff;
-          cursor: pointer;
-          z-index: 2;
-        }
-
-        .gauge-wrapper {
-          position: relative;
-          width: 140px;
-          margin: auto;
-        }
-
-        .gauge-wrapper svg {
-          display: block;
-        }
-
-        .score-text {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -30%);
-          text-align: center;
-          font-weight: bold;
-          font-size: 22px;
-          color: #28a745 !important;
-        }
-        .score-text span {
-          color: #28a745 !important;
-        }
-
-        .score-text small {
-          display: block;
-          font-size: 14px;
-          color: #6c757d;
-          font-weight: 500;
-        }
-        /* Universal modal scroll fix (all screen sizes) */
-        #analyzeModal .modal-dialog {
-          margin: 0.75rem auto;
-          max-height: 95vh;
-        }
-
-        #analyzeModal .modal-content {
-          max-height: 95vh;
-          display: flex;
-          flex-direction: column;
-        }
-
-        #analyzeModal .modal-body {
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        #analyzeModal .modal-body {
-          padding: 20px 7px !important;
-        }
-        /* =============================== TYPING EFFECT ================================= */
-        .typing-text {
-          white-space: normal;
-          overflow: hidden;
-        }
-        .typing-cursor::after {
-          content: "|";
-          animation: blink 1s infinite;
-          margin-left: 2px;
-        }
-        @keyframes blink {
-          0% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        } /* =============================== MODAL TEXT FIX ================================= */
-        #analyzeModal,
-        #analyzeModal h1,
-        #analyzeModal h2,
-        #analyzeModal h3,
-        #analyzeModal h4,
-        #analyzeModal h5,
-        #analyzeModal h6,
-        #analyzeModal p,
-        #analyzeModal span,
-        #analyzeModal small,
-        #analyzeModal strong,
-        #analyzeModal div {
-          color: #111111;
-        }
-        #analyzeModal .badge {
-          min-width: 45px;
-          text-align: center;
-          padding: 6px 10px;
-          font-size: 12px;
-          color: #fff !important;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        } /* =============================== AUDIO SECTION ================================= */
-        .audio-demo-section {
-          background: #f8f9fc;
-        }
-        .audio-card {
-          max-width: 500px;
-          margin: 0px auto;
-          padding: 40px;
-          border-radius: 16px;
-          background: #ffffff;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        } /* =============================== WAVE CONTAINER
-      ================================= */
-        .wave-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 5px;
-        }
-        .wave-container span {
-          width: 4px;
-          background: #111111;
-          border-radius: 4px;
-          animation: wave 1s infinite ease-in-out;
-          animation-play-state: paused;
-          transform-origin: center;
-          transition: height 0.4s ease;
-        } /* =============================== SMOOTH INITIAL WAVE SHAPE (35 BARS) ================================= */
-        /* -------- SMOOTH CURVED WAVE SHAPE -------- */
-
-        .wave-container span:nth-child(1) {
-          height: 14px;
-        }
-        .wave-container span:nth-child(2) {
-          height: 15px;
-        }
-        .wave-container span:nth-child(3) {
-          height: 17px;
-        }
-        .wave-container span:nth-child(4) {
-          height: 20px;
-        }
-        .wave-container span:nth-child(5) {
-          height: 24px;
-        }
-        .wave-container span:nth-child(6) {
-          height: 29px;
-        }
-        .wave-container span:nth-child(7) {
-          height: 35px;
-        }
-        .wave-container span:nth-child(8) {
-          height: 42px;
-        }
-        .wave-container span:nth-child(9) {
-          height: 50px;
-        }
-        .wave-container span:nth-child(10) {
-          height: 58px;
-        }
-        .wave-container span:nth-child(11) {
-          height: 66px;
-        }
-        .wave-container span:nth-child(12) {
-          height: 73px;
-        }
-        .wave-container span:nth-child(13) {
-          height: 79px;
-        }
-        .wave-container span:nth-child(14) {
-          height: 83px;
-        }
-        .wave-container span:nth-child(15) {
-          height: 86px;
-        }
-        .wave-container span:nth-child(16) {
-          height: 88px;
-        }
-        .wave-container span:nth-child(17) {
-          height: 89px;
-        }
-        .wave-container span:nth-child(18) {
-          height: 90px;
-        }
-
-        .wave-container span:nth-child(19) {
-          height: 89px;
-        }
-        .wave-container span:nth-child(20) {
-          height: 88px;
-        }
-        .wave-container span:nth-child(21) {
-          height: 86px;
-        }
-        .wave-container span:nth-child(22) {
-          height: 83px;
-        }
-        .wave-container span:nth-child(23) {
-          height: 79px;
-        }
-        .wave-container span:nth-child(24) {
-          height: 73px;
-        }
-        .wave-container span:nth-child(25) {
-          height: 66px;
-        }
-        .wave-container span:nth-child(26) {
-          height: 58px;
-        }
-        .wave-container span:nth-child(27) {
-          height: 50px;
-        }
-        .wave-container span:nth-child(28) {
-          height: 42px;
-        }
-        .wave-container span:nth-child(29) {
-          height: 35px;
-        }
-        .wave-container span:nth-child(30) {
-          height: 29px;
-        }
-        .wave-container span:nth-child(31) {
-          height: 24px;
-        }
-        .wave-container span:nth-child(32) {
-          height: 20px;
-        }
-        .wave-container span:nth-child(33) {
-          height: 17px;
-        }
-        .wave-container span:nth-child(34) {
-          height: 15px;
-        }
-        .wave-container span:nth-child(35) {
-          height: 14px;
-        }
-        /*
-      =============================== ACTIVE PLAYING ANIMATION ================================= */
-        .wave-container.active span {
-          animation-play-state: running;
-        } /* Smooth stagger delay */
-        .wave-container span:nth-child(1) {
-          animation-delay: 0s;
-        }
-        .wave-container span:nth-child(2) {
-          animation-delay: 0.03s;
-        }
-        .wave-container span:nth-child(3) {
-          animation-delay: 0.06s;
-        }
-        .wave-container span:nth-child(4) {
-          animation-delay: 0.09s;
-        }
-        .wave-container span:nth-child(5) {
-          animation-delay: 0.12s;
-        }
-        .wave-container span:nth-child(6) {
-          animation-delay: 0.15s;
-        }
-        .wave-container span:nth-child(7) {
-          animation-delay: 0.18s;
-        }
-        .wave-container span:nth-child(8) {
-          animation-delay: 0.21s;
-        }
-        .wave-container span:nth-child(9) {
-          animation-delay: 0.24s;
-        }
-        .wave-container span:nth-child(10) {
-          animation-delay: 0.27s;
-        }
-        .wave-container span:nth-child(11) {
-          animation-delay: 0.3s;
-        }
-        .wave-container span:nth-child(12) {
-          animation-delay: 0.33s;
-        }
-        .wave-container span:nth-child(13) {
-          animation-delay: 0.36s;
-        }
-        .wave-container span:nth-child(14) {
-          animation-delay: 0.39s;
-        }
-        .wave-container span:nth-child(15) {
-          animation-delay: 0.42s;
-        }
-        .wave-container span:nth-child(16) {
-          animation-delay: 0.45s;
-        }
-        .wave-container span:nth-child(17) {
-          animation-delay: 0.48s;
-        }
-        .wave-container span:nth-child(18) {
-          animation-delay: 0.51s;
-        }
-        .wave-container span:nth-child(19) {
-          animation-delay: 0.54s;
-        }
-        .wave-container span:nth-child(20) {
-          animation-delay: 0.57s;
-        }
-        .wave-container span:nth-child(21) {
-          animation-delay: 0.6s;
-        }
-        .wave-container span:nth-child(22) {
-          animation-delay: 0.63s;
-        }
-        .wave-container span:nth-child(23) {
-          animation-delay: 0.66s;
-        }
-        .wave-container span:nth-child(24) {
-          animation-delay: 0.69s;
-        }
-        .wave-container span:nth-child(25) {
-          animation-delay: 0.72s;
-        }
-        .wave-container span:nth-child(26) {
-          animation-delay: 0.75s;
-        }
-        .wave-container span:nth-child(27) {
-          animation-delay: 0.78s;
-        }
-        .wave-container span:nth-child(28) {
-          animation-delay: 0.81s;
-        }
-        .wave-container span:nth-child(29) {
-          animation-delay: 0.84s;
-        }
-        .wave-container span:nth-child(30) {
-          animation-delay: 0.87s;
-        }
-        .wave-container span:nth-child(31) {
-          animation-delay: 0.9s;
-        }
-        .wave-container span:nth-child(32) {
-          animation-delay: 0.93s;
-        }
-        .wave-container span:nth-child(33) {
-          animation-delay: 0.96s;
-        }
-        .wave-container span:nth-child(34) {
-          animation-delay: 0.99s;
-        }
-        .wave-container span:nth-child(35) {
-          animation-delay: 1.02s;
-        } /* Natural pulse animation */
-        @keyframes wave {
-          0%,
-          100% {
-            transform: scaleY(0.6);
-          }
-          50% {
-            transform: scaleY(1.2);
-          }
-        } /* =============================== PLAY BUTTON ================================= */
-      </style>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const modal = document.getElementById("analyzeModal");
-          const audioBtn = document.getElementById("audioPlayBtn");
-          const audio = document.getElementById("audioPlayer");
-          const wave = document.getElementById("waveAnimation");
-          const section = document.getElementById("audio-overview");
-          const blocks = document.querySelectorAll("#analyzeModal .animate-block");
+          const audio = document.getElementById("demoAudio");
+          const playBtn = document.getElementById("playPause");
+          const progressBar = document.getElementById("progressBar");
+          const progressContainer = document.getElementById("progressContainer");
+          const timeDisplay = document.getElementById("audioTime");
 
-          let typingTimeout;
-          let loudnessInterval;
-          let scoreInterval;
+          const revealBtn = document.getElementById("revealBtn");
+          const image = document.getElementById("analysisImage");
+          const container = document.getElementById("analysisContainer");
 
-          /* =====================================================
-     FULL STOP AUDIO (RESET TO START)
-  ===================================================== */
-          function stopAudio() {
-            if (!audio) return;
+          /* ================= PLAY / PAUSE ================= */
 
-            audio.pause();
-            audio.currentTime = 0; // reset only when full stop
-            wave?.classList.remove("active");
-            if (audioBtn) audioBtn.innerHTML = '<i class="fas fa-play"></i>';
-          }
+          playBtn.addEventListener("click", () => {
+            if (audio.paused) {
+              audio.play();
+              playBtn.innerHTML = "⏸";
+              container.classList.add("active");
 
-          /* =====================================================
-     PLAY / PAUSE / RESUME AUDIO
-  ===================================================== */
-          if (audioBtn && audio) {
-            audioBtn.addEventListener("click", () => {
-              if (audio.paused) {
-                // PLAY / RESUME
-                audio.play();
-                wave?.classList.add("active");
-                audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
-              } else {
-                // PAUSE ONLY (NO RESET)
-                audio.pause();
-                wave?.classList.remove("active");
-                audioBtn.innerHTML = '<i class="fas fa-play"></i>';
-              }
-            });
+              if (audioHint) audioHint.classList.add("hide");
+            } else {
+              audio.pause();
+              playBtn.innerHTML = "▶";
+            }
+          });
 
-            // When audio finishes → reset
-            audio.addEventListener("ended", stopAudio);
-          }
+          /* ================= UPDATE PROGRESS ================= */
 
-          /* =====================================================
-     STOP AUDIO WHEN SECTION OUT OF VIEW
-  ===================================================== */
-          if (section) {
-            window.addEventListener("scroll", function () {
-              const rect = section.getBoundingClientRect();
-              if (rect.bottom < 0 || rect.top > window.innerHeight) {
-                stopAudio();
-              }
-            });
-          }
+          audio.addEventListener("timeupdate", () => {
+            if (!audio.duration) return;
 
-          /* =====================================================
-     RESET EVERYTHING BEFORE MODAL SHOWS
-  ===================================================== */
-          if (modal) {
-            modal.addEventListener("show.bs.modal", function () {
-              stopAudio();
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = percent + "%";
 
-              clearInterval(scoreInterval);
-              clearInterval(loudnessInterval);
-              clearTimeout(typingTimeout);
+            const minutes = Math.floor(audio.currentTime / 60);
+            const seconds = Math.floor(audio.currentTime % 60)
+              .toString()
+              .padStart(2, "0");
 
-              /* RESET BLOCKS */
-              blocks.forEach((b) => b.classList.remove("show-block"));
+            timeDisplay.textContent = `${minutes}:${seconds}`;
+          });
 
-              /* RESET GAUGE */
-              const gauge = document.getElementById("gaugeFill");
-              const number = document.getElementById("scoreNumber");
+          /* ================= SEEK ================= */
 
-              if (gauge) {
-                gauge.style.transition = "none";
-                gauge.style.strokeDashoffset = 188;
-              }
-              if (number) number.textContent = "0";
+          progressContainer.addEventListener("click", (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
 
-              /* RESET LOUDNESS */
-              const agentBar = document.getElementById("agentBar");
-              const customerBar = document.getElementById("customerBar");
-              const agentText = document.getElementById("agentDb");
-              const customerText = document.getElementById("customerDb");
+            audio.currentTime = (clickX / width) * audio.duration;
+          });
 
-              if (agentBar) agentBar.style.width = "0%";
-              if (customerBar) customerBar.style.width = "0%";
-              if (agentText) agentText.textContent = "0";
-              if (customerText) customerText.textContent = "0";
+          /* RESET */
 
-              /* RESET CUSTOMER TEXT */
-              const insightElement = document.getElementById("insightText");
-              if (insightElement) insightElement.textContent = "";
-            });
+          audio.addEventListener("ended", () => {
+            playBtn.innerHTML = "▶";
+          });
 
-            /* =====================================================
-       AFTER MODAL SHOWS → START ANIMATIONS
-    ===================================================== */
-            modal.addEventListener("shown.bs.modal", function () {
-              /* BLOCK ANIMATION */
-              blocks.forEach((block, index) => {
-                setTimeout(() => block.classList.add("show-block"), 400 * index);
-              });
+          /* ================= REVEAL ANALYTICS ================= */
 
-              /* =====================================================
-         GAUGE ANIMATION
-      ===================================================== */
-              const score = 75.92;
-              const gauge = document.getElementById("gaugeFill");
-              const number = document.getElementById("scoreNumber");
+          revealBtn.addEventListener("click", () => {
+            image.classList.remove("blurred");
+            image.classList.add("revealed");
+            revealBtn.style.display = "none";
+          });
 
-              if (gauge && number) {
-                setTimeout(() => {
-                  const circumference = 188;
-                  const offset = circumference - (score / 100) * circumference;
+          /* ================= CURSOR POSITION ZOOM ================= */
 
-                  gauge.style.transition = "stroke-dashoffset 1.5s ease";
-                  gauge.style.strokeDashoffset = offset;
+          image.addEventListener("mousemove", (e) => {
+            if (!image.classList.contains("revealed")) return;
 
-                  let current = 0;
+            const rect = image.getBoundingClientRect();
 
-                  scoreInterval = setInterval(() => {
-                    current += 1.5;
-                    number.textContent = current.toFixed(2);
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-                    if (current >= score) {
-                      number.textContent = score.toFixed(2);
-                      clearInterval(scoreInterval);
-                    }
-                  }, 20);
-                }, 100);
-              }
+            image.style.transformOrigin = `${x}% ${y}%`;
+            image.classList.add("zoomed");
+          });
 
-              /* =====================================================
-         LOUDNESS ANIMATION
-      ===================================================== */
-              const agentTarget = -26.78;
-              const customerTarget = -27.95;
-
-              const agentBar = document.getElementById("agentBar");
-              const customerBar = document.getElementById("customerBar");
-              const agentText = document.getElementById("agentDb");
-              const customerText = document.getElementById("customerDb");
-
-              if (agentBar && customerBar && agentText && customerText) {
-                const convertDbToPercent = (db) => ((60 + db) / 60) * 100;
-
-                setTimeout(() => {
-                  agentBar.style.transition = "width 1.5s ease";
-                  customerBar.style.transition = "width 1.5s ease";
-
-                  agentBar.style.width = convertDbToPercent(agentTarget) + "%";
-                  customerBar.style.width = convertDbToPercent(customerTarget) + "%";
-                }, 800);
-
-                let agentCurrent = 0;
-                let customerCurrent = 0;
-
-                loudnessInterval = setInterval(() => {
-                  if (agentCurrent > agentTarget) {
-                    agentCurrent -= 1;
-                    agentText.textContent = agentCurrent.toFixed(2) + " dB";
-                  }
-
-                  if (customerCurrent > customerTarget) {
-                    customerCurrent -= 1.2;
-                    customerText.textContent = customerCurrent.toFixed(2) + " dB";
-                  }
-
-                  if (agentCurrent <= agentTarget && customerCurrent <= customerTarget) {
-                    agentText.textContent = agentTarget.toFixed(2) + " dB";
-                    customerText.textContent = customerTarget.toFixed(2) + " dB";
-                    clearInterval(loudnessInterval);
-                  }
-                }, 50);
-              }
-
-              /* =====================================================
-         CUSTOMER SUMMARY TYPING
-      ===================================================== */
-              const insightContent = "The agent from Runo AI contacted a potential customer to discuss their call management solution. The customer initially expressed no interest but then inquired about a demo. The agent explained the benefits of the solution, discussed integration with the customer's CRM, and scheduled a demo for the day after tomorrow. The agent also inquired about the customer's lead sources and confirmed the details.";
-
-              const insightElement = document.getElementById("insightText");
-
-              if (insightElement) {
-                insightElement.classList.add("typing-cursor");
-
-                let charIndex = 0;
-
-                function typeInsight() {
-                  if (charIndex < insightContent.length) {
-                    insightElement.textContent += insightContent.charAt(charIndex);
-                    charIndex++;
-                    typingTimeout = setTimeout(typeInsight, 20);
-                  } else {
-                    insightElement.classList.remove("typing-cursor");
-                  }
-                }
-
-                typingTimeout = setTimeout(typeInsight, 1000);
-              }
-            });
-          }
+          image.addEventListener("mouseleave", () => {
+            image.classList.remove("zoomed");
+            image.style.transformOrigin = "center";
+          });
         });
       </script>
-
       <!-- Clients Section -->
       <section class="clients-section py-80" style="overflow: hidden">
         <div class="container">
@@ -3582,4 +3024,3 @@
     </script>
   </body>
 </html>
-n
