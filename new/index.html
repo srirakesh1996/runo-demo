@@ -29,7 +29,6 @@
     <meta name="twitter:url" content="https://runo.ai/" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +40,7 @@
     </noscript>
 
     <!-- CSS Preload + Load -->
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -96,19 +95,24 @@
     <!-- Inline Hero Banner Style -->
 
     <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
       .hero {
         position: relative;
         padding: 0;
         overflow: hidden;
         z-index: 1;
-        /*  background: url('img/banner-img.webp') no-repeat center center;
+        /*  background: url('img/banner-img.webp') no-repeat center center;*/
         background: #fff;
-        background-size: cover;*/
+        background-size: cover;
       }
-    </style>
-
-    <style>
-      /* FOr Product pAges*/
 
       .main-menu .mega-menu .menu-head {
         font-weight: 600;
@@ -2051,7 +2055,7 @@
                 <div class="swiper mobile-hero-swiper wow zoomIn" id="mobile-hero">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide mobile-hero-slide"><img loading="eager" fetchpriority="high" src="img/hero-images/mobile/call-summary.avif" alt="Call Summary" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img src="img/hero-images/mobile/sentiment.avif" alt="Sentiment Analysis" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/sentiment.avif" alt="Sentiment Analysis" /></div>
                     <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/assistant.avif" alt="Call Assistant" /></div>
                     <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/recording.avif" alt="Call Recording" /></div>
                     <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/team.avif" alt="Team Status" /></div>
@@ -2192,7 +2196,7 @@
                     <p class="mt-3">Every call is instantly reviewed by smart AI, evaluating how your team sounds, what they say, and the outcome. This insight empowers managers to deliver tailored feedback, recognize effective techniques, and quickly identify coaching moments. With AI supporting your sales coaching, performance improvement becomes measurable and repeatable, helping reps reach their full potential faster.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/call-efficiency.avif" alt="AI call scoring" class="img-fluid rounded" />
+                    <img src="img/call-efficiency.avif" loading="lazy" alt="AI call scoring" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -2204,7 +2208,7 @@
                     <p class="mt-3">Forgetting to follow up means missed opportunities. Runo’s intelligent reminders automatically alert your team exactly when to reconnect with a lead, based on previous interactions and timelines. This keeps your pipeline active and ensures no potential customer falls through the cracks, making consistent engagement effortless and boosting sales momentum.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/follow-ups.avif" alt="Automated follow-up reminders" class="img-fluid rounded" />
+                    <img src="img/follow-ups.avif" loading="lazy" alt="Automated follow-up reminders" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -2216,7 +2220,7 @@
                     <p class="mt-3">Sales moves fast, and Runo gives you live insights into call activity, team performance, and response times as they unfold. This immediate data lets managers step in proactively, recognize patterns, and support reps on the spot—without waiting for daily or weekly reports—so the team stays agile and driven toward hitting targets.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/live-tracking.avif" alt="Live team tracking" class="img-fluid rounded" />
+                    <img src="img/live-tracking.avif" loading="lazy" alt="Live team tracking" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -2227,7 +2231,7 @@
                     <p class="mt-3">Runo removes the hassle of juggling multiple tools by combining calling and CRM features in a single, easy-to-use platform. Sales reps naturally keep data updated because everything they need to make calls, log notes, and track progress is right at their fingertips. This seamless experience leads to better data quality, improved sales tracking, and a disciplined pipeline—all without extra effort.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/user-friendly.avif" alt="Easy-to-use CRM" class="img-fluid rounded" />
+                    <img src="img/user-friendly.avif" loading="lazy" alt="Easy-to-use CRM" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -2239,7 +2243,7 @@
                     <p class="mt-3">Get your team calling prospects within half an hour—no extra equipment, no waiting for IT. Runo’s simple setup means you can import your contacts and launch your campaigns almost immediately. This smooth onboarding saves valuable time and allows sales teams to focus on what matters most: closing deals from day one.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/30-min-setup.avif" alt="Quick setup" class="img-fluid rounded" />
+                    <img src="img/30-min-setup.avif" loading="lazy" alt="Quick setup" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -2259,31 +2263,31 @@
                 <p class="deals-tab-tag">AI Call Scoring</p>
                 <h4>Your Sales Coach, Now Powered by AI.</h4>
                 <p class="mt-3">Every call is automatically analyzed for tone, sentiment, and outcome—helping managers identify what’s working, coach smarter, and scale top performance.</p>
-                <img src="img/call-efficiency.avif" alt="AI call scoring" />
+                <img src="img/call-efficiency.avif" loading="lazy" alt="AI call scoring" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">Smart Follow-ups</p>
                 <h4>Never Miss a Follow-Up Again.</h4>
                 <p class="mt-3">Runo intelligently reminds reps when it’s time to reconnect, ensuring no lead slips through the cracks and every opportunity gets the attention it deserves.</p>
-                <img src="img/follow-ups.avif" alt="Follow-up reminders" />
+                <img src="img/follow-ups.avif" loading="lazy" alt="Follow-up reminders" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">Live Tracking</p>
                 <h4>Know What’s Happening, As It Happens.</h4>
                 <p class="mt-3">Monitor team performance, live call activity, and response times in real time—so you can guide your team from anywhere, without waiting for end-of-day reports.</p>
-                <img src="img/live-tracking.avif" alt="Live tracking" />
+                <img src="img/live-tracking.avif" loading="lazy" alt="Live tracking" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">CRM Adoption</p>
                 <h4>The CRM Your Team Actually Loves Using.</h4>
                 <p class="mt-3">Runo brings calling and CRM together in one app—so your team updates data naturally, without extra effort. More usage. More visibility. Better sales discipline.</p>
-                <img src="img/user-friendly.avif" alt="CRM adoption" />
+                <img src="img/user-friendly.avif" loading="lazy" alt="CRM adoption" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">30-min Setup</p>
                 <h4>Up and Calling in Under 30 Minutes.</h4>
                 <p class="mt-3">No hardware, no complex onboarding. Just install, import your leads, and start calling—Runo is built to perform from day one.</p>
-                <img src="img/30-min-setup.avif" alt="Quick setup" />
+                <img src="img/30-min-setup.avif" loading="lazy" alt="Quick setup" />
               </div>
             </div>
           </div>
@@ -2354,13 +2358,14 @@
 
         // Initialize first tab
         activateTab(0);
-
-        // ===== MOBILE SWIPER =====
-        const mobileSwiper = new Swiper(".mobile-slider", {
-          loop: true,
-          autoplay: { delay: 4000, disableOnInteraction: false },
-          slidesPerView: 1,
-          spaceBetween: 20
+        document.addEventListener("DOMContentLoaded", function () {
+          // ===== MOBILE SWIPER =====
+          const mobileSwiper = new Swiper(".mobile-slider", {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            slidesPerView: 1,
+            spaceBetween: 20
+          });
         });
       </script>
       <!-- WhatsApp CRM Section-->
@@ -3462,208 +3467,210 @@
       </div>
     </div>
     <script>
-      jQuery(function ($) {
-        const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, {
-          initialCountry: "auto", // <-- add this line
-          geoIpLookup: function (callback) {
-            fetch("https://ipapi.co/json/")
-              .then((res) => {
-                return res.json();
-              })
-              .then((data) => {
-                const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
+      document.addEventListener("DOMContentLoaded", function () {
+        jQuery(function ($) {
+          const phoneInput = document.querySelector("#phone");
+          const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto", // <-- add this line
+            geoIpLookup: function (callback) {
+              fetch("https://ipapi.co/json/")
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data) => {
+                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
 
-                callback(countryCode);
-              })
-              .catch((err) => {
-                console.error("geoIpLookup error:", err);
-                callback("in");
-              });
-          },
-          separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
-        });
+                  callback(countryCode);
+                })
+                .catch((err) => {
+                  console.error("geoIpLookup error:", err);
+                  callback("in");
+                });
+            },
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          });
 
-        const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-        const countryLengthMap = {
-          in: [10],
-          ae: [9],
-          us: [10],
-          ca: [10],
-          gb: [10, 11],
-          sa: [9],
-          ph: [10],
-          id: [10, 11],
-          sg: [8],
-          au: [9],
-          nz: [8, 9],
-          pk: [10],
-          bd: [10],
-          lk: [9],
-          ng: [10, 11],
-          ke: [9],
-          za: [9, 10],
-          my: [9, 10],
-          th: [9, 10],
-          vn: [9, 10],
-          kr: [9, 10, 11],
-          jp: [10, 11],
-          cn: [11],
-          hk: [8],
-          tw: [9, 10],
-          de: [10, 11],
-          fr: [9, 10],
-          it: [10],
-          es: [9],
-          br: [10, 11],
-          mx: [10],
-          ar: [10, 11],
-          ru: [10],
-          tr: [10],
-          eg: [10, 11],
-          iq: [10],
-          gt: [8]
-        };
+          const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
+          const countryLengthMap = {
+            in: [10],
+            ae: [9],
+            us: [10],
+            ca: [10],
+            gb: [10, 11],
+            sa: [9],
+            ph: [10],
+            id: [10, 11],
+            sg: [8],
+            au: [9],
+            nz: [8, 9],
+            pk: [10],
+            bd: [10],
+            lk: [9],
+            ng: [10, 11],
+            ke: [9],
+            za: [9, 10],
+            my: [9, 10],
+            th: [9, 10],
+            vn: [9, 10],
+            kr: [9, 10, 11],
+            jp: [10, 11],
+            cn: [11],
+            hk: [8],
+            tw: [9, 10],
+            de: [10, 11],
+            fr: [9, 10],
+            it: [10],
+            es: [9],
+            br: [10, 11],
+            mx: [10],
+            ar: [10, 11],
+            ru: [10],
+            tr: [10],
+            eg: [10, 11],
+            iq: [10],
+            gt: [8]
+          };
 
-        function getMaxLengthForCountry() {
-          const countryCode = iti.getSelectedCountryData().iso2;
-          const allowedLengths = countryLengthMap[countryCode];
-          return allowedLengths ? Math.max(...allowedLengths) : 15;
-        }
-        let phoneTouched = false;
+          function getMaxLengthForCountry() {
+            const countryCode = iti.getSelectedCountryData().iso2;
+            const allowedLengths = countryLengthMap[countryCode];
+            return allowedLengths ? Math.max(...allowedLengths) : 15;
+          }
+          let phoneTouched = false;
 
-        $("#phone").on("focus input", function () {
-          phoneTouched = true;
-          validatePhone();
-        });
+          $("#phone").on("focus input", function () {
+            phoneTouched = true;
+            validatePhone();
+          });
 
-        phoneInput.addEventListener("input", () => {
-          phoneInput.value = phoneInput.value.replace(/\D/g, "");
-          const maxLength = getMaxLengthForCountry();
-          if (phoneInput.value.length > maxLength) {
+          phoneInput.addEventListener("input", () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, "");
+            const maxLength = getMaxLengthForCountry();
+            if (phoneInput.value.length > maxLength) {
+              phoneInput.value = phoneInput.value.slice(0, maxLength);
+            }
+            validatePhone();
+          });
+
+          phoneInput.addEventListener("countrychange", () => {
+            const maxLength = getMaxLengthForCountry();
             phoneInput.value = phoneInput.value.slice(0, maxLength);
-          }
-          validatePhone();
-        });
+            validatePhone();
+          });
 
-        phoneInput.addEventListener("countrychange", () => {
-          const maxLength = getMaxLengthForCountry();
-          phoneInput.value = phoneInput.value.slice(0, maxLength);
-          validatePhone();
-        });
-
-        function validateName() {
-          const val = $("#name").val().trim();
-          if (!val || val.length > 30) {
-            $("#nameError").removeClass("d-none");
-            return false;
+          function validateName() {
+            const val = $("#name").val().trim();
+            if (!val || val.length > 30) {
+              $("#nameError").removeClass("d-none");
+              return false;
+            }
+            $("#nameError").addClass("d-none");
+            return true;
           }
-          $("#nameError").addClass("d-none");
-          return true;
-        }
-        function validateCompName() {
-          const val = $("#comp_name").val().trim();
-          if (!val || val.length > 30) {
-            $("#comp_nameError").removeClass("d-none");
-            return false;
+          function validateCompName() {
+            const val = $("#comp_name").val().trim();
+            if (!val || val.length > 30) {
+              $("#comp_nameError").removeClass("d-none");
+              return false;
+            }
+            $("#comp_nameError").addClass("d-none");
+            return true;
           }
-          $("#comp_nameError").addClass("d-none");
-          return true;
-        }
 
-        function validateEmail() {
-          const val = $("#email").val().trim();
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!val || !emailPattern.test(val)) {
-            $("#emailError").removeClass("d-none");
-            return false;
+          function validateEmail() {
+            const val = $("#email").val().trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !emailPattern.test(val)) {
+              $("#emailError").removeClass("d-none");
+              return false;
+            }
+            $("#emailError").addClass("d-none");
+            return true;
           }
-          $("#emailError").addClass("d-none");
-          return true;
-        }
 
-        function validatePhone() {
-          const phoneNational = phoneInput.value;
-          const selectedCountry = iti.getSelectedCountryData().iso2;
-          const validLengths = countryLengthMap[selectedCountry];
-          if (!phoneTouched) {
+          function validatePhone() {
+            const phoneNational = phoneInput.value;
+            const selectedCountry = iti.getSelectedCountryData().iso2;
+            const validLengths = countryLengthMap[selectedCountry];
+            if (!phoneTouched) {
+              $("#phoneError").addClass("d-none");
+              return false;
+            }
+            if (!iti.isValidNumber()) {
+              $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (fakeNumbers.includes(phoneNational)) {
+              $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (validLengths && !validLengths.includes(phoneNational.length)) {
+              $("#phoneError")
+                .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
+                .removeClass("d-none");
+              return false;
+            }
+
             $("#phoneError").addClass("d-none");
-            return false;
-          }
-          if (!iti.isValidNumber()) {
-            $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-            return false;
+            return true;
           }
 
-          if (fakeNumbers.includes(phoneNational)) {
-            $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-            return false;
+          function validateAgents() {
+            if (!$("#agents").val()) {
+              $("#agentsError").removeClass("d-none");
+              return false;
+            }
+            $("#agentsError").addClass("d-none");
+            return true;
           }
 
-          if (validLengths && !validLengths.includes(phoneNational.length)) {
-            $("#phoneError")
-              .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
-              .removeClass("d-none");
-            return false;
+          function validateKnowruno() {
+            if (!$("#know_runo").val()) {
+              $("#knowError").removeClass("d-none");
+              return false;
+            }
+            $("#knowError").addClass("d-none");
+            return true;
           }
 
-          $("#phoneError").addClass("d-none");
-          return true;
-        }
+          $("#name").on("input", validateName);
+          $("#email").on("input", validateEmail);
+          $("#phone").on("input", validatePhone);
+          $("#comp_name").on("input", validateCompName);
+          $("#agents").on("change", validateAgents);
+          $("#know_runo").on("change", validateKnowruno);
 
-        function validateAgents() {
-          if (!$("#agents").val()) {
-            $("#agentsError").removeClass("d-none");
-            return false;
-          }
-          $("#agentsError").addClass("d-none");
-          return true;
-        }
+          $("#demo-form").on("submit", function (event) {
+            event.preventDefault();
 
-        function validateKnowruno() {
-          if (!$("#know_runo").val()) {
-            $("#knowError").removeClass("d-none");
-            return false;
-          }
-          $("#knowError").addClass("d-none");
-          return true;
-        }
+            const validName = validateName();
+            const validEmail = validateEmail();
+            const validPhone = validatePhone();
+            const validCompName = validateCompName();
+            const validAgents = validateAgents();
+            const validKnowruno = validateKnowruno();
 
-        $("#name").on("input", validateName);
-        $("#email").on("input", validateEmail);
-        $("#phone").on("input", validatePhone);
-        $("#comp_name").on("input", validateCompName);
-        $("#agents").on("change", validateAgents);
-        $("#know_runo").on("change", validateKnowruno);
+            if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+              return;
+            }
 
-        $("#demo-form").on("submit", function (event) {
-          event.preventDefault();
+            const formData = $(this)
+              .serializeArray()
+              .reduce(function (obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
 
-          const validName = validateName();
-          const validEmail = validateEmail();
-          const validPhone = validatePhone();
-          const validCompName = validateCompName();
-          const validAgents = validateAgents();
-          const validKnowruno = validateKnowruno();
+            formData["your_phone"] = iti.getNumber(); // international format
+            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
 
-          if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
-            return;
-          }
+            const uuid = $(this).data("uuid");
 
-          const formData = $(this)
-            .serializeArray()
-            .reduce(function (obj, item) {
-              obj[item.name] = item.value;
-              return obj;
-            }, {});
-
-          formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-
-          const uuid = $(this).data("uuid");
-
-          submitForm("demo-form", formData, uuid);
+            submitForm("demo-form", formData, uuid);
+          });
         });
       });
     </script>
@@ -3682,15 +3689,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
-    <script src="/js/jquery.slicknav.js" defer></script>
-    <script src="/js/function.js" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (typeof WOW !== "undefined") {
-          new WOW().init();
-        }
-      });
-    </script>
+    <script src="js/jquery.slicknav.js" defer></script>
+    <script src="js/function.js" defer></script>
+
     <!-- UTM Tracker -->
     <script>
       /*Testimonials Slider */
