@@ -1203,7 +1203,7 @@
           border: 1px solid #e5e7eb; /* subtle border */
 
           max-width: 300px; /* smaller width */
-          margin: 0 auto 25px; /* tighter spacing */
+          margin: 0 auto 17px; /* tighter spacing */
         }
         .audio-play-btn {
           width: 40px;
@@ -1237,8 +1237,8 @@
         }
 
         .audio-hint {
-          font-size: 14px;
-          color: #777;
+          font-size: 14px !important;
+          color: #111 !important;
           margin-bottom: 25px;
         }
 
@@ -1311,10 +1311,12 @@
             <span class="audio-time" id="audioTime">0:00</span>
           </div>
 
+          <p id="audioHint" class="audio-hint">▶ Listen to the call to unlock analytics report</p>
+
           <!-- IMAGE -->
           <div class="analysis-container">
             <div class="analysis-image-wrapper">
-              <img src="call.webp" id="analysisImage" class="analysis-image blurred" />
+              <img src="ai-call.png" id="analysisImage" class="analysis-image blurred" />
             </div>
           </div>
         </div>
@@ -1333,6 +1335,7 @@
           const progressContainer = document.getElementById("progressContainer");
           const timeDisplay = document.getElementById("audioTime");
           const image = document.getElementById("analysisImage");
+          const audioHint = document.getElementById("audioHint");
 
           const mobileModal = document.getElementById("mobileImageModal");
           const mobileImg = document.getElementById("mobilePreviewImg");
@@ -1353,6 +1356,7 @@
               audio.play();
               playIcon.classList.add("d-none");
               pauseIcon.classList.remove("d-none");
+              audioHint.classList.add("hide");
 
               /* unlock image */
               setTimeout(() => {
