@@ -1276,8 +1276,10 @@
           font-size: 28px;
           cursor: pointer;
         }
+        .d-none {
+          display: none !important;
+        }
       </style>
-
       <section class="analysis-demo py-5 text-center">
         <div class="container">
           <div class="section-title">
@@ -1286,13 +1288,21 @@
           </div>
 
           <!-- AUDIO PLAYER -->
-
           <div class="runo-audio-player">
             <audio id="demoAudio">
               <source src="ai-call.mp3" type="audio/mpeg" />
             </audio>
 
-            <button id="playPause" class="audio-play-btn">▶</button>
+            <!-- SVG PLAY / PAUSE BUTTON -->
+            <button id="playPause" class="audio-play-btn">
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+
+              <svg class="icon-pause d-none" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
+              </svg>
+            </button>
 
             <div class="audio-progress" id="progressContainer">
               <div class="audio-progress-bar" id="progressBar"></div>
@@ -1302,7 +1312,6 @@
           </div>
 
           <!-- IMAGE -->
-
           <div class="analysis-container">
             <div class="analysis-image-wrapper">
               <img src="call.png" id="analysisImage" class="analysis-image blurred" />
@@ -1311,13 +1320,11 @@
         </div>
       </section>
 
-      <!-- MOBILE FULLSCREEN VIEWER -->
-
+      <!-- MOBILE VIEWER -->
       <div class="mobile-image-modal" id="mobileImageModal">
         <span class="close-viewer">&times;</span>
         <img src="" id="mobilePreviewImg" />
       </div>
-
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           const audio = document.getElementById("demoAudio");
@@ -1331,14 +1338,21 @@
           const mobileImg = document.getElementById("mobilePreviewImg");
           const closeViewer = document.querySelector(".close-viewer");
 
+          if (!audio || !playBtn) return;
+
+          /* SVG icons */
+          const playIcon = playBtn.querySelector(".icon-play");
+          const pauseIcon = playBtn.querySelector(".icon-pause");
+
           const isMobile = window.matchMedia("(max-width:768px)").matches;
 
-          /* PLAY / PAUSE */
+          /* ================= PLAY / PAUSE ================= */
 
           playBtn.addEventListener("click", () => {
             if (audio.paused) {
               audio.play();
-              playBtn.innerHTML = "⏸";
+              playIcon.classList.add("d-none");
+              pauseIcon.classList.remove("d-none");
 
               /* unlock image */
               setTimeout(() => {
@@ -1347,11 +1361,18 @@
               }, 2000);
             } else {
               audio.pause();
-              playBtn.innerHTML = "▶";
+              playIcon.classList.remove("d-none");
+              pauseIcon.classList.add("d-none");
             }
           });
 
-          /* PROGRESS */
+          /* reset icon when audio ends */
+          audio.addEventListener("ended", () => {
+            playIcon.classList.remove("d-none");
+            pauseIcon.classList.add("d-none");
+          });
+
+          /* ================= PROGRESS ================= */
 
           audio.addEventListener("timeupdate", () => {
             if (!audio.duration) return;
@@ -1366,18 +1387,16 @@
             timeDisplay.textContent = `${m}:${s}`;
           });
 
-          /* SEEK */
+          /* ================= SEEK ================= */
 
           progressContainer.addEventListener("click", (e) => {
             const w = progressContainer.clientWidth;
             audio.currentTime = (e.offsetX / w) * audio.duration;
           });
 
-          /* DESKTOP CURSOR ZOOM */
+          /* ================= MOBILE IMAGE PREVIEW ================= */
 
-          /* MOBILE FULLSCREEN PREVIEW */
-
-          if (isMobile) {
+          if (isMobile && image) {
             image.addEventListener("click", () => {
               if (!image.classList.contains("revealed")) return;
               mobileModal.classList.add("active");
@@ -1385,37 +1404,37 @@
             });
           }
 
-          closeViewer.addEventListener("click", () => mobileModal.classList.remove("active"));
+          closeViewer?.addEventListener("click", () => {
+            mobileModal.classList.remove("active");
+          });
 
-          mobileModal.addEventListener("click", (e) => {
+          mobileModal?.addEventListener("click", (e) => {
             if (e.target === mobileModal) mobileModal.classList.remove("active");
           });
 
-          /* ================= AUTO PAUSE AUDIO WHEN LEAVING SECTION ================= */
+          /* ================= AUTO PAUSE WHEN LEAVING SECTION ================= */
 
-          /* target your audio section */
           const audioSection = document.querySelector(".analysis-demo");
 
-          if (audioSection && audio) {
+          if (audioSection) {
             const observer = new IntersectionObserver(
               (entries) => {
                 entries.forEach((entry) => {
-                  /* if section not visible enough */
-                  if (!entry.isIntersecting) {
+                  if (!entry.isIntersecting && !audio.paused) {
                     audio.pause();
-                    playBtn.innerHTML = "▶";
+                    playIcon.classList.remove("d-none");
+                    pauseIcon.classList.add("d-none");
                   }
                 });
               },
-              {
-                threshold: 0.4 // pause when <40% visible
-              }
+              { threshold: 0.3 }
             );
 
             observer.observe(audioSection);
           }
         });
       </script>
+
       <!-- Clients Section -->
       <section class="clients-section py-80" style="overflow: hidden">
         <div class="container">
