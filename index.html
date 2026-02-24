@@ -29,29 +29,41 @@
     <meta name="twitter:url" content="https://runo.ai/" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-    <!-- Performance: Preload Fonts & Styles -->
-    <link rel="preload" as="style" href="css/bootstrap.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <!-- Core Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" href="css/slicknav.min.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- CSS Preload + Load -->
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/runo.css" />
-    <!-- Font Awesome (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/runo.css" /></noscript>
+
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
-    <!-- JS Libraries (Defer if possible to reduce INP) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"></script>
+    <link rel="preload" href="css/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
+    <!-- intl-tel-input CSS -->
+    <link rel="preload" href="css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="css/intlTelInput.min.css" />
+    </noscript>
+
+    <!-- JS (defer) -->
+    <script src="js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -83,6 +95,15 @@
     <!-- Inline Hero Banner Style -->
 
     <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+
       .hero {
         position: relative;
         padding: 0;
@@ -92,13 +113,949 @@
         background: #fff;
         background-size: cover;
       }
+
+      .main-menu .mega-menu .menu-head {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .submenu-list .menu-head {
+        font-size: 17px;
+        color: #111111 !important;
+        font-weight: 700 !important;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+
+        .submenu-list .menu-head {
+          padding: 0px 10px !important;
+        }
+      }
+    </style>
+    <style>
+      /* Hello Bar */
+      .hello-bar {
+        background-color: #f44336;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        line-height: 1.5;
+        padding: 12px 15px;
+      }
+
+      .hello-bar p {
+        margin: 0;
+        text-align: center;
+        color: #fff !important;
+        padding-right: 45px; /* space so text doesn't touch close button */
+      }
+
+      /* Close Button */
+      .close-hello {
+        position: absolute;
+
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close-hello:hover {
+        background: rgba(255, 255, 255, 0.35);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 767.98px) {
+        .hello-bar p {
+          text-align: left;
+        }
+
+        .hello-bar {
+          font-size: 14px;
+          padding: 10px 12px;
+        }
+
+        .close-hello {
+          top: 6px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
+          font-size: 18px;
+        }
+
+        .hello-bar p {
+          padding-right: 40px;
+        }
+      }
+    </style>
+    <style>
+      @media only screen and (max-width: 768px) {
+        .telecaller-hero {
+          background: #ffffff !important;
+        }
+      }
+
+      .section-title h1 {
+        font-size: 45px;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #111111;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .section-title h1 {
+          font-size: 32px;
+        }
+      }
+
+      /*!
+ * SlickNav Responsive Mobile Menu v1.0.10
+ * (c) 2016 Josh Cope
+ * licensed under MIT
+ */
+      .slicknav_btn,
+      .slicknav_nav .slicknav_item {
+        cursor: pointer;
+      }
+
+      .slicknav_menu,
+      .slicknav_menu * {
+        box-sizing: border-box;
+      }
+
+      .slicknav_btn {
+        position: relative;
+        display: block;
+
+        float: right;
+        padding: 0.438em 0.625em;
+        line-height: 1.125em;
+      }
+
+      .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+        margin-top: 0.188em;
+      }
+
+      .slicknav_menu .slicknav_menutxt {
+        display: block;
+        line-height: 1.188em;
+        float: left;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 3px #000;
+      }
+
+      .slicknav_menu .slicknav_icon {
+        float: left;
+        width: 1.125em;
+        height: 0.875em;
+        margin: 0.188em 0 0 0.438em;
+      }
+
+      .slicknav_menu .slicknav_icon:before {
+        background: 0 0;
+        width: 1.125em;
+        height: 0.875em;
+        display: block;
+        content: "";
+        position: absolute;
+      }
+
+      .slicknav_menu .slicknav_no-text {
+        margin: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: 0.125em;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .slicknav_menu:after,
+      .slicknav_menu:before {
+        content: " ";
+        display: table;
+      }
+
+      .slicknav_menu:after {
+        clear: both;
+      }
+
+      .slicknav_nav li,
+      .slicknav_nav ul {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_arrow {
+        font-size: 0.8em;
+        margin: 0 0 0 0.4em;
+      }
+
+      .slicknav_nav .slicknav_item a {
+        display: inline;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        display: block;
+      }
+
+      .slicknav_nav .slicknav_parent-link a {
+        display: inline;
+      }
+
+      .slicknav_menu {
+        zoom: 1;
+        font-size: 16px;
+        background: #4c4c4c;
+        padding: 5px;
+      }
+
+      .slicknav_nav,
+      .slicknav_nav ul {
+        list-style: none;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .slicknav_menu .slicknav_icon-bar {
+        background-color: #fff;
+      }
+
+      .slicknav_btn {
+        margin: 5px 5px 6px;
+        text-decoration: none;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #222;
+      }
+
+      .slicknav_nav {
+        clear: both;
+        color: #fff;
+        margin: 0;
+        font-size: 0.875em;
+      }
+
+      .slicknav_nav ul {
+        margin: 0 0 0 20px;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav a {
+        padding: 5px 10px;
+        margin: 2px 5px;
+      }
+
+      .slicknav_nav .slicknav_row:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #fff;
+      }
+
+      .slicknav_nav a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .slicknav_nav a:hover {
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #ccc;
+        color: #222;
+      }
+
+      .slicknav_nav .slicknav_txtnode {
+        margin-left: 15px;
+      }
+
+      .slicknav_nav .slicknav_item a,
+      .slicknav_nav .slicknav_parent-link a {
+        padding: 0;
+        margin: 0;
+      }
+
+      .slicknav_brand {
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 7px 12px;
+        height: 44px;
+      }
+
+      /************************************/
+      /**** 	   03. Header css		 ****/
+      /************************************/
+
+      .topbar {
+        background: var(--accent-secondary-color);
+        padding: 15px 0;
+      }
+
+      .topbar-contact-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .topbar-contact-info ul li a {
+        color: var(--accent-color);
+      }
+
+      .topbar-contact-info ul li a i {
+        font-size: 16px;
+        color: var(--accent-color);
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links {
+        text-align: right;
+      }
+
+      .topbar-social-links ul {
+        list-style: none;
+        line-height: 1em;
+        padding: 0;
+        margin: 0;
+      }
+
+      .topbar-social-links ul li {
+        display: inline-block;
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid var(--accent-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .topbar-social-links ul li a {
+        font-weight: 400;
+        color: var(--accent-color);
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .topbar-social-links ul li a i {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 8px;
+      }
+
+      header.main-header {
+        position: relative;
+        background: #fff;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky {
+        position: relative;
+        top: 0;
+        z-index: 100;
+      }
+
+      header.main-header .header-sticky.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0;
+      }
+
+      header.main-header .header-sticky.active {
+        z-index: 99999 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255);
+        border-bottom: 1px solid var(--divider-color);
+
+        /* Add subtle bottom-only shadow */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #home .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar {
+        padding: 20px 0;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-menu .nav-menu-wrapper {
+        flex: 1;
+        text-align: right;
+        margin: 0 20px;
+      }
+
+      .main-menu .nav-menu-wrapper > ul {
+        align-items: center;
+        display: inline-flex;
+      }
+
+      .main-menu ul li {
+        margin: 0;
+        position: relative;
+      }
+
+      .main-menu ul li a {
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        padding: 10px 18px !important;
+        color: #303030;
+        text-transform: capitalize;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      @media screen and (min-width: 1000px) and (max-width: 1299px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 12px !important;
+        }
+      }
+
+      @media screen and (min-width: 1299px) and (max-width: 1400px) {
+        .main-menu ul li a {
+          font-size: 16px;
+          padding: 10px 15px !important;
+        }
+      }
+      @media screen and (min-width: 992px) and (max-width: 1029px) {
+        .main-menu ul li a {
+          padding: 10px 8px !important;
+        }
+      }
+      .header-sticky.active .main-menu ul li a {
+        color: #111111 !important;
+      }
+
+      .header-sticky.active .submenu ul li a {
+        color: #111111 !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .header-sticky.active .submenu ul li a {
+          color: #111111 !important;
+        }
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn {
+        color: #fff !important;
+      }
+
+      .header-sticky.active .main-menu ul li .header-btn:hover {
+        color: #f44336 !important;
+      }
+
+      .main-menu ul li.submenu > a {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .main-menu ul li.submenu > a:after {
+        content: "";
+        margin-left: 8px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #000;
+      }
+
+      .main-menu ul li a:hover,
+      .main-menu ul li a:focus {
+        color: #f44336;
+      }
+
+      .header-sticky.active .main-menu ul li a:hover {
+        color: #f44336;
+      }
+
+      .main-menu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: top;
+        padding: 0.5em 1em;
+        margin: 0;
+        list-style: none;
+        width: max-content; /* This is the key for content-based width */
+        min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+        border-radius: 20px;
+        position: absolute;
+        left: -30px; /* Aligns dropdown directly under parent */
+        top: 100%;
+        background-color: var(--accent-secondary-color);
+        text-align: left;
+        z-index: 99;
+        white-space: nowrap; /* Prevents line breaks inside items */
+      }
+
+      .main-menu ul li.submenu:first-child ul {
+        width: 230px;
+      }
+
+      .main-menu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /* transform: scaleY(1);
+  padding: 5px 0;*/
+      }
+
+      .main-menu ul li.submenu ul li.submenu > a:after {
+        content: "\f105";
+        float: right;
+      }
+
+      .main-menu ul ul li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu ul ul li a {
+        color: var(--accent-color);
+
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .main-menu ul li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        /*transform: scaleY(1);*/
+        padding: 5px 5px;
+      }
+
+      .main-menu ul ul li a:hover,
+      .main-menu ul ul li a:focus {
+        color: #111111;
+        /* background-color: transparent;*/
+        padding: 10px 18px !important;
+      }
+
+      .main-menu ul li.highlighted-menu {
+        display: none;
+      }
+
+      .responsive-menu {
+        top: 0;
+        position: relative;
+      }
+
+      /* Default styles for .slicknav_btn */
+      .slicknav_btn {
+        background: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+        /* Use inherited color, can be overridden */
+      }
+
+      /* When header is sticky and active, make the button color white */
+      .header-sticky.active .slicknav_btn {
+        background: #fff !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        width: 22px;
+        background-color: var(--primary-color);
+        border-radius: 6px;
+        margin: 4px auto !important;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:first-child {
+        margin-top: 0 !important;
+      }
+
+      .slicknav_icon .slicknav_icon-bar:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+
+      .slicknav_menu {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        background: #fff;
+      }
+
+      .slicknav_menu ul {
+        margin: 5px 0;
+      }
+
+      .slicknav_menu ul ul {
+        margin: 0;
+      }
+
+      .slicknav_nav .slicknav_row,
+      .slicknav_nav li a {
+        position: relative;
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        color: var(--accent-color) !important;
+        line-height: normal;
+        margin: 0;
+        border-radius: 0 !important;
+        /* transition: all 0.3s ease-in-out;*/
+      }
+
+      .slicknav_nav a:hover,
+      .slicknav_nav a:focus,
+      .slicknav_nav .slicknav_row:hover {
+        background-color: transparent;
+        color: #111111 !important;
+      }
+
+      /*
+.slicknav_menu ul ul li a {
+  padding: 8px 20px 8px 30px;
+}
+*/
+      .slicknav_arrow {
+        font-size: 0 !important;
+      }
+
+      .slicknav_arrow:after {
+        content: "";
+        position: absolute;
+
+        width: 0;
+        height: 0;
+
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--primary-color);
+
+        /*right: 15px; arrow in mobile menu next to text */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+      }
+
+      .slicknav_open > a .slicknav_arrow:after {
+        transform: translateY(-52%) rotate(-180deg);
+        color: var(--primary-color);
+      }
+    </style>
+    <style>
+      .runo-step-title {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .runo-step-para {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Dropdown Menu CSS */
+
+      .submenu-list h6 {
+        font-size: 17px;
+        text-align: left !important;
+        margin: 6px 0px;
+        padding: 0px 10px !important;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1300px) {
+        .submenu-list h6 {
+          padding: 0px 10px !important;
+        }
+      }
+
+      .submenu-list .row {
+        flex-wrap: wrap; /* allow multiple lines */
+      }
+
+      /* Hide dropdowns by default */
+      .main-menu .submenu .submenu-list {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+
+        pointer-events: none;
+      }
+
+      /* Show on hover */
+      .main-menu .submenu:hover .submenu-list {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ✅ Normal dropdown */
+
+      /* ✅ Mega menu */
+      .main-menu .mega-menu .submenu-list {
+        left: 50%;
+        transform: translateX(-30%);
+        min-width: 900px; /* wide enough for 5 cols */
+        max-width: 90vw;
+        background: var(--accent-secondary-color);
+        border-radius: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .main-menu .mega-menu h6 {
+        font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+
+      .compliance {
+        padding: 0px 0px 0px 10px;
+      }
+      .bghd {
+        background: #f443360b;
+        border-radius: 20px 0px 0px 0px;
+      }
+      .header-left {
+        text-align: left;
+        padding: 20px 10px;
+      }
+
+      .header-right {
+        text-align: left;
+        padding: 20px 20px;
+      }
+
+      .header-left a {
+        text-align: left !important;
+      }
+      .header-right a {
+        text-align: left !important;
+        padding: 0px 25px !important;
+      }
+
+      .compliance p {
+        margin-bottom: 12px !important;
+        font-size: 14px !important;
+      }
+      #web-menu {
+        display: block !important;
+      }
+      #mob-menu {
+        display: none !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .submenu-list {
+          box-shadow: none !important;
+          background: hwb(0deg 100% 0%) !important;
+          border-radius: 10px;
+        }
+
+        .slicknav_nav li .mega-menu {
+          display: none !important;
+        }
+
+        .mega-menu {
+          display: none !important;
+        }
+        #mob-menu {
+          display: block !important;
+        }
+
+        #web-menu {
+          display: none !important;
+        }
+      }
+
+      .menu-icon {
+        display: flex;
+        margin-left: -15px;
+        align-items: center;
+      }
+
+      .main-menu .header-right a {
+        padding: 10px 25px !important;
+        font-size: 15px !important;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .menu-icon {
+          display: flex;
+          margin-left: 5px;
+        }
+        .slicknav_nav .mega .submenu-list li a {
+          padding: 10px 45px !important;
+        }
+        .slicknav_menu {
+          zoom: 1;
+
+          /* NEW */
+          max-height: 90vh; /* limit height to 90% of viewport */
+          overflow-y: auto; /* enable vertical scroll inside menu */
+        }
+      }
+
+      .text-destructive {
+        color: red !important;
+      }
+      .text-green-500 {
+        color: #22c55e !important;
+      }
+
+      .menu-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+      .btns {
+        background: #f44336;
+        color: #fff;
+        text-align: left;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .btns a {
+        position: relative;
+        color: #fff !important;
+        text-decoration: none;
+        padding-right: 28px; /* enough space for arrow */
+        font-weight: 600;
+        font-size: 14px !important;
+        transition: all 0.3s ease;
+      }
+      .btns a:hover {
+        text-decoration: underline;
+      }
+
+      .btns a::after {
+        content: "→";
+        position: absolute;
+        right: -5px; /* fixed gap from text */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px !important;
+        transition: transform 0.3s ease;
+      }
+
+      .btns a:hover::after {
+        transform: translate(3px, -50%); /* slide to right */
+      }
+
+      .main-menu ul ul .menu-icon {
+        margin-left: 0px;
+      }
+      .main-menu ul ul .menu-icon svg {
+        margin-right: 7px;
+        width: 25px;
+        height: 25px;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .slicknav_nav .submenu-list li a {
+          padding: 10px 15px !important;
+        }
+        .slicknav_nav .menu-icon a svg {
+          margin-right: 7px;
+        }
+      }
     </style>
 
-    <link rel="preload" as="image" href="img/banner-img.webp" type="image/webp" fetchpriority="high" />
-    <!-- Desktop -->
-    <link rel="preload" as="image" href="img/hero-images/web/call-summaryw.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
-    <!-- Mobile -->
-    <link rel="preload" as="image" href="img/hero-images/mobile/call-summary.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/hero-images/web/call-summaryw.avif"
+      imagesrcset="
+    /img/hero-images/mobile/call-summary.avif 768w,
+    /img/hero-images/web/call-summaryw.avif 1200w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
     <script type="text/javascript">
       // ✅ Initialize CleverTap object
       var clevertap = {
@@ -111,12 +1068,12 @@
       };
 
       // ✅ Your account ID and region
-      clevertap.account.push({ id: "6Z8-RRZ-957Z" });
+      clevertap.account.push({id: "6Z8-RRZ-957Z"});
       clevertap.region = "eu1";
 
       // ✅ Privacy settings for local testing
-      clevertap.privacy.push({ optOut: false });
-      clevertap.privacy.push({ useIP: false });
+      clevertap.privacy.push({optOut: false});
+      clevertap.privacy.push({useIP: false});
 
       // ✅ Load from CloudFront fallback CDN (working globally)
       (function () {
@@ -530,8 +1487,34 @@
                             <a class="nav-link" href="blog/">
                               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                                 <g>
-                                  <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
-                                  <path d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
+                                  <path
+                                    d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91"
+                                    style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    fill="none"
+                                    stroke="#000000"
+                                    stroke-width="22"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="2.6131"
+                                    data-original="#000000"
+                                    class=""
+                                  ></path>
+                                  <path
+                                    d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                    style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    fill="none"
+                                    stroke="#000000"
+                                    stroke-width="22"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="22.9256"
+                                    data-original="#000000"
+                                    class=""
+                                  ></path>
                                   <path d="M86 395.999V56.001h238m57 0h45v339.998" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                   <path d="M35 400.999h442" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
                                   <path d="M327.5 11h47v224.51L351 283.5l-23.5-47.99zM332.5 218.94h37" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#33cccc" class="" opacity="1"></path>
@@ -561,7 +1544,21 @@
                                     data-original="#000000"
                                     class=""
                                   ></path>
-                                  <path d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#33cccc" class="" opacity="1"></path>
+                                  <path
+                                    d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874"
+                                    style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    fill="none"
+                                    stroke="#ff5730"
+                                    stroke-width="22"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="22.9256"
+                                    data-original="#33cccc"
+                                    class=""
+                                    opacity="1"
+                                  ></path>
                                 </g>
                               </svg>
                               API Documentation
@@ -984,51 +1981,51 @@
                 <script>
                   const featureMap = {
                     "AI Call Summaries": {
-                      src: "img/hero-images/web/call-summaryw.webp",
+                      src: "img/hero-images/web/call-summaryw.avif",
                       alt: "AI Call Summaries"
                     },
                     "AI Sentiment Analysis": {
-                      src: "img/hero-images/web/sentimentw.webp",
+                      src: "img/hero-images/web/sentimentw.avif",
                       alt: "AI Sentiment Analysis"
                     },
                     "AI Sales Assistant": {
-                      src: "img/hero-images/web/assistantw.webp",
+                      src: "img/hero-images/web/assistantw.avif",
                       alt: "AI Assistant"
                     },
                     "Call Recording": {
-                      src: "img/hero-images/web/recordingw.webp",
+                      src: "img/hero-images/web/recordingw.avif",
                       alt: "Call Recording"
                     },
                     "Live Team Status": {
-                      src: "img/hero-images/web/teamw.webp",
+                      src: "img/hero-images/web/teamw.avif",
                       alt: "Live Team Status"
                     },
                     "Advanced Caller ID": {
-                      src: "img/hero-images/web/calleridw.webp",
+                      src: "img/hero-images/web/calleridw.avif",
                       alt: "Advanced Caller ID"
                     },
                     "Follow-Up Reminder": {
-                      src: "img/hero-images/web/remindw.webp",
+                      src: "img/hero-images/web/remindw.avif",
                       alt: "Follow-Up Reminder"
                     },
                     "Auto Dialer": {
-                      src: "img/hero-images/web/adw.webp",
+                      src: "img/hero-images/web/adw.avif",
                       alt: "Auto Dialer"
                     },
                     "Auto Lead Allocation": {
-                      src: "img/hero-images/web/alaw.webp",
+                      src: "img/hero-images/web/alaw.avif",
                       alt: "Auto Lead Allocation"
                     },
                     "Live Intuitive Dashboard": {
-                      src: "img/hero-images/web/lidw.webp",
+                      src: "img/hero-images/web/lidw.avif",
                       alt: "Live Intuitive Dashboard"
                     },
                     "Call Analytics": {
-                      src: "img/hero-images/web/caw.webp",
+                      src: "img/hero-images/web/caw.avif",
                       alt: "Call Analytics"
                     },
                     "Biz Whatsapp Integration": {
-                      src: "img/hero-images/web/wiw.webp",
+                      src: "img/hero-images/web/wiw.avif",
                       alt: "Biz Whatsapp Integration"
                     }
                   };
@@ -1097,19 +2094,20 @@
                 <!-- Mobile Hero Swiper -->
                 <div class="swiper mobile-hero-swiper wow zoomIn" id="mobile-hero">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide mobile-hero-slide"><img loading="eager" fetchpriority="high" src="img/hero-images/mobile/call-summary.webp" alt="Call Summary" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img src="img/hero-images/mobile/sentiment.webp" alt="Sentiment Analysis" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img src="img/hero-images/mobile/assistant.webp" alt="Call Assistant" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img src="img/hero-images/mobile/recording.webp" alt="Call Recording" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/team.webp" alt="Team Status" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/callerid.webp" alt="Caller ID" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/remind.webp" alt="Reminder" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/auto-dialer.webp" alt="Auto Dialer" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/auto-lead-allocation.webp" alt="Auto Lead Allocation" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/dashboard.webp" alt="Dashboard" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/call-analytics.webp" alt="Call Analytics" /></div>
-                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/whatsapp-integration.webp" alt="Whatsapp Integration" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="eager" fetchpriority="high" src="img/hero-images/mobile/call-summary.avif" alt="Call Summary" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/sentiment.avif" alt="Sentiment Analysis" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/assistant.avif" alt="Call Assistant" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/recording.avif" alt="Call Recording" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/team.avif" alt="Team Status" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/callerid.avif" alt="Caller ID" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/remind.avif" alt="Reminder" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/auto-dialer.avif" alt="Auto Dialer" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/auto-lead-allocation.avif" alt="Auto Lead Allocation" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/dashboard.avif" alt="Dashboard" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/call-analytics.avif" alt="Call Analytics" /></div>
+                    <div class="swiper-slide mobile-hero-slide"><img loading="lazy" src="img/hero-images/mobile/whatsapp-integration.avif" alt="Whatsapp Integration" /></div>
                   </div>
+
                   <div class="text-center mt-30">
                     <a href="#features" class="btn-default-dark btn-highlighted">See All Features</a>
                   </div>
@@ -1203,24 +2201,19 @@
           left: 50%;
           transform: translate(-50%, -50%);
 
-          display: flex;
-          align-items: center;
-          gap: 10px;
+          padding: 10px 16px;
 
-          background: #111;
+          background: rgba(0, 0, 0, 0.6);
           color: #fff;
 
-          padding: 14px 22px;
-          border-radius: 22px;
+          border-radius: 8px;
+          font-size: 13px;
 
-          font-size: 14px;
-          line-height: 1.4;
-          text-align: center;
+          display: flex;
+          align-items: center;
+          gap: 8px;
 
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-
-          white-space: nowrap; /* ⭐ keeps single line on desktop */
-          z-index: 5;
+          backdrop-filter: blur(6px);
         }
 
         /* hide when audio plays */
@@ -1286,7 +2279,7 @@
           color: #111;
         }
 
-        .d-none {
+        .analysis-demo .d-none {
           display: none !important;
         }
 
@@ -1358,8 +2351,8 @@
 
             <!-- HINT OVERLAY -->
             <div id="audioHint" class="audio-hint-overlay">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"></path>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 8V6a3 3 0 016 0v3H9z" />
               </svg>
               <span>Listen to the call to unlock analytics report</span>
             </div>
@@ -1460,7 +2453,7 @@
                   pauseIcon.classList.add("d-none");
                 }
               },
-              { threshold: 0.3 }
+              {threshold: 0.3}
             ).observe(section);
           }
         });
@@ -1570,7 +2563,7 @@
                     <p class="mt-3">Every call is instantly reviewed by smart AI, evaluating how your team sounds, what they say, and the outcome. This insight empowers managers to deliver tailored feedback, recognize effective techniques, and quickly identify coaching moments. With AI supporting your sales coaching, performance improvement becomes measurable and repeatable, helping reps reach their full potential faster.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/call-efficiency.avif" alt="AI call scoring" class="img-fluid rounded" />
+                    <img src="img/call-efficiency.avif" loading="lazy" alt="AI call scoring" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -1582,7 +2575,7 @@
                     <p class="mt-3">Forgetting to follow up means missed opportunities. Runo’s intelligent reminders automatically alert your team exactly when to reconnect with a lead, based on previous interactions and timelines. This keeps your pipeline active and ensures no potential customer falls through the cracks, making consistent engagement effortless and boosting sales momentum.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/follow-ups.avif" alt="Automated follow-up reminders" class="img-fluid rounded" />
+                    <img src="img/follow-ups.avif" loading="lazy" alt="Automated follow-up reminders" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -1594,7 +2587,7 @@
                     <p class="mt-3">Sales moves fast, and Runo gives you live insights into call activity, team performance, and response times as they unfold. This immediate data lets managers step in proactively, recognize patterns, and support reps on the spot—without waiting for daily or weekly reports—so the team stays agile and driven toward hitting targets.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/live-tracking.avif" alt="Live team tracking" class="img-fluid rounded" />
+                    <img src="img/live-tracking.avif" loading="lazy" alt="Live team tracking" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -1605,7 +2598,7 @@
                     <p class="mt-3">Runo removes the hassle of juggling multiple tools by combining calling and CRM features in a single, easy-to-use platform. Sales reps naturally keep data updated because everything they need to make calls, log notes, and track progress is right at their fingertips. This seamless experience leads to better data quality, improved sales tracking, and a disciplined pipeline—all without extra effort.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/user-friendly.avif" alt="Easy-to-use CRM" class="img-fluid rounded" />
+                    <img src="img/user-friendly.avif" loading="lazy" alt="Easy-to-use CRM" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -1617,7 +2610,7 @@
                     <p class="mt-3">Get your team calling prospects within half an hour—no extra equipment, no waiting for IT. Runo’s simple setup means you can import your contacts and launch your campaigns almost immediately. This smooth onboarding saves valuable time and allows sales teams to focus on what matters most: closing deals from day one.</p>
                   </div>
                   <div class="col-md-5 d-flex justify-content-end">
-                    <img src="img/30-min-setup.avif" alt="Quick setup" class="img-fluid rounded" />
+                    <img src="img/30-min-setup.avif" loading="lazy" alt="Quick setup" class="img-fluid rounded" />
                   </div>
                 </div>
               </div>
@@ -1637,31 +2630,31 @@
                 <p class="deals-tab-tag">AI Call Scoring</p>
                 <h4>Your Sales Coach, Now Powered by AI.</h4>
                 <p class="mt-3">Every call is automatically analyzed for tone, sentiment, and outcome—helping managers identify what’s working, coach smarter, and scale top performance.</p>
-                <img src="img/call-efficiency.avif" alt="AI call scoring" />
+                <img src="img/call-efficiency.avif" loading="lazy" alt="AI call scoring" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">Smart Follow-ups</p>
                 <h4>Never Miss a Follow-Up Again.</h4>
                 <p class="mt-3">Runo intelligently reminds reps when it’s time to reconnect, ensuring no lead slips through the cracks and every opportunity gets the attention it deserves.</p>
-                <img src="img/follow-ups.avif" alt="Follow-up reminders" />
+                <img src="img/follow-ups.avif" loading="lazy" alt="Follow-up reminders" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">Live Tracking</p>
                 <h4>Know What’s Happening, As It Happens.</h4>
                 <p class="mt-3">Monitor team performance, live call activity, and response times in real time—so you can guide your team from anywhere, without waiting for end-of-day reports.</p>
-                <img src="img/live-tracking.avif" alt="Live tracking" />
+                <img src="img/live-tracking.avif" loading="lazy" alt="Live tracking" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">CRM Adoption</p>
                 <h4>The CRM Your Team Actually Loves Using.</h4>
                 <p class="mt-3">Runo brings calling and CRM together in one app—so your team updates data naturally, without extra effort. More usage. More visibility. Better sales discipline.</p>
-                <img src="img/user-friendly.avif" alt="CRM adoption" />
+                <img src="img/user-friendly.avif" loading="lazy" alt="CRM adoption" />
               </div>
               <div class="swiper-slide">
                 <p class="deals-tab-tag">30-min Setup</p>
                 <h4>Up and Calling in Under 30 Minutes.</h4>
                 <p class="mt-3">No hardware, no complex onboarding. Just install, import your leads, and start calling—Runo is built to perform from day one.</p>
-                <img src="img/30-min-setup.avif" alt="Quick setup" />
+                <img src="img/30-min-setup.avif" loading="lazy" alt="Quick setup" />
               </div>
             </div>
           </div>
@@ -1725,20 +2718,21 @@
               }
             });
           },
-          { threshold: 0.5 } // section is at least 50% visible
+          {threshold: 0.5} // section is at least 50% visible
         );
 
         observer.observe(section);
 
         // Initialize first tab
         activateTab(0);
-
-        // ===== MOBILE SWIPER =====
-        const mobileSwiper = new Swiper(".mobile-slider", {
-          loop: true,
-          autoplay: { delay: 4000, disableOnInteraction: false },
-          slidesPerView: 1,
-          spaceBetween: 20
+        document.addEventListener("DOMContentLoaded", function () {
+          // ===== MOBILE SWIPER =====
+          const mobileSwiper = new Swiper(".mobile-slider", {
+            loop: true,
+            autoplay: {delay: 4000, disableOnInteraction: false},
+            slidesPerView: 1,
+            spaceBetween: 20
+          });
         });
       </script>
       <!-- WhatsApp CRM Section-->
@@ -1797,7 +2791,6 @@
         </div>
       </section>
       <!-- Demo Section Start -->
-
       <!-- Demo Section Start -->
       <section class="demo-section" id="product-overview">
         <div class="container">
@@ -1813,7 +2806,9 @@
               <!-- Play Button -->
               <!-- Play Button -->
               <button class="play-button" id="playVideo" aria-label="Play Video">
-                <i class="fas fa-play"></i>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="8,5 19,12 8,19"></polygon>
+                </svg>
               </button>
               <!-- Video (hidden initially) -->
               <video id="localVideo" controls preload="none" playsinline webkit-playsinline style="display: none; width: 100%; height: auto; border-radius: 12px">
@@ -2044,30 +3039,38 @@
               </div>
             </div>
             <!-- Custom navigation buttons below -->
+            <!-- Custom navigation buttons below -->
             <div class="swiper-nav-buttons text-center">
               <button class="swiper-custom-prev">
-                <i class="fas fa-chevron-left"></i>
+                <!-- LEFT ARROW -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
               </button>
               <button class="swiper-custom-next">
-                <i class="fas fa-chevron-right"></i>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
               </button>
             </div>
           </div>
         </div>
       </section>
       <script>
-        var swiper = new Swiper(".swiper-container", {
-          loop: true,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false
-          },
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-custom-next",
-            prevEl: ".swiper-custom-prev"
-          }
+        document.addEventListener("DOMContentLoaded", function () {
+          new Swiper(".swiper-container", {
+            loop: true,
+            autoplay: {
+              delay: 4000,
+              disableOnInteraction: false
+            },
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+              nextEl: ".swiper-custom-next",
+              prevEl: ".swiper-custom-prev"
+            }
+          });
         });
       </script>
       <section class="home-app-cta-sm py-5">
@@ -2468,10 +3471,17 @@
               <div class="testimonial-arrows">
                 <div class="testimonial-nav-buttons gap-2">
                   <button class="testimonial-prev-btn">
-                    <i class="fas fa-chevron-left"></i>
+                    <!-- LEFT ARROW -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                   </button>
+
                   <button class="testimonial-next-btn">
-                    <i class="fas fa-chevron-right"></i>
+                    <!-- RIGHT ARROW -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -2586,15 +3596,39 @@
               <li><a href="partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
             <h6 class="text-white fw-bold mt-5 mb-3">CONTACT</h6>
-            <a href="mailto:care@runo.ai">
-              <p class="mb-1 text-white ptb-5">
-                <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:care@runo.ai" class="d-flex align-items-center text-decoration-none">
+              <p class="mb-1 text-white d-flex align-items-center">
+                <!-- Email SVG -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <polyline points="3 7 12 13 21 7"></polyline>
+                </svg>
                 care@runo.ai
               </p>
             </a>
-            <a href="tel:+91 8179880074">
-              <p class="text-white ptb-5">
-                <i class="fas fa-phone me-2"></i>
+
+            <a href="tel:+918179880074" class="d-flex align-items-center text-decoration-none">
+              <p class="text-white d-flex align-items-center">
+                <!-- Phone SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 
+               19.79 19.79 0 0 1-8.63-3.07 
+               19.5 19.5 0 0 1-6-6 
+               19.79 19.79 0 0 1-3.07-8.67 
+               A2 2 0 0 1 4.11 2h3 
+               a2 2 0 0 1 2 1.72 
+               12.84 12.84 0 0 0 .7 2.81 
+               2 2 0 0 1-.45 2.11L8.09 9.91 
+               a16 16 0 0 0 6 6 
+               l1.27-1.27 
+               a2 2 0 0 1 2.11-.45 
+               12.84 12.84 0 0 0 2.81.7 
+               A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+
                 +91 8179880074
               </p>
             </a>
@@ -2664,24 +3698,64 @@
           </div>
           <div class="col-md-3">
             <h6 class="fw-semibold text-white mb-20">Follow Us</h6>
-            <!-- Footer Social Link Start -->
+
             <div class="footer-social-links">
               <ul>
+                <!-- Facebook -->
                 <li>
-                  <a href="https://www.facebook.com/runo.in/"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/runo.in/" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.7v7A10 10 0 0022 12z" />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- Instagram -->
                 <li>
-                  <a href="https://www.instagram.com/runocrm"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/runocrm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2
+            5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-.3a1.2
+            1.2 0 110 2.4 1.2 1.2 0 010-2.4zM12 9a3 3 0 100 6 3 3 0 000-6z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- YouTube -->
                 <li>
-                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5
+            12 2.5h0s-4.9 0-8.2.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.4-.9
+            2.4S0 8.1 0 10v2c0 1.9.5 3.8.5 3.8s.2 1.7.9
+            2.4c.9.9 2.1.9 2.6 1C7.1 19.5 12 19.5 12
+            19.5s4.9 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4S24
+            13.9 24 12v-2c0-1.9-.5-3.8-.5-3.8zM9.5 15V9l6 3-6 3z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- LinkedIn -->
                 <li>
-                  <a href="https://in.linkedin.com/company/runo-crm"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://in.linkedin.com/company/runo-crm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5
+            5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7
+            19H4V9h3v10zM5.5 7.7a1.7 1.7 0 110-3.4
+            1.7 1.7 0 010 3.4zM20 19h-3v-5.6c0-1.3
+            0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8
+            1.4-1.8 2.9-1.8 3.1 0 3.7 2 3.7 4.6V19z"
+                      />
+                    </svg>
+                  </a>
                 </li>
               </ul>
             </div>
-            <!-- Footer Social Link End -->
           </div>
         </div>
         <!-- Footer Copyright -->
@@ -2784,208 +3858,210 @@
       </div>
     </div>
     <script>
-      jQuery(function ($) {
-        const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, {
-          initialCountry: "auto", // <-- add this line
-          geoIpLookup: function (callback) {
-            fetch("https://ipapi.co/json/")
-              .then((res) => {
-                return res.json();
-              })
-              .then((data) => {
-                const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
+      document.addEventListener("DOMContentLoaded", function () {
+        jQuery(function ($) {
+          const phoneInput = document.querySelector("#phone");
+          const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto", // <-- add this line
+            geoIpLookup: function (callback) {
+              fetch("https://ipapi.co/json/")
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data) => {
+                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
 
-                callback(countryCode);
-              })
-              .catch((err) => {
-                console.error("geoIpLookup error:", err);
-                callback("in");
-              });
-          },
-          separateDialCode: true,
-          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
-        });
+                  callback(countryCode);
+                })
+                .catch((err) => {
+                  console.error("geoIpLookup error:", err);
+                  callback("in");
+                });
+            },
+            separateDialCode: true,
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
+          });
 
-        const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-        const countryLengthMap = {
-          in: [10],
-          ae: [9],
-          us: [10],
-          ca: [10],
-          gb: [10, 11],
-          sa: [9],
-          ph: [10],
-          id: [10, 11],
-          sg: [8],
-          au: [9],
-          nz: [8, 9],
-          pk: [10],
-          bd: [10],
-          lk: [9],
-          ng: [10, 11],
-          ke: [9],
-          za: [9, 10],
-          my: [9, 10],
-          th: [9, 10],
-          vn: [9, 10],
-          kr: [9, 10, 11],
-          jp: [10, 11],
-          cn: [11],
-          hk: [8],
-          tw: [9, 10],
-          de: [10, 11],
-          fr: [9, 10],
-          it: [10],
-          es: [9],
-          br: [10, 11],
-          mx: [10],
-          ar: [10, 11],
-          ru: [10],
-          tr: [10],
-          eg: [10, 11],
-          iq: [10],
-          gt: [8]
-        };
+          const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
+          const countryLengthMap = {
+            in: [10],
+            ae: [9],
+            us: [10],
+            ca: [10],
+            gb: [10, 11],
+            sa: [9],
+            ph: [10],
+            id: [10, 11],
+            sg: [8],
+            au: [9],
+            nz: [8, 9],
+            pk: [10],
+            bd: [10],
+            lk: [9],
+            ng: [10, 11],
+            ke: [9],
+            za: [9, 10],
+            my: [9, 10],
+            th: [9, 10],
+            vn: [9, 10],
+            kr: [9, 10, 11],
+            jp: [10, 11],
+            cn: [11],
+            hk: [8],
+            tw: [9, 10],
+            de: [10, 11],
+            fr: [9, 10],
+            it: [10],
+            es: [9],
+            br: [10, 11],
+            mx: [10],
+            ar: [10, 11],
+            ru: [10],
+            tr: [10],
+            eg: [10, 11],
+            iq: [10],
+            gt: [8]
+          };
 
-        function getMaxLengthForCountry() {
-          const countryCode = iti.getSelectedCountryData().iso2;
-          const allowedLengths = countryLengthMap[countryCode];
-          return allowedLengths ? Math.max(...allowedLengths) : 15;
-        }
-        let phoneTouched = false;
+          function getMaxLengthForCountry() {
+            const countryCode = iti.getSelectedCountryData().iso2;
+            const allowedLengths = countryLengthMap[countryCode];
+            return allowedLengths ? Math.max(...allowedLengths) : 15;
+          }
+          let phoneTouched = false;
 
-        $("#phone").on("focus input", function () {
-          phoneTouched = true;
-          validatePhone();
-        });
+          $("#phone").on("focus input", function () {
+            phoneTouched = true;
+            validatePhone();
+          });
 
-        phoneInput.addEventListener("input", () => {
-          phoneInput.value = phoneInput.value.replace(/\D/g, "");
-          const maxLength = getMaxLengthForCountry();
-          if (phoneInput.value.length > maxLength) {
+          phoneInput.addEventListener("input", () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, "");
+            const maxLength = getMaxLengthForCountry();
+            if (phoneInput.value.length > maxLength) {
+              phoneInput.value = phoneInput.value.slice(0, maxLength);
+            }
+            validatePhone();
+          });
+
+          phoneInput.addEventListener("countrychange", () => {
+            const maxLength = getMaxLengthForCountry();
             phoneInput.value = phoneInput.value.slice(0, maxLength);
-          }
-          validatePhone();
-        });
+            validatePhone();
+          });
 
-        phoneInput.addEventListener("countrychange", () => {
-          const maxLength = getMaxLengthForCountry();
-          phoneInput.value = phoneInput.value.slice(0, maxLength);
-          validatePhone();
-        });
-
-        function validateName() {
-          const val = $("#name").val().trim();
-          if (!val || val.length > 30) {
-            $("#nameError").removeClass("d-none");
-            return false;
+          function validateName() {
+            const val = $("#name").val().trim();
+            if (!val || val.length > 30) {
+              $("#nameError").removeClass("d-none");
+              return false;
+            }
+            $("#nameError").addClass("d-none");
+            return true;
           }
-          $("#nameError").addClass("d-none");
-          return true;
-        }
-        function validateCompName() {
-          const val = $("#comp_name").val().trim();
-          if (!val || val.length > 30) {
-            $("#comp_nameError").removeClass("d-none");
-            return false;
+          function validateCompName() {
+            const val = $("#comp_name").val().trim();
+            if (!val || val.length > 30) {
+              $("#comp_nameError").removeClass("d-none");
+              return false;
+            }
+            $("#comp_nameError").addClass("d-none");
+            return true;
           }
-          $("#comp_nameError").addClass("d-none");
-          return true;
-        }
 
-        function validateEmail() {
-          const val = $("#email").val().trim();
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!val || !emailPattern.test(val)) {
-            $("#emailError").removeClass("d-none");
-            return false;
+          function validateEmail() {
+            const val = $("#email").val().trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !emailPattern.test(val)) {
+              $("#emailError").removeClass("d-none");
+              return false;
+            }
+            $("#emailError").addClass("d-none");
+            return true;
           }
-          $("#emailError").addClass("d-none");
-          return true;
-        }
 
-        function validatePhone() {
-          const phoneNational = phoneInput.value;
-          const selectedCountry = iti.getSelectedCountryData().iso2;
-          const validLengths = countryLengthMap[selectedCountry];
-          if (!phoneTouched) {
+          function validatePhone() {
+            const phoneNational = phoneInput.value;
+            const selectedCountry = iti.getSelectedCountryData().iso2;
+            const validLengths = countryLengthMap[selectedCountry];
+            if (!phoneTouched) {
+              $("#phoneError").addClass("d-none");
+              return false;
+            }
+            if (!iti.isValidNumber()) {
+              $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (fakeNumbers.includes(phoneNational)) {
+              $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+              return false;
+            }
+
+            if (validLengths && !validLengths.includes(phoneNational.length)) {
+              $("#phoneError")
+                .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
+                .removeClass("d-none");
+              return false;
+            }
+
             $("#phoneError").addClass("d-none");
-            return false;
-          }
-          if (!iti.isValidNumber()) {
-            $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-            return false;
+            return true;
           }
 
-          if (fakeNumbers.includes(phoneNational)) {
-            $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-            return false;
+          function validateAgents() {
+            if (!$("#agents").val()) {
+              $("#agentsError").removeClass("d-none");
+              return false;
+            }
+            $("#agentsError").addClass("d-none");
+            return true;
           }
 
-          if (validLengths && !validLengths.includes(phoneNational.length)) {
-            $("#phoneError")
-              .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
-              .removeClass("d-none");
-            return false;
+          function validateKnowruno() {
+            if (!$("#know_runo").val()) {
+              $("#knowError").removeClass("d-none");
+              return false;
+            }
+            $("#knowError").addClass("d-none");
+            return true;
           }
 
-          $("#phoneError").addClass("d-none");
-          return true;
-        }
+          $("#name").on("input", validateName);
+          $("#email").on("input", validateEmail);
+          $("#phone").on("input", validatePhone);
+          $("#comp_name").on("input", validateCompName);
+          $("#agents").on("change", validateAgents);
+          $("#know_runo").on("change", validateKnowruno);
 
-        function validateAgents() {
-          if (!$("#agents").val()) {
-            $("#agentsError").removeClass("d-none");
-            return false;
-          }
-          $("#agentsError").addClass("d-none");
-          return true;
-        }
+          $("#demo-form").on("submit", function (event) {
+            event.preventDefault();
 
-        function validateKnowruno() {
-          if (!$("#know_runo").val()) {
-            $("#knowError").removeClass("d-none");
-            return false;
-          }
-          $("#knowError").addClass("d-none");
-          return true;
-        }
+            const validName = validateName();
+            const validEmail = validateEmail();
+            const validPhone = validatePhone();
+            const validCompName = validateCompName();
+            const validAgents = validateAgents();
+            const validKnowruno = validateKnowruno();
 
-        $("#name").on("input", validateName);
-        $("#email").on("input", validateEmail);
-        $("#phone").on("input", validatePhone);
-        $("#comp_name").on("input", validateCompName);
-        $("#agents").on("change", validateAgents);
-        $("#know_runo").on("change", validateKnowruno);
+            if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+              return;
+            }
 
-        $("#demo-form").on("submit", function (event) {
-          event.preventDefault();
+            const formData = $(this)
+              .serializeArray()
+              .reduce(function (obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
 
-          const validName = validateName();
-          const validEmail = validateEmail();
-          const validPhone = validatePhone();
-          const validCompName = validateCompName();
-          const validAgents = validateAgents();
-          const validKnowruno = validateKnowruno();
+            formData["your_phone"] = iti.getNumber(); // international format
+            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
 
-          if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
-            return;
-          }
+            const uuid = $(this).data("uuid");
 
-          const formData = $(this)
-            .serializeArray()
-            .reduce(function (obj, item) {
-              obj[item.name] = item.value;
-              return obj;
-            }, {});
-
-          formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-
-          const uuid = $(this).data("uuid");
-
-          submitForm("demo-form", formData, uuid);
+            submitForm("demo-form", formData, uuid);
+          });
         });
       });
     </script>
@@ -3001,24 +4077,12 @@
       </div>
     </div>
 
-    <!-- Core Libraries (Deferred) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="js/jquery.slicknav.js" defer></script>
-    <script src="js/jquery.magnific-popup.min.js" defer></script>
-    <script src="js/SmoothScroll.js" defer></script>
-    <script src="js/parallaxie.js" defer></script>
-    <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-    <!-- Custom JS (Deferred) -->
     <script src="js/function.js" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (typeof WOW !== "undefined") {
-          new WOW().init();
-        }
-      });
-    </script>
+
     <!-- UTM Tracker -->
     <script>
       /*Testimonials Slider */
@@ -3068,7 +4132,7 @@
     <script>
       // Don't load the widget initially
       window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+      $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
 
       // Function to inject the script
       function loadZohoWidget() {
@@ -3088,8 +4152,8 @@
         window.removeEventListener("touchstart", initZohoOnScroll);
       }
 
-      window.addEventListener("scroll", initZohoOnScroll, { passive: true });
-      window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
+      window.addEventListener("scroll", initZohoOnScroll, {passive: true});
+      window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
     </script>
   </body>
 </html>

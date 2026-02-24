@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- IMPORTANT: Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>Download Runo App</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 40px;
+        background: #f5f7fa;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      .icons {
+        margin-top: 20px;
+      }
+      .icons a {
+        margin: 10px;
+        display: inline-block;
+      }
+      .icons img {
+        width: 60px;
+      }
+      .note {
+        margin-top: 20px;
+        color: #666;
+      }
+    </style>
+    <script>
+      function getUTMParams() {
+        var params = new URLSearchParams(window.location.search);
+
+        var utm_source = params.get("utm_source") || "";
+        var utm_campaign = params.get("utm_campaign") || "";
+
+        return "utm_source=" + encodeURIComponent(utm_source) + "&utm_campaign=" + encodeURIComponent(utm_campaign);
+      }
+
+      function redirectToStore() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        var isIOS = /iPad|iPhone|iPod/.test(userAgent);
+        var isAndroid = /android/i.test(userAgent);
+
+        var isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        var isSmallScreen = window.innerWidth <= 1024;
+
+        var utmParams = getUTMParams();
+
+        var finalIosUrl = "https://apps.apple.com/us/app/runo-outbound-call-center-crm/id1528004506?" + utmParams;
+
+        var finalAndroidUrl = "https://play.google.com/store/apps/details?id=in.runo.call_crm&hl=en_IN&" + utmParams;
+
+        document.getElementById("iosLink").href = finalIosUrl;
+        document.getElementById("androidLink").href = finalAndroidUrl;
+
+        var redirectUrl = null;
+
+        if (isIOS || (isTouchDevice && isSmallScreen && /Mac/.test(userAgent))) {
+          redirectUrl = finalIosUrl;
+        } else if (isAndroid || (isTouchDevice && isSmallScreen)) {
+          redirectUrl = finalAndroidUrl;
+        }
+
+        // Try store redirect
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        }
+
+        // ALWAYS fallback → runo.ai after 5 sec
+        setTimeout(function () {
+          window.location.href = "https://runo.ai?" + utmParams;
+        }, 7000);
+      }
+
+      window.onload = redirectToStore;
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Download Runo App</h2>
+
+      <p>You are being redirected to the correct app store...</p>
+
+      <div class="icons">
+        <a id="iosLink" href="#">
+          <img src="img/app-ico.png" alt="Download on App Store" />
+        </a>
+
+        <a id="androidLink" href="#">
+          <img src="img/play-ico.png" alt="Get it on Google Play" />
+        </a>
+      </div>
+
+      <p class="note">If you are not redirected automatically, please select your device above.</p>
+    </div>
+  </body>
+</html>

@@ -48,19 +48,23 @@
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
-
-    <!-- Swiper CSS (mobile only) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <!-- Swiper CSS -->
+    <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
     <!-- intl-tel-input CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+    <link rel="preload" href="/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
+    <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+      <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
+
+    <!-- JS (defer) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -71,7 +75,7 @@
         function loadGTM() {
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
@@ -82,63 +86,13 @@
         }
 
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, { timeout: 4000 });
+          requestIdleCallback(loadGTM, {timeout: 4000});
         } else {
           setTimeout(loadGTM, 4000);
         }
       });
     </script>
     <!-- End Google Tag Manager -->
-    <script>
-      setTimeout(() => {
-        // Facebook Pixel
-        !(function (f, b, e, v, n, t, s) {
-          if (f.fbq) return;
-          n = f.fbq = function () {
-            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-          };
-          if (!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = "2.0";
-          n.queue = [];
-          t = b.createElement(e);
-          t.async = !0;
-          t.src = v;
-          s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s);
-        })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      }, 4000);
-    </script>
-    <script type="text/javascript">
-      // ✅ Initialize CleverTap object
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: []
-      };
-
-      // ✅ Your account ID and region
-      clevertap.account.push({ id: "6Z8-RRZ-957Z" });
-      clevertap.region = "eu1";
-
-      // ✅ Privacy settings for local testing
-      clevertap.privacy.push({ optOut: false });
-      clevertap.privacy.push({ useIP: false });
-
-      // ✅ Load from CloudFront fallback CDN (working globally)
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script>
 
     <!-- Inline Critical Font-Face (latin only for Inter) -->
     <style>
@@ -657,12 +611,19 @@
         color: #f44336 !important;
       }
 
+      .main-menu ul li.submenu > a {
+        display: inline-flex;
+        align-items: center;
+      }
+
       .main-menu ul li.submenu > a:after {
-        content: "\f107";
-        font-family: "FontAwesome";
-        font-weight: 900;
-        font-size: 14px;
+        content: "";
         margin-left: 8px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #000;
       }
 
       .main-menu ul li a:hover,
@@ -818,6 +779,9 @@
       .slicknav_nav .slicknav_row,
       .slicknav_nav li a {
         position: relative;
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
         font-size: 16px;
         font-weight: 400;
         text-transform: capitalize;
@@ -846,13 +810,16 @@
       }
 
       .slicknav_arrow:after {
-        content: "\f107";
-        font-family: "FontAwesome";
-        font-weight: 900;
-        font-size: 12px;
-        margin-left: 8px;
-        color: var(--primary-color);
+        content: "";
         position: absolute;
+
+        width: 0;
+        height: 0;
+
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--primary-color);
+
         /*right: 15px; arrow in mobile menu next to text */
         top: 50%;
         transform: translateY(-50%);
@@ -1473,24 +1440,40 @@
         margin-bottom: 18px;
       }
     </style>
+    <script type="text/javascript">
+      // ✅ Initialize CleverTap object
+      var clevertap = {
+        event: [],
+        profile: [],
+        account: [],
+        onUserLogin: [],
+        notifications: [],
+        privacy: []
+      };
+
+      // ✅ Your account ID and region
+      clevertap.account.push({id: "6Z8-RRZ-957Z"});
+      clevertap.region = "eu1";
+
+      // ✅ Privacy settings for local testing
+      clevertap.privacy.push({optOut: false});
+      clevertap.privacy.push({useIP: false});
+
+      // ✅ Load from CloudFront fallback CDN (working globally)
+      (function () {
+        var wzrk = document.createElement("script");
+        wzrk.type = "text/javascript";
+        wzrk.async = true;
+        wzrk.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(wzrk, s);
+      })();
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <!-- Hello Bar Start -->
-    <section class="hello-bar text-center py-2">
-      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center position-relative">
-        <p class="mb-0">
-          🚀 Runo named
-          <strong>Global Indian MSME of the Year in Sales Tech!</strong>
-          Thanks to 3500+ businesses using Runo. 🙏
-        </p>
-        <button type="button" class="close-hello" aria-label="Close">&times;</button>
-      </div>
-    </section>
-    <!-- Hello Bar End -->
 
     <script>
       // Hide hello bar on close click
@@ -1889,7 +1872,20 @@
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                               <g>
                                 <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
-                                <path d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
+                                <path
+                                  d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#000000"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#000000"
+                                  class=""
+                                ></path>
                                 <path d="M86 395.999V56.001h238m57 0h45v339.998" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                 <path d="M35 400.999h442" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#000000" class=""></path>
                                 <path d="M327.5 11h47v224.51L351 283.5l-23.5-47.99zM332.5 218.94h37" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#33cccc" class="" opacity="1"></path>
@@ -1919,7 +1915,21 @@
                                   data-original="#000000"
                                   class=""
                                 ></path>
-                                <path d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#ff5730" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.9256" data-original="#33cccc" class="" opacity="1"></path>
+                                <path
+                                  d="M216.437 266.999h-40.15M174.5 300v-66c0-12.101 9.9-22 22-22h0c12.1 0 22 9.9 22 22v66M337.5 212v88M258.5 300.001V212h22c12.1 0 22 9.9 22 22s-9.9 22-22 22h-17.874"
+                                  style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  fill="none"
+                                  stroke="#ff5730"
+                                  stroke-width="22"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-miterlimit="22.9256"
+                                  data-original="#33cccc"
+                                  class=""
+                                  opacity="1"
+                                ></path>
                               </g>
                             </svg>
                             API Documentation
@@ -2633,9 +2643,19 @@
             </div>
           </div>
           <!-- Navigation Buttons -->
+          <!-- Custom navigation buttons below -->
           <div class="swiper-nav-buttons text-center">
-            <button class="swiper-custom-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="swiper-custom-next"><i class="fas fa-chevron-right"></i></button>
+            <button class="swiper-custom-prev">
+              <!-- LEFT ARROW -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="swiper-custom-next">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -2718,7 +2738,13 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="usecaseHeading1">
                       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse1" aria-expanded="true" aria-controls="usecaseCollapse1">
-                        <span class="icon-box"><i class="fas fa-chart-line"></i></span>
+                        <span class="icon-box">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 17 9 11 13 15 21 7"></polyline>
+                            <polyline points="14 7 21 7 21 14"></polyline>
+                          </svg>
+                        </span>
+
                         How does Runo’s WhatsApp CRM help sales teams?
                       </button>
                     </h2>
@@ -2731,7 +2757,14 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="usecaseHeading2">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse2" aria-expanded="false" aria-controls="usecaseCollapse2">
-                        <span class="icon-box"><i class="fas fa-headset"></i></span>
+                        <span class="icon-box">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                            <path d="M21 18a2 2 0 01-2 2h-1v-6h3z"></path>
+                            <path d="M3 18a2 2 0 002 2h1v-6H3z"></path>
+                          </svg>
+                        </span>
+
                         Can customer support teams resolve tickets via Runo’s WhatsApp CRM?
                       </button>
                     </h2>
@@ -2744,7 +2777,15 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="usecaseHeading3">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usecaseCollapse3" aria-expanded="false" aria-controls="usecaseCollapse3">
-                        <span class="icon-box"><i class="fas fa-calendar-alt"></i></span>
+                        <span class="icon-box">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                          </svg>
+                        </span>
+
                         Is Runo’s WhatsApp CRM suitable for scheduling and reminders?
                       </button>
                     </h2>
@@ -2855,10 +2896,17 @@
             <div class="testimonial-arrows">
               <div class="testimonial-nav-buttons gap-2">
                 <button class="testimonial-prev-btn">
-                  <i class="fas fa-chevron-left"></i>
+                  <!-- LEFT ARROW -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
                 </button>
+
                 <button class="testimonial-next-btn">
-                  <i class="fas fa-chevron-right"></i>
+                  <!-- RIGHT ARROW -->
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -3051,19 +3099,42 @@
         <div class="store-buttons animate__animated animate__fadeIn" data--delay="0.8s">
           <div class="row justify-content-center text-start" style="max-width: 800px; margin: 30px auto">
             <div class="col-md-6 mb-3">
-              <i class="fa fa-check-circle me-2"></i>
+              <span class="icon-check me-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 12 15 16 9"></polyline>
+                </svg>
+              </span>
               Unified communication dashboard
             </div>
+
             <div class="col-md-6 mb-3">
-              <i class="fa fa-check-circle me-2"></i>
+              <span class="icon-check me-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 12 15 16 9"></polyline>
+                </svg>
+              </span>
               Automated campaign management
             </div>
+
             <div class="col-md-6 mb-3">
-              <i class="fa fa-check-circle me-2"></i>
+              <span class="icon-check me-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 12 15 16 9"></polyline>
+                </svg>
+              </span>
               Real-time analytics & reporting
             </div>
+
             <div class="col-md-6 mb-3">
-              <i class="fa fa-check-circle me-2"></i>
+              <span class="icon-check me-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="9 12 12 15 16 9"></polyline>
+                </svg>
+              </span>
               Enterprise-grade security
             </div>
           </div>
@@ -3088,15 +3159,39 @@
               <li><a href="/partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
             <h6 class="text-white fw-bold mt-5 mb-3">CONTACT</h6>
-            <a href="mailto:care@runo.ai">
-              <p class="mb-1 text-white ptb-5">
-                <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:care@runo.ai" class="d-flex align-items-center text-decoration-none">
+              <p class="mb-1 text-white d-flex align-items-center">
+                <!-- Email SVG -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <polyline points="3 7 12 13 21 7"></polyline>
+                </svg>
                 care@runo.ai
               </p>
             </a>
-            <a href="tel:+91 8179880074">
-              <p class="text-white ptb-5">
-                <i class="fas fa-phone me-2"></i>
+
+            <a href="tel:+918179880074" class="d-flex align-items-center text-decoration-none">
+              <p class="text-white d-flex align-items-center">
+                <!-- Phone SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 
+               19.79 19.79 0 0 1-8.63-3.07 
+               19.5 19.5 0 0 1-6-6 
+               19.79 19.79 0 0 1-3.07-8.67 
+               A2 2 0 0 1 4.11 2h3 
+               a2 2 0 0 1 2 1.72 
+               12.84 12.84 0 0 0 .7 2.81 
+               2 2 0 0 1-.45 2.11L8.09 9.91 
+               a16 16 0 0 0 6 6 
+               l1.27-1.27 
+               a2 2 0 0 1 2.11-.45 
+               12.84 12.84 0 0 0 2.81.7 
+               A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+
                 +91 8179880074
               </p>
             </a>
@@ -3166,24 +3261,64 @@
           </div>
           <div class="col-md-3">
             <h6 class="fw-semibold text-white mb-20">Follow Us</h6>
-            <!-- Footer Social Link Start -->
+
             <div class="footer-social-links">
               <ul>
+                <!-- Facebook -->
                 <li>
-                  <a href="https://www.facebook.com/runo.in/"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/runo.in/" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.7v7A10 10 0 0022 12z" />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- Instagram -->
                 <li>
-                  <a href="https://www.instagram.com/runocrm"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/runocrm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2
+            5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-.3a1.2
+            1.2 0 110 2.4 1.2 1.2 0 010-2.4zM12 9a3 3 0 100 6 3 3 0 000-6z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- YouTube -->
                 <li>
-                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5
+            12 2.5h0s-4.9 0-8.2.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.4-.9
+            2.4S0 8.1 0 10v2c0 1.9.5 3.8.5 3.8s.2 1.7.9
+            2.4c.9.9 2.1.9 2.6 1C7.1 19.5 12 19.5 12
+            19.5s4.9 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4S24
+            13.9 24 12v-2c0-1.9-.5-3.8-.5-3.8zM9.5 15V9l6 3-6 3z"
+                      />
+                    </svg>
+                  </a>
                 </li>
+
+                <!-- LinkedIn -->
                 <li>
-                  <a href="https://in.linkedin.com/company/runo-crm"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://in.linkedin.com/company/runo-crm" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5
+            5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7
+            19H4V9h3v10zM5.5 7.7a1.7 1.7 0 110-3.4
+            1.7 1.7 0 010 3.4zM20 19h-3v-5.6c0-1.3
+            0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8
+            1.4-1.8 2.9-1.8 3.1 0 3.7 2 3.7 4.6V19z"
+                      />
+                    </svg>
+                  </a>
                 </li>
               </ul>
             </div>
-            <!-- Footer Social Link End -->
           </div>
         </div>
         <!-- Footer Copyright -->
@@ -3693,7 +3828,7 @@
     </script>
     <script>
       window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+      $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
 
       function loadZohoWidget() {
         if (document.getElementById("zsiqscript")) return; // Prevent duplicate load
@@ -3712,7 +3847,7 @@
 
       // Ensure script attaches after DOM is ready
       document.addEventListener("DOMContentLoaded", function () {
-        window.addEventListener("scroll", initZohoOnScroll, { passive: true });
+        window.addEventListener("scroll", initZohoOnScroll, {passive: true});
       });
     </script>
   </body>
