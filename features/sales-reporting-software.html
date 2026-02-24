@@ -35,7 +35,6 @@
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
-
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
@@ -43,29 +42,23 @@
     <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/runo.css" /></noscript>
 
-    <!-- Font Awesome (async) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
-
     <!-- Swiper CSS -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <link rel="preload" href="/css/swiper-bundle.min.css" as="style" />
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
     <!-- intl-tel-input CSS -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" as="style" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+    <link rel="preload" href="/css/intlTelInput.min.css" as="style" />
+    <link rel="stylesheet" href="/css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
     <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+      <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
 
     <!-- JS (defer) -->
     <script src="/js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
@@ -101,25 +94,8 @@
         font-style: normal;
         font-weight: 100 900;
         font-display: swap;
-        src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format("woff2");
+        src: url("/fonts/inter-latin.woff2") format("woff2");
         unicode-range: U+0000-00FF;
-      }
-
-      /* Override Font Awesome to use font-display: swap */
-      @font-face {
-        font-family: "Font Awesome 6 Free";
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.ttf") format("truetype");
-      }
-
-      @font-face {
-        font-family: "Font Awesome 6 Brands";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.ttf") format("truetype");
       }
     </style>
 
@@ -611,12 +587,19 @@
         color: #f44336 !important;
       }
 
+      .main-menu ul li.submenu > a {
+        display: inline-flex;
+        align-items: center;
+      }
+
       .main-menu ul li.submenu > a:after {
-        content: "\f107";
-        font-family: "FontAwesome";
-        font-weight: 900;
-        font-size: 14px;
+        content: "";
         margin-left: 8px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #000;
       }
 
       .main-menu ul li a:hover,
@@ -772,6 +755,9 @@
       .slicknav_nav .slicknav_row,
       .slicknav_nav li a {
         position: relative;
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
         font-size: 16px;
         font-weight: 400;
         text-transform: capitalize;
@@ -800,13 +786,16 @@
       }
 
       .slicknav_arrow:after {
-        content: "\f107";
-        font-family: "FontAwesome";
-        font-weight: 900;
-        font-size: 12px;
-        margin-left: 8px;
-        color: var(--primary-color);
+        content: "";
         position: absolute;
+
+        width: 0;
+        height: 0;
+
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--primary-color);
+
         /*right: 15px; arrow in mobile menu next to text */
         top: 50%;
         transform: translateY(-50%);
