@@ -230,6 +230,9 @@
         background: url("img/banner-img.webp") no-repeat center center;
         background-size: cover;
       }
+      .addon-section h5 {
+        margin-bottom: 10px;
+      }
     </style>
     <script type="text/javascript">
       // ✅ Initialize CleverTap object
@@ -1488,28 +1491,26 @@
               });
             </script>
             <div class="col-md-6 col-lg-6">
-              <div class="addon-card gradient-green">
-                <h5>AI Call Intelligence</h5>
-                <p>Get automatic call summaries, sentiment analysis, talk-time ratios, and call quality scores to coach reps and improve every conversation.</p>
+              <a href="/features/ai-call-summary">
+                <div class="addon-card gradient-green">
+                  <h5>AI Call Analytics</h5>
+                  <p>Get automatic call summaries, sentiment analysis, talk-time ratios, and call quality scores to coach reps and improve every conversation.</p>
 
-                <!-- Price Display -->
-                <div class="d-flex align-items-center justify-content-between flex-wrap">
-                  <span class="price-tag">
-                    ₹
-                    <span id="ai-price">1000</span>
-                    + GST
-                  </span>
+                  <!-- Price Display -->
+                  <!-- Price Display -->
+                  <div class="d-flex align-items-center justify-content-between flex-wrap">
+                    <span class="price-tag ai-price-layout">
+                      <del class="old-price">₹2</del>
+                      <span class="new-price">₹1</span>
+                      <span class="unit">/minute</span>
+                    </span>
 
-                  <select id="ai-credit-selector" class="form-select mt-2 mt-md-0">
-                    <option value="1000" selected>1000 Credits</option>
-                    <option value="2000">2000 Credits</option>
-                    <option value="5000">5000 Credits</option>
-                    <option value="10000">10000 Credits</option>
-                  </select>
+                    <small class="price-tag">Minimum recharge: ₹500</small>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-            <script>
+            <!--<script>
               const aiCreditSelector = document.getElementById("ai-credit-selector");
               const aiPrice = document.getElementById("ai-price");
 
@@ -1519,7 +1520,7 @@
                 // ₹1 per minute → price = credits
                 aiPrice.textContent = selectedCredits;
               });
-            </script>
+            </script>-->
 
             <div class="col-md-6 col-lg-6">
               <div class="addon-card gradient-blue">
