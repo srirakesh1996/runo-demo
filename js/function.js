@@ -256,6 +256,7 @@ function submitForm(formId, formData, formToken) {
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
 
+  // Retrieve UTM values
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
@@ -265,51 +266,123 @@ function submitForm(formId, formData, formToken) {
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
 
-  const whatsappOptIn = $("#policyCheck").is(":checked");
+  /* --------------------------------------------------
+      WHATSAPP CONSENT BOOLEAN (CleverTap ONLY)
+  -------------------------------------------------- */
+  const whatsappOptIn = $("#policyCheck").is(":checked"); // true or false
+
+  //console.log("📌 WhatsApp Opt-In Checkbox Value:", whatsappOptIn);
 
   /* --------------------------------------------------
-      🔥 ZAPIER WEBHOOK (ADDED)
+      CLEVERTAP IDENTIFY (User Profile)
   -------------------------------------------------- */
-  $.ajax({
-    type: "POST",
-    url: "https://hooks.zapier.com/hooks/catch/23828444/u0b0z1q/",
-    data: JSON.stringify({
-      name: formData.your_name || "",
-      email: formData.your_email || "",
-      phone: formData.your_phone || formData.phone || "",
-      company: formData.your_company || "",
-      teamSize: formData["custom_Sales/Calling Team Size"] || "",
-      utm_source: utmSource || "",
-      utm_campaign: utmCampaign || "",
-      whatsapp_optin: whatsappOptIn,
-      timestamp: new Date().toISOString(),
-      page_url: window.location.href,
-      user_agent: navigator.userAgent
-    }),
-    contentType: "application/json",
-    timeout: 8000
-  })
-  .done(function(response) {
-  console.log("✅ Zapier Success:", response);
+  if (typeof clevertap !== "undefined") {
+    const rawPhone = String(formData.your_phone || formData.phone || "");
+    const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
+
+    const profilePayload = {
+      Name: formData.your_name || "",
+      Email: formData.your_email || "",
+      Identity: formData.your_email || fixedPhone || "anonymous_user",
+      Phone: fixedPhone,
+      "Company Name": formData.your_company || "",
+      license_count: formData["custom_Sales/Calling Team Size"] || "",
+      KnowSource: formData["custom_We entered source"] || "",
+
+      // ⭐ OFFICIAL CLEVERTAP SUBSCRIPTION FLAG
+      "MSG-whatsapp": whatsappOptIn,
+    };
+
+    //  console.log("📤 CleverTap Identify Payload:", profilePayload);
+
+    clevertap.onUserLogin.push({ Site: profilePayload });
+  }
+
+  /* --------------------------------------------------
+      CLEVERTAP EVENT
+  -------------------------------------------------- */
+  if (typeof clevertap !== "undefined") {
+    const rawPhone = String(formData.your_phone || formData.phone || "");
+    const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
+
+    const eventPayload = {
+      Name: formData.your_name || "",
+      Email: formData.your_email || "",
+      Phone: fixedPhone,
+      "Company Name": formData.your_company || "",
+      noOflicenses: formData["custom_Sales/Calling Team Size"] || "",
+      KnowSource: formData["custom_We entered source"] || "",
+      Source: utmSource || "Website",
+      Campaign: utmCampaign || "",
+
+      // ⭐ OFFICIAL WHATSAPP PROPERTY
+      "MSG-whatsapp": whatsappOptIn,
+
+      Timestamp: new Date().toISOString(),
+    };
+
+    //  console.log("📤 CleverTap Event Payload:", eventPayload);
+
+    clevertap.event.push("submitted-lead-form", eventPayload);
+  }
+
+
+  /* --------------------------------------------------
+   🔥 ZAPIER WEBHOOK (ALL DATA - NO CORS ISSUE)
+-------------------------------------------------- */
+
+const rawPhone = String(formData.your_phone || formData.phone || "");
+const formattedPhone = rawPhone.replace(/\D/g, "");
+
+const zapierPayload = {
+  name: formData.your_name || "",
+  email: formData.your_email || "",
+  phone: formattedPhone || "",
+  company: formData.your_company || "",
+  teamSize: formData["custom_Sales/Calling Team Size"] || "",
+  knowSource: formData["custom_We entered source"] || "",
+  utm_source: utmSource || "",
+  utm_campaign: utmCampaign || "",
+  whatsapp_optin: whatsappOptIn ? "true" : "false",
+  timestamp: new Date().toISOString(),
+  page_url: window.location.href,
+  user_agent: navigator.userAgent
+};
+
+//console.log("📤 Sending to Zapier:", zapierPayload);
+
+$.ajax({
+  type: "POST",
+  url: "https://hooks.zapier.com/hooks/catch/23828444/u0b0z1q/",
+  data: zapierPayload,   // ⚠️ NOT JSON.stringify
+  timeout: 4000
+})
+.done(function(response) {
+  //console.log("✅ Zapier Success:", response);
 })
 .fail(function(xhr, status, error) {
-  console.error("❌ Zapier Error Status:", status);
-  console.error("❌ Zapier Error:", error);
-  console.error("❌ Zapier Response:", xhr.responseText);
+ // console.error("❌ Zapier Error:", status, error);
 });
+
+
+
   /* --------------------------------------------------
-      RUNO CRM API (UNCHANGED)
+      RUNO CRM API
+      (NO WhatsApp parameter included)
   -------------------------------------------------- */
   $.ajax({
     type: "POST",
-    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/`,
+    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
     data: JSON.stringify(formData),
     contentType: "application/json",
   })
     .done(function (data) {
+      //  console.log("✅ Runo API success:", data);
+
       $form[0].reset();
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
+
       $("#thankYouModal").modal("show");
     })
     .fail(function () {
@@ -321,3 +394,5 @@ function submitForm(formId, formData, formToken) {
       $btnText.text(defaultText);
     });
 }
+
+
