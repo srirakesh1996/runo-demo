@@ -1267,7 +1267,6 @@
         align-items: center;
         justify-content: center;
         font-size: 22px;
-        margin-bottom: 20px;
       }
 
       /*   .icon-box i {
@@ -1310,7 +1309,7 @@
       }
 
       .feature-crm-card p {
-        color: #555;
+        color: #111;
         font-size: 15px;
         margin-bottom: 0;
       }
@@ -1337,7 +1336,7 @@
         padding: 1.2rem;
         vertical-align: middle;
         font-size: 0.95rem;
-        color: #555;
+        color: #111;
       }
       .comparison-section td strong {
         color: #111;
@@ -1424,6 +1423,287 @@
         .section-description {
           width: 100%;
         }
+      }
+
+      .feature-crm-card .icon-box {
+        margin-bottom: 15px;
+      }
+    </style>
+
+    <!-- Virtual Numbers-->
+
+    <style>
+      .virtual-block {
+        max-width: 80%;
+        margin: auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 40px 45px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .virtual-block {
+          max-width: 100%;
+          padding: 20px;
+        }
+      }
+
+      /* Tick List Style */
+
+      .virtual-block ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 20px 0;
+      }
+
+      .virtual-block ul li {
+        position: relative;
+        padding-left: 32px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #111;
+      }
+
+      /* Circle Tick */
+      .virtual-block ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffb3713b;
+        color: #f44336;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .virtual-number-section {
+        background: #fafafa;
+        padding: 50px 0px;
+      }
+      .virtual-challenges {
+        padding: 50px 0px;
+      }
+
+      .challenge-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #ffffff;
+        padding: 18px 20px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .challenge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .challenge-card p {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .info-box {
+        background: #f4f6f8;
+        padding: 22px;
+        border-radius: 14px;
+        border: 1px solid #e5e7eb;
+        max-width: 700px;
+        margin: auto;
+        font-size: 16px;
+        color: #111;
+      }
+      .communication-card {
+        text-align: center;
+        padding: 40px 25px;
+      }
+
+      .communication-card .icon-box {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .communication-box {
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 16px;
+        padding: 60px 40px;
+      }
+
+      .subtitle {
+        color: #6b7280;
+        font-size: 16px;
+      }
+
+      .communication-card {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 35px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .communication-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      }
+
+      .communication-card p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: #1f2937;
+      }
+
+      .bottom-text {
+        font-size: 17px;
+        color: #374151;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-subtitle {
+        max-width: 720px;
+        margin: auto;
+        color: #6b7280;
+        font-size: 16px;
+      }
+
+      .runo-check-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        color: #111;
+        padding: 16px 22px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        justify-content: center;
+      }
+      @media screen and (max-width: 600px) {
+        .runo-check-card {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+      }
+      .check-icon {
+        width: 24px;
+        height: 24px;
+
+        background: #ffb3713b;
+        color: #f44336;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      .buy-number-box {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .badge-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .feature-badge {
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        color: #111;
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .free-virtual-section {
+        background: #f5f6f8;
+      }
+
+      .free-virtual-box {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 40px 45px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .free-virtual-box {
+          max-width: 90%;
+          padding: 20px;
+        }
+      }
+
+      .free-virtual-box h2 {
+        margin-bottom: 20px;
+      }
+
+      .intro-text {
+        color: #4b5563;
+        margin-bottom: 20px;
+      }
+
+      .risk-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 25px;
+      }
+
+      .risk-list li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #111;
+      }
+
+      .risk-list li::before {
+        content: "✕";
+
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffb3713b;
+        color: #f44336;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bottom-text {
+        color: #374151;
       }
     </style>
     <script type="text/javascript">
@@ -2065,255 +2345,138 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <img src="/img/whatsapp-api/whatsapp-api.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="WhatsApp Business API" />
+            <img src="/img/virtual-number/virtual-number.avif" class="pro-img img-fluid" fetchpriority="low" width="600" height="450" decoding="async" alt="Virtual Numbers" />
           </div>
         </div>
       </div>
     </div>
     <!-- Hero Section End -->
-    <!-- Clients Section Start -->
-    <section class="clients-section py-80">
+
+    <section class="virtual-number-section">
       <div class="container">
-        <div class="row">
-          <div class="clients-title text-center" data--delay="0.2s">
-            <h2 style="margin-bottom: 20px">Trusted by 3500+ Growing Teams</h2>
-            <div class="section-description"><p>Businesses across India rely on Runo’s WhatsApp Business API service to manage customer conversations, run campaigns, improve response times, and drive higher engagement.</p></div>
+        <div class="virtual-block py-80">
+          <!-- Section Title -->
+          <div class="section-title text-center mb-5">
+            <h2>What Is a Virtual Number?</h2>
           </div>
-        </div>
-        <div class="row mt-50">
-          <div class="clients-logos-wrapper" style="overflow: hidden; position: relative">
-            <div class="clients-logos">
-              <img loading="lazy" src="/img/clients/petpooja.avif" alt="Petpooja" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/shiprocket.avif" alt="Shiprocket" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/wwf.avif" alt="WWF" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/futurense-technologies.webp" alt="Futurense Technologies" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/ibis.webp" alt="Ibis" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/lokal.avif" alt="Lokal" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/reliance-nippon.webp" alt="Reliance Nippon" width="150" height="75" />
-              <!-- Logos (set 2 - duplicate for infinite loop) -->
-              <img loading="lazy" src="/img/clients/petpooja.avif" alt="Petpooja" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/shiprocket.avif" alt="Shiprocket" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/wwf.avif" alt="WWF" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/bond-bazar.webp" alt="Bond Bazar" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/confidence-petroleum.webp" alt="Confidence Petroleum" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/futurense-technologies.webp" alt="Futurense Technologies" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/go-digit.webp" alt="Go Digit" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/ibis.webp" alt="Ibis" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/invesmate.webp" alt="Invesmate" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/isbm.webp" alt="ISBM" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/karma-hyundai.webp" alt="Karma Hyundai" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/kc-overseas.webp" alt="KC Overseas" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/kotak-securities.webp" alt="Kotak Securities" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/lokal.avif" alt="Lokal" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/mini-bharat-logiestics.webp" alt="Mini Bharat Logistics" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/mswipe.webp" alt="Mswipe" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/newton-school.webp" alt="Newton School" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/property-pistol.webp" alt="Property Pistol" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/shadowfax.webp" alt="Shadowfax" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/toyoto-financial.webp" alt="Toyota Financial" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/vedantu.webp" alt="Vedantu" width="150" height="75" />
-              <img loading="lazy" src="/img/clients/reliance-nippon.webp" alt="Reliance Nippon" width="150" height="75" />
-            </div>
-          </div>
+
+          <p>A virtual number is a cloud-based phone number that works without a physical SIM or device. Calls and messages received on a virtual mobile number can be routed to multiple agents, teams, or systems through one unified dashboard.</p>
+
+          <p>Unlike traditional phone numbers, a virtual business phone number allows companies to:</p>
+
+          <ul>
+            <li>Manage calls from anywhere</li>
+            <li>Track conversations centrally</li>
+            <li>Assign calls to teams</li>
+            <li>Integrate with CRM and automation tools</li>
+          </ul>
+
+          <p>Runo offers virtual numbers in India designed specifically for growing sales and support teams.</p>
         </div>
       </div>
     </section>
-    <!-- Clients Section End -->
 
-    <style>
-      @media screen and (max-width: 768px) {
-        .faq-item .icon-box {
-          display: none;
-        }
-      }
-    </style>
-    <section class="call-tracking py-5">
-      <div class="container">
+    <section class="virtual-challenges py-80">
+      <div class="container text-center">
         <!-- Section Title -->
         <div class="section-title text-center mb-5">
-          <h2>How Does Runo's WhatsApp API Integration Work?</h2>
-          <p>Runo’s WhatsApp API integration connects your official WhatsApp Business account with the CRM, enabling teams to send, receive, automate, and analyze WhatsApp conversations all from one place.</p>
+          <h2>Why Businesses in India Choose Virtual Phone Numbers</h2>
+          <p>Indian businesses are rapidly switching from personal numbers to virtual Indian numbers for better control, scalability, and professionalism.</p>
         </div>
 
-        <!-- Step 1 -->
-        <div class="row align-items-center mb-5">
-          <!-- Left Content -->
-          <div class="col-lg-6">
-            <div class="d-flex align-items-center mb-3">
-              <span class="step-badge me-3">1</span>
-              <h3 class="mb-0">Set Up WhatsApp Business API Easily</h3>
-            </div>
+        <h4 class="mb-4 fw-semibold">Key Challenges with Traditional Numbers</h4>
 
-            <p>Get started with the official WhatsApp Business API application process through Runo.</p>
-
-            <ul>
-              <li>Quick onboarding with guided setup</li>
-              <li>Verified business WhatsApp number</li>
-              <li>Built on fully compliant WhatsApp Policies</li>
-              <li>Ideal for businesses looking for a trusted WhatsApp Business API provider in India</li>
-            </ul>
-          </div>
-
-          <!-- Right Image -->
-          <div class="col-lg-6 text-center">
-            <div class="image-wrapper">
-              <img src="/img/whatsapp-api/whatsapp1.avif" alt="Set Up WhatsApp API Integration" class="img-fluid" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="row align-items-center mb-5">
-          <!-- Left Image -->
-          <div class="col-lg-6 text-center order-lg-1 order-2">
-            <div class="image-wrapper">
-              <img src="/img/whatsapp-api/whatsapp2.avif" alt="Manage WhatsApp Conversations" class="img-fluid" />
+        <div class="row justify-content-center g-4">
+          <div class="col-md-4">
+            <div class="challenge-card">
+              <div class="icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone h-6 w-6 text-gray-700">
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                  <path d="M12 18h.01"></path>
+                </svg>
+              </div>
+              <p>Calls tied to one device or employee</p>
             </div>
           </div>
 
-          <!-- Right Content -->
-          <div class="col-lg-6 order-lg-2 order-1">
-            <div class="d-flex align-items-center mb-3">
-              <span class="step-badge me-3">2</span>
-              <h3 class="mb-0">Centralize & Manage Every WhatsApp Conversation</h3>
+          <div class="col-md-4">
+            <div class="challenge-card">
+              <div class="icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video-off h-6 w-6 text-gray-700">
+                  <path d="M10.66 6H14a2 2 0 0 1 2 2v2.5l5.248-3.062A.5.5 0 0 1 22 7.87v8.196"></path>
+                  <path d="M16 16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"></path>
+                  <path d="m2 2 20 20"></path>
+                </svg>
+              </div>
+              <p>No call tracking or recordings</p>
             </div>
-
-            <p>Bring all customer chats into one shared inbox.</p>
-
-            <ul>
-              <li>Send and receive messages using the WhatsApp API for business</li>
-              <li>Distribute chats across sales and support teams efficiently</li>
-              <li>Track replies, follow-ups, and resolution status</li>
-              <li>Maintain a complete conversation history for every lead</li>
-            </ul>
-
-            <p>Perfect for sales, support, and customer success teams handling high WhatsApp volumes.</p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="row align-items-center">
-          <!-- Left Content -->
-          <div class="col-lg-6">
-            <div class="d-flex align-items-center mb-3">
-              <span class="step-badge me-3">3</span>
-              <h3 class="mb-0">Automate Messaging & Improve Response Times</h3>
-            </div>
-
-            <p>Scale conversations without losing personal touch.</p>
-
-            <ul>
-              <li>Automated greetings, follow-ups, and notifications</li>
-              <li>Template-based messaging approved via WhatsApp API guidelines</li>
-
-              <li>Faster response times with workflow automation</li>
-            </ul>
-
-            <p>Designed for teams that want powerful automation through WhatsApp Business API integration.</p>
           </div>
 
-          <!-- Right Image -->
-          <div class="col-lg-6 text-center">
-            <div class="image-wrapper">
-              <img src="/img/whatsapp-api/whatsapp3.avif" alt="Automate WhatsApp Messaging" class="img-fluid" />
+          <div class="col-md-4">
+            <div class="challenge-card">
+              <div class="icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-6 w-6 text-gray-700">
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                  <path d="M18 17V9"></path>
+                  <path d="M13 17V5"></path>
+                  <path d="M8 17v-3"></path>
+                </svg>
+              </div>
+              <p>No performance visibility</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="challenge-card">
+              <div class="icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-frown h-6 w-6 text-gray-700">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                  <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                  <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                </svg>
+              </div>
+              <p>Poor customer experience</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="challenge-card">
+              <div class="icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down h-6 w-6 text-gray-700">
+                  <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+                  <polyline points="16 17 22 17 22 11"></polyline>
+                </svg>
+              </div>
+              <p>Hard to scale teams</p>
             </div>
           </div>
         </div>
+
+        <div class="info-box mt-5">A virtual number provider in India like Runo solves these challenges with cloud-based calling infrastructure.</div>
       </div>
     </section>
 
-    <style>
-      .call-tracking ul li {
-        color: #111 !important;
-        line-height: 2;
-      }
-
-      .call-tracking h3 {
-        font-weight: 300 !important;
-      }
-      .step-badge {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        background: #ff5430;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 22px;
-        font-weight: 700;
-      }
-
-      .image-wrapper img {
-        max-width: 80%;
-      }
-
-      @media (max-width: 767px) {
-        .image-wrapper {
-          padding: 20px;
-        }
-      }
-    </style>
-
-    <section class="metrics-section mt-70 mb-40">
-      <div class="container">
-        <div class="section-title text-center" data-wow-delay="0.3s">
-          <h2>Built for Growing Teams. Designed for Scale.</h2>
-        </div>
-
-        <div class="row justify-content-center" style="margin-top: 35px">
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="metric-value">Unified Team Inbox</div>
-            <div class="metric-label">Manage all WhatsApp conversations from one shared dashboard.</div>
-          </div>
-
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="metric-value">Automation & Templates</div>
-            <div class="metric-label">Send approved templates, automate follow-ups, and run campaigns at scale.</div>
-          </div>
-
-          <div class="col-12 col-md-4 mb-4 mb-md-0">
-            <div class="metric-value">Analytics & Insights</div>
-            <div class="metric-label">Track response times, agent performance, and engagement metrics in real time.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="features-crm-section py-5" style="background: none !important">
+    <section class="features-crm-section py-5" style="background: #fafafa !important">
       <div class="container">
         <div class="row g-4">
           <div class="section-title text-center">
-            <h2>Smart Features Designed for Business Growth</h2>
+            <h2>Runo’s Virtual Number Solution – Built for Scale</h2>
+            <p>Runo provides online virtual numbers that integrate seamlessly with your sales and support workflows.</p>
           </div>
+
+          <h4 class="mb-4 fw-semibold text-center">What You Get with Runo Virtual Numbers</h4>
 
           <!-- Card 1 -->
           <div class="col-md-6 col-lg-4">
             <div class="feature-crm-card h-100">
               <div class="icon-box blue">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2 w-5 h-5 text-accent-foreground">
-                  <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-                  <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-                  <line x1="8" x2="16" y1="12" y2="12"></line>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.15 9.81 19.8 19.8 0 0 1 .08 1.18 2 2 0 0 1 2.06 -1h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L6.21 6.79a16 16 0 0 0 6 6l1.36-1.03a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z" />
                 </svg>
               </div>
-              <h5>WhatsApp Business API Integration</h5>
-              <p>Connect WhatsApp with the CRM and internal workflows effortlessly.</p>
+              <h5>Indian Virtual Number for Business</h5>
+              <p>Get a dedicated virtual phone number India customers can call from anywhere.</p>
             </div>
           </div>
 
@@ -2321,10 +2484,13 @@
           <div class="col-md-6 col-lg-4">
             <div class="feature-crm-card h-100">
               <div class="icon-box purple">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5 text-accent-foreground"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
               </div>
-              <h5>Automated Messaging</h5>
-              <p>Trigger messages based on lead actions, stages, or customer events.</p>
+              <h5>Centralized Call Management</h5>
+              <p>All calls from your virtual number are visible in one shared dashboard—no more scattered conversations.</p>
             </div>
           </div>
 
@@ -2332,14 +2498,16 @@
           <div class="col-md-6 col-lg-4">
             <div class="feature-crm-card h-100">
               <div class="icon-box orange">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-check w-5 h-5 text-accent-foreground">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <polyline points="16 11 18 13 22 9"></polyline>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 3 21 3 21 8"></polyline>
+                  <line x1="4" y1="20" x2="21" y2="3"></line>
+                  <polyline points="21 16 21 21 16 21"></polyline>
+                  <line x1="15" y1="15" x2="21" y2="21"></line>
+                  <line x1="4" y1="4" x2="9" y2="9"></line>
                 </svg>
               </div>
-              <h5>Team & Chat Assignment</h5>
-              <p>Auto-assign chats to agents for faster resolution.</p>
+              <h5>Smart Call Routing</h5>
+              <p>Automatically route incoming calls to the right agent, team, or department based on rules.</p>
             </div>
           </div>
 
@@ -2347,13 +2515,13 @@
           <div class="col-md-6 col-lg-4 offset-md-2">
             <div class="feature-crm-card h-100">
               <div class="icon-box green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone w-5 h-5 text-accent-foreground">
-                  <path d="m3 11 18-5v12L3 14v-3z"></path>
-                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
-              <h5>Campaign Messaging</h5>
-              <p>Send personalized bulk messages using approved templates.</p>
+              <h5>Call Recording & Tracking</h5>
+              <p>Track call duration, recordings, follow-ups, and outcomes for every virtual mobile number.</p>
             </div>
           </div>
 
@@ -2361,111 +2529,367 @@
           <div class="col-md-6 col-lg-4">
             <div class="feature-crm-card h-100">
               <div class="icon-box violet">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-5 h-5 text-accent-foreground"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9"></path>
+                  <path d="M7 10h10"></path>
+                  <path d="M7 14h6"></path>
+                </svg>
               </div>
-              <h5>Performance Dashboards</h5>
-              <p>Measure replies, response time, and conversation outcomes.</p>
+              <h5>CRM Integration</h5>
+              <p>Link your virtual business phone number with your CRM to track leads and customer interactions in real time.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="home-app-cta-sm py-5 mt-20 mb-20 animate__animated animate__fadeInUp" data--delay="0.2s">
+    <section class="virtual-communication py-5">
       <div class="container">
+        <div class="communication-box text-center">
+          <div class="section-title text-center">
+            <h2>Virtual Numbers for WhatsApp & Business Communication</h2>
+            <p>Runo virtual numbers can also be used for:</p>
+          </div>
+
+          <div class="row justify-content-center g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+              <div class="communication-card">
+                <div class="icon-box mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle h-8 w-8 text-gray-700"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+                </div>
+                <p>WhatsApp Business API setup</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+              <div class="communication-card">
+                <div class="icon-box mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell h-8 w-8 text-gray-700">
+                    <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
+                    <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path>
+                  </svg>
+                </div>
+                <p>SMS notifications</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+              <div class="communication-card">
+                <div class="icon-box mx-auto mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity h-8 w-8 text-gray-700"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+                </div>
+                <p>Call tracking and follow-ups</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="bottom-text mt-5">This makes your virtual phone number India a central communication asset across channels.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-crm-section py-5" style="background: #fafafa !important">
+      <div class="container">
+        <div class="row g-4">
+          <div class="section-title text-center">
+            <h2>Virtual Number Use Cases Across Teams</h2>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up h-7 w-7 text-gray-700">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+              </div>
+              <h5>Sales Teams</h5>
+              <p>Use a virtual Indian number to manage inbound leads, track call outcomes, and improve conversions.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones h-7 w-7 text-gray-700"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>
+              </div>
+              <h5>Customer Support Teams</h5>
+              <p>Offer reliable support through a single virtual number India with call history and recordings.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box orange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone h-7 w-7 text-gray-700">
+                  <path d="m3 11 18-5v12L3 14v-3z"></path>
+                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                </svg>
+              </div>
+              <h5>Marketing Teams</h5>
+              <p>Run campaigns using a virtual phone number and track call responses accurately.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-crm-card h-100">
+              <div class="icon-box green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-7 w-7 text-gray-700">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h5>Business Owners</h5>
+              <p>Get complete visibility into calls, agent performance, and customer engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="runo-why-section py-5">
+      <div class="container text-center">
+        <div class="section-title text-center">
+          <h2>Why Choose Runo as Your Virtual Number Provider in India?</h2>
+
+          <p>Runo isn't just another online virtual number provider—we help businesses turn calls into measurable outcomes.</p>
+        </div>
+
+        <div class="row justify-content-center g-4 mb-5">
+          <div class="col-md-5">
+            <div class="runo-check-card">
+              <span class="check-icon">✓</span>
+              Trusted by 3500+ growing teams
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="runo-check-card">
+              <span class="check-icon">✓</span>
+              Built for Indian businesses
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="runo-check-card">
+              <span class="check-icon">✓</span>
+              Secure and compliant infrastructure
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="runo-check-card">
+              <span class="check-icon">✓</span>
+              CRM-ready virtual numbers
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="runo-check-card">
+              <span class="check-icon">✓</span>
+              Advanced analytics and reporting
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Box -->
+
+        <div class="buy-number-box">
+          <div class="section-title text-center">
+            <h4>Buy Indian Virtual Number with Runo</h4>
+
+            <p>If you're looking to buy Indian virtual number for your business, Runo makes it simple:</p>
+          </div>
+
+          <div class="badge-group">
+            <span class="feature-badge">Quick onboarding</span>
+            <span class="feature-badge">Indian regulatory compliance</span>
+            <span class="feature-badge">No hardware or SIM required</span>
+            <span class="feature-badge">Instant activation</span>
+            <span class="feature-badge">Scalable for growing teams</span>
+          </div>
+
+          <p class="mt-4">As a trusted virtual number provider in India, Runo ensures secure and high-quality call connectivity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desktop Two-Card Comparison -->
+    <section class="compare-web">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Virtual Number vs Personal Mobile Number</h2>
+          <p>Get complete visibility into calls, agent performance, and customer engagement.</p>
+        </div>
+
+        <div class="cards-wrapper">
+          <!-- Left Card -->
+          <div class="compare-card competitors" style="margin-right: -20px">
+            <div class="text-center">
+              <h3>Personal Number</h3>
+            </div>
+
+            <ul>
+              <li>
+                <span>Device dependency</span>
+                <strong class="text-red">Yes</strong>
+              </li>
+
+              <li>
+                <span>Team usage</span>
+                <strong class="text-red">Not possible</strong>
+              </li>
+
+              <li>
+                <span>Call tracking</span>
+                <strong class="text-red">No</strong>
+              </li>
+
+              <li>
+                <span>CRM integration</span>
+                <strong class="text-red">No</strong>
+              </li>
+
+              <li>
+                <span>Scalability</span>
+                <strong class="text-red">Limited</strong>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right Card -->
+          <div class="compare-card runo" style="margin-left: -20px; background: #fff">
+            <div class="text-center">
+              <h3>Virtual Number</h3>
+            </div>
+
+            <ul>
+              <li>
+                <span>Device dependency</span>
+                <strong class="text-green">No</strong>
+              </li>
+
+              <li>
+                <span>Team usage</span>
+                <strong class="text-green">Yes</strong>
+              </li>
+
+              <li>
+                <span>Call tracking</span>
+                <strong class="text-green">Yes</strong>
+              </li>
+
+              <li>
+                <span>CRM integration</span>
+                <strong class="text-green">Yes</strong>
+              </li>
+
+              <li>
+                <span>Scalability</span>
+                <strong class="text-green">High</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="free-virtual-box mt-30">
+          <div class="section-title text-center">
+            <h2>Can I Get a Free Virtual Number?</h2>
+          </div>
+
+          <p class="intro-text">Many users search for a free virtual number, but truly free virtual numbers usually come with:</p>
+
+          <ul class="risk-list">
+            <li>Limited reliability</li>
+            <li>No compliance</li>
+            <li>No support</li>
+            <li>High call failures</li>
+          </ul>
+
+          <p class="bottom-text">Instead of a risky free virtual number, Runo offers trial-based access and flexible pricing—ensuring quality, compliance, and business-grade performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Comparison Section -->
+    <div class="compare-mob">
+      <div class="container text-center">
+        <div class="section-title text-center">
+          <h2>Virtual Number vs Personal Mobile Number</h2>
+          <p>Get complete visibility into calls, agent performance, and customer engagement.</p>
+        </div>
+
+        <div class="comparison-wrapper">
+          <!-- Header -->
+          <div class="comparison-row header-row">
+            <div class="col-runo">Virtual Number</div>
+            <div class="col-feature">vs</div>
+            <div class="col-rest">Personal Number</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="col-runo">No</div>
+            <div class="col-feature">Device dependency</div>
+            <div class="col-rest">Yes</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="col-runo">Yes</div>
+            <div class="col-feature">Team usage</div>
+            <div class="col-rest">Not possible</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="col-runo">Yes</div>
+            <div class="col-feature">Call tracking</div>
+            <div class="col-rest">No</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="col-runo">Yes</div>
+            <div class="col-feature">CRM integration</div>
+            <div class="col-rest">No</div>
+          </div>
+
+          <div class="comparison-row footer-row">
+            <div class="col-runo">High</div>
+            <div class="col-feature">Scalability</div>
+            <div class="col-rest">Limited</div>
+          </div>
+        </div>
+      </div>
+      <div class="free-virtual-box">
+        <div class="section-title text-center">
+          <h2>Can I Get a Free Virtual Number?</h2>
+        </div>
+
+        <p class="intro-text">Many users search for a free virtual number, but truly free virtual numbers usually come with:</p>
+
+        <ul class="risk-list">
+          <li>Limited reliability</li>
+          <li>No compliance</li>
+          <li>No support</li>
+          <li>High call failures</li>
+        </ul>
+
+        <p class="bottom-text">Instead of a risky free virtual number, Runo offers trial-based access and flexible pricing—ensuring quality, compliance, and business-grade performance.</p>
+      </div>
+    </div>
+
+    <section class="home-app-cta-sm py-3 mt-20 mb-20 animate__animated animate__fadeInUp" style="background: none !important" data--delay="0.2s">
+      <div class="container" style="border: 1px solid #dfdfdf; padding: 30px; border-radius: 20px">
         <h2 class="fw-bold mb-4 color-dark" data--delay="0.4s">Get Started with Runo Virtual Numbers</h2>
         <div class="section-description">
           <p>Centralize calls, improve response times, and scale customer communication using Runo’s virtual number India solution.</p>
           <p>Start your 10-day free trial or book a demo to see how a virtual business phone number can transform your operations.</p>
         </div>
         <a href="https://web.runo.in" class="btn-dark track-btn runo-web-crm animate__animated animate__zoomIn mt-30" data--delay="0.6s">Start 10-day free trial</a>
-      </div>
-    </section>
-
-    <section class="features-crm-section py-5" style="background: none !important">
-      <div class="container">
-        <div class="row g-4">
-          <div class="section-title text-center">
-            <h2>Who Can Benefit from WhatsApp API for Business?</h2>
-          </div>
-
-          <!-- Card 1 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-crm-card h-100">
-              <div class="icon-box blue">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6 text-primary">
-                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                  <polyline points="16 7 22 7 22 13"></polyline>
-                </svg>
-              </div>
-              <h5>Sales Teams</h5>
-              <p>Engage leads faster and close deals through WhatsApp conversations.</p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-crm-card h-100">
-              <div class="icon-box purple">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones w-6 h-6 text-primary"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>
-              </div>
-              <h5>Customer Support Teams</h5>
-              <p>Provide timely, trackable support on WhatsApp at scale.</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-crm-card h-100">
-              <div class="icon-box blue">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-primary">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <circle cx="12" cy="12" r="6"></circle>
-                  <circle cx="12" cy="12" r="2"></circle>
-                </svg>
-              </div>
-              <h5>Marketing Teams</h5>
-              <p>Run compliant WhatsApp campaigns with better engagement.</p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="col-md-6 col-lg-4 offset-lg-2">
-            <div class="feature-crm-card h-100">
-              <div class="icon-box green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building w-6 h-6 text-primary">
-                  <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
-                  <path d="M9 22v-4h6v4"></path>
-                  <path d="M8 6h.01"></path>
-                  <path d="M16 6h.01"></path>
-                  <path d="M12 6h.01"></path>
-                  <path d="M12 10h.01"></path>
-                  <path d="M12 14h.01"></path>
-                  <path d="M16 10h.01"></path>
-                  <path d="M16 14h.01"></path>
-                  <path d="M8 10h.01"></path>
-                  <path d="M8 14h.01"></path>
-                </svg>
-              </div>
-              <h5>SMEs & Enterprises</h5>
-              <p>Adopt a reliable WhatsApp Business API provider businesses trust.</p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-crm-card h-100">
-              <div class="icon-box violet">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye w-6 h-6 text-primary">
-                  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-              </div>
-              <h5>Business Owners</h5>
-              <p>Get complete visibility into WhatsApp conversations and team performance.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
