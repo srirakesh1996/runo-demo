@@ -243,6 +243,76 @@
       .product-releases .tab-pane img {
         max-width: 100% !important;
       }
+
+      .upd-cont {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      @media (max-width: 767.98px) {
+        .upd-cont {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+    <style>
+      /* Mobile Release Dropdown */
+      #releaseDropdown {
+        width: 100% !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        font-family: inherit !important;
+        color: #111 !important;
+        line-height: 1.5 !important;
+
+        padding: 10px 14px !important;
+
+        border: 1px solid #757575 !important;
+        border-radius: 10px !important;
+
+        background-color: #fff !important;
+
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23111' stroke-width='2' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 12px center !important;
+        background-size: 12px !important;
+
+        box-shadow: none !important;
+      }
+
+      /* Focus State */
+      #releaseDropdown:focus {
+        outline: none !important;
+        border-color: #757575 !important;
+        box-shadow: none !important;
+        color: #111 !important;
+      }
+
+      /* Dropdown options */
+      #releaseDropdown option {
+        font-size: 13px !important;
+        font-family: inherit !important;
+        color: #111 !important;
+      }
+
+      /* Remove Bootstrap form-select styling */
+      .form-select#releaseDropdown {
+        background-color: #fff !important;
+      }
+
+      /* Optional: label styling */
+      .release-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 6px;
+        display: block;
+      }
     </style>
     <script type="text/javascript">
       // ✅ Initialize CleverTap object
@@ -576,7 +646,7 @@
     <header class="main-header">
       <div class="header-sticky">
         <nav class="navbar navbar-expand-lg">
-          <div class="container">
+          <div class="container upd-cont">
             <!-- Logo Start -->
             <a class="navbar-brand" href="/">
               <img src="img/logo.png" alt="Runo – AI-Powered SIM & Virtual Calling CRM" style="width: 100px" />
@@ -938,7 +1008,7 @@
                               <g>
                                 <path d="M152.5 193.501h168.943M152.5 238.5h172.443M152.5 283.5H256M152.5 328.5h207M421 101.002h-41.5m-57 0H210.442l-19 20H91" style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 2.6131" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2.6131" data-original="#000000" class=""></path>
                                 <path
-                                  d="M31 501h450c11 0 20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
+                                  d="M31 501h450c11 0 f20-9 20-20v-35H316l-10 10H206l-10-10H11v35c0 10.999 9 20 20 20zM482 441V121.001c0-11-9.002-20-20-20h-31m-350 .001H50c-10.998 0-20 9.001-20 20V441"
                                   style="fill-rule: evenodd; clip-rule: evenodd; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 22.9256"
                                   fill-rule="evenodd"
                                   clip-rule="evenodd"
@@ -1113,10 +1183,10 @@
     <!-- Header End -->
     <!-- Product Releases Section -->
     <section class="product-releases py-5">
-      <div class="container" style="width: 90%; max-width: 90%">
+      <div class="container upd-cont">
         <div class="row">
           <!-- Left Sidebar -->
-          <div class="col-md-3 mb-4 mb-md-0">
+          <div class="col-md-3 mb-4 mb-md-0 d-none d-md-block">
             <div class="release-sidebar shadow-sm rounded-4 p-3 bg-white">
               <h5 class="mb-3 fw-bold text-uppercase text-center" style="color: #000">Runo Updates</h5>
               <div class="list-group release-list" id="release-list" role="tablist">
@@ -1130,13 +1200,27 @@
               </div>
             </div>
           </div>
+          <!-- Mobile Release Selector -->
+          <!-- Mobile Release Selector -->
+          <div class="d-md-none mb-3">
+            <select class="form-select" id="releaseDropdown">
+              <option value="eight-zero">Release Notes v8.0</option>
+              <option value="seven-two">Release Notes v7.2</option>
+              <option value="seven-one">Release Notes v7.1</option>
+              <option value="seven-zero">Release Notes v7.0</option>
+              <option value="six-two">Release Notes v6.2</option>
+              <option value="six-one">Release Notes v6.1</option>
+              <option value="six-zero">Release Notes v6.0</option>
+            </select>
+          </div>
+
           <!-- Right Content -->
           <div class="col-md-9">
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb custom-breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active release-breadcrumb" aria-current="page">Release Notes 7.2</li>
+                <li class="breadcrumb-item active release-breadcrumb" aria-current="page">Release Notes 8.0</li>
               </ol>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -1201,13 +1285,26 @@
 
                               <ul>
                                 <li>Go to the Integrations tab and open the Webhooks section.</li>
-                                <li>Navigate to the Pre-Call Event section and click ‘Create New’ to configure a new webhook.</li>
+                                <li>
+                                  Navigate to the Pre-Call Event section and click
+                                  <strong>‘Create New’</strong>
+                                  to configure a new webhook.
+                                </li>
+
+                                <img src="img/eight-zero/1.avif" alt="Webhook Configuration" />
+
                                 <li>Enter the webhook endpoint URL where you want the call initiation event data to be sent and map the available pre-call variables to the payload keys used by your external system.</li>
 
-                                <li>Once the mapping is complete, use the Test option to validate the configuration and then click Save.</li>
-
-                                <li>As simple as that to activate a webhook and start receiving call initiation event data with out any dependency.</li>
+                                <li>
+                                  Once the mapping is complete, use the
+                                  <strong>Test</strong>
+                                  option to validate the configuration and then click
+                                  <strong>Save</strong>
+                                  .
+                                </li>
+                                <img src="img/eight-zero/2.avif" alt="Webhook Testing" />
                               </ul>
+                              <p>As simple as that to activate a webhook and start receiving call initiation event data with out any dependency.</p>
                             </div>
                           </div>
                         </div>
@@ -1240,12 +1337,31 @@
                               <p><strong>How to use</strong></p>
 
                               <ul>
-                                <li>Go to Integrations → Webhooks</li>
-                                <li>Open the AI Call Event Webhook</li>
-                                <li>Click Create New</li>
-                                <li>Enter the webhook endpoint and configure security settings</li>
-                                <li>Map AI insight variables to payload fields</li>
-                                <li>Save the configuration to start receiving AI insights automatically</li>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and under the
+                                  <strong>Webhooks</strong>
+                                  section, go to the
+                                  <strong>AI Call Event Webhook</strong>
+                                </li>
+                                <img src="img/eight-zero/3.avif" alt="AI Call Event Webhook" />
+
+                                <li>
+                                  Click
+                                  <strong>Create New</strong>
+                                  to configure a new webhook.
+                                </li>
+
+                                <li>Enter the webhook endpoint URL and configure the required settings.</li>
+
+                                <li>Next, map the available AI insight variables to the payload fields used by your external system.</li>
+
+                                <li>
+                                  Once the mapping is done, click
+                                  <strong>Save</strong>
+                                  to start receiving AI-generated call insights automatically.
+                                </li>
                               </ul>
                             </div>
                           </div>
@@ -1269,11 +1385,24 @@
                                 <li>High-level overview of WhatsApp Business Account performance</li>
                                 <li>Tracks key messaging metrics, including delivered, read, and failed messages</li>
                                 <li>Helps quickly identify delivery issues and monitor messaging reliability</li>
-                                <li>Breakdown of template usage across marketing, utility, service, and authentication categories</li>
-                                <li>Aggregated insights by phone number and WABA ID for better monitoring</li>
+                                <li>
+                                  Breakdown of template usage across
+                                  <strong>marketing, utility, service, and authentication</strong>
+                                  categories
+                                </li>
+                                <li>
+                                  Aggregated insights by
+                                  <strong>phone number and WABA ID</strong>
+                                  for better monitoring
+                                </li>
                                 <li>Supports capacity planning and troubleshooting for WhatsApp messaging workflows</li>
-                                <li>Report available for download from the Request Reports section</li>
+                                <li>
+                                  Report available for download from the
+                                  <strong>Request Reports</strong>
+                                  section
+                                </li>
                               </ul>
+                              <img src="img/eight-zero/13.avif" alt="WABA Health Reports" />
                             </div>
                           </div>
                         </div>
@@ -1307,12 +1436,37 @@
                               <p><strong>How to use</strong></p>
 
                               <ul>
-                                <li>Go to Integrations tab → Webhooks</li>
-                                <li>Open the Interactions events</li>
-                                <li>Click Create New</li>
-                                <li>Select CRM Integration or Webhook</li>
-                                <li>Map the required fields and save the configuration</li>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and open the
+                                  <strong>Webhooks</strong>
+                                  section.
+                                </li>
+                                <li>
+                                  Navigate to the
+                                  <strong>Interaction Events</strong>
+                                  section and click
+                                  <strong>Create New</strong>
+                                  to set up a new integration.
+                                </li>
+                                <img src="img/eight-zero/4.avif" alt="Interactions Events" />
+                                <li>
+                                  Select whether you want to configure a
+                                  <strong>CRM Integration</strong>
+                                  or a
+                                  <strong>Webhook</strong>
+                                  .
+                                </li>
+                                <li>Map the required fields according to your CRM or webhook payload structure.</li>
+                                <li>
+                                  Once the mapping is complete, click
+                                  <strong>Save</strong>
+                                  to activate the integration.
+                                </li>
+                                <img src="img/eight-zero/5.avif" alt="Interaction Event Configuration" />
                               </ul>
+                              <p>This ensures every interaction event is automatically synced with your connected systems.</p>
                             </div>
                           </div>
                         </div>
@@ -1346,15 +1500,35 @@
                               <p><strong>How to use</strong></p>
 
                               <ul>
-                                <li>Go to the Integrations tab and open the Webhooks section.</li>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and open the
+                                  <strong>Webhooks</strong>
+                                  section.
+                                </li>
 
-                                <li>Navigate to the Call Events Webhook and click Create New to configure a new integration.</li>
+                                <li>
+                                  Navigate to the
+                                  <strong>Call Events Webhook</strong>
+                                  and click
+                                  <strong>Create New</strong>
+                                  to configure a new integration.
+                                </li>
+
+                                <img src="img/eight-zero/6.avif" alt="Post-Call Data Sync Configuration" />
 
                                 <li>Choose whether you want to set up a CRM Integration or a Webhook.</li>
 
                                 <li>Enter the required details and configure the key-value payload mappings by mapping Runo fields to your CRM or webhook payload fields.</li>
 
-                                <li>Once the mappings are configured, click Save Changes to activate the integration and start syncing post-call data automatically.</li>
+                                <img src="img/eight-zero/7.avif" alt="Post-Call Data Sync Configuration" />
+
+                                <li>
+                                  Once the mappings are configured, click
+                                  <strong>Save Changes</strong>
+                                  to activate the integration and start syncing post-call data automatically.
+                                </li>
                               </ul>
                             </div>
                           </div>
@@ -1389,19 +1563,39 @@
                               <p><strong>How to use</strong></p>
 
                               <ul>
-                                <li>Go to the AI Config tab and open AI Configuration.</li>
-                                <li>Select the process for which you want to configure AI settings.</li>
-                                <li>Choose the users who should have access to AI Call Insights for that process.</li>
-                                <li>Next, configure the minimum and maximum call duration required for automatic AI call analysis.</li>
-                                <li>Once the settings are configured, click Save to apply the changes.</li>
+                                <li>
+                                  Go to the
+                                  <strong>AI Config</strong>
+                                  tab, under
+                                  <strong>Insight Rules</strong>
+                                  , select the process for which you want to configure AI settings
+                                </li>
+                                <img src="img/eight-zero/8.avif" alt="AI Configuration Settings" />
+
+                                <li>Choose the users who should have access to AI Call Insights for that process and configure the min and max call duration required for automatic AI call analysis.</li>
+                                <li>
+                                  Once the settings are configured, click
+                                  <strong>Save</strong>
+                                  to apply the changes.
+                                </li>
+                                <img src="img/eight-zero/9.avif" alt="AI Call Insights Configuration" />
                               </ul>
 
-                              <p><strong>To manage AI report access:</strong></p>
+                              <p>
+                                To manage AI report access, go to the
+                                <strong>Roles & Permissions</strong>
+                                tab.
+                              </p>
 
-                              <ul>
-                                <li>Go to Roles & Permissions tab</li>
-                                <li>Under AI Add-ons, enable ‘Allow to Request Reports’ permission for the required users</li>
-                              </ul>
+                              <p>
+                                Under
+                                <strong>AI Add-ons</strong>
+                                , enable the
+                                <strong>“Allow to Request Reports”</strong>
+                                permission for the required users.
+                              </p>
+                              <img src="img/eight-zero/10.avif" alt="AI Call Insights Configuration" />
+                              <p>This ensures only the right users can request AI reports within your team.</p>
                             </div>
                           </div>
                         </div>
@@ -1428,15 +1622,16 @@
                                 <li>Helps AI better understand speaker roles and conversation context</li>
                                 <li>Improves accuracy of AI call summaries, insights, and analytics</li>
                                 <li>Field can be configured as optional or mandatory based on account settings</li>
+                                <img src="img/eight-zero/11.avif" alt="Process Description for Better AI Call Analysis" />
                               </ul>
                             </div>
                           </div>
                         </div>
 
-                        <!-- Allocation Rule Activity Tracking -->
+                        <!-- Allocation Rules - Activity Tracking: -->
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle23_8_0">Allocation Rule Activity Tracking</button>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle23_8_0">Allocation Rules - Activity Tracking</button>
                           </h2>
 
                           <div id="alle23_8_0" class="accordion-collapse collapse">
@@ -1455,6 +1650,7 @@
                                 <li>Rule activity logs are available directly within the Lead/Customer Interaction Timeline</li>
                                 <li>Allocation Rules dashboard now displays how many times each rule has been triggered</li>
                               </ul>
+                              <img src="img/eight-zero/12.avif" alt="Allocation Rules - Activity Tracking" />
                             </div>
                           </div>
                         </div>
@@ -1462,12 +1658,409 @@
                     </div>
 
                     <div class="tab-pane fade" id="features-8_0" role="tabpanel">
-                      <div class="accordion" id="featuresAccordion8_0"></div>
+                      <div class="accordion" id="featuresAccordion8_0">
+                        <!-- Real-Time Call Initiation Webhooks -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f11_8_0">Real-Time Call Initiation Webhooks</button>
+                          </h2>
+
+                          <div id="f11_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>With v8.0, teams can now trigger webhooks at call initiation and send pre-call event data to external systems.</p>
+
+                              <p>Admins can map available event variables to their own webhook payload structure and configure integrations directly from the product.</p>
+
+                              <p>This enables real-time workflows without waiting for the call to end or relying on backend configuration.</p>
+
+                              <p><strong>What’s new:</strong></p>
+
+                              <ul>
+                                <li>Trigger webhook events instantly when a call is initiated</li>
+                                <li>Configure webhook integrations through a self-service interface</li>
+                                <li>Define custom webhook endpoints and payload structures</li>
+                                <li>Map available pre-call variables to your own payload keys</li>
+                                <li>Add custom headers for secure integrations</li>
+                                <li>Test webhook configurations instantly before activation</li>
+                              </ul>
+
+                              <p><strong>How to use:</strong></p>
+
+                              <ul>
+                                <li>Go to the Integrations tab and open the Webhooks section.</li>
+                                <li>
+                                  Navigate to the Pre-Call Event section and click
+                                  <strong>‘Create New’</strong>
+                                  to configure a new webhook.
+                                </li>
+
+                                <img src="img/eight-zero/1.avif" alt="Webhook Configuration" />
+
+                                <li>Enter the webhook endpoint URL where you want the call initiation event data to be sent and map the available pre-call variables to the payload keys used by your external system.</li>
+
+                                <li>
+                                  Once the mapping is complete, use the
+                                  <strong>Test</strong>
+                                  option to validate the configuration and then click
+                                  <strong>Save</strong>
+                                  .
+                                </li>
+                                <img src="img/eight-zero/2.avif" alt="Webhook Testing" />
+                              </ul>
+                              <p>As simple as that to activate a webhook and start receiving call initiation event data with out any dependency.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Sync AI Call Insights via Webhooks -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f12_8_0">Sync AI Call Insights via Webhooks</button>
+                          </h2>
+
+                          <div id="f12_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>AI insights are most valuable when they can flow into the tools teams already use.</p>
+
+                              <p>With this release, AI-generated call insights from Runo can now be automatically shared with external systems through webhooks.</p>
+
+                              <p>Admins can map AI analysis variables and send them directly to their own systems.</p>
+
+                              <p><strong>What’s new</strong></p>
+
+                              <ul>
+                                <li>Automatically send AI-generated call summaries and insights to webhook endpoints</li>
+                                <li>Access AI variables such as sentiment analysis, filler word detection, and more</li>
+                                <li>Map AI variables to custom payload keys for external integrations</li>
+                                <li>Event-based webhook trigger after AI analysis is completed</li>
+                                <li>Configure endpoints, security keys, and payload mappings from the Webhooks panel</li>
+                                <li>Enables automated CRM updates and post-call workflows using AI insights</li>
+                              </ul>
+
+                              <p><strong>How to use</strong></p>
+
+                              <ul>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and under the
+                                  <strong>Webhooks</strong>
+                                  section, go to the
+                                  <strong>AI Call Event Webhook</strong>
+                                </li>
+                                <img src="img/eight-zero/3.avif" alt="AI Call Event Webhook" />
+
+                                <li>
+                                  Click
+                                  <strong>Create New</strong>
+                                  to configure a new webhook.
+                                </li>
+
+                                <li>Enter the webhook endpoint URL and configure the required settings.</li>
+
+                                <li>Next, map the available AI insight variables to the payload fields used by your external system.</li>
+
+                                <li>
+                                  Once the mapping is done, click
+                                  <strong>Save</strong>
+                                  to start receiving AI-generated call insights automatically.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- WABA Health Reports -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f13_8_0">WABA Health Reports</button>
+                          </h2>
+
+                          <div id="f13_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>Understanding WABA performance is critical as messaging volumes grow.</p>
+
+                              <p>With 8.0, we introduced the WABA Health Report, giving teams a clear overview of WhatsApp Business Account activity, delivery performance, and template usage.</p>
+
+                              <p><strong>What’s new:</strong></p>
+
+                              <ul>
+                                <li>High-level overview of WhatsApp Business Account performance</li>
+                                <li>Tracks key messaging metrics, including delivered, read, and failed messages</li>
+                                <li>Helps quickly identify delivery issues and monitor messaging reliability</li>
+                                <li>
+                                  Breakdown of template usage across
+                                  <strong>marketing, utility, service, and authentication</strong>
+                                  categories
+                                </li>
+                                <li>
+                                  Aggregated insights by
+                                  <strong>phone number and WABA ID</strong>
+                                  for better monitoring
+                                </li>
+                                <li>Supports capacity planning and troubleshooting for WhatsApp messaging workflows</li>
+                                <li>
+                                  Report available for download from the
+                                  <strong>Request Reports</strong>
+                                  section
+                                </li>
+                              </ul>
+                              <img src="img/eight-zero/13.avif" alt="WABA Health Reports" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <!-- New Features -->
                     <div class="tab-pane fade" id="enhancements-8_0" role="tabpanel">
-                      <div class="accordion" id="enhAccordion8_0"></div>
+                      <div class="accordion" id="enhAccordion8_0">
+                        <!-- Sync Interaction Events to CRM & Webhooks -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e19_8_0">Sync Interaction Events to CRM & Webhooks</button>
+                          </h2>
+
+                          <div id="e19_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>CRM updates shouldn’t depend on backend support.</p>
+
+                              <p>With v8.0, Runo now provides a centralized interface to sync interaction data with Zoho, HubSpot, and custom webhook endpoints. Admins can configure integrations, map fields, and manage webhook payloads directly from the product.</p>
+
+                              <p>This brings faster setup and more reliable data flow across systems.</p>
+
+                              <p><strong>What’s new:</strong></p>
+
+                              <ul>
+                                <li>Sync interaction events seamlessly with Zoho, HubSpot, or custom webhooks</li>
+                                <li>Configure CRM field mapping and webhook payload mapping from a single UI</li>
+                                <li>Built-in validation to prevent duplicate or incorrect integration setups</li>
+                                <li>Real-time logs and error indicators for easier troubleshooting</li>
+                                <li>Email alerts to quickly identify integration issues</li>
+                              </ul>
+
+                              <p><strong>How to use</strong></p>
+
+                              <ul>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and open the
+                                  <strong>Webhooks</strong>
+                                  section.
+                                </li>
+                                <li>
+                                  Navigate to the
+                                  <strong>Interaction Events</strong>
+                                  section and click
+                                  <strong>Create New</strong>
+                                  to set up a new integration.
+                                </li>
+                                <img src="img/eight-zero/4.avif" alt="Interactions Events" />
+                                <li>
+                                  Select whether you want to configure a
+                                  <strong>CRM Integration</strong>
+                                  or a
+                                  <strong>Webhook</strong>
+                                  .
+                                </li>
+                                <li>Map the required fields according to your CRM or webhook payload structure.</li>
+                                <li>
+                                  Once the mapping is complete, click
+                                  <strong>Save</strong>
+                                  to activate the integration.
+                                </li>
+                                <img src="img/eight-zero/5.avif" alt="Interaction Event Configuration" />
+                              </ul>
+                              <p>This ensures every interaction event is automatically synced with your connected systems.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Automatic Post-Call Data Sync -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e20_8_0">Automatic Post-Call Data Sync</button>
+                          </h2>
+
+                          <div id="e20_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>Post-call data needs to flow into CRMs and other systems for tracking, reporting, and automation.</p>
+
+                              <p>With v8.0, admins can now map post-call data fields according to their own CRM structure.</p>
+
+                              <p>Instead of relying on a fixed payload or backend support, you can configure your own key-value mappings and control exactly what data gets shared with external systems.</p>
+
+                              <p>This gives businesses greater flexibility while ensuring secure data syncing.</p>
+
+                              <p><strong>What’s new</strong></p>
+
+                              <ul>
+                                <li>Automatically sync post-call data with Zoho, HubSpot, or custom webhook endpoints</li>
+                                <li>Customize payload structures using simple key-value mapping</li>
+                                <li>Map payload variables to CRM fields through an intuitive UI</li>
+                                <li>Centralized dashboard to configure, test, and manage integrations</li>
+                                <li>HTTPS enforcement with real-time error handling and monitoring</li>
+                              </ul>
+
+                              <p><strong>How to use</strong></p>
+
+                              <ul>
+                                <li>
+                                  Go to the
+                                  <strong>Integrations</strong>
+                                  tab and open the
+                                  <strong>Webhooks</strong>
+                                  section.
+                                </li>
+
+                                <li>
+                                  Navigate to the
+                                  <strong>Call Events Webhook</strong>
+                                  and click
+                                  <strong>Create New</strong>
+                                  to configure a new integration.
+                                </li>
+
+                                <img src="img/eight-zero/6.avif" alt="Post-Call Data Sync Configuration" />
+
+                                <li>Choose whether you want to set up a CRM Integration or a Webhook.</li>
+
+                                <li>Enter the required details and configure the key-value payload mappings by mapping Runo fields to your CRM or webhook payload fields.</li>
+
+                                <img src="img/eight-zero/7.avif" alt="Post-Call Data Sync Configuration" />
+
+                                <li>
+                                  Once the mappings are configured, click
+                                  <strong>Save Changes</strong>
+                                  to activate the integration and start syncing post-call data automatically.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Smarter AI Configuration Controls -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e21_8_0">Smarter AI Configuration Controls</button>
+                          </h2>
+
+                          <div id="e21_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>With v8.0, AI configurations can now be managed at the process level, giving admins more control over who can access AI insights and when call analysis should run.</p>
+
+                              <p>This makes AI usage more structured while ensuring better operational control.</p>
+
+                              <p>Admins can also define accessibility rules, set call duration limits for auto analysis, and manage AI report permissions more clearly.</p>
+
+                              <p><strong>What’s new:</strong></p>
+
+                              <ul>
+                                <li>AI configuration settings can now be managed at the process level</li>
+                                <li>Define user accessibility using Select All, Include, or Exclude options</li>
+                                <li>Configure minimum and maximum call duration for automatic AI analysis</li>
+                                <li>Enable or disable AI rules independently for each process</li>
+                                <li>AI report access is now available under AI Add-ons permissions</li>
+                                <li>Automatic assignment of required AI Call Insights permissions based on dependencies</li>
+                                <li>AI analysis triggers only when the configured duration and accessibility conditions are met</li>
+                              </ul>
+
+                              <p><strong>How to use</strong></p>
+
+                              <ul>
+                                <li>
+                                  Go to the
+                                  <strong>AI Config</strong>
+                                  tab, under
+                                  <strong>Insight Rules</strong>
+                                  , select the process for which you want to configure AI settings
+                                </li>
+                                <img src="img/eight-zero/8.avif" alt="AI Configuration Settings" />
+
+                                <li>Choose the users who should have access to AI Call Insights for that process and configure the min and max call duration required for automatic AI call analysis.</li>
+                                <li>
+                                  Once the settings are configured, click
+                                  <strong>Save</strong>
+                                  to apply the changes.
+                                </li>
+                                <img src="img/eight-zero/9.avif" alt="AI Call Insights Configuration" />
+                              </ul>
+
+                              <p>
+                                To manage AI report access, go to the
+                                <strong>Roles & Permissions</strong>
+                                tab.
+                              </p>
+
+                              <p>
+                                Under
+                                <strong>AI Add-ons</strong>
+                                , enable the
+                                <strong>“Allow to Request Reports”</strong>
+                                permission for the required users.
+                              </p>
+                              <img src="img/eight-zero/10.avif" alt="AI Call Insights Configuration" />
+                              <p>This ensures only the right users can request AI reports within your team.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Process Description for Better AI Call Analysis -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e22_8_0">Process Description for Better AI Call Analysis</button>
+                          </h2>
+
+                          <div id="e22_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>Some Processes handle inbound support, while others focus on outbound sales or deal discussions.</p>
+
+                              <p>With this release, admins can now add a Process description while creating or editing a Process in Runo. This description helps AI understand the purpose of the Process and the type of conversations expected within it.</p>
+
+                              <p>By giving AI better context, call analysis becomes more accurate, and insights become more meaningful.</p>
+
+                              <p><strong>What’s new</strong></p>
+
+                              <ul>
+                                <li>Add a description while creating or editing a Process</li>
+                                <li>Describe the Process intent, workflow, and call type</li>
+                                <li>Helps AI better understand speaker roles and conversation context</li>
+                                <li>Improves accuracy of AI call summaries, insights, and analytics</li>
+                                <li>Field can be configured as optional or mandatory based on account settings</li>
+                                <img src="img/eight-zero/11.avif" alt="Process Description for Better AI Call Analysis" />
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Allocation Rules - Activity Tracking: -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e23_8_0">Allocation Rules - Activity Tracking</button>
+                          </h2>
+
+                          <div id="e23_8_0" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                              <p>When leads are assigned automatically through Allocation Rules, visibility is important.</p>
+
+                              <p>With this enhancement, Runo provides detailed activity logs for Allocation Rules, giving teams clear visibility into how leads are assigned and how rules are executed.</p>
+
+                              <p><strong>What’s new:</strong></p>
+
+                              <ul>
+                                <li>Visibility into how Allocation Rules are executed during lead assignments</li>
+                                <li>Shows which rule was triggered and whether rule conditions passed or failed</li>
+                                <li>Displays assigned users and skipped users along with the reason for skipping</li>
+                                <li>Tracks manual overrides to maintain a complete assignment history</li>
+                                <li>Rule activity logs are available directly within the Lead/Customer Interaction Timeline</li>
+                                <li>Allocation Rules dashboard now displays how many times each rule has been triggered</li>
+                              </ul>
+                              <img src="img/eight-zero/12.avif" alt="Allocation Rules - Activity Tracking" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -6009,6 +6602,49 @@
             currentSection = "All";
             updateBreadcrumb();
           });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = document.getElementById("releaseDropdown");
+
+        function activateTab(hash) {
+          const map = {
+            "eight-zero": "#release-8-0-content",
+            "seven-two": "#release-7-2-content",
+            "seven-one": "#release-7-1-content",
+            "seven-zero": "#release-7-0-content",
+            "six-two": "#release-6-2-content",
+            "six-one": "#release-6-1-content",
+            "six-zero": "#release-6-0-content"
+          };
+
+          const target = map[hash];
+
+          if (target) {
+            const tabLink = document.querySelector('#release-list a[href="' + target + '"]');
+
+            if (tabLink) {
+              const tab = new bootstrap.Tab(tabLink);
+              tab.show();
+            }
+
+            dropdown.value = hash;
+          }
+        }
+
+        // URL hash detection
+        const hash = window.location.hash.replace("#", "");
+
+        if (hash) {
+          activateTab(hash);
+        }
+
+        // Dropdown change
+        dropdown.addEventListener("change", function () {
+          activateTab(this.value);
+          history.replaceState(null, null, "#" + this.value);
         });
       });
     </script>
