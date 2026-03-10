@@ -1,6 +1,12 @@
 User-agent: *
-Disallow: /404.html
-Disallow: /app-download.html
+Disallow: /
 
-Sitemap: https://runo.ai/sitemap.xml
-Sitemap: https://runo.ai/blog/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
