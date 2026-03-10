@@ -63,29 +63,37 @@
 
     <!-- Google Tag Manager -->
     <script>
-      window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
+      (function () {
+        var gtmLoaded = false;
 
         function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
+
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
+
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
+        window.addEventListener("scroll", loadGTM, {once: true});
+        window.addEventListener("mousemove", loadGTM, {once: true});
+        window.addEventListener("touchstart", loadGTM, {once: true});
+
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 4000});
+          requestIdleCallback(loadGTM, {timeout: 3500});
         } else {
-          setTimeout(loadGTM, 4000);
+          setTimeout(loadGTM, 3500);
         }
-      });
+      })();
     </script>
     <!-- End Google Tag Manager -->
 
@@ -1566,18 +1574,10 @@
                           <p class="btn-link d-flex justify-content-between align-items-center mb-2" style="text-decoration: none; padding: 0px 18px; color: #ff603a !important">
                             All Features
                             <span class="ms-2 d-inline-flex align-items-center">
-  <svg xmlns="http://www.w3.org/2000/svg"
-       width="14"
-       height="14"
-       viewBox="0 0 16 16"
-       fill="none"
-       stroke="currentColor"
-       stroke-width="2"
-       stroke-linecap="round"
-       stroke-linejoin="round">
-    <polyline points="6 4 10 8 6 12"></polyline>
-  </svg>
-</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 4 10 8 6 12"></polyline>
+                              </svg>
+                            </span>
                           </p>
                           <div class="security-sec">
                             <p class="d-flex justify-content-between align-items-center mb-1" style="text-decoration: none; padding: 0px 18px; font-weight: 600">Security Policy</p>

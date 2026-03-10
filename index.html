@@ -3,82 +3,81 @@
   <head>
     <title>AI-Powered SIM Based Call Management CRM | Runo</title>
     <meta name="description" content="Runo is an AI-powered, SIM Based Call Management CRM that auto-logs calls, tracks leads, generates AI summaries, and streamlines your mobile-first sales workflow." />
+
     <link rel="canonical" href="https://runo.ai" />
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="AI-Powered SIM Based Call Management CRM | Runo" />
-    <meta property="og:description" content="Runo is an AI-powered, SIM Based Call Management CRM that auto-logs calls, tracks leads, generates AI summaries, and streamlines your mobile-first sales workflow." />
-    <!-- Twitter tags -->
-    <meta name="twitter:title" content="AI-Powered SIM Based Call Management CRM | Runo" />
-    <meta name="twitter:description" content="Runo is an AI-powered, SIM Based Call Management CRM that auto-logs calls, tracks leads, generates AI summaries, and streamlines your mobile-first sales workflow." />
-    <!-- Character Set and Compatibility -->
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Responsive Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <!-- SEO Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <!-- changed from no-index -->
     <meta name="language" content="en" />
-    <!-- Open Graph / Facebook -->
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI-Powered SIM Based Call Management CRM | Runo" />
+    <meta property="og:description" content="Runo is an AI-powered, SIM Based Call Management CRM that auto-logs calls, tracks leads, generates AI summaries, and streamlines your mobile-first sales workflow." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://runo.ai/img/og/og-home.png" />
     <meta property="og:url" content="https://runo.ai/" />
-    <!-- Twitter Card -->
+    <meta property="og:image" content="https://runo.ai/img/og/og-home.png" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI-Powered SIM Based Call Management CRM | Runo" />
+    <meta name="twitter:description" content="Runo is an AI-powered, SIM Based Call Management CRM that auto-logs calls, tracks leads, generates AI summaries, and streamlines your mobile-first sales workflow." />
     <meta name="twitter:image" content="https://runo.ai/img/og/og-home.png" />
     <meta name="twitter:url" content="https://runo.ai/" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-    <!-- Google Fonts: Inter -->
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
     </noscript>
 
-    <!-- CSS Preload + Load -->
-    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="css/runo.css" /></noscript>
+    <!-- LCP Hero Image -->
+    <link rel="preload" as="image" href="/img/banner-img.webp" fetchpriority="high" />
 
-    <!-- Swiper CSS -->
-    <link rel="preload" href="css/swiper-bundle.min.css" as="style" />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
 
-    <!-- intl-tel-input CSS -->
-    <link rel="preload" href="css/intlTelInput.min.css" as="style" />
-    <link rel="stylesheet" href="css/intlTelInput.min.css" media="print" onload="this.media='all'" />
+    <!-- Non-critical CSS -->
+    <link rel="preload" href="/css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="/css/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="/css/intlTelInput.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
-    <!-- Fallback for no-JS -->
     <noscript>
-      <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="css/intlTelInput.min.css" />
+      <link rel="stylesheet" href="/css/runo.css" />
+      <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="/css/intlTelInput.min.css" />
     </noscript>
 
-    <!-- JS (defer) -->
-    <script src="js/jquery-3.7.1.min.js" defer></script>
+    <!-- jQuery (deferred) -->
+    <script src="/js/jquery-3.7.1.min.js" defer></script>
+
+    <!-- intl tel input -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-    <!-- Google Tag Manager -->
+    <!-- Delayed Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js"
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+      setTimeout(function () {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
+      }, 2000);
     </script>
     <!-- End Google Tag Manager -->
 
