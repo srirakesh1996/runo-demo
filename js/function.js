@@ -234,7 +234,7 @@ const sheetData = {
     Page_URL: window.location.href
 };
 
-console.log("Sending lead to Google Sheets:", sheetData);
+//console.log("Sending lead to Google Sheets:", sheetData);
 
 try {
 
@@ -245,11 +245,11 @@ try {
         keepalive: true
     });
 
-    console.log("Sheets webhook triggered");
+  //  console.log("Sheets webhook triggered");
 
 } catch (e) {
 
-    console.warn("Sheets webhook failed:", e);
+    //console.warn("Sheets webhook failed:", e);
 
 }
     /* ---------------- CRM WEBHOOK ---------------- */
