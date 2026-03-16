@@ -238,7 +238,7 @@ console.log("Sending lead to Google Sheets:", sheetData);
 
 try {
 
-    fetch("https://script.google.com/macros/s/AKfycbwg7M8c4lusw-PlTE9r0guPPG3Xzl9-5Q7SK5pSbM9CH-TWkbPCofnwjLSgmJk27Z6UkQ/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwgPwdbDumSUOfUOv2tOj3i9QzQekzbmt7BLOJ8seLs2t4QwtDooMrjUumpCY3epg6xfg/exec", {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify(sheetData),
