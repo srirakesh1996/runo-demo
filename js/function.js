@@ -251,7 +251,7 @@ try {
 
     console.warn("Sheets webhook failed:", e);
 
-}s
+}
     /* ---------------- CRM WEBHOOK ---------------- */
 
     $.ajax({
