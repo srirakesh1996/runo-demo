@@ -63,37 +63,29 @@
 
     <!-- Google Tag Manager -->
     <script>
-      (function () {
-        var gtmLoaded = false;
+      window.addEventListener("load", function () {
+        if (window.gtmDidInit) return;
+        window.gtmDidInit = true;
 
         function loadGTM() {
-          if (gtmLoaded) return;
-          gtmLoaded = true;
-
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
-
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
-
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
-        window.addEventListener("scroll", loadGTM, {once: true});
-        window.addEventListener("mousemove", loadGTM, {once: true});
-        window.addEventListener("touchstart", loadGTM, {once: true});
-
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 3500});
+          requestIdleCallback(loadGTM, {timeout: 4000});
         } else {
-          setTimeout(loadGTM, 3500);
+          setTimeout(loadGTM, 4000);
         }
-      })();
+      });
     </script>
     <!-- End Google Tag Manager -->
 
@@ -2067,11 +2059,11 @@
                   <!-- Hero Buttons -->
                   <div class="hero-body Custom mt-40" data--delay="0.3s" data--duration="0.7s" style="margin-top: 30px">
                     <div class="hero-btn">
-                      <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Call CRM Banner">Book a Demo</a>
+                      <a class="btn-plain-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="Book a Demo - Hero Banner">Book a Demo</a>
                       <p class="banner-btn1">&nbsp;</p>
                     </div>
                     <div class="hero-btn">
-                      <a href="https://web.runo.in" class="btn-default-dark btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Call CRM Banner">Start 10-day free trial</a>
+                      <a href="https://web.runo.in" class="btn-default-dark btn-highlighted track-btn runo-web-crm" data-label="Start 10-day free trial - Hero Banner">Start 10-day free trial</a>
                       <p style="font-size: 13px; margin: 0px; text-align: center; color: #525252 !important">No Credit Card Required</p>
                     </div>
                   </div>
