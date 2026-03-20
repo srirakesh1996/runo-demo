@@ -214,6 +214,7 @@ function submitForm(formId, formData, formToken) {
                 form_name: "demo_form",
                 page_path: window.location.pathname,
             });
+            console.log("FORM SUBMIT FIRED");
             $form[0].reset();
             const $modal = $form.closest(".modal");
             if ($modal.length) $modal.modal("hide");
