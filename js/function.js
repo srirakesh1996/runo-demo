@@ -65,21 +65,23 @@
             },
         });
     }
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".track-btn").forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                const label = this.getAttribute("data-label");
-                const pagePath = window.location.pathname;
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: "button_click",
-                    event_category: "CTA",
-                    event_label: label,
-                    page_path: pagePath,
-                });
-            });
+  document.querySelectorAll(".track-btn").forEach(function (btn) {
+    btn.removeEventListener("click", btn._clickHandler);
+
+    btn._clickHandler = function () {
+        const label = this.getAttribute("data-label");
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: "button_click",
+            event_category: "CTA",
+            event_label: label,
+            page_path: window.location.pathname,
         });
-    });
+    };
+
+    btn.addEventListener("click", btn._clickHandler);
+});
     if ($(".popup-video").length) {
         $(".popup-video").magnificPopup({
             type: "iframe",
@@ -108,28 +110,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 document.addEventListener("DOMContentLoaded", function () {
-    const interval = setInterval(() => {
-        const buttons = document.querySelectorAll(".runo-web-crm");
-        if (buttons.length > 0) {
-            clearInterval(interval);
-            const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-            const utmSource = localStorage.getItem("utm_source");
-            const utmCampaign = localStorage.getItem("utm_campaign");
-            const baseUrl = "https://web.runo.in";
-            const params = new URLSearchParams();
-            params.append("page_name", pageName);
-            if (utmSource) params.append("utm_source", utmSource);
-            if (utmCampaign) params.append("utm_campaign", utmCampaign);
-            const finalUrl = `${baseUrl}?${params.toString()}`;
-            buttons.forEach((btn) => {
-                btn.href = finalUrl;
-                btn.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    window.location.href = finalUrl;
-                });
+let initialized = false;
+
+const interval = setInterval(() => {
+    if (initialized) return;
+
+    const buttons = document.querySelectorAll(".runo-web-crm");
+
+    if (buttons.length > 0) {
+        initialized = true;
+        clearInterval(interval);
+
+        const pageName = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+        const utmSource = localStorage.getItem("utm_source");
+        const utmCampaign = localStorage.getItem("utm_campaign");
+
+        const baseUrl = "https://web.runo.in";
+        const params = new URLSearchParams();
+
+        params.append("page_name", pageName);
+        if (utmSource) params.append("utm_source", utmSource);
+        if (utmCampaign) params.append("utm_campaign", utmCampaign);
+
+        const finalUrl = `${baseUrl}?${params.toString()}`;
+
+        buttons.forEach((btn) => {
+            btn.href = finalUrl;
+
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = finalUrl;
             });
-        }
-    }, 100);
+        });
+    }
+}, 100);
 });
 document.addEventListener("DOMContentLoaded", function () {
     const iosBtn = document.querySelector(".app-ios");
@@ -200,7 +214,7 @@ function submitForm(formId, formData, formToken) {
         };
         clevertap.event.push("submitted-lead-form", eventPayload);
     }
-  
+   
     $.ajax({
         type: "POST",
         url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
@@ -214,7 +228,6 @@ function submitForm(formId, formData, formToken) {
                 form_name: "demo_form",
                 page_path: window.location.pathname,
             });
-            console.log("FORM SUBMIT FIRED");
             $form[0].reset();
             const $modal = $form.closest(".modal");
             if ($modal.length) $modal.modal("hide");
