@@ -195,8 +195,8 @@ foreach ($blogData as $item) {
     if ($img && !preg_match('/^https?:\/\//', $img)) {
         $img = $baseURL . ltrim($img, '/');
     }
-
-    $url = $baseURL . "blog/" . basename($file);
+$slug = basename($file, '.html');
+$url = $baseURL . "blog/" . $slug;
 
     echo "<hr>";
     echo "<h3>FILE: " . basename($file) . "</h3>";
