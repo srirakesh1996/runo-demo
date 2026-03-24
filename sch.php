@@ -192,9 +192,15 @@ foreach ($blogData as $item) {
     $date  = getPublishedDate($dom);
     $faqs  = extractFAQs($dom);
 
-    if ($img && !preg_match('/^https?:\/\//', $img)) {
+if ($img && !preg_match('/^https?:\/\//', $img)) {
+
+    // If path starts with blogs → it's inside /blog/
+    if (strpos($img, 'blogs/') === 0) {
+        $img = $baseURL . 'blog/' . ltrim($img, '/');
+    } else {
         $img = $baseURL . ltrim($img, '/');
     }
+}
 $slug = basename($file, '.html');
 $url = $baseURL . "blog/" . $slug;
 
