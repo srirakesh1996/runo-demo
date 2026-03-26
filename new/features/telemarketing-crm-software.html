@@ -3467,21 +3467,11 @@
             return true;
           }
 
-          function validateKnowruno() {
-            if (!$("#know_runo").val()) {
-              $("#knowError").removeClass("d-none");
-              return false;
-            }
-            $("#knowError").addClass("d-none");
-            return true;
-          }
-
           $("#name").on("input", validateName);
           $("#email").on("input", validateEmail);
           $("#phone").on("input", validatePhone);
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
-          $("#know_runo").on("change", validateKnowruno);
 
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
@@ -3491,9 +3481,8 @@
             const validPhone = validatePhone();
             const validCompName = validateCompName();
             const validAgents = validateAgents();
-            const validKnowruno = validateKnowruno();
 
-            if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+            if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
               return;
             }
 
