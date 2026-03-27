@@ -381,6 +381,10 @@
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "404";
 
+            const selectedCountry = iti.getSelectedCountryData();
+            // ✅ Add to form data
+            formData["your_country"] = selectedCountry.name; // India
+
             const uuid = $(this).data("uuid");
 
             submitForm("demo-form", formData, uuid);

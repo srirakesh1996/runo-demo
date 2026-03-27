@@ -3693,7 +3693,7 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
-                
+
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
                   <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
@@ -4016,12 +4016,12 @@
             return true;
           }
 
-                    $("#name").on("input", validateName);
+          $("#name").on("input", validateName);
           $("#email").on("input", validateEmail);
           $("#phone").on("input", validatePhone);
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
-      
+
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
 
@@ -4030,7 +4030,7 @@
             const validPhone = validatePhone();
             const validCompName = validateCompName();
             const validAgents = validateAgents();
-          
+
             if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
               return;
             }
@@ -4044,6 +4044,10 @@
 
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
+
+            const selectedCountry = iti.getSelectedCountryData();
+            // ✅ Add to form data
+            formData["your_country"] = selectedCountry.name; // India
 
             const uuid = $(this).data("uuid");
 

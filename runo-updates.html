@@ -602,7 +602,11 @@
             }, {});
 
           formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog";
+          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Runo Updates";
+
+          const selectedCountry = iti.getSelectedCountryData();
+          // ✅ Add to form data
+          formData["your_country"] = selectedCountry.name; // India
 
           const uuid = $(this).data("uuid");
 
