@@ -430,16 +430,7 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
-                <div class="mb-1">
-                  <select name="custom_We entered source" class="form-select" id="know_runo">
-                    <option value="" disabled selected style="color: #858585">How did you get to know Runo?</option>
-                    <option value="WE - Google Search">Google Search</option>
-                    <option value="WE - I Was Referred About Runo">I was referred about Runo</option>
-                    <option value="WE - Linkedin">Linkedin</option>
-                    <option value="WE - Meta">Facebook/Instagram</option>
-                  </select>
-                  <small class="text-danger d-none" id="knowError">Please select an option.</small>
-                </div>
+
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
                   <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
@@ -618,21 +609,11 @@
           return true;
         }
 
-        function validateKnowruno() {
-          if (!$("#know_runo").val()) {
-            $("#knowError").removeClass("d-none");
-            return false;
-          }
-          $("#knowError").addClass("d-none");
-          return true;
-        }
-
         $("#name").on("input", validateName);
         $("#email").on("input", validateEmail);
         $("#phone").on("input", validatePhone);
         $("#comp_name").on("input", validateCompName);
         $("#agents").on("change", validateAgents);
-        $("#know_runo").on("change", validateKnowruno);
 
         $("#demo-form").on("submit", function (event) {
           event.preventDefault();
@@ -642,9 +623,8 @@
           const validPhone = validatePhone();
           const validCompName = validateCompName();
           const validAgents = validateAgents();
-          const validKnowruno = validateKnowruno();
 
-          if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+          if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
             return;
           }
 
@@ -1734,20 +1714,11 @@
               <h3 class="wp-block-heading"><strong>Who should use it</strong></h3>
 
               <ul class="wp-block-list">
-                <li>
-                  Sales teams and B2B marketers are building targeted email lists.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Sales teams and B2B marketers are building targeted email lists.</li>
 
-                <li>
-                  Recruiters and outreach specialists seeking verified business contacts.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Recruiters and outreach specialists seeking verified business contacts.</li>
 
-                <li>
-                  Startups, small businesses, and lean teams need simple email discovery.
-                  <a href="https://datahub.io/%40saasdatanalytics/Skrapp.io/Is-Skrapp.io-Reliable-Review-Alternatives?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Startups, small businesses, and lean teams need simple email discovery.</li>
 
                 <li>Users focused on LinkedIn-based prospecting and CRM enrichment.</li>
               </ul>
@@ -1763,10 +1734,7 @@
 
                 <li>Accurate email verification reduces bounce rates.</li>
 
-                <li>
-                  Efficient for bulk searches and list building.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Efficient for bulk searches and list building.</li>
               </ul>
 
               <h3 class="wp-block-heading"><strong>Cons</strong></h3>
@@ -1776,10 +1744,7 @@
 
                 <li>Some email data was reported as inaccurate or missing.</li>
 
-                <li>
-                  The contact database is limited for niche industries.
-                  <a href="https://www.g2.com/products/skrapp-io/reviews?qs=pros-and-cons&amp;utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>The contact database is limited for niche industries.</li>
 
                 <li>Occasional email reliability issues and false positives.</li>
               </ul>
@@ -1808,49 +1773,25 @@
               <ul class="wp-block-list">
                 <li>Fast and verified business email discovery for B2B outreach.</li>
 
-                <li>
-                  Chrome extension for quick contact extraction from LinkedIn.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Chrome extension for quick contact extraction from LinkedIn.</li>
 
-                <li>
-                  An email verifier with high accuracy to reduce bounce rates.
-                  <a href="https://www.g2.com/products/skrapp-io/reviews?qs=pros-and-cons&amp;utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>An email verifier with high accuracy to reduce bounce rates.</li>
 
-                <li>
-                  Helps automate lead list building and offline data export.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Helps automate lead list building and offline data export.</li>
 
-                <li>
-                  Supports bulk searches and domain lookups for scalable lead gen.
-                  <a href="https://skrapp.io/email-finder?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Supports bulk searches and domain lookups for scalable lead gen.</li>
               </ul>
 
               <h3 class="wp-block-heading"><strong>Ideal Business Type</strong></h3>
 
               <ul class="wp-block-list">
-                <li>
-                  Small to mid-sized businesses focused on B2B sales outreach.
-                  <a href="https://skrapp.io/blog/apollo-io-alternatives/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Small to mid-sized businesses focused on B2B sales outreach.</li>
 
-                <li>
-                  Startups and lean sales teams need efficient email sourcing.
-                  <a href="https://datahub.io/%40saasdatanalytics/Skrapp.io/Is-Skrapp.io-Reliable-Review-Alternatives?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Startups and lean sales teams need efficient email sourcing.</li>
 
-                <li>
-                  Marketing agencies are building large client prospect lists.
-                  <a href="https://skrapp.io/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Marketing agencies are building large client prospect lists.</li>
 
-                <li>
-                  Teams prioritising email list accuracy over wide CRM automation.
-                  <a href="https://skrapp.io/blog/apollo-vs-skrapp/?utm_source=chatgpt.com" target="_blank" rel="noopener"></a>
-                </li>
+                <li>Teams prioritising email list accuracy over wide CRM automation.</li>
               </ul>
 
               <h2 class="wp-block-heading">Hunter.io</h2>

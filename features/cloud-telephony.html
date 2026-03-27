@@ -3101,16 +3101,7 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
-                <div class="mb-1">
-                  <select name="custom_We entered source" class="form-select" id="know_runo">
-                    <option value="" disabled selected style="color: #858585">How did you get to know Runo?</option>
-                    <option value="WE - Google Search">Google Search</option>
-                    <option value="WE - I Was Referred About Runo">I was referred about Runo</option>
-                    <option value="WE - Linkedin">Linkedin</option>
-                    <option value="WE - Meta">Facebook/Instagram</option>
-                  </select>
-                  <small class="text-danger d-none" id="knowError">Please select an option.</small>
-                </div>
+
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
                   <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
@@ -3433,21 +3424,11 @@
             return true;
           }
 
-          function validateKnowruno() {
-            if (!$("#know_runo").val()) {
-              $("#knowError").removeClass("d-none");
-              return false;
-            }
-            $("#knowError").addClass("d-none");
-            return true;
-          }
-
           $("#name").on("input", validateName);
           $("#email").on("input", validateEmail);
           $("#phone").on("input", validatePhone);
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
-          $("#know_runo").on("change", validateKnowruno);
 
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
@@ -3457,9 +3438,8 @@
             const validPhone = validatePhone();
             const validCompName = validateCompName();
             const validAgents = validateAgents();
-            const validKnowruno = validateKnowruno();
 
-            if (!(validName && validEmail && validPhone && validCompName && validAgents && validKnowruno)) {
+            if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
               return;
             }
 
