@@ -50,14 +50,25 @@
     }
   });
   if ($(".testimonial-slider").length) {
-    const testimonial_slider = new Swiper(".testimonial-slider .swiper", {
+    const swiperEl = document.querySelector(".testimonial-slider .swiper");
+    const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
+
+    const testimonial_slider = new Swiper(swiperEl, {
       slidesPerView: 2.5,
       speed: 1000,
       spaceBetween: 30,
-      loop: !0,
+      loop: slideCount > 4, // loop only if enough slides
       autoplay: { delay: 5000 },
-      navigation: { nextEl: ".testimonial-next-btn", prevEl: ".testimonial-prev-btn" },
-      breakpoints: { 0: { slidesPerView: 1, spaceBetween: 12 }, 800: { slidesPerView: 2, spaceBetween: 30 }, 990: { slidesPerView: 2, spaceBetween: 30 }, 1200: { slidesPerView: 2.5, spaceBetween: 30 } },
+      navigation: {
+        nextEl: ".testimonial-next-btn",
+        prevEl: ".testimonial-prev-btn",
+      },
+      breakpoints: {
+        0: { slidesPerView: 1, spaceBetween: 12 },
+        800: { slidesPerView: 2, spaceBetween: 30 },
+        990: { slidesPerView: 2, spaceBetween: 30 },
+        1200: { slidesPerView: 2.5, spaceBetween: 30 },
+      },
     });
   }
   document.querySelectorAll(".track-btn").forEach(function (btn) {
