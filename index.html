@@ -68,6 +68,7 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
     <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (Lazy Load Optimized) -->
     <script>
       (function () {
         let gtmLoaded = false;
@@ -78,7 +79,10 @@
 
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            w[l].push({
+              "gtm.start": new Date().getTime(),
+              event: "gtm.js",
+            });
 
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
@@ -87,22 +91,35 @@
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-TEST");
+          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
-        /* Load on interaction */
-        window.addEventListener("scroll", loadGTM, { once: true });
-        window.addEventListener("mousemove", loadGTM, { once: true });
-        window.addEventListener("touchstart", loadGTM, { once: true });
+        /* Load on first interaction */
+        ["scroll", "mousemove", "touchstart", "click"].forEach(function (event) {
+          window.addEventListener(event, loadGTM, { once: true, passive: true });
+        });
 
-        /* Load automatically after delay */
-        if (window.requestIdleCallback) {
+        /* Load when tab becomes visible (important for mobile & background tabs) */
+        document.addEventListener(
+          "visibilitychange",
+          function () {
+            if (document.visibilityState === "visible") {
+              loadGTM();
+            }
+          },
+          { once: true }
+        );
+
+        /* Load during browser idle time */
+        if ("requestIdleCallback" in window) {
           requestIdleCallback(loadGTM, { timeout: 3000 });
         } else {
           setTimeout(loadGTM, 3000);
         }
       })();
     </script>
+    <!-- End Google Tag Manager -->
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
