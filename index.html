@@ -2788,15 +2788,17 @@
                 <!-- Swiper Init Script -->
                 <script>
                   document.addEventListener("DOMContentLoaded", function () {
-                    new Swiper(".mobile-hero-swiper", {
-                      loop: true,
-                      autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                      },
-                      allowTouchMove: true,
-                      speed: 600,
-                    });
+                    if (window.innerWidth < 768) {
+                      new Swiper(".mobile-hero-swiper", {
+                        loop: true,
+                        autoplay: {
+                          delay: 4000,
+                          disableOnInteraction: false,
+                        },
+                        allowTouchMove: true,
+                        speed: 600,
+                      });
+                    }
                   });
                 </script>
               </div>
