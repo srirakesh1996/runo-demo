@@ -3422,19 +3422,21 @@
       </section>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
-          new Swiper(".swiper-container", {
-            loop: true,
-            autoplay: {
-              delay: 4000,
-              disableOnInteraction: false,
-            },
-            slidesPerView: 1,
-            spaceBetween: 10,
-            navigation: {
-              nextEl: ".swiper-custom-next",
-              prevEl: ".swiper-custom-prev",
-            },
-          });
+          if (window.innerWidth < 768) {
+            new Swiper(".swiper-container", {
+              loop: true,
+              autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+              },
+              slidesPerView: 1,
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-custom-next",
+                prevEl: ".swiper-custom-prev",
+              },
+            });
+          }
         });
       </script>
       <section class="home-app-cta-sm py-5">
