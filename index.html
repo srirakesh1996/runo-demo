@@ -3090,13 +3090,14 @@
         // Initialize first tab
         activateTab(0);
         document.addEventListener("DOMContentLoaded", function () {
-          // ===== MOBILE SWIPER =====
-          const mobileSwiper = new Swiper(".mobile-slider", {
-            loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 20,
-          });
+          if (window.innerWidth < 768) {
+            new Swiper(".mobile-slider", {
+              loop: true,
+              autoplay: { delay: 4000, disableOnInteraction: false },
+              slidesPerView: 1,
+              spaceBetween: 20,
+            });
+          }
         });
       </script>
       <!-- WhatsApp CRM Section-->
