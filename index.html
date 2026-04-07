@@ -67,9 +67,6 @@
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
-    <!-- End of HubSpot Embed Code -->
     <!-- Google Tag Manager -->
     <!-- Google Tag Manager (Lazy Load Optimized) -->
     <script>
@@ -4521,6 +4518,20 @@
 
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
+    </script>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          if (!document.getElementById("hs-script-loader")) {
+            var s = document.createElement("script");
+            s.id = "hs-script-loader";
+            s.src = "https://js-na2.hs-scripts.com/245018807.js";
+            s.async = true;
+            document.body.appendChild(s);
+          }
+        }, 3000);
+      });
     </script>
   </body>
 </html>
