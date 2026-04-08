@@ -1329,7 +1329,11 @@
                     <textarea name="reason" class="form-control" id="reason" rows="3" placeholder="Reason for requesting certificate"></textarea>
                     <small class="text-danger d-none" id="reasonError">Reason is required.</small>
                   </div>
-
+                  <!-- Honeypot field -->
+                  <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                    <label for="website_cert">Website</label>
+                    <input type="text" id="website_cert" tabindex="-1" autocomplete="off" />
+                  </div>
                   <p style="font-size: 12px !important; margin-bottom: 10px">
                     By submitting this form, I agree to the
                     <a href="../privacy-policy" target="_blank">privacy policy</a>
@@ -1523,6 +1527,21 @@
           // Submit handler
           $form.on("submit", function (e) {
             e.preventDefault();
+            const hiddenf = $("#website_cert").val().trim();
+
+            if (hiddenf !== "") {
+              alert("Invalid submission detected. Redirecting...");
+
+              $form[0].reset();
+              phoneInput.value = "";
+              $("#website_cert").val("");
+
+              setTimeout(function () {
+                window.location.href = "/";
+              }, 2000);
+
+              return;
+            }
 
             const valid = validateName() && validateEmail() && validatePhone() && validateCompName() && validateCertificate() && validateReason();
 

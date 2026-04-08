@@ -1273,6 +1273,12 @@
                         and consent to receive communication via WhatsApp.
                       </label>
                     </div>
+
+                    <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                      <label for="website">Website</label>
+                      <input type="text" id="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
                     <div class="col-md-12">
                       <button type="submit" id="contact-form-btn" class="btn-default-dark btn-highlighted fadeInUp">
                         <span class="btn-text">Contact Us</span>
@@ -1458,6 +1464,21 @@
                     $("#contact-form").on("submit", function (event) {
                       event.preventDefault();
 
+                      const honeypot = $("#website").val().trim();
+
+                      if (honeypot !== "") {
+                        alert("Spam detected. Redirecting...");
+
+                        $("#contact-form")[0].reset();
+                        phoneInput.value = "";
+                        $("#website").val("");
+
+                        setTimeout(function () {
+                          window.location.href = "/";
+                        }, 2000);
+
+                        return;
+                      }
                       const validName = validateName();
                       const validEmail = validateEmail();
                       const validPhone = validatePhone();

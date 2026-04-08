@@ -1237,6 +1237,11 @@
                       <textarea name="your_notes" class="form-control" id="message" rows="4" placeholder="Write Message.." maxlength="150"></textarea>
                       <small class="text-danger d-none" id="messageError2">Message must be 150 characters or less and only allow letters, numbers, commas, periods, and spaces.</small>
                     </div>
+                    <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                      <label for="website">Website</label>
+                      <input type="text" id="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
                     <p style="font-size: 12px">
                       By submitting this form, I agree to the
                       <a href="privacy-policy" target="_blank">privacy policy</a>
@@ -1425,6 +1430,22 @@
                     // On form submit
                     $("#partnersForm").on("submit", function (event) {
                       event.preventDefault();
+
+                      const hiddenf = $("#website").val().trim();
+
+                      if (hiddenf !== "") {
+                        alert("Spam detected. Redirecting...");
+
+                        $("#partnersForm")[0].reset();
+                        phoneInput.value = "";
+                        $("#website").val("");
+
+                        setTimeout(function () {
+                          window.location.href = "/";
+                        }, 2000);
+
+                        return;
+                      }
 
                       const validName = validateName();
                       const validEmail = validateEmail();
