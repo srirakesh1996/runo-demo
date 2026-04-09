@@ -195,7 +195,7 @@ function submitForm(formId, formData, formToken) {
     clevertap.event.push("submitted-lead-form", eventPayload);
   }
 
-  $.ajax({ type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json" })
+  $.ajax({ type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/`, data: JSON.stringify(formData), contentType: "application/json" })
     .done(function (data) {
       console.log("Form submitted successfully:", data);
       $form[0].reset();
