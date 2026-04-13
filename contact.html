@@ -16,7 +16,7 @@
     <!-- Responsive Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <!-- SEO Meta -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- changed from no-index -->
     <meta name="language" content="en" />
     <!-- Open Graph / Facebook -->
@@ -66,7 +66,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TEST");
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <!-- End Google Tag Manager -->
     <!-- Optional: WOW.js & Animate.css -->
@@ -123,7 +123,7 @@
   <body>
     <div>
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
       <div class="runo-preloader">
@@ -175,7 +175,6 @@
                     </select>
                     <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                   </div>
-
                   <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
                     <label for="dwebsite">Website</label>
                     <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
@@ -367,6 +366,7 @@
 
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
+
             const dhiddenf = $("#dwebsite").val().trim();
 
             if (dhiddenf !== "") {
@@ -382,6 +382,7 @@
 
               return;
             }
+
             const validName = validateName();
             const validEmail = validateEmail();
             const validPhone = validatePhone();
@@ -1284,6 +1285,11 @@
                       <textarea name="your_notes" class="form-control" id="message" rows="4" placeholder="Write Message.." maxlength="150"></textarea>
                       <small class="text-danger d-none" id="messageError2">Message must be 150 characters or less and only allow letters, numbers, commas, periods, and spaces.</small>
                     </div>
+                    <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                      <label for="website">Website</label>
+                      <input type="text" id="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
                     <div class="form-check mb-2" style="font-size: 12px">
                       <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
                       <label class="form-check-label" for="policyCheck" style="font-size: 12px !important; line-height: 1.8">
@@ -1292,12 +1298,6 @@
                         and consent to receive communication via WhatsApp.
                       </label>
                     </div>
-
-                    <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
-                      <label for="website">Website</label>
-                      <input type="text" id="website" tabindex="-1" autocomplete="off" />
-                    </div>
-
                     <div class="col-md-12">
                       <button type="submit" id="contact-form-btn" class="btn-default-dark btn-highlighted fadeInUp">
                         <span class="btn-text">Contact Us</span>
@@ -1404,15 +1404,17 @@
                     const messagePattern = /^[a-zA-Z0-9,. ]*$/;
 
                     // Live validation functions
+
                     function validateName() {
                       const val = $("#cname").val().trim();
-                      if (val.length > 0 && val.length <= 30) {
-                        $("#nameError2").addClass("d-none");
-                        return true;
-                      } else {
+
+                      if (!val || val.length > 30) {
                         $("#nameError2").removeClass("d-none");
                         return false;
                       }
+
+                      $("#nameError2").addClass("d-none");
+                      return true;
                     }
 
                     function validateEmail() {
@@ -1483,9 +1485,9 @@
                     $("#contact-form").on("submit", function (event) {
                       event.preventDefault();
 
-                      const honeypot = $("#website").val().trim();
+                      const hiddenf = $("#website").val().trim();
 
-                      if (honeypot !== "") {
+                      if (hiddenf !== "") {
                         alert("Spam detected. Redirecting...");
 
                         $("#contact-form")[0].reset();
@@ -1498,6 +1500,7 @@
 
                         return;
                       }
+
                       const validName = validateName();
                       const validEmail = validateEmail();
                       const validPhone = validatePhone();
@@ -1517,9 +1520,6 @@
 
                       formData["your_phone"] = iti.getNumber();
                       formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Contact";
-                      const selectedCountry = iti.getSelectedCountryData();
-                      // ✅ Add to form data
-                      formData["your_country"] = selectedCountry.name; // India
 
                       const uuid = $(this).data("uuid");
 
@@ -1842,5 +1842,8 @@
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

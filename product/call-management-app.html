@@ -7,7 +7,7 @@
     <title>SIM-Based Call Management App for Teams | Runo CRM</title>
     <meta name="description" content="Transform sales calling with Runo, the world’s first SIM-based call management app. Track calls, manage leads, and scale teams with CRM automation and real-time analytics." />
     <link rel="canonical" href="https://runo.ai/product/call-management-app" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="SIM-Based Call Management App for Teams | Runo CRM" />
@@ -49,6 +49,7 @@
         unicode-range: U+0000-00FF;
       }
     </style>
+
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
@@ -90,7 +91,7 @@
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-TEST");
+          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
         if (window.requestIdleCallback) {
@@ -1479,7 +1480,7 @@
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader Start -->
     <!-- Preloader End -->
@@ -3706,6 +3707,10 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
+                <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                  <label for="dwebsite">Website</label>
+                  <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
+                </div>
 
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
@@ -4038,6 +4043,22 @@
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
 
+const dhiddenf = $("#dwebsite").val().trim();
+
+                      if (dhiddenf !== "") {
+                        alert("Spam detected. Redirecting...");
+
+                        $("#demo-form")[0].reset();
+                        phoneInput.value = "";
+                        $("#dwebsite").val("");
+
+                        setTimeout(function () {
+                          window.location.href = "/";
+                        }, 2000);
+
+                        return;
+                      }
+
             const validName = validateName();
             const validEmail = validateEmail();
             const validPhone = validatePhone();
@@ -4057,10 +4078,6 @@
 
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
-
-            const selectedCountry = iti.getSelectedCountryData();
-            // ✅ Add to form data
-            formData["your_country"] = selectedCountry.name; // India
 
             const uuid = $(this).data("uuid");
 
@@ -4214,5 +4231,8 @@
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

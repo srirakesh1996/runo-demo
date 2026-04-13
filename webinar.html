@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
     <!-- SEO -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
 
     <!-- Open Graph -->
@@ -70,7 +70,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TEST");
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
 
     <!-- CleverTap -->
@@ -1627,7 +1627,7 @@
   <body>
     <div>
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
       <div class="runo-preloader">
@@ -1679,6 +1679,10 @@
                     </select>
                     <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                   </div>
+                  <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                    <label for="dwebsite">Website</label>
+                    <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
+                  </div>
 
                   <div class="form-check mb-2" style="font-size: 12px">
                     <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
@@ -1688,7 +1692,7 @@
                       and consent to receive communication via WhatsApp.
                     </label>
                   </div>
-                  <button type="submit" id="demo-form-btn" class="btn-default btn-highlighted" style="width: 100%">
+                  <button type="submit" id="demo-form-btn" class="btn-default-dark btn-highlighted" style="width: 100%">
                     <span class="btn-text">Submit</span>
                     <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
                   </button>
@@ -1867,6 +1871,22 @@
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
 
+            const dhiddenf = $("#dwebsite").val().trim();
+
+            if (dhiddenf !== "") {
+              alert("Spam detected. Redirecting...");
+
+              $("#demo-form")[0].reset();
+              phoneInput.value = "";
+              $("#dwebsite").val("");
+
+              setTimeout(function () {
+                window.location.href = "/";
+              }, 2000);
+
+              return;
+            }
+
             const validName = validateName();
             const validEmail = validateEmail();
             const validPhone = validatePhone();
@@ -1887,10 +1907,6 @@
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "404";
 
-            const selectedCountry = iti.getSelectedCountryData();
-            // ✅ Add to form data
-            formData["your_country"] = selectedCountry.name; // India
-
             const uuid = $(this).data("uuid");
 
             submitForm("demo-form", formData, uuid);
@@ -1904,7 +1920,7 @@
             <img src="img/success.webp" alt="success" style="margin: 10px auto; display: block; width: 50px" />
             <h5 class="mb-3">Thank you!</h5>
             <p style="margin-bottom: 5px">Your submission has been received. Our team will get back to you shortly.</p>
-            <button type="button" class="btn-default btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn-default-dark btn-highlighted mt-3" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -3379,5 +3395,8 @@
         passive: true,
       });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

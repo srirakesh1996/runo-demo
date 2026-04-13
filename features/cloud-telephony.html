@@ -7,7 +7,7 @@
     <title>Cloud Telephony Solution in India | Scalable Business Calling</title>
     <meta name="description" content="Scalable cloud telephony services in India for sales and support teams. Track calls, route intelligently, and manage everything online." />
     <link rel="canonical" href="https://runo.ai/features/cloud-telephony" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Cloud Telephony Solution in India | Scalable Business Calling" />
@@ -27,7 +27,7 @@
     <link rel="preload" as="image" href="/img/cloud-telephony/cloud-telephony.avif" type="image/avif" fetchpriority="high" />
 
     <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" as="style" />
@@ -35,6 +35,21 @@
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
+  -->
+
+    <!-- Local Font -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF;
+      }
+    </style>
+
     <!-- CSS Preload + Load -->
     <link rel="preload" as="style" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" media="all" />
@@ -76,7 +91,7 @@
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-TEST");
+          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
         if (window.requestIdleCallback) {
@@ -1457,7 +1472,7 @@
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader Start -->
     <!-- Preloader End -->
@@ -1662,7 +1677,7 @@
 
                               <a class="nav-link" href="auto-dialer-software">Auto Dialer</a>
                               <a class="nav-link" href="telecaller-app">Telecaller App</a>
-                              <a class="nav-link" href="small-business-phone-system">Small Business Phone System</a>
+
                               <a class="nav-link" href="cloud-telephony">Cloud Telephony</a>
                               <a class="nav-link" href="small-business-phone-system">Small Business Phone System</a>
                             </div>
@@ -1804,7 +1819,7 @@
 
                       <li class="nav-item"><a class="nav-link" href="auto-dialer-software">Auto Dialer</a></li>
                       <li class="nav-item"><a class="nav-link" href="telecaller-app">Telecaller App</a></li>
-                      <li class="nav-item"><a class="nav-link" href="small-business-phone-system">Small Business Phone System</a></li>
+
                       <li class="nav-item"><a class="nav-link" href="cloud-telephony">Cloud Telephony</a></li>
                       <li class="nav-item"><a class="nav-link" href="small-business-phone-system">Small Business Phone System</a></li>
 
@@ -3101,6 +3116,10 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
+                <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                  <label for="dwebsite">Website</label>
+                  <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
+                </div>
 
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
@@ -3433,6 +3452,22 @@
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
 
+            const dhiddenf = $("#dwebsite").val().trim();
+
+            if (dhiddenf !== "") {
+              alert("Spam detected. Redirecting...");
+
+              $("#demo-form")[0].reset();
+              phoneInput.value = "";
+              $("#dwebsite").val("");
+
+              setTimeout(function () {
+                window.location.href = "/";
+              }, 2000);
+
+              return;
+            }
+
             const validName = validateName();
             const validEmail = validateEmail();
             const validPhone = validatePhone();
@@ -3452,10 +3487,6 @@
 
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Landing Pages";
-
-            const selectedCountry = iti.getSelectedCountryData();
-            // ✅ Add to form data
-            formData["your_country"] = selectedCountry.name; // India
 
             const uuid = $(this).data("uuid");
 
@@ -3582,5 +3613,8 @@
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

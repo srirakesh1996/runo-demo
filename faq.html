@@ -16,7 +16,7 @@
     <!-- Responsive Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <!-- SEO Meta -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- changed from no-index -->
     <meta name="language" content="en" />
     <!-- Open Graph / Facebook -->
@@ -67,7 +67,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TEST");
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <!-- End Google Tag Manager -->
     <!-- Optional: WOW.js & Animate.css -->
@@ -124,7 +124,7 @@
   <body>
     <div>
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <!-- Preloader Start -->
       <div class="runo-preloader">
@@ -175,6 +175,10 @@
                       <option value="1-3">1-3</option>
                     </select>
                     <small class="text-danger d-none" id="agentsError">Please select an option.</small>
+                  </div>
+                  <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                    <label for="dwebsite">Website</label>
+                    <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
                   </div>
 
                   <div class="form-check mb-2" style="font-size: 12px">
@@ -364,6 +368,22 @@
           $("#demo-form").on("submit", function (event) {
             event.preventDefault();
 
+            const dhiddenf = $("#dwebsite").val().trim();
+
+            if (dhiddenf !== "") {
+              alert("Spam detected. Redirecting...");
+
+              $("#demo-form")[0].reset();
+              phoneInput.value = "";
+              $("#dwebsite").val("");
+
+              setTimeout(function () {
+                window.location.href = "/";
+              }, 2000);
+
+              return;
+            }
+
             const validName = validateName();
             const validEmail = validateEmail();
             const validPhone = validatePhone();
@@ -383,10 +403,6 @@
 
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Faqs";
-
-            const selectedCountry = iti.getSelectedCountryData();
-            // ✅ Add to form data
-            formData["your_country"] = selectedCountry.name; // India
 
             const uuid = $(this).data("uuid");
 
@@ -1690,7 +1706,7 @@
                             </h2>
                             <div id="collapse150" class="accordion-collapse collapse" aria-labelledby="heading150" data-bs-parent="#accordionRuno">
                               <div class="accordion-body">
-                                <a href="https://runo.ai/pricing" target="_blank">https://runo.ai/pricing</a>
+                                <a href="https://runo.ai/pricing" target="_blank">Click here to view our pricing plans</a>
                               </div>
                             </div>
                           </div>
@@ -2922,5 +2938,8 @@
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>
