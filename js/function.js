@@ -20,10 +20,18 @@
       $("header .header-sticky").toggleClass("active", fromTop > 600);
     });
   }
-  $("#menu").slicknav({ label: "", prependTo: ".responsive-menu" });
+  $("#menu").slicknav({
+    label: "",
+    prependTo: ".responsive-menu",
+  });
   if ($("a[href='#top']").length) {
     $(document).on("click", "a[href='#top']", function () {
-      $("html, body").animate({ scrollTop: 0 }, "slow");
+      $("html, body").animate(
+        {
+          scrollTop: 0,
+        },
+        "slow"
+      );
       return !1;
     });
   }
@@ -52,22 +60,35 @@
   if ($(".testimonial-slider").length) {
     const swiperEl = document.querySelector(".testimonial-slider .swiper");
     const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
-
     const testimonial_slider = new Swiper(swiperEl, {
       slidesPerView: 2.5,
       speed: 1000,
       spaceBetween: 30,
-      loop: slideCount > 4, // loop only if enough slides
-      autoplay: { delay: 5000 },
+      loop: slideCount > 4,
+      autoplay: {
+        delay: 5000,
+      },
       navigation: {
         nextEl: ".testimonial-next-btn",
         prevEl: ".testimonial-prev-btn",
       },
       breakpoints: {
-        0: { slidesPerView: 1, spaceBetween: 12 },
-        800: { slidesPerView: 2, spaceBetween: 30 },
-        990: { slidesPerView: 2, spaceBetween: 30 },
-        1200: { slidesPerView: 2.5, spaceBetween: 30 },
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 12,
+        },
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        990: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1200: {
+          slidesPerView: 2.5,
+          spaceBetween: 30,
+        },
       },
     });
   }
@@ -76,12 +97,23 @@
     btn._clickHandler = function () {
       const label = this.getAttribute("data-label");
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "button_click", event_category: "CTA", event_label: label, page_path: window.location.pathname });
+      window.dataLayer.push({
+        event: "button_click",
+        event_category: "CTA",
+        event_label: label,
+        page_path: window.location.pathname,
+      });
     };
     btn.addEventListener("click", btn._clickHandler);
   });
   if ($(".popup-video").length) {
-    $(".popup-video").magnificPopup({ type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !1, fixedContentPos: !0 });
+    $(".popup-video").magnificPopup({
+      type: "iframe",
+      mainClass: "mfp-fade",
+      removalDelay: 160,
+      preloader: !1,
+      fixedContentPos: !0,
+    });
   }
 })(jQuery);
 document.addEventListener("DOMContentLoaded", function () {
@@ -114,7 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
       params.append("page_name", pageName);
       if (utmSource) params.append("utm_source", utmSource);
       if (utmCampaign) params.append("utm_campaign", utmCampaign);
-      const finalUrl = `${baseUrl}?${params.toString()}`;
+      const finalUrl = `$ {
+                baseUrl
+            }
+            ?$ {
+                params.toString()
+            }
+            `;
       buttons.forEach((btn) => {
         btn.href = finalUrl;
         btn.addEventListener("click", function (e) {
@@ -146,68 +184,66 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
-function submitForm(formId, formData, formToken) {
+function submitForm(formId, formData) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
+
   $(".text-danger").addClass("d-none");
-  $btn.prop("disabled", !0);
+
+  // Button loading state
+  $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
+
   const timestamp = new Date().toISOString();
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
-  formData.custom_source = "Website Enquiry- IB";
-  formData.custom_status = "Api Allocation";
-  if (utmSource) formData["custom_utm source"] = utmSource;
-  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
+
   const whatsappOptIn = $("#policyCheck").is(":checked");
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-  if (typeof clevertap !== "undefined") {
-    const profilePayload = {
-      Name: formData.your_name || "",
-      Email: formData.your_email || "",
-      Identity: formData.your_email || fixedPhone || "anonymous_user",
-      Phone: fixedPhone,
-      "Company Name": formData.your_company || "",
-      license_count: formData["custom_Sales/Calling Team Size"] || "",
-      KnowSource: formData["custom_We entered source"] || "",
-      "MSG-whatsapp": whatsappOptIn,
-    };
-    clevertap.onUserLogin.push({ Site: profilePayload });
-  }
-  if (typeof clevertap !== "undefined") {
-    const eventPayload = {
-      Name: formData.your_name || "",
-      Email: formData.your_email || "",
-      Phone: fixedPhone,
-      "Company Name": formData.your_company || "",
-      noOflicenses: formData["custom_Sales/Calling Team Size"] || "",
-      KnowSource: formData["custom_We entered source"] || "",
-      Source: utmSource || "Website",
-      Campaign: utmCampaign || "",
-      "MSG-whatsapp": whatsappOptIn,
-      Timestamp: timestamp,
-    };
-    clevertap.event.push("submitted-lead-form", eventPayload);
-  }
 
-  $.ajax({ type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/`, data: JSON.stringify(formData), contentType: "application/json" })
-    .done(function (data) {
-      console.log("Form submitted successfully:", data);
+  const sheetData = {
+    Name: formData.your_name || "",
+    Email: formData.your_email || "",
+    Phone: fixedPhone,
+    Company: formData.your_company || "",
+    Team_Size: formData["custom_Sales/Calling Team Size"] || "",
+    Know_Runo: formData["custom_We entered source"] || "",
+    UTM_Source: utmSource,
+    UTM_Campaign: utmCampaign,
+    WhatsApp_OptIn: whatsappOptIn,
+    Timestamp: timestamp,
+    Page_URL: window.location.href,
+  };
+
+  // Send to Google Sheets
+  fetch("https://script.google.com/macros/s/AKfycbxeZ6KmYK9gudt1C8TDF3E2k6PIkLEYCubxnHyw89u3glaa_94Es1h3plAMfyzCgXfo/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(sheetData),
+    keepalive: true,
+  })
+    .then(() => {
+      // Reset form
       $form[0].reset();
+
+      // Close parent modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
+
+      // Show Thank You modal
       $("#thankYouModal").modal("show");
     })
-    .fail(function () {
-      alert("Oops! Something went wrong while submitting the form.");
+    .catch(() => {
+      alert("Something went wrong while submitting the form.");
     })
-    .always(function () {
-      $btn.prop("disabled", !1);
+    .finally(() => {
+      // Reset button state
+      $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
