@@ -22,13 +22,13 @@
   }
   $("#menu").slicknav({
     label: "",
-    prependTo: ".responsive-menu",
+    prependTo: ".responsive-menu"
   });
   if ($("a[href='#top']").length) {
     $(document).on("click", "a[href='#top']", function () {
       $("html, body").animate(
         {
-          scrollTop: 0,
+          scrollTop: 0
         },
         "slow"
       );
@@ -66,30 +66,30 @@
       spaceBetween: 30,
       loop: slideCount > 4,
       autoplay: {
-        delay: 5000,
+        delay: 5000
       },
       navigation: {
         nextEl: ".testimonial-next-btn",
-        prevEl: ".testimonial-prev-btn",
+        prevEl: ".testimonial-prev-btn"
       },
       breakpoints: {
         0: {
           slidesPerView: 1,
-          spaceBetween: 12,
+          spaceBetween: 12
         },
         800: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         990: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 30
         },
         1200: {
           slidesPerView: 2.5,
-          spaceBetween: 30,
-        },
-      },
+          spaceBetween: 30
+        }
+      }
     });
   }
   document.querySelectorAll(".track-btn").forEach(function (btn) {
@@ -101,7 +101,7 @@
         event: "button_click",
         event_category: "CTA",
         event_label: label,
-        page_path: window.location.pathname,
+        page_path: window.location.pathname
       });
     };
     btn.addEventListener("click", btn._clickHandler);
@@ -112,7 +112,7 @@
       mainClass: "mfp-fade",
       removalDelay: 160,
       preloader: !1,
-      fixedContentPos: !0,
+      fixedContentPos: !0
     });
   }
 })(jQuery);
@@ -215,17 +215,18 @@ function submitForm(formId, formData) {
     Know_Runo: formData["custom_We entered source"] || "",
     UTM_Source: utmSource,
     UTM_Campaign: utmCampaign,
+    Country: formData["custom_Country"] || "",
     WhatsApp_OptIn: whatsappOptIn,
     Timestamp: timestamp,
-    Page_URL: window.location.href,
+    Page_URL: window.location.href
   };
 
   // Send to Google Sheets
-  fetch("https://script.google.com/macros/s/AKfycbxeZ6KmYK9gudt1C8TDF3E2k6PIkLEYCubxnHyw89u3glaa_94Es1h3plAMfyzCgXfo/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify(sheetData),
-    keepalive: true,
+    keepalive: true
   })
     .then(() => {
       // Reset form
