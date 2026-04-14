@@ -4080,7 +4080,7 @@
               $("#phoneError").addClass("d-none");
               return false;
             }
-            if (!iti.isValidNumber()) {
+            if (!iti.isPossibleNumber()) {
               $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
               return false;
             }
