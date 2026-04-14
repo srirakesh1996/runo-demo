@@ -215,7 +215,7 @@ function submitForm(formId, formData) {
     Know_Runo: formData["custom_We entered source"] || "",
     UTM_Source: utmSource,
     UTM_Campaign: utmCampaign,
-    Country: formData["custom_Country"] || "",
+    Country: formData["your_country"] || "",
     WhatsApp_OptIn: whatsappOptIn,
     Timestamp: timestamp,
     Page_URL: window.location.href
