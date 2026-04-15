@@ -202,6 +202,9 @@ function submitForm(formId, formData, formToken) {
       // Close parent modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
+      console.log("Form data sent to Google Sheets successfully.");
+
+      console.log("Form submitted:", formData);
 
       // Show Thank You modal
       $("#thankYouModal").modal("show");
