@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <!-- SEO Meta -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- changed from no-index -->
     <meta name="language" content="en" />
     <!-- Open Graph / Facebook -->
@@ -71,7 +71,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TEST");
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <style>
       .related-articles {
@@ -316,39 +316,11 @@
       }
     </style>
 
-    <script type="text/javascript">
-      // ✅ Initialize CleverTap object
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: [],
-      };
-
-      // ✅ Your account ID and region
-      clevertap.account.push({ id: "6Z8-RRZ-957Z" });
-      clevertap.region = "eu1";
-
-      // ✅ Privacy settings for local testing
-      clevertap.privacy.push({ optOut: false });
-      clevertap.privacy.push({ useIP: false });
-
-      // ✅ Load from CloudFront fallback CDN (working globally)
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script>
+    
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader Start -->
     <div class="runo-preloader">
@@ -434,6 +406,10 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
+                <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                  <label for="dwebsite">Website</label>
+                  <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
+                </div>
 
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
@@ -479,44 +455,44 @@
 
         const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
         const countryLengthMap = {
-          in: [10],
-          ae: [9],
-          us: [10],
-          ca: [10],
-          gb: [10, 11],
-          sa: [9],
-          ph: [10],
-          id: [10, 11],
-          sg: [8],
-          au: [9],
-          nz: [8, 9],
-          pk: [10],
-          bd: [10],
-          lk: [9],
-          ng: [10, 11],
-          ke: [9],
-          za: [9, 10],
-          my: [9, 10],
-          th: [9, 10],
-          vn: [9, 10],
-          kr: [9, 10, 11],
-          jp: [10, 11],
-          cn: [11],
-          hk: [8],
-          tw: [9, 10],
-          de: [10, 11],
-          fr: [9, 10],
-          it: [10],
-          es: [9],
-          br: [10, 11],
-          mx: [10],
-          ar: [10, 11],
-          ru: [10],
-          tr: [10],
-          eg: [10, 11],
-          iq: [10],
-          gt: [8],
-        };
+  in: [10, 11],
+  ae: [8, 9],
+  us: [10],
+  ca: [10],
+  gb: [10, 11],
+  sa: [8, 9],
+  ph: [9, 10],
+  id: [10, 11],
+  sg: [8],
+  au: [9, 10],
+  nz: [8, 9],
+  pk: [10, 11],
+  bd: [10],
+  lk: [9],
+  ng: [10, 11],
+  ke: [9, 10],
+  za: [9, 10],
+  my: [9, 10],
+  th: [9, 10],
+  vn: [9, 10],
+  kr: [9, 10, 11],
+  jp: [10, 11],
+  cn: [10, 11, 12],
+  hk: [8],
+  tw: [9, 10],
+  de: [10, 11, 12],
+  fr: [9, 10],
+  it: [10, 11],
+  es: [9],
+  br: [10, 11],
+  mx: [10],
+  ar: [10, 11],
+  ru: [10],
+  tr: [10],
+  eg: [10, 11],
+  iq: [10, 11],
+  gt: [8]
+};
 
         function getMaxLengthForCountry() {
           const countryCode = iti.getSelectedCountryData().iso2;
@@ -583,7 +559,7 @@
             $("#phoneError").addClass("d-none");
             return false;
           }
-          if (!iti.isValidNumber()) {
+          if (!iti.isPossibleNumber()) {
             $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
             return false;
           }
@@ -621,6 +597,21 @@
 
         $("#demo-form").on("submit", function (event) {
           event.preventDefault();
+          const dhiddenf = $("#dwebsite").val().trim();
+
+          if (dhiddenf !== "") {
+            alert("Spam detected. Redirecting...");
+
+            $("#demo-form")[0].reset();
+            phoneInput.value = "";
+            $("#dwebsite").val("");
+
+            setTimeout(function () {
+              window.location.href = "/";
+            }, 2000);
+
+            return;
+          }
 
           const validName = validateName();
           const validEmail = validateEmail();
@@ -641,10 +632,6 @@
 
           formData["your_phone"] = iti.getNumber(); // international format
           formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog Pages";
-
-          const selectedCountry = iti.getSelectedCountryData();
-          // ✅ Add to form data
-          formData["your_country"] = selectedCountry.name; // India
 
           const uuid = $(this).data("uuid");
 
@@ -2344,5 +2331,8 @@
       window.addEventListener("scroll", initZohoOnScroll, { passive: true });
       window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>

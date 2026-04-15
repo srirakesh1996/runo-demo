@@ -21,7 +21,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <meta name="language" content="en" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" sizes="16x16" />
@@ -58,7 +58,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-TEST");
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
     <style>
       .accordion-item img {
@@ -314,39 +314,10 @@
         display: block;
       }
     </style>
-    <script type="text/javascript">
-      // ✅ Initialize CleverTap object
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: []
-      };
-
-      // ✅ Your account ID and region
-      clevertap.account.push({id: "6Z8-RRZ-957Z"});
-      clevertap.region = "eu1";
-
-      // ✅ Privacy settings for local testing
-      clevertap.privacy.push({optOut: false});
-      clevertap.privacy.push({useIP: false});
-
-      // ✅ Load from CloudFront fallback CDN (working globally)
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src = "https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7SSPG7W" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Preloader Start -->
     <div class="runo-preloader">
@@ -396,6 +367,10 @@
                   </select>
                   <small class="text-danger d-none" id="agentsError">Please select an option.</small>
                 </div>
+                <div style="position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden" aria-hidden="true">
+                  <label for="dwebsite">Website</label>
+                  <input type="text" id="dwebsite" tabindex="-1" autocomplete="off" />
+                </div>
 
                 <div class="form-check mb-2" style="font-size: 12px">
                   <input class="form-check-input" type="checkbox" id="policyCheck" name="policy_consent" value="yes" checked />
@@ -441,34 +416,34 @@
 
         const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
         const countryLengthMap = {
-          in: [10],
-          ae: [9],
+          in: [10, 11],
+          ae: [8, 9],
           us: [10],
           ca: [10],
           gb: [10, 11],
-          sa: [9],
-          ph: [10],
+          sa: [8, 9],
+          ph: [9, 10],
           id: [10, 11],
           sg: [8],
-          au: [9],
+          au: [9, 10],
           nz: [8, 9],
-          pk: [10],
+          pk: [10, 11],
           bd: [10],
           lk: [9],
           ng: [10, 11],
-          ke: [9],
+          ke: [9, 10],
           za: [9, 10],
           my: [9, 10],
           th: [9, 10],
           vn: [9, 10],
           kr: [9, 10, 11],
           jp: [10, 11],
-          cn: [11],
+          cn: [10, 11, 12],
           hk: [8],
           tw: [9, 10],
-          de: [10, 11],
+          de: [10, 11, 12],
           fr: [9, 10],
-          it: [10],
+          it: [10, 11],
           es: [9],
           br: [10, 11],
           mx: [10],
@@ -476,7 +451,7 @@
           ru: [10],
           tr: [10],
           eg: [10, 11],
-          iq: [10],
+          iq: [10, 11],
           gt: [8]
         };
 
@@ -545,7 +520,7 @@
             $("#phoneError").addClass("d-none");
             return false;
           }
-          if (!iti.isValidNumber()) {
+          if (!iti.isPossibleNumber()) {
             $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
             return false;
           }
@@ -584,6 +559,22 @@
         $("#demo-form").on("submit", function (event) {
           event.preventDefault();
 
+          const dhiddenf = $("#dwebsite").val().trim();
+
+          if (dhiddenf !== "") {
+            alert("Spam detected. Redirecting...");
+
+            $("#demo-form")[0].reset();
+            phoneInput.value = "";
+            $("#dwebsite").val("");
+
+            setTimeout(function () {
+              window.location.href = "/";
+            }, 2000);
+
+            return;
+          }
+
           const validName = validateName();
           const validEmail = validateEmail();
           const validPhone = validatePhone();
@@ -602,11 +593,7 @@
             }, {});
 
           formData["your_phone"] = iti.getNumber(); // international format
-          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Runo Updates";
-
-          const selectedCountry = iti.getSelectedCountryData();
-          // ✅ Add to form data
-          formData["your_country"] = selectedCountry.name; // India
+          formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Blog";
 
           const uuid = $(this).data("uuid");
 
@@ -867,12 +854,8 @@
                         </svg>
                         <div class="menu-head">Sales CRM</div>
                       </div>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/lead-management-system">Lead Management System</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/telemarketing-crm-software">Telemarketing CRM Software</a>
-                      </li>
+                      <li class="nav-item"><a class="nav-link" href="features/lead-management-system">Lead Management System</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/telemarketing-crm-software">Telemarketing CRM Software</a></li>
                       <div class="menu-icon">
                         <svg fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M18.6795 25.8398H16.7422C16.3862 25.8398 16.0977 25.5513 16.0977 25.1953C16.0977 24.8394 16.3862 24.5508 16.7422 24.5508H18.6795C19.0354 24.5508 19.324 24.8394 19.324 25.1953C19.324 25.5513 19.0354 25.8398 18.6795 25.8398Z" fill="#FF5730" />
@@ -887,18 +870,10 @@
                         </svg>
                         <div class="menu-head">Dialers & Calling</div>
                       </div>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/auto-dialer-software">Auto Dialer</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/telecaller-app">Telecaller App</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/cloud-telephony">Cloud Telephony</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/small-business-phone-system">Small Business Phone System</a>
-                      </li>
+                      <li class="nav-item"><a class="nav-link" href="features/auto-dialer-software">Auto Dialer</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/telecaller-app">Telecaller App</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/cloud-telephony">Cloud Telephony</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/small-business-phone-system">Small Business Phone System</a></li>
                       <div class="menu-icon">
                         <svg fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -910,18 +885,12 @@
                         </svg>
                         <div class="menu-head">Call Center Operations</div>
                       </div>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/call-center-app">Call Center App</a>
-                      </li>
+                      <li class="nav-item"><a class="nav-link" href="features/call-center-app">Call Center App</a></li>
                       <li class="nav-item">
                         <a class="nav-link" href="features/call-center-monitoring-software">Call Center Monitoring Software</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/sales-management-software">Sales Management Software</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/contact-center-software">Contact Center Software</a>
-                      </li>
+                      <li class="nav-item"><a class="nav-link" href="features/sales-management-software">Sales Management Software</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/contact-center-software">Contact Center Software</a></li>
                       <div class="menu-icon">
                         <svg fill="none" xmlns="http://www.w3.org/2000/svg">
                           <g clip-path="url(#clip0_2787_173)">
@@ -940,26 +909,14 @@
                         </svg>
                         <div class="menu-head">Tracking & Recording</div>
                       </div>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/sales-call-tracking-software">Sales Call Tracking Software</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/sales-call-recording-software">Sales Call Recording Software</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/call-tracking-app">Call Tracking App</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/call-transcription-app">Call Transcription App</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="features/ai-call-summary">AI Call Summary</a>
-                      </li>
+                      <li class="nav-item"><a class="nav-link" href="features/sales-call-tracking-software">Sales Call Tracking Software</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/sales-call-recording-software">Sales Call Recording Software</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/call-tracking-app">Call Tracking App</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/call-transcription-app">Call Transcription App</a></li>
+                      <li class="nav-item"><a class="nav-link" href="features/ai-call-summary">AI Call Summary</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pricing">Pricing</a>
-                  </li>
+                  <li class="nav-item"><a class="nav-link" href="pricing">Pricing</a></li>
                   <!-- ✅ Normal Dropdown -->
                   <li class="nav-item submenu">
                     <a class="nav-link">Resources</a>
@@ -1095,9 +1052,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link login track-btn runo-web-crm" href="https://web.runo.in/">Login</a>
-                  </li>
+                  <li class="nav-item"><a class="nav-link login track-btn runo-web-crm" href="https://web.runo.in/">Login</a></li>
                   <li class="nav-item">
                     <a class="header-btn-dark track-btn" href="#" data-bs-toggle="modal" data-bs-target="#requestDemoModal" data-label="book a demo - Home Header">Request a Demo</a>
                   </li>
@@ -1129,8 +1084,7 @@
             <div class="release-sidebar shadow-sm rounded-4 p-3 bg-white">
               <h1 class="mb-3 fw-bold text-center" style="color: #000; font-size: 22px">Runo Updates</h1>
               <div class="list-group release-list" id="release-list" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="release-8-1-list" data-bs-toggle="list" href="#release-8-1-content" role="tab">Release Notes v8.1</a>
-                <a class="list-group-item list-group-item-action" id="release-8-0-list" data-bs-toggle="list" href="#release-8-0-content" role="tab">Release Notes v8.0</a>
+                <a class="list-group-item list-group-item-action active" id="release-8-0-list" data-bs-toggle="list" href="#release-8-0-content" role="tab">Release Notes v8.0</a>
                 <a class="list-group-item list-group-item-action" id="release-7-2-list" data-bs-toggle="list" href="#release-7-2-content" role="tab">Release Notes v7.2</a>
                 <a class="list-group-item list-group-item-action" id="release-7-1-list" data-bs-toggle="list" href="#release-7-1-content" role="tab">Release Notes v7.1</a>
                 <a class="list-group-item list-group-item-action" id="release-7-0-list" data-bs-toggle="list" href="#release-7-0-content" role="tab">Release Notes v7.0</a>
@@ -1145,7 +1099,6 @@
           <div class="d-md-none mb-3">
             <div class="mb-3 fw-bold text-left" style="color: #000; font-size: 22px">Runo Updates</div>
             <select class="form-select" id="releaseDropdown">
-              <option value="eight-one">Release Notes v8.1</option>
               <option value="eight-zero">Release Notes v8.0</option>
               <option value="seven-two">Release Notes v7.2</option>
               <option value="seven-one">Release Notes v7.1</option>
@@ -1166,938 +1119,8 @@
               </ol>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-              <!-- ===================== Release 8.1 ===================== -->
-              <div class="tab-pane fade show active" id="release-8-1-content" role="tabpanel">
-                <div class="release-card shadow-sm p-3 rounded-4 bg-white">
-                  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-                    <h3 class="fw-bold mb-2 mb-md-0">Runo 8.1 - Release Notes</h3>
-                    <span class="badge bg-light text-dark border px-3 py-2 fw-semibold">
-                      📅 Released on:
-                      <span class="text-danger">April 15, 2026</span>
-                    </span>
-                  </div>
-                  <!-- Sub Tabs -->
-                  <ul class="nav nav-pills mb-4 sub-tabs" id="subTab8_1" role="tablist">
-                    <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all-8_1" type="button">All</button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#features-8_1" type="button">🚀 New Features</button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#enhancements-8_1" type="button">🔧 Enhancements</button>
-                    </li>
-                    <!-- <li class="nav-item">
-                              <button class="nav-link" data-bs-toggle="pill" data-bs-target="#bugs-6_2" type="button">🐞 Bug Fixes</button>
-                              </li>-->
-                  </ul>
-                  <div class="tab-content">
-                    <!-- Overview -->
-                    <div class="tab-pane fade show active" id="all-8_1" role="tabpanel">
-                      <h2 class="mb-3">Runo v8.1: Cross-Process Lead Transfers, Powerful APIs, Custom AI Intents & Advanced Admin Controls</h2>
-                      <p>Introducing Runo v8.1 - bringing seamless cross-process lead transfers, powerful new APIs for faster data access and automation, customizable AI insights, centralized admin controls, enhanced usage visibility, and a host of improvements to streamline your workflows end-to-end.</p>
-                      <!-- All New Features -->
-                      <div class="accordion" id="allfeaturesAccordion8_1">
-                        <!-- Cross Process Lead Transfer -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf1_8_1">Cross Process Lead Transfer</button>
-                          </h2>
-
-                          <div id="allf1_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing leads across multiple processes often meant relying on manual workarounds.</p>
-                              <p>With v8.1, you can now seamlessly transfer leads between processes without losing any critical context or history.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Transfer individual leads across processes without data loss</li>
-                                <li>Preserves call logs, recordings, and complete interaction history</li>
-                                <li>Inline field mapping during transfer for better control</li>
-                                <li>Auto-mapping capabilities to simplify field alignment</li>
-                                <li>Controlled permissions to ensure secure lead transfers</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Cross Process Lead Transfer</strong>
-                                  tab and click on
-                                  <strong>New Mapping</strong>
-                                </li>
-                                <img src="img/eight-one/1.avif" alt="Cross Process Lead Transfer Mapping" />
-                                <li>
-                                  Select the
-                                  <strong>Source Process</strong>
-                                  and
-                                  <strong>Target Process,</strong>
-                                  map the required fields, and click Save
-                                </li>
-                                <img src="img/eight-one/2.avif" alt="Process" />
-                                <li>
-                                  Navigate to the
-                                  <strong>Customers</strong>
-                                  tab and open the customer you want to transfer
-                                </li>
-                                <li>
-                                  Click on
-                                  <strong>More</strong>
-                                  in the customer profile and select
-                                  <strong>Transfer</strong>
-                                </li>
-                                <img src="img/eight-one/3.avif" alt="Transfer" />
-                                <li>
-                                  Choose the
-                                  <strong>From Process</strong>
-                                  and
-                                  <strong>To Process</strong>
-                                </li>
-                                <li>
-                                  Select the teammate under
-                                  <strong>Assign to</strong>
-                                  and click
-                                  <strong>Transfer</strong>
-                                  to complete the action
-                                </li>
-                              </ul>
-                              <img src="img/eight-one/4.avif" alt="Cross Process Lead Transfer Mapping" />
-                              <p>This ensures smooth lead movement across workflows while maintaining complete data integrity and context.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- User Deactivation API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf2_8_1">User Deactivation API</button>
-                          </h2>
-
-                          <div id="allf2_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing user access across systems can be time-consuming and error-prone when done manually.</p>
-                              <p>With v8.1, you can now programmatically deactivate users in Runo through a secure API, ensuring smoother user lifecycle management and better control.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>API support for secure single-user deactivation</li>
-                                <li>Automatically removes all add-ons and integrations for the user</li>
-                                <li>Unassigns any virtual numbers linked to the user</li>
-                                <li>Enables seamless integration with external systems like HRMS and CRM</li>
-                                <li>Reduces manual effort in managing user access</li>
-                              </ul>
-
-                              <p>
-                                <strong>Refer to the API documentation</strong>
-                                to integrate and start deactivating users programmatically.
-                              </p>
-                              <img src="img/eight-one/5.avif" alt="User Deactivation API" />
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Bulk Lead Allocation API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf3_8_1">Bulk Lead Allocation API</button>
-                          </h2>
-
-                          <div id="allf3_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Handling high volumes of lead assignments often requires multiple steps and constant coordination.</p>
-                              <p>With v8.1, you can now streamline this process by creating and assigning leads/customers in bulk through a single API request.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Create and assign up to 10 leads/customers per API request</li>
-                                <li>Supports multiple assignment modes: Common Pool, Rule-based, Single User</li>
-                                <li>Allows individual allocation logic within the same request</li>
-                                <li>Flexible response options: all rows, failed rows, or no data</li>
-                                <li>Provides clear execution feedback for better tracking and debugging</li>
-                              </ul>
-
-                              <p>Below is a sample payload.</p>
-                              <img src="img/eight-one/6.avif" alt="Bulk Lead Allocation API" />
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- GET Customers & Allocations API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allf4_8_1">GET Customers & Allocations API</button>
-                          </h2>
-
-                          <div id="allf4_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Accessing customer and allocation data shouldn’t depend on manual exports and delays.</p>
-                              <p>With v8.1, you can now fetch this data programmatically through secure APIs, making real-time syncing with your systems faster and more reliable.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Secure, paginated APIs to fetch customer and allocation data</li>
-                                <li>Eliminates dependency on manual data exports</li>
-                                <li>Supports filtering by process and date for targeted retrieval</li>
-                                <li>Enables seamless integration with CRMs and analytics platforms</li>
-                                <li>Improves reporting speed and operational efficiency</li>
-                              </ul>
-                              <img src="img/eight-one/7.avif" alt="Customers & Allocations API" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- All Enhancements -->
-                      <div class="accordion" id="allenhAccordion8_1">
-                        <!-- Custom AI Intents -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle1_8_1">Custom AI Intents</button>
-                          </h2>
-                          <div id="alle1_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>While default AI Intents provide a strong foundation for conversation analysis, every business has unique nuances.</p>
-                              <p>With v8.1, you can now extend these capabilities by adding custom intents, ensuring AI insights are even more aligned with your specific goals.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Create custom intent categories tailored to your business needs</li>
-                                <li>Extend or refine default system intents</li>
-                                <li>Define intents using specific keywords and context</li>
-                                <li>Automatically surface relevant intents in call analysis</li>
-                                <li>Gain more accurate and actionable AI-driven insights</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>AI Config</strong>
-                                  tab and navigate to
-                                  <strong>Insight Rules</strong>
-                                </li>
-                                <li>
-                                  Under
-                                  <strong>Intent Settings</strong>
-                                  , view
-                                  <strong>Default Intents</strong>
-                                  and
-                                  <strong>Custom Intents</strong>
-                                </li>
-                                <img src="img/eight-one/8.avif" alt="Custom AI Intents" />
-                                <li>
-                                  Click on
-                                  <strong>Add New</strong>
-                                  to create a custom intent
-                                </li>
-                                <li>Define the intent using relevant keywords and conditions</li>
-                                <img src="img/eight-one/9.avif" alt="Custom AI Intents" />
-                                <li>Use the toggle to enable/disable custom intents or revert to default intents</li>
-                              </ul>
-                              <img src="img/eight-one/10.avif" alt="Custom AI Intents" />
-                              <p>This update gives you more control over how AI interprets conversations, making insights more relevant, contextual, and business-specific.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Centralized Admin & Permissions Hub (RBAC) -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle2_8_1">Centralized Admin & Permissions Hub (RBAC)</button>
-                          </h2>
-                          <div id="alle2_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing admin settings and access controls may become complex as teams grow.</p>
-                              <p>With v8.1, the Admin experience has been restructured to bring better organization, clearer navigation, and more granular control over user permissions.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Centralize admin and configuration settings into a more structured interface</li>
-                                <li>Introduced granular role-based access control (RBAC)</li>
-                                <li>Split previously grouped admin permissions into finer, more precise controls</li>
-                                <li>Reorganized the left menu and admin sections for improved navigation</li>
-                                <li>Enables safer delegation of responsibilities without granting full access</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Navigate to the
-                                  <strong>Administration</strong>
-                                  section
-                                </li>
-                                <li>
-                                  Go to the
-                                  <strong>Team</strong>
-                                  tab to configure access for each user
-                                </li>
-                                <li>Assign or modify permissions based on user roles</li>
-                                <li>Save changes to apply updated access controls</li>
-                                <img src="img/eight-one/11.avif" alt="Admin Controls" />
-                                <li>Explore the reorganized menu and updated sections</li>
-                              </ul>
-                              <img src="img/eight-one/12.avif" alt="Admin Controls" />
-                              <p>This makes admin management more intuitive, secure, and scalable as your team grows.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Admin Controls - Self-Serve Account Deletion -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle3_8_1">Admin Controls - Self-Serve Account Deletion</button>
-                          </h2>
-                          <div id="alle3_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>With v8.1, solo admins can now securely delete their accounts on their own, making account management faster and more flexible.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Solo admins can delete their account via an OTP-verified flow</li>
-                                <li>Eliminates dependency on support for account deletion</li>
-                                <li>Helps users recover from accidental signups or reset demo data</li>
-                                <li>Introduces a 90-day free trial block to prevent misuse</li>
-                                <li>Allows the Sales team to override restrictions for genuine cases</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to
-                                  <strong>Settings</strong>
-                                  in your account
-                                </li>
-                                <li>
-                                  Select the
-                                  <strong>Delete Account</strong>
-                                  option
-                                </li>
-                                <li>Confirm deletion to permanently remove the account</li>
-                              </ul>
-                              <img src="img/eight-one/13.avif" alt="Self-Serve Account Deletion" />
-                              <p>This reduces friction for users while maintaining safeguards to prevent misuse and protect business integrity.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Pricing & Usage Analytics -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle4_8_1">Pricing & Usage Analytics</button>
-                          </h2>
-                          <div id="alle4_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Understanding system usage is key to avoiding unexpected limits and optimizing costs.</p>
-                              <p>With v8.1, technical admins now get deeper visibility into usage patterns, helping them plan more effectively.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Visibility into key metrics like API concurrency and storage usage</li>
-                                <li>Tracks historical usage with trend analysis</li>
-                                <li>Visual indicators to highlight spikes and anomalies</li>
-                                <li>Proactive alerts to prevent limit breaches</li>
-                                <li>Improved monitoring of unknown or untracked usage (e.g., call logs)</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Navigate to the
-                                  <strong>Usage</strong>
-                                  section under
-                                </li>
-                                <li>View current usage metrics and limits</li>
-
-                                <img src="img/eight-one/14.avif" alt="Usage Metrics" />
-
-                                <li>Analyze historical trends and usage patterns</li>
-                                <li>Monitor visual indicators for spikes or anomalies</li>
-                              </ul>
-
-                              <p>This helps teams proactively manage usage, avoid disruptions, and make more informed cost decisions.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Data Transfer History -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle5_8_1">Data Transfer History</button>
-                          </h2>
-                          <div id="alle5_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Tracking past data transfers can be challenging without clear visibility into what moved, when, and by whom.</p>
-                              <p>With v8.1, a dedicated history view brings complete transparency to all your data transfer activities, making audits and troubleshooting much simpler.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Dedicated page to track all data transfer activities</li>
-                                <li>Detailed logs including user, date, and volume of data transferred</li>
-                                <li>Filter data by process and time range</li>
-                                <li>Drill down into each transfer for deeper insights</li>
-                                <li>Improves visibility and simplifies troubleshooting of migrations</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Transfer Data</strong>
-                                  tab and open the
-                                  <strong>History</strong>
-                                  section
-                                </li>
-                                <li>
-                                  Select the required
-                                  <strong>process</strong>
-                                  and
-                                  <strong>time range</strong>
-                                </li>
-
-                                <img src="img/eight-one/16.avif" alt="Data Transfer History" />
-
-                                <li>View details like the number of customers, users, and the date</li>
-                                <li>Click on any entry to see more detailed transfer information</li>
-                              </ul>
-
-                              <p>This gives you complete visibility and control over data movements, making audits and issue resolution faster and more reliable.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- FB Lead Ads Integration Management -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle6_8_1">FB Lead Ads Integration Management</button>
-                          </h2>
-                          <div id="alle6_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Controlling when and how leads flow into the system is critical for campaign management.</p>
-                              <p>With v8.1, you can now directly manage your Facebook Lead Ads connection, ensuring smoother control over lead inflow without risking accidental disruptions.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Manage the Facebook Lead Ads connection from the integration settings</li>
-                                <li>Secure disconnect option with confirmation prompt</li>
-                                <li>Automatically disables all associated lead forms on disconnection</li>
-                                <li>Instantly stops incoming leads from active campaigns</li>
-                                <li>Prevents accidental disruptions with controlled actions</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Integrations</strong>
-                                  tab and navigate to
-                                  <strong>Lead Sources</strong>
-                                </li>
-                                <li>Connect your Facebook account and link your ad forms</li>
-
-                                <img src="img/eight-one/17.avif" alt="FB Lead Ads Integration Management" />
-
-                                <li>
-                                  Use the toggle to
-                                  <strong>enable or disable</strong>
-                                  specific for
-                                </li>
-                                <img src="img/eight-one/19.avif" alt="FB Lead Ads Integration Management" />
-                                <li>To stop all lead inflow, disconnect the integration with confirmation</li>
-                              </ul>
-                              <img src="img/eight-one/18.avif" alt="FB Lead Ads Integration Management" />
-                              <p>This gives you flexible, real-time control over your lead inflow without disrupting your overall setup.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Other Minor Enhancements -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alle7_8_1">Other Minor Enhancements</button>
-                          </h2>
-                          <div id="alle7_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>
-                                <strong>Consistent Call Duration Format (hh: mm)</strong>
-                              </p>
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Standardize talk time across all reports to hh: mm format</li>
-                                <li>Improves readability of call duration metrics</li>
-                                <li>Ensures consistency across User Performance Analytics pages</li>
-                                <li>Makes it easier to analyze and compare agent performance</li>
-                              </ul>
-
-                              <p>
-                                <strong>Caller Number in Call Reports</strong>
-                              </p>
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Adds the caller phone number to the Call Logs report</li>
-                                <li>Improves visibility into incoming call sources</li>
-                                <li>Enables better tracking and follow-up actions</li>
-                                <li>Available only for new calls going forward (no retrospective data)</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="features-8_1" role="tabpanel">
-                      <div class="accordion" id="featuresAccordion8_1">
-                        <!-- Cross Process Lead Transfer -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1_8_1">Cross Process Lead Transfer</button>
-                          </h2>
-
-                          <div id="f1_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing leads across multiple processes often meant relying on manual workarounds.</p>
-                              <p>With v8.1, you can now seamlessly transfer leads between processes without losing any critical context or history.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Transfer individual leads across processes without data loss</li>
-                                <li>Preserves call logs, recordings, and complete interaction history</li>
-                                <li>Inline field mapping during transfer for better control</li>
-                                <li>Auto-mapping capabilities to simplify field alignment</li>
-                                <li>Controlled permissions to ensure secure lead transfers</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Cross Process Lead Transfer</strong>
-                                  tab and click on
-                                  <strong>New Mapping</strong>
-                                </li>
-                                <img src="img/eight-one/1.avif" alt="Cross Process Lead Transfer Mapping" />
-                                <li>
-                                  Select the
-                                  <strong>Source Process</strong>
-                                  and
-                                  <strong>Target Process,</strong>
-                                  map the required fields, and click Save
-                                </li>
-                                <img src="img/eight-one/2.avif" alt="Process" />
-                                <li>
-                                  Navigate to the
-                                  <strong>Customers</strong>
-                                  tab and open the customer you want to transfer
-                                </li>
-                                <li>
-                                  Click on
-                                  <strong>More</strong>
-                                  in the customer profile and select
-                                  <strong>Transfer</strong>
-                                </li>
-                                <img src="img/eight-one/3.avif" alt="Transfer" />
-                                <li>
-                                  Choose the
-                                  <strong>From Process</strong>
-                                  and
-                                  <strong>To Process</strong>
-                                </li>
-                                <li>
-                                  Select the teammate under
-                                  <strong>Assign to</strong>
-                                  and click
-                                  <strong>Transfer</strong>
-                                  to complete the action
-                                </li>
-                              </ul>
-                              <img src="img/eight-one/4.avif" alt="Cross Process Lead Transfer Mapping" />
-                              <p>This ensures smooth lead movement across workflows while maintaining complete data integrity and context.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- User Deactivation API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2_8_1">User Deactivation API</button>
-                          </h2>
-
-                          <div id="f2_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing user access across systems can be time-consuming and error-prone when done manually.</p>
-                              <p>With v8.1, you can now programmatically deactivate users in Runo through a secure API, ensuring smoother user lifecycle management and better control.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>API support for secure single-user deactivation</li>
-                                <li>Automatically removes all add-ons and integrations for the user</li>
-                                <li>Unassigns any virtual numbers linked to the user</li>
-                                <li>Enables seamless integration with external systems like HRMS and CRM</li>
-                                <li>Reduces manual effort in managing user access</li>
-                              </ul>
-
-                              <p>
-                                <strong>Refer to the API documentation</strong>
-                                to integrate and start deactivating users programmatically.
-                              </p>
-                              <img src="img/eight-one/5.avif" alt="User Deactivation API" />
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Bulk Lead Allocation API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3_8_1">Bulk Lead Allocation API</button>
-                          </h2>
-
-                          <div id="f3_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Handling high volumes of lead assignments often requires multiple steps and constant coordination.</p>
-                              <p>With v8.1, you can now streamline this process by creating and assigning leads/customers in bulk through a single API request.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Create and assign up to 10 leads/customers per API request</li>
-                                <li>Supports multiple assignment modes: Common Pool, Rule-based, Single User</li>
-                                <li>Allows individual allocation logic within the same request</li>
-                                <li>Flexible response options: all rows, failed rows, or no data</li>
-                                <li>Provides clear execution feedback for better tracking and debugging</li>
-                              </ul>
-
-                              <p>Below is a sample payload.</p>
-                              <img src="img/eight-one/6.avif" alt="Bulk Lead Allocation API" />
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- GET Customers & Allocations API -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4_8_1">GET Customers & Allocations API</button>
-                          </h2>
-
-                          <div id="f4_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Accessing customer and allocation data shouldn’t depend on manual exports and delays.</p>
-                              <p>With v8.1, you can now fetch this data programmatically through secure APIs, making real-time syncing with your systems faster and more reliable.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Secure, paginated APIs to fetch customer and allocation data</li>
-                                <li>Eliminates dependency on manual data exports</li>
-                                <li>Supports filtering by process and date for targeted retrieval</li>
-                                <li>Enables seamless integration with CRMs and analytics platforms</li>
-                                <li>Improves reporting speed and operational efficiency</li>
-                              </ul>
-                              <img src="img/eight-one/7.avif" alt="Customers & Allocations API" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- New Features -->
-                    <div class="tab-pane fade" id="enhancements-8_1" role="tabpanel">
-                      <div class="accordion" id="enhAccordion8_1">
-                        <!-- Custom AI Intents -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e1_8_1">Custom AI Intents</button>
-                          </h2>
-                          <div id="e1_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>While default AI Intents provide a strong foundation for conversation analysis, every business has unique nuances.</p>
-                              <p>With v8.1, you can now extend these capabilities by adding custom intents, ensuring AI insights are even more aligned with your specific goals.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Create custom intent categories tailored to your business needs</li>
-                                <li>Extend or refine default system intents</li>
-                                <li>Define intents using specific keywords and context</li>
-                                <li>Automatically surface relevant intents in call analysis</li>
-                                <li>Gain more accurate and actionable AI-driven insights</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>AI Config</strong>
-                                  tab and navigate to
-                                  <strong>Insight Rules</strong>
-                                </li>
-                                <li>
-                                  Under
-                                  <strong>Intent Settings</strong>
-                                  , view
-                                  <strong>Default Intents</strong>
-                                  and
-                                  <strong>Custom Intents</strong>
-                                </li>
-                                <img src="img/eight-one/8.avif" alt="Custom AI Intents" />
-                                <li>
-                                  Click on
-                                  <strong>Add New</strong>
-                                  to create a custom intent
-                                </li>
-                                <li>Define the intent using relevant keywords and conditions</li>
-                                <img src="img/eight-one/9.avif" alt="Custom AI Intents" />
-                                <li>Use the toggle to enable/disable custom intents or revert to default intents</li>
-                              </ul>
-                              <img src="img/eight-one/10.avif" alt="Custom AI Intents" />
-                              <p>This update gives you more control over how AI interprets conversations, making insights more relevant, contextual, and business-specific.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Centralized Admin & Permissions Hub (RBAC) -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e2_8_1">Centralized Admin & Permissions Hub (RBAC)</button>
-                          </h2>
-                          <div id="e2_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Managing admin settings and access controls may become complex as teams grow.</p>
-                              <p>With v8.1, the Admin experience has been restructured to bring better organization, clearer navigation, and more granular control over user permissions.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Centralize admin and configuration settings into a more structured interface</li>
-                                <li>Introduced granular role-based access control (RBAC)</li>
-                                <li>Split previously grouped admin permissions into finer, more precise controls</li>
-                                <li>Reorganized the left menu and admin sections for improved navigation</li>
-                                <li>Enables safer delegation of responsibilities without granting full access</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Navigate to the
-                                  <strong>Administration</strong>
-                                  section
-                                </li>
-                                <li>
-                                  Go to the
-                                  <strong>Team</strong>
-                                  tab to configure access for each user
-                                </li>
-                                <li>Assign or modify permissions based on user roles</li>
-                                <li>Save changes to apply updated access controls</li>
-                                <img src="img/eight-one/11.avif" alt="Admin Controls" />
-                                <li>Explore the reorganized menu and updated sections</li>
-                              </ul>
-                              <img src="img/eight-one/12.avif" alt="Admin Controls" />
-                              <p>This makes admin management more intuitive, secure, and scalable as your team grows.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Admin Controls - Self-Serve Account Deletion -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e3_8_1">Admin Controls - Self-Serve Account Deletion</button>
-                          </h2>
-                          <div id="e3_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>With v8.1, solo admins can now securely delete their accounts on their own, making account management faster and more flexible.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Solo admins can delete their account via an OTP-verified flow</li>
-                                <li>Eliminates dependency on support for account deletion</li>
-                                <li>Helps users recover from accidental signups or reset demo data</li>
-                                <li>Introduces a 90-day free trial block to prevent misuse</li>
-                                <li>Allows the Sales team to override restrictions for genuine cases</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to
-                                  <strong>Settings</strong>
-                                  in your account
-                                </li>
-                                <li>
-                                  Select the
-                                  <strong>Delete Account</strong>
-                                  option
-                                </li>
-                                <li>Confirm deletion to permanently remove the account</li>
-                              </ul>
-                              <img src="img/eight-one/13.avif" alt="Self-Serve Account Deletion" />
-                              <p>This reduces friction for users while maintaining safeguards to prevent misuse and protect business integrity.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Pricing & Usage Analytics -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e4_8_1">Pricing & Usage Analytics</button>
-                          </h2>
-                          <div id="e4_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Understanding system usage is key to avoiding unexpected limits and optimizing costs.</p>
-                              <p>With v8.1, technical admins now get deeper visibility into usage patterns, helping them plan more effectively.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Visibility into key metrics like API concurrency and storage usage</li>
-                                <li>Tracks historical usage with trend analysis</li>
-                                <li>Visual indicators to highlight spikes and anomalies</li>
-                                <li>Proactive alerts to prevent limit breaches</li>
-                                <li>Improved monitoring of unknown or untracked usage (e.g., call logs)</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Navigate to the
-                                  <strong>Usage</strong>
-                                  section under
-                                </li>
-                                <li>View current usage metrics and limits</li>
-
-                                <img src="img/eight-one/14.avif" alt="Usage Metrics" />
-
-                                <li>Analyze historical trends and usage patterns</li>
-                                <li>Monitor visual indicators for spikes or anomalies</li>
-                              </ul>
-
-                              <p>This helps teams proactively manage usage, avoid disruptions, and make more informed cost decisions.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Data Transfer History -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e5_8_1">Data Transfer History</button>
-                          </h2>
-                          <div id="e5_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Tracking past data transfers can be chenging without clear visibility into what moved, when, and by whom.</p>
-                              <p>With v8.1, a dedicated history view brings complete transparency to all your data transfer activities, making audits and troubleshooting much simpler.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Dedicated page to track all data transfer activities</li>
-                                <li>Detailed logs including user, date, and volume of data transferred</li>
-                                <li>Filter data by process and time range</li>
-                                <li>Drill down into each transfer for deeper insights</li>
-                                <li>Improves visibility and simplifies troubleshooting of migrations</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Transfer Data</strong>
-                                  tab and open the
-                                  <strong>History</strong>
-                                  section
-                                </li>
-                                <li>
-                                  Select the required
-                                  <strong>process</strong>
-                                  and
-                                  <strong>time range</strong>
-                                </li>
-
-                                <img src="img/eight-one/16.avif" alt="Data Transfer History" />
-
-                                <li>View details like the number of customers, users, and the date</li>
-                                <li>Click on any entry to see more detailed transfer information</li>
-                              </ul>
-
-                              <p>This gives you complete visibility and control over data movements, making audits and issue resolution faster and more reliable.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- FB Lead Ads Integration Management -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e6_8_1">FB Lead Ads Integration Management</button>
-                          </h2>
-                          <div id="e6_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>Controlling when and how leads flow into the system is critical for campaign management.</p>
-                              <p>With v8.1, you can now directly manage your Facebook Lead Ads connection, ensuring smoother control over lead inflow without risking accidental disruptions.</p>
-
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Manage the Facebook Lead Ads connection from the integration settings</li>
-                                <li>Secure disconnect option with confirmation prompt</li>
-                                <li>Automatically disables all associated lead forms on disconnection</li>
-                                <li>Instantly stops incoming leads from active campaigns</li>
-                                <li>Prevents accidental disruptions with controlled actions</li>
-                              </ul>
-
-                              <p><strong>How to use:</strong></p>
-                              <ul>
-                                <li>
-                                  Go to the
-                                  <strong>Integrations</strong>
-                                  tab and navigate to
-                                  <strong>Lead Sources</strong>
-                                </li>
-                                <li>Connect your Facebook account and link your ad forms</li>
-
-                                <img src="img/eight-one/17.avif" alt="FB Lead Ads Integration Management" />
-
-                                <li>
-                                  Use the toggle to
-                                  <strong>enable or disable</strong>
-                                  specific for
-                                </li>
-                                <img src="img/eight-one/19.avif" alt="FB Lead Ads Integration Management" />
-                                <li>To stop all lead inflow, disconnect the integration with confirmation</li>
-                              </ul>
-                              <img src="img/eight-one/18.avif" alt="FB Lead Ads Integration Management" />
-                              <p>This gives you flexible, real-time control over your lead inflow without disrupting your overall setup.</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Other Minor Enhancements -->
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e7_8_1">Other Minor Enhancements</button>
-                          </h2>
-                          <div id="e7_8_1" class="accordion-collapse collapse">
-                            <div class="accordion-body">
-                              <p>
-                                <strong>Consistent Call Duration Format (hh: mm)</strong>
-                              </p>
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Standardize talk time across all reports to hh: mm format</li>
-                                <li>Improves readability of call duration metrics</li>
-                                <li>Ensures consistency across User Performance Analytics pages</li>
-                                <li>Makes it easier to analyze and compare agent performance</li>
-                              </ul>
-
-                              <p>
-                                <strong>Cer Number in Call Reports</strong>
-                              </p>
-                              <p><strong>What’s new:</strong></p>
-                              <ul>
-                                <li>Adds the cer phone number to the Call Logs report</li>
-                                <li>Improves visibility into incoming call sources</li>
-                                <li>Enables better tracking and follow-up actions</li>
-                                <li>Available only for new calls going forward (no retrospective data)</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <!-- ===================== Release 8.0 ===================== -->
-              <div class="tab-pane fade" id="release-8-0-content" role="tabpanel">
+              <div class="tab-pane fade show active" id="release-8-0-content" role="tabpanel">
                 <div class="release-card shadow-sm p-3 rounded-4 bg-white">
                   <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
                     <h3 class="fw-bold mb-2 mb-md-0">Runo 8.0 - Release Notes</h3>
@@ -3029,9 +2052,7 @@
                                 Cloud Telephony add-on must be purchased and enabled before integrating your Airtel IQ account.
                               </p>
 
-                              <p>
-                                <strong>Connect Airtel IQ (Admin Setup):</strong>
-                              </p>
+                              <p><strong>Connect Airtel IQ (Admin Setup):</strong></p>
                               <ul>
                                 <li>
                                   Go to the
@@ -3053,9 +2074,7 @@
                               </ul>
                               <img src="img/seven-two/3.avif" alt="SIM-Like Virtual Numbers" />
 
-                              <p>
-                                <strong>Enable Cloud Telephony for Users</strong>
-                              </p>
+                              <p><strong>Enable Cloud Telephony for Users</strong></p>
                               <ul>
                                 <li>
                                   Navigate to the
@@ -3462,9 +2481,7 @@
                                 Cloud Telephony add-on must be purchased and enabled before integrating your Airtel IQ account.
                               </p>
 
-                              <p>
-                                <strong>Connect Airtel IQ (Admin Setup):</strong>
-                              </p>
+                              <p><strong>Connect Airtel IQ (Admin Setup):</strong></p>
 
                               <ul>
                                 <li>
@@ -3488,9 +2505,7 @@
                               </ul>
                               <img src="img/seven-two/3.avif" alt="SIM-Like Virtual Numbers" />
 
-                              <p>
-                                <strong>Enable Cloud Telephony for Users</strong>
-                              </p>
+                              <p><strong>Enable Cloud Telephony for Users</strong></p>
                               <ul>
                                 <li>
                                   Navigate to the
@@ -6632,9 +5647,7 @@
                                 <strong>WhatsApp Business Integration</strong>
                                 , you can connect your business number directly to Runo and manage every customer conversation from one unified space.
                               </p>
-                              <p>
-                                <strong>Here’s what makes this integration a game-changer:</strong>
-                              </p>
+                              <p><strong>Here’s what makes this integration a game-changer:</strong></p>
                               <ul>
                                 <li>
                                   <strong>One Centralized Number:</strong>
@@ -6709,9 +5722,7 @@
                                 – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.
                               </p>
                               <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot is here to help you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds, it can do it all.</p>
-                              <p>
-                                <strong>Here’s what it brings to your experience:</strong>
-                              </p>
+                              <p><strong>Here’s what it brings to your experience:</strong></p>
                               <ul>
                                 <li>
                                   <strong>Ask anything:</strong>
@@ -6731,9 +5742,7 @@
                                 <strong>Runo AI Copilot</strong>
                                 gives you instant clarity on every call, helping you save time, learn faster, and lead with insight.
                               </p>
-                              <p>
-                                <strong>How to Use Runo AI Copilot?</strong>
-                              </p>
+                              <p><strong>How to Use Runo AI Copilot?</strong></p>
                               <ul>
                                 <li>
                                   <strong>On Web:</strong>
@@ -6765,9 +5774,7 @@
                                 , in the ‘Call Logs’ tab, look for the AI Insights icon on eligible call logs (defined by your admin).
                               </p>
                               <img src="img/six-zero/8.avif" class="upd-img my-3" alt="Call Logs showing AI Insights icon next to eligible calls" />
-                              <p>
-                                <strong>Here’s what the icons stand for:</strong>
-                              </p>
+                              <p><strong>Here’s what the icons stand for:</strong></p>
                               <img src="img/six-zero/9.avif" class="upd-img my-3" alt="Legend of AI Insights icons indicating summaries, sentiment, and transcript availability" />
                               <p>Clicking the icon opens the detailed report, which includes:</p>
                               <ul>
@@ -6957,9 +5964,7 @@
                                 <li>Nudges (Subscribe / Manage) appear as CTAs within the app for quick navigation.</li>
                                 <li>Payments can currently be made only through the Web App.</li>
                               </ul>
-                              <p>
-                                <strong>What You’ll See on the Billing Page:</strong>
-                              </p>
+                              <p><strong>What You’ll See on the Billing Page:</strong></p>
                               <p>The page is organized into three widgets:</p>
                               <ul>
                                 <li>Billing & Plan Info: View your current plan details and license information.</li>
@@ -7014,9 +6019,7 @@
                                 <strong>WhatsApp Business Integration</strong>
                                 , you can connect your business number directly to Runo and manage every customer conversation from one unified space.
                               </p>
-                              <p>
-                                <strong>Here’s what makes this integration a game-changer:</strong>
-                              </p>
+                              <p><strong>Here’s what makes this integration a game-changer:</strong></p>
                               <ul>
                                 <li>
                                   <strong>One Centralized Number:</strong>
@@ -7091,9 +6094,7 @@
                                 – an AI Assistant designed to make your day-to-day work on Runo faster, smarter, and a whole lot easier.
                               </p>
                               <p>Whether you’re exploring Runo for the first time or managing a full sales pipeline, AI Copilot is here to help you at every step. From answering your questions, surfacing key insights, to summarizing call data in seconds, it can do it all.</p>
-                              <p>
-                                <strong>Here’s what it brings to your experience:</strong>
-                              </p>
+                              <p><strong>Here’s what it brings to your experience:</strong></p>
                               <ul>
                                 <li>
                                   <strong>Ask anything:</strong>
@@ -7113,9 +6114,7 @@
                                 <strong>Runo AI Copilot</strong>
                                 gives you instant clarity on every call, helping you save time, learn faster, and lead with insight.
                               </p>
-                              <p>
-                                <strong>How to Use Runo AI Copilot?</strong>
-                              </p>
+                              <p><strong>How to Use Runo AI Copilot?</strong></p>
                               <ul>
                                 <li>
                                   <strong>On Web:</strong>
@@ -7147,9 +6146,7 @@
                                 , in the ‘Call Logs’ tab, look for the AI Insights icon on eligible call logs (defined by your admin).
                               </p>
                               <img src="img/six-zero/8.avif" class="upd-img my-3" alt="Call Logs showing AI Insights icon next to eligible calls" />
-                              <p>
-                                <strong>Here’s what the icons stand for:</strong>
-                              </p>
+                              <p><strong>Here’s what the icons stand for:</strong></p>
                               <img src="img/six-zero/9.avif" class="upd-img my-3" alt="Legend of AI Insights icons indicating summaries, sentiment, and transcript availability" />
                               <p>Clicking the icon opens the detailed report, which includes:</p>
                               <ul>
@@ -7340,9 +6337,7 @@
                                 <li>Nudges (Subscribe / Manage) appear as CTAs within the app for quick navigation.</li>
                                 <li>Payments can currently be made only through the Web App.</li>
                               </ul>
-                              <p>
-                                <strong>What You’ll See on the Billing Page:</strong>
-                              </p>
+                              <p><strong>What You’ll See on the Billing Page:</strong></p>
                               <p>The page is organized into three widgets:</p>
                               <ul>
                                 <li>Billing & Plan Info: View your current plan details and license information.</li>
@@ -7449,10 +6444,7 @@
         });
 
         // --- Handle hash-based auto activation ---
-        if (hash === "#eight-one") {
-          activateListTab("release-8-1-list");
-          currentRelease = "Release Notes 8.1";
-        } else if (hash === "#eight-zero") {
+        if (hash === "#eight-zero") {
           activateListTab("release-8-0-list");
           currentRelease = "Release Notes 8.0";
         } else if (hash === "#seven-two") {
@@ -7480,10 +6472,7 @@
         listGroupLinks.forEach((item) => {
           item.addEventListener("shown.bs.tab", function (e) {
             const activeId = e.target.id;
-            if (activeId === "release-8-1-list") {
-              currentRelease = "Release Notes 8.1";
-              history.replaceState(null, "", "#eight-one");
-            } else if (activeId === "release-8-0-list") {
+            if (activeId === "release-8-0-list") {
               currentRelease = "Release Notes 8.0";
               history.replaceState(null, "", "#eight-zero");
             } else if (activeId === "release-7-2-list") {
@@ -7517,7 +6506,6 @@
 
         function activateTab(hash) {
           const map = {
-            "eight-one": "#release-8-1-content",
             "eight-zero": "#release-8-0-content",
             "seven-two": "#release-7-2-content",
             "seven-one": "#release-7-1-content",
@@ -7562,15 +6550,9 @@
           <div class="col-6 col-md-4 col-lg-3">
             <h6 class="text-white fw-bold mb-3">ABOUT</h6>
             <ul class="list-unstyled">
-              <li>
-                <a href="about-us" class="text-light text-decoration-none d-block mb-1">About Us</a>
-              </li>
-              <li>
-                <a href="newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a>
-              </li>
-              <li>
-                <a href="partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a>
-              </li>
+              <li><a href="about-us" class="text-light text-decoration-none d-block mb-1">About Us</a></li>
+              <li><a href="newsroom" class="text-light text-decoration-none d-block mb-1">Newsroom</a></li>
+              <li><a href="partners" class="text-light text-decoration-none d-block mb-1">Become a Partner</a></li>
             </ul>
             <h6 class="text-white fw-bold mt-5 mb-3">CONTACT</h6>
             <a href="mailto:care@runo.ai" class="d-flex align-items-center text-decoration-none">
@@ -7614,18 +6596,10 @@
           <div class="col-6 col-md-4 col-lg-3">
             <h6 class="text-white fw-bold mb-3">FEATURES</h6>
             <ul class="list-unstyled">
-              <li>
-                <a href="features/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a>
-              </li>
-              <li>
-                <a href="features/telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a>
-              </li>
-              <li>
-                <a href="features/call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a>
-              </li>
-              <li>
-                <a href="features/auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a>
-              </li>
+              <li><a href="features/telemarketing-crm-software" class="text-light text-decoration-none d-block mb-1">Telemarketing CRM Software</a></li>
+              <li><a href="features/telecaller-app" class="text-light text-decoration-none d-block mb-1">Telecaller App</a></li>
+              <li><a href="features/call-center-app" class="text-light text-decoration-none d-block mb-1">Call Center App</a></li>
+              <li><a href="features/auto-dialer-software" class="text-light text-decoration-none d-block mb-1">Auto Dialer</a></li>
 
               <li>
                 <a href="/features/" class="text-light text-decoration-none d-block mb-1">More Features →</a>
@@ -7633,51 +6607,29 @@
             </ul>
             <h6 class="text-white fw-bold mt-5 mb-3">PRODUCTS</h6>
             <ul class="list-unstyled">
-              <li>
-                <a href="product/call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a>
-              </li>
-              <li>
-                <a href="product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a>
-              </li>
+              <li><a href="product/call-management-app" class="text-light text-decoration-none d-block mb-1">Call Management App</a></li>
+              <li><a href="product/whatsapp-crm" class="text-light text-decoration-none d-block mb-1">WhatsApp CRM</a></li>
             </ul>
           </div>
           <!-- Support -->
           <div class="col-6 col-md-4 col-lg-2">
             <h6 class="text-white fw-bold mb-3">SUPPORT</h6>
             <ul class="list-unstyled">
-              <li>
-                <a href="contact" class="text-light text-decoration-none d-block mb-1">Contact sales</a>
-              </li>
-              <li>
-                <a href="faq" class="text-light text-decoration-none d-block mb-1">FAQ</a>
-              </li>
-              <li>
-                <a href="tutorials" class="text-light text-decoration-none d-block mb-1">Product Tutorials</a>
-              </li>
-              <li>
-                <a href="compliance" class="text-light text-decoration-none d-block mb-1">Compliance</a>
-              </li>
+              <li><a href="contact" class="text-light text-decoration-none d-block mb-1">Contact sales</a></li>
+              <li><a href="faq" class="text-light text-decoration-none d-block mb-1">FAQ</a></li>
+              <li><a href="tutorials" class="text-light text-decoration-none d-block mb-1">Product Tutorials</a></li>
+              <li><a href="compliance" class="text-light text-decoration-none d-block mb-1">Compliance</a></li>
             </ul>
           </div>
           <!-- Resources -->
           <div class="col-6 col-md-6 col-lg-2">
             <h6 class="text-white fw-bold mb-3">RESOURCES</h6>
             <ul class="list-unstyled">
-              <li>
-                <a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a>
-              </li>
-              <li>
-                <a href="https://docs.runo.in/" class="text-light text-decoration-none d-block mb-1">API Documentation</a>
-              </li>
-              <li>
-                <a href="integrations" class="text-light text-decoration-none d-block mb-1">Integrations</a>
-              </li>
-              <li>
-                <a href="webinar" class="text-light text-decoration-none d-block mb-1">Webinars</a>
-              </li>
-              <li>
-                <a href="runo-updates" class="text-light text-decoration-none d-block mb-1">What's New?</a>
-              </li>
+              <li><a href="blog/" class="text-light text-decoration-none d-block mb-1">Blogs</a></li>
+              <li><a href="https://docs.runo.in/" class="text-light text-decoration-none d-block mb-1">API Documentation</a></li>
+              <li><a href="integrations" class="text-light text-decoration-none d-block mb-1">Integrations</a></li>
+              <li><a href="webinar" class="text-light text-decoration-none d-block mb-1">Webinars</a></li>
+              <li><a href="runo-updates" class="text-light text-decoration-none d-block mb-1">What's New?</a></li>
             </ul>
           </div>
           <!-- Review Images -->
@@ -7786,9 +6738,7 @@
                 <ul>
                   <li><a href="terms-and-conditions">Terms & Conditions</a></li>
                   <li><a href="privacy-policy">Privacy Policy</a></li>
-                  <li>
-                    <a href="cancellation-and-refund-policy">Usage Policy</a>
-                  </li>
+                  <li><a href="cancellation-and-refund-policy">Usage Policy</a></li>
                   <li><a href="data-security">Data Security</a></li>
                 </ul>
               </div>
@@ -7864,5 +6814,8 @@
         passive: true
       });
     </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>
