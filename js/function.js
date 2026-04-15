@@ -20,18 +20,10 @@
       $("header .header-sticky").toggleClass("active", fromTop > 600);
     });
   }
-  $("#menu").slicknav({
-    label: "",
-    prependTo: ".responsive-menu"
-  });
+  $("#menu").slicknav({label: "", prependTo: ".responsive-menu"});
   if ($("a[href='#top']").length) {
     $(document).on("click", "a[href='#top']", function () {
-      $("html, body").animate(
-        {
-          scrollTop: 0
-        },
-        "slow"
-      );
+      $("html, body").animate({scrollTop: 0}, "slow");
       return !1;
     });
   }
@@ -65,30 +57,13 @@
       speed: 1000,
       spaceBetween: 30,
       loop: slideCount > 4,
-      autoplay: {
-        delay: 5000
-      },
-      navigation: {
-        nextEl: ".testimonial-next-btn",
-        prevEl: ".testimonial-prev-btn"
-      },
+      autoplay: {delay: 5000},
+      navigation: {nextEl: ".testimonial-next-btn", prevEl: ".testimonial-prev-btn"},
       breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 12
-        },
-        800: {
-          slidesPerView: 2,
-          spaceBetween: 30
-        },
-        990: {
-          slidesPerView: 2,
-          spaceBetween: 30
-        },
-        1200: {
-          slidesPerView: 2.5,
-          spaceBetween: 30
-        }
+        0: {slidesPerView: 1, spaceBetween: 12},
+        800: {slidesPerView: 2, spaceBetween: 30},
+        990: {slidesPerView: 2, spaceBetween: 30},
+        1200: {slidesPerView: 2.5, spaceBetween: 30}
       }
     });
   }
@@ -146,13 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
       params.append("page_name", pageName);
       if (utmSource) params.append("utm_source", utmSource);
       if (utmCampaign) params.append("utm_campaign", utmCampaign);
-      const finalUrl = `$ {
-                baseUrl
-            }
-            ?$ {
-                params.toString()
-            }
-            `;
+      const finalUrl = `${baseUrl}?${params.toString()}`;
       buttons.forEach((btn) => {
         btn.href = finalUrl;
         btn.addEventListener("click", function (e) {
@@ -184,24 +153,23 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
-function submitForm(formId, formData) {
+function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
-
   $(".text-danger").addClass("d-none");
-
-  // Button loading state
-  $btn.prop("disabled", true);
+  $btn.prop("disabled", !0);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
-
   const timestamp = new Date().toISOString();
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
-
+  formData.custom_source = "Website Enquiry- IB";
+  formData.custom_status = "Api Allocation";
+  if (utmSource) formData["custom_utm source"] = utmSource;
+  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
   const whatsappOptIn = $("#policyCheck").is(":checked");
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
@@ -215,7 +183,6 @@ function submitForm(formId, formData) {
     Know_Runo: formData["custom_We entered source"] || "",
     UTM_Source: utmSource,
     UTM_Campaign: utmCampaign,
-    Country: formData["your_country"] || "",
     WhatsApp_OptIn: whatsappOptIn,
     Timestamp: timestamp,
     Page_URL: window.location.href
