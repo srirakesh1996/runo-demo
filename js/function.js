@@ -52,43 +52,33 @@
   if ($(".testimonial-slider").length) {
     const swiperEl = document.querySelector(".testimonial-slider .swiper");
     const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
-    const testimonial_slider = new Swiper(swiperEl, {
-      slidesPerView: 2.5,
-      speed: 1000,
-      spaceBetween: 30,
-      loop: slideCount > 4,
-      autoplay: {delay: 5000},
-      navigation: {nextEl: ".testimonial-next-btn", prevEl: ".testimonial-prev-btn"},
-      breakpoints: {
-        0: {slidesPerView: 1, spaceBetween: 12},
-        800: {slidesPerView: 2, spaceBetween: 30},
-        990: {slidesPerView: 2, spaceBetween: 30},
-        1200: {slidesPerView: 2.5, spaceBetween: 30}
-      }
-    });
+    const testimonial_slider = new Swiper(swiperEl, {slidesPerView: 2.5, speed: 1000, spaceBetween: 30, loop: slideCount > 4, autoplay: {delay: 5000}, navigation: {nextEl: ".testimonial-next-btn", prevEl: ".testimonial-prev-btn"}, breakpoints: {0: {slidesPerView: 1, spaceBetween: 12}, 800: {slidesPerView: 2, spaceBetween: 30}, 990: {slidesPerView: 2, spaceBetween: 30}, 1200: {slidesPerView: 2.5, spaceBetween: 30}}});
   }
   document.querySelectorAll(".track-btn").forEach(function (btn) {
     btn.removeEventListener("click", btn._clickHandler);
     btn._clickHandler = function () {
       const label = this.getAttribute("data-label");
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "button_click",
-        event_category: "CTA",
-        event_label: label,
-        page_path: window.location.pathname
-      });
+      window.dataLayer.push({event: "demo_button_click", event_category: "CTA", event_label: label, page_path: window.location.pathname});
+    };
+    btn.addEventListener("click", btn._clickHandler);
+  });
+  document.querySelectorAll(".track-trial-btn").forEach(function (btn) {
+    btn.removeEventListener("click", btn._clickHandler);
+    btn._clickHandler = function (e) {
+      e.preventDefault();
+      const href = this.href;
+      const label = this.getAttribute("data-label");
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event: "free_trial_button_click", event_category: "Free-Trail-CTA", event_label: label, page_path: window.location.pathname});
+      setTimeout(() => {
+        window.location.href = href;
+      }, 1000);
     };
     btn.addEventListener("click", btn._clickHandler);
   });
   if ($(".popup-video").length) {
-    $(".popup-video").magnificPopup({
-      type: "iframe",
-      mainClass: "mfp-fade",
-      removalDelay: 160,
-      preloader: !1,
-      fixedContentPos: !0
-    });
+    $(".popup-video").magnificPopup({type: "iframe", mainClass: "mfp-fade", removalDelay: 160, preloader: !1, fixedContentPos: !0});
   }
 })(jQuery);
 document.addEventListener("DOMContentLoaded", function () {
@@ -173,48 +163,24 @@ function submitForm(formId, formData, formToken) {
   const whatsappOptIn = $("#policyCheck").is(":checked");
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-
-  const sheetData = {
-    Name: formData.your_name || "",
-    Email: formData.your_email || "",
-    Phone: fixedPhone,
-    Company: formData.your_company || "",
-    Team_Size: formData["custom_Sales/Calling Team Size"] || "",
-    Know_Runo: formData["custom_We entered source"] || "",
-    UTM_Source: utmSource,
-    UTM_Campaign: utmCampaign,
-    WhatsApp_OptIn: whatsappOptIn,
-    Timestamp: timestamp,
-    Page_URL: window.location.href
-  };
-
-  // Send to Google Sheets
-  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(sheetData),
-    keepalive: true
-  })
-    .then(() => {
-      // Reset form
+  const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
+  try {
+    fetch("https://script.google.com/macros/s/AKfycbwgPwdbDumSUOfUOv2tOj3i9QzQekzbmt7BLOJ8seLs2t4QwtDooMrjUumpCY3epg6xfg/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
+  } catch (e) {}
+  $.ajax({type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json"})
+    .done(function (data) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event: "demo_form_submit", form_name: "demo_form", page_path: window.location.pathname});
       $form[0].reset();
-
-      // Close parent modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
-      console.log("Form data sent to Google Sheets successfully.");
-
-      console.log("Form submitted:", formData);
-
-      // Show Thank You modal
       $("#thankYouModal").modal("show");
     })
-    .catch(() => {
-      alert("Something went wrong while submitting the form.");
+    .fail(function () {
+      alert("Oops! Something went wrong while submitting the form.");
     })
-    .finally(() => {
-      // Reset button state
-      $btn.prop("disabled", false);
+    .always(function () {
+      $btn.prop("disabled", !1);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
