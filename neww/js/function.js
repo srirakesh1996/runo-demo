@@ -82,7 +82,7 @@
     btn.addEventListener("click", btn._clickHandler);
   });
 
-  document.querySelectorAll(".track-trial-btn").forEach(function (btn) {
+  document.querySelectorAll(".track-trail-btn").forEach(function (btn) {
     btn.removeEventListener("click", btn._clickHandler);
 
     btn._clickHandler = function (e) {
