@@ -374,6 +374,12 @@
             formData["your_phone"] = iti.getNumber(); // international format
             formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Terms & Conditions";
 
+            const selectedCountry = iti.getSelectedCountryData();
+            // Remove anything inside brackets and trim spaces
+            const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
+            // ✅ Add to form data
+            formData["your_country"] = countryName;
+
             const uuid = $(this).data("uuid");
 
             submitForm("demo-form", formData, uuid);
