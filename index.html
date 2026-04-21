@@ -101,9 +101,9 @@
         }
 
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 4000});
+          requestIdleCallback(loadGTM, {timeout: 3000});
         } else {
-          setTimeout(loadGTM, 4000);
+          setTimeout(loadGTM, 3000);
         }
       });
     </script>
@@ -3770,86 +3770,125 @@
     </div>
 
     <script>
-      function loadSwiper(callback) {
-        // Prevent duplicate loading
-        if (window.Swiper) {
-          callback();
-          return;
+      (function () {
+        let swiperLoaded = false;
+        let swiperLoading = false;
+
+        function shouldLoadSwiper() {
+          return document.querySelector(".mobile-hero-swiper, .mobile-slider, .swiper-container, .testimonial-slider .swiper");
         }
 
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-        s.onload = callback;
-        document.body.appendChild(s);
-      }
+        function loadSwiperScript(callback) {
+          if (swiperLoaded) return callback();
+          if (swiperLoading) return;
 
-      window.addEventListener("load", function () {
-        setTimeout(() => {
-          loadSwiper(() => {
-            // ✅ Mobile Hero
-            if (document.querySelector(".mobile-hero-swiper")) {
-              new Swiper(".mobile-hero-swiper", {
-                loop: true,
-                autoplay: {delay: 4000, disableOnInteraction: false},
-                speed: 600
-              });
-            }
+          swiperLoading = true;
 
-            // ✅ Mobile Tabs
-            if (document.querySelector(".mobile-slider")) {
-              new Swiper(".mobile-slider", {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 20,
-                autoplay: {delay: 4000}
-              });
-            }
+          const s = document.createElement("script");
+          s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+          s.async = true;
 
-            // ✅ Features
-            if (document.querySelector(".swiper-container")) {
-              new Swiper(".swiper-container", {
-                loop: true,
-                autoplay: {
-                  delay: 5000
-                },
-                navigation: {
-                  nextEl: ".swiper-custom-next",
-                  prevEl: ".swiper-custom-prev"
+          s.onload = () => {
+            swiperLoaded = true;
+            callback();
+          };
+
+          document.body.appendChild(s);
+        }
+
+        function initWhenVisible(el, config) {
+          if (!el) return;
+
+          const observer = new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  new Swiper(el, config);
+                  obs.disconnect();
                 }
               });
-            }
+            },
+            {rootMargin: "100px"}
+          );
 
-            // ✅ Testimonial (FIXED)
-            if (document.querySelector(".testimonial-slider")) {
-              const swiperEl = document.querySelector(".testimonial-slider .swiper");
+          observer.observe(el);
+        }
 
-              if (swiperEl) {
-                const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
+        function initSwipers() {
+          // HERO
+          initWhenVisible(document.querySelector(".mobile-hero-swiper"), {
+            loop: true,
+            autoplay: {delay: 4000, disableOnInteraction: false},
+            speed: 600
+          });
 
-                new Swiper(swiperEl, {
-                  slidesPerView: 2.5,
-                  speed: 1000,
-                  spaceBetween: 30,
-                  loop: slideCount > 4,
-                  autoplay: {
-                    delay: 5000
-                  },
-                  navigation: {
-                    nextEl: ".testimonial-next-btn",
-                    prevEl: ".testimonial-prev-btn"
-                  },
-                  breakpoints: {
-                    0: {slidesPerView: 1, spaceBetween: 12},
-                    800: {slidesPerView: 2, spaceBetween: 30},
-                    990: {slidesPerView: 2, spaceBetween: 30},
-                    1200: {slidesPerView: 2.5, spaceBetween: 30}
-                  }
-                });
-              }
+          // MOBILE SLIDER
+          initWhenVisible(document.querySelector(".mobile-slider"), {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {delay: 4000}
+          });
+
+          // FEATURES
+          initWhenVisible(document.querySelector(".swiper-container"), {
+            loop: true,
+            autoplay: {delay: 5000},
+            navigation: {
+              nextEl: ".swiper-custom-next",
+              prevEl: ".swiper-custom-prev"
             }
           });
-        }, 3000);
-      });
+
+          // TESTIMONIAL
+          const testimonialEl = document.querySelector(".testimonial-slider .swiper");
+
+          if (testimonialEl) {
+            const slideCount = testimonialEl.querySelectorAll(".swiper-slide").length;
+
+            initWhenVisible(testimonialEl, {
+              slidesPerView: 2.5,
+              spaceBetween: 30,
+              speed: 1000,
+              loop: slideCount > 4,
+              autoplay: {delay: 5000},
+              navigation: {
+                nextEl: ".testimonial-next-btn",
+                prevEl: ".testimonial-prev-btn"
+              },
+              breakpoints: {
+                0: {slidesPerView: 1, spaceBetween: 12},
+                800: {slidesPerView: 2, spaceBetween: 30},
+                1200: {slidesPerView: 2.5, spaceBetween: 30}
+              }
+            });
+          }
+        }
+
+        function triggerLoad() {
+          if (!shouldLoadSwiper()) return;
+
+          loadSwiperScript(initSwipers);
+
+          window.removeEventListener("scroll", triggerLoad);
+          window.removeEventListener("touchstart", triggerLoad);
+          window.removeEventListener("mousemove", triggerLoad);
+        }
+
+        // Load on first interaction OR after idle
+        ["scroll", "touchstart", "mousemove"].forEach((event) => {
+          window.addEventListener(event, triggerLoad, {
+            once: true,
+            passive: true
+          });
+        });
+
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(triggerLoad, {timeout: 4000});
+        } else {
+          setTimeout(triggerLoad, 4000);
+        }
+      })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
@@ -3898,7 +3937,7 @@
         if (preloader) {
           preloader.style.opacity = "0";
           preloader.style.transition = "opacity 0.5s ease";
-          setTimeout(() => (preloader.style.display = "none"), 200);
+          setTimeout(() => (preloader.style.display = "none"), 300);
         }
       });
     </script>
@@ -3942,7 +3981,7 @@
       ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
         window.addEventListener(event, loadHubspot, {once: true, passive: true});
       });
-      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 6000);
+      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 5000);
     </script>
   </body>
 </html>
