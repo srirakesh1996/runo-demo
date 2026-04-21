@@ -57,15 +57,10 @@
       });
     }
   });
-  function initTestimonialSwiper() {
-    if (!$(".testimonial-slider").length) return;
-
+  if ($(".testimonial-slider").length) {
     const swiperEl = document.querySelector(".testimonial-slider .swiper");
-    if (!swiperEl) return;
-
     const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
-
-    new Swiper(swiperEl, {
+    const testimonial_slider = new Swiper(swiperEl, {
       slidesPerView: 2.5,
       speed: 1000,
       spaceBetween: 30,
@@ -78,10 +73,22 @@
         prevEl: ".testimonial-prev-btn"
       },
       breakpoints: {
-        0: {slidesPerView: 1, spaceBetween: 12},
-        800: {slidesPerView: 2, spaceBetween: 30},
-        990: {slidesPerView: 2, spaceBetween: 30},
-        1200: {slidesPerView: 2.5, spaceBetween: 30}
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 12
+        },
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+        990: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+        1200: {
+          slidesPerView: 2.5,
+          spaceBetween: 30
+        }
       }
     });
   }
