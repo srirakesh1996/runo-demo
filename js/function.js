@@ -85,7 +85,10 @@
           slidesPerView: 2,
           spaceBetween: 30
         },
-        1200: {s: 2.5, spaceBetween: 30}
+        1200: {
+          slidesPerView: 2.5,
+          spaceBetween: 30
+        }
       }
     });
   }
