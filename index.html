@@ -101,9 +101,9 @@
         }
 
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 3000});
+          requestIdleCallback(loadGTM, {timeout: 4000});
         } else {
-          setTimeout(loadGTM, 3000);
+          setTimeout(loadGTM, 4000);
         }
       });
     </script>
@@ -3822,8 +3822,85 @@
         </div>
       </div>
     </div>
+    <script>
+      function loadSwiper(callback) {
+        // Prevent duplicate loading
+        if (window.Swiper) {
+          callback();
+          return;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+        const s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+        s.onload = callback;
+        document.body.appendChild(s);
+      }
+
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          loadSwiper(() => {
+            // ✅ Mobile Hero
+            if (document.querySelector(".mobile-hero-swiper")) {
+              new Swiper(".mobile-hero-swiper", {
+                loop: true,
+                autoplay: {delay: 4000, disableOnInteraction: false},
+                speed: 600
+              });
+            }
+
+            // ✅ Mobile Tabs
+            if (document.querySelector(".mobile-slider")) {
+              new Swiper(".mobile-slider", {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoplay: {delay: 4000}
+              });
+            }
+
+            // ✅ Features
+            if (document.querySelector(".swiper-container")) {
+              new Swiper(".swiper-container", {
+                loop: true,
+                navigation: {
+                  nextEl: ".swiper-custom-next",
+                  prevEl: ".swiper-custom-prev"
+                }
+              });
+            }
+
+            // ✅ Testimonial (FIXED)
+            if (document.querySelector(".testimonial-slider")) {
+              const swiperEl = document.querySelector(".testimonial-slider .swiper");
+
+              if (swiperEl) {
+                const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
+
+                new Swiper(swiperEl, {
+                  slidesPerView: 2.5,
+                  speed: 1000,
+                  spaceBetween: 30,
+                  loop: slideCount > 4,
+                  autoplay: {
+                    delay: 5000
+                  },
+                  navigation: {
+                    nextEl: ".testimonial-next-btn",
+                    prevEl: ".testimonial-prev-btn"
+                  },
+                  breakpoints: {
+                    0: {slidesPerView: 1, spaceBetween: 12},
+                    800: {slidesPerView: 2, spaceBetween: 30},
+                    990: {slidesPerView: 2, spaceBetween: 30},
+                    1200: {slidesPerView: 2.5, spaceBetween: 30}
+                  }
+                });
+              }
+            }
+          });
+        }, 3000);
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="js/jquery.slicknav.js" defer></script>
