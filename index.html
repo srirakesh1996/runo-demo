@@ -16,7 +16,7 @@
     <!-- Responsive Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <!-- SEO Meta -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <!-- changed from no-index -->
     <meta name="language" content="en" />
     <!-- Open Graph / Facebook -->
@@ -39,7 +39,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
   -->
-
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <!-- Local Font -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <style>
@@ -74,58 +75,47 @@
     </noscript>
 
     <!-- JS (defer) -->
-    <script src="js/jquery-3.7.1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-
-    <!-- Google Tag Manager (Lazy Load Optimized) -->
     <script>
-      (function () {
-        let gtmLoaded = false;
+      window.addEventListener("load", function () {
+        const s = document.createElement("script");
+        s.src = "js/jquery-3.7.1.min.js";
+        document.body.appendChild(s);
+      });
+    </script>
+    <script>
+      function loadIntlTel() {
+        const s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js";
+        document.body.appendChild(s);
+      }
+
+      window.addEventListener("load", loadIntlTel);
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      window.addEventListener("load", function () {
+        if (window.gtmDidInit) return;
+        window.gtmDidInit = true;
 
         function loadGTM() {
-          if (gtmLoaded) return;
-          gtmLoaded = true;
-
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({
-              "gtm.start": new Date().getTime(),
-              event: "gtm.js"
-            });
-
+            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
-
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-TEST");
         }
 
-        /* Load on first interaction */
-        ["scroll", "mousemove", "touchstart", "click"].forEach(function (event) {
-          window.addEventListener(event, loadGTM, {once: true, passive: true});
-        });
-
-        /* Load when tab becomes visible (important for mobile & background tabs) */
-        document.addEventListener(
-          "visibilitychange",
-          function () {
-            if (document.visibilityState === "visible") {
-              loadGTM();
-            }
-          },
-          {once: true}
-        );
-
-        /* Load during browser idle time */
-        if ("requestIdleCallback" in window) {
+        if (window.requestIdleCallback) {
           requestIdleCallback(loadGTM, {timeout: 3000});
         } else {
           setTimeout(loadGTM, 3000);
         }
-      })();
+      });
     </script>
     <!-- End Google Tag Manager -->
 
@@ -2183,339 +2173,26 @@
                     <a href="#features" class="btn-default-dark btn-highlighted">See All Features</a>
                   </div>
                 </div>
+                <!-- Swiper Init Script -->
+                <script>
+                  document.addEventListener("DOMContentLoaded", function () {
+                    new Swiper(".mobile-hero-swiper", {
+                      loop: true,
+                      autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false
+                      },
+                      allowTouchMove: true,
+                      speed: 600
+                    });
+                  });
+                </script>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Hero Section End -->
-
-      <!-- ================= ANALYSIS DEMO ================= -->
-
-      <style>
-        /* ===== SECTION ===== */
-
-        .analysis-container {
-          position: relative;
-          max-width: 100%;
-          margin: auto;
-          border-radius: 16px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        }
-
-        .analysis-image-wrapper {
-          position: relative;
-          overflow: hidden;
-          border-radius: 16px;
-        }
-
-        .analysis-image {
-          width: 100%;
-          transition: 0.5s ease;
-        }
-
-        /* BLUR LOCKED */
-        .analysis-image.blurred {
-          filter: blur(6px) brightness(0.93);
-          transform: scale(1.05);
-          cursor: not-allowed;
-        }
-
-        /* REVEAL */
-        .analysis-image.revealed {
-          animation: revealSmooth 0.8s ease;
-        }
-
-        @keyframes revealSmooth {
-          from {
-            filter: blur(12px);
-            transform: scale(1.05);
-          }
-          to {
-            filter: blur(0);
-            transform: scale(1);
-          }
-        }
-
-        /* ===== CENTER HINT OVER IMAGE ===== */
-
-        /* ===== CENTER OVERLAY HINT ===== */
-
-        .analysis-container {
-          position: relative;
-        }
-
-        /* ===== CENTER OVERLAY HINT ===== */
-
-        .analysis-container {
-          position: relative;
-        }
-
-        /* DESKTOP — auto width */
-        .audio-hint-overlay {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-
-          padding: 10px 16px;
-
-          background: rgba(0, 0, 0, 0.6);
-          color: #fff;
-
-          border-radius: 8px;
-          font-size: 13px;
-
-          display: flex;
-          align-items: center;
-          gap: 8px;
-
-          backdrop-filter: blur(6px);
-        }
-
-        /* hide when audio plays */
-        .audio-hint-overlay.hide {
-          opacity: 0;
-          pointer-events: none;
-          transition: 0.3s ease;
-        }
-
-        /* mobile tweak */
-        /* MOBILE ONLY */
-        @media (max-width: 768px) {
-          .audio-hint-overlay {
-            white-space: normal; /* allow wrap */
-            text-align: center;
-            width: calc(100% - 40px); /* responsive width */
-            max-width: 100%;
-            padding: 12px 16px;
-            font-size: 13px;
-          }
-        }
-        /* ===== AUDIO PLAYER ===== */
-
-        .runo-audio-player {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 10px 16px;
-          border-radius: 12px;
-          background: #f1f3f5;
-          border: 1px solid #e5e7eb;
-          max-width: 300px;
-          margin: 0 auto 17px;
-        }
-
-        .audio-play-btn {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          border: none;
-          background: #111;
-          color: #fff;
-          cursor: pointer;
-        }
-
-        .audio-progress {
-          flex: 1;
-          height: 6px;
-          background: #fff;
-          border-radius: 10px;
-          overflow: hidden;
-          cursor: pointer;
-        }
-
-        .audio-progress-bar {
-          height: 100%;
-          width: 0%;
-          background: #111;
-        }
-
-        .audio-time {
-          font-size: 14px;
-          color: #111;
-        }
-
-        .analysis-demo .d-none {
-          display: none !important;
-        }
-
-        /* ===== MOBILE VIEWER ===== */
-
-        .mobile-image-modal {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.95);
-          display: none;
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
-        }
-
-        .mobile-image-modal.active {
-          display: flex;
-        }
-
-        .mobile-image-modal img {
-          max-width: 100%;
-          max-height: 100%;
-        }
-
-        .close-viewer {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          color: #fff;
-          font-size: 28px;
-          cursor: pointer;
-        }
-      </style>
-
-      <section class="analysis-demo py-5 text-center">
-        <div class="container">
-          <div class="section-title">
-            <h2>Turn Every Sales Call into Actionable Insights</h2>
-            <p>Listen to a real sales call and see how Runo’s AI analyzes conversations to improve conversions, coaching, and close rates.</p>
-          </div>
-
-          <!-- AUDIO PLAYER -->
-          <div class="runo-audio-player">
-            <audio id="demoAudio">
-              <source src="ai-call.mp3" type="audio/mpeg" />
-            </audio>
-
-            <button id="playPause" class="audio-play-btn">
-              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              <svg class="icon-pause d-none" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
-              </svg>
-            </button>
-
-            <div class="audio-progress" id="progressContainer">
-              <div class="audio-progress-bar" id="progressBar"></div>
-            </div>
-
-            <span id="audioTime" class="audio-time">0:00</span>
-          </div>
-
-          <!-- IMAGE -->
-          <div class="analysis-container">
-            <div class="analysis-image-wrapper">
-              <img src="ai-call.avif" id="analysisImage" class="analysis-image blurred" />
-            </div>
-
-            <!-- HINT OVERLAY -->
-            <div id="audioHint" class="audio-hint-overlay">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 8V6a3 3 0 016 0v3H9z" />
-              </svg>
-              <span>Listen to the call to unlock analytics report</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="mobile-image-modal" id="mobileImageModal">
-        <span class="close-viewer">&times;</span>
-        <img id="mobilePreviewImg" />
-      </div>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const audio = document.getElementById("demoAudio");
-          const playBtn = document.getElementById("playPause");
-          const playIcon = playBtn?.querySelector(".icon-play");
-          const pauseIcon = playBtn?.querySelector(".icon-pause");
-
-          const progressBar = document.getElementById("progressBar");
-          const progressContainer = document.getElementById("progressContainer");
-          const timeDisplay = document.getElementById("audioTime");
-
-          const image = document.getElementById("analysisImage");
-          const audioHint = document.getElementById("audioHint");
-
-          const mobileModal = document.getElementById("mobileImageModal");
-          const mobileImg = document.getElementById("mobilePreviewImg");
-          const closeViewer = document.querySelector(".close-viewer");
-
-          if (!audio || !playBtn) return;
-
-          /* PLAY / PAUSE */
-          playBtn.addEventListener("click", () => {
-            if (audio.paused) {
-              audio.play();
-              playIcon.classList.add("d-none");
-              pauseIcon.classList.remove("d-none");
-              audioHint?.classList.add("hide");
-
-              setTimeout(() => {
-                image?.classList.remove("blurred");
-                image?.classList.add("revealed");
-              }, 1500);
-            } else {
-              audio.pause();
-              playIcon.classList.remove("d-none");
-              pauseIcon.classList.add("d-none");
-            }
-          });
-
-          audio.addEventListener("ended", () => {
-            playIcon.classList.remove("d-none");
-            pauseIcon.classList.add("d-none");
-          });
-
-          /* PROGRESS */
-          audio.addEventListener("timeupdate", () => {
-            if (!audio.duration) return;
-
-            progressBar.style.width = (audio.currentTime / audio.duration) * 100 + "%";
-
-            const m = Math.floor(audio.currentTime / 60);
-            const s = Math.floor(audio.currentTime % 60)
-              .toString()
-              .padStart(2, "0");
-            timeDisplay.textContent = `${m}:${s}`;
-          });
-
-          /* SEEK */
-          progressContainer?.addEventListener("click", (e) => {
-            audio.currentTime = (e.offsetX / progressContainer.clientWidth) * audio.duration;
-          });
-
-          /* MOBILE PREVIEW */
-          if (window.innerWidth < 768 && image) {
-            image.addEventListener("click", () => {
-              if (!image.classList.contains("revealed")) return;
-              mobileModal.classList.add("active");
-              mobileImg.src = image.src;
-            });
-          }
-
-          closeViewer?.addEventListener("click", () => mobileModal.classList.remove("active"));
-          mobileModal?.addEventListener("click", (e) => {
-            if (e.target === mobileModal) mobileModal.classList.remove("active");
-          });
-
-          /* AUTO PAUSE WHEN SCROLL AWAY */
-          const section = document.querySelector(".analysis-demo");
-
-          if (section) {
-            new IntersectionObserver(
-              (entries) => {
-                if (!entries[0].isIntersecting && !audio.paused) {
-                  audio.pause();
-                  playIcon.classList.remove("d-none");
-                  pauseIcon.classList.add("d-none");
-                }
-              },
-              {threshold: 0.3}
-            ).observe(section);
-          }
-        });
-      </script>
-
       <!-- Clients Section -->
       <section class="clients-section py-80" style="overflow: hidden">
         <div class="container">
@@ -4142,53 +3819,56 @@
     </div>
 
     <script>
-      function initHeroSwiper() {
-        if (!document.querySelector(".mobile-hero-swiper")) return;
+      (function () {
+        let scriptsLoaded = false;
 
-        new Swiper(".mobile-hero-swiper", {
-          loop: true,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false
-          },
-          allowTouchMove: true,
-          speed: 600
+        function loadMainScripts() {
+          if (scriptsLoaded) return;
+          scriptsLoaded = true;
+
+          // SWIPER
+          const swiper = document.createElement("script");
+          swiper.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+
+          swiper.onload = function () {
+            // ✅ call after Swiper is ready
+            if (typeof initTestimonialSwiper === "function") {
+              initTestimonialSwiper();
+            }
+
+            if (typeof initSwipers === "function") {
+              initSwipers(); // if you have others
+            }
+          };
+
+          document.body.appendChild(swiper);
+
+          // BOOTSTRAP
+          const bs = document.createElement("script");
+          bs.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
+          document.body.appendChild(bs);
+
+          // SLICKNAV
+          const slick = document.createElement("script");
+          slick.src = "js/jquery.slicknav.js";
+          document.body.appendChild(slick);
+
+          // FUNCTION.JS (last)
+          const fn = document.createElement("script");
+          fn.src = "js/function.js";
+          document.body.appendChild(fn);
+        }
+
+        // BEST TRIGGERS
+        window.addEventListener("load", loadMainScripts);
+
+        ["scroll", "mousemove", "touchstart"].forEach((event) => {
+          window.addEventListener(event, loadMainScripts, {once: true, passive: true});
         });
-      }
 
-      function loadSwiper() {
-        if (window.swiperLoaded) return;
-        window.swiperLoaded = true;
-
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-
-        s.onload = function () {
-          initHeroSwiper(); // ✅ ONLY hero init here
-        };
-
-        document.body.appendChild(s);
-      }
-
-      // ✅ Best trigger combo
-      window.addEventListener("load", loadSwiper);
-
-      ["scroll", "mousemove", "touchstart"].forEach((event) => {
-        window.addEventListener(event, loadSwiper, {once: true, passive: true});
-      });
-
-      setTimeout(loadSwiper, 3000);
+        setTimeout(loadMainScripts, 3000);
+      })();
     </script>
-    <script>
-      window.addEventListener("load", function () {
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-        document.body.appendChild(s);
-      });
-    </script>
-    <!-- Plugins (Deferred) -->
-    <script src="js/jquery.slicknav.js" defer></script>
-    <script src="js/function.js" defer></script>
 
     <!-- UTM Tracker -->
     <script>
@@ -4261,6 +3941,22 @@
 
       window.addEventListener("scroll", initZohoOnScroll, {passive: true});
       window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
+    </script>
+    <!--Hubspot Delay Loading-->
+    <script>
+      let hubspotLoaded = false;
+      function loadHubspot() {
+        if (hubspotLoaded) return;
+        hubspotLoaded = true;
+        const s = document.createElement("script");
+        s.src = "https://js-na2.hs-scripts.com/245018807.js";
+        s.async = true;
+        document.body.appendChild(s);
+      }
+      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+        window.addEventListener(event, loadHubspot, {once: true, passive: true});
+      });
+      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 5000);
     </script>
   </body>
 </html>
