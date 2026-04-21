@@ -82,32 +82,6 @@
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
-    <script>
-      window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
-
-        function loadGTM() {
-          (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
-            var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
-        }
-
-        if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 3000});
-        } else {
-          setTimeout(loadGTM, 3000);
-        }
-      });
-    </script>
-    <!-- End Google Tag Manager -->
 
     <script type="application/ld+json">
       {
@@ -3968,20 +3942,5 @@
       window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
     </script>
     <!--Hubspot Delay Loading-->
-    <script>
-      let hubspotLoaded = false;
-      function loadHubspot() {
-        if (hubspotLoaded) return;
-        hubspotLoaded = true;
-        const s = document.createElement("script");
-        s.src = "https://js-na2.hs-scripts.com/245018807.js";
-        s.async = true;
-        document.body.appendChild(s);
-      }
-      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
-        window.addEventListener(event, loadHubspot, {once: true, passive: true});
-      });
-      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 5000);
-    </script>
   </body>
 </html>
