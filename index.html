@@ -52,12 +52,9 @@
         unicode-range: U+0000-00FF;
       }
     </style>
-
-    <link rel="preload" as="image" href="/img/hero-images/mobile/call-summary.avif" type="image/avif" fetchpriority="high" />
-
     <!-- CSS Preload + Load -->
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="css/runo.css" /></noscript>
@@ -81,12 +78,6 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
 
     <!-- Google Tag Manager (Lazy Load Optimized) -->
-    <!-- Init dataLayer early -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-    </script>
-
-    <!-- Optimized GTM Load -->
     <script>
       (function () {
         let gtmLoaded = false;
@@ -97,11 +88,14 @@
 
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
+            w[l].push({
+              "gtm.start": new Date().getTime(),
+              event: "gtm.js"
+            });
 
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
-              dl = l !== "dataLayer" ? "&l=" + l : "";
+              dl = l != "dataLayer" ? "&l=" + l : "";
 
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
@@ -109,21 +103,31 @@
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
-        // 🔥 Load as soon as DOM is ready (VERY IMPORTANT FIX)
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", loadGTM);
-        } else {
-          loadGTM();
-        }
-
-        // 🔁 Backup: load on first interaction
-        ["scroll", "click", "touchstart"].forEach(function (event) {
+        /* Load on first interaction */
+        ["scroll", "mousemove", "touchstart", "click"].forEach(function (event) {
           window.addEventListener(event, loadGTM, {once: true, passive: true});
         });
+
+        /* Load when tab becomes visible (important for mobile & background tabs) */
+        document.addEventListener(
+          "visibilitychange",
+          function () {
+            if (document.visibilityState === "visible") {
+              loadGTM();
+            }
+          },
+          {once: true}
+        );
+
+        /* Load during browser idle time */
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(loadGTM, {timeout: 3000});
+        } else {
+          setTimeout(loadGTM, 3000);
+        }
       })();
     </script>
     <!-- End Google Tag Manager -->
-
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
