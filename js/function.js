@@ -143,9 +143,13 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
+
 let isSubmitting = false;
 
 function submitForm(formId, formData) {
+  if (isSubmitting) return; // 🚨 prevent duplicates
+  isSubmitting = true;
+
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
@@ -177,15 +181,16 @@ function submitForm(formId, formData) {
     Timestamp: timestamp,
     Page_URL: window.location.href
   };
-  // ⏳ TEST: delay API by 40 seconds
 
-  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
-    method: "POST",
-    body: JSON.stringify(sheetData),
-    keepalive: true
-  })
-    .then(() => {
-      console.log("API finished after 40 sec");
+  // 🟢 Send to Google Sheets (AJAX instead of fetch)
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec",
+    type: "POST",
+    data: JSON.stringify(sheetData),
+    contentType: "text/plain", // 👈 important for GAS
+
+    success: function () {
+      console.log("Sheet success");
 
       // Reset form
       $form[0].reset();
@@ -196,14 +201,18 @@ function submitForm(formId, formData) {
 
       // Show thank you
       $("#thankYouModal").modal("show");
-    })
-    .catch(() => {
+    },
+
+    error: function () {
       alert("Something went wrong");
-    })
-    .finally(() => {
-      isSubmitting = false;
+      isSubmitting = false; // 🔓 allow retry
+    },
+
+    complete: function () {
+      // UI reset
       $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
-    });
+    }
+  });
 }
