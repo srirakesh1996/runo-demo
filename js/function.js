@@ -178,33 +178,32 @@ function submitForm(formId, formData) {
     Page_URL: window.location.href
   };
   // ⏳ TEST: delay API by 40 seconds
-  setTimeout(() => {
-    fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
-      method: "POST",
-      body: JSON.stringify(sheetData),
-      keepalive: true
+
+  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
+    method: "POST",
+    body: JSON.stringify(sheetData),
+    keepalive: true
+  })
+    .then(() => {
+      console.log("API finished after 40 sec");
+
+      // Reset form
+      $form[0].reset();
+
+      // Close modal
+      const $modal = $form.closest(".modal");
+      if ($modal.length) $modal.modal("hide");
+
+      // Show thank you
+      $("#thankYouModal").modal("show");
     })
-      .then(() => {
-        console.log("API finished after 40 sec");
-
-        // Reset form
-        $form[0].reset();
-
-        // Close modal
-        const $modal = $form.closest(".modal");
-        if ($modal.length) $modal.modal("hide");
-
-        // Show thank you
-        $("#thankYouModal").modal("show");
-      })
-      .catch(() => {
-        alert("Something went wrong");
-      })
-      .finally(() => {
-        isSubmitting = false;
-        $btn.prop("disabled", false);
-        $spinner.addClass("d-none");
-        $btnText.text(defaultText);
-      });
-  }, 10000); // ⏳ 40 seconds delay
+    .catch(() => {
+      alert("Something went wrong");
+    })
+    .finally(() => {
+      isSubmitting = false;
+      $btn.prop("disabled", false);
+      $spinner.addClass("d-none");
+      $btnText.text(defaultText);
+    });
 }
