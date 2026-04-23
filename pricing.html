@@ -31,7 +31,6 @@
     <meta name="twitter:url" content="https://runo.ai/pricing" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="16x16" />
-
     <link rel="preconnect" href="https://www.googletagmanager.com" />
 
     <!-- Local Font -->
@@ -180,18 +179,6 @@
       }
     </style>
 
-    <!-- End Google Tag Manager -->
-    <!-- Optional: WOW.js & Animate.css -->
-    <!--
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>
-         -->
-    <!-- Inline Hero Banner Style -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1336,18 +1323,20 @@
         </div>
       </section>
       <script>
-        var swiper = new Swiper(".swiper-container", {
-          loop: true,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-          },
-          slidesPerView: 1,
-          spaceBetween: 10,
-          navigation: {
-            nextEl: ".swiper-custom-next",
-            prevEl: ".swiper-custom-prev"
-          }
+        document.addEventListener("DOMContentLoaded", function () {
+          var swiper = new Swiper(".swiper-container", {
+            loop: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false
+            },
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+              nextEl: ".swiper-custom-next",
+              prevEl: ".swiper-custom-prev"
+            }
+          });
         });
       </script>
       <section class="addon-section">
@@ -2004,21 +1993,8 @@
       window.addEventListener("scroll", initZohoOnScroll, {passive: true});
       window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
     </script>
-    <!--Hubspot Delay Loading-->
-    <script>
-      let hubspotLoaded = false;
-      function loadHubspot() {
-        if (hubspotLoaded) return;
-        hubspotLoaded = true;
-        const s = document.createElement("script");
-        s.src = "https://js-na2.hs-scripts.com/245018807.js";
-        s.async = true;
-        document.body.appendChild(s);
-      }
-      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
-        window.addEventListener(event, loadHubspot, {once: true, passive: true});
-      });
-      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 4000);
-    </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
+    <!-- End of HubSpot Embed Code -->
   </body>
 </html>
