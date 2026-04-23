@@ -144,46 +144,43 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 let isSubmitting = false;
-function submitForm(formId, formData, formToken) {
+
+function submitForm(formId, formData) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
-  $(".text-danger").addClass("d-none");
-  $btn.prop("disabled", !0);
+
+  // UI
+  $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
+
   const timestamp = new Date().toISOString();
+
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
-  formData.custom_source = "Website Enquiry- IB";
-  formData.custom_status = "Api Allocation";
-  if (utmSource) formData["custom_utm source"] = utmSource;
-  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
-  const whatsappOptIn = $("#policyCheck").is(":checked");
-  const rawPhone = String(formData.your_phone || formData.phone || "");
+
+  const rawPhone = String(formData.your_phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-  const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
+
   const sheetData = {
     Name: formData.your_name || "",
     Email: formData.your_email || "",
     Phone: fixedPhone,
     Company: formData.your_company || "",
     Team_Size: formData["custom_Sales/Calling Team Size"] || "",
-    Know_Runo: formData["custom_We entered source"] || "",
     UTM_Source: utmSource,
     UTM_Campaign: utmCampaign,
     Country: formData["your_country"] || "",
-    WhatsApp_OptIn: whatsappOptIn,
     Timestamp: timestamp,
     Page_URL: window.location.href
   };
 
-  // Send to Google Sheets
+  // 🔥 Send to Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
     method: "POST",
-    mode: "no-cors",
     body: JSON.stringify(sheetData),
     keepalive: true
   })
@@ -191,20 +188,20 @@ function submitForm(formId, formData, formToken) {
       // Reset form
       $form[0].reset();
 
-      // Close parent modal if exists
+      // Close modal
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
 
-      // Show Thank You modal
+      // Show thank you
       $("#thankYouModal").modal("show");
     })
     .catch(() => {
-      alert("Something went wrong while submitting the form.");
+      alert("Something went wrong");
     })
     .finally(() => {
-      // Reset button state
       isSubmitting = false; // 🔓 unlock
-      //  $btn.prop("disabled", false);
+
+      $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
