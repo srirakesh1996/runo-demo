@@ -3664,18 +3664,13 @@
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
 
-          let isSubmitting = false;
-
-          $("#demo-form")
-            .off("submit")
-            .on("submit", function (event) {
+         $("#demo-form").off("submit").on("submit", function (event) {
               event.preventDefault();
               event.stopPropagation();
 
               const dhiddenf = $("#dwebsite").val().trim();
 
               if (dhiddenf !== "") {
-                isSubmitting = false; // ✅ add this
 
                 alert("Spam detected. Redirecting...");
 
@@ -3700,8 +3695,6 @@
                 return;
               }
 
-              if (isSubmitting) return; // 🔒 block duplicates
-              isSubmitting = true;
 
               const formData = $(this)
                 .serializeArray()
