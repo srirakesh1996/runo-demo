@@ -160,12 +160,11 @@ function submitForm(formId, formData) {
   $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
-  const timestamp =
-    new Date()
-      .toLocaleString("sv-SE", {
-        timeZone: "Asia/Kolkata"
-      })
-      .replace(" ", "T") + "+05:30";
+  const timestamp = new Date()
+    .toLocaleString("sv-SE", {
+      timeZone: "Asia/Kolkata"
+    })
+    .replace(" ", "T");
 
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
