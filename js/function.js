@@ -201,15 +201,16 @@ function submitForm(formId, formData) {
 
       // Show thank you
       $("#thankYouModal").modal("show");
+
+      isSubmitting = false; // ✅ IMPORTANT FIX
     },
 
     error: function () {
       alert("Something went wrong");
-      isSubmitting = false; // 🔓 allow retry
+      isSubmitting = false; // ✅ already correct
     },
 
     complete: function () {
-      // UI reset
       $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
