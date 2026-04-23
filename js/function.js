@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
+let isSubmitting = false;
 function submitForm(formId, formData, formToken) {
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
@@ -164,23 +165,46 @@ function submitForm(formId, formData, formToken) {
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
   const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
-  try {
-    fetch("https://script.google.com/macros/s/AKfycbwgPwdbDumSUOfUOv2tOj3i9QzQekzbmt7BLOJ8seLs2t4QwtDooMrjUumpCY3epg6xfg/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
-  } catch (e) {}
-  $.ajax({type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json"})
-    .done(function (data) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({event: "demo_form_submit", form_name: "demo_form", page_path: window.location.pathname});
+  const sheetData = {
+    Name: formData.your_name || "",
+    Email: formData.your_email || "",
+    Phone: fixedPhone,
+    Company: formData.your_company || "",
+    Team_Size: formData["custom_Sales/Calling Team Size"] || "",
+    Know_Runo: formData["custom_We entered source"] || "",
+    UTM_Source: utmSource,
+    UTM_Campaign: utmCampaign,
+    Country: formData["your_country"] || "",
+    WhatsApp_OptIn: whatsappOptIn,
+    Timestamp: timestamp,
+    Page_URL: window.location.href
+  };
+
+  // Send to Google Sheets
+  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(sheetData),
+    keepalive: true
+  })
+    .then(() => {
+      // Reset form
       $form[0].reset();
+
+      // Close parent modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
+
+      // Show Thank You modal
       $("#thankYouModal").modal("show");
     })
-    .fail(function () {
-      alert("Oops! Something went wrong while submitting the form.");
+    .catch(() => {
+      alert("Something went wrong while submitting the form.");
     })
-    .always(function () {
-      $btn.prop("disabled", !1);
+    .finally(() => {
+      // Reset button state
+      isSubmitting = false; // 🔓 unlock
+      //  $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });

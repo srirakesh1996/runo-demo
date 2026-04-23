@@ -54,9 +54,12 @@
         unicode-range: U+0000-00FF;
       }
     </style>
+
+    <link rel="preload" as="image" href="/img/hero-images/mobile/call-summary.avif" type="image/avif" fetchpriority="high" />
+
     <!-- CSS Preload + Load -->
-    <link rel="preload" as="style" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="all" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="css/runo.css" /></noscript>
@@ -78,180 +81,33 @@
     <!-- JS (defer) -->
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
-
-    <!-- Google Tag Manager (Lazy Load Optimized) -->
+    <!-- Google Tag Manager -->
     <script>
-      (function () {
-        let gtmLoaded = false;
+      window.addEventListener("load", function () {
+        if (window.gtmDidInit) return;
+        window.gtmDidInit = true;
 
         function loadGTM() {
-          if (gtmLoaded) return;
-          gtmLoaded = true;
-
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({
-              "gtm.start": new Date().getTime(),
-              event: "gtm.js"
-            });
-
+            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
-
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
-        /* Load on first interaction */
-        ["scroll", "mousemove", "touchstart", "click"].forEach(function (event) {
-          window.addEventListener(event, loadGTM, {once: true, passive: true});
-        });
-
-        /* Load when tab becomes visible (important for mobile & background tabs) */
-        document.addEventListener(
-          "visibilitychange",
-          function () {
-            if (document.visibilityState === "visible") {
-              loadGTM();
-            }
-          },
-          {once: true}
-        );
-
-        /* Load during browser idle time */
-        if ("requestIdleCallback" in window) {
+        if (window.requestIdleCallback) {
           requestIdleCallback(loadGTM, {timeout: 3000});
         } else {
           setTimeout(loadGTM, 3000);
         }
-      })();
+      });
     </script>
     <!-- End Google Tag Manager -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "name": "Runo",
-            "url": "https://runo.ai/",
-            "logo": "https://runo.ai/img/logo.png",
-            "sameAs": ["https://www.instagram.com/runocrm", "https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA", "https://in.linkedin.com/company/runo-crm"]
-          },
-
-          {
-            "@type": "SoftwareApplication",
-            "name": "Runo CRM",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Android, iOS, Web",
-            "url": "https://web.runo.in/",
-            "image": "https://runo.ai/img/banner-img.webp",
-            "description": "Runo is an AI-powered SIM-based call management CRM that helps sales and telecalling teams track calls, manage leads, record conversations, and improve follow-ups using AI-driven insights.",
-
-            "offers": [
-              {
-                "@type": "Offer",
-                "name": "Quarterly Plan",
-                "price": "899",
-                "priceCurrency": "INR",
-                "description": "₹899 per user/month billed quarterly"
-              },
-              {
-                "@type": "Offer",
-                "name": "Half Yearly Plan",
-                "price": "699",
-                "priceCurrency": "INR",
-                "description": "₹699 per user/month billed half yearly"
-              },
-              {
-                "@type": "Offer",
-                "name": "Yearly Plan",
-                "price": "599",
-                "priceCurrency": "INR",
-                "description": "₹599 per user/month billed yearly"
-              }
-            ],
-
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.7",
-              "reviewCount": "50000"
-            }
-          },
-
-          {
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is Runo really the CRM of the future? Or just a fancy gimmick?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Gimmick? Nah. Runo's like the Terminator of CRMs. It doesn't just show up, it crushes the competition and takes over. The future is here, and it's powered by Runo."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can Runo handle my sales team’s chaos?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Chaos? Runo thrives on chaos. It's like a sales team with no brakes, just pure high-octane efficiency. Bring the madness, Runo can handle it."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does Runo come with a manual? Because I hate reading.",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "You won't need one. It's like the iPhone of CRMs, no instruction manual required. You're gonna pick it up and be like, 'How did I live without this?'"
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much of my time is Runo gonna steal?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Don't worry. Runo's not a time thief. It gives your time back. It handles the boring stuff so you can focus on the fun stuff (like making sales)."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Will Runo give me superpowers?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Superpowers? You'll have X-ray vision to see every lead, teleportation to close deals faster, and invisibility to sneak past your old CRM. Basically, you'll be unstoppable."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How easy is it to switch from my old CRM to Runo?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Easier than changing the channel during a boring commercial. You won't even miss the old one. Runo's ready to make the switch smooth like butter."
-                }
-              }
-            ]
-          }
-        ]
-      }
-    </script>
-
-    <!-- End Google Tag Manager -->
-
-    <!-- Optional: WOW.js & Animate.css -->
-    <!--
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
-         <script>
-         	document.addEventListener("DOMContentLoaded", () => {
-         		new WOW().init();
-         	});
-         </script>
-         -->
-    <!-- Inline Hero Banner Style -->
 
     <style>
       .hero {
@@ -2184,6 +2040,20 @@
                     <a href="#features" class="btn-default-dark btn-highlighted">See All Features</a>
                   </div>
                 </div>
+                <!-- Swiper Init Script -->
+                <script>
+                  document.addEventListener("DOMContentLoaded", function () {
+                    new Swiper(".mobile-hero-swiper", {
+                      loop: true,
+                      autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false
+                      },
+                      allowTouchMove: true,
+                      speed: 600
+                    });
+                  });
+                </script>
               </div>
             </div>
           </div>
@@ -2456,6 +2326,15 @@
 
         // Initialize first tab
         activateTab(0);
+        document.addEventListener("DOMContentLoaded", function () {
+          // ===== MOBILE SWIPER =====
+          const mobileSwiper = new Swiper(".mobile-slider", {
+            loop: true,
+            autoplay: {delay: 4000, disableOnInteraction: false},
+            slidesPerView: 1,
+            spaceBetween: 20
+          });
+        });
       </script>
       <!-- WhatsApp CRM Section-->
       <section class="sales-execution-section pb-5">
@@ -2778,7 +2657,23 @@
           </div>
         </div>
       </section>
-
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          new Swiper(".swiper-container", {
+            loop: true,
+            autoplay: {
+              delay: 4000,
+              disableOnInteraction: false
+            },
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+              nextEl: ".swiper-custom-next",
+              prevEl: ".swiper-custom-prev"
+            }
+          });
+        });
+      </script>
       <section class="home-app-cta-sm py-5">
         <div class="container">
           <div class="row align-items-center">
@@ -3726,55 +3621,65 @@
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
 
-          $("#demo-form").on("submit", function (event) {
-            event.preventDefault();
+          let isSubmitting = false;
 
-            const dhiddenf = $("#dwebsite").val().trim();
+          $("#demo-form")
+            .off("submit")
+            .on("submit", function (event) {
+              event.preventDefault();
+              event.stopPropagation();
 
-            if (dhiddenf !== "") {
-              alert("Spam detected. Redirecting...");
+              const dhiddenf = $("#dwebsite").val().trim();
 
-              $("#demo-form")[0].reset();
-              phoneInput.value = "";
-              $("#dwebsite").val("");
+              if (dhiddenf !== "") {
+                isSubmitting = false; // ✅ add this
 
-              setTimeout(function () {
-                window.location.href = "/";
-              }, 2000);
+                alert("Spam detected. Redirecting...");
 
-              return;
-            }
+                $("#demo-form")[0].reset();
+                phoneInput.value = "";
+                $("#dwebsite").val("");
 
-            const validName = validateName();
-            const validEmail = validateEmail();
-            const validPhone = validatePhone();
-            const validCompName = validateCompName();
-            const validAgents = validateAgents();
+                setTimeout(function () {
+                  window.location.href = "/";
+                }, 2000);
 
-            if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
-              return;
-            }
+                return;
+              }
 
-            const formData = $(this)
-              .serializeArray()
-              .reduce(function (obj, item) {
-                obj[item.name] = item.value;
-                return obj;
-              }, {});
+              const validName = validateName();
+              const validEmail = validateEmail();
+              const validPhone = validatePhone();
+              const validCompName = validateCompName();
+              const validAgents = validateAgents();
 
-            formData["your_phone"] = iti.getNumber(); // international format
-            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+              if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
+                return;
+              }
 
-            const selectedCountry = iti.getSelectedCountryData();
-            // Remove anything inside brackets and trim spaces
-            const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
-            // ✅ Add to form data
-            formData["your_country"] = countryName;
+              if (isSubmitting) return; // 🔒 block duplicates
+              isSubmitting = true;
 
-            const uuid = $(this).data("uuid");
+              const formData = $(this)
+                .serializeArray()
+                .reduce(function (obj, item) {
+                  obj[item.name] = item.value;
+                  return obj;
+                }, {});
 
-            submitForm("demo-form", formData, uuid);
-          });
+              formData["your_phone"] = iti.getNumber(); // international format
+              formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+
+              const selectedCountry = iti.getSelectedCountryData();
+              // Remove anything inside brackets and trim spaces
+              const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
+              // ✅ Add to form data
+              formData["your_country"] = countryName;
+
+              const uuid = $(this).data("uuid");
+
+              submitForm("demo-form", formData, uuid);
+            });
         });
       });
     </script>
@@ -3790,131 +3695,120 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        let swiperLoaded = false;
-        let swiperLoading = false;
-
-        function shouldLoadSwiper() {
-          return document.querySelector(".mobile-hero-swiper, .mobile-slider, .swiper-container, .testimonial-slider .swiper");
-        }
-
-        function loadSwiperScript(callback) {
-          if (swiperLoaded) return callback();
-          if (swiperLoading) return;
-
-          swiperLoading = true;
-
-          const s = document.createElement("script");
-          s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-          s.async = true;
-
-          s.onload = () => {
-            swiperLoaded = true;
-            callback();
-          };
-
-          document.body.appendChild(s);
-        }
-
-        function initWhenVisible(el, config) {
-          if (!el) return;
-
-          const observer = new IntersectionObserver(
-            (entries, obs) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  new Swiper(el, config);
-                  obs.disconnect();
-                }
-              });
-            },
-            {rootMargin: "100px"}
-          );
-
-          observer.observe(el);
-        }
-
-        function initSwipers() {
-          // HERO
-          initWhenVisible(document.querySelector(".mobile-hero-swiper"), {
-            loop: true,
-            autoplay: {delay: 4000, disableOnInteraction: false},
-            speed: 600
-          });
-
-          // MOBILE SLIDER
-          initWhenVisible(document.querySelector(".mobile-slider"), {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {delay: 4000}
-          });
-
-          // FEATURES
-          initWhenVisible(document.querySelector(".swiper-container"), {
-            loop: true,
-            autoplay: {delay: 5000},
-            navigation: {
-              nextEl: ".swiper-custom-next",
-              prevEl: ".swiper-custom-prev"
-            }
-          });
-
-          // TESTIMONIAL
-          const testimonialEl = document.querySelector(".testimonial-slider .swiper");
-
-          if (testimonialEl) {
-            const slideCount = testimonialEl.querySelectorAll(".swiper-slide").length;
-
-            initWhenVisible(testimonialEl, {
-              slidesPerView: 2.5,
-              spaceBetween: 30,
-              speed: 1000,
-              loop: slideCount > 4,
-              autoplay: {delay: 5000},
-              navigation: {
-                nextEl: ".testimonial-next-btn",
-                prevEl: ".testimonial-prev-btn"
-              },
-              breakpoints: {
-                0: {slidesPerView: 1, spaceBetween: 12},
-                800: {slidesPerView: 2, spaceBetween: 30},
-                1200: {slidesPerView: 2.5, spaceBetween: 30}
-              }
-            });
-          }
-        }
-
-        function triggerLoad() {
-          if (!shouldLoadSwiper()) return;
-
-          loadSwiperScript(initSwipers);
-
-          window.removeEventListener("scroll", triggerLoad);
-          window.removeEventListener("touchstart", triggerLoad);
-          window.removeEventListener("mousemove", triggerLoad);
-        }
-
-        // Load on first interaction OR after idle
-        ["scroll", "touchstart", "mousemove"].forEach((event) => {
-          window.addEventListener(event, triggerLoad, {
-            once: true,
-            passive: true
-          });
-        });
-
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(triggerLoad, {timeout: 4500});
-        } else {
-          setTimeout(triggerLoad, 4500);
-        }
-      })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="js/jquery.slicknav.js" defer></script>
     <script src="js/function.js" defer></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Runo",
+            "url": "https://runo.ai/",
+            "logo": "https://runo.ai/img/logo.png",
+            "sameAs": ["https://www.instagram.com/runocrm", "https://www.youtube.com/channel/UCff-NGVdfGJgMLtyZlzVGIA", "https://in.linkedin.com/company/runo-crm"]
+          },
+
+          {
+            "@type": "SoftwareApplication",
+            "name": "Runo CRM",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Android, iOS, Web",
+            "url": "https://web.runo.in/",
+            "image": "https://runo.ai/img/banner-img.webp",
+            "description": "Runo is an AI-powered SIM-based call management CRM that helps sales and telecalling teams track calls, manage leads, record conversations, and improve follow-ups using AI-driven insights.",
+
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Quarterly Plan",
+                "price": "899",
+                "priceCurrency": "INR",
+                "description": "₹899 per user/month billed quarterly"
+              },
+              {
+                "@type": "Offer",
+                "name": "Half Yearly Plan",
+                "price": "699",
+                "priceCurrency": "INR",
+                "description": "₹699 per user/month billed half yearly"
+              },
+              {
+                "@type": "Offer",
+                "name": "Yearly Plan",
+                "price": "599",
+                "priceCurrency": "INR",
+                "description": "₹599 per user/month billed yearly"
+              }
+            ],
+
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "50000"
+            }
+          },
+
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Runo really the CRM of the future? Or just a fancy gimmick?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Gimmick? Nah. Runo's like the Terminator of CRMs. It doesn't just show up, it crushes the competition and takes over. The future is here, and it's powered by Runo."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can Runo handle my sales team’s chaos?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chaos? Runo thrives on chaos. It's like a sales team with no brakes, just pure high-octane efficiency. Bring the madness, Runo can handle it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Runo come with a manual? Because I hate reading.",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You won't need one. It's like the iPhone of CRMs, no instruction manual required. You're gonna pick it up and be like, 'How did I live without this?'"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much of my time is Runo gonna steal?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Don't worry. Runo's not a time thief. It gives your time back. It handles the boring stuff so you can focus on the fun stuff (like making sales)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will Runo give me superpowers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Superpowers? You'll have X-ray vision to see every lead, teleportation to close deals faster, and invisibility to sneak past your old CRM. Basically, you'll be unstoppable."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How easy is it to switch from my old CRM to Runo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Easier than changing the channel during a boring commercial. You won't even miss the old one. Runo's ready to make the switch smooth like butter."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
     <!-- UTM Tracker -->
     <script>
@@ -3958,7 +3852,7 @@
         if (preloader) {
           preloader.style.opacity = "0";
           preloader.style.transition = "opacity 0.5s ease";
-          setTimeout(() => (preloader.style.display = "none"), 350);
+          setTimeout(() => (preloader.style.display = "none"), 300);
         }
       });
     </script>
@@ -4002,7 +3896,7 @@
       ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
         window.addEventListener(event, loadHubspot, {once: true, passive: true});
       });
-      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 5000);
+      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 4000);
     </script>
   </body>
 </html>
