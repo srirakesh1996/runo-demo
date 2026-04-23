@@ -2009,8 +2009,21 @@
       window.addEventListener("scroll", initZohoOnScroll, {passive: true});
       window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
     </script>
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/245018807.js"></script>
-    <!-- End of HubSpot Embed Code -->
+    <!--Hubspot Delay Loading-->
+    <script>
+      let hubspotLoaded = false;
+      function loadHubspot() {
+        if (hubspotLoaded) return;
+        hubspotLoaded = true;
+        const s = document.createElement("script");
+        s.src = "https://js-na2.hs-scripts.com/245018807.js";
+        s.async = true;
+        document.body.appendChild(s);
+      }
+      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+        window.addEventListener(event, loadHubspot, {once: true, passive: true});
+      });
+      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 4000);
+    </script>
   </body>
 </html>
