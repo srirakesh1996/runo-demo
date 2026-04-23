@@ -206,5 +206,5 @@ function submitForm(formId, formData) {
         $spinner.addClass("d-none");
         $btnText.text(defaultText);
       });
-  }, 40000); // ⏳ 40 seconds delay
+  }, 10000000000000); // ⏳ 40 seconds delay
 }
