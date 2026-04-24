@@ -143,26 +143,42 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
-
-function sendLogToSheet(type, status, response, formData) {
-  const logData = {
-    type: type, // SUCCESS / ERROR
-    status: status,
-    response: typeof response === "string" ? response : JSON.stringify(response),
-    page: window.location.href,
-    phone: formData?.your_phone || formData?.phone || ""
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbx52Dtv1vg8UDrtQBIzFdR5awPTa1ah7w2kgkRV1I6onkDqu0HoVEd6OMopu7ZMzZ9kAQ/exec", {
-    method: "POST",
-    body: JSON.stringify(logData)
-  });
-}
-
 let isSubmitting = false;
 
+// ✅ IST Timestamp
+function getISTTime() {
+  return new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
+}
+
+// ✅ Central Logging (goes to Google Sheet)
+function sendLogToSheet(type, status, response, formData) {
+  try {
+    const logData = {
+      time: getISTTime(),
+      type: type, // SUCCESS / ERROR
+      status: status,
+      response: typeof response === "string" ? response : JSON.stringify(response),
+      page: window.location.href,
+      phone: formData?.your_phone || formData?.phone || "",
+      name: formData?.your_name || ""
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbx52Dtv1vg8UDrtQBIzFdR5awPTa1ah7w2kgkRV1I6onkDqu0HoVEd6OMopu7ZMzZ9kAQ/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain"
+      },
+      body: JSON.stringify(logData),
+      keepalive: true
+    });
+  } catch (e) {
+    console.error("Logging failed:", e);
+  }
+}
+
+// ✅ MAIN FORM SUBMIT
 function submitForm(formId, formData) {
-  if (isSubmitting) return; // 🚨 prevent duplicates
+  if (isSubmitting) return; // 🚫 prevent duplicate clicks
   isSubmitting = true;
 
   const $form = $(`#${formId}`);
@@ -171,22 +187,27 @@ function submitForm(formId, formData) {
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
 
-  // UI
+  // UI state
   $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
-  const timestamp = new Date()
-    .toLocaleString("sv-SE", {
-      timeZone: "Asia/Kolkata"
-    })
-    .replace(" ", "T");
+
+  const timestamp = getISTTime();
 
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
-  const rawPhone = String(formData.your_phone || "");
+  // ✅ Phone validation
+  const rawPhone = String(formData.your_phone || formData.phone || "");
+  if (!rawPhone || rawPhone.length < 8) {
+    alert("Please enter a valid phone number");
+    isSubmitting = false;
+    return;
+  }
+
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
 
+  // ✅ Sheet Data
   const sheetData = {
     Name: formData.your_name || "",
     Email: formData.your_email || "",
@@ -200,39 +221,43 @@ function submitForm(formId, formData) {
     Page_URL: window.location.href
   };
 
-  // 🟢 Send to Google Sheets (AJAX instead of fetch)
+  // ✅ API CALL (Google Sheets)
   $.ajax({
     url: "https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec",
     type: "POST",
     data: JSON.stringify(sheetData),
-    contentType: "text/plain", // 👈 important for GAS
+    contentType: "text/plain",
+    timeout: 15000, // ⏱️ prevent hanging
 
-    success: function () {
-      console.log("Sheet success");
+    success: function (response) {
+      console.log("Sheet success:", response);
 
-      sendLogToSheet("SUCCESS", "200", data, formData);
+      // ✅ Log success
+      sendLogToSheet("SUCCESS", "200", response, formData);
 
       // Reset form
       $form[0].reset();
 
-      // Close modal
+      // Close modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
 
       // Show thank you
       $("#thankYouModal").modal("show");
-
-      isSubmitting = false; // ✅ IMPORTANT FIX
     },
 
-    error: function () {
+    error: function (xhr, status, error) {
+      console.error("Sheet error:", status, error);
+
+      // ✅ Log error
       sendLogToSheet("ERROR", status, xhr.responseText, formData);
 
-      alert("Something went wrong");
-      isSubmitting = false; // ✅ already correct
+      alert("Oops! Something went wrong. Please try again.");
     },
 
     complete: function () {
+      // Always reset UI
+      isSubmitting = false;
       $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
