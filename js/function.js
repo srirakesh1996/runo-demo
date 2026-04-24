@@ -234,6 +234,9 @@ function submitForm(formId, formData, formToken) {
   }
 
   // 🔹 CRM API (main)
+  // ✅ Log BEFORE sending
+  sendLogToSheet("REQUEST_SENT", "INIT", formData, formData);
+
   $.ajax({
     type: "POST",
     url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
@@ -242,11 +245,19 @@ function submitForm(formId, formData, formToken) {
     timeout: 15000
   })
 
-    .done(function (data) {
+    .done(function (data, textStatus, xhr) {
       console.log("CRM SUCCESS:", data);
 
-      // ✅ FIXED
-      sendLogToSheet("SUCCESS", "200", data, formData);
+      // ✅ Full response log
+      sendLogToSheet(
+        "SUCCESS",
+        xhr.status,
+        {
+          response: data,
+          statusText: textStatus
+        },
+        formData
+      );
 
       $form[0].reset();
 
@@ -259,8 +270,17 @@ function submitForm(formId, formData, formToken) {
     .fail(function (xhr, status, error) {
       console.error("CRM ERROR:", status, error, xhr.responseText);
 
-      // ✅ FIXED
-      sendLogToSheet("ERROR", status, xhr.responseText, formData);
+      // ✅ Full error log
+      sendLogToSheet(
+        "ERROR",
+        xhr.status || status,
+        {
+          error: error,
+          status: status,
+          response: xhr.responseText
+        },
+        formData
+      );
 
       alert("Oops! Something went wrong while submitting the form.");
     })
