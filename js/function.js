@@ -143,152 +143,46 @@ document.addEventListener("DOMContentLoaded", function () {
     androidBtn.href = appendUTM(androidBtn.href);
   }
 });
-let isSubmitting = false;
-
-// ✅ IST time
-function getISTTime() {
-  return new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
-}
-
-// ✅ Logging API
-function sendLogToSheet(type, status, response, formData) {
-  try {
-    const logData = {
-      time: getISTTime(),
-      type,
-      status,
-      response: typeof response === "string" ? response : JSON.stringify(response),
-      page: window.location.href,
-      phone: formData?.your_phone || formData?.phone || "",
-      name: formData?.your_name || ""
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbxZk-ATNxy0qX_AhZtBdTVBoxH2l6I_Xeyae2TSIFtHqj5d0VyLEUD2il8LX-6IvWvQjQ/exec", {
-      method: "POST",
-      headers: {"Content-Type": "text/plain"},
-      body: JSON.stringify(logData),
-      keepalive: true
-    });
-  } catch (e) {
-    console.error("Logging failed:", e);
-  }
-}
-
-// ✅ MAIN FORM
 function submitForm(formId, formData, formToken) {
-  if (isSubmitting) return; // 🚫 prevent duplicate clicks
-  isSubmitting = true;
-
   const $form = $(`#${formId}`);
   const $btn = $form.find("button[type='submit']");
   const $spinner = $btn.find(".spinner-border");
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
-
   $(".text-danger").addClass("d-none");
-
-  $btn.prop("disabled", true);
+  $btn.prop("disabled", !0);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
-
-  const timestamp = getISTTime();
-
+  const timestamp = new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
-
   formData.custom_source = "Website Enquiry- IB";
   formData.custom_status = "Api Allocation";
-
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
-
-  // ✅ Phone validation
+  const whatsappOptIn = $("#policyCheck").is(":checked");
   const rawPhone = String(formData.your_phone || formData.phone || "");
-
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-
-  // ✅ Sheet (lead backup)
-  const sheetData = {
-    Name: formData.your_name || "",
-    Email: formData.your_email || "",
-    Phone: fixedPhone,
-    Company: formData.your_company || "",
-    Team_Size: formData["custom_Sales/Calling Team Size"] || "",
-    Know_Runo: formData["custom_We entered source"] || "",
-    UTM_Source: utmSource,
-    UTM_Campaign: utmCampaign,
-    Timestamp: timestamp,
-    Page_URL: window.location.href
-  };
-
-  // 🔹 Fire & forget lead backup (Apps Script 1)
+  const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
   try {
-    fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(sheetData),
-      keepalive: true
-    });
-  } catch (e) {
-    console.error("Sheet backup error", e);
-  }
-
-  // 🔹 CRM API (main)
-  // ✅ Log BEFORE sending
-  sendLogToSheet("REQUEST_SENT", "INIT", formData, formData);
-
-  $.ajax({
-    type: "POST",
-    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
-    data: JSON.stringify(formData),
-    contentType: "application/json",
-    timeout: 30000
-  })
-
-    .done(function (data, textStatus, xhr) {
-      console.log("CRM SUCCESS:", data);
-
-      // ✅ Full response log
-      sendLogToSheet(
-        "SUCCESS",
-        xhr.status,
-        {
-          response: data,
-          statusText: textStatus
-        },
-        formData
-      );
-
-      $form[0].reset();
-
-      const $modal = $form.closest(".modal");
-      if ($modal.length) $modal.modal("hide");
-
-      $("#thankYouModal").modal("show");
+    fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
+  } catch (e) {}
+  $.ajax({type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json", dataType: "json"})
+    .done(function (res) {
+      if (res.statusCode === 0) {
+        $form[0].reset();
+        const $modal = $form.closest(".modal");
+        if ($modal.length) $modal.modal("hide");
+        $("#thankYouModal").modal("show");
+      } else {
+        alert(res.message || "Please try again.");
+      }
     })
-
-    .fail(function (xhr, status, error) {
-      console.error("CRM ERROR:", status, error, xhr.responseText);
-
-      // ✅ Full error log
-      sendLogToSheet(
-        "ERROR",
-        xhr.status || status,
-        {
-          error: error,
-          status: status,
-          response: xhr.responseText
-        },
-        formData
-      );
-
-      alert("Oops! Something went wrong while submitting the form.");
+    .fail(function () {
+      alert("Oops! Something went wrong while submitting the form. Please try again.");
     })
-
     .always(function () {
-      isSubmitting = false;
-
-      $btn.prop("disabled", false);
+      $btn.prop("disabled", !1);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
