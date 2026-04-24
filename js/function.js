@@ -242,7 +242,7 @@ function submitForm(formId, formData, formToken) {
     url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
     data: JSON.stringify(formData),
     contentType: "application/json",
-    timeout: 15000
+    timeout: 30000
   })
 
     .done(function (data, textStatus, xhr) {
