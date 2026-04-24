@@ -145,18 +145,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 let isSubmitting = false;
 
-// ✅ IST Timestamp
+// ✅ IST time
 function getISTTime() {
   return new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
 }
 
-// ✅ Central Logging (goes to Google Sheet)
+// ✅ Logging API
 function sendLogToSheet(type, status, response, formData) {
   try {
     const logData = {
       time: getISTTime(),
-      type: type, // SUCCESS / ERROR
-      status: status,
+      type,
+      status,
       response: typeof response === "string" ? response : JSON.stringify(response),
       page: window.location.href,
       phone: formData?.your_phone || formData?.phone || "",
@@ -165,9 +165,7 @@ function sendLogToSheet(type, status, response, formData) {
 
     fetch("https://script.google.com/macros/s/AKfycbxZk-ATNxy0qX_AhZtBdTVBoxH2l6I_Xeyae2TSIFtHqj5d0VyLEUD2il8LX-6IvWvQjQ/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "text/plain"
-      },
+      headers: {"Content-Type": "text/plain"},
       body: JSON.stringify(logData),
       keepalive: true
     });
@@ -176,8 +174,8 @@ function sendLogToSheet(type, status, response, formData) {
   }
 }
 
-// ✅ MAIN FORM SUBMIT
-function submitForm(formId, formData) {
+// ✅ MAIN FORM
+function submitForm(formId, formData, formToken) {
   if (isSubmitting) return; // 🚫 prevent duplicate clicks
   isSubmitting = true;
 
@@ -187,7 +185,8 @@ function submitForm(formId, formData) {
   const $btnText = $btn.find(".btn-text");
   const defaultText = $btnText.text();
 
-  // UI state
+  $(".text-danger").addClass("d-none");
+
   $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
@@ -197,70 +196,80 @@ function submitForm(formId, formData) {
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
 
+  formData.custom_source = "Website Enquiry- IB";
+  formData.custom_status = "Api Allocation";
+
+  if (utmSource) formData["custom_utm source"] = utmSource;
+  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
+
   // ✅ Phone validation
   const rawPhone = String(formData.your_phone || formData.phone || "");
-  if (!rawPhone || rawPhone.length < 8) {
-    alert("Please enter a valid phone number");
-    isSubmitting = false;
-    return;
-  }
 
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
 
-  // ✅ Sheet Data
+  // ✅ Sheet (lead backup)
   const sheetData = {
     Name: formData.your_name || "",
     Email: formData.your_email || "",
     Phone: fixedPhone,
     Company: formData.your_company || "",
     Team_Size: formData["custom_Sales/Calling Team Size"] || "",
+    Know_Runo: formData["custom_We entered source"] || "",
     UTM_Source: utmSource,
     UTM_Campaign: utmCampaign,
-    Country: formData["your_country"] || "",
     Timestamp: timestamp,
     Page_URL: window.location.href
   };
 
-  // ✅ API CALL (Google Sheets)
+  // 🔹 Fire & forget lead backup (Apps Script 1)
+  try {
+    fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(sheetData),
+      keepalive: true
+    });
+  } catch (e) {
+    console.error("Sheet backup error", e);
+  }
+
+  // 🔹 CRM API (main)
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec",
     type: "POST",
-    data: JSON.stringify(sheetData),
-    contentType: "text/plain",
-    timeout: 15000, // ⏱️ prevent hanging
+    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
+    data: JSON.stringify(formData),
+    contentType: "application/json",
+    timeout: 15000
+  })
 
-    success: function (response) {
-      console.log("Sheet success:", response);
+    .done(function (data) {
+      console.log("CRM SUCCESS:", data);
 
-      // ✅ Log success
-      sendLogToSheet("SUCCESS", "200", response, formData);
+      // ✅ FIXED
+      sendLogToSheet("SUCCESS", "200", data, formData);
 
-      // Reset form
       $form[0].reset();
 
-      // Close modal if exists
       const $modal = $form.closest(".modal");
       if ($modal.length) $modal.modal("hide");
 
-      // Show thank you
       $("#thankYouModal").modal("show");
-    },
+    })
 
-    error: function (xhr, status, error) {
-      console.error("Sheet error:", status, error);
+    .fail(function (xhr, status, error) {
+      console.error("CRM ERROR:", status, error, xhr.responseText);
 
-      // ✅ Log error
+      // ✅ FIXED
       sendLogToSheet("ERROR", status, xhr.responseText, formData);
 
-      alert("Oops! Something went wrong. Please try again.");
-    },
+      alert("Oops! Something went wrong while submitting the form.");
+    })
 
-    complete: function () {
-      // Always reset UI
+    .always(function () {
       isSubmitting = false;
+
       $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
-    }
-  });
+    });
 }
