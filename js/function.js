@@ -163,7 +163,7 @@ function sendLogToSheet(type, status, response, formData) {
       name: formData?.your_name || ""
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbxnDoahDlGyfGV9NdKUkflk0U-d1AG6QhEdFdQ9QNz_Ij-iYm2BtZUEKiQbHCttXaZfFA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxZk-ATNxy0qX_AhZtBdTVBoxH2l6I_Xeyae2TSIFtHqj5d0VyLEUD2il8LX-6IvWvQjQ/exec", {
       method: "POST",
       headers: {
         "Content-Type": "text/plain"
