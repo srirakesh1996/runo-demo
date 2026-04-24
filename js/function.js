@@ -144,6 +144,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+function sendLogToSheet(type, status, response, formData) {
+  const logData = {
+    type: type, // SUCCESS / ERROR
+    status: status,
+    response: typeof response === "string" ? response : JSON.stringify(response),
+    page: window.location.href,
+    phone: formData?.your_phone || formData?.phone || ""
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbx52Dtv1vg8UDrtQBIzFdR5awPTa1ah7w2kgkRV1I6onkDqu0HoVEd6OMopu7ZMzZ9kAQ/exec", {
+    method: "POST",
+    body: JSON.stringify(logData)
+  });
+}
+
 let isSubmitting = false;
 
 function submitForm(formId, formData) {
@@ -195,6 +210,8 @@ function submitForm(formId, formData) {
     success: function () {
       console.log("Sheet success");
 
+      sendLogToSheet("SUCCESS", "200", data, formData);
+
       // Reset form
       $form[0].reset();
 
@@ -209,6 +226,8 @@ function submitForm(formId, formData) {
     },
 
     error: function () {
+      sendLogToSheet("ERROR", status, xhr.responseText, formData);
+
       alert("Something went wrong");
       isSubmitting = false; // ✅ already correct
     },
