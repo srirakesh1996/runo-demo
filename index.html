@@ -78,27 +78,32 @@
       <link rel="stylesheet" href="css/intlTelInput.min.css" />
     </noscript>
 
-    <!-- JS (defer) -->
     <script>
       function loadCoreJS() {
         const scripts = [
           "js/jquery-3.7.1.min.js",
+          "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js",
           "js/function.js"
         ];
 
-        scripts.forEach(src => {
+        function loadNext(i) {
+          if (i >= scripts.length) return;
+
           const s = document.createElement("script");
-          s.src = src;
+          s.src = scripts[i];
           s.defer = true;
+
+          s.onload = () => loadNext(i + 1); // maintain order
           document.body.appendChild(s);
-        });
+        }
+
+        loadNext(0);
       }
 
       window.addEventListener("DOMContentLoaded", () => {
         setTimeout(loadCoreJS, 1000);
       });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
