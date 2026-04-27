@@ -79,7 +79,7 @@
     </noscript>
 
     <script>
-      function loadCoreJS() {
+      function loadCoreJS(callback) {
         const scripts = [
           "js/jquery-3.7.1.min.js",
           "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js",
@@ -87,13 +87,14 @@
         ];
 
         function loadNext(i) {
-          if (i >= scripts.length) return;
+          if (i >= scripts.length) {
+            callback(); // ✅ init AFTER everything loads
+            return;
+          }
 
           const s = document.createElement("script");
           s.src = scripts[i];
-          s.defer = true;
-
-          s.onload = () => loadNext(i + 1); // maintain order
+          s.onload = () => loadNext(i + 1);
           document.body.appendChild(s);
         }
 
@@ -101,7 +102,9 @@
       }
 
       window.addEventListener("DOMContentLoaded", () => {
-        setTimeout(loadCoreJS, 1000);
+        setTimeout(() => {
+          loadCoreJS(initForm); // 👈 call your form init here
+        }, 1000);
       });
     </script>
     <!-- Google Tag Manager -->
@@ -3439,223 +3442,217 @@
       </div>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        jQuery(function ($) {
-          const phoneInput = document.querySelector("#phone");
-          const iti = window.intlTelInput(phoneInput, {
-            initialCountry: "auto", // <-- add this line
-            geoIpLookup: function (callback) {
-              fetch("https://ipapi.co/json/")
-                .then((res) => {
-                  return res.json();
-                })
-                .then((data) => {
-                  const countryCode = data && data.country_code ? data.country_code.toLowerCase() : "in";
+         function initForm() {
+      const $ = window.jQuery;
 
-                  callback(countryCode);
-                })
-                .catch((err) => {
-                  console.error("geoIpLookup error:", err);
-                  callback("in");
-                });
-            },
-            separateDialCode: true,
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
-          });
+      const phoneInput = document.querySelector("#phone");
 
-          const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-          const countryLengthMap = {
-            in: [10],
-            ae: [9],
-            us: [10],
-            ca: [10],
-            gb: [10, 11],
-            sa: [9],
-            ph: [10],
-            id: [10, 11],
-            sg: [8],
-            au: [9],
-            nz: [8, 9],
-            pk: [10],
-            bd: [10],
-            lk: [9],
-            ng: [10, 11],
-            ke: [9],
-            za: [9, 10],
-            my: [9, 10],
-            th: [9, 10],
-            vn: [9, 10],
-            kr: [9, 10, 11],
-            jp: [10, 11],
-            cn: [10, 11, 12],
-            hk: [8],
-            tw: [9, 10],
-            de: [10, 11, 12],
-            fr: [9, 10],
-            it: [10],
-            es: [9],
-            br: [10, 11],
-            mx: [10],
-            ar: [10, 11],
-            ru: [10],
-            tr: [10],
-            eg: [10, 11],
-            iq: [10],
-            gt: [8]
-          };
-
-          function getMaxLengthForCountry() {
-            const countryCode = iti.getSelectedCountryData().iso2;
-            const allowedLengths = countryLengthMap[countryCode];
-            return allowedLengths ? Math.max(...allowedLengths) : 15;
-          }
-          let phoneTouched = false;
-
-          $("#phone").on("focus input", function () {
-            phoneTouched = true;
-            validatePhone();
-          });
-
-          phoneInput.addEventListener("input", () => {
-            phoneInput.value = phoneInput.value.replace(/\D/g, "");
-            const maxLength = getMaxLengthForCountry();
-            if (phoneInput.value.length > maxLength) {
-              phoneInput.value = phoneInput.value.slice(0, maxLength);
-            }
-            validatePhone();
-          });
-
-          phoneInput.addEventListener("countrychange", () => {
-            const maxLength = getMaxLengthForCountry();
-            phoneInput.value = phoneInput.value.slice(0, maxLength);
-            validatePhone();
-          });
-
-          function validateName() {
-            const val = $("#name").val().trim();
-            if (!val || val.length > 30) {
-              $("#nameError").removeClass("d-none");
-              return false;
-            }
-            $("#nameError").addClass("d-none");
-            return true;
-          }
-          function validateCompName() {
-            const val = $("#comp_name").val().trim();
-            if (!val || val.length > 30) {
-              $("#comp_nameError").removeClass("d-none");
-              return false;
-            }
-            $("#comp_nameError").addClass("d-none");
-            return true;
-          }
-
-          function validateEmail() {
-            const val = $("#email").val().trim();
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!val || !emailPattern.test(val)) {
-              $("#emailError").removeClass("d-none");
-              return false;
-            }
-            $("#emailError").addClass("d-none");
-            return true;
-          }
-
-          function validatePhone() {
-            const phoneNational = phoneInput.value;
-            const selectedCountry = iti.getSelectedCountryData().iso2;
-            const validLengths = countryLengthMap[selectedCountry];
-            if (!phoneTouched) {
-              $("#phoneError").addClass("d-none");
-              return false;
-            }
-            if (!iti.isValidNumber()) {
-              $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
-              return false;
-            }
-
-            if (fakeNumbers.includes(phoneNational)) {
-              $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
-              return false;
-            }
-
-            if (validLengths && !validLengths.includes(phoneNational.length)) {
-              $("#phoneError")
-                .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
-                .removeClass("d-none");
-              return false;
-            }
-
-            $("#phoneError").addClass("d-none");
-            return true;
-          }
-
-          function validateAgents() {
-            if (!$("#agents").val()) {
-              $("#agentsError").removeClass("d-none");
-              return false;
-            }
-            $("#agentsError").addClass("d-none");
-            return true;
-          }
-
-          $("#name").on("input", validateName);
-          $("#email").on("input", validateEmail);
-          $("#phone").on("input", validatePhone);
-          $("#comp_name").on("input", validateCompName);
-          $("#agents").on("change", validateAgents);
-
-          $("#demo-form").on("submit", function (event) {
-            event.preventDefault();
-
-            const dhiddenf = $("#dwebsite").val().trim();
-
-            if (dhiddenf !== "") {
-              alert("Spam detected. Redirecting...");
-
-              $("#demo-form")[0].reset();
-              phoneInput.value = "";
-              $("#dwebsite").val("");
-
-              setTimeout(function () {
-                window.location.href = "/";
-              }, 2000);
-
-              return;
-            }
-
-            const validName = validateName();
-            const validEmail = validateEmail();
-            const validPhone = validatePhone();
-            const validCompName = validateCompName();
-            const validAgents = validateAgents();
-
-            if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
-              return;
-            }
-
-            const formData = $(this)
-              .serializeArray()
-              .reduce(function (obj, item) {
-                obj[item.name] = item.value;
-                return obj;
-              }, {});
-
-            formData["your_phone"] = iti.getNumber(); // international format
-            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
-
-            const selectedCountry = iti.getSelectedCountryData();
-            // Remove anything inside brackets and trim spaces
-            const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
-            // ✅ Add to form data
-            formData["your_country"] = countryName;
-
-            const uuid = $(this).data("uuid");
-
-            submitForm("demo-form", formData, uuid);
-          });
-        });
+      const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: function (callback) {
+          fetch("https://ipapi.co/json/")
+            .then(res => res.json())
+            .then(data => {
+              callback(data?.country_code?.toLowerCase() || "in");
+            })
+            .catch(() => callback("in"));
+        },
+        separateDialCode: true,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js"
       });
+
+              const fakeNumbers = ["1234567890", "0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
+              const countryLengthMap = {
+                in: [10],
+                ae: [9],
+                us: [10],
+                ca: [10],
+                gb: [10, 11],
+                sa: [9],
+                ph: [10],
+                id: [10, 11],
+                sg: [8],
+                au: [9],
+                nz: [8, 9],
+                pk: [10],
+                bd: [10],
+                lk: [9],
+                ng: [10, 11],
+                ke: [9],
+                za: [9, 10],
+                my: [9, 10],
+                th: [9, 10],
+                vn: [9, 10],
+                kr: [9, 10, 11],
+                jp: [10, 11],
+                cn: [10, 11, 12],
+                hk: [8],
+                tw: [9, 10],
+                de: [10, 11, 12],
+                fr: [9, 10],
+                it: [10],
+                es: [9],
+                br: [10, 11],
+                mx: [10],
+                ar: [10, 11],
+                ru: [10],
+                tr: [10],
+                eg: [10, 11],
+                iq: [10],
+                gt: [8]
+              };
+
+              function getMaxLengthForCountry() {
+                const countryCode = iti.getSelectedCountryData().iso2;
+                const allowedLengths = countryLengthMap[countryCode];
+                return allowedLengths ? Math.max(...allowedLengths) : 15;
+              }
+              let phoneTouched = false;
+
+              $("#phone").on("focus input", function () {
+                phoneTouched = true;
+                validatePhone();
+              });
+
+              phoneInput.addEventListener("input", () => {
+                phoneInput.value = phoneInput.value.replace(/\D/g, "");
+                const maxLength = getMaxLengthForCountry();
+                if (phoneInput.value.length > maxLength) {
+                  phoneInput.value = phoneInput.value.slice(0, maxLength);
+                }
+                validatePhone();
+              });
+
+              phoneInput.addEventListener("countrychange", () => {
+                const maxLength = getMaxLengthForCountry();
+                phoneInput.value = phoneInput.value.slice(0, maxLength);
+                validatePhone();
+              });
+
+              function validateName() {
+                const val = $("#name").val().trim();
+                if (!val || val.length > 30) {
+                  $("#nameError").removeClass("d-none");
+                  return false;
+                }
+                $("#nameError").addClass("d-none");
+                return true;
+              }
+              function validateCompName() {
+                const val = $("#comp_name").val().trim();
+                if (!val || val.length > 30) {
+                  $("#comp_nameError").removeClass("d-none");
+                  return false;
+                }
+                $("#comp_nameError").addClass("d-none");
+                return true;
+              }
+
+              function validateEmail() {
+                const val = $("#email").val().trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!val || !emailPattern.test(val)) {
+                  $("#emailError").removeClass("d-none");
+                  return false;
+                }
+                $("#emailError").addClass("d-none");
+                return true;
+              }
+
+              function validatePhone() {
+                const phoneNational = phoneInput.value;
+                const selectedCountry = iti.getSelectedCountryData().iso2;
+                const validLengths = countryLengthMap[selectedCountry];
+                if (!phoneTouched) {
+                  $("#phoneError").addClass("d-none");
+                  return false;
+                }
+                if (!iti.isValidNumber()) {
+                  $("#phoneError").text("Please enter a valid phone number.").removeClass("d-none");
+                  return false;
+                }
+
+                if (fakeNumbers.includes(phoneNational)) {
+                  $("#phoneError").text("Please enter a real phone number.").removeClass("d-none");
+                  return false;
+                }
+
+                if (validLengths && !validLengths.includes(phoneNational.length)) {
+                  $("#phoneError")
+                    .text(`Phone number must be ${validLengths.join(" or ")} digits.`)
+                    .removeClass("d-none");
+                  return false;
+                }
+
+                $("#phoneError").addClass("d-none");
+                return true;
+              }
+
+              function validateAgents() {
+                if (!$("#agents").val()) {
+                  $("#agentsError").removeClass("d-none");
+                  return false;
+                }
+                $("#agentsError").addClass("d-none");
+                return true;
+              }
+
+              $("#name").on("input", validateName);
+              $("#email").on("input", validateEmail);
+              $("#phone").on("input", validatePhone);
+              $("#comp_name").on("input", validateCompName);
+              $("#agents").on("change", validateAgents);
+
+              $("#demo-form").on("submit", function (event) {
+                event.preventDefault();
+
+                const dhiddenf = $("#dwebsite").val().trim();
+
+                if (dhiddenf !== "") {
+                  alert("Spam detected. Redirecting...");
+
+                  $("#demo-form")[0].reset();
+                  phoneInput.value = "";
+                  $("#dwebsite").val("");
+
+                  setTimeout(function () {
+                    window.location.href = "/";
+                  }, 2000);
+
+                  return;
+                }
+
+                const validName = validateName();
+                const validEmail = validateEmail();
+                const validPhone = validatePhone();
+                const validCompName = validateCompName();
+                const validAgents = validateAgents();
+
+                if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
+                  return;
+                }
+
+                const formData = $(this)
+                  .serializeArray()
+                  .reduce(function (obj, item) {
+                    obj[item.name] = item.value;
+                    return obj;
+                  }, {});
+
+                formData["your_phone"] = iti.getNumber(); // international format
+                formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+
+                const selectedCountry = iti.getSelectedCountryData();
+                // Remove anything inside brackets and trim spaces
+                const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
+                // ✅ Add to form data
+                formData["your_country"] = countryName;
+
+                const uuid = $(this).data("uuid");
+
+                submitForm("demo-form", formData, uuid);
+              });
+               }
     </script>
     <!-- Thank You Modal -->
     <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">

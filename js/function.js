@@ -164,25 +164,31 @@ function submitForm(formId, formData, formToken) {
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
   const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
-  try {
-    fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
-  } catch (e) {}
-  $.ajax({type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json", dataType: "json"})
-    .done(function (res) {
-      if (res.statusCode === 0) {
-        $form[0].reset();
-        const $modal = $form.closest(".modal");
-        if ($modal.length) $modal.modal("hide");
-        $("#thankYouModal").modal("show");
-      } else {
-        alert(res.message || "Please try again.");
-      }
+  // Send to Google Sheets
+  fetch("https://script.google.com/macros/s/AKfycbxeQE1e7xl4PITbWcS_Wspv75jKo4-cJlf3VVJxknGGZU0I6ypcefmDGX4wf1X2p5I/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(sheetData),
+    keepalive: true
+  })
+    .then(() => {
+      // Reset form
+      $form[0].reset();
+
+      // Close parent modal if exists
+      const $modal = $form.closest(".modal");
+      if ($modal.length) $modal.modal("hide");
+
+      // Show Thank You modal
+      $("#thankYouModal").modal("show");
     })
-    .fail(function () {
-      alert("Oops! Something went wrong while submitting the form. Please try again.");
+    .catch(() => {
+      alert("Something went wrong while submitting the form.");
     })
-    .always(function () {
-      $btn.prop("disabled", !1);
+    .finally(() => {
+      // Reset button state
+      isSubmitting = false; // 🔓 unlock
+      //  $btn.prop("disabled", false);
       $spinner.addClass("d-none");
       $btnText.text(defaultText);
     });
