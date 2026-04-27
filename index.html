@@ -39,6 +39,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     </noscript>
   -->
+
     <link rel="preconnect" href="https://www.googletagmanager.com" />
 
     <!-- Local Font -->
@@ -60,26 +61,16 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
-    <link
-      rel="preload"
-      href="css/runo.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript>
-      <link rel="stylesheet" href="css/runo.css" />
-    </noscript>
+    <link rel="preload" href="css/runo.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/runo.css" /></noscript>
 
     <!-- Swiper CSS -->
     <link rel="preload" href="css/swiper-bundle.min.css" as="style" />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
     <!-- intl-tel-input CSS -->
     <link rel="preload" href="css/intlTelInput.min.css" as="style" />
-    <link rel="stylesheet" href="css/intlTelInput.min.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="css/intlTelInput.min.css" media="print" onload="this.media='all'" />
 
     <!-- Fallback for no-JS -->
     <noscript>
@@ -88,31 +79,49 @@
     </noscript>
 
     <!-- JS (defer) -->
-    <script src="js/jquery-3.7.1.min.js" defer></script>
+    <script>
+      function loadCoreJS() {
+        const scripts = [
+          "js/jquery-3.7.1.min.js",
+          "js/function.js"
+        ];
+
+        scripts.forEach(src => {
+          const s = document.createElement("script");
+          s.src = src;
+          s.defer = true;
+          document.body.appendChild(s);
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(loadCoreJS, 1000);
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
       window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
+        if (window.RTMDidInit) return;
+        window.RTMDidInit = true;
 
-        function loadGTM() {
+        function loadRTM() {
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            w[l].push({"RTM.start": new Date().getTime(), event: "RTM.js"});
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
             j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            j.src = "https://www.googletagmanager.com/RTM.js?id=" + i + dl;
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "RTM-M7SSPG7W");
         }
 
         if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, { timeout: 3000 });
+          requestIdleCallback(loadRTM, {timeout: 3000});
         } else {
-          setTimeout(loadGTM, 3000);
+          setTimeout(loadRTM, 3000);
         }
       });
     </script>
@@ -159,18 +168,15 @@
           transform: scale(1);
           opacity: 1;
         }
-
         50% {
           transform: scale(1.15);
           opacity: 0.85;
         }
-
         100% {
           transform: scale(1);
           opacity: 1;
         }
       }
-
       /* preloader ends */
 
       .main-menu .mega-menu .menu-head {
@@ -213,8 +219,7 @@
         margin: 0;
         text-align: center;
         color: #fff !important;
-        padding-right: 45px;
-        /* space so text doesn't touch close button */
+        padding-right: 45px; /* space so text doesn't touch close button */
       }
 
       /* Close Button */
@@ -268,622 +273,616 @@
       }
     </style>
     <style>
-          @media only screen and (max-width: 768px) {
-            .telecaller-hero {
-              background: #ffffff !important;
+            @media only screen and (max-width: 768px) {
+              .telecaller-hero {
+                background: #ffffff !important;
+              }
             }
-          }
 
-          .section-title h1 {
-            font-size: 45px;
-            font-weight: 800;
-            margin-bottom: 0;
-            color: #111111;
-            font-family: Inter, system-ui, sans-serif;
-          }
-
-          @media only screen and (max-width: 991px) {
             .section-title h1 {
-              font-size: 32px;
+              font-size: 45px;
+              font-weight: 800;
+              margin-bottom: 0;
+              color: #111111;
+              font-family: Inter, system-ui, sans-serif;
             }
-          }
 
-          /*!
+            @media only screen and (max-width: 991px) {
+              .section-title h1 {
+                font-size: 32px;
+              }
+            }
+
+            /*!
        * SlickNav Responsive Mobile Menu v1.0.10
        * (c) 2016 Josh Cope
        * licensed under MIT
        */
-          .slicknav_btn,
-          .slicknav_nav .slicknav_item {
-            cursor: pointer;
-          }
+            .slicknav_btn,
+            .slicknav_nav .slicknav_item {
+              cursor: pointer;
+            }
 
-          .slicknav_menu,
-          .slicknav_menu * {
-            box-sizing: border-box;
-          }
+            .slicknav_menu,
+            .slicknav_menu * {
+              box-sizing: border-box;
+            }
 
-          .slicknav_btn {
-            position: relative;
-            display: block;
+            .slicknav_btn {
+              position: relative;
+              display: block;
 
-            float: right;
-            padding: 0.438em 0.625em;
-            line-height: 1.125em;
-          }
+              float: right;
+              padding: 0.438em 0.625em;
+              line-height: 1.125em;
+            }
 
-          .slicknav_btn .slicknav_icon-bar+.slicknav_icon-bar {
-            margin-top: 0.188em;
-          }
+            .slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar {
+              margin-top: 0.188em;
+            }
 
-          .slicknav_menu .slicknav_menutxt {
-            display: block;
-            line-height: 1.188em;
-            float: left;
-            color: #fff;
-            font-weight: 700;
-            text-shadow: 0 1px 3px #000;
-          }
+            .slicknav_menu .slicknav_menutxt {
+              display: block;
+              line-height: 1.188em;
+              float: left;
+              color: #fff;
+              font-weight: 700;
+              text-shadow: 0 1px 3px #000;
+            }
 
-          .slicknav_menu .slicknav_icon {
-            float: left;
-            width: 1.125em;
-            height: 0.875em;
-            margin: 0.188em 0 0 0.438em;
-          }
+            .slicknav_menu .slicknav_icon {
+              float: left;
+              width: 1.125em;
+              height: 0.875em;
+              margin: 0.188em 0 0 0.438em;
+            }
 
-          .slicknav_menu .slicknav_icon:before {
-            background: 0 0;
-            width: 1.125em;
-            height: 0.875em;
-            display: block;
-            content: "";
-            position: absolute;
-          }
+            .slicknav_menu .slicknav_icon:before {
+              background: 0 0;
+              width: 1.125em;
+              height: 0.875em;
+              display: block;
+              content: "";
+              position: absolute;
+            }
 
-          .slicknav_menu .slicknav_no-text {
-            margin: 0;
-          }
+            .slicknav_menu .slicknav_no-text {
+              margin: 0;
+            }
 
-          .slicknav_menu .slicknav_icon-bar {
-            display: block;
-            width: 1.125em;
-            height: 0.125em;
-            -webkit-border-radius: 1px;
-            -moz-border-radius: 1px;
-            border-radius: 1px;
-            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-            -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-          }
+            .slicknav_menu .slicknav_icon-bar {
+              display: block;
+              width: 1.125em;
+              height: 0.125em;
+              -webkit-border-radius: 1px;
+              -moz-border-radius: 1px;
+              border-radius: 1px;
+              -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+              -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+            }
 
-          .slicknav_menu:after,
-          .slicknav_menu:before {
-            content: " ";
-            display: table;
-          }
+            .slicknav_menu:after,
+            .slicknav_menu:before {
+              content: " ";
+              display: table;
+            }
 
-          .slicknav_menu:after {
-            clear: both;
-          }
+            .slicknav_menu:after {
+              clear: both;
+            }
 
-          .slicknav_nav li,
-          .slicknav_nav ul {
-            display: block;
-          }
+            .slicknav_nav li,
+            .slicknav_nav ul {
+              display: block;
+            }
 
-          .slicknav_nav .slicknav_arrow {
-            font-size: 0.8em;
-            margin: 0 0 0 0.4em;
-          }
+            .slicknav_nav .slicknav_arrow {
+              font-size: 0.8em;
+              margin: 0 0 0 0.4em;
+            }
 
-          .slicknav_nav .slicknav_item a {
-            display: inline;
-          }
+            .slicknav_nav .slicknav_item a {
+              display: inline;
+            }
 
-          .slicknav_nav .slicknav_row,
-          .slicknav_nav a {
-            display: block;
-          }
+            .slicknav_nav .slicknav_row,
+            .slicknav_nav a {
+              display: block;
+            }
 
-          .slicknav_nav .slicknav_parent-link a {
-            display: inline;
-          }
+            .slicknav_nav .slicknav_parent-link a {
+              display: inline;
+            }
 
-          .slicknav_menu {
-            zoom: 1;
-            font-size: 16px;
-            background: #4c4c4c;
-            padding: 5px;
-          }
-
-          .slicknav_nav,
-          .slicknav_nav ul {
-            list-style: none;
-            overflow: hidden;
-            padding: 0;
-          }
-
-          .slicknav_menu .slicknav_icon-bar {
-            background-color: #fff;
-          }
-
-          .slicknav_btn {
-            margin: 5px 5px 6px;
-            text-decoration: none;
-            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            background-color: #222;
-          }
-
-          .slicknav_nav {
-            clear: both;
-            color: #fff;
-            margin: 0;
-            font-size: 0.875em;
-          }
-
-          .slicknav_nav ul {
-            margin: 0 0 0 20px;
-          }
-
-          .slicknav_nav .slicknav_row,
-          .slicknav_nav a {
-            padding: 5px 10px;
-            margin: 2px 5px;
-          }
-
-          .slicknav_nav .slicknav_row:hover {
-            -webkit-border-radius: 6px;
-            -moz-border-radius: 6px;
-            border-radius: 6px;
-            background: #ccc;
-            color: #fff;
-          }
-
-          .slicknav_nav a {
-            text-decoration: none;
-            color: #fff;
-          }
-
-          .slicknav_nav a:hover {
-            -webkit-border-radius: 6px;
-            -moz-border-radius: 6px;
-            border-radius: 6px;
-            background: #ccc;
-            color: #222;
-          }
-
-          .slicknav_nav .slicknav_txtnode {
-            margin-left: 15px;
-          }
-
-          .slicknav_nav .slicknav_item a,
-          .slicknav_nav .slicknav_parent-link a {
-            padding: 0;
-            margin: 0;
-          }
-
-          .slicknav_brand {
-            float: left;
-            color: #fff;
-            font-size: 18px;
-            line-height: 30px;
-            padding: 7px 12px;
-            height: 44px;
-          }
-
-          /************************************/
-          /**** 	   03. Header css		 ****/
-          /************************************/
-
-          .topbar {
-            background: var(--accent-secondary-color);
-            padding: 15px 0;
-          }
-
-          .topbar-contact-info ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            line-height: 1em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-          }
-
-          .topbar-contact-info ul li a {
-            color: var(--accent-color);
-          }
-
-          .topbar-contact-info ul li a i {
-            font-size: 16px;
-            color: var(--accent-color);
-            margin-right: 8px;
-            transition: all 0.3s ease-in-out;
-          }
-
-          .topbar-social-links {
-            text-align: right;
-          }
-
-          .topbar-social-links ul {
-            list-style: none;
-            line-height: 1em;
-            padding: 0;
-            margin: 0;
-          }
-
-          .topbar-social-links ul li {
-            display: inline-block;
-            margin-right: 15px;
-            padding-right: 15px;
-            border-right: 1px solid var(--accent-color);
-            transition: all 0.3s ease-in-out;
-          }
-
-          .topbar-social-links ul li:last-child {
-            margin-right: 0;
-            padding-right: 0;
-            border-right: none;
-          }
-
-          .topbar-social-links ul li a {
-            font-weight: 400;
-            color: var(--accent-color);
-            text-transform: capitalize;
-            transition: all 0.3s ease-in-out;
-          }
-
-          .topbar-social-links ul li a i {
-            font-size: 18px;
-            color: inherit;
-            margin-right: 8px;
-          }
-
-          header.main-header {
-            position: relative;
-            background: #fff;
-            z-index: 100;
-          }
-
-          header.main-header .header-sticky {
-            position: relative;
-            top: 0;
-            z-index: 100;
-          }
-
-          header.main-header .header-sticky.hide {
-            transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
-            border-radius: 0;
-          }
-
-          header.main-header .header-sticky.active {
-            z-index: 99999 !important;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            border-radius: 0;
-            transform: translateY(0);
-            background-color: rgba(255, 255, 255);
-            border-bottom: 1px solid var(--divider-color);
-
-            /* Add subtle bottom-only shadow */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
-
-          #home .navbar {
-            padding: 20px 0;
-            align-items: center;
-          }
-
-          .navbar {
-            padding: 20px 0;
-            align-items: center;
-          }
-
-          .navbar-brand {
-            padding: 0;
-            margin: 0;
-          }
-
-          .main-menu .nav-menu-wrapper {
-            flex: 1;
-            text-align: right;
-            margin: 0 20px;
-          }
-
-          .main-menu .nav-menu-wrapper>ul {
-            align-items: center;
-            display: inline-flex;
-          }
-
-          .main-menu ul li {
-            margin: 0;
-            position: relative;
-          }
-
-          .main-menu ul li a {
-            text-decoration: none;
-            text-align: center;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.2em;
-            padding: 10px 18px !important;
-            color: #303030;
-            text-transform: capitalize;
-            /* transition: all 0.3s ease-in-out;*/
-          }
-
-          @media screen and (min-width: 1000px) and (max-width: 1299px) {
-            .main-menu ul li a {
+            .slicknav_menu {
+              zoom: 1;
               font-size: 16px;
-              padding: 10px 12px !important;
+              background: #4c4c4c;
+              padding: 5px;
             }
-          }
 
-          @media screen and (min-width: 1299px) and (max-width: 1400px) {
-            .main-menu ul li a {
+            .slicknav_nav,
+            .slicknav_nav ul {
+              list-style: none;
+              overflow: hidden;
+              padding: 0;
+            }
+
+            .slicknav_menu .slicknav_icon-bar {
+              background-color: #fff;
+            }
+
+            .slicknav_btn {
+              margin: 5px 5px 6px;
+              text-decoration: none;
+              text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+              -webkit-border-radius: 4px;
+              -moz-border-radius: 4px;
+              border-radius: 4px;
+              background-color: #222;
+            }
+
+            .slicknav_nav {
+              clear: both;
+              color: #fff;
+              margin: 0;
+              font-size: 0.875em;
+            }
+
+            .slicknav_nav ul {
+              margin: 0 0 0 20px;
+            }
+
+            .slicknav_nav .slicknav_row,
+            .slicknav_nav a {
+              padding: 5px 10px;
+              margin: 2px 5px;
+            }
+
+            .slicknav_nav .slicknav_row:hover {
+              -webkit-border-radius: 6px;
+              -moz-border-radius: 6px;
+              border-radius: 6px;
+              background: #ccc;
+              color: #fff;
+            }
+
+            .slicknav_nav a {
+              text-decoration: none;
+              color: #fff;
+            }
+
+            .slicknav_nav a:hover {
+              -webkit-border-radius: 6px;
+              -moz-border-radius: 6px;
+              border-radius: 6px;
+              background: #ccc;
+              color: #222;
+            }
+
+            .slicknav_nav .slicknav_txtnode {
+              margin-left: 15px;
+            }
+
+            .slicknav_nav .slicknav_item a,
+            .slicknav_nav .slicknav_parent-link a {
+              padding: 0;
+              margin: 0;
+            }
+
+            .slicknav_brand {
+              float: left;
+              color: #fff;
+              font-size: 18px;
+              line-height: 30px;
+              padding: 7px 12px;
+              height: 44px;
+            }
+
+            /************************************/
+            /**** 	   03. Header css		 ****/
+            /************************************/
+
+            .topbar {
+              background: var(--accent-secondary-color);
+              padding: 15px 0;
+            }
+
+            .topbar-contact-info ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              line-height: 1em;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 30px;
+            }
+
+            .topbar-contact-info ul li a {
+              color: var(--accent-color);
+            }
+
+            .topbar-contact-info ul li a i {
               font-size: 16px;
-              padding: 10px 15px !important;
+              color: var(--accent-color);
+              margin-right: 8px;
+              transition: all 0.3s ease-in-out;
             }
-          }
 
-          @media screen and (min-width: 992px) and (max-width: 1029px) {
+            .topbar-social-links {
+              text-align: right;
+            }
+
+            .topbar-social-links ul {
+              list-style: none;
+              line-height: 1em;
+              padding: 0;
+              margin: 0;
+            }
+
+            .topbar-social-links ul li {
+              display: inline-block;
+              margin-right: 15px;
+              padding-right: 15px;
+              border-right: 1px solid var(--accent-color);
+              transition: all 0.3s ease-in-out;
+            }
+
+            .topbar-social-links ul li:last-child {
+              margin-right: 0;
+              padding-right: 0;
+              border-right: none;
+            }
+
+            .topbar-social-links ul li a {
+              font-weight: 400;
+              color: var(--accent-color);
+              text-transform: capitalize;
+              transition: all 0.3s ease-in-out;
+            }
+
+            .topbar-social-links ul li a i {
+              font-size: 18px;
+              color: inherit;
+              margin-right: 8px;
+            }
+
+            header.main-header {
+              position: relative;
+              background: #fff;
+              z-index: 100;
+            }
+
+            header.main-header .header-sticky {
+              position: relative;
+              top: 0;
+              z-index: 100;
+            }
+
+            header.main-header .header-sticky.hide {
+              transform: translateY(-100%);
+              transition: transform 0.3s ease-in-out;
+              border-radius: 0;
+            }
+
+            header.main-header .header-sticky.active {
+              z-index: 99999 !important;
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              border-radius: 0;
+              transform: translateY(0);
+              background-color: rgba(255, 255, 255);
+              border-bottom: 1px solid var(--divider-color);
+
+              /* Add subtle bottom-only shadow */
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            #home .navbar {
+              padding: 20px 0;
+              align-items: center;
+            }
+
+            .navbar {
+              padding: 20px 0;
+              align-items: center;
+            }
+
+            .navbar-brand {
+              padding: 0;
+              margin: 0;
+            }
+
+            .main-menu .nav-menu-wrapper {
+              flex: 1;
+              text-align: right;
+              margin: 0 20px;
+            }
+
+            .main-menu .nav-menu-wrapper > ul {
+              align-items: center;
+              display: inline-flex;
+            }
+
+            .main-menu ul li {
+              margin: 0;
+              position: relative;
+            }
+
             .main-menu ul li a {
-              padding: 10px 8px !important;
+              text-decoration: none;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 1.2em;
+              padding: 10px 18px !important;
+              color: #303030;
+              text-transform: capitalize;
+              /* transition: all 0.3s ease-in-out;*/
             }
-          }
 
-          .header-sticky.active .main-menu ul li a {
-            color: #111111 !important;
-          }
+            @media screen and (min-width: 1000px) and (max-width: 1299px) {
+              .main-menu ul li a {
+                font-size: 16px;
+                padding: 10px 12px !important;
+              }
+            }
 
-          .header-sticky.active .submenu ul li a {
-            color: #111111 !important;
-          }
+            @media screen and (min-width: 1299px) and (max-width: 1400px) {
+              .main-menu ul li a {
+                font-size: 16px;
+                padding: 10px 15px !important;
+              }
+            }
+            @media screen and (min-width: 992px) and (max-width: 1029px) {
+              .main-menu ul li a {
+                padding: 10px 8px !important;
+              }
+            }
+            .header-sticky.active .main-menu ul li a {
+              color: #111111 !important;
+            }
 
-          @media only screen and (max-width: 600px) {
             .header-sticky.active .submenu ul li a {
               color: #111111 !important;
             }
-          }
 
-          .header-sticky.active .main-menu ul li .header-btn {
-            color: #fff !important;
-          }
+            @media only screen and (max-width: 600px) {
+              .header-sticky.active .submenu ul li a {
+                color: #111111 !important;
+              }
+            }
 
-          .header-sticky.active .main-menu ul li .header-btn:hover {
-            color: #f44336 !important;
-          }
+            .header-sticky.active .main-menu ul li .header-btn {
+              color: #fff !important;
+            }
 
-          .main-menu ul li.submenu>a {
-            display: inline-flex;
-            align-items: center;
-          }
+            .header-sticky.active .main-menu ul li .header-btn:hover {
+              color: #f44336 !important;
+            }
 
-          .main-menu ul li.submenu>a:after {
-            content: "";
-            margin-left: 8px;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid #000;
-          }
+            .main-menu ul li.submenu > a {
+              display: inline-flex;
+              align-items: center;
+            }
 
-          .main-menu ul li a:hover,
-          .main-menu ul li a:focus {
-            color: #f44336;
-          }
+            .main-menu ul li.submenu > a:after {
+              content: "";
+              margin-left: 8px;
+              width: 0;
+              height: 0;
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 5px solid #000;
+            }
 
-          .header-sticky.active .main-menu ul li a:hover {
-            color: #f44336;
-          }
+            .main-menu ul li a:hover,
+            .main-menu ul li a:focus {
+              color: #f44336;
+            }
 
-          .main-menu ul ul {
-            visibility: hidden;
-            opacity: 0;
-            transform-origin: top;
-            padding: 0.5em 1em;
-            margin: 0;
-            list-style: none;
-            width: max-content;
-            /* This is the key for content-based width */
-            min-width: 100%;
-            /* Optional: Ensures dropdown doesn't get too narrow */
-            border-radius: 20px;
-            position: absolute;
-            left: -30px;
-            /* Aligns dropdown directly under parent */
-            top: 100%;
-            background-color: var(--accent-secondary-color);
-            text-align: left;
-            z-index: 99;
-            white-space: nowrap;
-            /* Prevents line breaks inside items */
-          }
+            .header-sticky.active .main-menu ul li a:hover {
+              color: #f44336;
+            }
 
-          .main-menu ul li.submenu:first-child ul {
-            width: 230px;
-          }
+            .main-menu ul ul {
+              visibility: hidden;
+              opacity: 0;
+              transform-origin: top;
+              padding: 0.5em 1em;
+              margin: 0;
+              list-style: none;
+              width: max-content; /* This is the key for content-based width */
+              min-width: 100%; /* Optional: Ensures dropdown doesn't get too narrow */
+              border-radius: 20px;
+              position: absolute;
+              left: -30px; /* Aligns dropdown directly under parent */
+              top: 100%;
+              background-color: var(--accent-secondary-color);
+              text-align: left;
+              z-index: 99;
+              white-space: nowrap; /* Prevents line breaks inside items */
+            }
 
-          .main-menu ul ul ul {
-            left: 100%;
-            top: 0;
-            text-align: left;
-          }
+            .main-menu ul li.submenu:first-child ul {
+              width: 230px;
+            }
 
-          .main-menu ul li:hover>ul {
-            visibility: visible;
-            opacity: 1;
-            /* transform: scaleY(1);
+            .main-menu ul ul ul {
+              left: 100%;
+              top: 0;
+              text-align: left;
+            }
+
+            .main-menu ul li:hover > ul {
+              visibility: visible;
+              opacity: 1;
+              /* transform: scaleY(1);
         padding: 5px 0;*/
-          }
+            }
 
-          .main-menu ul li.submenu ul li.submenu>a:after {
-            content: "\f105";
-            float: right;
-          }
+            .main-menu ul li.submenu ul li.submenu > a:after {
+              content: "\f105";
+              float: right;
+            }
 
-          .main-menu ul ul li {
-            margin: 0;
-            padding: 0;
-          }
+            .main-menu ul ul li {
+              margin: 0;
+              padding: 0;
+            }
 
-          .main-menu ul ul li a {
-            color: var(--accent-color);
+            .main-menu ul ul li a {
+              color: var(--accent-color);
 
-            /* transition: all 0.3s ease-in-out;*/
-          }
+              /* transition: all 0.3s ease-in-out;*/
+            }
 
-          .main-menu ul li:hover>ul {
-            visibility: visible;
-            opacity: 1;
-            /*transform: scaleY(1);*/
-            padding: 5px 5px;
-          }
+            .main-menu ul li:hover > ul {
+              visibility: visible;
+              opacity: 1;
+              /*transform: scaleY(1);*/
+              padding: 5px 5px;
+            }
 
-          .main-menu ul ul li a:hover,
-          .main-menu ul ul li a:focus {
-            color: #111111;
-            /* background-color: transparent;*/
-            padding: 10px 18px !important;
-          }
+            .main-menu ul ul li a:hover,
+            .main-menu ul ul li a:focus {
+              color: #111111;
+              /* background-color: transparent;*/
+              padding: 10px 18px !important;
+            }
 
-          .main-menu ul li.highlighted-menu {
-            display: none;
-          }
+            .main-menu ul li.highlighted-menu {
+              display: none;
+            }
 
-          .responsive-menu {
-            top: 0;
-            position: relative;
-          }
+            .responsive-menu {
+              top: 0;
+              position: relative;
+            }
 
-          /* Default styles for .slicknav_btn */
-          .slicknav_btn {
-            background: none;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            margin: 0;
-            border-radius: 0;
-            color: inherit;
-            /* Use inherited color, can be overridden */
-          }
+            /* Default styles for .slicknav_btn */
+            .slicknav_btn {
+              background: none;
+              padding: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 38px;
+              height: 38px;
+              margin: 0;
+              border-radius: 0;
+              color: inherit;
+              /* Use inherited color, can be overridden */
+            }
 
-          /* When header is sticky and active, make the button color white */
-          .header-sticky.active .slicknav_btn {
-            background: #fff !important;
-          }
+            /* When header is sticky and active, make the button color white */
+            .header-sticky.active .slicknav_btn {
+              background: #fff !important;
+            }
 
-          .slicknav_icon .slicknav_icon-bar {
-            display: block;
-            width: 100%;
-            height: 3px;
-            width: 22px;
-            background-color: var(--primary-color);
-            border-radius: 6px;
-            margin: 4px auto !important;
-            transition: all 0.1s ease-in-out;
-          }
+            .slicknav_icon .slicknav_icon-bar {
+              display: block;
+              width: 100%;
+              height: 3px;
+              width: 22px;
+              background-color: var(--primary-color);
+              border-radius: 6px;
+              margin: 4px auto !important;
+              transition: all 0.1s ease-in-out;
+            }
 
-          .slicknav_icon .slicknav_icon-bar:first-child {
-            margin-top: 0 !important;
-          }
+            .slicknav_icon .slicknav_icon-bar:first-child {
+              margin-top: 0 !important;
+            }
 
-          .slicknav_icon .slicknav_icon-bar:last-child {
-            margin-bottom: 0 !important;
-          }
+            .slicknav_icon .slicknav_icon-bar:last-child {
+              margin-bottom: 0 !important;
+            }
 
-          .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 5px);
-          }
+            .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+              transform: rotate(-45deg) translate(-5px, 5px);
+            }
 
-          .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
-            opacity: 0;
-          }
+            .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+              opacity: 0;
+            }
 
-          .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -5px);
-          }
+            .navbar-toggle a.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+              transform: rotate(45deg) translate(-5px, -5px);
+            }
 
-          .slicknav_menu {
-            position: absolute;
-            width: 100%;
-            padding: 0;
-            background: #fff;
-          }
+            .slicknav_menu {
+              position: absolute;
+              width: 100%;
+              padding: 0;
+              background: #fff;
+            }
 
-          .slicknav_menu ul {
-            margin: 5px 0;
-          }
+            .slicknav_menu ul {
+              margin: 5px 0;
+            }
 
-          .slicknav_menu ul ul {
-            margin: 0;
-          }
+            .slicknav_menu ul ul {
+              margin: 0;
+            }
 
-          .slicknav_nav .slicknav_row,
-          .slicknav_nav li a {
-            position: relative;
-            display: inline-flex;
-            gap: 7px;
-            align-items: center;
-            font-size: 16px;
-            font-weight: 400;
-            text-transform: capitalize;
-            padding: 8px 20px;
-            color: var(--accent-color) !important;
-            line-height: normal;
-            margin: 0;
-            border-radius: 0 !important;
-            /* transition: all 0.3s ease-in-out;*/
-          }
+            .slicknav_nav .slicknav_row,
+            .slicknav_nav li a {
+              position: relative;
+              display: inline-flex;
+              gap: 7px;
+              align-items: center;
+              font-size: 16px;
+              font-weight: 400;
+              text-transform: capitalize;
+              padding: 8px 20px;
+              color: var(--accent-color) !important;
+              line-height: normal;
+              margin: 0;
+              border-radius: 0 !important;
+              /* transition: all 0.3s ease-in-out;*/
+            }
 
-          .slicknav_nav a:hover,
-          .slicknav_nav a:focus,
-          .slicknav_nav .slicknav_row:hover {
-            background-color: transparent;
-            color: #111111 !important;
-          }
+            .slicknav_nav a:hover,
+            .slicknav_nav a:focus,
+            .slicknav_nav .slicknav_row:hover {
+              background-color: transparent;
+              color: #111111 !important;
+            }
 
-          /*
+            /*
       .slicknav_menu ul ul li a {
         padding: 8px 20px 8px 30px;
       }
       */
-          .slicknav_arrow {
-            font-size: 0 !important;
-          }
+            .slicknav_arrow {
+              font-size: 0 !important;
+            }
 
-          .slicknav_arrow:after {
-            content: "";
-            position: absolute;
+            .slicknav_arrow:after {
+              content: "";
+              position: absolute;
 
-            width: 0;
-            height: 0;
+              width: 0;
+              height: 0;
 
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid var(--primary-color);
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 5px solid var(--primary-color);
 
-            /*right: 15px; arrow in mobile menu next to text */
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.3s ease-out;
-          }
+              /*right: 15px; arrow in mobile menu next to text */
+              top: 50%;
+              transform: translateY(-50%);
+              transition: all 0.3s ease-out;
+            }
 
-          .slicknav_open>a .slicknav_arrow:after {
-            transform: translateY(-52%) rotate(-180deg);
-            color: var(--primary-color);
-          }
+            .slicknav_open > a .slicknav_arrow:after {
+              transform: translateY(-52%) rotate(-180deg);
+              color: var(--primary-color);
+            }
     </style>
     <style>
       .runo-step-title {
@@ -893,7 +892,6 @@
         justify-content: center;
         text-align: center;
       }
-
       .runo-step-para {
         min-height: 48px;
         display: flex;
@@ -918,8 +916,7 @@
       }
 
       .submenu-list .row {
-        flex-wrap: wrap;
-        /* allow multiple lines */
+        flex-wrap: wrap; /* allow multiple lines */
       }
 
       /* Hide dropdowns by default */
@@ -947,8 +944,7 @@
       .main-menu .mega-menu .submenu-list {
         left: 50%;
         transform: translateX(-30%);
-        min-width: 900px;
-        /* wide enough for 5 cols */
+        min-width: 900px; /* wide enough for 5 cols */
         max-width: 90vw;
         background: var(--accent-secondary-color);
         border-radius: 20px;
@@ -965,12 +961,10 @@
       .compliance {
         padding: 0px 0px 0px 10px;
       }
-
       .bghd {
         background: #f443360b;
         border-radius: 20px 0px 0px 0px;
       }
-
       .header-left {
         text-align: left;
         padding: 20px 10px;
@@ -984,7 +978,6 @@
       .header-left a {
         text-align: left !important;
       }
-
       .header-right a {
         text-align: left !important;
         padding: 0px 25px !important;
@@ -994,11 +987,9 @@
         margin-bottom: 12px !important;
         font-size: 14px !important;
       }
-
       #web-menu {
         display: block !important;
       }
-
       #mob-menu {
         display: none !important;
       }
@@ -1017,7 +1008,6 @@
         .mega-menu {
           display: none !important;
         }
-
         #mob-menu {
           display: block !important;
         }
@@ -1037,32 +1027,26 @@
         padding: 8px 25px !important;
         font-size: 14px !important;
       }
-
       @media only screen and (max-width: 991px) {
         .menu-icon {
           display: flex;
           margin-left: 5px;
         }
-
         .slicknav_nav .mega .submenu-list li a {
           padding: 10px 45px !important;
         }
-
         .slicknav_menu {
           zoom: 1;
 
           /* NEW */
-          max-height: 90vh;
-          /* limit height to 90% of viewport */
-          overflow-y: auto;
-          /* enable vertical scroll inside menu */
+          max-height: 90vh; /* limit height to 90% of viewport */
+          overflow-y: auto; /* enable vertical scroll inside menu */
         }
       }
 
       .text-destructive {
         color: red !important;
       }
-
       .text-green-500 {
         color: #22c55e !important;
       }
@@ -1071,7 +1055,6 @@
         width: 30px;
         height: 30px;
       }
-
       .btns {
         background: #f44336;
         color: #fff;
@@ -1080,18 +1063,15 @@
         display: flex;
         align-items: center;
       }
-
       .btns a {
         position: relative;
         color: #fff !important;
         text-decoration: none;
-        padding-right: 28px;
-        /* enough space for arrow */
+        padding-right: 28px; /* enough space for arrow */
         font-weight: 600;
         font-size: 14px !important;
         transition: all 0.3s ease;
       }
-
       .btns a:hover {
         text-decoration: underline;
       }
@@ -1099,8 +1079,7 @@
       .btns a::after {
         content: "→";
         position: absolute;
-        right: -5px;
-        /* fixed gap from text */
+        right: -5px; /* fixed gap from text */
         top: 50%;
         transform: translateY(-50%);
         font-size: 14px !important;
@@ -1108,14 +1087,12 @@
       }
 
       .btns a:hover::after {
-        transform: translate(3px, -50%);
-        /* slide to right */
+        transform: translate(3px, -50%); /* slide to right */
       }
 
       .main-menu ul ul .menu-icon {
         margin-left: 0px;
       }
-
       .main-menu ul ul .menu-icon svg {
         margin-right: 7px;
         width: 25px;
@@ -1126,7 +1103,6 @@
         .slicknav_nav .submenu-list li a {
           padding: 10px 15px !important;
         }
-
         .slicknav_nav .menu-icon a svg {
           margin-right: 7px;
         }
@@ -1144,7 +1120,6 @@
       fetchpriority="high"
     />
   </head>
-
   <body>
     <div id="home">
       <!-- Google Tag Manager (noscript) -->
@@ -2083,20 +2058,6 @@
                     <a href="#features" class="btn-default-dark btn-highlighted">See All Features</a>
                   </div>
                 </div>
-                <!-- Swiper Init Script -->
-                <script>
-                  document.addEventListener("DOMContentLoaded", function () {
-                    new Swiper(".mobile-hero-swiper", {
-                      loop: true,
-                      autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false
-                      },
-                      allowTouchMove: true,
-                      speed: 600
-                    });
-                  });
-                </script>
               </div>
             </div>
           </div>
@@ -2362,22 +2323,13 @@
               }
             });
           },
-          { threshold: 0.5 } // section is at least 50% visible
+          {threshold: 0.5} // section is at least 50% visible
         );
 
         observer.observe(section);
 
         // Initialize first tab
         activateTab(0);
-        document.addEventListener("DOMContentLoaded", function () {
-          // ===== MOBILE SWIPER =====
-          const mobileSwiper = new Swiper(".mobile-slider", {
-            loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 20
-          });
-        });
       </script>
       <!-- WhatsApp CRM Section-->
       <section class="sales-execution-section pb-5">
@@ -2700,23 +2652,7 @@
           </div>
         </div>
       </section>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          new Swiper(".swiper-container", {
-            loop: true,
-            autoplay: {
-              delay: 4000,
-              disableOnInteraction: false
-            },
-            slidesPerView: 1,
-            spaceBetween: 10,
-            navigation: {
-              nextEl: ".swiper-custom-next",
-              prevEl: ".swiper-custom-prev"
-            }
-          });
-        });
-      </script>
+
       <section class="home-app-cta-sm py-5">
         <div class="container">
           <div class="row align-items-center">
@@ -3664,58 +3600,55 @@
           $("#comp_name").on("input", validateCompName);
           $("#agents").on("change", validateAgents);
 
-         $("#demo-form").off("submit").on("submit", function (event) {
-              event.preventDefault();
-              event.stopPropagation();
+          $("#demo-form").on("submit", function (event) {
+            event.preventDefault();
 
-              const dhiddenf = $("#dwebsite").val().trim();
+            const dhiddenf = $("#dwebsite").val().trim();
 
-              if (dhiddenf !== "") {
+            if (dhiddenf !== "") {
+              alert("Spam detected. Redirecting...");
 
-                alert("Spam detected. Redirecting...");
+              $("#demo-form")[0].reset();
+              phoneInput.value = "";
+              $("#dwebsite").val("");
 
-                $("#demo-form")[0].reset();
-                phoneInput.value = "";
-                $("#dwebsite").val("");
+              setTimeout(function () {
+                window.location.href = "/";
+              }, 2000);
 
-                setTimeout(function () {
-                  window.location.href = "/";
-                }, 2000);
+              return;
+            }
 
-                return;
-              }
+            const validName = validateName();
+            const validEmail = validateEmail();
+            const validPhone = validatePhone();
+            const validCompName = validateCompName();
+            const validAgents = validateAgents();
 
-              const validName = validateName();
-              const validEmail = validateEmail();
-              const validPhone = validatePhone();
-              const validCompName = validateCompName();
-              const validAgents = validateAgents();
+            if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
+              return;
+            }
 
-              if (!(validName && validEmail && validPhone && validCompName && validAgents)) {
-                return;
-              }
+            const formData = $(this)
+              .serializeArray()
+              .reduce(function (obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+              }, {});
 
+            formData["your_phone"] = iti.getNumber(); // international format
+            formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
 
-              const formData = $(this)
-                .serializeArray()
-                .reduce(function (obj, item) {
-                  obj[item.name] = item.value;
-                  return obj;
-                }, {});
+            const selectedCountry = iti.getSelectedCountryData();
+            // Remove anything inside brackets and trim spaces
+            const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
+            // ✅ Add to form data
+            formData["your_country"] = countryName;
 
-              formData["your_phone"] = iti.getNumber(); // international format
-              formData["custom_Page Name"] = window.location.pathname.replace(/^\/|\/$/g, "") || "Home";
+            const uuid = $(this).data("uuid");
 
-              const selectedCountry = iti.getSelectedCountryData();
-              // Remove anything inside brackets and trim spaces
-              const countryName = selectedCountry.name.replace(/\s*\(.*?\)\s*/g, "").trim();
-              // ✅ Add to form data
-              formData["your_country"] = countryName;
-
-              const uuid = $(this).data("uuid");
-
-              submitForm("demo-form", formData, uuid);
-            });
+            submitForm("demo-form", formData, uuid);
+          });
         });
       });
     </script>
@@ -3731,11 +3664,91 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
+    <script>
+      function loadSwiper(callback) {
+        // Prevent duplicate loading
+        if (window.Swiper) {
+          callback();
+          return;
+        }
+
+        const s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+        s.onload = callback;
+        document.body.appendChild(s);
+      }
+
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          loadSwiper(() => {
+            // ✅ Mobile Hero
+            if (document.querySelector(".mobile-hero-swiper")) {
+              new Swiper(".mobile-hero-swiper", {
+                loop: true,
+                autoplay: {delay: 4000, disableOnInteraction: false},
+                speed: 600
+              });
+            }
+
+            // ✅ Mobile Tabs
+            if (document.querySelector(".mobile-slider")) {
+              new Swiper(".mobile-slider", {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoplay: {delay: 4000}
+              });
+            }
+
+            // ✅ Features
+            if (document.querySelector(".swiper-container")) {
+              new Swiper(".swiper-container", {
+                loop: true,
+                autoplay: {
+                  delay: 5000
+                },
+                navigation: {
+                  nextEl: ".swiper-custom-next",
+                  prevEl: ".swiper-custom-prev"
+                }
+              });
+            }
+
+            // ✅ Testimonial (FIXED)
+            if (document.querySelector(".testimonial-slider")) {
+              const swiperEl = document.querySelector(".testimonial-slider .swiper");
+
+              if (swiperEl) {
+                const slideCount = swiperEl.querySelectorAll(".swiper-slide").length;
+
+                new Swiper(swiperEl, {
+                  slidesPerView: 2.5,
+                  speed: 1000,
+                  spaceBetween: 30,
+                  loop: slideCount > 4,
+                  autoplay: {
+                    delay: 5000
+                  },
+                  navigation: {
+                    nextEl: ".testimonial-next-btn",
+                    prevEl: ".testimonial-prev-btn"
+                  },
+                  breakpoints: {
+                    0: {slidesPerView: 1, spaceBetween: 12},
+                    800: {slidesPerView: 2, spaceBetween: 30},
+                    990: {slidesPerView: 2, spaceBetween: 30},
+                    1200: {slidesPerView: 2.5, spaceBetween: 30}
+                  }
+                });
+              }
+            }
+          });
+        }, 3000);
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     <!-- Plugins (Deferred) -->
     <script src="js/jquery.slicknav.js" defer></script>
-    <script src="js/function.js" defer></script>
 
     <script type="application/ld+json">
       {
@@ -3895,7 +3908,7 @@
     <script>
       // Don't load the widget initially
       window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || { ready: function () { } };
+      $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
 
       // Function to inject the script
       function loadZohoWidget() {
@@ -3915,8 +3928,8 @@
         window.removeEventListener("touchstart", initZohoOnScroll);
       }
 
-      window.addEventListener("scroll", initZohoOnScroll, { passive: true });
-      window.addEventListener("touchstart", initZohoOnScroll, { passive: true });
+      window.addEventListener("scroll", initZohoOnScroll, {passive: true});
+      window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
     </script>
   </body>
 </html>
