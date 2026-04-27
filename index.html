@@ -107,31 +107,45 @@
         }, 1000);
       });
     </script>
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (Optimized Lazy Load) -->
     <script>
-      window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
+      (function () {
+        let loaded = false;
 
         function loadGTM() {
+          if (loaded || window.gtmDidInit) return;
+          loaded = true;
+          window.gtmDidInit = true;
+
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
-            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
             var f = d.getElementsByTagName(s)[0],
               j = d.createElement(s),
               dl = l != "dataLayer" ? "&l=" + l : "";
+
             j.async = true;
             j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+
             f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
         }
 
-        if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 3000});
-        } else {
-          setTimeout(loadGTM, 3000);
-        }
-      });
+        // 1. Load fast after DOM is ready (best balance)
+        document.addEventListener("DOMContentLoaded", function () {
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(loadGTM, { timeout: 2000 });
+          } else {
+            setTimeout(loadGTM, 1500);
+          }
+        });
+
+        // 2. Backup: load on first user interaction (ensures tracking never misses)
+        ["scroll", "mousemove", "touchstart", "click"].forEach(function (event) {
+          window.addEventListener(event, loadGTM, { once: true, passive: true });
+        });
+      })();
     </script>
     <!-- End Google Tag Manager -->
 
