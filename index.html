@@ -83,29 +83,44 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
-      window.addEventListener("load", function () {
-        if (window.gtmDidInit) return;
-        window.gtmDidInit = true;
+      // ✅ Load lightweight tracking immediately (safe)
+      (function () {
+        var s = document.createElement("script");
+        s.src = "https://www.googletagmanager.com/gtm.js?id=GTM-M7SSPG7W";
+        s.async = true;
+        document.head.appendChild(s);
+      })();
 
-        function loadGTM() {
-          (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({"gtm.start": new Date().getTime(), event: "gtm.js"});
-            var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-          })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
-        }
+      // Prevent multiple loads
+      let heavyLoaded = false;
 
-        if (window.requestIdleCallback) {
-          requestIdleCallback(loadGTM, {timeout: 3000});
-        } else {
-          setTimeout(loadGTM, 3000);
-        }
+      function loadHeavyScripts() {
+        if (heavyLoaded) return;
+        heavyLoaded = true;
+
+        // 🔴 HubSpot
+        const hs = document.createElement("script");
+        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
+        hs.async = true;
+        document.body.appendChild(hs);
+
+        // 🔴 Zoho
+        const zoho = document.createElement("script");
+        zoho.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        zoho.async = true;
+        document.body.appendChild(zoho);
+      }
+
+      // ✅ Load heavy scripts on intent OR fallback
+      ["click", "scroll", "keydown", "touchstart"].forEach((event) => {
+        window.addEventListener(event, loadHeavyScripts, {
+          once: true,
+          passive: true,
+        });
       });
+
+      // ✅ Backup: load after 10s (for non-interaction users)
+      setTimeout(loadHeavyScripts, 5000);
     </script>
     <!-- End Google Tag Manager -->
 
@@ -3384,7 +3399,8 @@
                 <div class="mb-1">
                   <select name="custom_Sales/Calling Team Size" class="form-select" id="agents">
                     <option value="" disabled selected style="color: #858585">Number of Calling Agents</option>
-                    <option value=">50">>50</option>
+                    <option value="Gt 100">>100</option>
+                    <option value="50-100">50-100</option>
                     <option value="21-50">21-50</option>
                     <option value="11-20">11-20</option>
                     <option value="4-10">4-10</option>
@@ -3887,48 +3903,6 @@
           setTimeout(() => (preloader.style.display = "none"), 300);
         }
       });
-    </script>
-    <script>
-      // Don't load the widget initially
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
-
-      // Function to inject the script
-      function loadZohoWidget() {
-        if (document.getElementById("zsiqscript")) return; // Prevent duplicate load
-        var d = document;
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.id = "zsiqscript";
-        s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        d.body.appendChild(s);
-      }
-
-      // Load on first scroll or touch
-      function initZohoOnScroll() {
-        loadZohoWidget();
-        window.removeEventListener("scroll", initZohoOnScroll);
-        window.removeEventListener("touchstart", initZohoOnScroll);
-      }
-
-      window.addEventListener("scroll", initZohoOnScroll, {passive: true});
-      window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
-    </script>
-    <!--Hubspot Delay Loading-->
-    <script>
-      let hubspotLoaded = false;
-      function loadHubspot() {
-        if (hubspotLoaded) return;
-        hubspotLoaded = true;
-        const s = document.createElement("script");
-        s.src = "https://js-na2.hs-scripts.com/245018807.js";
-        s.async = true;
-        document.body.appendChild(s);
-      }
-      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
-        window.addEventListener(event, loadHubspot, {once: true, passive: true});
-      });
-      /* Backup: load after 5s anyway */ setTimeout(loadHubspot, 4000);
     </script>
   </body>
 </html>
