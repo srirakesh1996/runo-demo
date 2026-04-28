@@ -82,46 +82,24 @@
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (Correct + Async) -->
     <script>
-      // ✅ Load lightweight tracking immediately (safe)
-      (function () {
-        var s = document.createElement("script");
-        s.src = "https://www.googletagmanager.com/gtm.js?id=GTM-M7SSPG7W";
-        s.async = true;
-        document.head.appendChild(s);
-      })();
+      window.dataLayer = window.dataLayer || [];
 
-      // Prevent multiple loads
-      let heavyLoaded = false;
+      (function (w, d, s, l, i) {
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
-      function loadHeavyScripts() {
-        if (heavyLoaded) return;
-        heavyLoaded = true;
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
 
-        // 🔴 HubSpot
-        const hs = document.createElement("script");
-        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
-        hs.async = true;
-        document.body.appendChild(hs);
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 
-        // 🔴 Zoho
-        const zoho = document.createElement("script");
-        zoho.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        zoho.async = true;
-        document.body.appendChild(zoho);
-      }
-
-      // ✅ Load heavy scripts on intent OR fallback
-      ["click", "scroll", "keydown", "touchstart"].forEach((event) => {
-        window.addEventListener(event, loadHeavyScripts, {
-          once: true,
-          passive: true,
-        });
-      });
-
-      // ✅ Backup: load after 10s (for non-interaction users)
-      setTimeout(loadHeavyScripts, 5000);
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M7SSPG7W");
     </script>
+    <!-- End Google Tag Manager -->
     <!-- End Google Tag Manager -->
 
     <style>
@@ -3902,6 +3880,46 @@
           preloader.style.transition = "opacity 0.5s ease";
           setTimeout(() => (preloader.style.display = "none"), 300);
         }
+      });
+    </script>
+    <script>
+      let heavyLoaded = false;
+
+      function loadHeavyScripts() {
+        if (heavyLoaded) return;
+        heavyLoaded = true;
+
+        // 🔴 HubSpot (heavy)
+        const hs = document.createElement("script");
+        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
+        hs.async = true;
+        document.body.appendChild(hs);
+
+        // 🔴 Zoho Chat (heavy)
+        const zoho = document.createElement("script");
+        zoho.src =
+          "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        zoho.async = true;
+        document.body.appendChild(zoho);
+      }
+
+      // ✅ Load on real user interaction
+      ["click", "scroll", "touchstart", "keydown"].forEach((event) => {
+        window.addEventListener(event, loadHeavyScripts, {
+          once: true,
+          passive: true,
+        });
+      });
+
+      // ✅ Backup (important for no-interaction users)
+      setTimeout(loadHeavyScripts, 8000);
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "delayed_tracking" });
+        }, 3000); // 3s delay
       });
     </script>
   </body>
