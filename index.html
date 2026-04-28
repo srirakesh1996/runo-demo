@@ -83,50 +83,36 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js" defer></script>
     <!-- Google Tag Manager -->
     <script>
-      // Init dataLayer (important)
       window.dataLayer = window.dataLayer || [];
+      let gtmLoaded = false;
 
-      // Lightweight GTM load
-      (function () {
-        var s = document.createElement("script");
-        s.src = "https://www.googletagmanager.com/gtm.js?id=GTM-M7SSPG7W";
-        s.async = true;
-        document.head.appendChild(s);
-      })();
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
 
-      // Heavy scripts control
-      let heavyLoaded = false;
+        window.dataLayer.push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
 
-      function loadHeavyScripts() {
-        if (heavyLoaded) return;
-        heavyLoaded = true;
-
-        // HubSpot
-        const hs = document.createElement("script");
-        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
-        hs.async = true;
-        document.body.appendChild(hs);
-
-        // Zoho
-        const zoho = document.createElement("script");
-        zoho.src =
-          "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        zoho.async = true;
-        document.body.appendChild(zoho);
+        var gtmScript = document.createElement("script");
+        gtmScript.async = true;
+        gtmScript.src =
+          "https://www.googletagmanager.com/gtm.js?id=GTM-M7SSPG7W";
+        document.head.appendChild(gtmScript);
       }
 
       // Load on interaction
-      ["click", "scroll", "keydown", "touchstart"].forEach((event) => {
-        window.addEventListener(event, loadHeavyScripts, {
+      ["click", "scroll", "touchstart", "keydown"].forEach((event) => {
+        window.addEventListener(event, loadGTM, {
           once: true,
           passive: true,
         });
       });
 
-      // Fallback
-      setTimeout(loadHeavyScripts, 10000);
+      // Fallback (important)
+      setTimeout(loadGTM, 6000);
     </script>
-    <!-- End Google Tag Manager -->
 
     <style>
       .hero {
@@ -3907,6 +3893,36 @@
           setTimeout(() => (preloader.style.display = "none"), 300);
         }
       });
+    </script>
+    <script>
+      let heavyLoaded = false;
+
+      function loadHeavyScripts() {
+        if (heavyLoaded) return;
+        heavyLoaded = true;
+
+        // HubSpot
+        const hs = document.createElement("script");
+        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
+        hs.async = true;
+        document.body.appendChild(hs);
+
+        // Zoho
+        const zoho = document.createElement("script");
+        zoho.src =
+          "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        zoho.async = true;
+        document.body.appendChild(zoho);
+      }
+
+      ["click", "scroll", "touchstart"].forEach((event) => {
+        window.addEventListener(event, loadHeavyScripts, {
+          once: true,
+          passive: true,
+        });
+      });
+
+      setTimeout(loadHeavyScripts, 10000);
     </script>
   </body>
 </html>
