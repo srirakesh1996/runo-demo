@@ -111,8 +111,9 @@
       });
 
       // Fallback (important)
-      setTimeout(loadGTM, 6000);
+      setTimeout(loadGTM, 4000);
     </script>
+    <!-- End Google Tag Manager -->
 
     <style>
       .hero {
@@ -3915,14 +3916,14 @@
         document.body.appendChild(zoho);
       }
 
-      ["click", "scroll", "touchstart"].forEach((event) => {
+      ["click", "scroll", "touchstart", "keydown"].forEach((event) => {
         window.addEventListener(event, loadHeavyScripts, {
           once: true,
           passive: true,
         });
       });
 
-      setTimeout(loadHeavyScripts, 7000);
+      setTimeout(loadHeavyScripts, 4500);
     </script>
   </body>
 </html>
