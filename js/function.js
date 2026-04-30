@@ -167,7 +167,7 @@ function submitForm(formId, formData, formToken) {
     .done(function (res) {
       if (res.statusCode === 0) {
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event: "demo_form_submit", form_name: "demo_form", page_path: window.location.pathname});
+
         $form[0].reset();
         const $modal = $form.closest(".modal");
         if ($modal.length) $modal.modal("hide");
