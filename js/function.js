@@ -154,6 +154,9 @@ function submitForm(formId, formData, formToken) {
   const utmCampaign = localStorage.getItem("utm_campaign");
   formData.custom_source = "Website Enquiry- IB";
   formData.custom_status = "Api Allocation";
+
+  console.log("Form ID:", formId);
+
   let websiteSubSource = "Demo";
 
   if (formId === "contact-form") {
@@ -161,6 +164,10 @@ function submitForm(formId, formData, formToken) {
   } else if (formId === "partnersForm") {
     websiteSubSource = "Partners";
   }
+
+  // Debug final value also
+  console.log("Website Sub Source:", websiteSubSource);
+
   // Add to payload
   formData["custom_website sub source"] = websiteSubSource;
   if (utmSource) formData["custom_utm source"] = utmSource;
@@ -168,9 +175,9 @@ function submitForm(formId, formData, formToken) {
   const whatsappOptIn = $("#policyCheck").is(":checked");
   const rawPhone = String(formData.your_phone || formData.phone || "");
   const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-  const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Timestamp: timestamp, Page_URL: window.location.href};
+  const sheetData = {Name: formData.your_name || "", Email: formData.your_email || "", Phone: fixedPhone, Company: formData.your_company || "", Team_Size: formData["custom_Sales/Calling Team Size"] || "", Know_Runo: formData["custom_We entered source"] || "", UTM_Source: utmSource, UTM_Campaign: utmCampaign, WhatsApp_OptIn: whatsappOptIn, Sub_Source: websiteSubSource, Timestamp: timestamp, Page_URL: window.location.href};
   try {
-    fetch("https://script.google.com/macros/s/AKfycbzfPDUmz6qiL246R8uiFIQBO6pErV4BZb73I1yszaHtv2jn0wEQzLs6DAO7rnYlDVXP/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
+    fetch("https://script.google.com/macros/s/AKfycbxa1aOvqO7KuY1c2WK01ybl998PwKoVcwQVm_rwFw5JrJo3XfuSKg4cqBSAdeaTVEYI/exec", {method: "POST", mode: "no-cors", body: JSON.stringify(sheetData), keepalive: !0});
   } catch (e) {}
   $.ajax({type: "POST", url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`, data: JSON.stringify(formData), contentType: "application/json", dataType: "json"})
     .done(function (res) {
