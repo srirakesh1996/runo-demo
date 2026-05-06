@@ -152,17 +152,17 @@ function submitForm(formId, formData, formToken) {
   const timestamp = new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
   const utmSource = localStorage.getItem("utm_source");
   const utmCampaign = localStorage.getItem("utm_campaign");
-  // ✅ Dynamic custom source based on formToken
-  let customSource = "Website Enquiry- IB";
-
-  if (formToken === "f355be52-b83b-49d5-80bb-cf3288441078") {
-    customSource = "website-contact";
-  } else if (formToken === "5fcdd0a1-f308-42a0-939d-ed88680f6ad7") {
-    customSource = "website-partners";
-  }
-
-  formData.custom_source = customSource;
+  formData.custom_source = "Website Enquiry- IB";
   formData.custom_status = "Api Allocation";
+  let websiteSubSource = "Demo";
+
+  if (formId === "contact-form") {
+    websiteSubSource = "Contact";
+  } else if (formId === "partnersForm") {
+    websiteSubSource = "Partners";
+  }
+  // Add to payload
+  formData["custom_website sub source"] = websiteSubSource;
   if (utmSource) formData["custom_utm source"] = utmSource;
   if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
   const whatsappOptIn = $("#policyCheck").is(":checked");
