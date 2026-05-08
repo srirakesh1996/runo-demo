@@ -251,26 +251,32 @@ async function submitForm(formId, formData, formToken) {
     const hubspotPayload = {
       fields: [
         {
+          objectTypeId: "0-1",
           name: "firstname",
           value: firstname
         },
         {
+          objectTypeId: "0-1",
           name: "lastname",
           value: lastname
         },
         {
+          objectTypeId: "0-1",
           name: "email",
           value: email
         },
         {
+          objectTypeId: "0-1",
           name: "phone",
           value: fixedPhone
         },
         {
+          objectTypeId: "0-1",
           name: "company",
           value: company
         },
         {
+          objectTypeId: "0-1",
           name: "no_of_calling_agents",
           value: agents
         }
