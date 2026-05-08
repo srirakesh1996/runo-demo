@@ -287,7 +287,7 @@ async function submitForm(formId, formData, formToken) {
       },
       legalConsentOptions: {
         consent: {
-          consentToProcess: true,
+          consentToProcess: WhatsApp_OptIn,
           text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
         }
       }
