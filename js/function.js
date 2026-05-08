@@ -150,231 +150,224 @@ async function submitForm(formId, formData, formToken) {
   const defaultText = $btnText.text();
 
   $(".text-danger").addClass("d-none");
-  $btn.prop("disabled", !0);
+
+  $btn.prop("disabled", true);
   $spinner.removeClass("d-none");
   $btnText.text("Submitting...");
 
-  const timestamp = new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
-
-  const utmSource = localStorage.getItem("utm_source");
-  const utmCampaign = localStorage.getItem("utm_campaign");
-
-  formData.custom_source = "Website Enquiry- IB";
-  formData.custom_status = "Api Allocation";
-
-  console.log("Form ID:", formId);
-  console.log("Original Form Data:", formData);
-
-  let websiteSubSource = "Demo";
-
-  if (formId === "contact-form") {
-    websiteSubSource = "Contact";
-  } else if (formId === "partnersForm") {
-    websiteSubSource = "Partners";
-  }
-
-  console.log("Website Sub Source:", websiteSubSource);
-
-  formData["custom_website sub source"] = websiteSubSource;
-
-  if (utmSource) formData["custom_utm source"] = utmSource;
-  if (utmCampaign) formData["custom_utm campaign"] = utmCampaign;
-
-  console.log("UTM Source:", utmSource);
-  console.log("UTM Campaign:", utmCampaign);
-
-  const whatsappOptIn = $("#policyCheck").is(":checked");
-
-  const rawPhone = String(formData.your_phone || formData.phone || "");
-  const fixedPhone = rawPhone.startsWith("+") ? rawPhone : "+" + rawPhone;
-
-  console.log("Raw Phone:", rawPhone);
-  console.log("Fixed Phone:", fixedPhone);
-  console.log("WhatsApp Optin:", whatsappOptIn);
-
-  const sheetData = {
-    Name: formData.your_name || "",
-    Email: formData.your_email || "",
-    Phone: fixedPhone,
-    Company: formData.your_company || "",
-    Team_Size: formData["custom_Sales/Calling Team Size"] || "",
-    Know_Runo: formData["custom_We entered source"] || "",
-    UTM_Source: utmSource,
-    UTM_Campaign: utmCampaign,
-    WhatsApp_OptIn: whatsappOptIn,
-    Sub_Source: websiteSubSource,
-    Timestamp: timestamp,
-    Page_URL: window.location.href
-  };
-
-  console.log("Google Sheet Payload:", sheetData);
-
-  // =========================================================
-  // 1) GOOGLE SHEET
-  // =========================================================
   try {
-    console.log("Sending data to Google Sheet...");
+    const timestamp = new Date().toLocaleString("sv-SE", {timeZone: "Asia/Kolkata"}).replace(" ", "T");
 
-    fetch("https://script.google.com/macros/s/AKfycbxa1aOvqO7KuY1c2WK01ybl998PwKoVcwQVm_rwFw5JrJo3XfuSKg4cqBSAdeaTVEYI/exec", {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(sheetData),
-      keepalive: !0
-    });
+    const utmSource = localStorage.getItem("utm_source") || "";
+    const utmCampaign = localStorage.getItem("utm_campaign") || "";
 
-    console.log("Google Sheet request triggered successfully");
-  } catch (e) {
-    console.error("Google Sheet Error:", e);
-  }
+    // ---------------------------------------------------------
+    // FORM DATA
+    // ---------------------------------------------------------
+    formData.custom_source = "Website Enquiry- IB";
+    formData.custom_status = "Api Allocation";
 
-  // =========================================================
-  // 2) HUBSPOT
-  // =========================================================
+    let websiteSubSource = "Demo";
 
-  const fullName = String(formData.your_name || "").trim();
-
-  const nameParts = fullName.split(/\s+/);
-
-  const firstname = nameParts[0] || "";
-  const lastname = nameParts.slice(1).join(" ") || "";
-
-  const email = String(formData.your_email || formData.email || "").trim();
-
-  const company = String(formData.your_company || formData.company || "").trim();
-
-  const agents = String(formData["custom_Sales/Calling Team Size"] || "").trim();
-
-  console.log("Firstname:", firstname);
-  console.log("Lastname:", lastname);
-  console.log("Email:", email);
-  console.log("Company:", company);
-  console.log("Agents:", agents);
-
-  const hubspotPayload = {
-    fields: [
-      {
-        objectTypeId: "0-1",
-        name: "firstname",
-        value: firstname
-      },
-      {
-        objectTypeId: "0-1",
-        name: "lastname",
-        value: lastname
-      },
-      {
-        objectTypeId: "0-1",
-        name: "email",
-        value: email
-      },
-      {
-        objectTypeId: "0-1",
-        name: "phone",
-        value: fixedPhone
-      },
-      {
-        objectTypeId: "0-1",
-        name: "company",
-        value: company
-      },
-      {
-        objectTypeId: "0-1",
-        name: "no_of_calling_agents",
-        value: "10"
-      }
-    ].filter((field) => field.value !== ""),
-    context: {
-      pageUri: window.location.href,
-      pageName: document.title
-    },
-    legalConsentOptions: {
-      consent: {
-        consentToProcess: whatsappOptIn,
-        text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
-      }
+    if (formId === "contact-form") {
+      websiteSubSource = "Contact";
+    } else if (formId === "partnersForm") {
+      websiteSubSource = "Partners";
     }
-  };
 
-  console.log("HubSpot Payload:", hubspotPayload);
+    formData["custom_website_sub_source"] = websiteSubSource;
 
-  try {
-    console.log("Sending data to HubSpot...");
-
-    const hubspotResponse = await fetch("https://api.hsforms.com/submissions/v3/integration/submit/245018807/bf1da384-b3a2-4ed5-895d-d234d34eb62b", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(hubspotPayload)
-    });
-
-    console.log("HubSpot Response Status:", hubspotResponse.status);
-
-    const hubspotResult = await hubspotResponse.json();
-
-    console.log("HubSpot Response:", hubspotResult);
-
-    if (hubspotResponse.ok) {
-      console.log("HubSpot Submission Successful");
-    } else {
-      console.error("HubSpot Submission Failed");
+    if (utmSource) {
+      formData["custom_utm_source"] = utmSource;
     }
-  } catch (e) {
-    console.error("HubSpot Submit Failed:", e);
-  }
 
-  // =========================================================
-  // 3) CRM AJAX
-  // =========================================================
+    if (utmCampaign) {
+      formData["custom_utm_campaign"] = utmCampaign;
+    }
 
-  console.log("CRM Payload:", formData);
+    const whatsappOptIn = $("#policyCheck").is(":checked");
 
-  $.ajax({
-    type: "POST",
-    url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
-    data: JSON.stringify(formData),
-    contentType: "application/json",
-    dataType: "json"
-  })
-    .done(function (res) {
-      console.log("CRM Response:", res);
+    const rawPhone = String(formData.your_phone || formData.phone || "").trim();
 
-      if (res.statusCode === 0) {
-        console.log("CRM Submission Successful");
+    const fixedPhone = rawPhone.startsWith("+") ? rawPhone : `+${rawPhone}`;
 
-        window.dataLayer = window.dataLayer || [];
+    console.log("Form ID:", formId);
+    console.log("Form Data:", formData);
 
-        $form[0].reset();
+    // ---------------------------------------------------------
+    // GOOGLE SHEET DATA
+    // ---------------------------------------------------------
+    const sheetData = {
+      Name: formData.your_name || "",
+      Email: formData.your_email || "",
+      Phone: fixedPhone,
+      Company: formData.your_company || "",
+      Team_Size: formData["custom_Sales/Calling Team Size"] || "",
+      Know_Runo: formData["custom_We entered source"] || "",
+      UTM_Source: utmSource,
+      UTM_Campaign: utmCampaign,
+      WhatsApp_OptIn: whatsappOptIn,
+      Sub_Source: websiteSubSource,
+      Timestamp: timestamp,
+      Page_URL: window.location.href
+    };
 
-        const $modal = $form.closest(".modal");
+    console.log("Google Sheet Payload:", sheetData);
 
-        if ($modal.length) {
-          console.log("Closing form modal");
-          $modal.modal("hide");
+    // ---------------------------------------------------------
+    // 1) GOOGLE SHEET
+    // ---------------------------------------------------------
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbxa1aOvqO7KuY1c2WK01ybl998PwKoVcwQVm_rwFw5JrJo3XfuSKg4cqBSAdeaTVEYI/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(sheetData),
+        keepalive: true
+      });
+
+      console.log("Google Sheet request sent");
+    } catch (error) {
+      console.error("Google Sheet Error:", error);
+    }
+
+    // ---------------------------------------------------------
+    // 2) HUBSPOT
+    // ---------------------------------------------------------
+    const fullName = String(formData.your_name || "").trim();
+    const nameParts = fullName.split(/\s+/);
+
+    const firstname = nameParts[0] || "";
+    const lastname = nameParts.slice(1).join(" ") || "";
+
+    const email = String(formData.your_email || formData.email || "").trim();
+
+    const company = String(formData.your_company || formData.company || "").trim();
+
+    const agents = String(formData["custom_Sales/Calling Team Size"] || "").trim();
+
+    const hubspotPayload = {
+      fields: [
+        {
+          name: "firstname",
+          value: firstname
+        },
+        {
+          name: "lastname",
+          value: lastname
+        },
+        {
+          name: "email",
+          value: email
+        },
+        {
+          name: "phone",
+          value: fixedPhone
+        },
+        {
+          name: "company",
+          value: company
+        },
+        {
+          name: "no_of_calling_agents",
+          value: agents
         }
-
-        console.log("Opening thank you modal");
-        $("#thankYouModal").modal("show");
-      } else {
-        console.error("CRM Submission Failed:", res.message);
-        alert(res.message || "Please try again.");
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      },
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
+        }
       }
+    };
+
+    console.log("HubSpot Payload:", hubspotPayload);
+
+    try {
+      const hubspotResponse = await fetch("https://api.hsforms.com/submissions/v3/integration/submit/245018807/bf1da384-b3a2-4ed5-895d-d234d34eb62b", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(hubspotPayload)
+      });
+
+      const hubspotResult = await hubspotResponse.json();
+
+      console.log("HubSpot Response:", hubspotResult);
+
+      if (!hubspotResponse.ok) {
+        throw new Error(hubspotResult.message || "HubSpot submission failed");
+      }
+
+      console.log("HubSpot Submission Successful");
+    } catch (error) {
+      console.error("HubSpot Submit Failed:", error);
+    }
+
+    // ---------------------------------------------------------
+    // 3) CRM AJAX
+    // ---------------------------------------------------------
+    console.log("CRM Payload:", formData);
+
+    $.ajax({
+      type: "POST",
+      url: `https://api-call-crm.runo.in/integration/webhook/wb/5d70a2816082af4daf1e377e/${formToken}`,
+      data: JSON.stringify(formData),
+      contentType: "application/json",
+      dataType: "json"
     })
-    .fail(function (xhr, status, error) {
-      console.error("CRM AJAX Failed");
-      console.error("XHR:", xhr);
-      console.error("Status:", status);
-      console.error("Error:", error);
+      .done(function (res) {
+        console.log("CRM Response:", res);
 
-      alert("Oops! Something went wrong while submitting the form. Please try again.");
-    })
-    .always(function () {
-      console.log("Resetting button state");
+        if (res.statusCode === 0) {
+          console.log("CRM Submission Successful");
 
-      $btn.prop("disabled", !1);
-      $spinner.addClass("d-none");
-      $btnText.text(defaultText);
+          window.dataLayer = window.dataLayer || [];
 
-      console.log("========== FORM SUBMIT END ==========");
-    });
+          $form[0].reset();
+
+          const $modal = $form.closest(".modal");
+
+          if ($modal.length) {
+            $modal.modal("hide");
+          }
+
+          $("#thankYouModal").modal("show");
+        } else {
+          console.error("CRM Submission Failed:", res.message);
+
+          alert(res.message || "Please try again.");
+        }
+      })
+      .fail(function (xhr, status, error) {
+        console.error("CRM AJAX Failed");
+        console.error("XHR:", xhr);
+        console.error("Status:", status);
+        console.error("Error:", error);
+
+        alert("Oops! Something went wrong while submitting the form. Please try again.");
+      })
+      .always(function () {
+        $btn.prop("disabled", false);
+        $spinner.addClass("d-none");
+        $btnText.text(defaultText);
+
+        console.log("========== FORM SUBMIT END ==========");
+      });
+  } catch (error) {
+    console.error("Unexpected Error:", error);
+
+    $btn.prop("disabled", false);
+    $spinner.addClass("d-none");
+    $btnText.text(defaultText);
+
+    alert("Something went wrong. Please try again.");
+  }
 }
