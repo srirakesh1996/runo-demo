@@ -280,7 +280,7 @@ async function submitForm(formId, formData, formToken) {
       {
         objectTypeId: "0-1",
         name: "no_of_calling_agents",
-        value: agents
+        value: "10"
       }
     ].filter((field) => field.value !== ""),
     context: {
