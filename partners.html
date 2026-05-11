@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Welcome to Runo CRM Partnership Program</title>
@@ -1503,30 +1503,34 @@
       //Lazy-load PopupSmart Chat Widget after 3s to improve INP
     </script>
     <script>
-      // Don't load the widget initially
-      window.$zoho = window.$zoho || {};
-      $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
+      let heavyLoaded = false;
 
-      // Function to inject the script
-      function loadZohoWidget() {
-        if (document.getElementById("zsiqscript")) return; // Prevent duplicate load
-        var d = document;
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.id = "zsiqscript";
-        s.src = "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
-        d.body.appendChild(s);
+      function loadHeavyScripts() {
+        if (heavyLoaded) return;
+        heavyLoaded = true;
+
+        // HubSpot
+        const hs = document.createElement("script");
+        hs.src = "https://js-na2.hs-scripts.com/245018807.js";
+        hs.async = true;
+        document.body.appendChild(hs);
+
+        // Zoho
+        const zoho = document.createElement("script");
+        zoho.src =
+          "https://salesiq.zohopublic.in/widget?wc=siq15178f7cae477133b44c22870ed762103caeaadeef21a7416254a1beb1e505a0";
+        zoho.async = true;
+        document.body.appendChild(zoho);
       }
 
-      // Load on first scroll or touch
-      function initZohoOnScroll() {
-        loadZohoWidget();
-        window.removeEventListener("scroll", initZohoOnScroll);
-        window.removeEventListener("touchstart", initZohoOnScroll);
-      }
+      ["click", "scroll", "touchstart", "keydown"].forEach((event) => {
+        window.addEventListener(event, loadHeavyScripts, {
+          once: true,
+          passive: true,
+        });
+      });
 
-      window.addEventListener("scroll", initZohoOnScroll, {passive: true});
-      window.addEventListener("touchstart", initZohoOnScroll, {passive: true});
+      setTimeout(loadHeavyScripts, 4500);
     </script>
   </body>
 </html>
