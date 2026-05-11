@@ -250,7 +250,7 @@ async function submitForm(formId, formData, formToken) {
     const email = String(formData.your_email || formData.email || "").trim();
     const phone = String(formData.your_phone || formData.phone || "").trim();
     const company = String(formData.your_company || formData.company || "").trim();
-    const message = String(formData.message || "").trim();
+    const message = String(formData.your_notes || "").trim();
     const agents = String(formData["custom_Sales/Calling Team Size"] || "").trim();
 
     if (formType === "demo-form") {
