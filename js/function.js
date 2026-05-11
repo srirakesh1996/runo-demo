@@ -236,61 +236,94 @@ async function submitForm(formId, formData, formToken) {
     // ---------------------------------------------------------
     // 2) HUBSPOT
     // ---------------------------------------------------------
+
+    const formType = formId; // demo-form / contact-form / partnersForm
+
+    let hubspotFormGuid = "";
+    let hubspotPayload = {};
+
     const fullName = String(formData.your_name || "").trim();
     const nameParts = fullName.split(/\s+/);
-
     const firstname = nameParts[0] || "";
     const lastname = nameParts.slice(1).join(" ") || "";
 
     const email = String(formData.your_email || formData.email || "").trim();
-
+    const phone = String(formData.your_phone || formData.phone || "").trim();
     const company = String(formData.your_company || formData.company || "").trim();
-
+    const message = String(formData.message || "").trim();
     const agents = String(formData["custom_Sales/Calling Team Size"] || "").trim();
 
-    const hubspotPayload = {
-      fields: [
-        {
-          name: "firstname",
-          value: firstname
-        },
-        {
-          name: "lastname",
-          value: lastname
-        },
-        {
-          name: "email",
-          value: email
-        },
-        {
-          name: "phone",
-          value: fixedPhone
-        },
-        {
-          name: "company",
-          value: company
-        },
-        {
-          name: "no_of_calling_agents",
-          value: agents
-        }
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title
-      },
-      legalConsentOptions: {
-        consent: {
-          consentToProcess: whatsappOptIn,
-          text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
-        }
-      }
-    };
+    const whatsappOptIn = $("#policyCheck").length ? $("#policyCheck").is(":checked") : false;
 
+    if (formType === "demo-form") {
+      hubspotFormGuid = "bf1da384-b3a2-4ed5-895d-d234d34eb62b";
+
+      hubspotPayload = {
+        fields: [
+          {name: "firstname", value: firstname},
+          {name: "lastname", value: lastname},
+          {name: "email", value: email},
+          {name: "phone", value: fixedPhone},
+          {name: "company", value: company},
+          {name: "number_of_calling_agents", value: agents}
+        ],
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        },
+        legalConsentOptions: {
+          consent: {
+            consentToProcess: whatsappOptIn,
+            text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
+          }
+        }
+      };
+    } else if (formType === "contact-form") {
+      hubspotFormGuid = "fa1e2876-5302-4247-8420-da84184f098d";
+
+      hubspotPayload = {
+        fields: [
+          {name: "firstname", value: firstname},
+          {name: "lastname", value: lastname},
+          {name: "email", value: email},
+          {name: "phone", value: fixedPhone},
+          {name: "message", value: message}
+        ],
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        },
+        legalConsentOptions: {
+          consent: {
+            consentToProcess: whatsappOptIn,
+            text: "I agree to the Privacy Policy and consent to receive communication via WhatsApp."
+          }
+        }
+      };
+    } else if (formType === "partnersForm") {
+      hubspotFormGuid = "fc02dd50-64a6-4f1e-a3b7-46572a3630bc";
+
+      hubspotPayload = {
+        fields: [
+          {name: "firstname", value: firstname},
+          {name: "lastname", value: lastname},
+          {name: "email", value: email},
+          {name: "phone", value: fixedPhone},
+          {name: "message", value: message}
+        ],
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        }
+      };
+    }
+
+    console.log("HubSpot Form ID:", formType);
+    console.log("HubSpot Form GUID:", hubspotFormGuid);
     console.log("HubSpot Payload:", hubspotPayload);
 
     try {
-      const hubspotResponse = await fetch("https://api.hsforms.com/submissions/v3/integration/submit/245018807/bf1da384-b3a2-4ed5-895d-d234d34eb62b", {
+      const hubspotResponse = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/245018807/${hubspotFormGuid}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -299,7 +332,6 @@ async function submitForm(formId, formData, formToken) {
       });
 
       const hubspotResult = await hubspotResponse.json();
-
       console.log("HubSpot Response:", hubspotResult);
 
       if (!hubspotResponse.ok) {
