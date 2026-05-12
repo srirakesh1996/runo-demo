@@ -224,7 +224,7 @@ function submitForm(formId, formData, formToken) {
         {name: "lastname", value: lastname},
         {name: "email", value: email},
         {name: "phone", value: fixedPhone},
-        {name: "company", value: company},
+        {name: "Company", value: company},
         {name: "number_of_calling_agents", value: agents}
       ],
       submittedAt: Date.now(),
