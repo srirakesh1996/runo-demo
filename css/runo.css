@@ -3310,3 +3310,9 @@ footer .fw-bold {
 .main-menu ul li.submenu:first-child ul {
   display: inline-block !important;
 }
+
+.has-fixed-layout {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
