@@ -3316,3 +3316,7 @@ footer .fw-bold {
   -webkit-overflow-scrolling: touch;
   width: 100%;
 }
+
+.wp-block-table {
+  overflow-x: auto;
+}
