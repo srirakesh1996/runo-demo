@@ -688,7 +688,9 @@ header.main-header .header-sticky.active {
   z-index: 99;
   white-space: nowrap;
 }
-
+.main-menu ul li.submenu:first-child ul {
+  width: 230px;
+}
 .main-menu ul ul ul {
   left: 100%;
   top: 0;
@@ -5005,4 +5007,7 @@ header.main-header .header-sticky.active {
 }
 .swiper-custom-next svg {
   stroke: #000;
+}
+.main-menu ul li.submenu:first-child ul {
+  display: inline-block !important;
 }

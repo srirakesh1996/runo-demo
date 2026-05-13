@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -91,25 +91,26 @@
 
       window.onload = redirectToStore;
     </script>
-    <!-- End Google Tag Manager -->
-    <script>
-      (function () {
-        try {
-          if (sessionStorage.getItem("lang_pending")) {
-            document.documentElement.classList.add("lang-pending");
-          }
-        } catch (e) {}
-      })();
-    </script>
-
-    <style>
-      html.lang-pending .runo-preloader {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+  
+<script>
+  (function () {
+    try {
+      if (sessionStorage.getItem("lang_pending")) {
+        document.documentElement.classList.add("lang-pending");
       }
-    </style>
-  </head>
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  html.lang-pending .runo-preloader {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
+
+</head>
 
   <body>
     <div class="container">
@@ -129,7 +130,9 @@
 
       <p class="note">If you are not redirected automatically, please select your device above.</p>
     </div>
-    <!-- LANGUAGE SWITCHER -->
+    <!-- Removed HubSpot Embed Code -->
+  
+  <!-- LANGUAGE SWITCHER -->
     <div class="rt-lang-wrapper notranslate" id="langWrapper" translate="no">
       <button type="button" class="rt-lang-btn notranslate" id="rt-lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="rt-lang-menu" translate="no">
         <span class="rt-lang-icon" aria-hidden="true">
@@ -583,5 +586,6 @@
     </script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  </body>
+
+</body>
 </html>
