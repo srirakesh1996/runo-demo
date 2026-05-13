@@ -1605,7 +1605,14 @@
     <!-- LANGUAGE SWITCHER -->
     <div class="rt-lang-wrapper notranslate" id="langWrapper" translate="no">
       <button type="button" class="rt-lang-btn notranslate" id="rt-lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="rt-lang-menu" translate="no">
-        <span class="rt-lang-icon" aria-hidden="true">🌐</span>
+        <span class="rt-lang-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2Z" stroke="#ff5430" stroke-width="2" />
+            <path d="M2 12H22" stroke="#ff5430" stroke-width="2" stroke-linecap="round" />
+            <path d="M12 2C14.5 4.7 16 8.2 16 12C16 15.8 14.5 19.3 12 22" stroke="#ff5430" stroke-width="2" stroke-linecap="round" />
+            <path d="M12 2C9.5 4.7 8 8.2 8 12C8 15.8 9.5 19.3 12 22" stroke="#ff5430" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
       </button>
 
       <div class="rt-lang-menu notranslate" id="rt-lang-menu" role="listbox" aria-label="Select language" translate="no">
@@ -1622,10 +1629,7 @@
     </div>
 
     <div id="google_translate_element" class="notranslate" translate="no"></div>
-
-    <!-- WHITE OVERLAY -->
     <div id="langOverlay" aria-hidden="true"></div>
-
     <style>
       #langOverlay {
         position: fixed;
@@ -1636,10 +1640,13 @@
         visibility: hidden;
         pointer-events: none;
         transition:
-          opacity 0.25s ease,
-          visibility 0.25s ease;
+          opacity 0.5s ease,
+          visibility 0.5s ease;
       }
-
+      html.lang-translating,
+      html.lang-translating body {
+        overflow: hidden !important;
+      }
       #langOverlay.active,
       html.lang-translating #langOverlay {
         opacity: 1;
@@ -1762,7 +1769,7 @@
       }
 
       .rt-lang-item.active {
-        background: #2563eb;
+        background: #ff5430;
         color: #fff;
       }
 
@@ -1829,7 +1836,6 @@
         max-width: 100%;
       }
     </style>
-
     <script>
       (function () {
         "use strict";
@@ -1854,6 +1860,8 @@
           pl: "Polish"
         };
 
+        let languageReloadLocked = false;
+
         function getSavedLang() {
           try {
             return localStorage.getItem(STORAGE_KEY) || BASE_LANG;
@@ -1873,37 +1881,30 @@
         }
 
         function showOverlay() {
+          if (overlay) overlay.classList.add("active");
           document.documentElement.classList.add("lang-translating");
-          overlay.classList.add("active");
         }
 
         function hideOverlay() {
-          overlay.classList.remove("active");
+          if (overlay) overlay.classList.remove("active");
           document.documentElement.classList.remove("lang-translating");
         }
 
         function hideGoogleUI() {
           document.body.style.top = "0px";
           document.documentElement.style.top = "0px";
-
           document.body.style.marginTop = "0px";
           document.documentElement.style.marginTop = "0px";
-
           document.body.style.paddingTop = "0px";
           document.documentElement.style.paddingTop = "0px";
-
           document.body.style.position = "static";
           document.documentElement.style.position = "static";
 
           const banner = document.querySelector(".goog-te-banner-frame");
-          if (banner) {
-            banner.style.display = "none";
-          }
+          if (banner) banner.style.display = "none";
 
           const skip = document.querySelector(".skiptranslate");
-          if (skip) {
-            skip.style.display = "none";
-          }
+          if (skip) skip.style.display = "none";
         }
 
         function updateUI(lang) {
@@ -1912,7 +1913,17 @@
           });
         }
 
-        function waitForCombo(callback, maxTries = 80, delay = 100) {
+        function closeMenu() {
+          wrapper.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        }
+
+        function openMenu() {
+          wrapper.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+
+        function waitForCombo(callback, maxTries = 100, delay = 100) {
           let tries = 0;
 
           const timer = setInterval(() => {
@@ -1931,12 +1942,13 @@
           }, delay);
         }
 
-        function applyTranslation(lang) {
+        function applyTranslation(lang, done) {
           setGoogleCookie(lang);
 
           waitForCombo((combo) => {
             if (!combo) {
               hideOverlay();
+              if (typeof done === "function") done(false);
               return;
             }
 
@@ -1944,40 +1956,39 @@
               if (combo.value !== lang) {
                 combo.value = lang;
                 combo.dispatchEvent(new Event("change", {bubbles: true}));
+                combo.dispatchEvent(new Event("input", {bubbles: true}));
               }
 
               setTimeout(() => {
+                hideGoogleUI();
                 hideOverlay();
-              }, 900);
+                if (typeof done === "function") done(true);
+              }, 1000);
             } catch (err) {
               hideOverlay();
+              if (typeof done === "function") done(false);
             }
           });
-        }
-
-        function closeMenu() {
-          wrapper.classList.remove("open");
-          btn.setAttribute("aria-expanded", "false");
-        }
-
-        function openMenu() {
-          wrapper.classList.add("open");
-          btn.setAttribute("aria-expanded", "true");
         }
 
         function setLanguage(lang) {
           const finalLang = langNames[lang] ? lang : BASE_LANG;
 
-          showOverlay();
-          updateUI(finalLang);
+          if (languageReloadLocked) return;
+          languageReloadLocked = true;
 
           try {
             localStorage.setItem(STORAGE_KEY, finalLang);
           } catch (e) {}
 
-          requestAnimationFrame(() => {
-            applyTranslation(finalLang);
-          });
+          setGoogleCookie(finalLang);
+          updateUI(finalLang);
+          closeMenu();
+          showOverlay();
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
         }
 
         btn.addEventListener("click", (e) => {
@@ -1987,22 +1998,16 @@
 
         items.forEach((item) => {
           item.addEventListener("click", () => {
-            const lang = item.dataset.lang;
-            closeMenu();
-            setLanguage(lang);
+            setLanguage(item.dataset.lang);
           });
         });
 
         document.addEventListener("click", (e) => {
-          if (!wrapper.contains(e.target)) {
-            closeMenu();
-          }
+          if (!wrapper.contains(e.target)) closeMenu();
         });
 
         document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            closeMenu();
-          }
+          if (e.key === "Escape") closeMenu();
         });
 
         window.addEventListener("load", () => {
@@ -2018,6 +2023,13 @@
           } else {
             hideOverlay();
           }
+
+          setTimeout(hideGoogleUI, 300);
+          setTimeout(hideGoogleUI, 1200);
+        });
+
+        window.addEventListener("pageshow", () => {
+          languageReloadLocked = false;
         });
 
         const observer = new MutationObserver(() => {
@@ -2029,6 +2041,10 @@
         });
 
         window.__rtHideGoogleUI = hideGoogleUI;
+
+        setInterval(() => {
+          hideGoogleUI();
+        }, 600);
       })();
 
       function googleTranslateElementInit() {
@@ -2041,7 +2057,6 @@
           "google_translate_element"
         );
       }
-      setInterval(hideGoogleUI, 500);
     </script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
