@@ -1038,6 +1038,24 @@
         bottom: 60px;
       }
     </style>
+    <!-- End Google Tag Manager -->
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem("lang_pending")) {
+            document.documentElement.classList.add("lang-pending");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      html.lang-pending .runo-preloader {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -3265,7 +3283,6 @@
 
         const wrapper = document.getElementById("langWrapper");
         const btn = document.getElementById("rt-lang-btn");
-        const overlay = document.getElementById("langOverlay");
         const items = Array.from(document.querySelectorAll(".rt-lang-item"));
 
         const langNames = {
@@ -3280,7 +3297,7 @@
           pl: "Polish"
         };
 
-        let languageReloadLocked = false;
+        let languageSwitchRequestId = 0;
 
         function getSavedLang() {
           try {
@@ -3298,16 +3315,6 @@
           if (host && host !== "localhost" && host.includes(".")) {
             document.cookie = `${cookie}; domain=.${host}`;
           }
-        }
-
-        function showOverlay() {
-          if (overlay) overlay.classList.add("active");
-          document.documentElement.classList.add("lang-translating");
-        }
-
-        function hideOverlay() {
-          if (overlay) overlay.classList.remove("active");
-          document.documentElement.classList.remove("lang-translating");
         }
 
         function hideGoogleUI() {
@@ -3362,40 +3369,24 @@
           }, delay);
         }
 
-        function applyTranslation(lang, done) {
-          setGoogleCookie(lang);
+        function showPreloaderUntilReady() {
+          try {
+            sessionStorage.setItem("lang_pending", "1");
+          } catch (e) {}
 
-          waitForCombo((combo) => {
-            if (!combo) {
-              hideOverlay();
-              if (typeof done === "function") done(false);
-              return;
-            }
+          document.documentElement.classList.add("lang-pending");
+        }
 
-            try {
-              if (combo.value !== lang) {
-                combo.value = lang;
-                combo.dispatchEvent(new Event("change", {bubbles: true}));
-                combo.dispatchEvent(new Event("input", {bubbles: true}));
-              }
-
-              setTimeout(() => {
-                hideGoogleUI();
-                hideOverlay();
-                if (typeof done === "function") done(true);
-              }, 1000);
-            } catch (err) {
-              hideOverlay();
-              if (typeof done === "function") done(false);
-            }
-          });
+        function hidePreloaderWhenDone() {
+          document.documentElement.classList.remove("lang-pending");
+          try {
+            sessionStorage.removeItem("lang_pending");
+          } catch (e) {}
         }
 
         function setLanguage(lang) {
           const finalLang = langNames[lang] ? lang : BASE_LANG;
-
-          if (languageReloadLocked) return;
-          languageReloadLocked = true;
+          const requestId = ++languageSwitchRequestId;
 
           try {
             localStorage.setItem(STORAGE_KEY, finalLang);
@@ -3404,11 +3395,10 @@
           setGoogleCookie(finalLang);
           updateUI(finalLang);
           closeMenu();
-          showOverlay();
+          showPreloaderUntilReady();
 
-          setTimeout(() => {
-            window.location.reload();
-          }, 500);
+          // Reload once; the pending flag keeps the preloader visible
+          window.location.reload();
         }
 
         btn.addEventListener("click", (e) => {
@@ -3437,19 +3427,43 @@
           updateUI(savedLang);
           setGoogleCookie(savedLang);
 
-          if (savedLang !== BASE_LANG) {
-            showOverlay();
-            applyTranslation(savedLang);
+          const pending = (() => {
+            try {
+              return sessionStorage.getItem("lang_pending") === "1";
+            } catch (e) {
+              return false;
+            }
+          })();
+
+          if (pending) {
+            document.documentElement.classList.add("lang-pending");
+
+            waitForCombo((combo) => {
+              if (!combo) {
+                hidePreloaderWhenDone();
+                return;
+              }
+
+              try {
+                if (savedLang !== BASE_LANG) {
+                  combo.value = savedLang;
+                  combo.dispatchEvent(new Event("change", {bubbles: true}));
+                  combo.dispatchEvent(new Event("input", {bubbles: true}));
+                }
+
+                setTimeout(() => {
+                  hideGoogleUI();
+                  hidePreloaderWhenDone();
+                }, 1200);
+              } catch (err) {
+                hidePreloaderWhenDone();
+              }
+            });
           } else {
-            hideOverlay();
+            // If nothing is pending, let your existing preloader hide normally.
+            setTimeout(hideGoogleUI, 300);
+            setTimeout(hideGoogleUI, 1200);
           }
-
-          setTimeout(hideGoogleUI, 300);
-          setTimeout(hideGoogleUI, 1200);
-        });
-
-        window.addEventListener("pageshow", () => {
-          languageReloadLocked = false;
         });
 
         const observer = new MutationObserver(() => {

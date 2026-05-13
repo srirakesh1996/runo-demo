@@ -315,6 +315,23 @@
         }
       }
     </style>
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem("lang_pending")) {
+            document.documentElement.classList.add("lang-pending");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      html.lang-pending .runo-preloader {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
