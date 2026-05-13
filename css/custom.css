@@ -5010,4 +5010,5 @@ header.main-header .header-sticky.active {
 }
 .main-menu ul li.submenu:first-child ul {
   display: inline-block !important;
+  width: auto !important;
 }
