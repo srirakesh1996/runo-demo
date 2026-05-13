@@ -2104,37 +2104,39 @@
         }
       }
 
-      /* Hide Google UI */
+      /* Hide translate bar completely */
+      .skiptranslate,
       .goog-te-banner-frame,
       iframe.goog-te-banner-frame,
-      .skiptranslate iframe,
-      body > .skiptranslate,
-      .goog-te-balloon-frame,
-      .goog-tooltip,
-      #goog-gt-tt,
-      .goog-text-highlight,
-      .goog-te-menu-frame,
-      .goog-te-gadget,
-      .goog-logo-link,
-      .VIpgJd-ZVi9od-ORHb-OEVmcd,
-      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-      .VIpgJd-ZVi9od-aZ2wEe {
+      .goog-te-balloon-frame {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
-        pointer-events: none !important;
         height: 0 !important;
         width: 0 !important;
-        max-height: 0 !important;
-        max-width: 0 !important;
-        overflow: hidden !important;
+        border: 0 !important;
       }
 
-      #google_translate_element {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        visibility: hidden;
+      /* Prevent translate wrapper from affecting layout */
+      body > .skiptranslate {
+        display: none !important;
+      }
+
+      /* Extra fix for newer Google classes */
+      .VIpgJd-ZVi9od-ORHb-OEVmcd,
+      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+      .VIpgJd-ZVi9od-aZ2wEe,
+      .VIpgJd-yAWNEb-L7lbkb {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+      }
+
+      /* Prevent page jump */
+      iframe {
+        max-width: 100%;
       }
     </style>
 
@@ -2193,8 +2195,25 @@
         function hideGoogleUI() {
           document.body.style.top = "0px";
           document.documentElement.style.top = "0px";
+
           document.body.style.marginTop = "0px";
           document.documentElement.style.marginTop = "0px";
+
+          document.body.style.paddingTop = "0px";
+          document.documentElement.style.paddingTop = "0px";
+
+          document.body.style.position = "static";
+          document.documentElement.style.position = "static";
+
+          const banner = document.querySelector(".goog-te-banner-frame");
+          if (banner) {
+            banner.style.display = "none";
+          }
+
+          const skip = document.querySelector(".skiptranslate");
+          if (skip) {
+            skip.style.display = "none";
+          }
         }
 
         function updateUI(lang) {
@@ -2332,6 +2351,7 @@
           "google_translate_element"
         );
       }
+      setInterval(hideGoogleUI, 500);
     </script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

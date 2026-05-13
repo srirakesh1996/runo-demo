@@ -1618,8 +1618,6 @@
     <div class="rt-lang-wrapper notranslate" id="langWrapper" translate="no">
       <button type="button" class="rt-lang-btn notranslate" id="rt-lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="rt-lang-menu" translate="no">
         <span class="rt-lang-icon" aria-hidden="true">🌐</span>
-        <span class="rt-lang-label notranslate" id="rt-lang-label" translate="no">English</span>
-        <span class="rt-lang-chevron" aria-hidden="true">▾</span>
       </button>
 
       <div class="rt-lang-menu notranslate" id="rt-lang-menu" role="listbox" aria-label="Select language" translate="no">
@@ -1637,18 +1635,30 @@
 
     <div id="google_translate_element" class="notranslate" translate="no"></div>
 
-    <!-- PRELOADER Start -->
-    <div class="runo-preloader" id="runoPreloader" style="display: none">
-      <div class="runo-preloader-inner">
-        <div class="runo-spinner"></div>
-        <div class="runo-logo">
-          <img src="img/logo.png" alt="Runo Loading" />
-        </div>
-      </div>
-    </div>
-    <!-- PRELOADER End -->
+    <!-- WHITE OVERLAY -->
+    <div id="langOverlay" aria-hidden="true"></div>
 
     <style>
+      #langOverlay {
+        position: fixed;
+        inset: 0;
+        background: #fff;
+        z-index: 9999999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease;
+      }
+
+      #langOverlay.active,
+      html.lang-translating #langOverlay {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
       .rt-lang-wrapper {
         position: fixed;
         top: 14px;
@@ -1660,10 +1670,11 @@
       .rt-lang-btn {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
+        justify-content: center;
+        width: 44px;
         height: 44px;
-        padding: 0 14px;
-        min-width: 130px;
+        padding: 0;
+        min-width: 44px;
         border: 1px solid rgba(148, 163, 184, 0.35);
         border-radius: 9999px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 246, 250, 0.96));
@@ -1677,7 +1688,6 @@
           transform 0.18s ease,
           box-shadow 0.18s ease,
           border-color 0.18s ease;
-        white-space: nowrap;
         -webkit-tap-highlight-color: transparent;
       }
 
@@ -1708,30 +1718,12 @@
         flex: 0 0 auto;
       }
 
-      .rt-lang-label {
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.1px;
-        flex: 1 1 auto;
-        text-align: left;
-      }
-
-      .rt-lang-chevron {
-        font-size: 11px;
-        color: #475569;
-        transition: transform 0.2s ease;
-      }
-
-      .rt-lang-wrapper.open .rt-lang-chevron {
-        transform: rotate(180deg);
-      }
-
       .rt-lang-menu {
         position: absolute;
         top: calc(100% + 8px);
         right: 0;
         width: 100%;
-        min-width: 130px;
+        min-width: 190px;
         margin-top: 12px;
         background: rgba(255, 255, 255, 0.98);
         border: 1px solid rgba(148, 163, 184, 0.28);
@@ -1797,13 +1789,9 @@
         }
 
         .rt-lang-btn {
-          min-width: 70px;
-          width: 70px;
-          padding: 0 10px;
-        }
-
-        .rt-lang-label {
-          display: none;
+          width: 42px;
+          height: 42px;
+          min-width: 42px;
         }
 
         .rt-lang-menu {
@@ -1818,43 +1806,39 @@
         }
       }
 
-      /* Hide Google UI */
+      /* Hide translate bar completely */
+      .skiptranslate,
       .goog-te-banner-frame,
       iframe.goog-te-banner-frame,
-      .skiptranslate iframe,
-      body > .skiptranslate,
-      .goog-te-balloon-frame,
-      .goog-tooltip,
-      #goog-gt-tt,
-      .goog-text-highlight,
-      .goog-te-menu-frame,
-      .goog-te-gadget,
-      .goog-logo-link,
-      .VIpgJd-ZVi9od-ORHb-OEVmcd,
-      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-      .VIpgJd-ZVi9od-aZ2wEe {
+      .goog-te-balloon-frame {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
-        pointer-events: none !important;
         height: 0 !important;
         width: 0 !important;
-        max-height: 0 !important;
-        max-width: 0 !important;
-        overflow: hidden !important;
+        border: 0 !important;
       }
 
-      #google_translate_element {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        visibility: hidden;
+      /* Prevent translate wrapper from affecting layout */
+      body > .skiptranslate {
+        display: none !important;
       }
 
-      @keyframes runoSpin {
-        to {
-          transform: rotate(360deg);
-        }
+      /* Extra fix for newer Google classes */
+      .VIpgJd-ZVi9od-ORHb-OEVmcd,
+      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+      .VIpgJd-ZVi9od-aZ2wEe,
+      .VIpgJd-yAWNEb-L7lbkb {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+      }
+
+      /* Prevent page jump */
+      iframe {
+        max-width: 100%;
       }
     </style>
 
@@ -1867,9 +1851,7 @@
 
         const wrapper = document.getElementById("langWrapper");
         const btn = document.getElementById("rt-lang-btn");
-        const label = document.getElementById("rt-lang-label");
-        const preloader = document.getElementById("runoPreloader");
-
+        const overlay = document.getElementById("langOverlay");
         const items = Array.from(document.querySelectorAll(".rt-lang-item"));
 
         const langNames = {
@@ -1884,41 +1866,65 @@
           pl: "Polish"
         };
 
-        function showPreloader() {
-          if (!preloader) return;
-          preloader.style.display = "flex";
-          requestAnimationFrame(() => {
-            preloader.classList.add("is-active");
-          });
-        }
-
-        function hidePreloader() {
-          if (!preloader) return;
-          preloader.classList.remove("is-active");
-          setTimeout(() => {
-            preloader.style.display = "none";
-          }, 300);
+        function getSavedLang() {
+          try {
+            return localStorage.getItem(STORAGE_KEY) || BASE_LANG;
+          } catch (e) {
+            return BASE_LANG;
+          }
         }
 
         function setGoogleCookie(lang) {
-          const baseCookie = `googtrans=/${BASE_LANG}/${lang};path=/`;
-          document.cookie = baseCookie;
+          const cookie = `googtrans=/${BASE_LANG}/${lang}; path=/; SameSite=Lax`;
+          document.cookie = cookie;
 
-          const host = window.location.hostname;
+          const host = location.hostname.replace(/^www\./, "");
           if (host && host !== "localhost" && host.includes(".")) {
-            const cleanHost = host.replace(/^www\./, "");
-            document.cookie = `${baseCookie};domain=.${cleanHost}`;
+            document.cookie = `${cookie}; domain=.${host}`;
           }
+        }
+
+        function showOverlay() {
+          document.documentElement.classList.add("lang-translating");
+          overlay.classList.add("active");
+        }
+
+        function hideOverlay() {
+          overlay.classList.remove("active");
+          document.documentElement.classList.remove("lang-translating");
         }
 
         function hideGoogleUI() {
           document.body.style.top = "0px";
           document.documentElement.style.top = "0px";
+
           document.body.style.marginTop = "0px";
           document.documentElement.style.marginTop = "0px";
+
+          document.body.style.paddingTop = "0px";
+          document.documentElement.style.paddingTop = "0px";
+
+          document.body.style.position = "static";
+          document.documentElement.style.position = "static";
+
+          const banner = document.querySelector(".goog-te-banner-frame");
+          if (banner) {
+            banner.style.display = "none";
+          }
+
+          const skip = document.querySelector(".skiptranslate");
+          if (skip) {
+            skip.style.display = "none";
+          }
         }
 
-        function waitForGoogleCombo(callback, maxTries = 40, delay = 100) {
+        function updateUI(lang) {
+          items.forEach((item) => {
+            item.classList.toggle("active", item.dataset.lang === lang);
+          });
+        }
+
+        function waitForCombo(callback, maxTries = 80, delay = 100) {
           let tries = 0;
 
           const timer = setInterval(() => {
@@ -1937,12 +1943,12 @@
           }, delay);
         }
 
-        function applyTranslation(lang, done) {
+        function applyTranslation(lang) {
           setGoogleCookie(lang);
 
-          waitForGoogleCombo((combo) => {
+          waitForCombo((combo) => {
             if (!combo) {
-              if (typeof done === "function") done(false);
+              hideOverlay();
               return;
             }
 
@@ -1952,18 +1958,12 @@
                 combo.dispatchEvent(new Event("change", {bubbles: true}));
               }
 
-              if (typeof done === "function") done(true);
+              setTimeout(() => {
+                hideOverlay();
+              }, 900);
             } catch (err) {
-              if (typeof done === "function") done(false);
+              hideOverlay();
             }
-          });
-        }
-
-        function updateUI(lang) {
-          label.textContent = langNames[lang] || "English";
-
-          items.forEach((item) => {
-            item.classList.toggle("active", item.dataset.lang === lang);
           });
         }
 
@@ -1980,16 +1980,15 @@
         function setLanguage(lang) {
           const finalLang = langNames[lang] ? lang : BASE_LANG;
 
-          showPreloader();
+          showOverlay();
           updateUI(finalLang);
-          localStorage.setItem(STORAGE_KEY, finalLang);
+
+          try {
+            localStorage.setItem(STORAGE_KEY, finalLang);
+          } catch (e) {}
 
           requestAnimationFrame(() => {
-            applyTranslation(finalLang, () => {
-              setTimeout(() => {
-                hidePreloader();
-              }, 400);
-            });
+            applyTranslation(finalLang);
           });
         }
 
@@ -2007,32 +2006,32 @@
         });
 
         document.addEventListener("click", (e) => {
-          if (!wrapper.contains(e.target)) closeMenu();
-        });
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") closeMenu();
-        });
-
-        window.addEventListener("load", () => {
-          const savedLang = localStorage.getItem(STORAGE_KEY) || BASE_LANG;
-
-          updateUI(savedLang);
-          setGoogleCookie(savedLang);
-          hideGoogleUI();
-
-          if (savedLang !== BASE_LANG) {
-            setTimeout(() => {
-              applyTranslation(savedLang, () => {
-                hidePreloader();
-              });
-            }, 400);
-          } else {
-            hidePreloader();
+          if (!wrapper.contains(e.target)) {
+            closeMenu();
           }
         });
 
-        // Small cleanup only, no heavy looping
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeMenu();
+          }
+        });
+
+        window.addEventListener("load", () => {
+          hideGoogleUI();
+
+          const savedLang = getSavedLang();
+          updateUI(savedLang);
+          setGoogleCookie(savedLang);
+
+          if (savedLang !== BASE_LANG) {
+            showOverlay();
+            applyTranslation(savedLang);
+          } else {
+            hideOverlay();
+          }
+        });
+
         const observer = new MutationObserver(() => {
           hideGoogleUI();
         });
@@ -2054,6 +2053,7 @@
           "google_translate_element"
         );
       }
+      setInterval(hideGoogleUI, 500);
     </script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
