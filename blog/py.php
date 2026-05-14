@@ -1,17 +1,37 @@
 <?php
 /**
- * Replace:
- * <div class="toc-card sticky-top" style="top: 110px">
+ * Add inline style:
  *
- * With:
- * <div class="toc-card sticky-top" style="top: 110px">
+ * FROM:
+ * <div class="container-fluid py-2 custom-blog-container">
+ *
+ * TO:
+ * <div class="container-fluid py-2 custom-blog-container">
+ *
+ * Also inserts CSS before </head>
  */
 
 $rootDir = __DIR__;
 
-$search = 'top: 78px; padding: 10px 5px;';
+$search = '<div class="container-fluid py-2 custom-blog-container">';
 
-$replace = 'top: 78px; padding: 10px 5px;';
+$replace = '<div class="container-fluid py-2 custom-blog-container">';
+
+$css = '
+<style>
+  .custom-blog-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 991.98px) {
+    .custom-blog-container {
+      width: 100%;
+    }
+  }
+</style>
+
+</head>';
 
 $allowedExtensions = ['php', 'html', 'htm'];
 
@@ -37,11 +57,22 @@ foreach ($iterator as $file) {
 
     $content = file_get_contents($filePath);
 
-    if (strpos($content, $search) !== false) {
+    $originalContent = $content;
 
-        $updatedContent = str_replace($search, $replace, $content);
+    // Replace container class
+    $content = str_replace($search, $replace, $content);
 
-        file_put_contents($filePath, $updatedContent);
+    // Add CSS before </head>
+    if (
+        strpos($content, '.custom-blog-container') === false &&
+        strpos($content, '</head>') !== false
+    ) {
+        $content = str_replace('</head>', $css, $content);
+    }
+
+    if ($content !== $originalContent) {
+
+        file_put_contents($filePath, $content);
 
         echo "Updated: {$filePath}" . PHP_EOL;
 
