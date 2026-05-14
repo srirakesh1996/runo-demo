@@ -9,9 +9,9 @@
 
 $rootDir = __DIR__;
 
-$search = '<div class="toc-card sticky-top" style="top: 110px">';
+$search = 'top: 78px; padding: 10px 5px;';
 
-$replace = '<div class="toc-card sticky-top" style="top: 110px">';
+$replace = 'top: 78px; padding: 10px 5px;';
 
 $allowedExtensions = ['php', 'html', 'htm'];
 
