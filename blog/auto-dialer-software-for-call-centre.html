@@ -341,6 +341,146 @@
   }
 </style>
 
+
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .blog-page {
+    max-width: 1400px;
+  }
+
+  .blog-article {
+    background: #fff;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  }
+
+  .blog-title {
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .toc-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    padding: 18px;
+    z-index: 2;
+  }
+
+  .toc-head {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eef1f4;
+  }
+
+  .toc-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111827;
+    text-align: center;
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+    padding-right: 6px;
+  }
+
+  .toc-link {
+    display: block;
+    text-decoration: none;
+    color: #1f2937;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 14px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.45;
+    transition: all 0.2s ease;
+    word-break: break-word;
+    margin-right: 5px;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    background: #f44336;
+    color: #fff;
+    border-color: #f44336;
+    transform: translateX(2px);
+  }
+
+  .toc-link.level-3 {
+    padding-left: 18px;
+    font-size: 13px;
+    background: #fbfcfe;
+  }
+
+  .blog-content h2 {
+    scroll-margin-top: 110px;
+    margin-top: 34px;
+    margin-bottom: 14px;
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .toc-mobile-wrap {
+    position: sticky;
+    z-index: 1035;
+    background: #fff;
+    padding-bottom: 12px;
+    top: 85px; padding: 10px 5px;
+  }
+
+  .toc-mobile-btn {
+    width: 100%;
+    border: 1px solid #dfe4ea;
+    background: #fff;
+    color: #111827;
+    border-radius: 16px;
+    padding: 13px 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  }
+
+  .toc-mobile-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .toc-mobile-wrap.open .toc-mobile-icon {
+    transform: rotate(180deg);
+  }
+
+  .toc-mobile-panel {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .toc-mobile-wrap.open .toc-mobile-panel {
+    display: block !important;
+  }
+
+  .mobile-toc-card {
+    border-radius: 18px;
+    max-height: 60vh;
+    overflow: auto;
+  }
+</style>
+
+<script src="../js/toc.js"></script>
+
 </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1171,8 +1311,31 @@
       </div>
     </header>
     <!-- Header End -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-2">
       <div class="row">
+
+        <!-- DESKTOP TOC -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <div class="toc-card sticky-top" style="top: 110px">
+            <div class="toc-head">
+              <div class="toc-title">Table of Contents</div>
+            </div>
+            <nav id="tocDesktop" class="toc-nav" aria-label="Table of contents"></nav>
+          </div>
+        </aside>
+
+        <div class="d-lg-none toc-mobile-wrap">
+          <button type="button" class="toc-mobile-btn" id="tocMobileBtn">
+            <span>Table of Contents</span>
+            <span class="toc-mobile-icon">▾</span>
+          </button>
+
+          <div class="toc-mobile-panel" id="tocMobilePanel">
+            <div class="toc-card mobile-toc-card">
+              <nav id="tocMobile" class="toc-nav" aria-label="Table of contents mobile"></nav>
+            </div>
+          </div>
+        </div>
         <!-- TOC Column - Hidden on small devices -->
         <!--  <div class="col-md-4 d-none d-md-block" style="margin-top: 30px">
                <div class="sticky-top" style="top: 100px">
@@ -1191,7 +1354,7 @@
                </div>
                -->
         <!-- Blog Content Column -->
-        <div class="col-md-10 text-center mb-3" style="display: block; margin: 0 auto">
+        <div class="col-md-9 text-center mb-3" style="display: block; margin: 0 auto">
           <h1 class="blog-title mb-4">Auto Dialer Software for Call Centre: Features & Benefits</h1>
           <div class="blog-date-big text-center small">Published Date : December 11, 2025</div>
           <img src="blogs/26/auto-dialer.png" alt="Auto Dialer Software for Call Centre: Features & Benefits" class="img-fluid mb-4 blog-feat" />
