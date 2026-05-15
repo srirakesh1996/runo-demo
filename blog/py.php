@@ -1,37 +1,41 @@
 <?php
 /**
- * Add inline style:
- *
- * FROM:
- * <div class="container-fluid py-2 custom-blog-container">
- *
- * TO:
- * <div class="container-fluid py-2 custom-blog-container">
- *
- * Also inserts CSS before </head>
+ * Add media query after existing custom-blog-container style block
  */
 
 $rootDir = __DIR__;
 
-$search = '<div class="container-fluid py-2 custom-blog-container">';
+$search = '.toc-link {
+    display: block;
+    text-decoration: none;
+    color: #111111;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.45;
+    transition: all 0.2s ease;
+    word-break: break-word;
+    margin: 3px 5px;
+}
+a ';
 
-$replace = '<div class="container-fluid py-2 custom-blog-container">';
-
-$css = '
-<style>
-  .custom-blog-container {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 991.98px) {
-    .custom-blog-container {
-      width: 100%;
-    }
-  }
-</style>
-
-</head>';
+$replace = '.toc-link {
+    display: block;
+    text-decoration: none;
+    color: #111111;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.45;
+    transition: all 0.2s ease;
+    word-break: break-word;
+    margin: 3px 5px;
+}
+a ';
 
 $allowedExtensions = ['php', 'html', 'htm'];
 
@@ -57,22 +61,11 @@ foreach ($iterator as $file) {
 
     $content = file_get_contents($filePath);
 
-    $originalContent = $content;
+    if (strpos($content, $search) !== false) {
 
-    // Replace container class
-    $content = str_replace($search, $replace, $content);
+        $updatedContent = str_replace($search, $replace, $content);
 
-    // Add CSS before </head>
-    if (
-        strpos($content, '.custom-blog-container') === false &&
-        strpos($content, '</head>') !== false
-    ) {
-        $content = str_replace('</head>', $css, $content);
-    }
-
-    if ($content !== $originalContent) {
-
-        file_put_contents($filePath, $content);
+        file_put_contents($filePath, $updatedContent);
 
         echo "Updated: {$filePath}" . PHP_EOL;
 

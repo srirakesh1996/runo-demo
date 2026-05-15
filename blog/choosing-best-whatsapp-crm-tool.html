@@ -392,25 +392,25 @@
   .toc-link {
     display: block;
     text-decoration: none;
-    color: #1f2937;
+    color: #111111;
     background: #f8fafc;
     border: 1px solid #edf2f7;
-    border-radius: 14px;
+    border-radius: 8px;
     padding: 10px 12px;
     font-size: 14px;
     line-height: 1.45;
     transition: all 0.2s ease;
     word-break: break-word;
-    margin-right: 5px;
-  }
+    margin: 3px 5px;
+}
+a 
 
   .toc-link:hover,
-  .toc-link.active {
-    background: #f44336;
-    color: #fff;
-    border-color: #f44336;
+.toc-link.active {
+    background: #ff573038;
+    color: #111;
     transform: translateX(2px);
-  }
+}
 
   .toc-link.level-3 {
     padding-left: 18px;
@@ -482,6 +482,12 @@
   }
 
   @media (max-width: 991.98px) {
+    .custom-blog-container {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1500px) {
     .custom-blog-container {
       width: 100%;
     }
